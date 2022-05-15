@@ -1,0 +1,275 @@
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.fullscreen-0.3.2.min.js"></script>
+
+<html>
+<head>
+	<title>Online Doggy Webcams</title>
+
+<script>
+$(function() {
+	// check native support
+	//$('#support').text($.fullscreen.isNativelySupported() ? 'supports' : 'doesn\'t support');
+	// open in fullscreen
+	$('#fullscreen .requestfullscreen').click(function() {
+		$('#fullscreen').fullscreen();
+		$("#motionjpeg").css({"height":"100%", "width":"100%"});
+		return false;
+	});
+	// exit fullscreen
+	$('#fullscreen .exitfullscreen').click(function() {
+		$.fullscreen.exit();
+		$("#motionjpeg").removeAttr("style")
+		return false;
+	});
+	// document's event
+	$(document).bind('fscreenchange', function(e, state, elem) {
+		// if we currently in fullscreen mode
+		if ($.fullscreen.isFullScreen()) {
+			$('#fullscreen .requestfullscreen').hide();
+			$('#fullscreen .exitfullscreen').show();
+
+		} else {
+			$('#fullscreen .requestfullscreen').show();
+			$('#fullscreen .exitfullscreen').hide();
+			$("#motionjpeg").removeAttr("style")
+		}
+		$('#state').text($.fullscreen.isFullScreen() ? '' : 'not');
+	});
+});
+</script>
+<script type="text/javascript" src="scripts/decode.js"></script>
+
+<script language="javascript">
+function cameraSelect(camNo)
+{
+
+if (camNo=="0") {
+	return true;
+	}
+	
+		var url="camviewer2.asp"
+		url=url+"?camno="+camNo;
+		url=url+"&clientid=3356";
+		url=url+"&source=";
+		url=url+"&sid="+Math.random()
+		ItemXMLHttp=GetItemXmlHttpObject()
+		ItemXMLHttp.onreadystatechange=productstateChanged1
+		ItemXMLHttp.open("GET",url,true)
+		ItemXMLHttp.send(null)
+}
+
+function productstateChanged1() 
+{ 
+if (ItemXMLHttp.readyState==4 || ItemXMLHttp.readyState=="complete")
+{ 
+			
+			document.getElementById("camviewer").innerHTML=ItemXMLHttp.responseText
+    		motionjpeg("#motionjpeg"); 
+
+} 
+} 
+</script>	
+
+<script language="javascript">
+
+function GetItemXmlHttpObject()
+{ 
+var objXMLHttp=null
+if (window.XMLHttpRequest)
+{
+objXMLHttp=new XMLHttpRequest()
+}
+else if (window.ActiveXObject)
+{
+objXMLHttp=new ActiveXObject("Microsoft.XMLHTTP")
+}
+return objXMLHttp
+}
+
+</script>
+
+
+  <script language="JavaScript">
+    <!--
+    var    chasm	=   screen.availWidth;
+    var    mount    =   screen.availHeight;
+    var    IpAddress =   0;
+
+
+    var    sizeFlag1 = 1;
+    var    sizeFlag2 = 1;
+    var timerID;
+ 
+function fLoads()
+{
+	CheckOnorOff("True");
+	
+}
+
+function CheckOnorOff(status) {
+	if(status=="True") {
+		document.getElementById('WebCamOff').style.display = "none";
+	 	document.getElementById('WebCamOn').style.display = "block";
+	} 
+	else {
+	 	document.getElementById('WebCamOff').style.display = "block";
+	 	document.getElementById('WebCamOn').style.display = "none";
+	}
+}
+
+function TurnCamOff() {
+	document.getElementById('WebCamOff').style.display = "block";
+	document.getElementById('WebCamOn').style.display = "none";
+}
+
+function start(){
+
+   		fLoads();
+   		//Init("0");
+}
+</script>
+ <script>
+cameraSelect(1);
+</script>
+<script type="text/javascript"> // <![CDATA[
+ if ( (navigator.userAgent.indexOf('Android') != -1) ) {
+  document.location = "https://play.google.com/store/apps/details?id=bravura.mobile.app.onlinedoggy";
+ } // ]]>
+</script>
+<script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPad/i))) {
+   location.replace("https://itunes.apple.com/us/app/odoggy/id427545416?mt=8");
+}
+-->
+</script>
+<link rel="stylesheet" type="text/css" href="css/sitestyle.css?dt=20130118">
+<link rel="stylesheet" type="text/css" href="css/theme.css?dt=20130118">
+		
+<link type="text/css" href="css/jquery-ui-1.8.16.custom.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/cameras.css">
+
+</head>
+
+
+<body bgcolor="#FFFFFF" link="#66OOFF" vlink="#66OOFF" alink="#CC00FF"  onLoad="start();" oncontextmenu="return false" onselectstart="return false" ondragstart="return false" >
+<div class="textmain">
+<div id="WebCamOff" style="display:none;">
+
+<div class="textmain"></div>
+<div style="margin-left: auto; margin-right:auto;">
+  <div align="center"><br>
+  </div>
+</div>	
+<div align="center"> </div>
+					
+						
+<div class="camviewcontainer2">
+  <div id="camlogin">&nbsp;</div>
+  <form class="videocontainer" method="POST" action="" style="padding:0px; margin:0px;">
+  	<div class="camcontrolcontainer">  
+      <div class="camrow1">
+        <div class="loginbtn"></div>
+        <div class="camlogoleft">
+          <table width="633" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="150" height="52"><div align="center"><img src="">&nbsp;</div></td>
+    <td width="305"><select name="camselect" id="camselect" onChange="javascript:this.form.submit();" style="width:300px; font-family:'Trebuchet MS'; font-size:10pt; font-weight:bold; color:#666666; height:30px;">
+	<option value="0">Select Camera</option>
+										<option value='1' selected>Park Indoor</option><option value='2'>Mountains Out</option><option value='3'>Park Outdoor</option><option value='4'>Mountains In</option><option value='5'>City Outdoor</option><option value='6'>City Indoor 1</option><option value='7'>City Indoor 2</option><option value='9'>Grooming</option><option value='10'>Kitty City</option><option value='32'>Tiny Town</option>
+
+    </select></td>
+    <td width="178">
+    <table width="145" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="0"><div align="center"></div></td>
+        <td width="0"><div align="center"></div></td>
+        <td width="0"><div align="center"><a href="http://onlinedoggy.com/support-mjpeg.aspx"><img src="images/help.png" width="32" height="32"></a></div></td>
+      </tr>
+    </table>
+    </td>
+
+    </tr>
+</table>
+          <div id="camviewerxx"><img src="" height= "480" width="640" /></div></div>
+        </div>
+    </div>
+  	<input name="userPass" type="hidden" id="userPass" value="">
+  	<input name="id" type="hidden" id = "id" value="{24A7AB56-FC84-4779-9AD5-E49EFF521CB6}">
+
+  </form>
+  
+	<div class="spacer">&nbsp;</div>
+</div>
+<div class="spacer"></div>
+</div>
+
+<!-- ImageReady Slices (JavaCamperCam.psd) -->
+<div id="WebCamOn" style="display:none;">
+
+<div class="textmain"></div>
+<div style="margin-left: auto; margin-right:auto;">
+  <div align="center"><br>
+  </div>
+</div>	
+<div align="center"> </div>
+					
+						
+<div class="camviewcontainer2">
+  <div id="camlogin">&nbsp;</div>
+  <form class="videocontainer" method="POST" action="" style="padding:0px; margin:0px;">
+  	<div  class="camcontrolcontainer">  
+      <div class="camrow1">
+        <div class="loginbtn"></div>
+        <div  id="fullscreen" class="camlogoleft">
+          <table width="633" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="150" height="52"><div align="center"><img src="">&nbsp;</div></td>
+    <td width="305"><select name="camselect" id="camselect" onChange="javascript:this.form.submit();" style="width:300px; font-family:'Trebuchet MS'; font-size:10pt; font-weight:bold; color:#666666; height:30px;">
+	<option value="0">Select Camera</option>
+										<option value='1' selected>Park Indoor</option><option value='2'>Mountains Out</option><option value='3'>Park Outdoor</option><option value='4'>Mountains In</option><option value='5'>City Outdoor</option><option value='6'>City Indoor 1</option><option value='7'>City Indoor 2</option><option value='9'>Grooming</option><option value='10'>Kitty City</option><option value='32'>Tiny Town</option>
+
+    </select></td>
+    <td width="178"><table width="145" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="0"><div align="center"></div></td>
+        <td width="0"><div align="center"></div></td>
+        <td width="0"><div align="center"><a href="http://onlinedoggy.com/support-mjpeg.aspx"><img src="images/help.png" width="32" height="32"></a></div></td>
+        
+             <td><div align="center"><a href="#" class="requestfullscreen" style="display: inline;">
+             <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 512 512'><title>Expand</title><polyline points='432 320 432 432 320 432' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><line x1='421.8' y1='421.77' x2='304' y2='304' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><polyline points='80 192 80 80 192 80' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><line x1='90.2' y1='90.23' x2='208' y2='208' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><polyline points='320 80 432 80 432 192' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><line x1='421.77' y1='90.2' x2='304' y2='208' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><polyline points='192 432 80 432 80 320' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/><line x1='90.23' y1='421.8' x2='208' y2='304' style='fill:none;stroke:#000;stroke-linecap:square;stroke-miterlimit:10;stroke-width:32px'/></svg>
+             </a></div></td>
+             
+
+      </tr>
+    </table></td>
+    </tr>
+</table>
+
+          <div id="camviewer"><img src="images\camera_placeholder.png" style="height: -webkit-fill-available; width: -webkit-fill-available;" /></div></div>
+
+        </div>
+    </div>
+  	<input name="userPass" type="hidden" id="userPass" value="">
+  	<input name="id" type="hidden" id = "id" value="{24A7AB56-FC84-4779-9AD5-E49EFF521CB6}">
+
+  </form>
+  
+	<div class="spacer">&nbsp;</div>
+</div>
+<div class="spacer"></div>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-5048171-43', 'onlinedoggy.com');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
+
