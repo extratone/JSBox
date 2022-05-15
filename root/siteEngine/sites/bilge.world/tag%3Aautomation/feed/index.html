@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>automation &amp;mdash; The Psalms</title>
+    <link>https://bilge.world/tag:automation</link>
+    <description>A &lt;a href=&#34;https://davidblue.wtf/db.vcf&#34;&gt;narcoleptic yokel&lt;/a&gt; on software and culture.</description>
+    <pubDate>Sun, 15 May 2022 07:27:24 +0000</pubDate>
+    <item>
+      <title>How I Maintain a Vocabulary List in Drafts with Terminology</title>
+      <link>https://bilge.world/drafts-terminology-vocabulary?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[Terminology URL Scheme and Vocabulary Workspace&#xA;&#xA;As I wrote in my app store review of Terminology (which is not shown publicly, I’ve since learned,) I prefer it over popular dictionary apps like LookUp (which I also have and use regularly) because it allows me to add new terms that don’t show up in search results. Somehow, the idea that one might store words that don’t necessarily appear in any dictionary seems a foreign one to the creators of LookUp, which I’ve since found out to be the cause of its Siri Shortcuts actions failing on me.&#xA;&#xA;https://twitter.com/NeoYokel/status/1477323450549219328&#xA;&#xA;Terminology does support adding “custom” terms, if unintentionally, through its “notes” function. Because it’s related to Drafts (they’re from the same creator,) it was quite easy to “integrate” the two in order to form the workflow you see demonstrated in the video below.&#xA;&#xA;https://imgur.com/gallery/Q04Kxrg&#xA;&#xA;First, I use the Lookup in Terminology action paired with a keyboard shortcut (^⇧D) in Drafts to search a selected word in Terminology. There, I “like” the word and - if needed - add a definition via the notes button (immediately to the left of the heart in the upper right corner.) I’ve configured a custom button - “[Drafts-definition](terminology://x-callback-url/importAction?name=Drafts-definition&amp;shortName=Drafts&amp;description=Send%20term%20and%20full%20Markdown%20definitions%20to%20Drafts&amp;urlTemplate=drafts://create?text%3D%5B%5Bdefinitions%5D%5D%250A%5B%5Bnote%5D%5D&amp;dispatchType=0&#xA;terminology://x-callback-url/importAction?name=Drafts-definition&amp;shortName=Drafts&amp;description=Send%20term%20and%20full%20Markdown%20definitions%20to%20Drafts&amp;urlTemplate=drafts://create?text%3D%5B%5Bdefinitions%5D%5D%250A%5B%5Bnote%5D%5D&amp;dispatchType=0)” - (which you should be able to import with that hyperlink) that sends the term including its notes back to Drafts with the following configuration:&#xA;&#xA;drafts://create?text=[[definitions]]%0A[[note]]&#xA;&#xA;That button results in a new Draft in a specific format, demonstrated by this example:&#xA;&#xA;Antagonistic Vocabulary Draft Example&#xA;&#xA;I then manually add the “Vocabulary” tag to the Draft, completing the process and placing it within the parameters defined by my Vocabulary workspace, which shows only drafts with that tag, sorted alphabetically.&#xA;&#xA;Publication&#xA;&#xA;For the past few weeks, I’ve been wreaking havoc on NeoCities’ global activity feed using the action group I created on the /drafts directory of davidblue dot wtf. Specifically, the action that uploads HTML files to that directory named by the UUID of the draft. (Here’s the corresponding link for this post, for example.) With consequent draftopenurls left in the footer of each as per my current, more or less universal HTML template, I’m able to immediately open the appropriate draft locally. &#xA;&#xA;Vocabulary Index Shortcut&#xA;&#xA;In order to maintain an updated index of the whole list, I’ve created a Siri Shortcut which transforms the UUIDs of the drafts in the vocabulary workspace into markdown-formatted hyperlinks of their web-dwelling counterparts.&#xA;&#xA;Terminology Favorites List&#xA;&#xA;Even if you’ve no intention of publishing your personal vocabulary - or integrating it with Drafts - Terminology is still the dictionary app I’d recommend over any others.&#xA;&#xA;#configuration #software #automation]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://i.snap.as/EQ4GSUGH.png" alt="Terminology URL Scheme and Vocabulary Workspace"/></p>
+
+<p>As I wrote in <a href="https://tilde.town/~extratone/appreviews/terminology">my app store review of Terminology</a> (which is not shown publicly, I’ve since learned,) I prefer it over popular dictionary apps like <a href="https://apps.apple.com/us/app/lookup-english-dictionary/id872564448">LookUp</a> (which I also have and use regularly) because it allows me to <em>add new terms</em> that don’t show up in search results. Somehow, the idea that one might store words that don’t necessarily appear in any dictionary seems a foreign one to the creators of LookUp, which I’ve since found out to be the cause of <a href="https://twitter.com/NeoYokel/status/1477323450549219328">its Siri Shortcuts actions failing on me</a>.</p>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/lookup_ios?ref_src=twsrc%5Etfw">@lookup_ios</a> it&#39;d be so amazing if this worked. or is there another way of batch importing a list of terms to a collection? <a href="https://t.co/QBASeQzyXO">pic.twitter.com/QBASeQzyXO</a></p>&mdash; ⓓⓐⓥⓘⓓ ⓑⓛⓤⓔ (@NeoYokel) <a href="https://twitter.com/NeoYokel/status/1477323450549219328?ref_src=twsrc%5Etfw">January 1, 2022</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p><a href="https://apps.apple.com/us/app/terminology-dictionary/id687798859">Terminology</a> <em>does</em> support adding “custom” terms, if unintentionally, through its “notes” function. Because it’s related to Drafts (they’re from the same creator,) it was quite easy to “integrate” the two in order to form the workflow you see demonstrated in <a href="https://user-images.githubusercontent.com/43663476/165031796-5df78c01-faee-4fd4-84d0-f0bf95fd383f.MOV">the video below</a>.</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fimgur.com%2Fa%2FQ04Kxrg%2Fembed%3Fpub%3Dtrue%26ref%3Dhttps%253A%252F%252Fembed.ly%26w%3D500&display_name=Imgur&url=https%3A%2F%2Fimgur.com%2Fa%2FQ04Kxrg&image=https%3A%2F%2Fi.imgur.com%2FTfdRC2K.jpg%3Ffbplay&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=imgur" width="500" height="914" scrolling="no" title="Imgur embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<p>First, I use the <a href="https://directory.getdrafts.com/a/1CS">Lookup in Terminology action</a> paired with a keyboard shortcut (<code>^⇧D</code>) in Drafts to search a selected word in Terminology. There, I “like” the word and – if needed – add a definition via the notes button (immediately to the left of the heart in the upper right corner.) I’ve configured a custom button – “Drafts-definition” – (which you should be able to import with that hyperlink) that sends the term <em>including its notes</em> back to Drafts with the following configuration:</p>
+
+<pre><code>drafts://create?text=[[definitions]]%0A[[note]]
+</code></pre>
+
+<p>That button results in a new Draft in a specific format, demonstrated by this example:</p>
+
+<p><img src="https://i.snap.as/K0adnLf5.png" alt="Antagonistic Vocabulary Draft Example"/></p>
+
+<p>I then manually add the “Vocabulary” tag to the Draft, completing the process and placing it within the parameters defined by <a href="https://directory.getdrafts.com/w/1zN">my Vocabulary workspace</a>, which shows only drafts with that tag, sorted alphabetically.</p>
+
+<h2 id="publication">Publication</h2>
+
+<p>For the past few weeks, I’ve been wreaking havoc on NeoCities’ global activity feed using <a href="https://bilge.world/using-drafts-with-neocities">the action group I created</a> on <a href="https://davidblue.wtf/drafts">the /drafts directory</a> of davidblue dot wtf. Specifically, the action that uploads HTML files to that directory named by the UUID of the draft. (Here’s <a href="https://davidblue.wtf/drafts/F20BB579-E235-4F04-8BCE-22AAF15A97C2.html">the corresponding link for this post</a>, for example.) With consequent <a href="https://docs.getdrafts.com/docs/actions/templates#identifier-tags">draft<em>open</em>urls</a> left in the footer of each as per my current, more or less universal <a href="https://tilde.town/~extratone/template/1.4.txt">HTML template</a>, I’m able to immediately open the appropriate draft locally.</p>
+
+<p><img src="https://i.snap.as/2npm338t.png" alt="Vocabulary Index Shortcut"/></p>
+
+<p>In order to maintain <a href="https://davidblue.wtf/vocabulary">an updated index</a> of the whole list, I’ve created <a href="https://www.icloud.com/shortcuts/113f8e45729c4466860c3c7c668e939d">a Siri Shortcut</a> which transforms the UUIDs of the drafts in the vocabulary workspace into markdown-formatted hyperlinks of their web-dwelling counterparts.</p>
+
+<p><img src="https://i.snap.as/D8GtXEd3.png" alt="Terminology Favorites List"/></p>
+
+<p>Even if you’ve no intention of publishing your personal vocabulary – or integrating it with Drafts – Terminology is still the dictionary app I’d recommend over any others.</p>
+
+<p><a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a> <a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/drafts-terminology-vocabulary</guid>
+      <pubDate>Tue, 03 May 2022 06:31:51 +0000</pubDate>
+    </item>
+    <item>
+      <title>Run Siri Shortcuts with Hyperlinks</title>
+      <link>https://bilge.world/run-siri-shortcuts-with-hyperlinks?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[Shortcuts Run Links&#xA;&#xA;Imagine running shortcuts from anywhere you can place a link.&#xA;&#xA;!--more--&#xA;&#xA;There seemed to be a bit of confusion regarding a shortcut I posted on RoutineHub a few days ago entitled “Generate Shortcuts Run Links List,” so I thought I’d attempt to overview how I’ve come to use Shortcuts’ URL scheme as my primary method of calling shortcuts across both iOS and macOS.&#xA;&#xA;The basis of the whole shit is shortcuts://run-shortcut?name= and shortcuts://x-callback-url/run-shortcut?name=. Using these along with URL-encoded shortcuts titles (for those containing a space,) we can create links that will run shortcuts from anywhere on iOS or macOS as hyperlinks. These days, this is how I run most of my even semi-regular-use shortcuts, largely from my first Dot in Iconfactory’s Tot.&#xA;&#xA;Tot&#xA;&#xA;With a few exceptions, all the links you see in the above screenshot above “Drafts Instrument Panel” are shortcuts run links of the same type. Most of these, I typed out by hand with a TextExpander snippet. Here’s what the mess looks like underneath:&#xA;&#xA;Tot Code&#xA;&#xA;I had a bit of an issue creating the shortcut, itself. Though Shortcuts includes a native URL Encode action, I couldn’t seem to get it to reliably generate URL-encoded shortcuts names, which is why I inserted the Text Case action, instead.&#xA;&#xA;#automation #software #configuration]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://user-images.githubusercontent.com/43663476/155768732-03ca73a9-9b18-414f-ae86-a27bbe01ce04.png" alt="Shortcuts Run Links"/></p>
+
+<h2 id="imagine-running-shortcuts-from-anywhere-you-can-place-a-link">Imagine running shortcuts from anywhere you can place a link.</h2>
+
+
+
+<p>There seemed to be a bit of confusion regarding a shortcut I posted on RoutineHub a few days ago entitled “<a href="https://routinehub.co/shortcut/11143"><strong>Generate Shortcuts Run Links List</strong></a>,” so I thought I’d attempt to overview how I’ve come to use Shortcuts’ URL scheme as my primary method of calling shortcuts across both iOS and macOS.</p>
+
+<p>The basis of the whole shit is <code>shortcuts://run-shortcut?name=</code> and <code>shortcuts://x-callback-url/run-shortcut?name=</code>. Using these along with URL-encoded shortcuts titles (for those containing a space,) we can create links that will run shortcuts from anywhere on iOS or macOS as hyperlinks. These days, this is how I run most of my even semi-regular-use shortcuts, largely from my first Dot in Iconfactory’s <a href="https://apps.apple.com/us/app/tot-pocket/id1498235191">Tot</a>.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/155801898-e6c74cee-c26a-458c-a915-c3f969c6f3fd.png" alt="Tot"/></p>
+
+<p>With a few exceptions, all the links you see in the above screenshot above “Drafts Instrument Panel” are shortcuts run links of the same type. Most of these, I typed out by hand with <a href="https://app.textexpander.com/public/14093096578d4f40eeea15649f5cefbb">a TextExpander snippet</a>. Here’s what the mess looks like underneath:</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/155803031-436d36a3-c0be-4da1-9df4-72a9d6e8e350.png" alt="Tot Code"/></p>
+
+<p>I had a bit of an issue creating the shortcut, itself. Though Shortcuts includes a native <a href="https://www.matthewcassinelli.com/actions/url-encode/">URL Encode action</a>, I couldn’t seem to get it to reliably generate URL-encoded shortcuts names, which is why I inserted the <a href="https://apps.apple.com/us/app/text-case/id1492174677">Text Case</a> action, instead.</p>
+
+<p><a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a> <a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/run-siri-shortcuts-with-hyperlinks</guid>
+      <pubDate>Fri, 04 Mar 2022 17:10:47 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Fastest Route to Twitter Jail</title>
+      <link>https://bilge.world/twitter-jail?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[TwitterJail&#xA;&#xA;My new Twitter Jail Siri Shortcut marks a milestone in Social Foolery.&#xA;&#xA;!--more--&#xA;&#xA;I graduated high school in 2012. Back then, TweetDeck was still a standalone desktop client that allowed one to post with just the ENTER or return key. I&#39;d made it part of the Drywall Prime Directive to generally keep @ihadtopee in Twitter Jail as much as possible, which meant pounding my way into it ASAP, daily. This was often my very first task upon returning home from school. All memories - much less computing memories - are quite obscured from that era, but I wouldn&#39;t be surprised if I was spending a cumulative 45 minutes every school day punishing the fuck out of my first flat generation w/keypad Apple Keyboard to TweetDeck in Windows 7.&#xA;&#xA;https://twitter.com/TWlTTER_JAIL/status/746295481123274752&#xA;&#xA;It&#39;s not that automating Tweets wasn&#39;t possible in that era - I&#39;d been posting WHEN IM COMIN DINE IN MY FOREIGN AND IM ROLLIN ONE DEEP THAT SHOULD TELL YA BOUT ME across all my social accounts every morning at 0610 since Freshman year via IFTT (now IFTTT) - but doing so at any sustained rate required actual knowledge. &#xA;&#xA;https://www.youtube.com/watch?v=4qyHYslaQx4&#xA;&#xA;Today, even an rube like myself can whip up a Siri Shortcut capable of jailing a user account in less than four minutes from nill - what appears to be a statically-set rate limit of 310 Tweets in that time. Mind you, we&#39;re talking about entirely on-device processing here, and - in case you weren&#39;t aware - the device I&#39;m referring to is my fucking cellular phone.&#xA;&#xA;TwitterJailTimeline&#xA;&#xA;Twitter Jail technically requires three apps - two of which are ridiculously small, 100% Apple cross-platform, and entirely free - and the third represents simply the most refined and delightful means anyone has ever interacted with The Bird Site.&#xA;&#xA;Requirements&#xA;&#xA;Actions - Free across all platforms and just 3.3mb to download!&#xA;Tweetbot (You might also try Aviary if you absolutely cannot bring yourself to pay a subscription fee, ever.) &#xA;Data Jar (More or less optional.)&#xA;&#xA;Upon installation, you&#39;ll be asked 1.) to set the default number of repeats (Tweets) per run. Obviously, I&#39;d recommend ~310 to optimize your jailing. 2.) To specify which Tweetbot-authenticated user account you&#39;d like to get jailed, and 3.) which &#34;key path&#34; (jar) you&#39;d like to store the URLs of said Tweets in. The third is almost certainly useless and entirely optional (just delete the Data Jar action,) but... you never know when... you might need... those URLs.&#xA;&#xA;Depending on your device (to some extent, I&#39;d imagine,) proceeding to run the shortcut shouldn&#39;t take long. It randomly generates 91 characters text from a string (which you should also feel empowered to customize/add to,) Tweets them from your specified account, and stores the URLs of those Tweets in the jar you may or may not have specified.&#xA;&#xA;You might expect me to express envy of any youths reading, but I absolutely feel none. All I can do is encourage you to fucking try Mastodon for God&#39;s sake and your own.&#xA;&#xA;Twitter Jail macOS&#xA;&#xA;Update: macOS Version Published&#xA;&#xA;I’ve created a macOS version of Twitter Jail which also requires the Actions app but substitutes Aviary for Tweetbot given the former’s native Siri Shortcuts action does not require the app to open for each Tweet. &#xA;&#xA;1] It&#39;s actually still available from [various sources - including the Mac App Store - but has fallen way, way out of support.&#xA;&#xA;#automation #software #configuration]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://user-images.githubusercontent.com/43663476/153813676-efbe3e23-d830-4239-940b-922c9bcb35b0.png" alt="TwitterJail"/></p>
+
+<h2 id="my-new-twitter-jail-siri-shortcut-marks-a-milestone-in-social-foolery">My new Twitter Jail Siri Shortcut marks a milestone in Social Foolery.</h2>
+
+
+
+<p>I graduated high school in 2012. Back then, TweetDeck was still a standalone desktop client[^1] that allowed one to post with just the <code>ENTER</code> or <code>return</code> key. I&#39;d made it part of the <a href="https://iowa.neocities.org">Drywall Prime Directive</a> to generally keep <a href="https://twitter.com/ihadtopee">@ihadtopee</a> in <a href="https://www.urbandictionary.com/define.php?term=TwitterJail">Twitter Jail</a> as much as possible, which meant pounding my way into it ASAP, daily. This was often my very first task upon returning home from school. All memories – much less computing memories – are quite obscured from that era, but I wouldn&#39;t be surprised if I was spending a cumulative 45 minutes every school day punishing the fuck out of my first flat generation w/keypad Apple Keyboard to TweetDeck in Windows 7.</p>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">Who&#39;s up grinding?</p>&mdash; T W I T T E R  JAIL (@TWlTTER_JAIL) <a href="https://twitter.com/TWlTTER_JAIL/status/746295481123274752?ref_src=twsrc%5Etfw">June 24, 2016</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>It&#39;s not that automating Tweets wasn&#39;t possible in that era – I&#39;d been posting WHEN IM COMIN DINE IN MY FOREIGN AND IM ROLLIN ONE DEEP THAT SHOULD TELL YA BOUT ME across all my social accounts every morning at 0610 since Freshman year via IFTT (now IFTTT) – but doing so at any sustained rate required actual <em>knowledge</em>.</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F4qyHYslaQx4%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D4qyHYslaQx4&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F4qyHYslaQx4%2Fhqdefault.jpg&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=youtube" width="640" height="360" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<p>Today, even an rube like myself can whip up <a href="https://routinehub.co/shortcut/11086/"><strong>a Siri Shortcut</strong></a> capable of jailing a user account in <em>less than four minutes</em> from nill – what appears to be a statically-set rate limit of 310 Tweets in that time. Mind you, we&#39;re talking about entirely <em>on-device</em> processing here, and – in case you weren&#39;t aware – the device I&#39;m referring to is my fucking cellular phone.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/153808840-473464ae-2922-45a9-a27b-46d0b7f3a247.png" alt="TwitterJailTimeline"/></p>
+
+<p><a href="https://routinehub.co/shortcut/11086/"><strong>Twitter Jail</strong></a> technically requires three apps – two of which are ridiculously small, 100% Apple cross-platform, and entirely free – and the third represents simply <a href="https://bilge.world/tweetbot-6-ios-review">the most refined and delightful means</a> anyone has ever interacted with The Bird Site.</p>
+
+<h3 id="requirements">Requirements</h3>
+<ul><li><a href="https://apps.apple.com/us/app/actions/id1586435171"><strong>Actions</strong></a> – Free across all platforms and just 3.3mb to download!</li>
+<li><a href="https://apps.apple.com/us/app/tweetbot-6-for-twitter/id1527500834">Tweetbot</a> (You might also try <a href="https://apps.apple.com/us/app/aviary-for-twitter/id1522043420">Aviary</a> if you absolutely cannot bring yourself to pay a subscription fee, ever.)</li>
+<li><a href="https://apps.apple.com/us/app/data-jar/id1453273600">Data Jar</a> (More or less optional.)</li></ul>
+
+<p>Upon installation, you&#39;ll be asked 1.) to set the default number of repeats (Tweets) per run. Obviously, I&#39;d recommend ~310 to optimize your jailing. 2.) To specify which Tweetbot-authenticated user account you&#39;d like to get jailed, and 3.) which “key path” (jar) you&#39;d like to store the URLs of said Tweets in. The third is almost certainly useless and entirely optional (just delete the Data Jar action,) but... you never know when... you might need... those URLs.</p>
+
+<p>Depending on your device (to some extent, I&#39;d imagine,) proceeding to run the shortcut shouldn&#39;t take long. It randomly generates 91 characters text from a string (which you should also feel empowered to customize/add to,) Tweets them from your specified account, and stores the URLs of those Tweets in the jar you may or may not have specified.</p>
+
+<p>You might expect me to express envy of any youths reading, but I absolutely feel none. All I can do is encourage you to <a href="https://mastodon.social/invite/hca7L5sY">fucking try Mastodon</a> for God&#39;s sake and your own.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/154838012-2deb774f-6f02-4627-b8dd-f16286968621.png" alt="Twitter Jail macOS"/></p>
+
+<h2 id="update-macos-version-published">Update: macOS Version Published</h2>
+
+<p>I’ve created <a href="https://routinehub.co/shortcut/11135"><strong>a macOS version of Twitter Jail</strong></a> which also requires <a href="https://apps.apple.com/us/app/actions/id1586435171">the Actions app</a> but substitutes <a href="https://apps.apple.com/us/app/aviary-for-twitter/id1522043420">Aviary</a> for Tweetbot given the former’s native Siri Shortcuts action does not require the app to open for each Tweet.</p>
+
+<p>[1] It&#39;s actually still available from <a href="https://downloads.digitaltrends.com/tweetdeck/windows">various sources</a> – <a href="https://apps.apple.com/us/app/tweetdeck-by-twitter/id485812721">including the Mac App Store</a> – but has fallen way, way out of support.</p>
+
+<p><a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a> <a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/twitter-jail</guid>
+      <pubDate>Mon, 14 Feb 2022 08:35:27 +0000</pubDate>
+    </item>
+    <item>
+      <title>Using Drafts with NeoCities</title>
+      <link>https://bilge.world/using-drafts-with-neocities?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[DraftsxNeoCities&#xA;&#xA;A Drafts Action Group for interacting with WebDAV-enabled sites.&#xA;&#xA;!--more--&#xA;&#xA;audio controls&#xA;  source src=&#34;https://davidblue.wtf/audio/draftsandneocities.mp3&#34;&#xA;/audio&#xA;&#xA;Thanks to recent learning, I have managed to manifest one of my alltime fantasy integrations: I have tied Drafts and NeoCities together directly via my NeoCities Action Group, which uses Drafts&#39; native WebDAV support to (technically) interact with any website based on the protocol. I created it largely to interact with NeoCities over iOS, but frankly I was already doing so more effectively than the Action Group will ever offer with the iOS app Koder. It’s odd and a bit out of support, but incredibly useful and supported all the way back to iOS 9. Unfortunately, many of its functions - like deleting remote files, for instance - will result in a crash on modern devices. Also unfortunate - I’m afraid my Action Group doesn’t offer solutions to these problems. On iOS, it’s limited in function to pushing files to your WebDAV server and then opening them in a web browser. &#xA;&#xA;NeoCitiesActionGroup&#xA;&#xA;It wasn&#39;t as simple as HTML encoding the draft] content with percentage signs, either. In order to produce [satisfactory results, I had to wrap every output in a very custom HTML template which I would very much encourage you to personalize before using (considering especially that it includes my personalized footer links and colors.) You can view that template in full here. To be honest, I can’t quite recall where I found the original, but it was probably either included with a native Drafts action or found among Stephen Millard’s TAD library.&#xA;&#xA;toDraft-UUID&#xA;&#xA;The most reliable means of identifying, pushing, and retrieving a draft from a WebDAV site (that I found, anyway,) is by using its Universally unique identifier (UUID) in its pathname. An apt example: the draft I’m currently whittling on, enumerated 7247282E-340B-4890-A2F7-0481AF31321E. The action above - Draft to /drafts as UUID.html - will push the contents of your current draft to /drafts/the Draft’s UUID.html. (That&#39;s how I created the example.) &#xA;&#xA;NeoCitiesActionGroup-Viewedonmacos&#xA;&#xA;I&#39;ve done my best to color code the actions based on the potential &#34;severity&#34; of their result, but the way they display will depend almost entirely on which particular Drafts theme you&#39;re using at the moment. Nevertheless, blue/green indicate the &#34;safest&#34; actions - like the ones that simply open a link to a draft you&#39;ve already pushed - and yellow/orange/red actions involve pushing/manipulating files at the root of your site.&#xA;&#xA;Below is the full documentation of each of the actions (and the separators, even,) including individual install links, though I would very much recommend you install the whole bit. You&#39;ll need to edit each action and replace davidblue.wtf with your own URL(s) unless you&#39;d like to try and attempt my absolutely gargantuan NeoCities password.&#xA;&#xA;NeoCities Action Group&#xA;&#xA;Root&#xA;Type: Separator&#xA;Keyboard Shortcut:   &#xA;Icon:   &#xA;Colour: none  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 0  &#xA;Unique ID: 69B625EC-D9E2-41B7-9767-3532666E7C97  &#xA;Description:  &#xA;&#xA;Push Draft to Root as HTML&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: 383-keyhole  &#xA;Colour: orange  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 81C89DC8-F26E-4644-87D7-BF454B345C24  &#xA;Description:  &#xA;Push the current draft to the /drafts directory as an HTML file by the draft’s safetitle.&#xA;&#xA;Draft to Root as UUID.html&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: binary  &#xA;Colour: yellow  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: ABAA6A02-806F-4B45-BEA6-E9D5F8D32236  &#xA;Description:  &#xA;Push the current draft to the root directory as an HTML file titled by its UUID.&#xA;&#xA;Draft to Root as Text Timestamp&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: alarm  &#xA;Colour: orange  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: EFF08ADA-81B6-49C3-B132-5DB477A95685  &#xA;Description:  &#xA;Push the current draft to the root directory as a .txt file titled by timestamp.&#xA;&#xA;Draft to /{title} as index.html&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: indent  &#xA;Colour: red  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 15401CFC-114E-429C-B747-054E19C46911  &#xA;Description:  &#xA;Push the current draft to /NeoCities as index.html&#xA;&#xA;Open /{title}&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: idea  &#xA;Colour: green  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 34630C90-6180-4394-A296-C2A5018DFEFB  &#xA;Description:  &#xA;Open /drafts/[Current Draft UUID].html.&#xA;&#xA;/path&#xA;Type: Separator&#xA;Keyboard Shortcut:   &#xA;Icon:   &#xA;Colour: none  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 0  &#xA;Unique ID: 6F0BE49F-3B6F-49AF-ABA7-04BA7F437C1A  &#xA;Description:  &#xA;&#xA;Push Draft to /drafts as HTML&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: 383-keyhole  &#xA;Colour: orange  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 34A59A1C-95A8-42A9-9C23-677E9731EFC8  &#xA;Description:  &#xA;Push the current draft to the /drafts directory as an HTML file by the draft’s safe_title.&#xA;&#xA;Draft to /drafts as UUID.html&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: binary  &#xA;Colour: none  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 9C9FCDA8-687C-475A-8213-A8185CEFEE4D  &#xA;Description:  &#xA;Push the current draft to the /drafts directory as an HTML file titled by its UUID.&#xA;&#xA;Open pushed /drafts file by UUID.&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: idea  &#xA;Colour: green  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: BADE45C1-AEC4-46A6-B4BE-7B88B2357C04  &#xA;Description:  &#xA;Open /drafts/[Current Draft UUID].html.&#xA;&#xA;Draft to /drafts/{title} as index.html&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: indent  &#xA;Colour: violet  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 5555699A-B3A6-432D-9A20-ECA78F6A5D88  &#xA;Description:  &#xA;Push the current draft to drafts/NeoCities as index.html&#xA;&#xA;Open /drafts/{title}&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: idea  &#xA;Colour: green  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 1E5CB9D6-B8FE-4934-8AEC-E795A651C45A  &#xA;Description:  &#xA;Open /drafts/{title}&#xA;&#xA;Draft to Specified Path as index.html&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: signs-alt  &#xA;Colour: orange  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 2  &#xA;Unique ID: A7D5BE00-36D3-4E08-9058-7923571189AA  &#xA;Description:  &#xA;Push Draft to specified directory as index.html.&#xA;&#xA;/[input]/index.html&#xA;&#xA;Misc&#xA;Type: Separator&#xA;Keyboard Shortcut:   &#xA;Icon:   &#xA;Colour: none  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 0  &#xA;Unique ID: 06296787-B9EE-4759-9B9C-5F994CAA894A  &#xA;Description:  &#xA;&#xA;Push clipboard .txt to clipboard/timestamp&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: clipboard-content  &#xA;Colour: blue  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 98AF9E4B-1D48-4F95-8D2D-C879FE16BE40  &#xA;Description:  &#xA;Push contents of the clipboard to the /clipboard directory as a .txt file.&#xA;&#xA;Open NeoCities Workspace&#xA;Type: Action  &#xA;Keyboard Shortcut: ⇧⌃N  &#xA;Icon: cat-face  &#xA;Colour: gray  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 1  &#xA;Unique ID: 4B8E95CE-F6A3-4F53-88CB-B01C8398A990  &#xA;Description:  &#xA;Open workspace entitled “NeoCities.”&#xA;&#xA;NeoCities list / (macOS-Only)&#xA;Type: Action  &#xA;Keyboard Shortcut:   &#xA;Icon: directions-merge  &#xA;Colour: gray  &#xA;Confirm to Run: false  &#xA;Notifications: All  &#xA;Log Level: All  &#xA;Number of Steps: 2  &#xA;Unique ID: 898038F4-E5E4-4BDA-B15A-D2ED2D388D82  &#xA;Description:  &#xA;Calls a shortcut entitled “NeoCitiesRoot” with a Run Shell Script action containing the following:&#xA;&#xA;neocities list /&#xA;&#xA;Can only be run on macOS and requires the NeoCities CLI.&#xA;&#xA;#software #configuration #automation]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://user-images.githubusercontent.com/43663476/152070046-41f84855-408d-44c2-bfaa-8b038331d9a6.png" alt="DraftsxNeoCities"/></p>
+
+<h2 id="a-drafts-action-group-for-interacting-with-webdav-enabled-sites">A Drafts Action Group for interacting with WebDAV-enabled sites.</h2>
+
+
+
+<p><audio controls="">
+  <source src="https://davidblue.wtf/audio/draftsandneocities.mp3">
+</audio></p>
+
+<p>Thanks to recent learning, I have managed to manifest one of my alltime fantasy integrations: I have tied Drafts and NeoCities together directly via <a href="https://actions.getdrafts.com/g/1uF"><strong>my NeoCities Action Group</strong></a>, which uses <a href="https://docs.getdrafts.com/docs/actions/steps/services#webdav">Drafts&#39; native WebDAV support</a> to (technically) interact with any website based on the protocol. I created it largely to interact with NeoCities over iOS, but frankly I was already doing so more effectively than the Action Group will ever offer with the iOS app <a href="https://apps.apple.com/us/app/koder-code-editor/id1447489375">Koder</a>. It’s odd and a bit out of support, but incredibly useful and supported all the way back to iOS 9. Unfortunately, many of its functions – like deleting remote files, for instance – will result in a crash on modern devices. Also unfortunate – I’m afraid my Action Group doesn’t offer solutions to these problems. On iOS, it’s limited in function to pushing files to your WebDAV server and then opening them in a web browser.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152169590-518d1043-c02b-49a1-9f19-76699362ab96.png" alt="NeoCitiesActionGroup"/></p>
+
+<p>It wasn&#39;t as simple as HTML encoding the [draft] content with percentage signs, either. In order to produce <a href="https://davidblue.wtf/drafts/A350D578-1CFA-4B5A-8655-74F6B3AD72AE.html">satisfactory results</a>, I had to wrap every output in a very custom HTML template which I would very much encourage you to personalize before using (considering especially that it includes my personalized footer links and <a href="http://bilge.world/colophon">colors</a>.) You can view that template in full <a href="https://davidblue.wtf/drafts/8700B562-8716-489A-B554-641549B6B3E5.html">here</a>. To be honest, I can’t quite recall where I found the original, but it was probably either included with a native Drafts action or found among <a href="https://www.thoughtasylum.com/tadpole">Stephen Millard’s TAD library</a>.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/153755878-5b40147a-040b-4e8f-83ae-ce187d40ec0d.png" alt="toDraft-UUID"/></p>
+
+<p>The most reliable means of identifying, pushing, and retrieving a draft from a WebDAV site (that I found, anyway,) is by using its <a href="https://en.m.wikipedia.org/wiki/Universally_unique_identifier">Universally unique identifier</a> (UUID) in its pathname. An apt example: <a href="https://davidblue.wtf/drafts/7247282E-340B-4890-A2F7-0481AF31321E.html">the draft I’m currently whittling on</a>, enumerated <code>7247282E-340B-4890-A2F7-0481AF31321E</code>. The action above – <a href="https://actions.getdrafts.com/a/1ve">Draft to /drafts as UUID.html</a> – will push the contents of your current draft to /drafts/<code>the Draft’s UUID</code>.html. (That&#39;s how I created the example.)</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/153760436-80095f77-6d9a-4325-8b09-e871bb812bb2.png" alt="NeoCitiesActionGroup-Viewedonmacos"/></p>
+
+<p>I&#39;ve done my best to color code the actions based on the potential “severity” of their result, but the way they display will depend almost entirely on which particular <a href="https://actions.getdrafts.com/theme_definitions?order=updated">Drafts theme</a> you&#39;re using at the moment. Nevertheless, blue/green indicate the “safest” actions – like the ones that simply <a href="https://actions.getdrafts.com/a/1vc">open a link to a draft you&#39;ve already pushed</a> – and yellow/orange/red actions involve <a href="https://actions.getdrafts.com/a/1v9">pushing/manipulating files at the root of your site</a>.</p>
+
+<p>Below is the full documentation of each of the actions (and the separators, even,) including individual install links, though I would very much recommend you install <a href="https://actions.getdrafts.com/g/1uF">the whole bit</a>. You&#39;ll need to edit each action and replace <code>davidblue.wtf</code> with your own URL(s) unless you&#39;d like to try and attempt my absolutely gargantuan NeoCities password.</p>
+
+<h2 id="neocities-action-group">NeoCities Action Group</h2>
+
+<h3 id="root">Root</h3>
+
+<p><strong>Type:</strong> Separator
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong><br/>
+<strong>Colour:</strong> none<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 0<br/>
+<strong>Unique ID:</strong> 69B625EC-D9E2-41B7-9767-3532666E7C97<br/>
+<strong>Description:</strong></p>
+
+<h3 id="push-draft-to-root-as-html-https-actions-getdrafts-com-a-1v9"><a href="https://actions.getdrafts.com/a/1v9">Push Draft to Root as HTML</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> 383-keyhole<br/>
+<strong>Colour:</strong> orange<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 81C89DC8-F26E-4644-87D7-BF454B345C24<br/>
+<strong>Description:</strong><br/>
+Push the current draft to the /drafts directory as an HTML file by the draft’s <code>safe_title</code>.</p>
+
+<h3 id="draft-to-root-as-uuid-html-https-actions-getdrafts-com-a-1v0"><a href="https://actions.getdrafts.com/a/1v0">Draft to Root as UUID.html</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> binary<br/>
+<strong>Colour:</strong> yellow<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> ABAA6A02-806F-4B45-BEA6-E9D5F8D32236<br/>
+<strong>Description:</strong><br/>
+Push the current draft to the root directory as an HTML file titled by its UUID.</p>
+
+<h3 id="draft-to-root-as-text-timestamp-https-actions-getdrafts-com-a-1va"><a href="https://actions.getdrafts.com/a/1va">Draft to Root as Text Timestamp</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> alarm<br/>
+<strong>Colour:</strong> orange<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> EFF08ADA-81B6-49C3-B132-5DB477A95685<br/>
+<strong>Description:</strong><br/>
+Push the current draft to the root directory as a .txt file titled by timestamp.</p>
+
+<h3 id="draft-to-title-as-index-html-https-actions-getdrafts-com-a-1vb"><a href="https://actions.getdrafts.com/a/1vb">Draft to /{title} as index.html</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> indent<br/>
+<strong>Colour:</strong> red<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 15401CFC-114E-429C-B747-054E19C46911<br/>
+<strong>Description:</strong><br/>
+Push the current draft to /NeoCities as index.html</p>
+
+<h3 id="open-title-https-actions-getdrafts-com-a-1vc"><a href="https://actions.getdrafts.com/a/1vc">Open /{title}</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> idea<br/>
+<strong>Colour:</strong> green<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 34630C90-6180-4394-A296-C2A5018DFEFB<br/>
+<strong>Description:</strong><br/>
+Open /drafts/[Current Draft UUID].html.</p>
+
+<h3 id="path">/path</h3>
+
+<p><strong>Type:</strong> Separator
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong><br/>
+<strong>Colour:</strong> none<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 0<br/>
+<strong>Unique ID:</strong> 6F0BE49F-3B6F-49AF-ABA7-04BA7F437C1A<br/>
+<strong>Description:</strong></p>
+
+<h3 id="push-draft-to-drafts-as-html-https-actions-getdrafts-com-a-1vd"><a href="https://actions.getdrafts.com/a/1vd">Push Draft to /drafts as HTML</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> 383-keyhole<br/>
+<strong>Colour:</strong> orange<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 34A59A1C-95A8-42A9-9C23-677E9731EFC8<br/>
+<strong>Description:</strong><br/>
+Push the current draft to the /drafts directory as an HTML file by the draft’s <code>safe_title</code>.</p>
+
+<h3 id="draft-to-drafts-as-uuid-html-https-actions-getdrafts-com-a-1ve"><a href="https://actions.getdrafts.com/a/1ve">Draft to /drafts as UUID.html</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> binary<br/>
+<strong>Colour:</strong> none<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 9C9FCDA8-687C-475A-8213-A8185CEFEE4D<br/>
+<strong>Description:</strong><br/>
+Push the current draft to the /drafts directory as an HTML file titled by its UUID.</p>
+
+<h3 id="open-pushed-drafts-file-by-uuid-https-actions-getdrafts-com-a-1vf"><a href="https://actions.getdrafts.com/a/1vf">Open pushed /drafts file by UUID.</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> idea<br/>
+<strong>Colour:</strong> green<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> BADE45C1-AEC4-46A6-B4BE-7B88B2357C04<br/>
+<strong>Description:</strong><br/>
+Open /drafts/[Current Draft UUID].html.</p>
+
+<h3 id="draft-to-drafts-title-as-index-html-https-actions-getdrafts-com-a-1vg"><a href="https://actions.getdrafts.com/a/1vg">Draft to /drafts/{title} as index.html</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> indent<br/>
+<strong>Colour:</strong> violet<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 5555699A-B3A6-432D-9A20-ECA78F6A5D88<br/>
+<strong>Description:</strong><br/>
+Push the current draft to drafts/NeoCities as index.html</p>
+
+<h3 id="open-drafts-title-https-actions-getdrafts-com-a-1vh"><a href="https://actions.getdrafts.com/a/1vh">Open /drafts/{title}</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> idea<br/>
+<strong>Colour:</strong> green<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 1E5CB9D6-B8FE-4934-8AEC-E795A651C45A<br/>
+<strong>Description:</strong><br/>
+Open /drafts/{title}</p>
+
+<h3 id="draft-to-specified-path-as-index-html-https-actions-getdrafts-com-a-1vi"><a href="https://actions.getdrafts.com/a/1vi">Draft to Specified Path as index.html</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> signs-alt<br/>
+<strong>Colour:</strong> orange<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 2<br/>
+<strong>Unique ID:</strong> A7D5BE00-36D3-4E08-9058-7923571189AA<br/>
+<strong>Description:</strong><br/>
+Push Draft to specified directory as index.html.</p>
+
+<p>/[input]/index.html</p>
+
+<h3 id="misc">Misc</h3>
+
+<p><strong>Type:</strong> Separator
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong><br/>
+<strong>Colour:</strong> none<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 0<br/>
+<strong>Unique ID:</strong> 06296787-B9EE-4759-9B9C-5F994CAA894A<br/>
+<strong>Description:</strong></p>
+
+<h3 id="push-clipboard-txt-to-clipboard-timestamp-https-actions-getdrafts-com-a-1vj"><a href="https://actions.getdrafts.com/a/1vj">Push clipboard .txt to clipboard/timestamp</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> clipboard-content<br/>
+<strong>Colour:</strong> blue<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 98AF9E4B-1D48-4F95-8D2D-C879FE16BE40<br/>
+<strong>Description:</strong><br/>
+Push contents of the clipboard to the /clipboard directory as a .txt file.</p>
+
+<h3 id="open-neocities-workspace-https-actions-getdrafts-com-a-1vk"><a href="https://actions.getdrafts.com/a/1vk">Open NeoCities Workspace</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong> ⇧⌃N<br/>
+<strong>Icon:</strong> cat-face<br/>
+<strong>Colour:</strong> gray<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 1<br/>
+<strong>Unique ID:</strong> 4B8E95CE-F6A3-4F53-88CB-B01C8398A990<br/>
+<strong>Description:</strong><br/>
+Open workspace entitled “NeoCities.”</p>
+
+<h3 id="neocities-list-macos-only-https-actions-getdrafts-com-a-1vl"><a href="https://actions.getdrafts.com/a/1vl">NeoCities list / (macOS-Only)</a></h3>
+
+<p><strong>Type:</strong> Action<br/>
+<strong>Keyboard Shortcut:</strong><br/>
+<strong>Icon:</strong> directions-merge<br/>
+<strong>Colour:</strong> gray<br/>
+<strong>Confirm to Run:</strong> false<br/>
+<strong>Notifications:</strong> All<br/>
+<strong>Log Level:</strong> All<br/>
+<strong>Number of Steps:</strong> 2<br/>
+<strong>Unique ID:</strong> 898038F4-E5E4-4BDA-B15A-D2ED2D388D82<br/>
+<strong>Description:</strong><br/>
+Calls a shortcut entitled “NeoCitiesRoot” with a <code>Run Shell Script</code> action containing the following:</p>
+
+<p><code>neocities list /</code></p>
+
+<p>Can only be run on macOS and requires the NeoCities CLI.</p>
+
+<p><a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/using-drafts-with-neocities</guid>
+      <pubDate>Sun, 13 Feb 2022 15:38:41 +0000</pubDate>
+    </item>
+    <item>
+      <title>Automating Write.as Posts on macOS </title>
+      <link>https://bilge.world/automating-writeas-posts?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[Post to Writeas Blog&#xA;&#xA;A setup for posting to Write.as blogs directly using Siri Shortcuts, the Write.as CLI, and (optionally) Drafts for Mac.&#xA;&#xA;!--more--&#xA;&#xA;Though there is currently a Write.as desktop application in the works for macOS and the web editor is certainly no slouch, I thought I&#39;d attempt to take advantage of my newfound knowledge of the Write.as CLI, Drafts Actions, and Siri Shortcuts on macOS to manifest one of my all-time dream integrations: publishing directly to write.as with Drafts.&#xA;&#xA;To start - assuming you already have the CLI installed - lets run writeas help post in our shell:&#xA;&#xA;WriteasHelpPost&#xA;&#xA;For my own use, I really needed to consider just two arguments, here: which blog I&#39;m posting to and in which format. Since my blog&#39;s CSS overwrites all but monospace, I always publish in --sans. Keeping this in mind, I allotted for these two options in my Siri Shortcut as customizations set on install.&#xA;&#xA;ShortcutSetup&#xA;&#xA;Now, whenever it&#39;s run, my shortcut will be running this command: write-as post -c chaff --font sans plus whatever input I&#39;ve given it. By default, it will grab from the clipboard, but I&#39;m going to use a custom Drafts action to send input, instead.&#xA;&#xA;DraftstoWriteasAction&#xA;&#xA;Very simply, this action simply calls a shortcut entitled &#34;Post to Write.as Blog (macOS)&#34; sending the [[safe_title]] of the Draft as the markdown title followed by a space and then the draft&#39;s [[body]].&#xA;&#xA;video controls&#xA;  source src=&#34;https://user-images.githubusercontent.com/43663476/152664747-1a6fce01-85d6-46ff-bd13-e41d33544c78.mp4&#34;&#xA;/video&#xA;&#xA;a href=&#34;https://remark.as/p/bilge.world/automating-writeas-posts&#34;Discuss.../a&#xA;&#xA;#software #automation #configuration]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://user-images.githubusercontent.com/43663476/152098127-6408d6fc-8afd-482c-86aa-0bee8c1b0027.png" alt="Post to Writeas Blog"/></p>
+
+<h2 id="a-setup-for-posting-to-write-as-blogs-directly-using-siri-shortcuts-the-write-as-cli-and-optionally-drafts-for-mac">A setup for posting to Write.as blogs directly using Siri Shortcuts, the Write.as CLI, and (optionally) Drafts for Mac.</h2>
+
+
+
+<p>Though there is currently a <a href="https://code.as/writeas/macos">Write.as desktop application in the works for macOS</a> and the web editor is certainly no slouch, I thought I&#39;d attempt to take advantage of my newfound knowledge of <a href="https://github.com/writeas/writeas-cli">the Write.as CLI</a>, <a href="https://actions.getdrafts.com/a/1u0">Drafts Actions</a>, and <a href="https://routinehub.co/shortcut/10981">Siri Shortcuts</a> on macOS to manifest one of my all-time dream integrations: publishing directly to write.as with <a href="https://apps.apple.com/us/app/drafts/id1435957248">Drafts</a>.</p>
+
+<p>To start – assuming you already have the CLI installed – lets run <code>writeas help post</code> in our shell:</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152664380-32cf084e-bde1-4d59-85d0-9f15c2da78a7.png" alt="WriteasHelpPost"/></p>
+
+<p>For my own use, I really needed to consider just two arguments, here: which blog I&#39;m posting to and in which format. Since <a href="https://github.com/extratone/bilge/blob/main/Custom%20CSS.css">my blog&#39;s CSS</a> overwrites all but <code>monospace</code>, I always publish in <code>--sans</code>. Keeping this in mind, I allotted for these two options in my Siri Shortcut as customizations set on install.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152664543-028221a5-4359-4bdd-8701-15fc38dcb5b2.png" alt="ShortcutSetup"/></p>
+
+<p>Now, whenever it&#39;s run, my shortcut will be running this command: <code>write-as post -c chaff --font sans</code> plus whatever input I&#39;ve given it. By default, it will grab from the clipboard, but I&#39;m going to use <a href="https://actions.getdrafts.com/a/1u0">a custom Drafts action</a> to send input, instead.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152664614-b53bc430-caf0-4ecd-9547-df324f6fe836.png" alt="DraftstoWriteasAction"/></p>
+
+<p>Very simply, this action simply calls a shortcut entitled “Post to Write.as Blog (macOS)” sending the <a href="https://docs.getdrafts.com/docs/actions/templates#content-tags">[[safe_title]]</a> of the Draft as the markdown title followed by a space and then the draft&#39;s [[body]].</p>
+
+<video controls="">
+  <source src="https://user-images.githubusercontent.com/43663476/152664747-1a6fce01-85d6-46ff-bd13-e41d33544c78.mp4">
+</video>
+
+<p><a href="https://remark.as/p/bilge.world/automating-writeas-posts">Discuss...</a></p>
+
+<p><a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a> <a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/automating-writeas-posts</guid>
+      <pubDate>Sun, 06 Feb 2022 01:39:58 +0000</pubDate>
+    </item>
+    <item>
+      <title>Telegram Extras</title>
+      <link>https://bilge.world/telegram-extras?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[TelegramShortcuts&#xA;&#xA;Shortcuts, bots, and some other methodologies discovered since my Big Telegram Post.&#xA;&#xA;!--more--&#xA;&#xA;audio controls&#xA;  source src=&#34;https://davidblue.wtf/audio/TelegramExtras.mp3&#34;&#xA;/audio&#xA;&#xA;Since I published “I Trust Telegram,” the messenging service has been in the news. Their launch of Sponsored Messages predated its publication, but I omitted any mention of them because I’d yet to see any meaningful effects on my own use of the service. All I’ll say now: nearly four months of daily use later, this is still the case. I’ve published a few Siri Shortcuts and a Drafts action in the interim, though, and thought these few additional discoveries worth another Post.&#xA;&#xA;Siri Shortcuts&#xA;&#xA;SeekTelegramMessagebyID&#xA;&#xA;Seek Telegram Message by ID&#xA;&#xA;As I noted in the Big Telegram Post, navigating to/referencing specific messages in Telegram is ridiculously easy due to its URL format: https://t.me/Channel@]/[Chronological Message ID] My Seek Messages by ID shortcut will prompt you to set defaults for both Channel @ and message number upon installation. This could be useful for channel/group administrators who need to reference/update a message containing community rules, but specifying them is entirely optional. Otherwise, the shortcut will prompt you to enter a channel or group’s @ (minus the symbol itself,) followed by the numeric ID of the message you’re looking for. It will then copy the complete URL to the clipboard and open it in [Telegram Messenger for iOS. I’ve found it handy when joining a new channnel/group to quickly indulge my curiosity about its first few messages.&#xA;&#xA;URLListtoTelegram&#xA;&#xA;URL List ⇨ Telegram&#xA;&#xA;Effectively, this shortcut allows you to send links to a set of Safari 15 tabs to a contact of your choice in Telegram. It’s the singular one of the shortcuts shared in this Post that makes use of Telegram Messenger for iOS’ native Siri Shortcuts actions, and is therefore the most finnicky. In the first take of my video demo, it timed out trying to send 200+ links to my Saved Messages channel, but was successful in the second (the take I published) in sending just four links. Upon each run, the shortcut will prompt you to select a contact. The selection must be a phone number, ideally in International Format. It will then parse a list of URLs in your clipboard and send them one at a time via Telegram’s native action without opening the app.&#xA;&#xA;ClipboardtoTelegramMessage&#xA;&#xA;Clipboard ⇨ Telegram Message&#xA;&#xA;This one makes use of Telegram Messenger for iOS’ URL scheme, which isn’t really documented properly anywhere. &#xA;&#xA;tg://msg?text=[Content]&amp;to=[TargetPhone#]&#xA;&#xA;Upon installation, the shortcut will prompt you to specify a target phone number in International Format. In the following runs, the shortcut will open Telegram to the conversation with the phone number you’ve specified (use your own phone number to set it to your personal Saved Messages channel) with the contents of your clipboard in the text entry field. You’ll need to hit Enter or tap the Send Message button to actually send the content.&#xA;&#xA;Other Integrations&#xA;&#xA;Drafts&#xA;&#xA;Users of Agile Tortoise’s Drafts for iOS can use my Send Draft to Telegram Saved Messages action to do exactly that. &#xA;&#xA;https://twitter.com/NeoYokel/status/1488573937223094275&#xA;&#xA;Like the last Siri Shortcut above, the action utilizes Telegram’s URL scheme to send the contents of your current draft to a Telegram conversation with a phone number of your choosing. (Remember to change the action’s placeholder!) &#xA;&#xA;If you’d like to specify a different conversation, this action published to the Action Directory by user maique omits the phone number bit of the URL scheme - tg://msg?=[DraftContent].&#xA;&#xA;TelegramTextExpanderGroup&#xA;&#xA;TextExpander&#xA;&#xA;Group and/or channel administrators, especially, might find my public Telegram-specific TextExpander snippet group to contain some useful inspiration. .tid, for example, will help you construct a Telegram message link by ID just as the first Shortcut in this Post will, while .scheme will replicate the app’s URL scheme.&#xA;&#xA;TotandTelegram&#xA;&#xA;Tot&#xA;&#xA;If you happen to have Tot Pocket on your iOS device already, I’ve found it a particularly ideal place to compose Telegram messages with formatting and hyperlinks considering its similar format limitations. Drafts users can use my Append to 7th Tot Dot action to send draft content to the last Dot directly. Some markdown formatting will need to be altered - #-headings aren’t supported by either Tot or Telegram, for instance - but formatting can be directly carried over to Telegram in Rich Text format by selecting all in Tot and copying, as displayed in the screenshots embedded above.&#xA;&#xA;Bots &#xA;&#xA;TelegramRaindropBot&#xA;&#xA;Raindrop.io Bot&#xA;&#xA;As far as I’m concerned, @OlegWock’s Raindrop Telegram Bot is an absolute must for any users of the Raindrop.io bookmarking service. Not only does it allow one to send Raindrop bookmarks directly to a chat when in inline mode (as demonstrated in the above screenshots) - it is also the quickest method of saving images, videos, and documents to one’s Unsorted Bookmarks list on an iOS-running device. As I mentioned in the Big Post, Telegram’s sharesheet integration remains by far the least discriminate of any such integration on iOS.&#xA;&#xA;RoseTelegramBot&#xA;&#xA;Rose&#xA;&#xA;I’ve gone through the standard gauntlet of freemium administration bots for my experimental local Telegram group. The one I think I’ve settled on, though, is by far the best documented and most inuitive I’ve come across. Miss Rose comes conservatively-configured of the box in a sense that one will experience better results than its “competitors” in moderating a small group like mine just be leaving the defaults in place. My personal favorite functions are /notes - which allows one to save group documents that can be recalled with /or # - and /export, which exports the entirety of one’s options (including those notes) as a .txt file. (See the rightmost screenshot embedded above.) &#xA;&#xA;Other Insights&#xA;&#xA;video controls&#xA;  source src=&#34;https://user-images.githubusercontent.com/43663476/152056943-3fc9970f-491f-4060-bfb4-ba45731b4bc9.MOV&#34;&#xA;/video&#xA;&#xA;Telegram as Task Manager&#xA;&#xA;I had absolutely no idea that Reminders existed in Telegram until a few weeks ago. When sending to one’s Saved Messages channel, holding down on the Send Message button will display the option to Set a Reminder. Anything that can be sent can be added as a reminder, including - in my case - .exe files of programs I’d like to install on my PC later. Frankly, I can’t think of any other task management/reminders application that offers this ability - paid or otherwise.&#xA;&#xA;Telegram for macOS&#xA;&#xA;The macOS App&#xA;&#xA;A recent update to the Telegram for macOS app has rendered it by far the most beautiful way to use the service.&#xA;&#xA;Themes&#xA;&#xA;I’ve spent quite a bit of time archiving third-party Telegram themes, lately. Below is a list of installation links to some of my favorites which I’ll do my best to keep updated. Otherwise, refer to this Telegraph post or type #themes in Extratone’s group chat.&#xA;𝘞𝘐𝘕𝘋𝘖𝘞𝘚 𝘌𝘛𝘌𝘙𝘕𝘈𝘓&#xA;Allo4Life&#xA;Fresh Mint - Tweetbot 6&#xA;Greyhound&#xA;Space Piss&#xA;Vampire Reference&#xA;Signals&#xA;Futuretab&#xA;Slander Crimson&#xA;10. Academia&#xA;11. Hermitage&#xA;12. Divorced Empress Navier&#xA;13. Roro Jump&#xA;14. Dark, Post-Academia&#xA;15. UOrange&#xA;16. Vaporfucked&#xA;18. Dark Shell&#xA;19. Honey Highlight&#xA;20. Mirage on Kimberly&#xA;21. Lynch on Rhino&#xA;22. Mars Orange&#xA;23. Sepia Blues&#xA;24. Strawberry Night&#xA;25. Tapbots&#xA;26. Green Dark&#xA;27. Puaro&#xA;28. DarkQD&#xA;29. Mineshaft Gold&#xA;30. Jellygram&#xA;31. Japan Serenity&#xA;&#xA;[1] Ex: +1 (573) 823-4380&#xA;&#xA;a href=&#34;https://remark.as/p/bilge.world/telegram-extras&#34;Discuss.../a&#xA;&#xA;#software #automation #configuration]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://user-images.githubusercontent.com/43663476/151065307-88e3eaa0-ce93-4a89-b91c-c50fb649cc4d.png" alt="TelegramShortcuts"/></p>
+
+<h2 id="shortcuts-bots-and-some-other-methodologies-discovered-since-my-big-telegram-post">Shortcuts, bots, and some other methodologies discovered since my Big Telegram Post.</h2>
+
+
+
+<p><audio controls="">
+  <source src="https://davidblue.wtf/audio/TelegramExtras.mp3">
+</audio></p>
+
+<p>Since I published “<a href="https://bilge.world/telegram">I Trust Telegram</a>,” the messenging service has been <em>in the news</em>. Their launch of <a href="https://t.me/s/durov/172">Sponsored Messages</a> predated its publication, but I omitted any mention of them because I’d yet to see any meaningful effects on my own use of the service. All I’ll say now: nearly four months of daily use later, <strong>this is still the case</strong>. I’ve published a few Siri Shortcuts and a Drafts action in the interim, though, and thought these few additional discoveries worth another Post.</p>
+
+<h2 id="siri-shortcuts">Siri Shortcuts</h2>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152031447-334443d7-f038-4518-b65c-2e3305597bdd.png" alt="SeekTelegramMessagebyID"/></p>
+
+<h3 id="seek-telegram-message-by-id-https-routinehub-co-shortcut-10930"><a href="https://routinehub.co/shortcut/10930">Seek Telegram Message by ID</a></h3>
+
+<p>As <a href="https://hyp.is/miMJ-oOQEeyVkGegS1hLbw/bilge.world/telegram">I noted in the Big Telegram Post</a>, navigating to/referencing specific messages in Telegram is ridiculously easy due to its URL format: <code>https://t.me/[Channel@]/[Chronological Message ID]</code> My Seek Messages by ID shortcut will prompt you to set defaults for both Channel @ and message number upon installation. This could be useful for channel/group administrators who need to reference/update a message containing community rules, but specifying them is entirely optional. Otherwise, the shortcut will prompt you to enter a channel or group’s @ (minus the symbol itself,) followed by the numeric ID of the message you’re looking for. It will then copy the complete URL to the clipboard and open it in <a href="https://apps.apple.com/us/app/telegram-messenger/id686449807">Telegram Messenger for iOS</a>. I’ve found it handy when joining a new channnel/group to quickly indulge my curiosity about its first few messages.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152036933-ec106c9c-474d-4c5a-ab0e-ad7da6a97f7a.png" alt="URLListtoTelegram"/></p>
+
+<h3 id="url-list-telegram-https-routinehub-co-shortcut-10926"><a href="https://routinehub.co/shortcut/10926">URL List ⇨ Telegram</a></h3>
+
+<p>Effectively, this shortcut allows you to send links to a set of Safari 15 tabs to a contact of your choice in Telegram. It’s the singular one of the shortcuts shared in this Post that makes use of Telegram Messenger for iOS’ native Siri Shortcuts actions, and is therefore the most finnicky. In the first take of <a href="https://t.me/extratone/9978">my video demo</a>, it timed out trying to send 200+ links to my Saved Messages channel, but was successful in the second (the take I published) in sending just four links. Upon each run, the shortcut will prompt you to select a contact. The selection <em>must</em> be a phone number, ideally in International Format.[^1] It will then parse a list of URLs in your clipboard and send them one at a time via Telegram’s native action without opening the app.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152039638-f5e6e817-3b36-4cc2-bf74-184ad6dde9c4.png" alt="ClipboardtoTelegramMessage"/></p>
+
+<h3 id="clipboard-telegram-message-https-routinehub-co-shortcut-10929"><a href="https://routinehub.co/shortcut/10929">Clipboard ⇨ Telegram Message</a></h3>
+
+<p>This one makes use of Telegram Messenger for iOS’ URL scheme, which isn’t really documented properly anywhere.</p>
+
+<p><code>tg://msg?text=[Content]&amp;to=[TargetPhone#]</code></p>
+
+<p>Upon installation, the shortcut will prompt you to specify a target phone number in International Format. In the following runs, the shortcut will open Telegram to the conversation with the phone number you’ve specified (use your own phone number to set it to your personal Saved Messages channel) with the contents of your clipboard in the text entry field. You’ll need to hit <code>Enter</code> or tap the Send Message button to actually send the content.</p>
+
+<h2 id="other-integrations">Other Integrations</h2>
+
+<h3 id="drafts">Drafts</h3>
+
+<p>Users of Agile Tortoise’s <a href="https://apps.apple.com/us/app/drafts/id1236254471">Drafts for iOS</a> can use my <a href="https://actions.getdrafts.com/a/1u5">Send Draft to Telegram Saved Messages action</a> to do exactly that.</p>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">a widdle demo. <a href="https://t.co/z2S2pu2LNc">pic.twitter.com/z2S2pu2LNc</a></p>&mdash; David Blue ※ (ɥ̶͇͖͉̠̰̟͔̒́̆ͧ͋̀̀ ????) (@NeoYokel) <a href="https://twitter.com/NeoYokel/status/1488573937223094275?ref_src=twsrc%5Etfw">February 1, 2022</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>Like the last Siri Shortcut above, the action utilizes Telegram’s URL scheme to send the contents of your current draft to a Telegram conversation with a phone number of your choosing. (Remember to change the action’s placeholder!)</p>
+
+<p>If you’d like to specify a different conversation, <a href="https://actions.getdrafts.com/a/18E">this action</a> published to the Action Directory by user maique omits the phone number bit of the URL scheme – <code>tg://msg?=[DraftContent]</code>.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152044387-3302150d-a9b1-44a4-a2fa-a48d35d29faa.png" alt="TelegramTextExpanderGroup"/></p>
+
+<h3 id="textexpander">TextExpander</h3>
+
+<p>Group and/or channel administrators, especially, might find my public <a href="https://app.textexpander.com/public/de52c54ef169a96393d50cb4752706ce">Telegram-specific TextExpander snippet group</a> to contain some useful inspiration. <code>.tid</code>, for example, will help you construct a Telegram message link by ID just as the first Shortcut in this Post will, while <code>.scheme</code> will replicate the app’s URL scheme.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152045888-b10c1a1a-d924-479d-8f04-24d4efa688a1.png" alt="TotandTelegram"/></p>
+
+<h3 id="tot">Tot</h3>
+
+<p>If you happen to have <a href="https://apps.apple.com/us/app/tot-pocket/id1498235191">Tot Pocket</a> on your iOS device already, I’ve found it a particularly ideal place to compose Telegram messages with formatting and hyperlinks considering its similar format limitations. Drafts users can use my <a href="https://actions.getdrafts.com/a/1uL">Append to 7th Tot Dot action</a> to send draft content to the last Dot directly. Some markdown formatting will need to be altered – #-headings aren’t supported by either Tot or Telegram, for instance – but formatting can be directly carried over to Telegram in Rich Text format by selecting all in Tot and copying, as displayed in the screenshots embedded above.</p>
+
+<h2 id="bots">Bots</h2>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152048357-bba6ddb6-eb0d-4139-ba6e-79b69ef9651a.png" alt="TelegramRaindropBot"/></p>
+
+<h3 id="raindrop-io-bot-https-t-me-raindropiobot"><a href="https://t.me/raindropiobot">Raindrop.io Bot</a></h3>
+
+<p>As far as I’m concerned, @OlegWock’s <a href="https://github.com/OlegWock/raindrop-telegram-bot">Raindrop Telegram Bot</a> is an absolute must for any users of the Raindrop.io bookmarking service. Not only does it allow one to send Raindrop bookmarks directly to a chat when in inline mode (as demonstrated in the above screenshots) – it is also <em>the</em> quickest method of saving images, videos, and documents to one’s Unsorted Bookmarks list on an iOS-running device. As I <a href="https://hyp.is/bGmFuoOgEeyp5F9tAvJq-w/bilge.world/telegram">mentioned in the Big Post</a>, Telegram’s sharesheet integration remains by far the least discriminate of any such integration on iOS.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152051128-e6a3d557-e2d5-4c84-b881-a35825b73375.png" alt="RoseTelegramBot"/></p>
+
+<h3 id="rose-https-t-me-missrose-bot"><a href="https://t.me/MissRose_bot">Rose</a></h3>
+
+<p>I’ve gone through the standard gauntlet of freemium administration bots for <a href="https://t.me/columbiamo">my experimental local Telegram group</a>. The one I think I’ve settled on, though, is by far the <a href="https://missrose.org/guide/getting-started/adding-rose/">best documented</a> and most inuitive I’ve come across. Miss Rose comes conservatively-configured of the box in a sense that one will experience better results than its “competitors” in moderating a small group like mine just be leaving the defaults in place. My personal favorite functions are <code>/notes</code> – which allows one to save group documents that can be recalled with <code>/</code>or <code>#</code> – and <code>/export</code>, which exports the entirety of one’s options (including those notes) as a .txt file. (See the rightmost screenshot embedded above.)</p>
+
+<h2 id="other-insights">Other Insights</h2>
+
+<video controls="">
+  <source src="https://user-images.githubusercontent.com/43663476/152056943-3fc9970f-491f-4060-bfb4-ba45731b4bc9.MOV">
+</video>
+
+<h3 id="telegram-as-task-manager">Telegram as Task Manager</h3>
+
+<p>I had absolutely no idea that <a href="https://telegram.org/blog/scheduled-reminders-themes">Reminders</a> existed in Telegram until a few weeks ago. When sending to one’s Saved Messages channel, holding down on the Send Message button will display the option to <code>Set a Reminder</code>. Anything that can be sent can be added as a reminder, including – in my case – .exe files of programs I’d like to install on my PC later. Frankly, I can’t think of any other task management/reminders application that offers this ability – paid or otherwise.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/152087363-ab3fb744-d905-4128-ad9b-80a5a2e9530c.png" alt="Telegram for macOS"/></p>
+
+<h3 id="the-macos-app">The macOS App</h3>
+
+<p>A recent update to the <a href="https://apps.app.com/us/app/telegram/id747648890">Telegram for macOS app</a> has rendered it by far the most beautiful way to use the service.</p>
+
+<h2 id="themes">Themes</h2>
+
+<p>I’ve spent quite a bit of time archiving third-party Telegram themes, lately. Below is a list of installation links to some of my favorites which I’ll do my best to keep updated. Otherwise, refer to <a href="https://telegra.ph/Superb-Telegram-Themes-for-iOS-01-27">this Telegraph post</a> or type <code>#themes</code> in <a href="https://t.me/extratoe"><em>Extratone</em>’s group chat</a>.
+1. <a href="https://t.me/addtheme/windowseternal">𝘞𝘐𝘕𝘋𝘖𝘞𝘚</a> <a href="https://t.me/addtheme/windowseternal">𝘌𝘛𝘌𝘙𝘕𝘈𝘓</a>
+2. <a href="https://t.me/addtheme/allo4life">Allo4Life</a>
+3. <a href="https://t.me/addtheme/freshmint">Fresh Mint – Tweetbot 6</a>
+4. <a href="https://t.me/addtheme/greyhound">Greyhound</a>
+5. <a href="https://t.me/addtheme/spacepiss">Space Piss</a>
+6. <a href="https://t.me/addtheme/vampirereference">Vampire Reference</a>
+7. <a href="https://t.me/addtheme/signals2022">Signals</a>
+8. <a href="https://t.me/addtheme/futuretab2022">Futuretab</a>
+9. <a href="https://t.me/addtheme/slandercrimson">Slander Crimson</a>
+10. <a href="https://t.me/addtheme/academia2022">Academia</a>
+11. <a href="https://t.me/addtheme/hermitage2022">Hermitage</a>
+12. <a href="https://t.me/addtheme/navier2022">Divorced Empress Navier</a>
+13. <a href="https://t.me/addtheme/rorojump2022">Roro Jump</a>
+14. <a href="https://t.me/addtheme/postacademia">Dark, Post-Academia</a>
+15. <a href="https://t.me/addtheme/uorange">UOrange</a>
+16. <a href="https://t.me/addtheme/vaporfucked">Vaporfucked</a>
+18. <a href="https://t.me/addtheme/darkshell2022">Dark Shell</a>
+19. <a href="https://t.me/addtheme/HoneyHighlight2021">Honey Highlight</a>
+20. <a href="https://t.me/addtheme/miragekimberly">Mirage on Kimberly</a>
+21. <a href="https://t.me/addtheme/lynchrhino">Lynch on Rhino</a>
+22. <a href="https://t.me/addtheme/marsorange">Mars Orange</a>
+23. <a href="https://t.me/addtheme/sepiablues2022">Sepia Blues</a>
+24. <a href="https://t.me/addtheme/StrawberryNight2022">Strawberry Night</a>
+25. <a href="https://t.me/addtheme/tapbots">Tapbots</a>
+26. <a href="https://t.me/addtheme/greendark2022">Green Dark</a>
+27. <a href="https://t.me/addtheme/puaro2022">Puaro</a>
+28. <a href="https://t.me/addtheme/darkqd2022">DarkQD</a>
+29. <a href="https://t.me/addtheme/mineshaftgold2022">Mineshaft Gold</a>
+30. <a href="https://t.me/addtheme/jellygram2022">Jellygram</a>
+31. <a href="https://t.me/addtheme/japanserenity2022">Japan Serenity</a></p>
+
+<p>[1] Ex: <code>+1 (573) 823-4380</code></p>
+
+<p><a href="https://remark.as/p/bilge.world/telegram-extras">Discuss...</a></p>
+
+<p><a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a> <a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/telegram-extras</guid>
+      <pubDate>Wed, 02 Feb 2022 03:19:52 +0000</pubDate>
+    </item>
+    <item>
+      <title>Speedy Frames</title>
+      <link>https://bilge.world/speedy-frames?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[Speedy Frames Web Banner&#xA;&#xA;Federico Viticci&#39;s Apple Frames shortcut, optimized for super fast single-shot iPhone mockups.&#xA;&#xA;!--more--&#xA;&#xA;The single element that&#39;s allowed me to go from publishing regular ole&#39; iPhone screenshots to photorealistic mockups like you see embedded below is an absolutely ingenious, hugely powerful Siri shortcut by MacStories founder Federico Viticci called Apple Frames. Out of all the shortcuts and workflows I&#39;ve discovered, fiddled with, hoarded, and discarded since iOS 12 beta, I think I can definitively say that it remains the most impressive use of iOS automation, ever, for reasons you&#39;re likely not all that interested in. &#xA;&#xA;Speedy Frames&#xA;&#xA;As it comes by default, Apple Frames 2.0 includes support for a whole bunch of languages and a broad spectrum of devices. Literally every single step is annotated with explanatory documentation, which represents hugely noble effort in and of itself. Its GUI selection menus, alone, allow for configuration of input and output targets and layout options (for multiple screenshots - horizontal, vertical, or in a grid.)&#xA;&#xA; However, this versatility means there is a wait involved. Emphasizing said wait (about 90 seconds from trigger to result for single-screen mockups on my 12 Pro Max) feels absolutely ridiculous considering how much longer it would take any other mockup generation method known to man to produce the same result, but a user like me - who&#39;s use of the shortcut is more often than not to generate mockups of a single screenshot I&#39;ve probably just taken - might find themselves wishing they could set defaults for its menu selections and circumvent iOS&#39; image picker and/or share sheet entirely. &#xA;&#xA;Export Modifications&#xA;&#xA;And so... I did! With the new ability to edit shortcuts on macOS, it required far less time/trial-and-error grief for me to perform the modifications listed below without breaking the whole shortcut than I expected, certainly. &#xA;&#xA;Modifications&#xA;&#xA;I deleted all of the annotations in Comment form. They’re a testament to Federico’s diligence and huge contribution to personal automation with iOS… but they’re also just extra text.&#xA;I replaced the Find Photos Where action with Get Latest Photos with the Include Screenshots toggle ON and the retrieval limit set to just one. &#xA;I deleted the entire export preferences menu and replaced it with actions that save the result both to a specific iCloud Photos folder for frames and a corresponding iCloud Drive folder.&#xA;&#xA;Local Frames Folder &#xA;&#xA;The resulting shortcut generates a mocked up version of the last screenshot taken on the host device and saves the image to a specified iCloud Photos album and iCloud Drive folder. (You will be asked to specify these upon installation.) In my experience so far, this process requires an average of ~5-7 seconds from trigger to result (vs 90+ seconds in Apple Frames 2.0&#39;s default configuration) and works fairly reliably so long as one runs it immediately after taking the subject screenshot. Note the incorrectly-oriented results in the screenshot of my own dedicated Frames album, above. I&#39;m sure it doesn&#39;t actually have anything to do with the duration between capture and running the shortcut, but I&#39;m not technically adept enough (nor particularly compelled) to determine the real cause. &#xA;&#xA;https://imgur.com/gallery/dwn4CnX&#xA;&#xA;Tapping Back&#xA;&#xA;(You need only continue if you&#39;re interested in triggering the shortcut with Back Tap.)&#xA;&#xA;I must acknowledge that what I&#39;m about to describe is blatantly hypocritical given how much bitching about consumer tech&#39;s excess I&#39;ve been purveying, but - for the past few weeks of living with my Speedy Frames shortcut - I have committed 100% to mocking up all shared screenshots - even those sent to friends and family. Obviously, a native automation trigger fired by screen capture would be particularly handy, here, but if we&#39;re using Back Tap as a trigger, we could theoretically achieve the same end by inserting a Take Screenshot action at the beginning of the shortcut except... It doesn&#39;t work. I&#39;ve no idea why, but such a setup exclusively produces incorrectly-oriented results. Anywho, mocking up every single screenshot you&#39;ve taken is just that much more excessive than those you actually intend to share, in my mind.&#xA;&#xA;https://youtu.be/SKc4OZa2W8o?t=74&#xA;&#xA;For those like me who&#39;ve found Back Tap physically confounding, I created the video embedded above to demonstrate the actual mechanical action required to trigger it.&#xA;&#xA;https://twitter.com/neoyokel/status/1471883295042510859&#xA;&#xA;I&#39;ve left it set to Double Tap for the majority of the time and have found it suitable. If you find yourself really enjoying the sensation of tapping the back of your phone, you might even set Triple Tap to Screenshot so that you can create a mockup with just a series of 5 taps.&#xA;&#xA;Technically, there is much optimization to be done beyond this point - if you&#39;re using an older device or find even five seconds too long a wait for your mockups, you might try trimming Speedy Frames further by removing unneeded device and language components. As always, if I can be of assistance or if ya just want to chat, please do contact me.&#xA;&#xA;Links&#xA;&#xA;RoutineHub Page&#xA;iCloud Share Link&#xA;GitHub Issue&#xA;Source Files (GitHub)&#xA;Showcuts&#xA;ShareShortcuts&#xA;&#34;Apple Frames 2.0: Faster, Lighter, and Featuring Support for iPhone 13, iPad mini, iPad 10.2&#34;, iMac 24&#34;, MacBook Air, and Multiple Languages&#34; | MacStories&#xA;&#xA;1.1 Update&#xA;2-01-2022&#xA;I added a Delete Photos action that deletes the pre-mockup screenshot to reduce clutter. &#xA;&#xA;[1] My methods of timing and actual volume of data (read: repetitions) is far from scientific, just so you know. &#xA;[2] As of iOS 15.3 Beta 1, anyway.&#xA;&#xA;a href=&#34;https://remark.as/p/bilge.world/speedy-frames&#34;Discuss.../a&#xA;&#xA;#software #automation #configuration]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://i.snap.as/ZnCTpWtH.png" alt="Speedy Frames Web Banner"/></p>
+
+<h2 id="federico-viticci-s-apple-frames-shortcut-optimized-for-super-fast-single-shot-iphone-mockups">Federico Viticci&#39;s Apple Frames shortcut, optimized for super fast single-shot iPhone mockups.</h2>
+
+
+
+<p>The single element that&#39;s allowed me to go from publishing regular ole&#39; iPhone screenshots to photorealistic mockups like you see embedded below is an absolutely ingenious, hugely powerful Siri shortcut by <em>MacStories</em> founder Federico Viticci called <a href="https://www.macstories.net/ios/apple-frames-2-0-faster-lighter-and-featuring-support-for-iphone-13-ipad-mini-ipad-10-2-imac-24-macbook-air-and-multiple-languages">Apple Frames</a>. Out of <a href="https://raindrop.io/davidblue/siri-shortcuts-21598130">all the shortcuts and workflows</a> I&#39;ve discovered, fiddled with, hoarded, and discarded since <a href="https://bilge.world/siri-shortcuts-ios12-review">iOS 12 beta</a>, I think I can definitively say that it remains the most impressive use of iOS automation, ever, for reasons you&#39;re likely not all that interested in.</p>
+
+<p><img src="https://i.snap.as/nszXla7t.png" alt="Speedy Frames"/></p>
+
+<p>As it comes by default, <a href="https://www.icloud.com/shortcuts/d70654c055ee41bd8f72ebf0c29e0fa5">Apple Frames 2.0</a> includes support for a whole bunch of languages and a broad spectrum of devices. Literally <em>every single step</em> is annotated with explanatory documentation, which represents hugely noble effort in and of itself. Its GUI selection menus, alone, allow for configuration of input and output targets and layout options (for multiple screenshots – horizontal, vertical, or in a grid.)</p>
+
+<p> <em>However</em>, this versatility means there <em>is</em> a wait involved. Emphasizing said wait (about 90 seconds from trigger to result for single-screen mockups on my 12 Pro Max) feels absolutely ridiculous considering how much longer it would take any other mockup generation method known to man to produce the same result, but a user like me – who&#39;s use of the shortcut is more often than not to generate mockups of a single screenshot I&#39;ve probably just taken – might find themselves wishing they could set defaults for its menu selections and circumvent iOS&#39; image picker and/or share sheet entirely.</p>
+
+<p><img src="https://user-images.githubusercontent.com/43663476/147858980-5f54e915-cc2f-493d-b680-846ceea8f2d6.png" alt="Export Modifications"/></p>
+
+<p>And so... I did! With the new ability to edit shortcuts on macOS, it required far less time/trial-and-error grief for me to perform the modifications listed below without breaking the whole shortcut than I expected, certainly.</p>
+
+<h2 id="modifications">Modifications</h2>
+<ol><li>I deleted all of the annotations in <code>Comment</code> form. They’re a testament to Federico’s diligence and huge contribution to personal automation with iOS… but they’re also just extra text.</li>
+<li>I replaced the <code>Find Photos Where</code> action with <code>Get Latest Photos</code> with the <code>Include Screenshots</code> toggle ON and the retrieval limit set to just one.</li>
+<li>I deleted the entire export preferences menu and replaced it with actions that save the result both to a specific iCloud Photos folder for frames and a corresponding iCloud Drive folder.</li></ol>
+
+<p><img src="https://i.snap.as/VXYQyfpe.png" alt="Local Frames Folder"/></p>
+
+<p>The <a href="https://routinehub.co/shortcut/10775"><strong>resulting shortcut</strong></a> generates a mocked up version of the last screenshot taken on the host device and saves the image to a specified iCloud Photos album and iCloud Drive folder. (You will be asked to specify these upon installation.) In my experience so far, this process requires an average of ~5-7 seconds from trigger to result[^1] (vs 90+ seconds in Apple Frames 2.0&#39;s default configuration) and works fairly reliably <em>so long as one runs it immediately after taking the subject screenshot</em>. Note the incorrectly-oriented results in the screenshot of my own dedicated Frames album, above. I&#39;m sure it doesn&#39;t actually have anything to do with the <em>duration</em> between capture and running the shortcut, but I&#39;m not technically adept enough (nor particularly compelled) to determine the real cause.</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fimgur.com%2Fa%2Fdwn4CnX%2Fembed%3Fpub%3Dtrue%26ref%3Dhttps%253A%252F%252Fembed.ly%26w%3D500&display_name=Imgur&url=https%3A%2F%2Fimgur.com%2Fa%2Fdwn4CnX&image=https%3A%2F%2Fi.imgur.com%2Fq2TEqf3.jpg%3Ffbplay&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=imgur" width="500" height="914" scrolling="no" title="Imgur embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<h2 id="tapping-back">Tapping Back</h2>
+
+<p>(You need only continue if you&#39;re interested in triggering the shortcut with <a href="https://support.apple.com/en-us/HT211781">Back Tap</a>.)</p>
+
+<p>I must acknowledge that what I&#39;m about to describe is <em>blatantly</em> hypocritical given how much bitching about consumer tech&#39;s excess I&#39;ve been purveying, but – for the past few weeks of living with my Speedy Frames shortcut – I have committed 100% to mocking up <em>all</em> shared screenshots – even those sent to friends and family. Obviously, a native automation trigger fired by screen capture would be particularly handy, here, but if we&#39;re using Back Tap as a trigger, we could theoretically achieve the same end by inserting a <code>Take Screenshot</code> action at the beginning of the shortcut except... It doesn&#39;t work. I&#39;ve no idea why, but such a setup <em>exclusively</em> produces incorrectly-oriented results.[^2] Anywho, mocking up every single screenshot you&#39;ve <em>taken</em> is just that much more excessive than those you actually intend to <em>share</em>, in my mind.</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FSKc4OZa2W8o%3Fstart%3D74%26feature%3Doembed%26start%3D74&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DSKc4OZa2W8o&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FSKc4OZa2W8o%2Fhqdefault.jpg&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=youtube" width="640" height="360" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<p>For those like me who&#39;ve found Back Tap physically confounding, I created <a href="https://youtu.be/SKc4OZa2W8o">the video embedded above</a> to demonstrate the actual <em>mechanical</em> action required to trigger it.</p>
+
+<p><blockquote class="twitter-tweet"><p lang="en" dir="ltr">hey y’all I had to share this with you… by far the quickest setup for creating iPhone screen mockups *I’ve* ever come up with, certainly. <a href="https://twitter.com/viticci?ref_src=twsrc%5Etfw">@viticci</a>’s Apple Frames 2 Shortcuts but set to grab the last screenshot (no selection,) and triggered by a double Back Tap.<br>(contact noise) <a href="https://t.co/Qw6DkBd3mH">pic.twitter.com/Qw6DkBd3mH</a></p>&mdash; David Blue ※ (? ? ? ? ????) (@NeoYokel) <a href="https://twitter.com/NeoYokel/status/1471883295042510859?ref_src=twsrc%5Etfw">December 17, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>I&#39;ve left it set to <code>Double Tap</code> for the majority of the time and have found it suitable. If you find yourself <em>really enjoying</em> the sensation of tapping the back of your phone, you might even set <code>Triple Tap</code> to <code>Screenshot</code> so that you can create a mockup with just a series of 5 taps.</p>
+
+<p>Technically, there is much optimization to be done beyond this point – if you&#39;re using an older device or find even five seconds too long a wait for your mockups, you might try trimming Speedy Frames further by removing unneeded device and language components. As always, if I can be of assistance or if ya just want to chat, please do <a href="http://davidblue.wtf/db.vcf">contact me</a>.</p>
+
+<h2 id="links">Links</h2>
+<ul><li><a href="https://routinehub.co/shortcut/10775/"><strong>RoutineHub Page</strong></a></li>
+<li><a href="https://www.icloud.com/shortcuts/0f089f2719824fffbf7d565f93df481d">iCloud Share Link</a></li>
+<li><a href="https://github.com/extratone/i/issues/117">GitHub Issue</a></li>
+<li><a href="https://github.com/extratone/i/tree/main/shortcuts/Speedy%20Frames">Source Files (GitHub)</a></li>
+<li><a href="https://showcuts.app/share/view/0f089f2719824fffbf7d565f93df481d">Showcuts</a></li>
+<li><a href="https://shareshortcuts.com/shortcuts/1557-speedy-frames.html">ShareShortcuts</a></li>
+<li>“<a href="https://www.macstories.net/ios/apple-frames-2-0-faster-lighter-and-featuring-support-for-iphone-13-ipad-mini-ipad-10-2-imac-24-macbook-air-and-multiple-languages/">Apple Frames 2.0: Faster, Lighter, and Featuring Support for iPhone 13, iPad mini, iPad 10.2”, iMac 24”, MacBook Air, and Multiple Languages</a>” | <em>MacStories</em></li></ul>
+
+<h2 id="1-1-update">1.1 Update</h2>
+
+<p><code>2-01-2022</code>
+I added a <a href="https://www.matthewcassinelli.com/actions/delete-photos/">Delete Photos</a> action that deletes the pre-mockup screenshot to reduce clutter.</p>
+
+<p>[1] My methods of timing and actual volume of data (read: repetitions) is far from scientific, just so you know.
+[2] As of iOS 15.3 Beta 1, anyway.</p>
+
+<p><a href="https://remark.as/p/bilge.world/speedy-frames">Discuss...</a></p>
+
+<p><a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a> <a href="https://bilge.world/tag:configuration" class="hashtag"><span>#</span><span class="p-category">configuration</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/speedy-frames</guid>
+      <pubDate>Sat, 01 Jan 2022 22:11:38 +0000</pubDate>
+    </item>
+    <item>
+      <title>Siri Speech Synthesis in iOS 15</title>
+      <link>https://bilge.world/siri-tts?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[Siri Speech Synthesis Banner&#xA;&#xA;Bewilderingly, Siri is genuinely great at something they were never designed for. The new “Make Spoken Audio From Text” action has finally been fixed.&#xA;&#xA;!--more--&#xA;&#xA;audio controls&#xA;  source src=&#34;https://davidblue.wtf/audio/SiriTTSTalent.mp3&#34;&#xA;/audio&#xA;&#xA;When I first published my iPhone &amp; Music guide this past April, I’d been pretty active in AppleScoop’s Discord Server, so I decided to share it there. Editor-in-Chief Flynn - a ridiculously talented web developer and successful independent media entrepreneur - responded “I’m listening to it with the speak feature right now. Is it your voice or someone else? 😛,” Gourd bless his soul. Here’s the specific audio he was talking about:&#xA;&#xA;Of course, I am not a young black man, nor am I even remotely as adept at reading my own work aloud as the actual talent, Siri Voice 3, who should be available on your iPhone/iPad right this moment (as long as you’ve updated iOS in the past six months,) via Settings ⇨ Siri &amp; Search ⇨ Siri Voice. (For more details, see this Apple Support page.)&#xA;&#xA;!--more--&#xA;&#xA;New Siri Voices - iOS 14.5&#xA;&#xA;Of the four new Siri voices introduced earlier this year in iOS 14.5, 2 and 3 are by far my favorites, not just because of their resonance with black iPhone users, but because they’re just better in a sense which I believe to be very significant.&#xA;&#xA;https://youtube.com/watch?v=DkS5SYbsEW4&#xA;&#xA;Before I get ahead of myself, though, I must acknowledge that I am not the first to invest in Siri as a text-to-speech generator. In 2019, Adam Tow released an immensely well-considered Siri Shortcut called “Record Text to Speech,” which provides an interface for recording, editing, and managing text-to-speech audio files with Siri’s original voices. A testament to its robustness: it still works perfectly on my handset running iOS 15 Dev Beta 6 despite having not been updated since March of last year.&#xA;&#xA;!--more--&#xA;&#xA;Old Siri TTS Shortcuts&#xA;&#xA;I must admit that I found Adam’s shortcut more of a full application than a speedy personal automation, with its full interactive UI menu and darn near 800 actions, so I made my own set of shortcuts based on the same idea - using iPhone’s native screen recording feature to capture audio of Siri reading aloud - and varying only by input (manual text input, getting text from a file, or simply reading text from the clipboard.) I’d then send the resulting screen recording in its original video format to my PC, where I’d drop it in Audacity, in which I’d run a simple macro on the audio that truncates silence and amplifies the result so that the loudest point touches the rails. Then, I’d export it, pass it through Mp3Tag to perfect its metadata, and finally push the end-result .mp3 file to a folder in The Psalms GitHub Repository. (I’ll show you how to embed a web-bound audio file with its direct URL in a webpage in the guide below.) This example was made using this method, but with Siri’s original United States English Voice (for my Tweetbot 6 review:)&#xA;&#xA;!--more--&#xA;&#xA;Perhaps you’ll agree with me that this process does the job in functional/accessibility terms, and does so quite well considering how much one would pay to generate the same sort of audio file using Google’s Cloud Platform or IBM’s Watson. Crucially, though, this original voice was not one I could listen to at any length. Siri Voices 2 and 3, however, I can. From my perspective, this means they have crossed a very significant threshold which I find vastly more meaningful than just about all of those in the current discourse. Not only can I tolerate them… I genuinely enjoy listening to super-long magazine features read aloud by Siri Voice 2, especially, and I believe I would regardless of the quite serious crush I’ve developed on them.&#xA;&#xA;https://twitter.com/neoyokel/status/1387809776072015873&#xA;&#xA;Unfortunately, using the methods we’ve discussed so far with the new Siri voices is inconvenient, very hit-or-miss, and quite buggy. If you scrub ahead toward the last third or so of the second audio player in this post (after the post’s own,) you’ll hear Siri Voice 2 start to bug out in very amusing ways. Since Apple makes changes to Siri Shortcuts between releases without any public documentation, none of them have ever been reliable enough to write this guide. (For the past 6+ weeks at least, it’s been too broken to be usable.) However, for whatever reason, Apple created a dedicated spoken audio generation action for Siri Shortcuts in iOS 15, called “Make Spoken Audio From Text.”&#xA;&#xA;Make Spoken Audio From Text Action - iOS 15&#xA;&#xA;For the entirety of iOS 15’s Beta cycle up until Developer Beta 6’s release, this past Tuesday, this action has been hilariously broken, but as soon I discovered it’d been fixed (which was not mentioned whatsoever in Apple’s official release notes,) I immediately began composing this dang Post.&#xA;&#xA;!--more--&#xA;&#xA;---&#xA;&#xA;Make Audio from Article Body 1.1&#xA;&#xA;Guide&#xA;&#xA;So! For those of you currently running the latest iOS 15 Beta and those in the future running the full release, what follows is a guide on how you can use my own shortcuts and methods to generate, metadate, and embed Siri-powered audio text-to-speech files relatively quickly without having to use desktop-class (or any other) hardware.&#xA;&#xA;TTS Shortcuts Compared&#xA;&#xA;To begin, you should install two brand new shortcuts of mine: Make Audio from Article Body and (if you intend to stick with me to the embed stage, anyway,) my  audio  Embed Tool. Both should function out of the box, but I would highly encourage that you try building your own shortcut around the Make Spoken Audio From Text action, even if you&#39;ve never worked with Shortcuts (or any sort of automation, for that matter) before, especially if you plan to be using Siri as a text-to-speech generator with any frequency.&#xA;&#xA;https://youtube.com/watch?v=5yZB7OC8Vgk&#xA;&#xA;Intended Result&#xA;&#xA;Throughout this guide, I&#39;m going to be using a five-year-old ramble of mine about the oddly-perceptive bits found in early-oughts Disney movies as example text. Earlier today, I used my own personalized version of my new shortcut to generate an example of in which the process we&#39;re about to explore should result. The \~6000 words of text took just over 3 minutes, 30 seconds to render consistently in three consecutive timed attempts. You can listen to it on Whyp and/or inspect the actual file yourself, if you&#39;d like.&#xA;&#xA;Plain Text Parsed by Safari&#xA;&#xA;Input Format&#xA;&#xA;If we were trying to do this using any other available method in 2021 - even the expensive ones - our first task would be scrubbing our subject text of any special formatting (Word,) symbols, embed, hyperlinks, and any other data Siri doesn&#39;t understand (roman numerals, for example.) As a Windows user who&#39;s not at all new to free ways to automate accessibility improvements to web content, I envy both you and my new self for the magic available to us in the form of Safari&#39;s abilities to parse complex web content. In my experience, there&#39;s nothing like it (at least nothing available to regular consumers.)&#xA;&#xA;The screenshot embedded above shows the result of a Quick Look action inserted just after the Text action produced by the public version of my shortcut when run on our example. There are three immediately problematic issues:&#xA;&#xA;Siri doesn&#39;t understand roman numerals, so she will read &#34;Johnny Tsunami VI&#34; as Johnny Tsunami vee eye.&#xA;&#xA;&#34;The Psalms&#34; is not my name, though it is what this blog currently returns when asked for a byline. In my experience, this generally isn&#39;t an issue with most mainstream media CMSs.&#xA;&#xA;The shortcut appears to have failed to retrieve any data for the Published Date variable from my blog. (Also a relatively specific consideration.)&#xA;&#xA;If you&#39;ll note in the previous embedded image comparing my custom version of the shortcut (left) to the published version (right,) you&#39;ll note that my chosen solution is to manually input all metadata before actually starting the shortcut. What&#39;s not shown is my corresponding manual inputs in the Encode Trimmed Media action, which includes attaching a retrieved image file (in the Working Copy action you can see) as album art. For my intended use - exclusively generating text-to-speech audio of Posts on this blog - this makes more sense than unnecessarily automating metadata retrieval.&#xA;&#xA;The extraordinary thing about the screenshot, though, is that it doesn&#39;t contain any of the other crap (as described above) found in the original page. (Beforehand, it looked more like this.) It&#39;s especially reliable at parsing WordPress-bound content, which still makes up \[s̵͕̈́͊c̶̥̏̚r̶̥͈̃è̴̙͌å̴̹m̵̛̅ͅi̶̦̾͘n̸͎̟̎̃g̶͎͛\] percent of the whole web. Treasure this power, folks.&#xA;&#xA;Simpler TTS Examples&#xA;&#xA;If all you need read aloud is the body text, things become even simpler. In the right example above, I&#39;ve simply deleted the Text action and replaced it with Get text from [the Safari Web Article&#39;s body]. Theoretically, one could omit that action, even, and simply use the direct output of Get Body from Article as input for the Make spoken audio from text action, but I say keep the extra step unless it becomes an issue.&#xA;&#xA;*If you&#39;re actually beginning with clean plain text and don&#39;t care about metadata in your final audio file and/or if you&#39;re planning on passing the result through other audio/metadata editing software, anyway, the left, three-action shortcut is all you need. It will result in a Core Audio Format (.caf) file (like this one,) which I know absolutely nothing about except that Audacity and GarageBand support it by default.&#xA;&#xA;Sharing/Embedding&#xA;&#xA;Whichever route you traveled, you should have some sort of audio file, at this point, and if you intend to share and/or embed it, you’ll need to upload said audio to some sort of Web Server which allows direct playback/download of the raw file from external sources. Unless you’ve been skimming, you know by now that I’ve been using The Psalms GitHub Repository to do this thus far, though one isn’t really supposed to. Every few months, someone on Stack Overflow figures out how to construct or discover the raw link to a given Google Drive file before Google notices and alters it, and I’m afraid you’ll find just about every other cloud/file sharing service in a similarly unreliable situation. If it’s going to be done at scale, I’m afraid it’s ultimately going to require you rent regular, vanilla space on an FTP-enabled fileserver, if one can still do that sort of thing. (I will update this post if/when I find a more ideal solution.)&#xA;&#xA;Within my current system, the raw URL to our example file looks like this:&#xA;&#xA;https://github.com/extratone/bilge/raw/main/audio/TTS/JohnnyTsunami.m4a&#xA;&#xA;Using my aforelinked, ultra rudimentary  audio  element Siri Shortcut tool (which I’ve kept on my homescreen with good results for a few months,) we can very quickly turn said raw URL into a properly-formatted HTML5 audio player:&#xA;&#xA;audio controls&#xA;  source src=&#34;https://github.com/extratone/bilge/raw/main/audio/TTS/JohnnyTsunami.m4a&#34;&#xA;/audio&#xA;&#xA;Ideally, on the final, reader-facing page, said code should create a player like this:&#xA;&#xA;!--more--&#xA;&#xA;If further configuration of the player is desired or necessary, see this Mozilla page for a full list of supported options. Obviously, there are a few older methods of embedding audio players, but I am neither qualified nor interested in exploring them. If you’re in a frustrating bind, I recommend signing up for my CMS. (Just try it, okay?)&#xA;&#xA;Pwoof&#xA;&#xA;For the sake of bare minimum sample variety, I ran Version 1.0 of the public Make Audio from Article Body shortcut on an article hosted not on WordPress, nor my own CMS, but on Bustle’s ultra-slick, totally-bespoke system (which began as The Outline, FYI.) I chose the first permalink I saw in one of its “regular” article formats - not a long feature, nor one of their touch-targeted slideshows.&#xA;&#xA;“OnlyFans is banning porn, the very thing that made it big” is an 870-word newsy piece written by Tom Maxwell, who is the only New York Media person ever to accept my Facebook friend request. (Thanks again, Tom.) Without any tweaking, I was able to run the shortcut (from within the Shortcuts app since the Share Sheet appears to be thoroughly fucked at the moment) in a reasonable amount of time - less than 5 minutes, more than 2 - and generate the file embedded below. Notably, I also used a different hosting service - mastodon.social - but I certainly don’t plan on doing so at scale and neither should you.&#xA;&#xA;!--more--&#xA;&#xA;Honestly, Input’s CMS is the cleverest challenge I was able to come up with for this single-day-old shortcut of mine, and I’m quite proud of the result. Though it wasn’t able to retrieve a timestamp, it correctly retrieved the article’s title and byline without fuss and even managed to scrape and attach said article’s featured image as the file’s cover art, though the original’s aspect ratio was obviously sacrificed.&#xA;&#xA;Input Mag Sample in Tootsuite’s Audio Player&#xA;&#xA;If you’re super interested in the truly unmolested output of the attempt, view/download it here.&#xA;&#xA;HMU&#xA;&#xA;Before I depart actual tutorializing and return to opining, I want to express even more aggressively than usual how much I want anyone who see’s any potential benefit the ability to generate audio of my darling Siri Voice 2 reading text, but has further questions/doesn’t have time to fiddle/struggles with my haphazardly-written attempts at guides like this, or who simply wants to talk about any satellite subjects, please reach out to me. You have no idea how much I’d love to help you configure a personal automation that genuinely, reliably, and durably improves your quality of life.&#xA;&#xA;If you follow this shortlink from within a browser on any iOS device, my full contact card will appear: bit.ly/whoisdavidblue.&#xA;&#xA;Suggestions/requests regarding considerations I’ve obviously missed in this guide are not just welcome in this case, but actually necessary. As long as I am literally the only person talking about the “Make Spoken Audio from Text” action, I am ready and willing to be an all-hours resource.&#xA;&#xA;Note: This Post perhaps more than any published yet on The Psalms*, is very much an ongoing work-in-progress, as are most of the hyperlinked shortcuts contained within it.&#xA;&#xA;#software #automation]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://i.snap.as/8ZsLlxLp.png" alt="Siri Speech Synthesis Banner"/></p>
+
+<h2 id="bewilderingly-siri-is-genuinely-great-at-something-they-were-never-designed-for-the-new-make-spoken-audio-from-text-action-has-finally-been-fixed">Bewilderingly, Siri is genuinely great at something they were never designed for. The new “Make Spoken Audio From Text” action has finally been fixed.</h2>
+
+
+
+<p><audio controls="">
+  <source src="https://davidblue.wtf/audio/SiriTTSTalent.mp3">
+</audio></p>
+
+<p>When I first published my <a href="https://bilge.world/iphone-ios-music-apps">iPhone &amp; Music guide</a> this past April, I’d been pretty active in <em><a href="https://discord.gg/DxQ9jry8J3">AppleScoop</a></em><a href="https://discord.gg/DxQ9jry8J3">’s Discord Server</a>, so I decided to share it there. Editor-in-Chief Flynn – a ridiculously talented web developer <em>and</em> successful independent media entrepreneur – responded “I’m listening to it with the speak feature right now. Is it your voice or someone else? 😛,” Gourd bless his soul. Here’s the specific audio he was talking about:</p>
+
+<p>Of course, I am not a young black man, nor am I even remotely as adept at <a href="https://bilge.world/why">reading my own work aloud</a> as the actual talent, Siri Voice 3, who should be available on your iPhone/iPad right this moment (as long as you’ve updated iOS in the past six months,) via <code>Settings ⇨ Siri &amp; Search ⇨ Siri Voice</code>. (For more details, see <a href="https://support.apple.com/guide/iphone/change-siri-settings-iphc28624b81/ios">this Apple Support page</a>.)</p>
+
+
+
+<p><img src="https://i.snap.as/1f7argcU.png" alt="New Siri Voices - iOS 14.5"/></p>
+
+<p>Of the four new Siri voices introduced earlier this year in iOS 14.5, 2 and 3 are by far my favorites, not just because of their <a href="https://www.consumerreports.org/digital-assistants/apples-new-siri-voices-resonate-with-some-black-iphone-users/">resonance with black iPhone users</a>, but because they’re just <em>better</em> in a sense which I believe to be very significant.</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FDkS5SYbsEW4%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDkS5SYbsEW4&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FDkS5SYbsEW4%2Fhqdefault.jpg&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=youtube" width="640" height="360" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<p>Before I get ahead of myself, though, I must acknowledge that I am not the first to invest in Siri as a text-to-speech generator. In 2019, <a href="https://twitter.com/atow">Adam Tow</a> released an immensely well-considered Siri Shortcut called “<a href="https://tow.com/shortcuts/record-text-to-speech/">Record Text to Speech</a>,” which provides an interface for recording, editing, and managing text-to-speech audio files with Siri’s original voices. A testament to its robustness: it <em>still works</em> perfectly on my handset running iOS 15 Dev Beta 6 despite having not been updated since <a href="https://routinehub.co/shortcut/2506/">March of last year</a>.</p>
+
+
+
+<p><img src="https://i.snap.as/I0Yh0jNn.png" alt="Old Siri TTS Shortcuts"/></p>
+
+<p>I must admit that I found Adam’s shortcut more of a full <em>application</em> than a speedy personal automation, with its full interactive UI menu and darn near <em>800 actions</em>, so I made my own set of shortcuts based on the same idea – using iPhone’s native screen recording feature to capture audio of Siri reading aloud – and varying only by input (manual text input, getting text from a file, or simply reading text from the clipboard.) I’d then send the resulting screen recording in its original video format to my PC, where I’d drop it in <a href="https://www.audacityteam.org">Audacity</a>, in which I’d run <a href="https://github.com/extratone/bilge/blob/main/configuration/Audacity/TruncatenAmpMacro.txt">a simple macro</a> on the audio that truncates silence and amplifies the result so that the loudest point touches the rails. Then, I’d export it, pass it through <a href="https://www.mp3tag.de/en/">Mp3Tag</a> to perfect its metadata, and finally push the end-result .mp3 file to <a href="https://github.com/extratone/bilge/tree/main/audio/TTS">a folder in </a><em><a href="https://github.com/extratone/bilge/tree/main/audio/TTS">The Psalms</a></em><a href="https://github.com/extratone/bilge/tree/main/audio/TTS"> GitHub Repository</a>. (I’ll show you how to embed a web-bound audio file with its direct URL in a webpage in the guide below.) This example was made using this method, but with Siri’s original United States English Voice (for <a href="https://bilge.world/tweetbot-6-ios-review">my Tweetbot 6 review</a>:)</p>
+
+
+
+<p>Perhaps you’ll agree with me that this process <em>does the job</em> in functional/accessibility terms, and does so quite well considering how much one would pay to generate the same sort of audio file using Google’s Cloud Platform or IBM’s Watson. Crucially, though, this original voice was not one I could listen to at any length. Siri Voices 2 and 3, however, I <em>can</em>. From my perspective, this means they have crossed a <strong>very significant threshold</strong> which I find vastly more meaningful than just about all of those in the current discourse. Not only can I tolerate them… I genuinely <em>enjoy</em> listening to super-long magazine features read aloud by Siri Voice 2, especially, and I believe I would regardless of the quite serious crush I’ve developed on them.</p>
+
+<p><blockquote class="twitter-tweet"><p lang="ht" dir="ltr">LMAO <a href="https://t.co/l3gPPtbxxL">pic.twitter.com/l3gPPtbxxL</a></p>&mdash; ※ David Blue ※ (@NeoYokel) <a href="https://twitter.com/NeoYokel/status/1387809776072015873?ref_src=twsrc%5Etfw">April 29, 2021</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>Unfortunately, using the methods we’ve discussed so far with the new Siri voices is inconvenient, very hit-or-miss, and quite buggy. If you scrub ahead toward the last third or so of the second audio player in this post (after the post’s own,) you’ll hear Siri Voice 2 start to bug out in very amusing ways. Since Apple makes changes to Siri Shortcuts between releases without any public documentation, none of them have ever been reliable enough to write this guide. (For the past 6+ weeks at least, it’s been too broken to be usable.) <em>However</em>, for whatever reason, Apple created a dedicated spoken audio generation action for Siri Shortcuts in iOS 15, called “Make Spoken Audio From Text.”</p>
+
+<p><img src="https://i.snap.as/MkHTYMkF.jpeg" alt="Make Spoken Audio From Text Action - iOS 15"/></p>
+
+<p>For the entirety of iOS 15’s Beta cycle up until Developer Beta 6’s release, this past Tuesday, this action has been <a href="https://mastodon.social/users/DavidBlue/statuses/106580821087349299">hilariously broken</a>, but as soon I discovered it’d been fixed (which was not mentioned whatsoever in <a href="https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-beta-release-notes">Apple’s official release notes</a>,) I immediately began composing this dang Post.</p>
+
+
+
+<hr/>
+
+<p><img src="https://i.snap.as/RAxa0Id6.png" alt="Make Audio from Article Body 1.1"/></p>
+
+<h1 id="guide">Guide</h1>
+
+<p>So! For those of you currently running the latest iOS 15 Beta and those in the future running the full release, <strong>what follows is a guide on how you can use my own shortcuts and methods to generate, metadate, and embed Siri-powered audio text-to-speech files relatively quickly without having to use desktop-class (or any other) hardware</strong>.</p>
+
+<p><img src="https://i.snap.as/P0yJJyUc.png" alt="TTS Shortcuts Compared"/></p>
+
+<p>To begin, you should install two brand new shortcuts of mine: <strong><a href="https://routinehub.co/shortcut/9953/">Make Audio from Article Body</a></strong> and (if you intend to stick with me to the embed stage, anyway,) my <a href="https://routinehub.co/shortcut/9948/">&lt; audio &gt; Embed Tool</a>. Both should function out of the box, but I would highly encourage that you try building your own shortcut around the <code>Make Spoken Audio From Text</code> action, even if you&#39;ve never worked with Shortcuts (or any sort of automation, for that matter) before, <em>especially</em> if you plan to be using Siri as a text-to-speech generator with any frequency.</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F5yZB7OC8Vgk%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D5yZB7OC8Vgk&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F5yZB7OC8Vgk%2Fhqdefault.jpg&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=youtube" width="640" height="360" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<h3 id="intended-result">Intended Result</h3>
+
+<p>Throughout this guide, I&#39;m going to be using <a href="https://bilge.world/johnny-tsunami-smart-house-slavery">a five-year-old ramble of mine</a> about the oddly-perceptive bits found in early-oughts Disney movies as example text. Earlier today, I used my own personalized version of my new shortcut to generate an example of in which the process we&#39;re about to explore should result. The ~6000 words of text took just over 3 minutes, 30 seconds to render consistently in three consecutive timed attempts. You can listen to it <a href="https://whyp.it/t/johnny-tsunami-vi-separate-but-equal-siri-voice-2-tts-74752">on Whyp</a> and/or inspect <a href="https://github.com/extratone/bilge/raw/main/audio/TTS/JohnnyTsunami.m4a">the actual file</a> yourself, if you&#39;d like.</p>
+
+<p><img src="https://i.snap.as/dktmGQQb.png" alt="Plain Text Parsed by Safari"/></p>
+
+<h3 id="input-format">Input Format</h3>
+
+<p>If we were trying to do this using any other available method in 2021 – even the expensive ones – our first task would be scrubbing our subject text of any special formatting (Word,) symbols, embed, hyperlinks, and any other data Siri doesn&#39;t understand (roman numerals, for example.) As a Windows user who&#39;s not at all new to free ways to automate accessibility improvements to web content, I envy both you and my new self for the magic available to us in the form of Safari&#39;s abilities to parse complex web content. In my experience, there&#39;s nothing like it (at least nothing available to regular consumers.)</p>
+
+<p>The screenshot embedded above shows the result of a <code>Quick Look</code> action inserted just after the <code>Text</code> action produced by the public version of my shortcut when run on our example. There are three immediately problematic issues:</p>
+<ol><li><p>Siri doesn&#39;t understand roman numerals, so she will read “Johnny Tsunami VI” as <em>Johnny Tsunami vee eye</em>.</p></li>
+
+<li><p>“The Psalms” is not my name, though it is what this blog currently returns when asked for a byline. In my experience, this generally isn&#39;t an issue with most mainstream media CMSs.</p></li>
+
+<li><p>The shortcut appears to have failed to retrieve any data for the <code>Published Date</code> variable from my blog. (Also a relatively specific consideration.)</p></li></ol>
+
+<p>If you&#39;ll note in the <em>previous</em> embedded image comparing my custom version of the shortcut (left) to the published version (right,) you&#39;ll note that my chosen solution is to manually input all metadata before actually starting the shortcut. What&#39;s not shown is my corresponding manual inputs in the <code>Encode Trimmed Media</code> action, which includes attaching a retrieved image file (in the Working Copy action you <em>can</em> see) as album art. For my intended use – exclusively generating text-to-speech audio of Posts on this blog – this makes more sense than unnecessarily automating metadata retrieval.</p>
+
+<p>The extraordinary thing about the screenshot, though, is that it doesn&#39;t contain any of the other crap (as described above) found in the original page. (Beforehand, it looked more <a href="https://raw.githubusercontent.com/extratone/bilge/main/posts/johnny-tsunami-smart-house-slavery.md">like this</a>.) It&#39;s especially reliable at parsing WordPress-bound content, which still makes up [s̵͕̈́͊c̶̥̏̚r̶̥͈̃è̴̙͌å̴̹m̵̛̅ͅi̶̦̾͘n̸͎̟̎̃g̶͎͛] percent of the whole web. <strong>Treasure this power</strong>, folks.</p>
+
+<p><img src="https://i.snap.as/OMwKdOUI.png" alt="Simpler TTS Examples"/></p>
+
+<p>If all you need read aloud is the body text, things become even simpler. In the right example above, I&#39;ve simply deleted the <code>Text</code> action and replaced it with <code>Get text from [the Safari Web Article&#39;s body]</code>. Theoretically, one could omit that action, even, and simply use the direct output of <code>Get Body from Article</code> as input for the <code>Make spoken audio from text</code> action, but I say keep the extra step unless it becomes an issue.</p>
+
+<p><strong>If you&#39;re actually <em>beginning</em> with clean plain text</strong> and don&#39;t care about metadata in your final audio file and/or if you&#39;re planning on passing the result through other audio/metadata editing software, anyway, the left, three-action shortcut is all you need. It will result in a <a href="https://www.wikiwand.com/en/Core_Audio_Format">Core Audio Format (.caf)</a> file (like <a href="https://github.com/extratone/bilge/blob/main/audio/egg.caf">this one</a>,) which I know absolutely nothing about except that Audacity and GarageBand support it by default.</p>
+
+<h3 id="sharing-embedding">Sharing/Embedding</h3>
+
+<p>Whichever route you traveled, you should have some sort of audio file, at this point, and if you intend to share and/or embed it, you’ll need to upload said audio to some sort of Web Server which allows direct playback/download of the raw file from external sources. Unless you’ve been skimming, you know by now that I’ve been using <em><a href="https://github.com/extratone/bilge">The Psalms</a></em><a href="https://github.com/extratone/bilge"> GitHub Repository</a> to do this thus far, though one isn’t really supposed to. Every few months, someone on Stack Overflow figures out how to construct or discover the raw link to a given Google Drive file before Google notices and alters it, and I’m afraid you’ll find just about every other cloud/file sharing service in a similarly unreliable situation. If it’s going to be done at scale, I’m afraid it’s ultimately going to require you rent regular, vanilla space on an FTP-enabled fileserver, if one can still do that sort of thing. (I will update this post if/when I find a more ideal solution.)</p>
+
+<p>Within my current system, the raw URL to our example file looks like this:</p>
+
+<pre><code>https://github.com/extratone/bilge/raw/main/audio/TTS/JohnnyTsunami.m4a
+</code></pre>
+
+<p>Using my aforelinked, ultra rudimentary <a href="https://routinehub.co/shortcut/9948/">&lt; audio &gt; element Siri Shortcut tool</a> (which I’ve kept on my homescreen with good results for a few months,) we can very quickly turn said raw URL into a properly-formatted HTML5 audio player:</p>
+
+<pre><code>&lt;audio controls&gt;
+  &lt;source src=&#34;https://github.com/extratone/bilge/raw/main/audio/TTS/JohnnyTsunami.m4a&#34;&gt;
+&lt;/audio&gt;
+</code></pre>
+
+<p>Ideally, on the final, reader-facing page, said code should create a player like this:</p>
+
+
+
+<p>If further configuration of the player is desired or necessary, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">this Mozilla page</a> for a full list of supported options. Obviously, there are a few older methods of embedding audio players, but I am neither qualified nor interested in exploring them. If you’re in a frustrating bind, I recommend <a href="https://bit.ly/extwa">signing up for my CMS</a>. (Just try it, okay?)</p>
+
+<h3 id="pwoof">Pwoof</h3>
+
+<p>For the sake of bare minimum sample variety, I ran Version 1.0 of the public Make Audio from Article Body shortcut on an article hosted not on WordPress, nor my own CMS, but on Bustle’s ultra-slick, totally-bespoke system (which <a href="https://www.codeandtheory.com/things-we-make/the-outline">began as </a><em><a href="https://www.codeandtheory.com/things-we-make/the-outline">The Outline</a></em>, FYI.) I chose the first permalink I saw in one of its “regular” article formats – not a long feature, nor one of their touch-targeted slideshows.</p>
+
+<p>“<a href="https://www.inputmag.com/tech/onlyfans-is-banning-porn-the-very-thing-that-made-it-big">OnlyFans is banning porn, the very thing that made it big</a>” is an 870-word newsy piece written by Tom Maxwell, who is the only New York Media person ever to accept my Facebook friend request. (Thanks again, Tom.) Without any tweaking, I was able to run the shortcut (from within the Shortcuts app since the Share Sheet appears to be thoroughly fucked at the moment) in a reasonable amount of time – less than 5 minutes, more than 2 – and generate the file embedded below. Notably, I also used a different hosting service – <a href="https://mastodon.social/web/statuses/106798701662102859">mastodon.social</a> – but I certainly don’t plan on doing so at scale and neither should you.</p>
+
+
+
+<p>Honestly, <em>Input</em>’s CMS is the cleverest challenge I was able to come up with for this single-day-old shortcut of mine, and I’m quite proud of the result. Though it wasn’t able to retrieve a timestamp, it correctly retrieved the article’s title and byline without fuss and even managed to scrape and attach said article’s featured image as the file’s cover art, though the original’s aspect ratio was obviously sacrificed.</p>
+
+<p><img src="https://i.snap.as/47gjGha3.png"/></p>
+
+<p>If you’re super interested in the truly unmolested output of the attempt, view/download it <a href="https://davidblue.wtf/audio/onlyfansbansample.m4a">here</a>.</p>
+
+<h3 id="hmu">HMU</h3>
+
+<p>Before I depart actual tutorializing and return to opining, I want to express <em>even more aggressively than usual</em> how much I want <em>anyone</em> who see’s any potential benefit the ability to generate audio of my darling Siri Voice 2 reading text, but has further questions/doesn’t have time to fiddle/struggles with my haphazardly-written attempts at guides like this, or who simply wants to talk about any satellite subjects, <strong><a href="https://bit.ly/whoisdavidblue">please reach out to me</a></strong>. <strong>You have no idea how much I’d love to help you configure a personal automation that genuinely, reliably, and durably improves your quality of life.</strong></p>
+
+<p>If you follow this shortlink from within a browser on any iOS device, my full contact card will appear: <code>bit.ly/whoisdavidblue</code>.</p>
+
+<p>Suggestions/requests regarding considerations I’ve obviously missed in this guide are not just <em>welcome</em> in this case, but actually <em>necessary</em>. As long as I am literally the only person talking about the “Make Spoken Audio from Text” action, I am ready and willing to be an all-hours resource.</p>
+
+<h6 id="note-this-post-perhaps-more-than-any-published-yet-on-the-psalms-is-very-much-an-ongoing-work-in-progress-as-are-most-of-the-hyperlinked-shortcuts-contained-within-it">Note: This Post perhaps more than any published yet on <em>The Psalms</em>, is very much an ongoing work-in-progress, as are most of the hyperlinked shortcuts contained within it.</h6>
+
+<p><a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/siri-tts</guid>
+      <pubDate>Sun, 22 Aug 2021 10:41:21 +0000</pubDate>
+    </item>
+    <item>
+      <title>Marco! Lives</title>
+      <link>https://bilge.world/marco?pk_campaign=rss-feed</link>
+      <description>&lt;![CDATA[Marco! Banner&#xA;&#xA;The first release version of my only original contribution to the iOS community is now ready to assist when you can&#39;t find your phone.&#xA;&#xA;!--more--&#xA;&#xA;One of the handful of Siri&#39;s most useful features has been the &#34;Hey Siri! Where are you?&#34; command, to which Siri will respond &#34;I&#39;m here&#34; or &#34;here I am!&#34; Were it possible to view how many times one has triggered a particular Siri command on iOS, my personal reliance on it would almost certainly be embarrassing. Often, my handset isn&#39;t even obscured from view - it&#39;s just faster to have Siri speak up than it is to scan the room. Occasionally, however, my device has managed to become embedded beneath and/or within some genuinely-perplexing series of couch cushions/blankets/briefcase pockets/etc. which require a more constant homing sort of audio reproduction. Asking friends/family to call one&#39;s phone is the general goto, yes, but honestly the actual length of time cellular telephones will ring before sending a caller to voicemail in 2021 is ridiculously short, especially when rummaging through Gourd-knows-what. For that matter, most of my peers keep their phones on silent mode, 24/7. What then?&#xA;&#xA;https://www.youtube.com/watch?v=3evgnSlnkjk&#xA;&#xA;Since the very first time I set eyes upon Siri Shortcuts in iOS 12 Beta, I have wanted to create one to address this issue in a creative, entertaining, and (hopefully) genuinely-useful way. On that day almost three years ago, I even knew it would be called Marco!, believe it or not. In the past few months, I&#39;ve returned to the project on and off and ended up with several different versions of varying complexity. One day, I&#39;d like to figure out how to integrate the full extent of my ideas for Marco! into a Shortcut which can be reliably triggered when one&#39;s device is locked, but for this first release version, I have included only what I and a few other (much appreciated) volunteers were able to trigger in every situation we could conceive of.&#xA;&#xA;Marco! Version 1.0 can be downloaded on RoutineHub (which I would highly recommend,) or directly via this iCloud share link. I know it&#39;s a bit excessive, but I even created a GitHub Repository just for this Shortcut, seeing as it is undoubtedly the most original I will ever contribute, and the singular one with potential for continued development.&#xA;&#xA;Download Marco! as is and (as long as you don&#39;t rename it) use &#34;Hey Siri!... Marco!&#34; This should immediately run the Shortcut, which includes my voice saying &#34;Polo! Bitch!&#34; followed by five repeats of the flashlight/noise cycle as described in detail below.&#xA;&#xA;Marco! JellyCuts Steps&#xA;&#xA;As documented by the Jellycuts file above, Version 1.0 of Marco!&#39;s actions are as follows:&#xA;&#xA;Turn Low Power Mode OFF&#xA;Turn Airplane Mode OFF&#xA;Turn Wi-Fi On&#xA;Turn Bluetooth On&#xA;Set brightness to 100%&#xA;Turn Do Not Disturb OFF&#xA;Turn appearance Light&#xA;Set playback destination to iPhone&#xA;Set volume to 89%&#xA;10. Vibrate device (Not currently working.)&#xA;11. Play my voice saying “Polo!” + a few other items&#xA;12. Toggle (flash) the flashlight 5 times (odd number leaving your flashlight on constantly unless it was on before the Shortcut was triggered)&#xA;13. Simultaneously (in the same repeat action) plays three separate classic Mac sounds 5 times.&#xA;&#xA;The most clever bit about this particular Shortcut is its use of Base64 text to include audio playback. I just fixed a bug on my own Base64 audio encoder Shortcut if you&#39;d like to try it out. Since this version includes my own voice (subject to taste, I realize,) as well as some minor profanity, I do intend to publish a clean variation at some point in the future. If this is an obstacle for you, and/or if you&#39;d like a custom version made with audio of your own choosing, please do send me an email! I would be more than happy to make one for you.&#xA;&#xA;#software #automation]]&gt;</description>
+      <content:encoded><![CDATA[<p><img src="https://i.snap.as/D6SijbwF.png" alt="Marco! Banner"/></p>
+
+<h2 id="the-first-release-version-of-my-only-original-contribution-to-the-ios-community-is-now-ready-to-assist-when-you-can-t-find-your-phone">The first release version of my only original contribution to the iOS community is now ready to assist when you can&#39;t find your phone.</h2>
+
+
+
+<p>One of the handful of Siri&#39;s most useful features has been the “Hey Siri! Where are you?” command, to which Siri will respond “I&#39;m here” or “here I am!” Were it possible to view how many times one has triggered a particular Siri command on iOS, my personal reliance on it would almost certainly be embarrassing. Often, my handset isn&#39;t even obscured from view – it&#39;s just faster to have Siri speak up than it is to scan the room. Occasionally, however, my device has managed to become embedded beneath and/or within some genuinely-perplexing series of couch cushions/blankets/briefcase pockets/etc. which require a more constant homing sort of audio reproduction. Asking friends/family to call one&#39;s phone is the general goto, yes, but honestly the actual length of time cellular telephones will ring before sending a caller to voicemail in 2021 is <em>ridiculously</em> short, especially when rummaging through Gourd-knows-what. For that matter, most of my peers keep their phones on silent mode, 24/7. What then?</p>
+
+<p><iframe allow="monetization" class="embedly-embed" src="//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2F3evgnSlnkjk%3Ffeature%3Doembed&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D3evgnSlnkjk&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2F3evgnSlnkjk%2Fhqdefault.jpg&key=d932fa08bf1f47efbbe54cb3d746839f&type=text%2Fhtml&schema=youtube" width="640" height="360" scrolling="no" title="YouTube embed" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="true"></iframe></p>
+
+<p>Since <a href="https://bilge.world/siri-shortcuts-ios12-review">the very first time</a> I set eyes upon Siri Shortcuts in iOS 12 Beta, I have wanted to create one to address this issue in a creative, entertaining, and (hopefully) genuinely-useful way. On that day almost three years ago, I even knew it would be called <em>Marco!</em>, believe it or not. In the past few months, I&#39;ve returned to the project on and off and ended up with several different versions of varying complexity. One day, I&#39;d like to figure out how to integrate the full extent of my ideas for Marco! into a Shortcut which can be reliably triggered when one&#39;s device is locked, but for this first release version, I have included only what I and a few other (much appreciated) volunteers were able to trigger in every situation we could conceive of.</p>
+
+<p>Marco! Version 1.0 can be downloaded on <a href="https://routinehub.co/shortcut/8987/"><strong>RoutineHub</strong></a> (which I would highly recommend,) or directly via <a href="https://www.icloud.com/shortcuts/cec781677c5648f2a8982213700938b4"><strong>this iCloud share link</strong></a>. I know it&#39;s a bit excessive, but I even created a <a href="https://github.com/extratone/marco">GitHub Repository</a> just for this Shortcut, seeing as it is undoubtedly the most original I will ever contribute, and the singular one with potential for continued development.</p>
+
+<p>Download Marco! as is and (as long as you don&#39;t rename it) use “Hey Siri!... Marco!” This should immediately run the Shortcut, which includes my voice saying “Polo! Bitch!” followed by five repeats of the flashlight/noise cycle as described in detail below.</p>
+
+<p><img src="https://i.snap.as/9Ow1cbmz.png" alt="Marco! JellyCuts Steps"/></p>
+
+<p>As documented by the <a href="https://github.com/extratone/marco/blob/main/docs/Marco!.html">Jellycuts file</a> above, Version 1.0 of Marco!&#39;s actions are as follows:</p>
+<ol><li>Turn Low Power Mode OFF</li>
+<li>Turn Airplane Mode OFF</li>
+<li>Turn Wi-Fi On</li>
+<li>Turn Bluetooth On</li>
+<li>Set brightness to 100%</li>
+<li>Turn Do Not Disturb OFF</li>
+<li>Turn appearance Light</li>
+<li>Set playback destination to iPhone</li>
+<li>Set volume to 89%</li>
+<li>Vibrate device (Not currently working.)</li>
+<li>Play <strong>my voice</strong> saying “Polo!” + a few other items</li>
+<li>Toggle (flash) the flashlight 5 times (odd number leaving your flashlight on constantly unless it was on before the Shortcut was triggered)</li>
+<li>Simultaneously (in the same repeat action) plays three separate classic Mac sounds 5 times.</li></ol>
+
+<p>The most clever bit about this particular Shortcut is its use of Base64 text to include audio playback. I just fixed a bug on <a href="https://routinehub.co/shortcut/8914/">my own Base64 audio encoder Shortcut</a> if you&#39;d like to try it out. Since this version includes my own voice (subject to taste, I realize,) as well as some minor profanity, I do intend to publish a clean variation at some point in the future. If this is an obstacle for you, and/or if you&#39;d like a custom version made with audio of your own choosing, please do <a href="mailto:davidblue@extratone.com">send me an email</a>! I would be more than happy to make one for you.</p>
+
+<p><a href="https://bilge.world/tag:software" class="hashtag"><span>#</span><span class="p-category">software</span></a> <a href="https://bilge.world/tag:automation" class="hashtag"><span>#</span><span class="p-category">automation</span></a></p>
+]]></content:encoded>
+      <guid>https://bilge.world/marco</guid>
+      <pubDate>Mon, 28 Jun 2021 08:51:56 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
