@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Import Taskpaper-formatted Draft into OmniOutliner | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="MjeGIUHkEXmgHtDMplU1thcDH57WxvBlh00CN8yD4kpBKKCrJY+2nC9Oa5zyFm6osKDBZSgWusOqPFBO5Xt8uA==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Import Taskpaper-formatted Draft into OmniOutliner" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1ar" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Import Taskpaper-formatted Draft into OmniOutliner" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1ar" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/survey.png" class="action-icon" />Import Taskpaper-formatted Draft into OmniOutliner</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by unlocked2412,
+    Last update
+    11 months ago
+</div>
+
+
+    <div class='description'>
+        <p>This Drafts 5 action imports a TaskPaper-formatted Draft into OmniOutliner using the new OmniJS API.</p>
+
+<p>If you found this useful, you can:</p>
+
+<p><a href="https://ko-fi.com/U7U74O49E"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi"></a></p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1ar&amp;data=%7B%22uuid%22:%2227B2FCFC-4F05-42E4-B417-DD0407058F2D%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22const%20options%20=%20%7B%5Cn%5Ctcontent:%20draft.content%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%224D7D250D-6BD9-4BB0-B18B-603D3B9EF158%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20DRAFTS%20JS%20CODE%20--------------------------------------------------------%5Cnconst%20draftsJSContext%20=%20()%20=%5Cu003e%20%7B%5Cn%20%20%20%20//%20main%20::%20IO%20()%5Cn%20%20%20%20const%20main%20=%20()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20return%20runOmniJSWithArgsFromDrafts(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20&#39;omnioutliner://localhost/omnijs-run&#39;,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20omniJSContext,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20options%5Cn%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20OMNI%20JS%20CODE%20---------------------------------------%5Cn%20%20%20%20const%20omniJSContext%20=%20opts%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20//%20main%20::%20IO%20()%5Cn%20%20%20%20%20%20%20%20const%20main%20=%20()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20forest%20=%20compose(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20map(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20compose(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20fmapTree(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20x%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20topic:%20x.text,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20note:%20x.note%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20treeWithNotes%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20forestFromTaskPaperString%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)(opts.content)%5Cn%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20Document.makeNewAndShow(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20doc%20=%5Cu003e%20ooRowsFromForest(doc.outline.rootItem)(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20forest%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20GENERIC%20FUNCTIONS%20----------------------------------%5Cn%20%20%20%20%20%20%20%20//%20https://github.com/RobTrew/prelude-jxa%5Cn%20%20%20%20%20%20%20%20//%20JS%20Prelude%20--------------------------------------------------%5Cn%20%20%20%20%20%20%20%20//%20Just%20::%20a%20-%5Cu003e%20Maybe%20a%5Cn%20%20%20%20%20%20%20%20const%20Just%20=%20x%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;Maybe&#39;,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20Nothing:%20false,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20Just:%20x%5Cn%20%20%20%20%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20Node%20::%20a%20-%5Cu003e%20[Tree%20a]%20-%5Cu003e%20Tree%20a%5Cn%20%20%20%20%20%20%20%20const%20Node%20=%20v%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20Constructor%20for%20a%20Tree%20node%20which%20connects%20a%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20value%20of%20some%20kind%20to%20a%20list%20of%20zero%20or%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20more%20child%20trees.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;Node&#39;,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20root:%20v,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nest:%20xs%20%7C%7C%20[]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20Nothing%20::%20Maybe%20a%5Cn%20%20%20%20%20%20%20%20const%20Nothing%20=%20()%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;Maybe&#39;,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20Nothing:%20true,%5Cn%20%20%20%20%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20Tuple%20(,)%20::%20a%20-%5Cu003e%20b%20-%5Cu003e%20(a,%20b)%5Cn%20%20%20%20%20%20%20%20const%20Tuple%20=%20a%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20b%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;Tuple&#39;,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&#39;0&#39;:%20a,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&#39;1&#39;:%20b,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20length:%202%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20compose%20(%5Cu003c%5Cu003c%5Cu003c)%20::%20(b%20-%5Cu003e%20c)%20-%5Cu003e%20(a%20-%5Cu003e%20b)%20-%5Cu003e%20a%20-%5Cu003e%20c%5Cn%20%20%20%20%20%20%20%20const%20compose%20=%20(...fs)%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20function%20defined%20by%20the%20right-to-left%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20composition%20of%20all%20the%20functions%20in%20fs.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20fs.reduce(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(f,%20g)%20=%5Cu003e%20x%20=%5Cu003e%20f(g(x)),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20x%20=%5Cu003e%20x%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20div%20::%20Int%20-%5Cu003e%20Int%20-%5Cu003e%20Int%5Cn%20%20%20%20%20%20%20%20const%20div%20=%20x%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20y%20=%5Cu003e%20Math.floor(x%20/%20y);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20eq%20(==)%20::%20Eq%20a%20=%5Cu003e%20a%20-%5Cu003e%20a%20-%5Cu003e%20Bool%5Cn%20%20%20%20%20%20%20%20const%20eq%20=%20a%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20True%20when%20a%20and%20b%20are%20equivalent%20in%20the%20terms%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20defined%20below%20for%20their%20shared%20data%20type.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20b%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20t%20=%20typeof%20a;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20t%20!==%20typeof%20b%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20false%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20&#39;object&#39;%20!==%20t%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&#39;function&#39;%20!==%20t%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20a%20===%20b%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20a.toString()%20===%20b.toString()%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20kvs%20=%20Object.entries(a);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20kvs.length%20!==%20Object.keys(b).length%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20false%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20kvs.every(([k,%20v])%20=%5Cu003e%20eq(v)(b[k]));%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)();%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20filter%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20[a]%20-%5Cu003e%20[a]%5Cn%20%20%20%20%20%20%20%20const%20filter%20=%20p%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20elements%20of%20xs%20which%20match%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20the%20predicate%20p.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20[...xs].filter(p);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20findIndices%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20[a]%20-%5Cu003e%20[Int]%5Cn%20%20%20%20%20%20%20%20//%20findIndices%20::%20(String%20-%5Cu003e%20Bool)%20-%5Cu003e%20String%20-%5Cu003e%20[Int]%5Cn%20%20%20%20%20%20%20%20const%20findIndices%20=%20p%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ys%20=%5Cu003e%20ys.flatMap((y,%20i)%20=%5Cu003e%20p(y,%20i,%20ys)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20[i]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20[])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)([...xs])%5Cn%5Cn%20%20%20%20%20%20%20%20//%20first%20::%20(a%20-%5Cu003e%20b)%20-%5Cu003e%20((a,%20c)%20-%5Cu003e%20(b,%20c))%5Cn%20%20%20%20%20%20%20%20const%20first%20=%20f%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20simple%20function%20lifted%20to%20one%20which%20applies%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20to%20a%20tuple,%20transforming%20only%20its%20first%20item.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xy%20=%5Cu003e%20Tuple(f(xy[0]))(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xy[1]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20flip%20::%20(a%20-%5Cu003e%20b%20-%5Cu003e%20c)%20-%5Cu003e%20b%20-%5Cu003e%20a%20-%5Cu003e%20c%5Cn%20%20%20%20%20%20%20%20const%20flip%20=%20op%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20binary%20function%20op%20with%20its%20arguments%20reversed.%5Cn%20%20%20%20%20%20%20%20%20%20%20%201%20%5Cu003c%20op.length%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(a,%20b)%20=%5Cu003e%20op(b,%20a)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20(x%20=%5Cu003e%20y%20=%5Cu003e%20op(y)(x));%5Cn%5Cn%20%20%20%20%20%20%20%20//%20fmapTree%20::%20(a%20-%5Cu003e%20b)%20-%5Cu003e%20Tree%20a%20-%5Cu003e%20Tree%20b%5Cn%20%20%20%20%20%20%20%20const%20fmapTree%20=%20f%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20new%20tree.%20The%20result%20of%20a%20structure-preserving%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20application%20of%20f%20to%20each%20root%20in%20the%20existing%20tree.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20go%20=%20tree%20=%5Cu003e%20Node(f(tree.root))(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tree.nest.map(go)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20go;%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20foldTree%20::%20(a%20-%5Cu003e%20[b]%20-%5Cu003e%20b)%20-%5Cu003e%20Tree%20a%20-%5Cu003e%20b%5Cn%20%20%20%20%20%20%20%20const%20foldTree%20=%20f%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20catamorphism%20on%20trees.%20A%20summary%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20value%20obtained%20by%20a%20depth-first%20fold.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20go%20=%20tree%20=%5Cu003e%20f(tree.root)(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tree.nest.map(go)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20go;%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20fst%20::%20(a,%20b)%20-%5Cu003e%20a%5Cn%20%20%20%20%20%20%20%20const%20fst%20=%20tpl%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20First%20member%20of%20a%20pair.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20tpl[0];%5Cn%5Cn%20%20%20%20%20%20%20%20//%20isSpace%20::%20Char%20-%5Cu003e%20Bool%5Cn%20%20%20%20%20%20%20%20const%20isSpace%20=%20c%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20True%20if%20c%20is%20a%20white%20space%20character.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20/%5C%5Cs/.test(c);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20length%20::%20[a]%20-%5Cu003e%20Int%5Cn%20%20%20%20%20%20%20%20const%20length%20=%20xs%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20Returns%20Infinity%20over%20objects%20without%20finite%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20length.%20This%20enables%20zip%20and%20zipWith%20to%20choose%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20the%20shorter%20argument%20when%20one%20is%20non-finite,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20like%20cycle,%20repeat%20etc%5Cn%20%20%20%20%20%20%20%20%20%20%20%20&#39;GeneratorFunction&#39;%20!==%20xs.constructor.constructor.name%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs.length%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20Infinity;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20lines%20::%20String%20-%5Cu003e%20[String]%5Cn%20%20%20%20%20%20%20%20const%20lines%20=%20s%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20list%20of%20strings%20derived%20from%20a%20single%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20newline-delimited%20string.%5Cn%20%20%20%20%20%20%20%20%20%20%20%200%20%5Cu003c%20s.length%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20s.split(/[%5C%5Cr%5C%5Cn]/)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20[];%5Cn%5Cn%20%20%20%20%20%20%20%20//%20list%20::%20StringOrArrayLike%20b%20=%5Cu003e%20b%20-%5Cu003e%20[a]%5Cn%20%20%20%20%20%20%20%20const%20list%20=%20xs%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20xs%20itself,%20if%20it%20is%20an%20Array,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20or%20an%20Array%20derived%20from%20xs.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20Array.isArray(xs)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20Array.from(xs%20%7C%7C%20[]);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20map%20::%20(a%20-%5Cu003e%20b)%20-%5Cu003e%20[a]%20-%5Cu003e%20[b]%5Cn%20%20%20%20%20%20%20%20const%20map%20=%20f%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20list%20obtained%20by%20applying%20f%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20to%20each%20element%20of%20xs.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20(The%20image%20of%20xs%20under%20f).%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20[...xs].map(f);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20matching%20::%20[a]%20-%5Cu003e%20(a%20-%5Cu003e%20Int%20-%5Cu003e%20[a]%20-%5Cu003e%20Bool)%5Cn%20%20%20%20%20%20%20%20const%20matching%20=%20pat%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20sequence-matching%20function%20for%20findIndices%20etc%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20findIndices(matching([2,%203]),%20[1,%202,%203,%201,%202,%203])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20-%5Cu003e%20[1,%204]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20lng%20=%20pat.length,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bln%20=%200%20%5Cu003c%20lng,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20h%20=%20bln%20?%20pat[0]%20:%20undefined;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20x%20=%5Cu003e%20i%20=%5Cu003e%20src%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20bln%20%5Cu0026%5Cu0026%20h%20==%20x%20%5Cu0026%5Cu0026%20eq(pat)(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20src.slice(i,%20lng%20+%20i)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20minimum%20::%20Ord%20a%20=%5Cu003e%20[a]%20-%5Cu003e%20a%5Cn%20%20%20%20%20%20%20%20const%20minimum%20=%20xs%20=%5Cu003e%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20least%20value%20of%20xs.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20ys%20=%5Cu003e%200%20%5Cu003c%20ys.length%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ys.slice(1)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.reduce((a,%20y)%20=%5Cu003e%20y%20%5Cu003c%20a%20?%20y%20:%20a,%20ys[0])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20undefined%5Cn%20%20%20%20%20%20%20%20)(list(xs));%5Cn%5Cn%20%20%20%20%20%20%20%20//%20nest%20::%20Tree%20a%20-%5Cu003e%20[a]%5Cn%20%20%20%20%20%20%20%20const%20nest%20=%20tree%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20Allowing%20for%20lazy%20(on-demand)%20evaluation.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20If%20the%20nest%20turns%20out%20to%20be%20a%20function%20%E2%80%93%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20rather%20than%20a%20list%20%E2%80%93%20that%20function%20is%20applied%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20here%20to%20the%20root,%20and%20returns%20a%20list.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20xs%20=%20tree.nest;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20&#39;function&#39;%20!==%20typeof%20xs%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20xs(root(x));%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20Derive%20a%20function%20from%20the%20name%20of%20a%20JS%20infix%20operator%5Cn%20%20%20%20%20%20%20%20//%20op%20::%20String%20-%5Cu003e%20(a%20-%5Cu003e%20a%20-%5Cu003e%20b)%5Cn%20%20%20%20%20%20%20%20const%20op%20=%20strOp%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20eval(%60(a,%20b)%20=%5Cu003e%20a%20$%7BstrOp%7D%20b%60);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20partition%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20[a]%20-%5Cu003e%20([a],%20[a])%5Cn%20%20%20%20%20%20%20%20const%20partition%20=%20p%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20tuple%20of%20two%20lists%20-%20those%20elements%20in%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20xs%20which%20match%20p,%20and%20those%20which%20don&#39;t.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20list(xs).reduce(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(a,%20x)%20=%5Cu003e%20p(x)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Tuple(a[0].concat(x))(a[1])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20Tuple(a[0])(a[1].concat(x)),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Tuple([])([])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20root%20::%20Tree%20a%20-%5Cu003e%20a%5Cn%20%20%20%20%20%20%20%20const%20root%20=%20tree%20=%5Cu003e%20tree.root;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20snd%20::%20(a,%20b)%20-%5Cu003e%20b%5Cn%20%20%20%20%20%20%20%20const%20snd%20=%20tpl%20=%5Cu003e%20tpl[1];%5Cn%5Cn%20%20%20%20%20%20%20%20//%20span,%20applied%20to%20a%20predicate%20p%20and%20a%20list%20xs,%20returns%20a%20tuple%20of%20xs%20of%20%5Cn%20%20%20%20%20%20%20%20//%20elements%20that%20satisfy%20p%20and%20second%20element%20is%20the%20remainder%20of%20the%20list:%5Cn%20%20%20%20%20%20%20%20//%5Cn%20%20%20%20%20%20%20%20//%20%5Cu003e%20span%20(%5Cu003c%203)%20[1,2,3,4,1,2,3,4]%20==%20([1,2],[3,4,1,2,3,4])%5Cn%20%20%20%20%20%20%20%20//%20%5Cu003e%20span%20(%5Cu003c%209)%20[1,2,3]%20==%20([1,2,3],[])%5Cn%20%20%20%20%20%20%20%20//%20%5Cu003e%20span%20(%5Cu003c%200)%20[1,2,3]%20==%20([],[1,2,3])%5Cn%20%20%20%20%20%20%20%20//%5Cn%20%20%20%20%20%20%20%20//%20span%20p%20xs%20is%20equivalent%20to%20(takeWhile%20p%20xs,%20dropWhile%20p%20xs)%20%5Cn%20%20%20%20%20%20%20%20//%20span%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20[a]%20-%5Cu003e%20([a],%20[a])%5Cn%20%20%20%20%20%20%20%20const%20span%20=%20p%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20Longest%20prefix%20of%20xs%20consisting%20of%20elements%20which%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20all%20satisfy%20p,%20tupled%20with%20the%20remainder%20of%20xs.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20ys%20=%20&#39;string&#39;%20!==%20typeof%20xs%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20list(xs)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20xs,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20iLast%20=%20ys.length%20-%201;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20splitAt(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20until(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20i%20=%5Cu003e%20iLast%20%5Cu003c%20i%20%7C%7C%20!p(ys[i])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)(i%20=%5Cu003e%201%20+%20i)(0)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)(ys);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20splitArrow%20(***)%20::%20(a%20-%5Cu003e%20b)%20-%5Cu003e%20(c%20-%5Cu003e%20d)%20-%5Cu003e%20((a,%20c)%20-%5Cu003e%20(b,%20d))%5Cn%20%20%20%20%20%20%20%20const%20splitArrow%20=%20f%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20functions%20f%20and%20g%20combined%20in%20a%20single%20function%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20from%20a%20tuple%20(x,%20y)%20to%20a%20tuple%20of%20(f(x),%20g(y))%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20(see%20bimap)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20g%20=%5Cu003e%20tpl%20=%5Cu003e%20Tuple(f(tpl[0]))(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20g(tpl[1])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20splitAt%20::%20Int%20-%5Cu003e%20[a]%20-%5Cu003e%20([a],%20[a])%5Cn%20%20%20%20%20%20%20%20const%20splitAt%20=%20n%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20Tuple(xs.slice(0,%20n))(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs.slice(n)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20splitOn%20::%20[a]%20-%5Cu003e%20[a]%20-%5Cu003e%20[[a]]%5Cn%20%20%20%20%20%20%20%20//%20splitOn%20::%20String%20-%5Cu003e%20String%20-%5Cu003e%20[String]%5Cn%20%20%20%20%20%20%20%20const%20splitOn%20=%20pat%20=%5Cu003e%20src%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20/*%20A%20list%20of%20the%20strings%20delimited%20by%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20instances%20of%20a%20given%20pattern%20in%20s.%20*/%5Cn%20%20%20%20%20%20%20%20%20%20%20%20(&#39;string&#39;%20===%20typeof%20src)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20src.split(pat)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20lng%20=%20pat.length,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tpl%20=%20findIndices(matching(pat))(src).reduce(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(a,%20i)%20=%5Cu003e%20Tuple(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20fst(a).concat([src.slice(snd(a),%20i)])%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)(lng%20+%20i),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Tuple([])(0),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20fst(tpl).concat([src.slice(snd(tpl))]);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D)();%5Cn%5Cn%20%20%20%20%20%20%20%20//%20take%20::%20Int%20-%5Cu003e%20[a]%20-%5Cu003e%20[a]%5Cn%20%20%20%20%20%20%20%20//%20take%20::%20Int%20-%5Cu003e%20String%20-%5Cu003e%20String%5Cn%20%20%20%20%20%20%20%20const%20take%20=%20n%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20The%20first%20n%20elements%20of%20a%20list,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20string%20of%20characters,%20or%20stream.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20&#39;GeneratorFunction&#39;%20!==%20xs%5Cn%20%20%20%20%20%20%20%20%20%20%20%20.constructor.constructor.name%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs.slice(0,%20n)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20[].concat.apply([],%20Array.from(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20length:%20n%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D,%20()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20x%20=%20xs.next();%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20x.done%20?%20[]%20:%20[x.value];%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D));%5Cn%5Cn%20%20%20%20%20%20%20%20//%20uncons%20::%20[a]%20-%5Cu003e%20Maybe%20(a,%20[a])%5Cn%20%20%20%20%20%20%20%20const%20uncons%20=%20xs%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20Just%20a%20tuple%20of%20the%20head%20of%20xs%20and%20its%20tail,%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20Or%20Nothing%20if%20xs%20is%20an%20empty%20list.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20lng%20=%20length(xs);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20(0%20%5Cu003c%20lng)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Infinity%20%5Cu003e%20lng%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Just(Tuple(xs[0])(xs.slice(1)))%20//%20Finite%20list%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20nxt%20=%20take(1)(xs);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%200%20%5Cu003c%20nxt.length%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Just(Tuple(nxt[0])(xs))%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20Nothing();%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)()%20//%20Lazy%20generator%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20Nothing();%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20unlines%20::%20[String]%20-%5Cu003e%20String%5Cn%20%20%20%20%20%20%20%20const%20unlines%20=%20xs%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20A%20single%20string%20formed%20by%20the%20intercalation%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20of%20a%20list%20of%20strings%20with%20the%20newline%20character.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20xs.join(&#39;%5C%5Cn&#39;);%5Cn%5Cn%20%20%20%20%20%20%20%20//%20until%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20(a%20-%5Cu003e%20a)%20-%5Cu003e%20a%20-%5Cu003e%20a%5Cn%20%20%20%20%20%20%20%20const%20until%20=%20p%20=%5Cu003e%20f%20=%5Cu003e%20x%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20let%20v%20=%20x;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20while%20(!p(v))%20v%20=%20f(v);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20v;%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20JS%20Trees%20----------------------------------------------------%5Cn%20%20%20%20%20%20%20%20//%20forestFromLineIndents%20::%20[(Int,%20String)]%20-%5Cu003e%20[Tree%20String]%5Cn%20%20%20%20%20%20%20%20const%20forestFromLineIndents%20=%20tuples%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20go%20=%20xs%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%200%20%5Cu003c%20xs.length%20?%20(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20[n,%20s]%20=%20Array.from(xs[0]);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20Lines%20indented%20under%20this%20line,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20tupled%20with%20all%20the%20rest.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20[firstTreeLines,%20rest]%20=%20Array.from(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20span(x%20=%5Cu003e%20n%20%5Cu003c%20x[0])(xs.slice(1))%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20This%20first%20tree,%20and%20then%20the%20rest.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20[%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Node(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20body:%20s,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20depth:%20n%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)(go(firstTreeLines))%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20].concat(go(rest));%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)()%20:%20[];%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20go(tuples);%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20forestFromTaskPaperString%20::%20String%20-%5Cu003e%20Tree%20Dict%5Cn%20%20%20%20%20%20%20%20const%20forestFromTaskPaperString%20=%20s%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tpItemType%20=%20x%20=%5Cu003e%20x.startsWith(&#39;-%20&#39;)%20?%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text:%20x.slice(2),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;task&#39;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%20:%20x.endsWith(&#39;:&#39;)%20?%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text:%20x.slice(0,%20-1),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;project&#39;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%20:%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text:%20x,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20type:%20&#39;note&#39;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tpTagDict%20=%20xs%20=%5Cu003e%20xs.reduce((a,%20x)%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20kv%20=%20x.split(&#39;(&#39;);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20Object.assign(a,%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20[kv[0]]:%201%20%5Cu003c%20kv.length%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20kv[1].split(&#39;)&#39;)[0]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20&#39;&#39;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D,%20%7B%7D),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tpParse%20=%20dct%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pair%20=%20splitArrow(tpItemType)(tpTagDict)(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20uncons(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20splitOn(&#39;%20@&#39;)(dct.body)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20).Just%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20Object.assign(%7B%7D,%20dct,%20pair[0],%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tags:%20pair[1]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20compose(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20map(fmapTree(tpParse)),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20forestFromLineIndents,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20indentLevelsFromLines,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20filter(Boolean),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20lines%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)(s);%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20indentLevelsFromLines%20::%20[String]%20-%5Cu003e%20[(Int,%20String)]%5Cn%20%20%20%20%20%20%20%20const%20indentLevelsFromLines%20=%20xs%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20indentTextPairs%20=%20xs.map(compose(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20first(length),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20span(isSpace)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20indentUnit%20=%20minimum(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20indentTextPairs.flatMap(pair%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20w%20=%20fst(pair);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%200%20%5Cu003c%20w%20?%20[w]%20:%20[];%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20indentTextPairs.map(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20first(flip(div)(indentUnit))%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20indentedLinesFromTrees%20::%20String%20-%5Cu003e%20(a%20-%5Cu003e%20String)%20-%5Cu003e%5Cn%20%20%20%20%20%20%20%20//%20%20%20%20%20%20[Tree%20a]%20-%5Cu003e%20[String]%5Cn%20%20%20%20%20%20%20%20const%20indentedLinesFromTrees%20=%20strTab%20=%5Cu003e%20f%20=%5Cu003e%20trees%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20go%20=%20indent%20=%5Cu003e%20node%20=%5Cu003e%20[indent%20+%20f(node)]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.concat(node.nest.flatMap(go(strTab%20+%20indent)));%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20trees.flatMap(go(&#39;&#39;));%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20treeWithNotes%20::%20Tree%20Dict%20-%5Cu003e%20Tree%20Dict%5Cn%20%20%20%20%20%20%20%20const%20treeWithNotes%20=%20foldTree(item%20=%5Cu003e%20subtrees%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20[withNotes,%20withoutNotes]%20=%20Array.from(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20partition(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20child%20=%5Cu003e%20child.root.type%20===%20&#39;note&#39;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)(subtrees)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20Node(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Object.assign(%7B%7D,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20item,%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20note:%20compose(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20unlines,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20indentedLinesFromTrees(&#39;%5C%5Ct&#39;)(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20compose(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20x%20=%5Cu003e%20x.text,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20root%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)(withNotes)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20withoutNotes%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%7D)%5Cn%5Cn%20%20%20%20%20%20%20%20//%20OmniOutliner%20OmniJS%20-----------------------------------------%5Cn%20%20%20%20%20%20%20%20//%20ooRowsFromForest%20::%20OO%20Item%20-%5Cu003e%20[Tree]%20-%5Cu003e%20[OO%20Item]%5Cn%20%20%20%20%20%20%20%20const%20ooRowsFromForest%20=%20parent%20=%5Cu003e%20trees%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20go%20=%20parent%20=%5Cu003e%20tree%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20item%20=%20parent.addChild(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20null,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20x%20=%5Cu003e%20Object.assign(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20x,%20tree.root%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tree.nest.map(go(item)),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20item%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20trees.map(go(parent));%5Cn%20%20%20%20%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20%20%20%20%20//%20MAIN%20-----------------------------------------%5Cn%20%20%20%20%20%20%20%20return%20main()%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20runOmniJSWithArgsFromDrafts%20::%20URL%20String%20-%5Cu003e%20Function%20-%5Cu003e%20[...OptionalArgs]%20-%5Cu003e%20a%5Cn%20%20%20%20function%20runOmniJSWithArgsFromDrafts(baseURL,%20f)%20%7B%5Cn%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20strCode%20=%20encodeURIComponent(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%60($%7Bf%7D)($%7BArray.from(arguments)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.slice(2).map(JSON.stringify)%7D)%60%5Cn%20%20%20%20%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20strURL%20=%20%60$%7BbaseURL%7D?script=$%7BstrCode%7D%60;%5Cn%20%20%20%20%20%20%20%20return%20app.openURL(strURL)%5Cn%7D%5Cn%5Cn%20%20%20%20return%20main()%5Cn%7D;%5CndraftsJSContext()%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%2288205418-8A3C-4BCD-B373-201C134674EC%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Import%20Taskpaper-formatted%20Draft%20into%20OmniOutliner%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22orange%22,%22actionDescription%22:%22%22,%22keyUseIcon%22:false,%22icon%22:%22survey%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22043C77DE-A19F-461B-8C8E-A0D489C23EF6%22,%22assignTags%22:[],%22name%22:%22Import%20Taskpaper-formatted%20Draft%20into%20OmniOutliner%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>const options = {
+	content: draft.content
+}</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// DRAFTS JS CODE --------------------------------------------------------
+const draftsJSContext = () =&gt; {
+    // main :: IO ()
+    const main = () =&gt; {
+        return runOmniJSWithArgsFromDrafts(
+            &#39;omnioutliner://localhost/omnijs-run&#39;,
+            omniJSContext,
+            options
+        )
+    };
+
+    // OMNI JS CODE ---------------------------------------
+    const omniJSContext = opts =&gt; {
+        // main :: IO ()
+        const main = () =&gt; {
+            const forest = compose(
+                map(
+                    compose(
+                        fmapTree(
+                            x =&gt; ({
+                                topic: x.text,
+                                note: x.note
+                            })
+                        ),
+                        treeWithNotes
+                    )
+                ),
+                forestFromTaskPaperString
+            )(opts.content)
+
+            return Document.makeNewAndShow(
+                doc =&gt; ooRowsFromForest(doc.outline.rootItem)(
+                    forest
+                )
+            )
+        };
+
+        // GENERIC FUNCTIONS ----------------------------------
+        // https://github.com/RobTrew/prelude-jxa
+        // JS Prelude --------------------------------------------------
+        // Just :: a -&gt; Maybe a
+        const Just = x =&gt; ({
+            type: &#39;Maybe&#39;,
+            Nothing: false,
+            Just: x
+        });
+
+        // Node :: a -&gt; [Tree a] -&gt; Tree a
+        const Node = v =&gt;
+            // Constructor for a Tree node which connects a
+            // value of some kind to a list of zero or
+            // more child trees.
+            xs =&gt; ({
+                type: &#39;Node&#39;,
+                root: v,
+                nest: xs || []
+            });
+
+        // Nothing :: Maybe a
+        const Nothing = () =&gt; ({
+            type: &#39;Maybe&#39;,
+            Nothing: true,
+        });
+
+        // Tuple (,) :: a -&gt; b -&gt; (a, b)
+        const Tuple = a =&gt;
+            b =&gt; ({
+                type: &#39;Tuple&#39;,
+                &#39;0&#39;: a,
+                &#39;1&#39;: b,
+                length: 2
+            });
+
+        // compose (&lt;&lt;&lt;) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+        const compose = (...fs) =&gt;
+            // A function defined by the right-to-left
+            // composition of all the functions in fs.
+            fs.reduce(
+                (f, g) =&gt; x =&gt; f(g(x)),
+                x =&gt; x
+            );
+
+        // div :: Int -&gt; Int -&gt; Int
+        const div = x =&gt;
+            y =&gt; Math.floor(x / y);
+
+        // eq (==) :: Eq a =&gt; a -&gt; a -&gt; Bool
+        const eq = a =&gt;
+            // True when a and b are equivalent in the terms
+            // defined below for their shared data type.
+            b =&gt; {
+                const t = typeof a;
+                return t !== typeof b ? (
+                    false
+                ) : &#39;object&#39; !== t ? (
+                    &#39;function&#39; !== t ? (
+                        a === b
+                    ) : a.toString() === b.toString()
+                ) : (() =&gt; {
+                    const kvs = Object.entries(a);
+                    return kvs.length !== Object.keys(b).length ? (
+                        false
+                    ) : kvs.every(([k, v]) =&gt; eq(v)(b[k]));
+                })();
+            };
+
+        // filter :: (a -&gt; Bool) -&gt; [a] -&gt; [a]
+        const filter = p =&gt;
+            // The elements of xs which match
+            // the predicate p.
+            xs =&gt; [...xs].filter(p);
+
+        // findIndices :: (a -&gt; Bool) -&gt; [a] -&gt; [Int]
+        // findIndices :: (String -&gt; Bool) -&gt; String -&gt; [Int]
+        const findIndices = p =&gt;
+            xs =&gt; (
+                ys =&gt; ys.flatMap((y, i) =&gt; p(y, i, ys) ? (
+                    [i]
+                ) : [])
+            )([...xs])
+
+        // first :: (a -&gt; b) -&gt; ((a, c) -&gt; (b, c))
+        const first = f =&gt;
+            // A simple function lifted to one which applies
+            // to a tuple, transforming only its first item.
+            xy =&gt; Tuple(f(xy[0]))(
+                xy[1]
+            );
+
+        // flip :: (a -&gt; b -&gt; c) -&gt; b -&gt; a -&gt; c
+        const flip = op =&gt;
+            // The binary function op with its arguments reversed.
+            1 &lt; op.length ? (
+                (a, b) =&gt; op(b, a)
+            ) : (x =&gt; y =&gt; op(y)(x));
+
+        // fmapTree :: (a -&gt; b) -&gt; Tree a -&gt; Tree b
+        const fmapTree = f =&gt; {
+            // A new tree. The result of a structure-preserving
+            // application of f to each root in the existing tree.
+            const go = tree =&gt; Node(f(tree.root))(
+                tree.nest.map(go)
+            );
+            return go;
+        };
+
+        // foldTree :: (a -&gt; [b] -&gt; b) -&gt; Tree a -&gt; b
+        const foldTree = f =&gt; {
+            // The catamorphism on trees. A summary
+            // value obtained by a depth-first fold.
+            const go = tree =&gt; f(tree.root)(
+                tree.nest.map(go)
+            );
+            return go;
+        };
+
+        // fst :: (a, b) -&gt; a
+        const fst = tpl =&gt;
+            // First member of a pair.
+            tpl[0];
+
+        // isSpace :: Char -&gt; Bool
+        const isSpace = c =&gt;
+            // True if c is a white space character.
+            /\s/.test(c);
+
+        // length :: [a] -&gt; Int
+        const length = xs =&gt;
+            // Returns Infinity over objects without finite
+            // length. This enables zip and zipWith to choose
+            // the shorter argument when one is non-finite,
+            // like cycle, repeat etc
+            &#39;GeneratorFunction&#39; !== xs.constructor.constructor.name ? (
+                xs.length
+            ) : Infinity;
+
+        // lines :: String -&gt; [String]
+        const lines = s =&gt;
+            // A list of strings derived from a single
+            // newline-delimited string.
+            0 &lt; s.length ? (
+                s.split(/[\r\n]/)
+            ) : [];
+
+        // list :: StringOrArrayLike b =&gt; b -&gt; [a]
+        const list = xs =&gt;
+            // xs itself, if it is an Array,
+            // or an Array derived from xs.
+            Array.isArray(xs) ? (
+                xs
+            ) : Array.from(xs || []);
+
+        // map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+        const map = f =&gt;
+            // The list obtained by applying f
+            // to each element of xs.
+            // (The image of xs under f).
+            xs =&gt; [...xs].map(f);
+
+        // matching :: [a] -&gt; (a -&gt; Int -&gt; [a] -&gt; Bool)
+        const matching = pat =&gt; {
+            // A sequence-matching function for findIndices etc
+            // findIndices(matching([2, 3]), [1, 2, 3, 1, 2, 3])
+            // -&gt; [1, 4]
+            const
+                lng = pat.length,
+                bln = 0 &lt; lng,
+                h = bln ? pat[0] : undefined;
+            return x =&gt; i =&gt; src =&gt;
+                bln &amp;&amp; h == x &amp;&amp; eq(pat)(
+                    src.slice(i, lng + i)
+                );
+        };
+
+        // minimum :: Ord a =&gt; [a] -&gt; a
+        const minimum = xs =&gt; (
+            // The least value of xs.
+            ys =&gt; 0 &lt; ys.length ? (
+                ys.slice(1)
+                .reduce((a, y) =&gt; y &lt; a ? y : a, ys[0])
+            ) : undefined
+        )(list(xs));
+
+        // nest :: Tree a -&gt; [a]
+        const nest = tree =&gt; {
+            // Allowing for lazy (on-demand) evaluation.
+            // If the nest turns out to be a function –
+            // rather than a list – that function is applied
+            // here to the root, and returns a list.
+            const xs = tree.nest;
+            return &#39;function&#39; !== typeof xs ? (
+                xs
+            ) : xs(root(x));
+        };
+
+        // Derive a function from the name of a JS infix operator
+        // op :: String -&gt; (a -&gt; a -&gt; b)
+        const op = strOp =&gt;
+            eval(`(a, b) =&gt; a ${strOp} b`);
+
+        // partition :: (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
+        const partition = p =&gt;
+            // A tuple of two lists - those elements in 
+            // xs which match p, and those which don&#39;t.
+            xs =&gt; list(xs).reduce(
+                (a, x) =&gt; p(x) ? (
+                    Tuple(a[0].concat(x))(a[1])
+                ) : Tuple(a[0])(a[1].concat(x)),
+                Tuple([])([])
+            );
+
+        // root :: Tree a -&gt; a
+        const root = tree =&gt; tree.root;
+
+        // snd :: (a, b) -&gt; b
+        const snd = tpl =&gt; tpl[1];
+
+        // span, applied to a predicate p and a list xs, returns a tuple of xs of 
+        // elements that satisfy p and second element is the remainder of the list:
+        //
+        // &gt; span (&lt; 3) [1,2,3,4,1,2,3,4] == ([1,2],[3,4,1,2,3,4])
+        // &gt; span (&lt; 9) [1,2,3] == ([1,2,3],[])
+        // &gt; span (&lt; 0) [1,2,3] == ([],[1,2,3])
+        //
+        // span p xs is equivalent to (takeWhile p xs, dropWhile p xs) 
+        // span :: (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
+        const span = p =&gt;
+            // Longest prefix of xs consisting of elements which
+            // all satisfy p, tupled with the remainder of xs.
+            xs =&gt; {
+                const
+                    ys = &#39;string&#39; !== typeof xs ? (
+                        list(xs)
+                    ) : xs,
+                    iLast = ys.length - 1;
+                return splitAt(
+                    until(
+                        i =&gt; iLast &lt; i || !p(ys[i])
+                    )(i =&gt; 1 + i)(0)
+                )(ys);
+            };
+
+        // splitArrow (***) :: (a -&gt; b) -&gt; (c -&gt; d) -&gt; ((a, c) -&gt; (b, d))
+        const splitArrow = f =&gt;
+            // The functions f and g combined in a single function
+            // from a tuple (x, y) to a tuple of (f(x), g(y))
+            // (see bimap)
+            g =&gt; tpl =&gt; Tuple(f(tpl[0]))(
+                g(tpl[1])
+            );
+
+        // splitAt :: Int -&gt; [a] -&gt; ([a], [a])
+        const splitAt = n =&gt;
+            xs =&gt; Tuple(xs.slice(0, n))(
+                xs.slice(n)
+            );
+
+        // splitOn :: [a] -&gt; [a] -&gt; [[a]]
+        // splitOn :: String -&gt; String -&gt; [String]
+        const splitOn = pat =&gt; src =&gt;
+            /* A list of the strings delimited by
+               instances of a given pattern in s. */
+            (&#39;string&#39; === typeof src) ? (
+                src.split(pat)
+            ) : (() =&gt; {
+                const
+                    lng = pat.length,
+                    tpl = findIndices(matching(pat))(src).reduce(
+                        (a, i) =&gt; Tuple(
+                            fst(a).concat([src.slice(snd(a), i)])
+                        )(lng + i),
+                        Tuple([])(0),
+                    );
+                return fst(tpl).concat([src.slice(snd(tpl))]);
+            })();
+
+        // take :: Int -&gt; [a] -&gt; [a]
+        // take :: Int -&gt; String -&gt; String
+        const take = n =&gt;
+            // The first n elements of a list,
+            // string of characters, or stream.
+            xs =&gt; &#39;GeneratorFunction&#39; !== xs
+            .constructor.constructor.name ? (
+                xs.slice(0, n)
+            ) : [].concat.apply([], Array.from({
+                length: n
+            }, () =&gt; {
+                const x = xs.next();
+                return x.done ? [] : [x.value];
+            }));
+
+        // uncons :: [a] -&gt; Maybe (a, [a])
+        const uncons = xs =&gt; {
+            // Just a tuple of the head of xs and its tail, 
+            // Or Nothing if xs is an empty list.
+            const lng = length(xs);
+            return (0 &lt; lng) ? (
+                Infinity &gt; lng ? (
+                    Just(Tuple(xs[0])(xs.slice(1))) // Finite list
+                ) : (() =&gt; {
+                    const nxt = take(1)(xs);
+                    return 0 &lt; nxt.length ? (
+                        Just(Tuple(nxt[0])(xs))
+                    ) : Nothing();
+                })() // Lazy generator
+            ) : Nothing();
+        };
+
+        // unlines :: [String] -&gt; String
+        const unlines = xs =&gt;
+            // A single string formed by the intercalation
+            // of a list of strings with the newline character.
+            xs.join(&#39;\n&#39;);
+
+        // until :: (a -&gt; Bool) -&gt; (a -&gt; a) -&gt; a -&gt; a
+        const until = p =&gt; f =&gt; x =&gt; {
+            let v = x;
+            while (!p(v)) v = f(v);
+            return v;
+        };
+
+        // JS Trees ----------------------------------------------------
+        // forestFromLineIndents :: [(Int, String)] -&gt; [Tree String]
+        const forestFromLineIndents = tuples =&gt; {
+            const go = xs =&gt;
+                0 &lt; xs.length ? (() =&gt; {
+                    const [n, s] = Array.from(xs[0]);
+                    // Lines indented under this line,
+                    // tupled with all the rest.
+                    const [firstTreeLines, rest] = Array.from(
+                        span(x =&gt; n &lt; x[0])(xs.slice(1))
+                    );
+                    // This first tree, and then the rest.
+                    return [
+                        Node({
+                            body: s,
+                            depth: n
+                        })(go(firstTreeLines))
+                    ].concat(go(rest));
+                })() : [];
+            return go(tuples);
+        };
+
+        // forestFromTaskPaperString :: String -&gt; Tree Dict
+        const forestFromTaskPaperString = s =&gt; {
+            const
+                tpItemType = x =&gt; x.startsWith(&#39;- &#39;) ? ({
+                    text: x.slice(2),
+                    type: &#39;task&#39;
+                }) : x.endsWith(&#39;:&#39;) ? ({
+                    text: x.slice(0, -1),
+                    type: &#39;project&#39;
+                }) : {
+                    text: x,
+                    type: &#39;note&#39;
+                },
+                tpTagDict = xs =&gt; xs.reduce((a, x) =&gt; {
+                    const kv = x.split(&#39;(&#39;);
+                    return Object.assign(a, {
+                        [kv[0]]: 1 &lt; kv.length ? (
+                            kv[1].split(&#39;)&#39;)[0]
+                        ) : &#39;&#39;
+                    })
+                }, {}),
+                tpParse = dct =&gt; {
+                    const
+                        pair = splitArrow(tpItemType)(tpTagDict)(
+                            uncons(
+                                splitOn(&#39; @&#39;)(dct.body)
+                            ).Just
+                        );
+                    return Object.assign({}, dct, pair[0], {
+                        tags: pair[1]
+                    });
+                };
+            return compose(
+                map(fmapTree(tpParse)),
+                forestFromLineIndents,
+                indentLevelsFromLines,
+                filter(Boolean),
+                lines
+            )(s);
+        };
+
+        // indentLevelsFromLines :: [String] -&gt; [(Int, String)]
+        const indentLevelsFromLines = xs =&gt; {
+            const
+                indentTextPairs = xs.map(compose(
+                    first(length),
+                    span(isSpace)
+                )),
+                indentUnit = minimum(
+                    indentTextPairs.flatMap(pair =&gt; {
+                        const w = fst(pair);
+                        return 0 &lt; w ? [w] : [];
+                    })
+                );
+            return indentTextPairs.map(
+                first(flip(div)(indentUnit))
+            );
+        };
+
+        // indentedLinesFromTrees :: String -&gt; (a -&gt; String) -&gt;
+        //      [Tree a] -&gt; [String]
+        const indentedLinesFromTrees = strTab =&gt; f =&gt; trees =&gt; {
+            const go = indent =&gt; node =&gt; [indent + f(node)]
+                .concat(node.nest.flatMap(go(strTab + indent)));
+            return trees.flatMap(go(&#39;&#39;));
+        };
+
+        // treeWithNotes :: Tree Dict -&gt; Tree Dict
+        const treeWithNotes = foldTree(item =&gt; subtrees =&gt; {
+            const [withNotes, withoutNotes] = Array.from(
+                partition(
+                    child =&gt; child.root.type === &#39;note&#39;
+                )(subtrees)
+            );
+            return Node(
+                Object.assign({},
+                    item, {
+                        note: compose(
+                            unlines,
+                            indentedLinesFromTrees(&#39;\t&#39;)(
+                                compose(
+                                    x =&gt; x.text,
+                                    root
+                                )
+                            )
+                        )(withNotes)
+                    }
+                )
+            )(
+                withoutNotes
+            )
+        })
+
+        // OmniOutliner OmniJS -----------------------------------------
+        // ooRowsFromForest :: OO Item -&gt; [Tree] -&gt; [OO Item]
+        const ooRowsFromForest = parent =&gt; trees =&gt; {
+            const go = parent =&gt; tree =&gt; {
+                const
+                    item = parent.addChild(
+                        null,
+                        x =&gt; Object.assign(
+                            x, tree.root
+                        )
+                    );
+                return (
+                    tree.nest.map(go(item)),
+                    item
+                );
+            };
+            return trees.map(go(parent));
+        };
+
+        // MAIN -----------------------------------------
+        return main()
+    };
+
+    // runOmniJSWithArgsFromDrafts :: URL String -&gt; Function -&gt; [...OptionalArgs] -&gt; a
+    function runOmniJSWithArgsFromDrafts(baseURL, f) {
+        const
+            strCode = encodeURIComponent(
+                `(${f})(${Array.from(arguments)
+                .slice(2).map(JSON.stringify)})`
+            ),
+            strURL = `${baseURL}?script=${strCode}`;
+        return app.openURL(strURL)
+}
+
+    return main()
+};
+draftsJSContext()</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Default
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Info</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Info</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>JavaScript Functionality and Speciification?</title>
+    <link>https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696</link>
+    <description>So I’ve started fiddling with the actions and syntaxes, and have begun to write my own miniature library of common constants, functions, and classes. Now there are many different versions of JavaScript that exist, and multiple different ways of importing code.
+
+I initially thought to use the export/import functionality, but it didn’t seem to work, so I used  require(“lib-common.js”) which seemed to do exactly what I wanted. For the built in JavaScript objects, I use the MDN JavaScript reference, as the Drafts Scripting Reference does not list all of the standard methods and standard classes. I have a couple questions:
+
+1. Does Drafts support custom classes?
+
+    class newClass
+    {
+          constructor() { super(); }
+    }
+
+2. Is there a defined specification of which features exist and which do not? I’m writing Syntaxes for a variety of languages and creating actions to sync my workspaces across multiple PC’s and other programs.
+
+3. Should I be using multiple action steps that do what I want more directly? I’ve been writing all my steps in JavaScript.
+
+4. When I get the “‼️“ in the corner due to a syntax error, is there any way to see the error without pressing save &amp; close, then executing the action?</description>
+    
+    <lastBuildDate>Tue, 22 Jun 2021 11:57:55 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>JavaScript Functionality and Speciification?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Grincess" data-post="3" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>an extended Javascript+ syntax with Drafts objects in it</p>
+</blockquote>
+</aside>
+<p>Could you explain what that is? I have never heard of “Javascript+” (Googling didn’t help <img src="https://forums.getdrafts.com/images/emoji/apple/confused.png?v=9" title=":confused:" class="emoji" alt=":confused:">), or of anyone bringing Drafts objects into anything else in any way.</p>
+<p>It certainly sounds intriguing.</p>
+          <p><a href="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/4</link>
+        <pubDate>Tue, 22 Jun 2021 11:57:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10696-4</guid>
+        <source url="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696.rss">JavaScript Functionality and Speciification?</source>
+      </item>
+      <item>
+        <title>JavaScript Functionality and Speciification?</title>
+        <dc:creator><![CDATA[Grincess]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you, that explains much of it. I am using Drafts to code, with an extended Javascript+ syntax with Drafts objects in it. I appreciate the helpfulness.</p>
+          <p><a href="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/3</link>
+        <pubDate>Tue, 22 Jun 2021 11:21:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10696-3</guid>
+        <source url="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696.rss">JavaScript Functionality and Speciification?</source>
+      </item>
+      <item>
+        <title>JavaScript Functionality and Speciification?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group quote-modified" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Now there are many different versions of JavaScript that exist,…</p>
+</blockquote>
+</aside>
+<p>Drafts utilises the OS’s “JavaScript core” version. Please note that it has not document object model like a browser, so functions for Windows, etc. are not available.</p>
+<aside class="quote no-group quote-modified" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>…and multiple different ways of importing code.</p>
+<p>I initially thought to use the export/import functionality, but it didn’t seem to work, so I used require(“lib-common.js”) which seemed to do exactly what I wanted.</p>
+</blockquote>
+</aside>
+<p>For importing code see Drafts’ version of the <a href="https://scripting.getdrafts.com/globals#require">require</a> function.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Does Drafts support custom classes?</p>
+<p>class newClass<br>
+{<br>
+constructor() { super(); }<br>
+}</p>
+</blockquote>
+</aside>
+<p>Drafts will support custom classes.</p>
+<p>Your class definition is defining a call to a parent to construct it, but you never define what the parent class is, so as it stands that code would not work.  If you use the rectangle and square example from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super">the MDN page on super</a>, where square <em>extends</em> rectangle, that looks to work fine.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Is there a defined specification of which features exist and which do not? I’m writing Syntaxes for a variety of languages and creating actions to sync my workspaces across multiple PC’s and other programs.</p>
+</blockquote>
+</aside>
+<p>Apple defines the documentation for JavaScript core. Drafts documentation can be found at <a href="https://scripting.getdrafts.com">https://scripting.getdrafts.com</a>. As for a single unified specification of what is in there, no there isn’t. It can vary by the OS the user is using, because the core JavaScript version varies. We’ve seen evidence of this in terms of some forum users not having access to <em>replaceAll</em> due to the age of their OS.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Should I be using multiple action steps that do what I want more directly? I’ve been writing all my steps in JavaScript.</p>
+</blockquote>
+</aside>
+<p>How you write your actions is up to you. There are certainly ways to do things quickly without writing a single line of code. There are ways to do things in code that cannot be done any other way. Oftentimes, there is good reason to mix the two. This could be for speed of creation, maintenance ease of settings for non-coders, etc.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>When I get the “<img src="https://forums.getdrafts.com/images/emoji/apple/bangbang.png?v=9" title=":bangbang:" class="emoji" alt=":bangbang:">“ in the corner due to a syntax error, is there any way to see the error without pressing save &amp; close, then executing the action?</p>
+</blockquote>
+</aside>
+<p>That is indicating a syntax error rather than an execution error. It is there just as a helper in the simple editor. Just keep an eye on it as you code.</p>
+<p>Things you might like to consider are writing your code in a draft initially or an external editor with more JavaScript coding support. There’s some detailed discussion in this thread of how I do it that I think several others follow also.</p>
+<aside class="quote" data-post="1" data-topic="9578">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/letter_avatar_proxy/v4/letter/m/ecae2f/40.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/developing-outside-of-drafts/9578">Developing outside of Drafts</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/scripting/13"><span class="badge-category-bg" style="background-color: #AB9364;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Discussions about Javascript techniques, and Drafts scripting in general">Scripting</span></a>
+  </div>
+  <blockquote>
+    Is anyone using an IDE outside of Drafts to build action scripts? I use VS Code for all my JavaScript development, and much prefer that interface to work in. The catch is that I can’t test within VS Code, so to use the features of my development environment, I have to copy/paste or import/export between Drafts and VS Code, and debugging isn’t possible because I can’t find a way to access the Drafts library. 
+Is there an npm package or other means to import and connect to Drafts from an IDE?
+  </blockquote>
+</aside>
+
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/2</link>
+        <pubDate>Tue, 22 Jun 2021 06:27:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10696-2</guid>
+        <source url="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696.rss">JavaScript Functionality and Speciification?</source>
+      </item>
+      <item>
+        <title>JavaScript Functionality and Speciification?</title>
+        <dc:creator><![CDATA[Grincess]]></dc:creator>
+        <description><![CDATA[
+            <p>So I’ve started fiddling with the actions and syntaxes, and have begun to write my own miniature library of common constants, functions, and classes. Now there are many different versions of JavaScript that exist, and multiple different ways of importing code.</p>
+<p>I initially thought to use the export/import functionality, but it didn’t seem to work, so I used  require(“lib-common.js”) which seemed to do exactly what I wanted. For the built in JavaScript objects, I use the MDN JavaScript reference, as the Drafts Scripting Reference does not list all of the standard methods and standard classes. I have a couple questions:</p>
+<ol>
+<li>
+<p>Does Drafts support custom classes?</p>
+<p>class newClass<br>
+{<br>
+constructor() { super(); }<br>
+}</p>
+</li>
+<li>
+<p>Is there a defined specification of which features exist and which do not? I’m writing Syntaxes for a variety of languages and creating actions to sync my workspaces across multiple PC’s and other programs.</p>
+</li>
+<li>
+<p>Should I be using multiple action steps that do what I want more directly? I’ve been writing all my steps in JavaScript.</p>
+</li>
+<li>
+<p>When I get the “<img src="https://forums.getdrafts.com/images/emoji/apple/bangbang.png?v=9" title=":bangbang:" class="emoji" alt=":bangbang:">“ in the corner due to a syntax error, is there any way to see the error without pressing save &amp; close, then executing the action?</p>
+</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/1</link>
+        <pubDate>Tue, 22 Jun 2021 03:58:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10696-1</guid>
+        <source url="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696.rss">JavaScript Functionality and Speciification?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+    <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595</link>
+    <description>## Drafts 32.0 has been released:
+
+- [iOS App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site)
+- [Mac App Store](https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site)
+
+Details below. For a complete history of updates, visit:
+
+- [Changelog](https://docs.getdrafts.com/changelog)
+
+---
+
+## What&#39;s New
+
+![r32@2x|690x426, 75%](upload://hxuq5x51aGb2lBNR6YGEac3mzXG.png)
+
+### Action Bar Tint Colors
+
+For those who are fond of using color to distinguish items on screen, there is now an option to use action tint colors in the [Action Bar](https://docs.getdrafts.com/docs/editor/action-bar). To enable on iOS, scroll to Action Bar options in `Aa` editor settings. On Mac, toggle menu item in Action Bar&#39;s group selection drop-down menu. 
+
+### Date Math - Travel in Time, Sort of...
+
+It is sometimes useful to output a date that is relative to another date (usually the current one), adjusted by some time interval. It has always been possible in script to create and adjust future and past dates, but now it is easier with the addition of a new method to adjust dates using simple date math expressions.
+
+This begins with a new way to create related date expressions, which consist of a list of plus or minus time intervals which can applied to a date. Each expression look like `(+|-)(integer) (unit)`, and can be combined in a list to make multiple adjustments to a date. A couple of quick examples:
+
+- `+1 year` : Add one year to the date.
+- `-2 months -6 hours`: Subtract two months and six hours from date.
+
+Units supported are: year, month, day, hour, minute, second. Units can be used in either singular or plural forms.
+
+These expressions can be used in JavaScripts with the [`adjustDate(date, expression)` function](https://scripting.getdrafts.com/globals#adjustdate), or by providing an additional expression argument, along with the strftime formatting argument, in template tags which work with date. Those tags are the `[[date]]`, `[[time]]`, `[[created]]`, and `[[modified]]` tags. Again, by example:
+
+- `[[date|+1 year|%Y-%m-%d]]`: Current date next year. So, on May 1, 2022, this would output: 2023-05-01.
+- `[[created|-1 month|%Y-%m-%d]]`: Output a month before the creation date of the draft.
+  
+Adjustment expressions are calendar-aware, such that adding 1 month to May 31 would result in June 30, since June does not have a 31st.
+
+A couple of ready to use examples:
+
+* [Insert Tomorrow](https://directory.getdrafts.com/a/1z3): Action which inserts tomorrow&#39;s date at the cursor location in the editor.
+* [Date: Tomorrow Autocomplete Suggestion](x-drafts://importautocompleteitem?data=%7B%22value%22:%22%5B%5Bdate%7C+1%20day%7C%25Y-%25m-%25d%5D%5D%22,%22label%22:%22Date:%20Tomorrow%22,%22prefix%22:%22%22,%22suffix%22:%22%22,%22includesSuffix%22:true,%22identifier%22:%229C4DC248-855F-4C39-8A63-30291DA414DA%22%7D): Install a [global autocomplete suggestion](https://docs.getdrafts.com/docs/editor/autocomplete#global-autocomplete-suggestions) which inserts tomorrow&#39;s date.
+
+### Mustache Templates
+
+Drafts templates, with their square-bracket, `[[title]]`-style tags are still the default throughout actions, but with this update we have introduced the option to use an alternate template engine based on Mustache templates. 
+
+Mustache templates provide some additional power, like the ability to have conditionally rendered blocks, loop over arrays, insert information from other drafts, as well as more powerful filtering options. For details, [see the Mustache documentation](https://docs.getdrafts.com/docs/actions/templates/mustache).
+
+Mustache templates are available as a option on all long-form templates in action steps, can can also be triggered via script using the [`draft.processMustacheTemplate` function](https://scripting.getdrafts.com/classes/draft#processmustachetemplate).
+
+### Using Mustache Templates for Safari Web Capture
+
+If you often capture using the share extension and Safari, you might be interested in switching your [web capture template](https://docs.getdrafts.com/docs/extensions/share#web-capture-template) to use Mustache. This has the advantage of being able to use conditional sections to only render part of the text template for the captured text selection _if_ a selection exists.
+
+### Improved Template Editing
+
+Drafts now includes basic syntax hightlighting definitions for both Drafts templates, and the new Mustache templates. When editing long-form templates in actions steps, the templates can now (optionally) be opened in an editor with syntax highlighting and basic autocomplete for common tags. Use the edit button by the template in the action editor to open the template editor.
+
+#### Other Changes and Updates
+
+* **All Platforms**
+  - **New:** &quot;Include Action&quot; step configuration now includes &quot;Select&quot; button to allow selection of an existing action, rather that requiring typing of the action name.
+  - **Fix:** TaskPaper syntax did not size indents correctly.
+* **iOS**
+  - **Fix:** External keyboard navigation of dialogs (up-down arrows, etc.) was not working on iOS 15.
+  - **Fix:** Share button with options was not visible on in the Preview window on iPad.
+  - **Change:** Navigation to markers should respect the &quot;Edit on selection&quot; preference, not activating the editor after scrolling to the properly location if it off.
+* **Mac**
+  - **Change:** When new modal capture windows are opened via Services or Sharing, they should appear more as modals with a &quot;Cancel&quot; button to clarify that they are transient and cannot be closed without losing the text.
+  - **Fix (Mac):** Issue were editor undo could corrupt if using the &quot;Undo&quot; command on an empty, new draft.
+  - **Fix (Mac):** If paragraph number display was active, and the window was narrow, text might not wrap properly and it would get clipped.</description>
+    
+    <lastBuildDate>Tue, 10 May 2022 14:53:26 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[BigBob]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes. On the mac.  Thank you.  Will proceed on iOS.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/9</link>
+        <pubDate>Tue, 10 May 2022 14:53:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-9</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Are you doing it on a Mac? I just discovered a bug in this area yesterday, but it was Mac-specific. If so, you can workaround by configuring on an iOS device. Should have a permanent fix out in the next update.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/8</link>
+        <pubDate>Tue, 10 May 2022 14:36:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-8</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[BigBob]]></dc:creator>
+        <description><![CDATA[
+            <p>Not sure if this is 31 issue or a 32 issue or a user issue?  I can’t seem to get the Configure Window action step to save any selected value in Load Workspace, Load Action Group, or Load Action Bar.  Any time I make a selection and then click away to close, my selections are removed.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/7</link>
+        <pubDate>Tue, 10 May 2022 14:33:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-7</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[cwc]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you both! Actually, since I just saw the gray icon I had for that particular action bar group, I had forgotten it was in fact a menu.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/6</link>
+        <pubDate>Wed, 04 May 2022 16:43:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-6</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Example:</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/5d60d749a6501c2be4543240a9c95a6bfd886da6.png" data-download-href="https://forums.getdrafts.com/uploads/default/5d60d749a6501c2be4543240a9c95a6bfd886da6" title="CleanShot 2022-05-04 at 11.40.30@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d60d749a6501c2be4543240a9c95a6bfd886da6_2_408x375.png" alt="CleanShot 2022-05-04 at 11.40.30@2x" data-base62-sha1="dk3SU7CcfFNpS3rggZKfLNGOmpg" width="408" height="375" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d60d749a6501c2be4543240a9c95a6bfd886da6_2_408x375.png, https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d60d749a6501c2be4543240a9c95a6bfd886da6_2_612x562.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/5/5d60d749a6501c2be4543240a9c95a6bfd886da6.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d60d749a6501c2be4543240a9c95a6bfd886da6_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/5</link>
+        <pubDate>Wed, 04 May 2022 16:41:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-5</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[suavito]]></dc:creator>
+        <description><![CDATA[
+            <p>I had to search a bit too. It’s the left most icon in the action bar, the one that indicates which action group is visible. Change to another group and then change back to see the colored icons.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/4</link>
+        <pubDate>Wed, 04 May 2022 16:40:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[cwc]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry, I can’t seem to figure out where this is on the Mac version of Drafts: “the Action Bar’s group selection drop-down menu.” Would appreciate a pointer to something I’m overlooking as the incorporation of color sounds really useful. Thanks.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/3</link>
+        <pubDate>Wed, 04 May 2022 16:27:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+      <item>
+        <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>
+<a name="drafts-320-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-320-has-been-released-1"></a>Drafts 32.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<hr>
+<h2>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h2>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480.png" data-download-href="https://forums.getdrafts.com/uploads/default/7aee1eadb078af1fa0955d28bacb9c02111ad480" title="r32@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_517x319.png" alt="r32@2x" data-base62-sha1="hxuq5x51aGb2lBNR6YGEac3mzXG" width="517" height="319" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_517x319.png, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_775x478.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_1034x638.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_10x10.png"></a></div><p></p>
+<h3>
+<a name="action-bar-tint-colors-3" class="anchor" href="https://forums.getdrafts.com#action-bar-tint-colors-3"></a>Action Bar Tint Colors</h3>
+<p>For those who are fond of using color to distinguish items on screen, there is now an option to use action tint colors in the <a href="https://docs.getdrafts.com/docs/editor/action-bar">Action Bar</a>. To enable on iOS, scroll to Action Bar options in <code>Aa</code> editor settings. On Mac, toggle menu item in Action Bar’s group selection drop-down menu.</p>
+<h3>
+<a name="date-math-travel-in-time-sort-of-4" class="anchor" href="https://forums.getdrafts.com#date-math-travel-in-time-sort-of-4"></a>Date Math - Travel in Time, Sort of…</h3>
+<p>It is sometimes useful to output a date that is relative to another date (usually the current one), adjusted by some time interval. It has always been possible in script to create and adjust future and past dates, but now it is easier with the addition of a new method to adjust dates using simple date math expressions.</p>
+<p>This begins with a new way to create related date expressions, which consist of a list of plus or minus time intervals which can applied to a date. Each expression look like <code>(+|-)(integer) (unit)</code>, and can be combined in a list to make multiple adjustments to a date. A couple of quick examples:</p>
+<ul>
+<li>
+<code>+1 year</code> : Add one year to the date.</li>
+<li>
+<code>-2 months -6 hours</code>: Subtract two months and six hours from date.</li>
+</ul>
+<p>Units supported are: year, month, day, hour, minute, second. Units can be used in either singular or plural forms.</p>
+<p>These expressions can be used in JavaScripts with the <a href="https://scripting.getdrafts.com/globals#adjustdate"><code>adjustDate(date, expression)</code> function</a>, or by providing an additional expression argument, along with the strftime formatting argument, in template tags which work with date. Those tags are the <code>[[date]]</code>, <code>[[time]]</code>, <code>[[created]]</code>, and <code>[[modified]]</code> tags. Again, by example:</p>
+<ul>
+<li>
+<code>[[date|+1 year|%Y-%m-%d]]</code>: Current date next year. So, on May 1, 2022, this would output: 2023-05-01.</li>
+<li>
+<code>[[created|-1 month|%Y-%m-%d]]</code>: Output a month before the creation date of the draft.</li>
+</ul>
+<p>Adjustment expressions are calendar-aware, such that adding 1 month to May 31 would result in June 30, since June does not have a 31st.</p>
+<p>A couple of ready to use examples:</p>
+<ul>
+<li>
+<a href="https://directory.getdrafts.com/a/1z3">Insert Tomorrow</a>: Action which inserts tomorrow’s date at the cursor location in the editor.</li>
+<li>
+<a href="https://forums.getdrafts.com">Date: Tomorrow Autocomplete Suggestion</a>: Install a <a href="https://docs.getdrafts.com/docs/editor/autocomplete#global-autocomplete-suggestions">global autocomplete suggestion</a> which inserts tomorrow’s date.</li>
+</ul>
+<h3>
+<a name="mustache-templates-5" class="anchor" href="https://forums.getdrafts.com#mustache-templates-5"></a>Mustache Templates</h3>
+<p>Drafts templates, with their square-bracket, <code>[[title]]</code>-style tags are still the default throughout actions, but with this update we have introduced the option to use an alternate template engine based on Mustache templates.</p>
+<p>Mustache templates provide some additional power, like the ability to have conditionally rendered blocks, loop over arrays, insert information from other drafts, as well as more powerful filtering options. For details, <a href="https://docs.getdrafts.com/docs/actions/templates/mustache">see the Mustache documentation</a>.</p>
+<p>Mustache templates are available as a option on all long-form templates in action steps, can can also be triggered via script using the <a href="https://scripting.getdrafts.com/classes/draft#processmustachetemplate"><code>draft.processMustacheTemplate</code> function</a>.</p>
+<h3>
+<a name="using-mustache-templates-for-safari-web-capture-6" class="anchor" href="https://forums.getdrafts.com#using-mustache-templates-for-safari-web-capture-6"></a>Using Mustache Templates for Safari Web Capture</h3>
+<p>If you often capture using the share extension and Safari, you might be interested in switching your <a href="https://docs.getdrafts.com/docs/extensions/share#web-capture-template">web capture template</a> to use Mustache. This has the advantage of being able to use conditional sections to only render part of the text template for the captured text selection <em>if</em> a selection exists.</p>
+<h3>
+<a name="improved-template-editing-7" class="anchor" href="https://forums.getdrafts.com#improved-template-editing-7"></a>Improved Template Editing</h3>
+<p>Drafts now includes basic syntax hightlighting definitions for both Drafts templates, and the new Mustache templates. When editing long-form templates in actions steps, the templates can now (optionally) be opened in an editor with syntax highlighting and basic autocomplete for common tags. Use the edit button by the template in the action editor to open the template editor.</p>
+<h4>
+<a name="other-changes-and-updates-8" class="anchor" href="https://forums.getdrafts.com#other-changes-and-updates-8"></a>Other Changes and Updates</h4>
+<ul>
+<li>
+<strong>All Platforms</strong>
+<ul>
+<li>
+<strong>New:</strong> “Include Action” step configuration now includes “Select” button to allow selection of an existing action, rather that requiring typing of the action name.</li>
+<li>
+<strong>Fix:</strong> TaskPaper syntax did not size indents correctly.</li>
+</ul>
+</li>
+<li>
+<strong>iOS</strong>
+<ul>
+<li>
+<strong>Fix:</strong> External keyboard navigation of dialogs (up-down arrows, etc.) was not working on iOS 15.</li>
+<li>
+<strong>Fix:</strong> Share button with options was not visible on in the Preview window on iPad.</li>
+<li>
+<strong>Change:</strong> Navigation to markers should respect the “Edit on selection” preference, not activating the editor after scrolling to the properly location if it off.</li>
+</ul>
+</li>
+<li>
+<strong>Mac</strong>
+<ul>
+<li>
+<strong>Change:</strong> When new modal capture windows are opened via Services or Sharing, they should appear more as modals with a “Cancel” button to clarify that they are transient and cannot be closed without losing the text.</li>
+<li>
+<strong>Fix (Mac):</strong> Issue were editor undo could corrupt if using the “Undo” command on an empty, new draft.</li>
+<li>
+<strong>Fix (Mac):</strong> If paragraph number display was active, and the window was narrow, text might not wrap properly and it would get clipped.</li>
+</ul>
+</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595/1</link>
+        <pubDate>Wed, 04 May 2022 11:40:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12595-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Bullet Journaling with Drafts</title>
+    <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637</link>
+    <description>I&#39;ve loved [bullet journaling](https://bulletjournal.com) for its simplicity and the tactile joy of using a pen &amp; notebook, but I can&#39;t deny the advantages of digital note-taking. After making extensive use of Kirk Strauser&#39;s [Quick Journaling](https://actions.getdrafts.com/g/1Sd) action group, I bumped up against some things I wanted to do that weren&#39;t currently supported. Specifically, I wanted tags added to the draft to transfer over to Things and Day One, I wanted to use Markdown [Tasks](https://docs.getdrafts.com/docs/editor/tasks) before performing my end-of-day migration, and I wanted to be able to add individual drafts to a master index.
+
+I reached out to @Kirk for advice and he gave me some scripting pointers, encouraging me to play around until I found something that works. I am pleased to share the results in the form of a new Bullet Journaling action group which you can find here:
+
+[Bullet Journal](https://actions.getdrafts.com/g/1gZ)
+
+This action group lets me write down whatever strikes me, whenever it strikes me, and makes sure it goes to the right place so I can actually act on it later. 
+
+Some additional actions were adapted from @nahumck&#39;s [GTD](https://actions.getdrafts.com/g/1Ey) action group as well as several formatting tools from @agiletortoise.
+
+I hope other bullet journalers looking for a digital alternative find these useful as well.</description>
+    
+    <lastBuildDate>Thu, 19 Aug 2021 11:01:09 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[nickwild]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>  I managed to get <code>x-fantastical3:// </code> to work.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/ianlhayes">@ianlhayes</a> I have also amended the sendToThings Function so I can send each line entry to a different Things project. Hope this is useful to people</p>
+<pre><code class="lang-auto">function sendToThings(entry) {
+	var cb = CallbackURL.create();
+	cb.baseURL = thingsURL;
+	var arr=entry.split("@");
+	var entry1=arr[0];
+	var list=arr[1];
+	cb.addParameter("title", entry1);
+	cb.addParameter("tags", "Bullet Journal");
+	cb.addParameter("list", list);
+	cb.open();
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/46">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/46</link>
+        <pubDate>Thu, 19 Aug 2021 11:01:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-46</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Fantastical doesn’t support x-callback-url in their Mac app.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/45">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/45</link>
+        <pubDate>Mon, 21 Jun 2021 14:53:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-45</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You would to use the x-callback-url handler. That is <code>x-fantastical3://</code> according to the Fantastical docs.</p>
+<p><a href="https://flexibits.com/fantastical/help/integration-with-other-apps" class="onebox" target="_blank" rel="noopener">https://flexibits.com/fantastical/help/integration-with-other-apps</a></p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/44">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/44</link>
+        <pubDate>Sat, 19 Jun 2021 08:27:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-44</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[manuelescolano]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/ianlhayes">@ianlhayes</a> To add to the mystery of my previous message, it does not work either in my iPad running 14.6.  Migrating action just runs, nothing is migrated, the circle spins for a while in the Action sidebar, after 3 mins it shows a Success message, but is not true.  Quick Journaling Settings file is just fine… same as the one that does run well in my iPhone.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/43">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/43</link>
+        <pubDate>Sat, 19 Jun 2021 00:54:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-43</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[manuelescolano]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/ianlhayes">@ianlhayes</a><br>
+Ian</p>
+<p>I have tried for 45 mins to make this work in my M1 Macbook Air.  IS there a reason why the fantastical call back would not work?  I have tried to replace fantastical:// with fantastical3:// and so on and it does not work in Big Sur.  It works fine in iOs.</p>
+<p>Thanks!</p>
+<p>Manuel</p>
+<p><strong>There is no application set to open the URL fantastical://x-callback-url/parse?sentence=to%20fantasize&amp;x-success=drafts5-callback://success/1BA78233-02D6-4EDE-AF91-E4304BCBC16E&amp;x-cancel=drafts5-callback://cancel/1BA78233-02D6-4EDE-AF91-E4304BCBC16E&amp;x-error=drafts5-callback://error/1BA78233-02D6-4EDE-AF91-</strong></p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/42">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/42</link>
+        <pubDate>Sat, 19 Jun 2021 00:41:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-42</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[ianlhayes]]></dc:creator>
+        <description><![CDATA[
+            <p>Great question! I just tested it with my actions and everything seems to work okay. Are there any updates for the Day One app that might have a impact?</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/41">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/41</link>
+        <pubDate>Wed, 31 Mar 2021 19:50:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-41</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>He migrate journal to the Day One app has stopped working. Any issues or changes that I’m required to make, since here was a new drafts version yesterday</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/40">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/40</link>
+        <pubDate>Wed, 24 Mar 2021 15:48:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-40</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>That was useful. Thanks for all the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/39">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/39</link>
+        <pubDate>Sun, 31 Jan 2021 23:22:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-39</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[ianlhayes]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts only collects lines that start with <code>- </code> for Day One, so if you want to include the top line, simply put a hyphen at the beginning. If you want to modify that header for every future journal entry, you’ll just need to add the hyphen to the <code>var bjTitle</code> line at the beginning of both the “Append to Today’s Journal” and “Go to Today’s Journal” actions so that it reads <code>var bjTitle = “- # Journal for “ + ds;</code></p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/38">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/38</link>
+        <pubDate>Sun, 31 Jan 2021 03:44:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-38</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, that was helpful. Last question, how can I get the header into the Day One app? Like ‘Saturday, 30 January 2021’,  at the top of my Day One entry.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/37">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/37</link>
+        <pubDate>Sat, 30 Jan 2021 14:49:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-37</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[ianlhayes]]></dc:creator>
+        <description><![CDATA[
+            <p>There is, although it does require a small modification to the “Migrate Journal Items” action. If you look toward the bottom of the last script in that action, you’ll find this block:</p>
+<pre><code class="lang-auto">// Some actions are processed in a batch after all their entries
+// are collected. This is where that happens.
+
+if (dayOneLines.length) {
+	var body = dayOneLines.join("\n\n");
+	var cb = CallbackURL.create();
+	cb.baseURL = dayoneURL;
+	cb.addParameter("entry", body);
+	cb.addParameter("tags", tags);
+	cb.waitForResponse = false;
+	cb.open();
+}
+</code></pre>
+<p>To get the action to migrate to a specific journal, simply add this line <code>cb.addParameter(“journal”, “NAMEOFJOURNAL”);</code> before <code>cb.waitForReponse = false;</code> where “NAMEOFJOURNAL” is the name of the journal in Day One where you want your entires to go.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/amelchi">@amelchi</a> If you wanted to send your tasks to Fantastical, you can simply modify the draft “# Quick Journaling Settings” to reflect that. If you change</p>
+<pre><code class="lang-auto">@ Fantastical
+* Things
+- Day One
+</code></pre>
+<p>to</p>
+<pre><code class="lang-auto">@ Fantastical
+* Fantastical
+- Day One
+</code></pre>
+<p>it should do what you want it to. At the moment, I don’t know how to support Apple Notes or nvAlt with this action, but <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> has some great suggestions (as always).</p>
+<p>Lastly, <a class="mention" href="https://forums.getdrafts.com/u/jaipal_singh">@Jaipal_Singh</a>, I’m uploading a new version of the action group with support for Todoist! Just make sure to modify the “# Quick Journaling Settings” draft to reflect your preferences.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/36</link>
+        <pubDate>Sat, 30 Jan 2021 04:08:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-36</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[egsy]]></dc:creator>
+        <description><![CDATA[
+            <p>This looks pretty fantastic!! Can’t wait to try it out.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/35</link>
+        <pubDate>Wed, 27 Jan 2021 17:28:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-35</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="amelchi" data-post="33" data-topic="9637">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/a/ba8739/40.png" class="avatar"> amelchi:</div>
+<blockquote>
+<p>how can I change the Task script (I still refer to Bullett Journal Group) to send my text to Fantastical instead of Things…?</p>
+</blockquote>
+</aside>
+<p>How are your JavaScripting skills?</p>
+<p>As noted above, you need to tailor the actions if you want to do something different. These rely on scripting. There are lots of examples of working with Fantastical in the Action directory and this forum.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/34</link>
+        <pubDate>Tue, 26 Jan 2021 12:30:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-34</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[amelchi]]></dc:creator>
+        <description><![CDATA[
+            <p>very clear, thanks!<br>
+…but AFAIK I can change the embedded actions to send my text snippet to another app; for instance how can I change the Task script (I still refer to Bullett Journal Group) to send my text to Fantastical instead of Things…?</p>
+<p>Thanks</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/33</link>
+        <pubDate>Tue, 26 Jan 2021 11:10:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-33</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="amelchi" data-post="31" data-topic="9637">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/a/ba8739/40.png" class="avatar"> amelchi:</div>
+<blockquote>
+<p>I dont understand if one has to be sticked to the chosen apps (dayOne, Things, Fantastical);</p>
+</blockquote>
+</aside>
+<p>Destinations can be anything supported, but you have to create the action functionality to do it. The action discussed above is processing content, but the “Migrate Journal Items” is specifically configured as per its description.</p>
+<aside class="quote no-group" data-username="amelchi" data-post="31" data-topic="9637">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/a/ba8739/40.png" class="avatar"> amelchi:</div>
+<blockquote>
+<p>for instance could I send both Events and Tasks to Fantastical?</p>
+</blockquote>
+</aside>
+<p>Yes, but you would have to build an action to take in the content and process them in the correct way.</p>
+<p>You could also look in the action directory and across the forum for actions that might suit your specific needs. There have been a number of similar actions for processing individual lines in notes over the last few years.</p>
+<p>If you wish to generally process lines in a draft, I might also recommend the <code>TA_processLinesFunctionRetain()</code> function in TADpoLe. It can simplify some of the processing.</p>
+<p><a href="https://tadpole.thoughtasylum.com/interfaces/draft.html#ta_processlinesfunctionretain" class="onebox" target="_blank" rel="noopener">https://tadpole.thoughtasylum.com/interfaces/draft.html#ta_processlinesfunctionretain</a></p>
+<aside class="quote no-group" data-username="amelchi" data-post="31" data-topic="9637">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/a/ba8739/40.png" class="avatar"> amelchi:</div>
+<blockquote>
+<p>and notes to Aoole Notes or nvAlt</p>
+</blockquote>
+</aside>
+<p>Apple notes is a bit special, and if you search the forum, you can find all sorts of information about the limitations of generating Apple Notes from Drafts.</p>
+<p>nvAlt is working with files in a folder. Drafts can export to file, but you may need to work around sandboxing.</p>
+<p>You could use something like this on a Mac:</p>
+<aside class="quote quote-modified" data-post="5" data-topic="8787">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/sylumer/40/2731_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/copy-notes-to-obsidian-folder/8787/5">Copy notes to Obsidian folder</a> 
+  </div>
+  <blockquote>
+    Just to throw another option into consideration. 
+I’m assuming that Obsidian is in use on a Mac (I’ve not seen an iOS/iPadOS version as yet) alongside Drafts in this particular case. 
+While the JavaScript run from inside of Drafts is sandboxed, the same isn’t true in terms of a shell script.  This setup seems to work for me in my testing. 
+Set-up a script step in an action with the following. 
+function exportFile(p_strDestinationPath)
+{
+	// Write a file to the Drafts area
+	let fmLocal = FileMana…
+  </blockquote>
+</aside>
+
+<p>On iOS, I would suggest using a call out to Scriptable, or to Shortcuts utilising Toolbox Pro, as both Scriptable and Toolbox Pro support folder bookmarking which can allow you to punch through the sandboxing restrictions.</p>
+<p>In summary, you can do all the things you want, but the actions as they stand do not do what you want, you would need to modify them to suit your own purposes.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/32</link>
+        <pubDate>Mon, 25 Jan 2021 19:19:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-32</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[amelchi]]></dc:creator>
+        <description><![CDATA[
+            <p>I dont understand if one has to be sticked to the chosen apps (dayOne, Things, Fantastical); for instance could I send both Events and Tasks to Fantastical? and notes to Aoole Notes or nvAlt?</p>
+<p>thanks</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/31</link>
+        <pubDate>Mon, 25 Jan 2021 18:38:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-31</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/ianlhayes">@ianlhayes</a> ianlhayes</p>
+<p>Is there some way I can get entries in specific Journals inside the Day One app?</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/30</link>
+        <pubDate>Mon, 25 Jan 2021 12:07:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-30</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks a ton, you’ve been very helpful as always.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/29</link>
+        <pubDate>Mon, 25 Jan 2021 11:56:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-29</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, so there’s a bullet journal action group above, which looks to contain a “Migrate Journal Items” action. Presumably this is what you mean.</p>
+<p>Looking at its description only…</p>
+<blockquote>
+<p>Process each line of the draft. By the default settings file:</p>
+<ul>
+<li>Lines starting with “-“ are collected and sent to Day One as a journal entry.</li>
+<li>Lines starting with “- [ ]” are sent to Things’s Inbox.</li>
+<li>Lines starting with “@“ are sent to Fantastical.</li>
+</ul>
+<p>Everything else is ignored.</p>
+<p>Based on the works of Kirk Strauser and inspired by his craftsmanship.</p>
+</blockquote>
+<p>That indicates that the action is only designed to pick up lines starting with a hyphen for Day One. Markdown headings start with an octothorpe.</p>
+<p>That would be why you don’t get a heading copied across.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/28</link>
+        <pubDate>Mon, 25 Jan 2021 09:18:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-28</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>The action Bullet Journal has a sub action - Migrate. So, I just invoke that</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/27</link>
+        <pubDate>Mon, 25 Jan 2021 07:59:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-27</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="yashodhankhare" data-post="24" data-topic="9637">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/y/da6949/40.png" class="avatar"> yashodhankhare:</div>
+<blockquote>
+<p>Last point, when I migrate to Day One the header gets stripped off. How can I correct that part?</p>
+</blockquote>
+</aside>
+<p>There are some big gaps around that question!</p>
+<ol>
+<li>How are you ‘<em>migrating</em>’ to Day One?</li>
+<li>Can you show us an example of the original content, the migrated content and, if it varies to the original, what you expect the final content to look like.</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/26</link>
+        <pubDate>Mon, 25 Jan 2021 07:30:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-26</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>That was for <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a></p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/25</link>
+        <pubDate>Sun, 24 Jan 2021 23:39:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-25</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>This seems to work, just that I want to test it for a few more days. If there are any mire issues, I’ll be back with more questions! Thanks a ton for the help.</p>
+<p>Last point, when I migrate to Day One the header gets stripped off. How can I correct that part?</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/24</link>
+        <pubDate>Sun, 24 Jan 2021 23:38:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-24</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Roam Research isn’t based on local files, so writing to files isn’t possible. It also does not have a web API (<em>yet</em>), so an approach like the one I’ve used for GitHub also isn’t possible. Roam Research simply isn’t particularly automation friendly right now.</p>
+<p>But there are <a href="https://actions.getdrafts.com/search?q=roam+research">actions in the action directory intended to help Drafts use with Roam Research</a>, but they aren’t geared towards getting the content in through automation.</p>
+<p>However, there is a helper tool which effectively creates a local interface that you should be able to run on a Mac (not i*OS) and use (via <a href="https://www.npmjs.com/package/puppeteer">Puppeteer</a>) to control Chrome to work with Roam Research.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+      <a href="https://github.com/artpi/roam-research-private-api" target="_blank" rel="noopener">GitHub</a>
+  </header>
+  <article class="onebox-body">
+    <img src="https://forums.getdrafts.com/uploads/default/original/2X/2/2c532201b91893711cb6ed603e268e8b2c93499b.jpeg" class="thumbnail onebox-avatar" width="400" height="400">
+
+<h3><a href="https://github.com/artpi/roam-research-private-api" target="_blank" rel="noopener">artpi/roam-research-private-api</a></h3>
+
+<p>Private API (puppeteer-driven) to enable API access for Roam Research. - artpi/roam-research-private-api</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>You should then be able to interface with that locally hosted tool from Drafts to interact with your cloud hosted Roam Research instance directly via a Chrome browser.</p>
+<p>But this will leave you a bit stuck on mobile devices, unless you say have an always on Mac that you can trigger from the mobile device to carry out your automated interactions on the mobile device’s behalf.</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/23</link>
+        <pubDate>Sat, 23 Jan 2021 11:05:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-23</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+      <item>
+        <title>Bullet Journaling with Drafts</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>Any idea how you can do this with Roam Research?</p>
+          <p><a href="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637/22</link>
+        <pubDate>Sat, 23 Jan 2021 08:19:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9637-22</guid>
+        <source url="https://forums.getdrafts.com/t/bullet-journaling-with-drafts/9637.rss">Bullet Journaling with Drafts</source>
+      </item>
+  </channel>
+</rss>

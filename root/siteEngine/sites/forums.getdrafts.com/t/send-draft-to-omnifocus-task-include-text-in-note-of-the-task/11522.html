@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task - Scripting - Drafts Community</title>
+    <meta name="description" content="Hi All, 
+I am using the script below to take a line in Draft that starts with a - and sending it to OmniFocus as a new task with the correct tag. This works really well. What I would like to add is the ability to have th&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11522.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task&#39;" href="11522.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522" />
+<meta property="og:title" content="Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task" />
+<meta name="twitter:title" content="Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task" />
+<meta property="og:description" content="Hi All,  I am using the script below to take a line in Draft that starts with a - and sending it to OmniFocus as a new task with the correct tag. This works really well. What I would like to add is the ability to have the script put information into the “Note” section of the OmniFocus task.  For example,  If I write this in Drafts:   Work with people to finish this project | I need to connect with Fred so he knows what to do.  After the right script was created, in OmniFocus it would look like t..." />
+<meta name="twitter:description" content="Hi All,  I am using the script below to take a line in Draft that starts with a - and sending it to OmniFocus as a new task with the correct tag. This works really well. What I would like to add is the ability to have the script put information into the “Note” section of the OmniFocus task.  For example,  If I write this in Drafts:   Work with people to finish this project | I need to connect with Fred so he knows what to do.  After the right script was created, in OmniFocus it would look like t..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="3 ❤" />
+<meta property="article:published_time" content="2021-11-04T14:56:46+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="11522.html">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/omnifocus.html' class='discourse-tag' rel="tag">omnifocus</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Greg_Shambo'><span itemprop='name'>Greg_Shambo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-04T14:56:46Z' class='post-time'>
+                November 4, 2021,  2:56pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-04T15:34:06Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi All,</p>
+<p>I am using the script below to take a line in Draft that starts with a - and sending it to OmniFocus as a new task with the correct tag. This works really well. What I would like to add is the ability to have the script put information into the “Note” section of the OmniFocus task.</p>
+<p>For example,</p>
+<p>If I write this in Drafts:</p>
+<ul>
+<li>Work with people to finish this project | I need to connect with Fred so he knows what to do.</li>
+</ul>
+<p>After the right script was created, in OmniFocus it would look like this:</p>
+<p>Task - Work with people to finish this project<br>
+Tag - Fred<br>
+Note - I need to connect with Fred so he knows what to do.</p>
+<p>In the text from Drafts I’m using the “|” as the divider between the title of the Task and what should go into the Note. I am not married to this so if there is a better way to do this I’m open to it.</p>
+<p>Thank you!!!</p>
+<pre><code class="lang-auto">// Add  - Fred - *
+function processDraft(p_strIdentifier, p_strNewPrefix = "")
+{
+	// Check each line of the current draft
+	for (let strLine of draft.lines)
+	{
+		// If the line starts with the task prefix, process it
+		if (strLine.startsWith(p_strIdentifier))
+		{
+			// Build and call the URL
+			let cb = CallbackURL.create();
+			cb.baseURL = "omnifocus:///add";
+			cb.addParameter("name", p_strNewPrefix + strLine.substring(p_strIdentifier.length));
+			cb.addParameter("note", draft.permalink);
+			cb.addParameter("project", draft.displayTitle);
+			cb.addParameter("context", "🗒 - Fred");
+			cb.addParameter("autosave", "true");
+			cb.open();
+		}
+	}
+	return;
+}
+
+//Call the function to process the draft with the identifier and the optional prefix to use in OmniFocus.
+processDraft("-", "🗒 ");
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+          <meta itemprop='keywords' content='omnifocus'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-05T14:01:50Z' class='post-time'>
+                November 5, 2021,  2:01pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-05T14:01:50Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>you need several things to achieve what you need. I’m not a very experienced javascript user so there might be a more efficient / elegant solution for your problem.<br>
+Here is what I would do (attention i just edited tthis online and did not test it so there may be some typos or syntax issues.:</p>
+<pre><code class="lang-auto">const taskNoteDivider = "|";
+
+// Add  - Fred - *
+function processDraft(p_strIdentifier, p_strNewPrefix = "")
+{
+	// Check each line of the current draft
+	for (let strLine of draft.lines)
+	{
+		// If the line starts with the task prefix, process it
+		if (strLine.startsWith(p_strIdentifier))
+		{
+			// check if the divider is included in the task
+			let taskName = "";
+			let taskNote = "";
+			if(strLine.includes(taskNoteDivider){
+				// split the line into the task name and the content for the note
+				let lineContent = p_strNewPrefix + strLine.substring(p_strIdentifier.length);
+				let lineParts = lineContent.split(taskNoteDivider);
+				taskName = lineParts[0];
+				taskNote = linePart[1] + "\n" + draft.permalink;
+			} else {
+				taskName =  p_strNewPrefix + strLine.substring(p_strIdentifier.length);
+				taskNote = draft.permalink;
+			}
+			// Build and call the URL
+			let cb = CallbackURL.create();
+			cb.baseURL = "omnifocus:///add";
+			cb.addParameter("name", taskName);
+			cb.addParameter("note", taskNote);
+			cb.addParameter("project", draft.displayTitle);
+			cb.addParameter("context", "🗒 - Fred");
+			cb.addParameter("autosave", "true");
+			cb.open();
+		}
+	}
+	return;
+}
+
+//Call the function to process the draft with the identifier and the optional prefix to use in OmniFocus.
+processDraft("-", "🗒 ");
+</code></pre>
+<p>hope this helps <img src="../../images/emoji/apple/slight_smile.png@v=10" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Greg_Shambo'><span itemprop='name'>Greg_Shambo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-07T00:14:40Z' class='post-time'>
+                November 7, 2021, 12:14am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-07T00:14:40Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I want to thank you for taking the time to help. I really appreciate it. I am having a problem with the syntex. I keep getting the attached error. Any chance you can help me out with it (again?)?<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png" data-download-href="https://forums.getdrafts.com/uploads/default/a6a4536ea8b3ad95605ec538bb73af790a007ed2" title="Screen Shot 423"><img src="../../uploads/default/optimized/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2_2_690x326.png" alt="Screen Shot 423" data-base62-sha1="nMbkfWei1cRM3c1nNMNBdjvupRU" width="690" height="326" srcset="../../uploads/default/optimized/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2_2_690x326.png, ../../uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png 1.5x, ../../uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screen Shot 423</span><span class="informations">804×380 54 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-07T09:49:49Z' class='post-time'>
+                November 7, 2021,  9:49am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-07T09:49:49Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It is telling you that this line (15) is missing a closing parenthesis.</p>
+<pre><code class="lang-auto">if(strLine.includes(taskNoteDivider){
+</code></pre>
+<p>If you look at some of the other lines, you will see examples of where it is correct</p>
+<pre><code class="lang-auto">if(strLine.includes(taskNoteDivider)){
+</code></pre>
+<p>The parentheses must always be balanced for opening and closing.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Greg_Shambo'><span itemprop='name'>Greg_Shambo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-07T12:17:27Z' class='post-time'>
+                November 7, 2021, 12:17pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-07T12:17:27Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi,<br>
+Again, thank you! I fixed that and it threw this:</p>
+<p>Script Error: ReferenceError: Can’t find variable: linePart<br>
+Line number: 20, Column 24</p>
+<p>I am a newbie (clearly) and appreciate the help.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/3/3f20e465930085e8e9b030cb0d726c4f8f899a20.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-07T12:41:08Z' class='post-time'>
+                November 7, 2021, 12:41pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-07T12:41:08Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just a quick scan.</p>
+<p><img src="../../uploads/default/original/2X/3/3f20e465930085e8e9b030cb0d726c4f8f899a20.jpeg" alt="image" data-base62-sha1="90syd6UHzYst5vBa9ZEzwCnKncs" width="666" height="293"></p>
+<p>I see one of these variable references seems to be missing an “s” from the end of the name. The <code>let</code> defines the variable, so that is the name that should be used throughout. Typo in the name simply refers to a different variable that may or may not exist.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Greg_Shambo'><span itemprop='name'>Greg_Shambo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-07T17:05:53Z' class='post-time'>
+                November 7, 2021,  5:05pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-07T17:05:53Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That worked!!! Thank you so much! Not only does it work but I learned a little more about scripting. <img src="../../images/emoji/apple/slight_smile.png@v=10" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Really appreciate it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-09T10:16:00Z' class='post-time'>
+                November 9, 2021, 10:16am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-09T10:16:00Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>thanks <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> for fixing this - note to myself: at least check the syntax</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11522.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-09T11:18:16Z' class='post-time'>
+                November 9, 2021, 11:18am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-09T11:18:16Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You did note that there could be syntax issues, and it was just a couple of typos. I wish my unchecked responses were so accurate <img src="../../images/emoji/apple/laughing.png@v=10" title=":laughing:" class="emoji" alt=":laughing:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

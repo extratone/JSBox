@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Append to selected file (from list of running files – a la Merlin Mann&#39;s &quot;runx&quot; file scheme)</title>
+    <link>https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026</link>
+    <description>Like Merlin Mann*, I have a series of &quot;running files&quot; to which I&#39;m constantly adding content:
+
+- runx movies.txt
+- runx restaurants.txt
+- runx gift ideas.txt
+- runx books I&#39;ve read.txt
+...
+
+I could use the &quot;[Append to Running Lists](https://forums.getdrafts.com/t/tip-append-to-running-lists-with-the-add-to-list-action/596)&quot; action, but I&#39;d like prefer to have separate files that I can also access from my Mac.
+
+I could set up an action for each of these (variations on &quot;Append to iCloud Journal&quot;:  &quot;Append to Movie List&quot;, &quot;Append to Gift Idea List&quot;, etc.), but it would be great if I could have _one action_ that prompts me with buttons for each of them (about 10, say), so that I can pick the destination and have the [[draft]] text appended to the corresponding file in the background.
+
+Any ideas for how to write an Action that allows the pathname/filename to be determined from a list of options? 
+
+*Credit to Merlin Mann:  first explained on MacPowerUsers [MPU Ep 23: Workflows with Merlin Mann](https://www.relay.fm/mpu/023)</description>
+    
+    <lastBuildDate>Tue, 22 May 2018 20:45:43 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Append to selected file (from list of running files – a la Merlin Mann&#39;s &quot;runx&quot; file scheme)</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>You can use a <a href="http://getdrafts.com/actions/steps/prompt">Prompt</a> to create the selections. Specify buttons for the prompt with a pipe separated list like:</p>
+<pre><code class="lang-auto">movies|restaurants|gift ideas
+</code></pre>
+<p>Then, in the step after that appends to a file (iCloud Drive, Dropbox, whatever you are using), use the <code>[[prompt_button]]</code> tag in the path, like:</p>
+<pre><code class="lang-auto">/runx [[prompt_button]].txt
+</code></pre>
+<p>(That assumes the default “prompt” key for the prompt step)</p>
+<p>That should get you what you want.</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026/2</link>
+        <pubDate>Tue, 22 May 2018 20:45:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1026-2</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026.rss">Append to selected file (from list of running files – a la Merlin Mann&#39;s &quot;runx&quot; file scheme)</source>
+      </item>
+      <item>
+        <title>Append to selected file (from list of running files – a la Merlin Mann&#39;s &quot;runx&quot; file scheme)</title>
+        <dc:creator><![CDATA[Joel]]></dc:creator>
+        <description><![CDATA[
+            <p>Like Merlin Mann*, I have a series of “running files” to which I’m constantly adding content:</p>
+<ul>
+<li>runx movies.txt</li>
+<li>runx restaurants.txt</li>
+<li>runx gift ideas.txt</li>
+<li>runx books I’ve read.txt<br>
+…</li>
+</ul>
+<p>I could use the “<a href="https://forums.getdrafts.com/t/tip-append-to-running-lists-with-the-add-to-list-action/596">Append to Running Lists</a>” action, but I’d like prefer to have separate files that I can also access from my Mac.</p>
+<p>I could set up an action for each of these (variations on “Append to iCloud Journal”:  “Append to Movie List”, “Append to Gift Idea List”, etc.), but it would be great if I could have <em>one action</em> that prompts me with buttons for each of them (about 10, say), so that I can pick the destination and have the [[draft]] text appended to the corresponding file in the background.</p>
+<p>Any ideas for how to write an Action that allows the pathname/filename to be determined from a list of options?</p>
+<p>*Credit to Merlin Mann:  first explained on MacPowerUsers <a href="https://www.relay.fm/mpu/023" rel="nofollow noopener">MPU Ep 23: Workflows with Merlin Mann</a></p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026/1</link>
+        <pubDate>Tue, 22 May 2018 20:19:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1026-1</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-selected-file-from-list-of-running-files-a-la-merlin-manns-runx-file-scheme/1026.rss">Append to selected file (from list of running files – a la Merlin Mann&#39;s &quot;runx&quot; file scheme)</source>
+      </item>
+  </channel>
+</rss>

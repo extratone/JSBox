@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Editing JavaScript</title>
+    <link>https://forums.getdrafts.com/t/editing-javascript/12528</link>
+    <description>What tools are people using to create and edit Actions, i.e., write and edit JavaScript in Drafts?
+
+I’m going crazy doing it within Drafts on my iPhone.  
+
+(Sorry if this question should have been posted in a different portion of the Community.  🥺)</description>
+    
+    <lastBuildDate>Sun, 24 Apr 2022 19:05:37 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/editing-javascript/12528.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Editing JavaScript</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>Similar to <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>, I do most of my script development outside of Drafts, and I try as much as possible to do it entirely on my Mac. If I’m doing it on my i*OS device, then  will put the script in the body of a draft and use an action to execute that body.</p>
+<p>For me, I leverage the FileBookmark feature agiletortoise enabled a few releases ago to point to my local git repo. The script is as such:</p>
+<pre><code class="lang-auto">let bookmark = Bookmark.findOrCreate("git");
+let fm = FileManager.createForBookmark(bookmark);
+
+let content = fm.readString("src/ptdrafts.js");
+this.eval(content);
+</code></pre>
+<p>If you include the Drafts definitions, you can use a decent editor or IDE to help with autocompletion. You can see how to do this at the <a href="https://github.com/agiletortoise/drafts-script-reference">GitHub page</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/editing-javascript/12528/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/editing-javascript/12528/3</link>
+        <pubDate>Sun, 24 Apr 2022 19:05:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12528-3</guid>
+        <source url="https://forums.getdrafts.com/t/editing-javascript/12528.rss">Editing JavaScript</source>
+      </item>
+      <item>
+        <title>Editing JavaScript</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s what I do.</p>
+<aside class="quote" data-post="1" data-topic="8825">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/5873_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/tip-editing-java-script-inside-a-draft/8825">[Tip] Editing Java Script inside a Draft</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/scripting/13"><span class="badge-category-bg" style="background-color: #AB9364;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Discussions about Javascript techniques, and Drafts scripting in general">Scripting</span></a>
+  </div>
+  <blockquote>
+    I am not sure if this was already discussed elsewhere. TADpole offers a great set of tools to build a simple java script editor to edit run and beautify source code. 
+In fact it is so good that I spend to much time coding on my iPhone XR 
+The functions are now in the Power User Action Group
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/editing-javascript/12528/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/editing-javascript/12528/2</link>
+        <pubDate>Thu, 21 Apr 2022 12:15:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12528-2</guid>
+        <source url="https://forums.getdrafts.com/t/editing-javascript/12528.rss">Editing JavaScript</source>
+      </item>
+      <item>
+        <title>Editing JavaScript</title>
+        <dc:creator><![CDATA[nello]]></dc:creator>
+        <description><![CDATA[
+            <p>What tools are people using to create and edit Actions, i.e., write and edit JavaScript in Drafts?</p>
+<p>I’m going crazy doing it within Drafts on my iPhone.</p>
+<p>(Sorry if this question should have been posted in a different portion of the Community.  <img src="https://forums.getdrafts.com/images/emoji/apple/pleading_face.png?v=12" title=":pleading_face:" class="emoji" alt=":pleading_face:" loading="lazy" width="20" height="20">)</p>
+          <p><a href="https://forums.getdrafts.com/t/editing-javascript/12528/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/editing-javascript/12528/1</link>
+        <pubDate>Thu, 21 Apr 2022 12:11:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12528-1</guid>
+        <source url="https://forums.getdrafts.com/t/editing-javascript/12528.rss">Editing JavaScript</source>
+      </item>
+  </channel>
+</rss>

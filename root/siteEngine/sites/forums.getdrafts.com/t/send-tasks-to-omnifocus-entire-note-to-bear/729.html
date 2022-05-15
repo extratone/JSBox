@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Send Tasks to Omnifocus/Entire Note to Bear - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I’m trying to make a script that takes any lines with “Omnifocus:” and creates an Omnifocus task out of it, and then simply sends the entire note to Bear with the top line as the heading. I know this is probably easy for&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="729.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Send Tasks to Omnifocus/Entire Note to Bear&#39;" href="https://forums.getdrafts.com/t/send-tasks-to-omnifocus-entire-note-to-bear/729.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/send-tasks-to-omnifocus-entire-note-to-bear/729" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/send-tasks-to-omnifocus-entire-note-to-bear/729" />
+<meta property="og:title" content="Send Tasks to Omnifocus/Entire Note to Bear" />
+<meta name="twitter:title" content="Send Tasks to Omnifocus/Entire Note to Bear" />
+<meta property="og:description" content="I’m trying to make a script that takes any lines with “Omnifocus:” and creates an Omnifocus task out of it, and then simply sends the entire note to Bear with the top line as the heading. I know this is probably easy for you guys but I have really little experience with Javascript and can’t figure out what’s going wrong. I tried to combine the “Tasks in Omnifocus” script by agile tortoise and Tim Nanchuck’s personal script but I’m doing something wrong. If anybody is able to either make an indep..." />
+<meta name="twitter:description" content="I’m trying to make a script that takes any lines with “Omnifocus:” and creates an Omnifocus task out of it, and then simply sends the entire note to Bear with the top line as the heading. I know this is probably easy for you guys but I have really little experience with Javascript and can’t figure out what’s going wrong. I tried to combine the “Tasks in Omnifocus” script by agile tortoise and Tim Nanchuck’s personal script but I’m doing something wrong. If anybody is able to either make an indep..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="4 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="3 ❤" />
+<meta property="article:published_time" content="2018-04-30T00:25:29+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="729.html">Send Tasks to Omnifocus/Entire Note to Bear</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/omnifocus.html' class='discourse-tag' rel="tag">omnifocus</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Snow'><span itemprop='name'>Snow</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-30T00:25:29Z' class='post-time'>
+                April 30, 2018, 12:25am
+              </time>
+              <meta itemprop='dateModified' content='2018-04-30T00:25:29Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m trying to make a script that takes any lines with “Omnifocus:” and creates an Omnifocus task out of it, and then simply sends the entire note to Bear with the top line as the heading. I know this is probably easy for you guys but I have really little experience with Javascript and can’t figure out what’s going wrong. I tried to combine the “Tasks in Omnifocus” script by agile tortoise and Tim Nanchuck’s personal script but I’m doing something wrong. If anybody is able to either make an independent script for add as Omnifocus if this task has “Omnifocus:” or can tell me what I’m doing wrong, that’d be great. -Thanks, Sam</p>
+<p>// split draft into lines<br>
+const lines = draft.content.split("\n");<br>
+const baseURL = “omnifocus://x-callback-url/add”;</p>
+<p>// loop over lines and send each to Fantastical<br>
+for(var line of lines) {<br>
+if (line.includes("!")) { continue; }<br>
+// create and configure callback object<br>
+var cb = CallbackURL.create();<br>
+cb.baseURL = baseURL;<br>
+cb.addParameter(“name”, line);<br>
+// open and wait for result<br>
+var success = cb.open();<br>
+if (success) {<br>
+console.log(“Task created in Omnifocus”);<br>
+}<br>
+else {<br>
+context.fail();<br>
+}<br>
+}</p>
+<p>Alternatively, I tried to make <span class="mention">@TiffanyW_412</span> Add multiple tasks to Omnifocus script work, but was unsuccessful.</p>
+<p>// See online documentation for examples<br>
+// <a href="http://drafts5-help.agiletortoise.com/" rel="nofollow noopener">http://drafts5-help.agiletortoise.com/</a></p>
+<p>// Script steps run short Javascripts<br>
+// For documentation and examples, visit:<br>
+// <a href="http://help.agiletortoise.com" rel="nofollow noopener">http://help.agiletortoise.com</a></p>
+<p>var text = “”;<br>
+var tasks = draft.content.split("\n");<br>
+for (var task in tasks) {<br>
+if (task.includes(“Omnifocus:”)<br>
+{<br>
+text += "- " + tasks[i] + “\n”;<br>
+}};</p>
+<p>draft.setTemplateTag(“OFTasks”, text);</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+          <meta itemprop='keywords' content='omnifocus'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/KJ13'><span itemprop='name'>KJ13</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T10:53:42Z' class='post-time'>
+                May 19, 2018, 10:53am
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T10:53:42Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have been searching for the exact solution Sam is attempting to create—it would tremendously simplify my notetaking workflow. Might anyone with experience in JavaScript be able to lend us a hand?</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/clarke'><span itemprop='name'>clarke</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T13:27:43Z' class='post-time'>
+                May 19, 2018,  1:27pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T13:27:43Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi Sam and KJ13,</p>
+<p>I do exactly this, take lines that start with OmniFocus: (I actually use OF: for brevity, but have changed this script) and then send the rest of the note to Bear with the tag “meeting notes”. This script deletes the lines prefixed with OmniFocus from the final note in Bear, but it should be pretty straightforward to not delete those lines and send the entire draft unchanged to Bear.</p>
+<p>This was adapted from another script I found, but I am having difficulty finding the original source. There is a great community out there, and sometimes with just a little modification you can make it do what you need.</p>
+<p>I’ve been using this at work since Drafts 5 was released, and it’s working great. Let me know how it works for you.</p>
+<p>Script:</p>
+<pre><code class="lang-auto">// Process Meeting Notes
+
+const taskPrefix = "OmniFocus: ";
+const noteTag = "meeting notes";
+
+// Function for removing the task prefix
+function removeTaskPrefix(s) {
+  var f       = (taskPrefix),
+      r       = "",
+      re      = new RegExp(f, "g"),
+      matches = s.match(re);
+
+  if (matches) {
+    return s.replace(re,r);
+  }
+}
+
+// Function to perform the callback url
+function doCallbackURL(url, params) {
+  var cb = CallbackURL.create();
+  cb.baseURL = url;
+
+  for(var key in params) {
+   cb.addParameter(key, params[key]);
+  }
+
+  var success = cb.open();
+  if (success) {
+    console.log("Event created");
+  } else {
+    console.log(cb.status);
+    if (cb.status == "cancel") {
+      context.cancel();
+    } else {
+      context.fail();
+    }
+  }
+}
+
+// Scan for the task prefix in the draft
+var d = draft.content;
+var lines = d.split("\n");
+var n = '';
+
+for (var line of lines) {
+  // If the line includes the task prefix, 
+  // we remove exclude it from the final notes
+  if (line.includes(taskPrefix)) {
+
+    // Remove the trigger from the line
+    var task = removeTaskPrefix(line);
+
+    // OmniFocus URL Action
+    doCallbackURL("omnifocus://x-callback-url/paste", {
+      "content": task,
+      "target": "inbox"
+    });
+  } else {
+    n += line + "\n";
+  }
+}
+draft.content = n;
+draft.update();
+
+// Send the note to Bear
+doCallbackURL("bear://x-callback-url/create", {
+  "text": draft.content,
+  "tags": noteTag
+});
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/KJ13'><span itemprop='name'>KJ13</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T15:02:48Z' class='post-time'>
+                May 19, 2018,  3:02pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T15:02:48Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi Clarke,</p>
+<p>Thank you so very much for your quick response! This works BRILLIANTLY!!</p>
+<p>By the way, I tried to manipulate the code to retain in Bear the original lines with the “OF:” tasks, but I am consistently getting various error messages or missing tasks. Would you happen to know what in particular I would need to change so Bear keeps the original note in its entirety?</p>
+<p>Gratefully,<br>
+KJ</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/clarke'><span itemprop='name'>clarke</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T19:29:36Z' class='post-time'>
+                May 19, 2018,  7:29pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T19:29:36Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I remembered where I found the original version, from which I derived this. It was in the MacStories Drafts 5 review:</p>
+<p><a href="https://www.macstories.net/reviews/drafts-5-the-macstories-review/" rel="nofollow noopener">Drafts 5: The MacStories Review – MacStories</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/clarke'><span itemprop='name'>clarke</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T19:42:46Z' class='post-time'>
+                May 19, 2018,  7:42pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T19:42:46Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi KJ,</p>
+<p>To keep the original OF, or OmniFocus in this case, lines in the note, there are a few changes needed.</p>
+<p>What the loop over the lines is currently doing is going line by line looking for lines that start with the trigger phrase, OmniFocus. Then when it finds the trigger, it extracts the task and sends it off to OmniFocus. For all other lines that do not start with the trigger, it adds to a copy of the note so that it can use that for Bear. We can simplify all of this by not building the new content, the “n” variable, and not modify draft.content. The full version of this would be:</p>
+<pre><code class="lang-auto">// Process Meeting Notes
+
+const taskPrefix = "OmniFocus: ";
+const noteTag = "meeting notes";
+
+// Function for removing the task prefix
+function removeTaskPrefix(s) {
+  var f       = (taskPrefix),
+      r       = "",
+      re      = new RegExp(f, "g"),
+      matches = s.match(re);
+
+  if (matches) {
+    return s.replace(re,r);
+  }
+}
+
+// Function to perform the callback url
+function doCallbackURL(url, params) {
+  var cb = CallbackURL.create();
+  cb.baseURL = url;
+
+  for(var key in params) {
+   cb.addParameter(key, params[key]);
+  }
+
+  var success = cb.open();
+  if (success) {
+    console.log("Event created");
+  } else {
+    console.log(cb.status);
+    if (cb.status == "cancel") {
+      context.cancel();
+    } else {
+      context.fail();
+    }
+  }
+}
+
+// Scan for the task prefix in the draft
+var lines = draft.content.split("\n");
+
+for (var line of lines) {
+  // If the line includes the task prefix, 
+  // we remove exclude it from the final notes
+  if (line.includes(taskPrefix)) {
+
+    // Remove the trigger from the line
+    var task = removeTaskPrefix(line);
+
+    // OmniFocus URL Action
+    doCallbackURL("omnifocus://x-callback-url/paste", {
+      "content": task,
+      "target": "inbox"
+    });
+ }
+}
+
+// Send the note to Bear
+doCallbackURL("bear://x-callback-url/create", {
+  "text": draft.content,
+  "tags": noteTag
+});
+</code></pre>
+<p>I’m happy to explain things further if something doesn’t make sense.</p>
+<p>Clarke</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/clarke'><span itemprop='name'>clarke</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T19:44:15Z' class='post-time'>
+                May 19, 2018,  7:44pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T19:44:15Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Another thing to note is that I am using the TaskPaper style URL for OmniFocus so that it adds the task to the Inbox and immediately jumps back to Drafts. You could also just use a simpler URL to OmniFocus if you’d like it to create a new task there and wait for you to hit the “Save” button.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/KJ13'><span itemprop='name'>KJ13</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-19T22:54:15Z' class='post-time'>
+                May 19, 2018, 10:54pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-19T22:54:15Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi Clarke—yes! This is perfect!! I can’t believe my eyes when this thing kicks off for a note chock-full of tasks.</p>
+<p>This will be a boon for productivity!</p>
+<p>And thank you for your lucid explanation and commentary. I’m definately saving this thread for future reference.</p>
+<p>Cheers to you my friend!</p>
+<p>With gratitude,<br>
+KJ</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/clarke'><span itemprop='name'>clarke</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-20T00:18:04Z' class='post-time'>
+                May 20, 2018, 12:18am
+              </time>
+              <meta itemprop='dateModified' content='2018-05-20T00:18:04Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great, I’m glad it works for you! It’s been great for me with meetings at work.</p>
+<p>Clarke</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Linkonlawyer'><span itemprop='name'>Linkonlawyer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-09-04T15:38:14Z' class='post-time'>
+                September 4, 2018,  3:38pm
+              </time>
+              <meta itemprop='dateModified' content='2018-09-04T15:38:14Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m just starting our with drafts, and tried to look around the forum but I could not find a solution for what I want.</p>
+<p>I’m running <a class="mention" href="https://forums.getdrafts.com/u/clarke">@clarke</a> s script and it’s amazing. But I’m trying to add a email component to it.</p>
+<p>When I’m holding a meeting, and we decide different actions for different people I like to send an email to everyone with their actions. The meeting always consists of the same people.</p>
+<p>Is there a way to send it directly from the note. I’m thinking something like this:</p>
+<blockquote>
+<p>EA-A( Email Action for Anders): Move X<br>
+EA-A: Tell Y<br>
+EA-B (Email Action for Billy): Bring Z</p>
+<p>Anders task will be added up and then sent to his email.<br>
+And the one task that Billy had would be sent directly!</p>
+</blockquote>
+<p>Gratefully,<br>
+David</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/rak'><span itemprop='name'>rak</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-09-25T05:04:47Z' class='post-time'>
+                September 25, 2018,  5:04am
+              </time>
+              <meta itemprop='dateModified' content='2018-09-25T06:47:38Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello,</p>
+<p>I am the new guy on the block. Pretty new to Draft and long term GTD/Omnifocus advocat.</p>
+<p>Let me ask you one question. Why do you write a note in Draft, process it and export tasks to OF and than store the minutes in bear? What’s the need for bear here and why not leaving it in draft?</p>
+<p>I ask BC I am currently evaluating draft vs bear vs Ulysses and I am not decided yet.</p>
+<p>Your thoughts are much appreciated</p>
+<p>Regards<br>
+rak</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-09-25T07:24:06Z' class='post-time'>
+                September 25, 2018,  7:24am
+              </time>
+              <meta itemprop='dateModified' content='2018-09-25T07:24:06Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Probably because you can accumulate notes for a task in a Bear note (or a Drafts draft) which enable you to do the task. Linking in both directions is the difficult bit. I once did it for Editorial but have now abandoned that script as I never used it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/biznachio'><span itemprop='name'>biznachio</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-19T19:20:19Z' class='post-time'>
+                April 19, 2019,  7:20pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-19T19:22:58Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello Community,<br>
+The OF to Bear script is so close to meeting my needs. I’m trying to adapt the script <a class="mention" href="https://forums.getdrafts.com/u/clarke">@clarke</a> shared to send tasks to Things via a callback URL and then Agenda.</p>
+<p>The script works but all the tasks are title Undefined in Things.</p>
+<p>I’m scoured the code and it all makes sense how it works but, I’m at a loss for what is causing the tasks to get named Undefined.</p>
+<p>It’s probably worth mentioning I am using the Markdown checkbox - [ ] as a task prefix.</p>
+<p>Any ideas how to correct the Undefined issue?</p>
+<p>Thanks so much!</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-19T19:58:25Z' class='post-time'>
+                April 19, 2019,  7:58pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-19T19:58:25Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="13" data-topic="729">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v3/letter/b/bc8723/40.png" class="avatar"> biznachio:</div>
+<blockquote>
+<p>It’s probably worth mentioning I am using the Markdown checkbox - [ ] as a task prefix.</p>
+</blockquote>
+</aside>
+<p>Just to check, as you haven’t shared your adapted script, but do you have the <code>taskPrefix</code> constant defined like this?</p>
+<pre><code class="lang-auto">const taskPrefix = "- [ ] ";
+</code></pre>
+<p>If you do, can you share the script you do have so we can see what it is doing and why the variable you are passing in to Things for a title is <code>undefined</code>?</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/biznachio'><span itemprop='name'>biznachio</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-19T20:02:41Z' class='post-time'>
+                April 19, 2019,  8:02pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-19T20:02:41Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a></p>
+<p>Here’s a copy of the code as I have adapted it.</p>
+<pre><code>// Process Meeting Notes
+const taskPrefix = "- [ ] ";
+
+// Function for removing the task prefix
+function removeTaskPrefix(s) {
+ 
+	var f       = (taskPrefix),
+  r       = "",
+  re      = new RegExp(f, "gm"),
+  matches = s.match(re);
+
+  if (matches) {
+return s.replace(re,r);
+  }
+
+}
+
+// Function to perform the callback url
+function doCallbackURL(url, params) {
+  var cb = CallbackURL.create();
+  cb.baseURL = url;
+
+  for(var key in params) {
+   cb.addParameter(key, params[key]);
+  }
+
+  var success = cb.open();
+  if (success) {
+console.log("Event created");
+  } else {
+console.log(cb.status);
+if (cb.status == "cancel") {
+  context.cancel();
+} else {
+  context.fail();
+}
+  }
+ 
+}
+
+// Scan for the task prefix in the draft
+var lines = draft.content.split("\n");
+
+for (var line of lines) {
+  // If the line includes the task prefix, 
+  // we remove exclude it from the final notes
+  if (line.includes(taskPrefix)) {
+
+// Remove the trigger from the line
+var task = removeTaskPrefix(line);
+
+// Things URL Action
+ 
+doCallbackURL("things://x-callback-url/add", {
+  "title": task,
+  "list": "inbox"
+});
+   
+  }
+}
+
+
+
+//draft.content = n;
+//draft.update();
+
+/* Send the note to Bear
+doCallbackURL("bear://x-callback-url/create", {
+  "text": draft.content,
+  "tags": noteTag
+});*/ 
+</code></pre>
+<p>Thanks again for your help.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-19T20:27:01Z' class='post-time'>
+                April 19, 2019,  8:27pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-19T20:27:01Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>See if this works for you.</p>
+<pre><code class="lang-auto">// Process Meeting Notes
+const taskPrefix = "- [ ] ";
+
+// Function to perform the callback url
+function doCallbackURL(url, params)
+{
+	var cb = CallbackURL.create();
+	cb.baseURL = url;
+
+	for (var key in params)
+	{
+		cb.addParameter(key, params[key]);
+	}
+
+	var success = cb.open();
+	if (success)
+	{
+		console.log("Event created");
+	}
+	else
+	{
+		console.log(cb.status);
+		if (cb.status == "cancel")
+		{
+			context.cancel();
+		}
+		else
+		{
+			context.fail();
+		}
+	}
+
+}
+
+// Scan for the task prefix in the draft
+var lines = draft.content.split("\n");
+
+for (var line of lines)
+{
+	// If the line includes the task prefix, 
+	// we remove exclude it from the final notes
+	if (line.includes(taskPrefix))
+	{
+		// Remove the trigger from the line
+		//Split the line on the task prefix and it'll be in array index 1.
+		var task = line.split(taskPrefix)[1];
+
+		// Things URL Action
+		doCallbackURL("things://x-callback-url/add",
+		{
+			"title": task,
+			"list": "inbox"
+		});
+	}
+}
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/biznachio'><span itemprop='name'>biznachio</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-20T05:20:24Z' class='post-time'>
+                April 20, 2019,  5:20am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-20T05:20:24Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>, yes!</p>
+<p>I see you used split() and dropped the removeTaskPrefix() function. What within the function was causing the problem? I want to learn.</p>
+<p>Thanks again for your help!</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_18' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="729.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-20T08:11:32Z' class='post-time'>
+                April 20, 2019,  8:11am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-20T08:11:32Z'>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="17" data-topic="729">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v3/letter/b/bc8723/40.png" class="avatar"> biznachio:</div>
+<blockquote>
+<p>I see you used split() and dropped the removeTaskPrefix() function. What within the function was causing the problem? I want to learn.</p>
+</blockquote>
+</aside>
+<p>Technically the underlying issue isn’t in that function, it is in the nature of how it worked and the task prefix.</p>
+<p>It essentially comes down to square brackets having  special meaning in regular expressions (<a href="https://regular-expressions.mobi/charclass.html?wlr=1" rel="nofollow noopener">character classes</a>).</p>
+<p>Rather than try and explain that, I figured it might be better to simplify the entire matching process.  In addition, the original match function only removes the prefix and returns the remainder of the line, which means any lead padding used for indenting tasks would also be picked up.  Whilst that may not matter for you and your particular scenario, I figured it was actually better to return the remainder of the line after the task marker just in case it did.</p>
+<p>But it is still possible to use the regular expression approach.  You just have to <em>escape</em> your square brackets.</p>
+<p>Run the JavaScript below.  It will hopefully help you get an appreciation for what you would need to do and about the pre-padding point I mentioned above.</p>
+<ul>
+<li>
+<a href="https://jsfiddle.net/3h1tnmwr/" rel="nofollow noopener">Run the code below on JSFiddle</a>.</li>
+</ul>
+<pre><code class="lang-auto">function removeTaskPrefix(s) {
+ 
+  var f       = (taskPrefix),
+  r       = "",
+  re      = new RegExp(f, "gm"),
+  matches = s.match(re);
+
+  if (matches) {
+  alert("matched '" + matches + "'");
+return s.replace(re,r);
+  }
+  else alert("not matched '" + matches + "'");
+}
+
+//TEST 1 - a single alphabetic character
+let taskPrefix = "x ";
+alert("TEST 1 returned '" + removeTaskPrefix("x test one") + "'");
+
+//TEST 2 - a single symbol followed by a space character
+taskPrefix = "- ";
+alert("TEST 2 returned '" + removeTaskPrefix("- test two") + "'");
+
+//TEST 3 - as test 2, but now with an escaped opening square bracket and space
+taskPrefix = "- \\[ ";
+alert("TEST 3 returned '" + removeTaskPrefix("- [ test three") + "'");
+
+//TEST 4 - as test 3, but now with an escaped closing square bracket and space
+taskPrefix = "- \\[ \\] ";
+alert("TEST 4 returned '" + removeTaskPrefix("- [ ] test four") + "'");
+
+//TEST 5 - as test 4, but now with some additional padding on the test line
+taskPrefix = "- \\[ \\] ";
+alert("TEST 5 returned '" + removeTaskPrefix("    - [ ] test five") + "'");
+</code></pre>
+<p>Hope that covers everything for you.</p>
+        </div>
+
+        <meta itemprop='headline' content='Send Tasks to Omnifocus/Entire Note to Bear'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

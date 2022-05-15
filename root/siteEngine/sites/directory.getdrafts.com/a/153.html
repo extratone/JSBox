@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RegEx Factory v.1.4 | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="8sPf0FlHePjRLgdzNaVQ+LFbXu86LohQM+2VZpt8XGb/OZQNXxUQd1u7U0yekms82ZHXZbrH6nJ9ow4VEElF6Q==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: RegEx Factory v.1.4" />
+    <meta property="og:url" content="https://directory.getdrafts.com/a/153" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: RegEx Factory v.1.4" />
+    <meta property="twitter:url" content="https://directory.getdrafts.com/a/153" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/665-gear.png" class="action-icon" />RegEx Factory v.1.4</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by RoyRogers,
+    Last update
+    over 1 year ago
+</div>
+
+
+    <div class='description'>
+        <p>Multiple RegEx with preview and replace (or cancel).<br>
+- New: Run on selected text or whole draft if no selection. <br>
+- Save RegEx group expressions for future use.<br>
+- Each RegEx group can have one or more pairs of find and replace patterns.<br>
+- Generate RegEx JS script action as new draft in Inbox :)<br>
+- New: Easy &lsquo;test and add&rsquo; new patterns to groups.<br>
+- New: Output to new draft or clipboard.<br>
+- New: Edit all, to delete or editing groups.</p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=153&amp;data=%7B%22uuid%22:%22ABC2CE70-8C83-4148-BCE0-F3E9465EB9F5%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20RegEx%20Factory%20v.1.4.4%5Cn//%20RV%202020-09-12%20at%2019:56%20EST%5Cn%5Cn//%20Multiple%20RegEx%20with%20preview/cancel%20or%20replace.%5Cn//%20RegEx%20group%20expressions%20are%20automatically%20saved%5Cn//%20to%20a%20text%20file%20in%20iCloud%20Drive%20on%20&#39;Preview/Run...&#39;%5Cn//%20Each%20RegEx%20group%20can%20have%20one%20or%20more%20replace%20patterns.%5Cn//%20Each%20pattern%20is%20one%20line%20in%20the%20format:%20/regex%20find/,%20%5C%22replace%5C%22%5Cn//%20RegEx%20swithes%20&#39;gm&#39;%20are%20on%20by%20default%20(but%20can%20be%20changed)%5Cn//%20Output%20to%20current%20draft,%20new%20draft%20or%20clipboard.%5Cn//%20Run%20on%20selected%20text%20or%20whole%20draft%20if%20no%20selection.%5Cn//%20Generate%20RegEx%20JS%20script%20action%20as%20new%20draft%20in%20Inbox%20:)%5Cn%5Cn&#39;use%20strict&#39;;%5Cn//%20Global%20variables:%5Cnvar%20path%20=%20&#39;/RegExGroups.txt&#39;;%5Cnvar%20groupTitle%20=%20&#39;&#39;;%5Cnvar%20regExGroup%20=%20&#39;&#39;;%5Cnvar%20regExGroupList%20=%20[];%5Cnvar%20regExGroupIndex%20=%20-1;%5Cnvar%20startLastUsed%20=%20false;%5Cnvar%20find%20=%20&#39;&#39;;%5Cnvar%20repl%20=%20&#39;&#39;;%5Cnvar%20swi%20=%20false;%5Cnvar%20selRange%20=%20[];%5Cnvar%20draftText%20=%20&#39;&#39;;%5Cn%5Cnfunction%20main()%20%7B%5Cn%5Ct//%20Run%20on%20selected%20text%20or%20full%20draft%20if%20no%20selection:%5Cn%5CtselRange%20=%20editor.getSelectedRange();%5Cn%5Ctif%20(selRange[1]%20==%200)%20%7B%5Cn%20%20%20%20draftText%20=%20editor.getText();%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20draftText%20=%20editor.getSelectedText();%20%20%5Cn%20%20%7D%5Cn%5Cn%20%20let%20isRead%20=%20readGroupFile();%5Cn%5Cn%20%20if%20(selectGroup(isRead))%20%7B%5Cn%20%20%20%20while(regExFactory());%20//%20Loops%20until%20false%20(done%20or%20canceled)%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20context.cancel(&#39;Canceled%20by%20user&#39;);%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnfunction%20readGroupFile()%20%7B%5Cn%20%20let%20fmCloud%20=%20FileManager.createCloud();%5Cn%20%20let%20groupsText%20=%20fmCloud.readString(path);%5Cn%20%20%5Cn%20%20if%20(!groupsText)%20%7B%20%5Cn%20%20%20%20//%20No%20file%20found,%20use%20sample%20text%20instead:%5Cn%20%20%20%20//%20see%20&#39;groupSample&#39;%20at%20end%20of%20script.%5Cn%20%20%20%20loadGroups(groupSample);%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20loadGroups(groupsText);%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnfunction%20loadGroups(groupsText)%20%7B%5Cn%5CtregExGroupList%20=%20[];%5Cn%5Ct%5Cn%20%20let%20groups%20=%20groupsText.split(&#39;%5C%5Cn%23%20&#39;);%5Cn%20%20let%20index%20=%20parseInt(groups[0].slice(12));%5Cn%20%20if%20(index%20%5Cu003e%20-1)%20startLastUsed%20=%20true;%5Cn%20%20%5Cn%20%20for%20(let%20group%20of%20groups.slice(1))%20%7B%5Cn%20%20%20%20group%20=%20group.replace(&#39;%5C%5Cn&#39;,%20&#39;%5C%5Cr&#39;);%5Cn%20%20%20%20let%20item%20=%20group.split(&#39;%5C%5Cr&#39;);%5Cn%20%20%20%20let%20title%20=%20item[0].replace(/%5E%23%20/,%20&#39;&#39;);%5Cn%20%20%20%20let%20gRegEx%20=%20item[1].trim();%5Cn%20%20%20%20regExGroupList.push([title,%20gRegEx]);%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20if%20(index%20==%20-1%20%7C%7C%20index%20%5Cu003e=%20regExGroupList.length)%20%7B%5Cn%20%20%20%20regExGroupIndex%20=%200;%5Cn%20%20%20%20getGroup(regExGroupIndex)%5Cn%20%20%20%20return%20true;%5Cn%20%20%7D%20else%20%7B%20%20%20%20%20%20%5Cn%20%20%20%20getGroup(index);%5Cn%20%20%20%20return%20false;%20%20%20%20%20%20%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnfunction%20selectGroup(load)%20%7B%5Cn%20%20if%20(!load)%20return%20true;%5Cn%20%20let%20index%20=%20regExGroupIndex;%5Cn%20%20%5Cn%20%20if%20(regExGroupIndex%20==%20-1)%20%7B%5Cn%20%20%20%20index%20=%200;%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20let%20p%20=%20Prompt.create();%5Cn%20%20p.title%20=%20%5C%22Load%20RegEx%20Factory%5C%22;%5Cn%20%20p.addPicker(&#39;group&#39;,%20&#39;Group:&#39;,%20[listGroupTitles()],%20[index]);%5Cn%20%20p.addSwitch(&#39;start&#39;,%20&#39;Start%20With%20Last%20Used&#39;,%20startLastUsed);%5Cn%20%20p.addButton(&#39;Load%20Group&#39;);%5Cn%20%20p.addButton(&#39;New%20Empty%20Group&#39;);%5Cn%20%20p.addButton(&#39;Edit%20All%20Groups...&#39;);%5Cn%20%20%5Cn%20%20if%20(p.show())%20%7B%5Cn%20%20%20%20startLastUsed%20=%20p.fieldValues[&#39;start&#39;];%5Cn%20%20%20%20switch%20(p.buttonPressed)%20%7B%5Cn%20%20%20%20%20%20case%20&#39;Load%20Group&#39;:%5Cn%20%20%20%20%20%20%20%20getGroup(parseInt(p.fieldValues[&#39;group&#39;]));%5Cn%20%20%20%20%20%20%20%20return%20false;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;New%20Empty%20Group&#39;:%5Cn%20%20%20%20%20%20%20%20groupTitle%20=%20&#39;&#39;;%5Cn%20%20%20%20%20%20%20%20regExGroup%20=%20&#39;&#39;;%5Cn%20%20%20%20%20%20%20%20regExGroupIndex%20=%20-1;%5Cn%20%20%20%20%20%20%20%20return%20false;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Edit%20All%20Groups...&#39;:%5Cn%20%20%20%20%20%20%20%20editAllGroups();%5Cn%20%20%20%20%20%20%20%20return%20true;%5Cn%5Cn%20%20%20%20%20%20default:%5Cn%20%20%20%20%20%20%20%20app.displayErrorMessage(%5C%22switch/case%20not%20implemented!%5C%22);%5Cn%20%20%20%20%20%20%20%20return%20true;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20return%20true;%5Cn%20%20%7D%5Cn%20%20return%20false;%5Cn%7D%5Cn%5Cnfunction%20editAllGroups()%20%7B%5Cn%20%20//%20regExGroupList.push([title,%20gRegEx])%5Cn%20%20let%20groups%20=%20[];%5Cn%20%20%5Cn%20%20for%20(const%20group%20of%20regExGroupList)%20%7B%5Cn%20%20%20%20groups.push(&#39;%23%20&#39;%20+%20group[0]);%20//%20Group%20title%5Cn%20%20%20%20groups.push(group[1]%20+%20&#39;%5C%5Cn&#39;);%20//%20Group%20body%20%20%20%20%5Cn%20%20%7D%5Cn%20%20%20%20%5Cn%5Ctlet%20groupsText%20=%20groups.join(&#39;%5C%5Cn&#39;);%5Cn%20%20let%20p%20=%20Prompt.create();%5Cn%20%20p.title%20=%20&#39;Edit%20or%20Delete%20Groups:&#39;;%5Cn%20%20p.message%20=%20&#39;Format:%20%5C%5Cn%23%20Group%20title%5C%5Cn/find%20pattern/gm,%20%5C%22replace%5C%22&#39;;%5Cn%20%20p.addTextView(&#39;text&#39;,%20&#39;RegEx%20Groups:&#39;,%20groupsText,%20%7B&#39;height&#39;:%20300%7D)%5Cn%20%20p.addButton(&#39;Save%20changes&#39;);%5Cn%20%20%5Cn%20%20if%20(p.show())%20%7B%5Cn%20%20%20%20let%20groupsText2%20=%20p.fieldValues[&#39;text&#39;];%5Cn%20%20%20%20if%20(groupsText2.split(&#39;%5C%5Cn&#39;).length%20%5Cu003c%202)%20%7B%5Cn%20%20%20%20%20%20app.displayErrorMessage(%5C%22Wrong%20format!%5C%22);%5Cn%20%20%20%20%20%20return%20false;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20if%20(p.buttonPressed%20==%20&#39;Save%20changes&#39;%20%5Cu0026%5Cu0026%20groupsText2%20!=%20groupsText)%20%7B%5Cn%20%20%20%20%20%20let%20index%20=%20regExGroupIndex;%5Cn%20%20%20%20%20%20if%20(startLastUsed)%20%7B%5Cn%20%20%20%20%20%20%20%20groupsText2%20=%20&#39;StartIndex%20=%20&#39;%20+%20regExGroupIndex%20+%20&#39;%5C%5Cn&#39;%20+%20groupsText2;%5Cn%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20groupsText2%20=%20&#39;StartIndex%20=%20-1%5C%5Cn&#39;%20+%20groupsText2;%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20try%20%7B%5Cn%20%20%20%20%20%20%20%20loadGroups(groupsText2);%5Cn%20%20%20%20%20%20//%20saveGroupFile(regExGroupIndex);%5Cn%20%20%20%20%20%20%7D%20catch(err)%20%7B%5Cn%20%20%20%20%20%20%20%20alert(err.message);%5Cn%20%20%20%20%20%20%20%20return%20false;%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20return%20true;%5Cn%20%20%20%20%7D%20%20%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20return%20false;%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnfunction%20getGroup(index)%20%7B%5Cn%20%20if%20(index%20==%20-1)%20return;%5Cn%20%20groupTitle%20=%20regExGroupList[index][0];%5Cn%20%20regExGroup%20=%20regExGroupList[index][1];%5Cn%20%20regExGroupIndex%20=%20index;%5Cn%7D%5Cn%5Cnfunction%20listGroupTitles()%20%7B%5Cn%20%20let%20titleList%20=%20[];%5Cn%20%20%5Cn%20%20for%20(const%20group%20of%20regExGroupList)%20%7B%5Cn%20%20%20%20titleList.push(group[0]);%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20return%20titleList;%5Cn%7D%5Cn%5Cnfunction%20regExFactory()%20%7B%5Cn%20%20let%20p%20=%20Prompt.create();%5Cn%20%20p.title%20=%20%5C%22RegEx%20Factory%5C%22;%5Cn%20%20p.addTextField(%5C%22groupTitle%5C%22,%20%5C%22Title:%5C%22,%20groupTitle,%20%7B%5C%22wantsFocus%5C%22:%20true%20%7D);%5Cn%20%20p.addTextView(&#39;text&#39;,%20&#39;RegExGroup:&#39;,%20regExGroup)%5Cn%20%20p.addButton(&#39;Test%20%5Cu0026%20Run%20on%20Current%20Draft...&#39;);%5Cn%20%20p.addButton(&#39;Run%20to%20New%20Draft&#39;);%5Cn%20%20p.addButton(&#39;Run%20to%20Clipboard&#39;);%5Cn%20%20p.addButton(&#39;Add%20New%20Pattern...&#39;);%5Cn%20%20p.addButton(&#39;Load%20Other%20Groups...&#39;);%5Cn%20%20p.addButton(&#39;Save%20as%20New...&#39;);%5Cn%20%20p.addButton(&#39;JS%20Code%20to%20Inbox&#39;);%5Cn%20%20p.addButton(&#39;RegEx%20Help...&#39;);%5Cn%20%20%5Cn%20%20if%20(p.show())%20%7B%5Cn%20%20%20%20groupTitle%20=%20p.fieldValues[&#39;groupTitle&#39;];%5Cn%20%20%20%20regExGroup%20=%20p.fieldValues[&#39;text&#39;];%5Cn%20%20%20%20%5Cn%20%20%20%20switch%20(p.buttonPressed)%20%7B%5Cn%20%20%20%20%20%20case%20&#39;Add%20New%20Pattern...&#39;:%5Cn%20%20%20%20%20%20%20%20while%20(addPattern(regExGroup));%20//%20Loops%20until%20false%20=%20done%20or%20canceled%5Cn%20%20%20%20%20%20%20%20break;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Load%20Other%20Groups...&#39;:%5Cn%20%20%20%20%20%20%20%20while(selectGroup(true));%5Cn%20%20%20%20%20%20%20%20break;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Save%20as%20New...&#39;:%5Cn%20%20%20%20%20%20%20%20saveAsNew();%5Cn%20%20%20%20%20%20%20%20break;%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20case%20&#39;Test%20%5Cu0026%20Run%20on%20Current%20Draft...&#39;:%5Cn%20%20%20%20%20%20%20%20return%20(!runRegEx(&#39;current&#39;));%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Run%20to%20New%20Draft&#39;:%5Cn%20%20%20%20%20%20%20%20return%20(!runRegEx(&#39;new&#39;));%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Run%20to%20Clipboard&#39;:%5Cn%20%20%20%20%20%20%20%20return%20(!runRegEx(&#39;clipboard&#39;));%5Cn%5Cn%20%20%20%20%20%20case%20&#39;JS%20Code%20to%20Inbox&#39;:%5Cn%20%20%20%20%20%20%20%20generateJsCode(regExGroup);%5Cn%20%20%20%20%20%20%20%20break;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;RegEx%20Help...&#39;:%5Cn%20%20%20%20%20%20%20%20app.openURL(&#39;https://regex101.com&#39;)%5Cn%20%20%20%20%20%20%20%20break;%20%20%20%20%20%20%5Cn%5Cn%20%20%20%20%20%20default:%5Cn%20%20%20%20%20%20%20%20app.displayErrorMessage(%5C%22switch/case%20not%20implemented!%5C%22)%20;%5Cn%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20return%20true;%20//%20continue%20while%20loop%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20context.cancel(&#39;Canceled%20by%20user!&#39;);%5Cn%20%20%20%20return%20false;%20//%20end%20while%20loop%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnfunction%20saveAsNew()%20%7B%5Cn%20%20if%20(regExGroup.trim()%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20app.displayErrorMessage(&#39;RegEx%20arguments%20missing!&#39;);%5Cn%20%20%20%20return%20false;%5Cn%20%20%7D%5Cn%5Cn%20%20let%20p%20=%20Prompt.create();%5Cn%20%20p.title%20=%20&#39;Save%20as%20New%20Group&#39;;%5Cn%20%20p.message%20=%20regExGroup;%5Cn%20%20p.addTextField(&#39;name&#39;,%20&#39;New%20Group%20Name:&#39;,%20groupTitle);%5Cn%20%20p.addButton(&#39;Save&#39;);%5Cn%5Cn%20%20if%20(p.show())%20%7B%5Cn%20%20%20%20if%20(p.buttonPressed%20==%20&#39;Save&#39;)%20%7B%5Cn%20%20%20%20%20%20groupTitle%20=%20p.fieldValues[&#39;name&#39;];%20%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20saveGroupFile(-1);%5Cn%20%20%20%20%20%20return%20true;%5Cn%20%20%20%20%7D%5Cn%20%20%7D%20%5Cn%20%20return%20false;%5Cn%7D%5Cn%5Cnfunction%20runRegEx(type)%20%7B%5Cn%20%20if%20(regExGroup.trim()%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20app.displayErrorMessage(&#39;RegEx%20arguments%20missing!&#39;);%5Cn%20%20%20%20return%20false;%5Cn%20%20%7D%5Cn%5Cn%5Ct//%20Replace%20text%20with%20regExGroup:%5Cn%20%20const%20[text,%20group]%20=%20replaceByRegexGroup(draftText,%20regExGroup);%5Cn%20%20if%20(text%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20app.displayErrorMessage(&#39;Empty%20result!&#39;);%5Cn%20%20%20%20return%20false;%5Cn%5Ct%7D%20%5Cn%5Ct%5Cn%20%20saveGroupFile(regExGroupIndex);%5Cn%20%20%5Cn%20%20switch%20(type)%20%7B%5Cn%20%20%20%20case%20&#39;current&#39;:%5Cn%20%20%20%20%20%20if%20(preview(text,%20group))%20%7B%5Cn%20%20%20%20%20%20%20%20if%20(selRange[1]==%200)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20editor.setText(text);%5Cn%20%20%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20editor.setSelectedText(text);%5Cn%20%20%20%20%20%20%20%20%20%20let%20diff%20=%20text.length%20-%20draftText.length;%5Cn%20%20%20%20%20%20%20%20%20%20editor.setSelectedRange(selRange[0],%20selRange[1]%20+%20diff);%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20draft.addTag(&#39;regexed&#39;);%5Cn%20%20%20%20%20%20%20%20app.displayInfoMessage(&#39;Draft%20is%20%5C%22RegExed%5C%22!&#39;);%5Cn%20%20%20%20%20%20%20%20return%20true;%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20return%20false;%5Cn%5Cn%20%20%20%20case%20&#39;new&#39;:%5Cn%20%20%20%20%20%20let%20d%20=%20Draft.create();%5Cn%20%20%20%20%20%20d.content%20=%20text;%5Cn%20%20%20%20%20%20d.languageGrammar%20=%20draft.languageGrammar;%5Cn%20%20%20%20%20%20d.update();%5Cn%5Cn%20%20%20%20%20%20for%20(const%20tag%20of%20draft.tags)%20%7B%5Cn%20%20%20%20%20%20%20%20d.addTag(tag);%5Cn%20%20%20%20%20%20%7D%5Cn%5Cn%20%20%20%20%20%20//%20d.isFlagged%20=%20draft.isFlagged;%5Cn%20%20%20%20%20%20d.addTag(&#39;regexed&#39;);%5Cn%20%20%20%20%20%20d.update();%5Cn%20%20%20%20%20%20editor.load(d);%5Cn%20%20%20%20%20%20app.displayInfoMessage(&#39;%5C%22RegExed%5C%22%20as%20new%20draft!&#39;);%5Cn%20%20%20%20%20%20return%20true;%5Cn%5Cn%20%20%20%20case%20&#39;clipboard&#39;:%5Cn%20%20%20%20%20%20app.setClipboard(text);%5Cn%20%20%20%20%20%20app.displayInfoMessage(&#39;%5C%22RegExed%5C%22%20to%20clipboard!&#39;);%5Cn%20%20%20%20%20%20return%20true;%5Cn%20%5Cn%20%20%20%20default:%5Cn%20%20%20%20%20%20app.displayErrorMessage(&#39;switch/case%20not%20implemented!&#39;);%5Cn%20%20%20%20%20%20return%20false;%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnfunction%20addPattern()%20%7B%5Cn%20%20let%20p%20=%20Prompt.create();%5Cn%20%20p.title%20=%20&#39;New%20Pattern&#39;;%5Cn%20%20p.message%20=%20&#39;Add%20to:%20%5C%22&#39;%20+%20groupTitle%20+%20&#39;%5C%22&#39;;%5Cn%20%20p.addTextField(&#39;find&#39;,%20&#39;Find%20regx:&#39;,%20find);%5Cn%20%20p.addTextField(&#39;repl&#39;,%20&#39;Replace:%20&#39;,%20repl);%5Cn%20%20p.addSwitch(&#39;swi&#39;,%20&#39;Case%20Insensitive&#39;,%20swi);%5Cn%20%20%5Cn%20%20p.addButton(&#39;Test%20and%20Add%20Pattern...&#39;);%5Cn%20%20p.addButton(&#39;Test%20with%20Current%20Group...&#39;);%5Cn%20%20p.addButton(&#39;Add%20without%20Testing...&#39;);%5Cn%20%20%5Cn%20%20if%20(p.show())%20%7B%5Cn%20%20%20%20find%20=%20p.fieldValues[&#39;find&#39;];%5Cn%20%20%20%20repl%20=%20p.fieldValues[&#39;repl&#39;];%5Cn%20%20%20%20swi%20=%20p.fieldValues[&#39;swi&#39;];%5Cn%20%20%20%20let%20i%20=%20&#39;&#39;%5Cn%20%20%20%20%5Cn%20%20%20%20if%20(swi)%20%7B%5Cn%20%20%20%20%20%20i%20=%20&#39;gmi&#39;;%20//%20add%20&#39;i&#39;%20with%20default%20&#39;gm&#39;%5Cn%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20i%20=%20&#39;gm&#39;;%20//%20add%20as%20default%5Cn%20%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20%20let%20pattern%20=%20%60/$%7Bfind%7D/$%7Bi%7D,%20%5C%22$%7Brepl%7D%5C%22%60;%5Cn%20%20%20%20%5Cn%20%20%20%20if%20(find%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20%20%20app.displayInfoMessage(&#39;Find%20field:%20is%20empty!&#39;);%5Cn%20%20%20%20%20%20return%20true;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20let%20text%20=%20&#39;&#39;;%5Cn%20%20%20%20let%20group%20=%20&#39;&#39;;%5Cn%20%20%20%20let%20ln%20=%20&#39;&#39;;%5Cn%20%20%20%20if%20(regExGroup.trim()%20!=%20&#39;&#39;)%20ln%20=%20&#39;%5C%5Cn&#39;;%5Cn%20%20%20%20switch%20(p.buttonPressed)%20%7B%5Cn%20%20%20%20%20%20case%20&#39;Test%20and%20Add%20Pattern...&#39;:%5Cn%20%20%20%20%20%20%20%20[text,%20group]%20=%20replaceByRegexGroup(draftText,%20pattern);%5Cn%20%20%20%20%20%20%20%20if%20(preview(text,%20group,%20true))%20%7B%5Cn%5Ct%20%20%20%20%20%20%20%20regExGroup%20=%20regExGroup.trim()%20+%20ln%20+%20pattern;%5Cn%20%20%20%20%20%20%20%20%20%20if%20(text)%20saveGroupFile(regExGroupIndex);%5Cn%20%20%20%20%20%20%20%20%20%20return%20false;%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20break;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Test%20with%20Current%20Group...&#39;:%5Cn%20%20%20%20%20%20%20%20let%20reGroup%20=%20regExGroup.trim()%20+%20ln%20+%20pattern;%5Cn%20%20%20%20%20%20%20%20[text,%20group]%20=%20replaceByRegexGroup(draftText,%20reGroup);%5Cn%20%20%20%20%20%20%20%20if%20(preview(text,%20group,%20true))%20%7B%5Cn%5Ct%20%20%20%20%20%20%20%20regExGroup%20=%20reGroup;%5Cn%20%20%20%20%20%20%20%20%20%20if%20(text)%20saveGroupFile(regExGroupIndex);%5Cn%20%20%20%20%20%20%20%20%20%20return%20false;%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20break;%5Cn%5Cn%20%20%20%20%20%20case%20&#39;Add%20without%20Testing...&#39;:%5Cn%20%20%20%20%20%20%20%20regExGroup%20=%20regExGroup.trim()%20+%20ln%20+%20pattern;%20%5Cn%20%20%20%20%20%20%20%20saveGroupFile(regExGroupIndex);%5Cn%20%20%20%20%20%20%20%20return%20false;%5Cn%20%5Cn%20%20%20%20%20%20default:%5Cn%20%20%20%20%20%20%20%20app.displayErrorMessage(&#39;switch/case%20not%20implemented!&#39;);%5Cn%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20return%20true;%20//%20Continue%20loop%5Cn%20%20%7D%5Cn%20%20return%20false;%5Cn%7D%5Cn%5Cnfunction%20saveGroupFile(ind)%20%7B%5Cn%20%20let%20title%20=%20groupTitle;%5Cn%20%20if%20(groupTitle%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20title%20=%20&#39;Untitled&#39;;%5Cn%20%20%7D%20%5Cn%20%20%5Cn%20%20if%20(ind%20==%20-1)%20%7B%5Cn%20%20%20%20regExGroupList.push([title,%20regExGroup]);%5Cn%20%20%20%20regExGroupIndex%20=%20regExGroupList.length%20-%201%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20regExGroupList[regExGroupIndex]%20=%20[title,%20regExGroup];%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20let%20gList%20=%20[];%5Cn%20%20if%20(startLastUsed)%20%7B%5Cn%20%20%20%20gList%20=%20[&#39;StartIndex%20=%20&#39;%20+%20regExGroupIndex]%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20gList%20=%20[&#39;StartIndex%20=%20-1&#39;]%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20for%20(const%20group%20of%20regExGroupList)%20%7B%5Cn%20%20%20%20gList.push(&#39;%23%20&#39;%20+%20group[0]);%20//%20groupTitle%5Cn%20%20%20%20gList.push(group[1]);%20%20%20%20%20%20//%20regExGroup%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20let%20fmCloud%20=%20FileManager.createCloud();%5Cn%20%20let%20success%20=%20fmCloud.write(path,%20gList.join(&#39;%5C%5Cn&#39;));%5Cn%7D%5Cn%5Cnfunction%20replaceByRegexGroup(text,%20reGroup)%20%7B%20%20%5Cn%20%20for%20(const%20row%20of%20reGroup.split(&#39;%5C%5Cn&#39;))%20%7B%5Cn%20%20%20%20//%20Skip%20commented%20and%20blank%20lines:%5Cn%20%20%20%20if%20(row.startsWith(&#39;//%20&#39;)%20%7C%7C%20row.trim()%20==%20&#39;&#39;)%20continue;%5Cn%5Cn%20%20%20%20let%20m%20=%20row.match(/%5E%5C%5C/(.+?)%5C%5C/([gmiyus]%7B0,6%7D),%20?%5C%5C%5C%22(.*)%5C%5C%5C%22/)%5Cn%20%20%20%20if%20(!m)%20%7B%5Cn%20%20%20%20%20%20app.displayErrorMessage(%5C%22Error%20in%20line%20syntax:%20%5C%22%20+%20row)%20;%5Cn%20%20%20%20%20%20return%20[&#39;&#39;,%20reGroup];%5Cn%20%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20%20let%20fnd%20=%20m[1];%5Cn%20%20%20%20let%20sw%20=%20m[2];%5Cn%20%20%20%20let%20rep%20=%20m[3];%5Cn%20%20%20%20%5Cn%20%20%20%20if%20(sw%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20%20%20//%20If%20adding%20any%20switches,%20please%20include%20&#39;gm&#39;%20as%20well!%5Cn%20%20%20%20%20%20sw%20=%20&#39;gm&#39;;%20//%20Default%20RegEx%20switch%5Cn%20%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20%20let%20reFind%20=%20new%20RegExp(fnd,%20sw);%5Cn%20%20%20%20rep%20=%20rep.replace(/%5C%5C%5C%5Cn/g,%20&#39;%5C%5Cn&#39;);%5Cn%20%20%20%20rep%20=%20rep.replace(/%5C%5C%5C%5Ct/g,%20&#39;%5C%5Ct&#39;);%5Cn%20%20%20%20rep%20=%20rep.replace(/%5C%5C%5C%5Cr/g,%20&#39;%5C%5Cr&#39;);%5Cn%20%20%20%20text%20=%20text.replace(reFind,%20rep);%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20if%20(text.trim()%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20app.displayErrorMessage(%5C%22Empty%20text%20result!%5C%22)%20;%5Cn%20%20%20%20return%20[&#39;&#39;,%20reGroup];%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20return%20[text,%20reGroup];%5Cn%7D%5Cn%5Cnfunction%20preview(text,%20group,%20testPattern=false)%20%7B%5Cn%5Ctlet%20message%20=%20&#39;&#39;;%5Cn%5Cn%5Ctif%20(testPattern)%20%7B%5Cn%20%20%20%20message%20=%20&#39;Press%20%5C%22Continue%5C%22%20to%20add%20pattern%20to%20current%20group!&#39;;%5Cn%5Ct%7D%20else%20%7B%5Cn%20%20%20%20message%20=%20&#39;Press%20%5C%22Continue%5C%22%20to%20replace%20current%20draft!&#39;%20%5Cn%5Ct%7D%5Cn%5Cn%20%20//%20Test:%20%5Cu003c%20%5Cu003e%20%5C%22&#39;%20%5Cu0026%5Cn%20%20text%20=%20text.replace(/%5Cu003c/g,%20&#39;%5Cu0026lt;&#39;);%5Cn%20%20//%20text%20=%20text.replace(/%5Cu003e/g,%20&#39;%5Cu0026gt;&#39;);%5Cn%20%20//%20text%20=%20text.replace(/%5Cu0026/g,%20&#39;%5Cu0026amp;&#39;);%5Cn%20%20//%20text%20=%20text.replace(/&#39;/g,%20%5C%22%5Cu0026apos;%5C%22);%5Cn%20%20//%20text%20=%20text.replace(/%5C%22/g,%20&#39;%5Cu0026quot;&#39;);%5Cn%5Cn%20%20if%20(app.currentThemeMode%20==%20&#39;dark&#39;)%20%7B%5Cn%20%20%20%20var%20css%20=%20%5C%22body%20%7B%20background:%20%23222;%20color:%20%23ddd;%20%7D%5C%22;%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20var%20css%20=%20%5C%22body%20%7B%20background:%20%23fff;%20color:%20%23444;%20%7D%5C%22;%5Cn%20%20%7D%5Cn%20%20%5Cn%20%20//%20add%20and%20show%20default%20switches%20&#39;gm&#39;%20(if%20none):%5Cn%20%20let%20groupWithSwitches%20=%20group.replace(/%5E(%5C%5C/.+?%5C%5C/)(?!%5C%5Cw+)(,%20?%5C%22.*%5C%22)/gm,%20&#39;$1gm$2&#39;);%5Cn%20%20%5Cn%20%20let%20html%20=%20%60%5Cu003chtml%5Cu003e%5Cu003cstyle%5Cu003e$%7Bcss%7D%5Cu003c/style%5Cu003e%5Cu003cbody%5Cu003e%5Cn%20%20%5Cu003ch3%5Cu003eResult-text%20preview%20below%20line%5Cu003ch3%5Cu003e%5Cn%20%20%5Cu003ch4%5Cu003e$%7Bmessage%7D%5Cu003cbr%5Cu003e%5Cn%20%20or%20%5C%22Cancel%5C%5C%5C%22%20to%20exit%20with%20no%20changes.%5Cu003c/h4%5Cu003e%5Cn%20%20%5Cu003ch4%5Cu003eRegEx%20group%20used:%20%5C%22$%7BgroupTitle%7D%5C%5C%5C%22%5Cu003c/h4%5Cu003e%5Cn%20%20%5Cu003cpre%5Cu003e$%7BgroupWithSwitches%7D%5Cu003c/pre%5Cu003e%5Cn%20%20%5Cu003cp%5Cu003e(If%20no%20switches%20specified,%20&#39;gm%5C%5C&#39;%20=%20%5C%22Global,%20Multiline%5C%5C%5C%22%20are%20added%20by%20default)%5Cu003c/p%5Cu003e%5Cn%20%20%5Cu003chr%5Cu003e%5Cn%20%20%5Cu003cpre%5Cu003e$%7Btext%7D%5Cu003c/pre%5Cu003e%5Cn%20%20%5Cu003c/body%5Cu003e%5Cu003c/html%5Cu003e%60%5Cn%20%20let%20preview%20=%20HTMLPreview.create();%5Cn%20%20return%20preview.show(html);%5Cn%7D%5Cn%5Cnfunction%20generateJsCode(reGroup)%20%7B%5Cn%20%20//%20Generates%20JS%20replace%20function%20snippet%20as%20draft%20in%20Inbox%5Cn%20%20const%20now%20=%20new%20Date()%5Cn%20%20const%20date%20=%20now.toString(%5C%22yyyy-MM-dd%5C%22)%5Cn%20%20const%20time%20=%20now.toString(%5C%22HH:mm%5C%22)%5Cn%5Cn%20%20let%20codeLines%20=%20[];%5Cn%20%20codeLines.push(%60//%20RegEx%20Replace:%20$%7BgroupTitle%7D%60)%5Cn%20%20codeLines.push(%60//%20Code%20generated%20by%20%5C%22RegEx%20Factory%5C%22:%20$%7Bdate%7D%20at%20$%7Btime%7D%60);%5Cn%20%20codeLines.push(&#39;&#39;);%5Cn%20%20makeDraftActionCode(codeLines);%20//%20Make%20Drafts%20Action%20Script%20(add%20comment%20to%20skip)%5Cn%20%20codeLines.push(&#39;function%20regExReplace(text)%20%7B&#39;);%5Cn%20%20codeLines.push(%60%20%20//%20Group%20Title:%20$%7BgroupTitle%7D%60)%5Cn%20%20%5Cn%20%20for%20(const%20row%20of%20reGroup.split(&#39;%5C%5Cn&#39;))%20%7B%5Cn%20%20%20%20if%20(row.startsWith(&#39;//%20&#39;)%20%7C%7C%20row.trim()%20==%20&#39;&#39;)%20%7B%5Cn%20%20%20%20%20%20//%20Blank%20and%20commented%20lines%20and%20set%20indent:%5Cn%20%20%20%20%20%20codeLines.push(row.replace(/%5E%5C%5C/%5C%5C/%20/,%20&#39;%20%20%5C%5C/%5C%5C/%20&#39;));%5Cn%20%20%20%20%20%20continue;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20let%20m%20=%20row.match(/%5E%5C%5C/(.+?)%5C%5C/([gmi]%7B0,3%7D),%20?%5C%5C%5C%22(.*)%5C%5C%5C%22/)%5Cn%20%20%20%20if%20(!m)%20%7B%5Cn%20%20%20%20%20%20app.displayErrorMessage(%5C%22Error%20in%20line%20syntax:%20%5C%22%20+%20row)%20;%5Cn%20%20%20%20%20%20return%20[&#39;&#39;,%20reGroup];%5Cn%20%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20%20let%20fnd%20=%20m[1];%5Cn%20%20%20%20let%20rep%20=%20m[3];%5Cn%20%20%20%20let%20sw%20=%20m[2];%5Cn%20%20%20%20if%20(sw%20==%20&#39;&#39;)%20%7B%20%5Cn%20%20%20%20%20%20sw%20=%20&#39;gm&#39;;%20//%20Default%20RegEx%20switch%5Cn%20%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20%20let%20line%20=%20%60%20%20text%20=%20text.replace(/$%7Bfnd%7D/$%7Bsw%7D,%20&#39;$%7Brep%7D&#39;);%60%5Cn%20%20%20%20codeLines.push(line)%5Cn%20%20%7D%5Cn%20%20codeLines.push(&#39;%20%20return%20text;&#39;);%20%20%5Cn%20%20codeLines.push(&#39;%7D%5C%5Cn%5C%5Cn&#39;);%5Cn%20%20let%20code%20=%20codeLines.join(&#39;%5C%5Cn&#39;);%5Cn%20%20//%20app.setClipboard(code);%5Cn%20%20%5Cn%20%20let%20d%20=%20Draft.create();%5Cn%20%20d.content%20=%20code;%5Cn%20%20d.languageGrammar%20=%20%5C%22JavaScript%5C%22;%5Cn%20%20d.update();%5Cn%20%20d.addTag(%5C%22script%5C%22);%5Cn%20%20d.addTag(%5C%22regex%5C%22);%5Cn%20%20d.update();%5Cn%20%20%5Cn%20%20app.displayInfoMessage(&#39;function%20myRegExReplace()%20saved%20to%20Inbox%20:)&#39;)%20;%5Cn%7D%5Cn%5Cnfunction%20makeDraftActionCode(codeLines)%20%7B%5Cn%20%20//%20Makes%20fully%20functioning%20draft%20Action%20Script:%5Cn%20%20codeLines.push(%5C%22var%20p%20=%20Prompt.create();%5C%22);%5Cn%20%20codeLines.push(%5C%22p.title%20=%20&#39;Run%20RegEx%20Replace%20on%20Current%20Draft&#39;;%5C%22);%5Cn%20%20codeLines.push(%5C%22p.addButton(&#39;Save%20as%20New%20Draft&#39;);%5C%22);%5Cn%20%20codeLines.push(%5C%22p.addButton(&#39;Replace%20Current%20Draft&#39;);%5C%22);%5Cn%20%20codeLines.push(%5C%22%5C%22);%5Cn%20%20codeLines.push(%5C%22if%20(p.show())%20%7B%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20let%20text%20=%20regExReplace(editor.getText());%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20switch%20(p.buttonPressed)%20%7B%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20case%20&#39;Save%20as%20New%20Draft&#39;:%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20let%20d%20=%20Draft.create();%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20d.content%20=%20text;%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20//%20d.languageGrammar%20=%20&#39;MultiMarkdown&#39;;%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20//%20d.languageGrammar%20=%20&#39;JavaScript&#39;;%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20d.update();%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20d.addTag(&#39;regexed&#39;);%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20d.update();%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20break;%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20case%20&#39;Replace%20Current%20Draft&#39;:%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20editor.setText(text);%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20draft.addTag(&#39;regexed&#39;);%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%20%20%20%20break;%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20%7D%5C%22);%5Cn%20%20codeLines.push(%5C%22%7D%20else%20%7B%5C%22);%5Cn%20%20codeLines.push(%5C%22%20%20context.cancel(&#39;Canceled%20by%20user!&#39;);%5C%22);%5Cn%20%20codeLines.push(%5C%22%7D%5C%22);%5Cn%20%20codeLines.push(%5C%22%5C%22);%5Cn%7D%5Cn%5Cn//%20Note!%20double%20escaping%20of%20%5C%5Cn%20%5C%5Cw%20etc:%5Cnvar%20groupSample%20=%20%60StartIndex%20=%202%5Cn%23%20Multiple%20to%20double%20line%20breaks%5Cn/%5C%5C%5C%5Cn%5C%5C%5C%5Cn+/gm,%20%5C%22%5C%5C%5C%5Cn%5C%5C%5C%5Cn%5C%22%5Cn%5Cn%23%20Multiple%20to%20single%20line%20breaks%5Cn/%5C%5C%5C%5Cn+/gm,%20%5C%22%5C%5C%5C%5Cn%5C%22%5Cn%5Cn%23%20Clean%20Markdown%20Lines%5Cn/%5C%5C%5C%5Cn+/gm,%20%5C%22%5C%5C%5C%5Cn%5C%5C%5C%5Cn%5C%22%5Cn/%5C%5C%5C%5Cn%23/gm,%20%5C%22%5C%5C%5C%5Cn%5C%5C%5C%5Cn%23%5C%22%5Cn/(%5C%5C%5C%5Cn%23%23%23+.+?%5C%5C%5C%5Cn)%5C%5C%5C%5Cn/gm,%20%5C%22$1%5C%22%5Cn/%5E([%5C%5C%5C%5C-+*%5Cu003e]%20.+?)%5C%5C%5C%5Cn/gm,%20%5C%22$1%5C%22%5Cn/%5E([%5C%5C%5C%5C-+*%5Cu003e]%20.+?%5C%5C%5C%5Cn)(?![%5C%5C%5C%5C-+*%5Cu003e]%20)/gm,%20%5C%22$1%5C%5C%5C%5Cn%5C%22%5Cn%5Cn%23%20Smart%20quotes%20%5Cu0026%20m%20to%20n-dashes%5Cn/%5C%22(.+?)%5C%22/gm,%20%5C%22%E2%80%9C$1%E2%80%9D%5C%22%5Cn/(%5C%5C%5C%5CW)&#39;(%5C%5C%5C%5Cw.+?)&#39;(%5C%5C%5C%5CW)/gm,%20%5C%22$1%E2%80%98$2%E2%80%99$3%5C%22%5Cn/(%5C%5C%5C%5Cw)&#39;/gm,%20%5C%22$1%E2%80%99%5C%22%5Cn/%20?--%20?/gm,%20%5C%22%20%E2%80%93%20%5C%22%5Cn/%20?%E2%80%94%20?/gm,%20%5C%22%20%E2%80%93%20%5C%22%60;%5Cn%5Cn//%20Run%20main%20function:%5Cnmain();%5Cn%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%2265CB4D5B-464C-4AC5-BA90-113004483719%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22RegEx%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22RegEx%20Factory%20v.1.4%22,%22shiftKey%22:false%7D,%22logLevel%22:1,%22groupDisposition%22:0,%22notificationType%22:1,%22tintColor%22:%22none%22,%22actionDescription%22:%22Multiple%20RegEx%20with%20preview%20and%20replace%20(or%20cancel).%5Cn-%20New:%20Run%20on%20selected%20text%20or%20whole%20draft%20if%20no%20selection.%20%5Cn-%20Save%20RegEx%20group%20expressions%20for%20future%20use.%5Cn-%20Each%20RegEx%20group%20can%20have%20one%20or%20more%20pairs%20of%20find%20and%20replace%20patterns.%5Cn-%20New:%20Easy%20&#39;test%20and%20add&#39;%20new%20patterns%20to%20groups.%5Cn-%20New:%20Output%20to%20new%20draft%20or%20clipboard.%5Cn-%20New:%20Edit%20all,%20to%20delete%20or%20editing%20groups.%5Cn%22,%22keyUseIcon%22:true,%22icon%22:%22665-gear%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22184F18D8-F93F-4561-8BB4-3378C7DF842A%22,%22assignTags%22:[],%22name%22:%22RegEx%20Factory%20v.1.4%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// RegEx Factory v.1.4.4
+// RV 2020-09-12 at 19:56 EST
+
+// Multiple RegEx with preview/cancel or replace.
+// RegEx group expressions are automatically saved
+// to a text file in iCloud Drive on &#39;Preview/Run...&#39;
+// Each RegEx group can have one or more replace patterns.
+// Each pattern is one line in the format: /regex find/, &quot;replace&quot;
+// RegEx swithes &#39;gm&#39; are on by default (but can be changed)
+// Output to current draft, new draft or clipboard.
+// Run on selected text or whole draft if no selection.
+// Generate RegEx JS script action as new draft in Inbox :)
+
+&#39;use strict&#39;;
+// Global variables:
+var path = &#39;/RegExGroups.txt&#39;;
+var groupTitle = &#39;&#39;;
+var regExGroup = &#39;&#39;;
+var regExGroupList = [];
+var regExGroupIndex = -1;
+var startLastUsed = false;
+var find = &#39;&#39;;
+var repl = &#39;&#39;;
+var swi = false;
+var selRange = [];
+var draftText = &#39;&#39;;
+
+function main() {
+	// Run on selected text or full draft if no selection:
+	selRange = editor.getSelectedRange();
+	if (selRange[1] == 0) {
+    draftText = editor.getText();
+  } else {
+    draftText = editor.getSelectedText();  
+  }
+
+  let isRead = readGroupFile();
+
+  if (selectGroup(isRead)) {
+    while(regExFactory()); // Loops until false (done or canceled)
+  } else {
+    context.cancel(&#39;Canceled by user&#39;);
+  }
+}
+
+function readGroupFile() {
+  let fmCloud = FileManager.createCloud();
+  let groupsText = fmCloud.readString(path);
+  
+  if (!groupsText) { 
+    // No file found, use sample text instead:
+    // see &#39;groupSample&#39; at end of script.
+    loadGroups(groupSample);
+  } else {
+    loadGroups(groupsText);
+  }
+}
+
+function loadGroups(groupsText) {
+	regExGroupList = [];
+	
+  let groups = groupsText.split(&#39;\n# &#39;);
+  let index = parseInt(groups[0].slice(12));
+  if (index &gt; -1) startLastUsed = true;
+  
+  for (let group of groups.slice(1)) {
+    group = group.replace(&#39;\n&#39;, &#39;\r&#39;);
+    let item = group.split(&#39;\r&#39;);
+    let title = item[0].replace(/^# /, &#39;&#39;);
+    let gRegEx = item[1].trim();
+    regExGroupList.push([title, gRegEx]);
+  }
+  
+  if (index == -1 || index &gt;= regExGroupList.length) {
+    regExGroupIndex = 0;
+    getGroup(regExGroupIndex)
+    return true;
+  } else {      
+    getGroup(index);
+    return false;      
+  }
+}
+
+function selectGroup(load) {
+  if (!load) return true;
+  let index = regExGroupIndex;
+  
+  if (regExGroupIndex == -1) {
+    index = 0;
+  }
+  
+  let p = Prompt.create();
+  p.title = &quot;Load RegEx Factory&quot;;
+  p.addPicker(&#39;group&#39;, &#39;Group:&#39;, [listGroupTitles()], [index]);
+  p.addSwitch(&#39;start&#39;, &#39;Start With Last Used&#39;, startLastUsed);
+  p.addButton(&#39;Load Group&#39;);
+  p.addButton(&#39;New Empty Group&#39;);
+  p.addButton(&#39;Edit All Groups...&#39;);
+  
+  if (p.show()) {
+    startLastUsed = p.fieldValues[&#39;start&#39;];
+    switch (p.buttonPressed) {
+      case &#39;Load Group&#39;:
+        getGroup(parseInt(p.fieldValues[&#39;group&#39;]));
+        return false;
+
+      case &#39;New Empty Group&#39;:
+        groupTitle = &#39;&#39;;
+        regExGroup = &#39;&#39;;
+        regExGroupIndex = -1;
+        return false;
+
+      case &#39;Edit All Groups...&#39;:
+        editAllGroups();
+        return true;
+
+      default:
+        app.displayErrorMessage(&quot;switch/case not implemented!&quot;);
+        return true;
+    }
+    return true;
+  }
+  return false;
+}
+
+function editAllGroups() {
+  // regExGroupList.push([title, gRegEx])
+  let groups = [];
+  
+  for (const group of regExGroupList) {
+    groups.push(&#39;# &#39; + group[0]); // Group title
+    groups.push(group[1] + &#39;\n&#39;); // Group body    
+  }
+    
+	let groupsText = groups.join(&#39;\n&#39;);
+  let p = Prompt.create();
+  p.title = &#39;Edit or Delete Groups:&#39;;
+  p.message = &#39;Format: \n# Group title\n/find pattern/gm, &quot;replace&quot;&#39;;
+  p.addTextView(&#39;text&#39;, &#39;RegEx Groups:&#39;, groupsText, {&#39;height&#39;: 300})
+  p.addButton(&#39;Save changes&#39;);
+  
+  if (p.show()) {
+    let groupsText2 = p.fieldValues[&#39;text&#39;];
+    if (groupsText2.split(&#39;\n&#39;).length &lt; 2) {
+      app.displayErrorMessage(&quot;Wrong format!&quot;);
+      return false;
+    }
+    if (p.buttonPressed == &#39;Save changes&#39; &amp;&amp; groupsText2 != groupsText) {
+      let index = regExGroupIndex;
+      if (startLastUsed) {
+        groupsText2 = &#39;StartIndex = &#39; + regExGroupIndex + &#39;\n&#39; + groupsText2;
+      } else {
+        groupsText2 = &#39;StartIndex = -1\n&#39; + groupsText2;
+      }
+      
+      try {
+        loadGroups(groupsText2);
+      // saveGroupFile(regExGroupIndex);
+      } catch(err) {
+        alert(err.message);
+        return false;
+      }
+      
+      return true;
+    }  
+  } else {
+    return false;
+  }
+}
+
+function getGroup(index) {
+  if (index == -1) return;
+  groupTitle = regExGroupList[index][0];
+  regExGroup = regExGroupList[index][1];
+  regExGroupIndex = index;
+}
+
+function listGroupTitles() {
+  let titleList = [];
+  
+  for (const group of regExGroupList) {
+    titleList.push(group[0]);
+  }
+  
+  return titleList;
+}
+
+function regExFactory() {
+  let p = Prompt.create();
+  p.title = &quot;RegEx Factory&quot;;
+  p.addTextField(&quot;groupTitle&quot;, &quot;Title:&quot;, groupTitle, {&quot;wantsFocus&quot;: true });
+  p.addTextView(&#39;text&#39;, &#39;RegExGroup:&#39;, regExGroup)
+  p.addButton(&#39;Test &amp; Run on Current Draft...&#39;);
+  p.addButton(&#39;Run to New Draft&#39;);
+  p.addButton(&#39;Run to Clipboard&#39;);
+  p.addButton(&#39;Add New Pattern...&#39;);
+  p.addButton(&#39;Load Other Groups...&#39;);
+  p.addButton(&#39;Save as New...&#39;);
+  p.addButton(&#39;JS Code to Inbox&#39;);
+  p.addButton(&#39;RegEx Help...&#39;);
+  
+  if (p.show()) {
+    groupTitle = p.fieldValues[&#39;groupTitle&#39;];
+    regExGroup = p.fieldValues[&#39;text&#39;];
+    
+    switch (p.buttonPressed) {
+      case &#39;Add New Pattern...&#39;:
+        while (addPattern(regExGroup)); // Loops until false = done or canceled
+        break;
+
+      case &#39;Load Other Groups...&#39;:
+        while(selectGroup(true));
+        break;
+
+      case &#39;Save as New...&#39;:
+        saveAsNew();
+        break;        
+      case &#39;Test &amp; Run on Current Draft...&#39;:
+        return (!runRegEx(&#39;current&#39;));
+
+      case &#39;Run to New Draft&#39;:
+        return (!runRegEx(&#39;new&#39;));
+
+      case &#39;Run to Clipboard&#39;:
+        return (!runRegEx(&#39;clipboard&#39;));
+
+      case &#39;JS Code to Inbox&#39;:
+        generateJsCode(regExGroup);
+        break;
+
+      case &#39;RegEx Help...&#39;:
+        app.openURL(&#39;https://regex101.com&#39;)
+        break;      
+
+      default:
+        app.displayErrorMessage(&quot;switch/case not implemented!&quot;) ;
+        break;
+    }
+    return true; // continue while loop
+  } else {
+    context.cancel(&#39;Canceled by user!&#39;);
+    return false; // end while loop
+  }
+}
+
+function saveAsNew() {
+  if (regExGroup.trim() == &#39;&#39;) {
+    app.displayErrorMessage(&#39;RegEx arguments missing!&#39;);
+    return false;
+  }
+
+  let p = Prompt.create();
+  p.title = &#39;Save as New Group&#39;;
+  p.message = regExGroup;
+  p.addTextField(&#39;name&#39;, &#39;New Group Name:&#39;, groupTitle);
+  p.addButton(&#39;Save&#39;);
+
+  if (p.show()) {
+    if (p.buttonPressed == &#39;Save&#39;) {
+      groupTitle = p.fieldValues[&#39;name&#39;];         
+      saveGroupFile(-1);
+      return true;
+    }
+  } 
+  return false;
+}
+
+function runRegEx(type) {
+  if (regExGroup.trim() == &#39;&#39;) {
+    app.displayErrorMessage(&#39;RegEx arguments missing!&#39;);
+    return false;
+  }
+
+	// Replace text with regExGroup:
+  const [text, group] = replaceByRegexGroup(draftText, regExGroup);
+  if (text == &#39;&#39;) {
+    app.displayErrorMessage(&#39;Empty result!&#39;);
+    return false;
+	} 
+	
+  saveGroupFile(regExGroupIndex);
+  
+  switch (type) {
+    case &#39;current&#39;:
+      if (preview(text, group)) {
+        if (selRange[1]== 0) {
+          editor.setText(text);
+        } else {
+          editor.setSelectedText(text);
+          let diff = text.length - draftText.length;
+          editor.setSelectedRange(selRange[0], selRange[1] + diff);        
+        }
+        
+        draft.addTag(&#39;regexed&#39;);
+        app.displayInfoMessage(&#39;Draft is &quot;RegExed&quot;!&#39;);
+        return true;
+        
+      }
+      return false;
+
+    case &#39;new&#39;:
+      let d = Draft.create();
+      d.content = text;
+      d.languageGrammar = draft.languageGrammar;
+      d.update();
+
+      for (const tag of draft.tags) {
+        d.addTag(tag);
+      }
+
+      // d.isFlagged = draft.isFlagged;
+      d.addTag(&#39;regexed&#39;);
+      d.update();
+      editor.load(d);
+      app.displayInfoMessage(&#39;&quot;RegExed&quot; as new draft!&#39;);
+      return true;
+
+    case &#39;clipboard&#39;:
+      app.setClipboard(text);
+      app.displayInfoMessage(&#39;&quot;RegExed&quot; to clipboard!&#39;);
+      return true;
+ 
+    default:
+      app.displayErrorMessage(&#39;switch/case not implemented!&#39;);
+      return false;
+  }
+}
+
+function addPattern() {
+  let p = Prompt.create();
+  p.title = &#39;New Pattern&#39;;
+  p.message = &#39;Add to: &quot;&#39; + groupTitle + &#39;&quot;&#39;;
+  p.addTextField(&#39;find&#39;, &#39;Find regx:&#39;, find);
+  p.addTextField(&#39;repl&#39;, &#39;Replace: &#39;, repl);
+  p.addSwitch(&#39;swi&#39;, &#39;Case Insensitive&#39;, swi);
+  
+  p.addButton(&#39;Test and Add Pattern...&#39;);
+  p.addButton(&#39;Test with Current Group...&#39;);
+  p.addButton(&#39;Add without Testing...&#39;);
+  
+  if (p.show()) {
+    find = p.fieldValues[&#39;find&#39;];
+    repl = p.fieldValues[&#39;repl&#39;];
+    swi = p.fieldValues[&#39;swi&#39;];
+    let i = &#39;&#39;
+    
+    if (swi) {
+      i = &#39;gmi&#39;; // add &#39;i&#39; with default &#39;gm&#39;
+    } else {
+      i = &#39;gm&#39;; // add as default
+    }
+    
+    let pattern = `/${find}/${i}, &quot;${repl}&quot;`;
+    
+    if (find == &#39;&#39;) {
+      app.displayInfoMessage(&#39;Find field: is empty!&#39;);
+      return true;
+    }
+    let text = &#39;&#39;;
+    let group = &#39;&#39;;
+    let ln = &#39;&#39;;
+    if (regExGroup.trim() != &#39;&#39;) ln = &#39;\n&#39;;
+    switch (p.buttonPressed) {
+      case &#39;Test and Add Pattern...&#39;:
+        [text, group] = replaceByRegexGroup(draftText, pattern);
+        if (preview(text, group, true)) {
+	        regExGroup = regExGroup.trim() + ln + pattern;
+          if (text) saveGroupFile(regExGroupIndex);
+          return false;
+        }
+        break;
+
+      case &#39;Test with Current Group...&#39;:
+        let reGroup = regExGroup.trim() + ln + pattern;
+        [text, group] = replaceByRegexGroup(draftText, reGroup);
+        if (preview(text, group, true)) {
+	        regExGroup = reGroup;
+          if (text) saveGroupFile(regExGroupIndex);
+          return false;
+        }
+        break;
+
+      case &#39;Add without Testing...&#39;:
+        regExGroup = regExGroup.trim() + ln + pattern; 
+        saveGroupFile(regExGroupIndex);
+        return false;
+ 
+      default:
+        app.displayErrorMessage(&#39;switch/case not implemented!&#39;);
+        break;
+    }
+    return true; // Continue loop
+  }
+  return false;
+}
+
+function saveGroupFile(ind) {
+  let title = groupTitle;
+  if (groupTitle == &#39;&#39;) {
+    title = &#39;Untitled&#39;;
+  } 
+  
+  if (ind == -1) {
+    regExGroupList.push([title, regExGroup]);
+    regExGroupIndex = regExGroupList.length - 1
+  } else {
+    regExGroupList[regExGroupIndex] = [title, regExGroup];
+  }
+  
+  let gList = [];
+  if (startLastUsed) {
+    gList = [&#39;StartIndex = &#39; + regExGroupIndex]
+  } else {
+    gList = [&#39;StartIndex = -1&#39;]
+  }
+  
+  for (const group of regExGroupList) {
+    gList.push(&#39;# &#39; + group[0]); // groupTitle
+    gList.push(group[1]);      // regExGroup
+  }
+  
+  let fmCloud = FileManager.createCloud();
+  let success = fmCloud.write(path, gList.join(&#39;\n&#39;));
+}
+
+function replaceByRegexGroup(text, reGroup) {  
+  for (const row of reGroup.split(&#39;\n&#39;)) {
+    // Skip commented and blank lines:
+    if (row.startsWith(&#39;// &#39;) || row.trim() == &#39;&#39;) continue;
+
+    let m = row.match(/^\/(.+?)\/([gmiyus]{0,6}), ?\&quot;(.*)\&quot;/)
+    if (!m) {
+      app.displayErrorMessage(&quot;Error in line syntax: &quot; + row) ;
+      return [&#39;&#39;, reGroup];
+    }
+    
+    let fnd = m[1];
+    let sw = m[2];
+    let rep = m[3];
+    
+    if (sw == &#39;&#39;) {
+      // If adding any switches, please include &#39;gm&#39; as well!
+      sw = &#39;gm&#39;; // Default RegEx switch
+    }
+    
+    let reFind = new RegExp(fnd, sw);
+    rep = rep.replace(/\\n/g, &#39;\n&#39;);
+    rep = rep.replace(/\\t/g, &#39;\t&#39;);
+    rep = rep.replace(/\\r/g, &#39;\r&#39;);
+    text = text.replace(reFind, rep);
+  }
+  
+  if (text.trim() == &#39;&#39;) {
+    app.displayErrorMessage(&quot;Empty text result!&quot;) ;
+    return [&#39;&#39;, reGroup];
+  }
+  
+  return [text, reGroup];
+}
+
+function preview(text, group, testPattern=false) {
+	let message = &#39;&#39;;
+
+	if (testPattern) {
+    message = &#39;Press &quot;Continue&quot; to add pattern to current group!&#39;;
+	} else {
+    message = &#39;Press &quot;Continue&quot; to replace current draft!&#39; 
+	}
+
+  // Test: &lt; &gt; &quot;&#39; &amp;
+  text = text.replace(/&lt;/g, &#39;&amp;lt;&#39;);
+  // text = text.replace(/&gt;/g, &#39;&amp;gt;&#39;);
+  // text = text.replace(/&amp;/g, &#39;&amp;amp;&#39;);
+  // text = text.replace(/&#39;/g, &quot;&amp;apos;&quot;);
+  // text = text.replace(/&quot;/g, &#39;&amp;quot;&#39;);
+
+  if (app.currentThemeMode == &#39;dark&#39;) {
+    var css = &quot;body { background: #222; color: #ddd; }&quot;;
+  } else {
+    var css = &quot;body { background: #fff; color: #444; }&quot;;
+  }
+  
+  // add and show default switches &#39;gm&#39; (if none):
+  let groupWithSwitches = group.replace(/^(\/.+?\/)(?!\w+)(, ?&quot;.*&quot;)/gm, &#39;$1gm$2&#39;);
+  
+  let html = `&lt;html&gt;&lt;style&gt;${css}&lt;/style&gt;&lt;body&gt;
+  &lt;h3&gt;Result-text preview below line&lt;h3&gt;
+  &lt;h4&gt;${message}&lt;br&gt;
+  or &quot;Cancel\&quot; to exit with no changes.&lt;/h4&gt;
+  &lt;h4&gt;RegEx group used: &quot;${groupTitle}\&quot;&lt;/h4&gt;
+  &lt;pre&gt;${groupWithSwitches}&lt;/pre&gt;
+  &lt;p&gt;(If no switches specified, &#39;gm\&#39; = &quot;Global, Multiline\&quot; are added by default)&lt;/p&gt;
+  &lt;hr&gt;
+  &lt;pre&gt;${text}&lt;/pre&gt;
+  &lt;/body&gt;&lt;/html&gt;`
+  let preview = HTMLPreview.create();
+  return preview.show(html);
+}
+
+function generateJsCode(reGroup) {
+  // Generates JS replace function snippet as draft in Inbox
+  const now = new Date()
+  const date = now.toString(&quot;yyyy-MM-dd&quot;)
+  const time = now.toString(&quot;HH:mm&quot;)
+
+  let codeLines = [];
+  codeLines.push(`// RegEx Replace: ${groupTitle}`)
+  codeLines.push(`// Code generated by &quot;RegEx Factory&quot;: ${date} at ${time}`);
+  codeLines.push(&#39;&#39;);
+  makeDraftActionCode(codeLines); // Make Drafts Action Script (add comment to skip)
+  codeLines.push(&#39;function regExReplace(text) {&#39;);
+  codeLines.push(`  // Group Title: ${groupTitle}`)
+  
+  for (const row of reGroup.split(&#39;\n&#39;)) {
+    if (row.startsWith(&#39;// &#39;) || row.trim() == &#39;&#39;) {
+      // Blank and commented lines and set indent:
+      codeLines.push(row.replace(/^\/\/ /, &#39;  \/\/ &#39;));
+      continue;
+    }
+    let m = row.match(/^\/(.+?)\/([gmi]{0,3}), ?\&quot;(.*)\&quot;/)
+    if (!m) {
+      app.displayErrorMessage(&quot;Error in line syntax: &quot; + row) ;
+      return [&#39;&#39;, reGroup];
+    }
+    
+    let fnd = m[1];
+    let rep = m[3];
+    let sw = m[2];
+    if (sw == &#39;&#39;) { 
+      sw = &#39;gm&#39;; // Default RegEx switch
+    }
+    
+    let line = `  text = text.replace(/${fnd}/${sw}, &#39;${rep}&#39;);`
+    codeLines.push(line)
+  }
+  codeLines.push(&#39;  return text;&#39;);  
+  codeLines.push(&#39;}\n\n&#39;);
+  let code = codeLines.join(&#39;\n&#39;);
+  // app.setClipboard(code);
+  
+  let d = Draft.create();
+  d.content = code;
+  d.languageGrammar = &quot;JavaScript&quot;;
+  d.update();
+  d.addTag(&quot;script&quot;);
+  d.addTag(&quot;regex&quot;);
+  d.update();
+  
+  app.displayInfoMessage(&#39;function myRegExReplace() saved to Inbox :)&#39;) ;
+}
+
+function makeDraftActionCode(codeLines) {
+  // Makes fully functioning draft Action Script:
+  codeLines.push(&quot;var p = Prompt.create();&quot;);
+  codeLines.push(&quot;p.title = &#39;Run RegEx Replace on Current Draft&#39;;&quot;);
+  codeLines.push(&quot;p.addButton(&#39;Save as New Draft&#39;);&quot;);
+  codeLines.push(&quot;p.addButton(&#39;Replace Current Draft&#39;);&quot;);
+  codeLines.push(&quot;&quot;);
+  codeLines.push(&quot;if (p.show()) {&quot;);
+  codeLines.push(&quot;  let text = regExReplace(editor.getText());&quot;);
+  codeLines.push(&quot;  &quot;);
+  codeLines.push(&quot;  switch (p.buttonPressed) {&quot;);
+  codeLines.push(&quot;    case &#39;Save as New Draft&#39;:&quot;);
+  codeLines.push(&quot;      let d = Draft.create();&quot;);
+  codeLines.push(&quot;      d.content = text;&quot;);
+  codeLines.push(&quot;      // d.languageGrammar = &#39;MultiMarkdown&#39;;&quot;);
+  codeLines.push(&quot;      // d.languageGrammar = &#39;JavaScript&#39;;&quot;);
+  codeLines.push(&quot;      d.update();&quot;);
+  codeLines.push(&quot;      d.addTag(&#39;regexed&#39;);&quot;);
+  codeLines.push(&quot;      d.update();&quot;);
+  codeLines.push(&quot;      break;&quot;);
+  codeLines.push(&quot;    case &#39;Replace Current Draft&#39;:&quot;);
+  codeLines.push(&quot;      editor.setText(text);&quot;);
+  codeLines.push(&quot;      draft.addTag(&#39;regexed&#39;);&quot;);
+  codeLines.push(&quot;      break;&quot;);
+  codeLines.push(&quot;  }&quot;);
+  codeLines.push(&quot;} else {&quot;);
+  codeLines.push(&quot;  context.cancel(&#39;Canceled by user!&#39;);&quot;);
+  codeLines.push(&quot;}&quot;);
+  codeLines.push(&quot;&quot;);
+}
+
+// Note! double escaping of \n \w etc:
+var groupSample = `StartIndex = 2
+# Multiple to double line breaks
+/\\n\\n+/gm, &quot;\\n\\n&quot;
+
+# Multiple to single line breaks
+/\\n+/gm, &quot;\\n&quot;
+
+# Clean Markdown Lines
+/\\n+/gm, &quot;\\n\\n&quot;
+/\\n#/gm, &quot;\\n\\n#&quot;
+/(\\n###+.+?\\n)\\n/gm, &quot;$1&quot;
+/^([\\-+*&gt;] .+?)\\n/gm, &quot;$1&quot;
+/^([\\-+*&gt;] .+?\\n)(?![\\-+*&gt;] )/gm, &quot;$1\\n&quot;
+
+# Smart quotes &amp; m to n-dashes
+/&quot;(.+?)&quot;/gm, &quot;“$1”&quot;
+/(\\W)&#39;(\\w.+?)&#39;(\\W)/gm, &quot;$1‘$2’$3&quot;
+/(\\w)&#39;/gm, &quot;$1’&quot;
+/ ?-- ?/gm, &quot; – &quot;
+/ ?— ?/gm, &quot; – &quot;`;
+
+// Run main function:
+main();
+
+</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Default
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Error</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Error</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

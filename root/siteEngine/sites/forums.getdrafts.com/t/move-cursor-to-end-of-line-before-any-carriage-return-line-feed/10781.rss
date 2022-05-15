@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Move Cursor to End of Line, before Any Carriage Return/Line Feed</title>
+    <link>https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781</link>
+    <description>Greetings, folks!
+
+I have an action Javascript (appended below) that moves the cursor to the end of the current line, but if there is a carriage return or line feed at the end of the line, it will move the cursor to the start of the next line. Not what I want.
+
+Simply subtracting one character from the line length is a shoddy workaround, but only fails if the line is the last line in the text file.
+
+Thoughts or suggestions?
+
+(Please forgive me for being so rusty in JS!)
+
+Blessings, and thank you!
+
+———————————————————————————————————————
+
+// Move cursor to end of line
+
+let [loc, len] = editor.getSelectedLineRange(),
+  str = editor.getTextInRange(loc, len);
+editor.setTextInRange(loc, len, str);
+
+// editor.setSelectedRange(loc + str.length, 0); // this includes the carriage return/line feed at the end of lines, and thus going to the start of the next line instead
+
+editor.setSelectedRange(loc + str.length - 1, 0); // the shoddy workaround
+
+editor.setSelectedText(&#39;&#39;);
+
+editor.activate();</description>
+    
+    <lastBuildDate>Fri, 09 Jul 2021 01:41:35 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Move Cursor to End of Line, before Any Carriage Return/Line Feed</title>
+        <dc:creator><![CDATA[RichardFairbanks]]></dc:creator>
+        <description><![CDATA[
+            <p>God Bless You!</p>
+<p>(and thank you for being so gracious!    <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:">   )</p>
+          <p><a href="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781/3</link>
+        <pubDate>Fri, 09 Jul 2021 01:41:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10781-3</guid>
+        <source url="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781.rss">Move Cursor to End of Line, before Any Carriage Return/Line Feed</source>
+      </item>
+      <item>
+        <title>Move Cursor to End of Line, before Any Carriage Return/Line Feed</title>
+        <dc:creator><![CDATA[drdrang]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s not a shoddy workaround—you have to deal with the fact that there’s a linefeed at the end of all but (possibly) the last line. But it is worth the effort to deal with that special case. Here’s a solution I believe works no matter where you are in the file:</p>
+<pre><code class="lang-auto">let [loc, len] = editor.getSelectedLineRange();
+let str = editor.getTextInRange(loc, len);
+str = str.replace(/\n$/, "");
+editor.setSelectedRange(loc + str.length, 0);
+</code></pre>
+<p>The <code>replace</code> strips the trailing newline from <code>str</code> if there is one. Now the length of <code>str</code> is just what you want.</p>
+<p>(I’m assuming, by the way, that the usual keyboard shortcuts of ⌘→ and ⌃E aren’t available to you, either because this is part of a longer script or you’re working without a physical keyboard.)</p>
+          <p><a href="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781/2</link>
+        <pubDate>Thu, 08 Jul 2021 03:25:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10781-2</guid>
+        <source url="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781.rss">Move Cursor to End of Line, before Any Carriage Return/Line Feed</source>
+      </item>
+      <item>
+        <title>Move Cursor to End of Line, before Any Carriage Return/Line Feed</title>
+        <dc:creator><![CDATA[RichardFairbanks]]></dc:creator>
+        <description><![CDATA[
+            <p>Greetings, folks!</p>
+<p>I have an action Javascript (appended below) that moves the cursor to the end of the current line, but if there is a carriage return or line feed at the end of the line, it will move the cursor to the start of the next line. Not what I want.</p>
+<p>Simply subtracting one character from the line length is a shoddy workaround, but only fails if the line is the last line in the text file.</p>
+<p>Thoughts or suggestions?</p>
+<p>(Please forgive me for being so rusty in JS!)</p>
+<p>Blessings, and thank you!</p>
+<p>———————————————————————————————————————</p>
+<p>// Move cursor to end of line</p>
+<p>let [loc, len] = editor.getSelectedLineRange(),<br>
+str = editor.getTextInRange(loc, len);<br>
+editor.setTextInRange(loc, len, str);</p>
+<p>// editor.setSelectedRange(loc + str.length, 0); // this includes the carriage return/line feed at the end of lines, and thus going to the start of the next line instead</p>
+<p>editor.setSelectedRange(loc + str.length - 1, 0); // the shoddy workaround</p>
+<p>editor.setSelectedText(’’);</p>
+<p>editor.activate();</p>
+          <p><a href="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781/1</link>
+        <pubDate>Thu, 08 Jul 2021 01:46:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10781-1</guid>
+        <source url="https://forums.getdrafts.com/t/move-cursor-to-end-of-line-before-any-carriage-return-line-feed/10781.rss">Move Cursor to End of Line, before Any Carriage Return/Line Feed</source>
+      </item>
+  </channel>
+</rss>

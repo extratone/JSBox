@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+    <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045</link>
+    <description>Drafts 19 (macOS) has been released [in the Mac App Store](https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site), details below.
+
+**See also**: [iOS Release Notes](https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046)
+
+![r17-macOS|641x396, 75%](upload://wIp3S829WEpkXpRlVywaKlvbHn.png) 
+
+### What&#39;s New
+
+- **Quick Search**: Global quick search feature to query for drafts, actions, workspaces and common commands in one place. 
+  - Accessed via search button in the toolbar, the `Edit &gt; Find &gt; Quick Search` menu command, or with the shift-command-F keyboard shortcut.
+  - `/quickSearch?query=` URL action to open directly to quick search. [Details](https://docs.getdrafts.com/docs/automation/urlschemes#quicksearch)
+  - `app.showQuickSearch(initialQuery)` scripting function. [Docs](https://scripting.getdrafts.com/classes/app#showquicksearch)
+  - Related change: Searches (in quick search and in draft list) now support tag matches in additional to full text searching, in addition to their support for [`&quot;exact phrase&quot;` with quotes and `-omission` with hyphen](https://docs.getdrafts.com/docs/drafts/filtering#searching-drafts)
+  - _Quick Search feature requires macOS 10.15.1 (Catalina) or greater._
+  - [Documentation](https://docs.getdrafts.com/docs/drafts/quick-search)
+- **AppleScript**
+  - &quot;Run AppleScript&quot; action step can be used to execute AppleScripts passing information about the current draft.
+  - `AppleScript` script object for calling AppleScripts from JavaScript, with more advanced control of parameters, subroutines called, and easier access to return values.
+  - Basic incoming AppleScript support for creating new drafts. Additional support for AppleScript coming in future updates. Example: `tell application &quot;Drafts&quot; make new draft with properties {content: &quot;my draft&quot;, tags: {&quot;blue&quot;, &quot;green&quot;}} end tell`
+  - [AppleScript examples action group](https://actions.getdrafts.com/g/16C)
+  - [More info and examples](https://docs.getdrafts.com/docs/automation/applescript)
+- **`ShellScript` script object for running Unix shell scripts** from Drafts script action steps, with the ability to pass command line arguments, and access standard output and errors. 
+  - [Bash Script example action](https://actions.getdrafts.com/a/16b)
+  - [Ruby Script example action](https://actions.getdrafts.com/a/16c)
+  - [`ShellScript` Docs](https://scripting.getdrafts.com/classes/shellscript)
+- **Marked app streaming preview support**. If enabled in `Preferences &gt; General`, the editor will live update the stream Marked watches in it&#39;s &quot;Streaming Preview&quot; window. Requires Marked app be installed. [Details](https://docs.getdrafts.com/docs/editor/previews#marked-app-integration)
+- `FileManager` script object additions:
+  - `baseURL` and `basePath` properties return full `file:///` URL or POSIX path to the base directory used by the FileManager instance. This can be useful in cases where the full location of files is needed.
+  - `writeJSON(path, obj)` and `readJSON(path)` convenience functions for saving and restoring JavaScript objects in files.
+  - [`FileManager` docs](https://scripting.getdrafts.com/classes/filemanager.html)
+- `app.showDraftInfo(draft?)` function to display details of a draft. [Docs](https://scripting.getdrafts.com/classes/app#showdraftinfo)
+- Additional `Workspace` script object properties:
+    - `loadActionListGroup` (ActionGroup)
+    - `loadActionBarGroup` (ActionGroup)
+    - `loadFolder` (&quot;inbox&quot;, &quot;archive&quot;, &quot;trash&quot;, &quot;flagged&quot;)
+    - [Docs](https://scripting.getdrafts.com/classes/workspace.html)
+
+### Other Changes
+
+- **Fix:** Better live updating of changes if the same draft is open in multiple windows.
+- **Fix:** Changing only some advanced settings in the action editor, and nothing else, could result in the change not being saved.
+- **Fix:** &quot;-&quot; button for deleting actions in action manager did not work properly with multiple selections.
+- **Change:** Searches now also search tag names in addition to searching full text.
+- **Fix:** &quot;Manage Actions&quot; window did not behave properly in full screen mode.
+- **Fix:** Several crashes related to open and closing additional drafts windows when the app first launched.
+- **Change:** Improve identification of HTML tags in Markdown syntax.
+- Misc. other reliability and performance improvements.
+
+For a complete history of updates, visit the [changelog](https://docs.getdrafts.com/docs/misc/changelog-mac)</description>
+    
+    <lastBuildDate>Fri, 10 Apr 2020 03:22:59 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[drdrang]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://forums.getdrafts.com/t/shell-environment/7059">See this</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/7</link>
+        <pubDate>Fri, 10 Apr 2020 03:22:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-7</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[nertzy]]></dc:creator>
+        <description><![CDATA[
+            <p>Read the examples section of <code>man env</code> and you’ll see why it’s typical to use <code>#!/usr/bin/env ruby</code>.</p>
+<p>Essentially the main reason is that the ruby executable might possibly be a script that itself needs to be executed. For example, rbenv uses a shell script to call through to the actual ruby binary.</p>
+<p>It should be safe for pretty much any use case, but I’d be interested to hear if you learn about something I haven’t considered yet.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/6</link>
+        <pubDate>Fri, 10 Apr 2020 01:54:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-6</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[drdrang]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, I’ll do some testing of the environment when I’m at my Mac tonight.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/5</link>
+        <pubDate>Thu, 02 Apr 2020 21:29:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-5</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not altering anything, so it’s possible that shebang would need to be adjusted for the way you have Ruby installed.</p>
+<p>To be honest, I did not get to test that feature as extensively as I’d like to understand the mechanics of the Unix environment used. The script gets saved to the <code>~/Library/Application Scripts/com.agiletortoise.Drafts-OSX</code> folder, and handed off and executed using <a href="https://developer.apple.com/documentation/foundation/nsuserunixtask">NSUnixUserTask</a>, which runs it in the user space.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/4</link>
+        <pubDate>Thu, 02 Apr 2020 21:13:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[drdrang]]></dc:creator>
+        <description><![CDATA[
+            <p>I see the Ruby example in the docs uses a <code>#!/usr/bin/env ruby</code> shebang line. Is the environment in which the script runs the same barebones environment one would have if there’s no <code>.bashrc</code> or <code>.bash_profile</code> to change the <code>$PATH</code>? Or are you somehow processing the user’s initialization files before running the script?</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/3</link>
+        <pubDate>Thu, 02 Apr 2020 20:53:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[nyc_cyclist]]></dc:creator>
+        <description><![CDATA[
+            <p>Quick Search sounds great! Unfortunately, because I’m using some older software, I’m not able to update from Mojave to take advantage of it. But I’m glad I can use it on iOS.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/2</link>
+        <pubDate>Thu, 02 Apr 2020 16:19:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+      <item>
+        <title>Drafts 19 (macOS) Released - Quick Search, AppleScript</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts 19 (macOS) has been released <a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">in the Mac App Store</a>, details below.</p>
+<p><strong>See also</strong>: <a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046">iOS Release Notes</a></p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/0/03b2c0346805cb8b00936272f7be3b0793e935c5.png" alt="r17-macOS" data-base62-sha1="wIp3S829WEpkXpRlVywaKlvbHn" width="480" height="297"></p>
+<h3>What’s New</h3>
+<ul>
+<li>
+<strong>Quick Search</strong>: Global quick search feature to query for drafts, actions, workspaces and common commands in one place.
+<ul>
+<li>Accessed via search button in the toolbar, the <code>Edit &gt; Find &gt; Quick Search</code> menu command, or with the shift-command-F keyboard shortcut.</li>
+<li>
+<code>/quickSearch?query=</code> URL action to open directly to quick search. <a href="https://docs.getdrafts.com/docs/automation/urlschemes#quicksearch">Details</a>
+</li>
+<li>
+<code>app.showQuickSearch(initialQuery)</code> scripting function. <a href="https://scripting.getdrafts.com/classes/app#showquicksearch">Docs</a>
+</li>
+<li>Related change: Searches (in quick search and in draft list) now support tag matches in additional to full text searching, in addition to their support for <a href="https://docs.getdrafts.com/docs/drafts/filtering#searching-drafts"><code>"exact phrase"</code> with quotes and <code>-omission</code> with hyphen</a>
+</li>
+<li><em>Quick Search feature requires macOS 10.15.1 (Catalina) or greater.</em></li>
+<li><a href="https://docs.getdrafts.com/docs/drafts/quick-search">Documentation</a></li>
+</ul>
+</li>
+<li>
+<strong>AppleScript</strong>
+<ul>
+<li>“Run AppleScript” action step can be used to execute AppleScripts passing information about the current draft.</li>
+<li>
+<code>AppleScript</code> script object for calling AppleScripts from JavaScript, with more advanced control of parameters, subroutines called, and easier access to return values.</li>
+<li>Basic incoming AppleScript support for creating new drafts. Additional support for AppleScript coming in future updates. Example: <code>tell application "Drafts" make new draft with properties {content: "my draft", tags: {"blue", "green"}} end tell</code>
+</li>
+<li><a href="https://actions.getdrafts.com/g/16C">AppleScript examples action group</a></li>
+<li><a href="https://docs.getdrafts.com/docs/automation/applescript">More info and examples</a></li>
+</ul>
+</li>
+<li>
+<strong><code>ShellScript</code> script object for running Unix shell scripts</strong> from Drafts script action steps, with the ability to pass command line arguments, and access standard output and errors.
+<ul>
+<li><a href="https://actions.getdrafts.com/a/16b">Bash Script example action</a></li>
+<li><a href="https://actions.getdrafts.com/a/16c">Ruby Script example action</a></li>
+<li><a href="https://scripting.getdrafts.com/classes/shellscript"><code>ShellScript</code> Docs</a></li>
+</ul>
+</li>
+<li>
+<strong>Marked app streaming preview support</strong>. If enabled in <code>Preferences &gt; General</code>, the editor will live update the stream Marked watches in it’s “Streaming Preview” window. Requires Marked app be installed. <a href="https://docs.getdrafts.com/docs/editor/previews#marked-app-integration">Details</a>
+</li>
+<li>
+<code>FileManager</code> script object additions:
+<ul>
+<li>
+<code>baseURL</code> and <code>basePath</code> properties return full <code>file:///</code> URL or POSIX path to the base directory used by the FileManager instance. This can be useful in cases where the full location of files is needed.</li>
+<li>
+<code>writeJSON(path, obj)</code> and <code>readJSON(path)</code> convenience functions for saving and restoring JavaScript objects in files.</li>
+<li><a href="https://scripting.getdrafts.com/classes/filemanager.html"><code>FileManager</code> docs</a></li>
+</ul>
+</li>
+<li>
+<code>app.showDraftInfo(draft?)</code> function to display details of a draft. <a href="https://scripting.getdrafts.com/classes/app#showdraftinfo">Docs</a>
+</li>
+<li>Additional <code>Workspace</code> script object properties:
+<ul>
+<li>
+<code>loadActionListGroup</code> (ActionGroup)</li>
+<li>
+<code>loadActionBarGroup</code> (ActionGroup)</li>
+<li>
+<code>loadFolder</code> (“inbox”, “archive”, “trash”, “flagged”)</li>
+<li><a href="https://scripting.getdrafts.com/classes/workspace.html">Docs</a></li>
+</ul>
+</li>
+</ul>
+<h3>Other Changes</h3>
+<ul>
+<li>
+<strong>Fix:</strong> Better live updating of changes if the same draft is open in multiple windows.</li>
+<li>
+<strong>Fix:</strong> Changing only some advanced settings in the action editor, and nothing else, could result in the change not being saved.</li>
+<li>
+<strong>Fix:</strong> “-” button for deleting actions in action manager did not work properly with multiple selections.</li>
+<li>
+<strong>Change:</strong> Searches now also search tag names in addition to searching full text.</li>
+<li>
+<strong>Fix:</strong> “Manage Actions” window did not behave properly in full screen mode.</li>
+<li>
+<strong>Fix:</strong> Several crashes related to open and closing additional drafts windows when the app first launched.</li>
+<li>
+<strong>Change:</strong> Improve identification of HTML tags in Markdown syntax.</li>
+<li>Misc. other reliability and performance improvements.</li>
+</ul>
+<p>For a complete history of updates, visit the <a href="https://docs.getdrafts.com/docs/misc/changelog-mac">changelog</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045/1</link>
+        <pubDate>Thu, 02 Apr 2020 13:47:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7045-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045.rss">Drafts 19 (macOS) Released - Quick Search, AppleScript</source>
+      </item>
+  </channel>
+</rss>

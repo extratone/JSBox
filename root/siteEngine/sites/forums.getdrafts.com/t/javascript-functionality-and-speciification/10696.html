@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript Functionality and Speciification? - Scripting - Drafts Community</title>
+    <meta name="description" content="So I’ve started fiddling with the actions and syntaxes, and have begun to write my own miniature library of common constants, functions, and classes. Now there are many different versions of JavaScript that exist, and mu&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10696.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;JavaScript Functionality and Speciification?&#39;" href="10696.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696" />
+<meta property="og:title" content="JavaScript Functionality and Speciification?" />
+<meta name="twitter:title" content="JavaScript Functionality and Speciification?" />
+<meta property="og:description" content="So I’ve started fiddling with the actions and syntaxes, and have begun to write my own miniature library of common constants, functions, and classes. Now there are many different versions of JavaScript that exist, and multiple different ways of importing code.  I initially thought to use the export/import functionality, but it didn’t seem to work, so I used  require(“lib-common.js”) which seemed to do exactly what I wanted. For the built in JavaScript objects, I use the MDN JavaScript reference,..." />
+<meta name="twitter:description" content="So I’ve started fiddling with the actions and syntaxes, and have begun to write my own miniature library of common constants, functions, and classes. Now there are many different versions of JavaScript that exist, and multiple different ways of importing code.  I initially thought to use the export/import functionality, but it didn’t seem to work, so I used  require(“lib-common.js”) which seemed to do exactly what I wanted. For the built in JavaScript objects, I use the MDN JavaScript reference,..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="6 ❤" />
+<meta property="article:published_time" content="2021-06-22T03:58:11+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="10696.html">JavaScript Functionality and Speciification?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/javascript.html' class='discourse-tag' rel="tag">javascript</a>, 
+            <a href='../../tag/import.html' class='discourse-tag' rel="tag">import</a>, 
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Grincess'><span itemprop='name'>Grincess</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10696.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-22T03:58:11Z' class='post-time'>
+                June 22, 2021,  3:58am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-22T04:06:23Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So I’ve started fiddling with the actions and syntaxes, and have begun to write my own miniature library of common constants, functions, and classes. Now there are many different versions of JavaScript that exist, and multiple different ways of importing code.</p>
+<p>I initially thought to use the export/import functionality, but it didn’t seem to work, so I used  require(“lib-common.js”) which seemed to do exactly what I wanted. For the built in JavaScript objects, I use the MDN JavaScript reference, as the Drafts Scripting Reference does not list all of the standard methods and standard classes. I have a couple questions:</p>
+<ol>
+<li>
+<p>Does Drafts support custom classes?</p>
+<p>class newClass<br>
+{<br>
+constructor() { super(); }<br>
+}</p>
+</li>
+<li>
+<p>Is there a defined specification of which features exist and which do not? I’m writing Syntaxes for a variety of languages and creating actions to sync my workspaces across multiple PC’s and other programs.</p>
+</li>
+<li>
+<p>Should I be using multiple action steps that do what I want more directly? I’ve been writing all my steps in JavaScript.</p>
+</li>
+<li>
+<p>When I get the “<img src="../../images/emoji/apple/bangbang.png@v=9" title=":bangbang:" class="emoji" alt=":bangbang:">“ in the corner due to a syntax error, is there any way to see the error without pressing save &amp; close, then executing the action?</p>
+</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='JavaScript Functionality and Speciification?'>
+          <meta itemprop='keywords' content='javascript, import, actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10696.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-22T06:27:12Z' class='post-time'>
+                June 22, 2021,  6:27am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-22T11:11:41Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group quote-modified" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Now there are many different versions of JavaScript that exist,…</p>
+</blockquote>
+</aside>
+<p>Drafts utilises the OS’s “JavaScript core” version. Please note that it has not document object model like a browser, so functions for Windows, etc. are not available.</p>
+<aside class="quote no-group quote-modified" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>…and multiple different ways of importing code.</p>
+<p>I initially thought to use the export/import functionality, but it didn’t seem to work, so I used require(“lib-common.js”) which seemed to do exactly what I wanted.</p>
+</blockquote>
+</aside>
+<p>For importing code see Drafts’ version of the <a href="../../../scripting.getdrafts.com/globals.html#require">require</a> function.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Does Drafts support custom classes?</p>
+<p>class newClass<br>
+{<br>
+constructor() { super(); }<br>
+}</p>
+</blockquote>
+</aside>
+<p>Drafts will support custom classes.</p>
+<p>Your class definition is defining a call to a parent to construct it, but you never define what the parent class is, so as it stands that code would not work.  If you use the rectangle and square example from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super">the MDN page on super</a>, where square <em>extends</em> rectangle, that looks to work fine.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Is there a defined specification of which features exist and which do not? I’m writing Syntaxes for a variety of languages and creating actions to sync my workspaces across multiple PC’s and other programs.</p>
+</blockquote>
+</aside>
+<p>Apple defines the documentation for JavaScript core. Drafts documentation can be found at <a href="../../../scripting.getdrafts.com/index.html">https://scripting.getdrafts.com</a>. As for a single unified specification of what is in there, no there isn’t. It can vary by the OS the user is using, because the core JavaScript version varies. We’ve seen evidence of this in terms of some forum users not having access to <em>replaceAll</em> due to the age of their OS.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>Should I be using multiple action steps that do what I want more directly? I’ve been writing all my steps in JavaScript.</p>
+</blockquote>
+</aside>
+<p>How you write your actions is up to you. There are certainly ways to do things quickly without writing a single line of code. There are ways to do things in code that cannot be done any other way. Oftentimes, there is good reason to mix the two. This could be for speed of creation, maintenance ease of settings for non-coders, etc.</p>
+<aside class="quote no-group" data-username="Grincess" data-post="1" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>When I get the “<img src="../../images/emoji/apple/bangbang.png@v=9" title=":bangbang:" class="emoji" alt=":bangbang:">“ in the corner due to a syntax error, is there any way to see the error without pressing save &amp; close, then executing the action?</p>
+</blockquote>
+</aside>
+<p>That is indicating a syntax error rather than an execution error. It is there just as a helper in the simple editor. Just keep an eye on it as you code.</p>
+<p>Things you might like to consider are writing your code in a draft initially or an external editor with more JavaScript coding support. There’s some detailed discussion in this thread of how I do it that I think several others follow also.</p>
+<aside class="quote" data-post="1" data-topic="9578">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/ecae2f/40.png" class="avatar">
+    <a href="../developing-outside-of-drafts/9578.html">Developing outside of Drafts</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/scripting/13"><span class="badge-category-bg" style="background-color: #AB9364;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Discussions about Javascript techniques, and Drafts scripting in general">Scripting</span></a>
+  </div>
+  <blockquote>
+    Is anyone using an IDE outside of Drafts to build action scripts? I use VS Code for all my JavaScript development, and much prefer that interface to work in. The catch is that I can’t test within VS Code, so to use the features of my development environment, I have to copy/paste or import/export between Drafts and VS Code, and debugging isn’t possible because I can’t find a way to access the Drafts library. 
+Is there an npm package or other means to import and connect to Drafts from an IDE?
+  </blockquote>
+</aside>
+
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='JavaScript Functionality and Speciification?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="5" />
+           <span class='post-likes'>5 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Grincess'><span itemprop='name'>Grincess</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10696.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-22T11:21:15Z' class='post-time'>
+                June 22, 2021, 11:21am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-22T11:21:15Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you, that explains much of it. I am using Drafts to code, with an extended Javascript+ syntax with Drafts objects in it. I appreciate the helpfulness.</p>
+        </div>
+
+        <meta itemprop='headline' content='JavaScript Functionality and Speciification?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10696.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-22T11:57:55Z' class='post-time'>
+                June 22, 2021, 11:57am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-22T11:57:55Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Grincess" data-post="3" data-topic="10696">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/grincess/40/4738_2.png" class="avatar"> Grincess:</div>
+<blockquote>
+<p>an extended Javascript+ syntax with Drafts objects in it</p>
+</blockquote>
+</aside>
+<p>Could you explain what that is? I have never heard of “Javascript+” (Googling didn’t help <img src="../../images/emoji/apple/confused.png@v=9" title=":confused:" class="emoji" alt=":confused:">), or of anyone bringing Drafts objects into anything else in any way.</p>
+<p>It certainly sounds intriguing.</p>
+        </div>
+
+        <meta itemprop='headline' content='JavaScript Functionality and Speciification?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

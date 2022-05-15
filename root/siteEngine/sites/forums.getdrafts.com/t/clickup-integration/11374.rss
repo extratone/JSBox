@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Clickup integration</title>
+    <link>https://forums.getdrafts.com/t/clickup-integration/11374</link>
+    <description>A friend of mine helped me with the Clickup integration to Dratfs. Here it is:
+
+```
+// Token from API
+const authorizationToken = &quot;pk_XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;;
+
+function createTask(categoryID) {
+  
+    let url = &quot;https://api.clickup.com/api/v2/list/&quot; + categoryID + &quot;/task&quot;;
+
+    let title = draft.processTemplate(&quot;[[line|1]]&quot;)
+    let description = draft.processTemplate(&quot;[[line|2..]]&quot;)
+
+    let body = {
+        &#39;name&#39;: title,
+        &#39;description&#39;: description,
+        // Person assignees ID
+        &#39;assignees&#39;: [XXXXXX],
+// Status name
+        &#39;status&#39;: &quot;TODO&quot;
+    };
+    let http = HTTP.create();
+    let response = http.request({
+        &quot;url&quot;: url,
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;data&quot;: body,
+        &quot;headers&quot;: {
+            &quot;Content-Type&quot;: &quot;application/json&quot;,
+            &quot;Authorization&quot;: authorizationToken
+        }
+    });
+}
+// List name ID (last digits from url
+createTask(&quot;XXXXXXX&quot;);
+
+```</description>
+    
+    <lastBuildDate>Fri, 15 Oct 2021 18:27:42 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/clickup-integration/11374.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Clickup integration</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>It is probably worth taking a look at credentials in Drafts for holding the API key.</p>
+<blockquote>
+<p>Credential objects can be used in actions which require the user to provide a username, password and optionally a host name, to connect to a service. By using credentials objects, actions can be written to connect to arbitrary web services without hard coding credentials into the action.</p>
+</blockquote>
+<p><a href="https://scripting.getdrafts.com/classes/credential" class="onebox" target="_blank" rel="noopener">https://scripting.getdrafts.com/classes/credential</a></p>
+<p>It should only be a relatively small change to your existing code.</p>
+<p>It may be that you want to do something similar with the assignee, or make that a parameter like the category ID.</p>
+<p><em>As a general rule, you want to avoid hard coding anything that might vary. Hardcoding the URL, that’s fair enough as it is unlikely to change without a bigger change to the API for the service, which probably then needs a code review for the action. But things like keys and IDs, specifically the API key and the assignee ID, may be worth a bit of extra tinkering.</em></p>
+<p>It might also be useful to see what an example of setting up a draft might be like? I can tell from the code what the structure of the draft would be and how it would get added to Click Up, but not everyone will.</p>
+          <p><a href="https://forums.getdrafts.com/t/clickup-integration/11374/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/clickup-integration/11374/2</link>
+        <pubDate>Fri, 15 Oct 2021 18:27:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11374-2</guid>
+        <source url="https://forums.getdrafts.com/t/clickup-integration/11374.rss">Clickup integration</source>
+      </item>
+      <item>
+        <title>Clickup integration</title>
+        <dc:creator><![CDATA[Kamil_Ozirski]]></dc:creator>
+        <description><![CDATA[
+            <p>A friend of mine helped me with the Clickup integration to Dratfs. Here it is:</p>
+<pre><code class="lang-auto">// Token from API
+const authorizationToken = "pk_XXXXXX_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+
+function createTask(categoryID) {
+  
+    let url = "https://api.clickup.com/api/v2/list/" + categoryID + "/task";
+
+    let title = draft.processTemplate("[[line|1]]")
+    let description = draft.processTemplate("[[line|2..]]")
+
+    let body = {
+        'name': title,
+        'description': description,
+        // Person assignees ID
+        'assignees': [XXXXXX],
+// Status name
+        'status': "TODO"
+    };
+    let http = HTTP.create();
+    let response = http.request({
+        "url": url,
+        "method": "POST",
+        "data": body,
+        "headers": {
+            "Content-Type": "application/json",
+            "Authorization": authorizationToken
+        }
+    });
+}
+// List name ID (last digits from url
+createTask("XXXXXXX");
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/clickup-integration/11374/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/clickup-integration/11374/1</link>
+        <pubDate>Fri, 15 Oct 2021 17:35:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11374-1</guid>
+        <source url="https://forums.getdrafts.com/t/clickup-integration/11374.rss">Clickup integration</source>
+      </item>
+  </channel>
+</rss>

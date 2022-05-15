@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Actions - Help &amp; Questions - Drafts Community</title>
+    <link>https://forums.getdrafts.com/c/actions/6</link>
+    <description>Topics in the &#39;Actions - Help &amp; Questions&#39; category Need help with an action?  Not sure how to go about creating the right action, or if something is even possible in Drafts? This is the place to discuss.</description>
+    
+      <lastBuildDate>Sat, 14 May 2022 06:01:56 +0000</lastBuildDate>
+      <atom:link href="https://forums.getdrafts.com/c/actions/6.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>Select Gmail account when using the mail action</title>
+          <dc:creator><![CDATA[keith]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Is there a way to select which Gmail account a Drafts email action opens?<br>
+I am usually logged into two gmail accounts, one personal and one for business. But when I compose a message and click the email action it opens a new email draft in Gmail but it’s not even clear which account it is, and no way to change.<br>
+Is this possible?<br>
+Thanks!</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/select-gmail-account-when-using-the-mail-action/12665">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/select-gmail-account-when-using-the-mail-action/12665</link>
+          <pubDate>Sat, 14 May 2022 06:01:56 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12665</guid>
+          <source url="https://forums.getdrafts.com/t/select-gmail-account-when-using-the-mail-action/12665.rss">Select Gmail account when using the mail action</source>
+        </item>
+        <item>
+          <title>Mailer Using mailto: URL Scheme</title>
+          <dc:creator><![CDATA[nello]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I’m trying to modify <a href="https://directory.getdrafts.com/a/1yz" rel="noopener nofollow ugc">Spark Mailer v2</a> to use the <a href="https://datatracker.ietf.org/doc/html/rfc6068" rel="noopener nofollow ugc">mailto URL scheme</a> instead of the <a href="https://talk.automators.fm/t/which-ios-email-apps-support-automation-shortcuts-url-schemes-x-callback-url/3552/9" rel="noopener nofollow ugc">Spark URL Scheme</a>.  The reason for making the conversion is that apparently using mailto allows &lt;newline&gt; characters embedded into the &lt;body&gt; whereas they are ignored using the Spark (and perhaps all other email) URL Schemes.  (<a href="https://forums.getdrafts.com/t/need-spark-action-that-sends-copies/12486/21">Details here</a>.)</p>
+<p>Here’s the test code I’m using:</p>
+<pre><code class="lang-auto">// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+// Base settings
+let cburlMailto = CallbackURL.create();
+cburlMailto.waitForResponse = false;
+cburlMailto.baseURL = "mailto:" + strEmailTo;
+// Who else gets it
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+// Body
+cburlMailto.addParameter("body",`${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`);
+
+// Log Url string - Remove
+console.log("cburlMailto: " + cburlMailto());
+
+// Open default mailer
+cburlMailto.open();
+</code></pre>
+<p>My problem is trying to display the string built in <code>cburlMailto</code>.</p>
+<p>How do I log it on the console or display it in an alert?</p>
+            <p><small>6 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655</link>
+          <pubDate>Fri, 13 May 2022 02:32:59 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12655</guid>
+          <source url="https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655.rss">Mailer Using mailto: URL Scheme</source>
+        </item>
+        <item>
+          <title>Query from new user re: lists of dates in Fantastical</title>
+          <dc:creator><![CDATA[DIYerUK]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Hi guys,</p>
+<p>I’m a new user (under a year) and I’m just now starting to find my feet with this wonderful app. I’m still at the basic stages, but wow. The extent of actions available is blowing my mind.</p>
+<p>I have a question about actions that I can’t find the answer to, and I’m hoping someone can assist.</p>
+<p>I have found the Drafts to Fantastical action and that works brilliantly. I type a Draft, send it to Fantastical and it appears. No issues there.</p>
+<p>It is possible for me to type a list of dates within a single Draft and to send them to Fantastical and create a number of different events? When I do that at the moment, it creates a “proposal” of a single event with a number of different possible times/dates rather than multiple events, which is what I am after.</p>
+<p>Any guidance gratefully received.</p>
+<p>Thanks!</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/query-from-new-user-re-lists-of-dates-in-fantastical/12634">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/query-from-new-user-re-lists-of-dates-in-fantastical/12634</link>
+          <pubDate>Tue, 10 May 2022 19:24:35 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12634</guid>
+          <source url="https://forums.getdrafts.com/t/query-from-new-user-re-lists-of-dates-in-fantastical/12634.rss">Query from new user re: lists of dates in Fantastical</source>
+        </item>
+        <item>
+          <title>Evaluate Template Tags in Current Draft</title>
+          <dc:creator><![CDATA[Isshin]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, managed to modify some existing scripts to meet my needs, but I seem to be completely stuck on the fundamentals here.</p>
+<p>Basically, I want to grab anything in the current Draft that uses the template tags like <code>[[date]]</code> or <code>&lt;&lt;TextExpander_snippet&gt;&gt;</code> and replace that placeholder with appropriate information. I’m okay with either just grabbing the current line or evaluating the draft as a whole. I thought it would be simpler to process the Draft as a whole instead of trying to get tricky with selectors, but I’m not even having luck there.</p>
+<p>Based on my extremely limited understanding of scripting syntax I thought something like this would work: <code>let updated_text = processTemplate(draft.content);</code></p>
+<p>Edit:<br>
+This works for tags like <code>[[date]]</code></p>
+<p><code>draft.content = draft.processTemplate("[[draft]]”);</code><br>
+<code>draft.update();</code></p>
+<p>but TextExpander shortcuts like <code>&lt;&lt;ldate&gt;&gt;</code> do not work even though typing the abbreviation <code>ldate</code> into Drafts manually <em>does</em> expand as expected.</p>
+            <p><small>6 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608</link>
+          <pubDate>Fri, 06 May 2022 06:00:10 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12608</guid>
+          <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+        </item>
+        <item>
+          <title>Add an action to a script</title>
+          <dc:creator><![CDATA[jaymf]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Hi,</p>
+<p>I would like to take the <a href="https://actions.getdrafts.com/a/18j">New Linked Draft</a> action a step further:</p>
+<p>I would like to add an action to the script when it executes so the the new draft created includes more than just the [[title]].</p>
+<p>I believe I am dealing with this portion of the script:</p>
+<pre><code class="lang-auto">	// create the new linked draft
+	let d = Draft.create();
+	d.content = p.fieldValues["title"];
+	d.content = d.processTemplate(template);
+	let tags = p.fieldValues["tags"].split(",").map(s =&gt; s.trim());
+	for (let tag of tags) {
+		d.addTag(tag);
+	} 
+	d.update();
+</code></pre>
+<p>Many thanks for your guidance.</p>
+            <p><small>8 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605</link>
+          <pubDate>Thu, 05 May 2022 18:43:49 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12605</guid>
+          <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+        </item>
+        <item>
+          <title>Edit text by columns, not lines</title>
+          <dc:creator><![CDATA[Jacques_Laufer]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I have lines of text in a plain text document with “fields” separated by spaces or tabs. (I don’t have the ability to convert this to, say, a CSV file because the separation of the “fields” using tabs or spaces is not consistent, unfortunately.) I’d like to highlight certain “fields” or in some cases all items after the first for deletion. I could do this if I could highlight text in columns, rather than lines. Is something like this even possible in Draft.</p>
+<p>Any thoughts would be most appreciated. Thank you.</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/edit-text-by-columns-not-lines/12598">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/edit-text-by-columns-not-lines/12598</link>
+          <pubDate>Thu, 05 May 2022 01:46:07 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12598</guid>
+          <source url="https://forums.getdrafts.com/t/edit-text-by-columns-not-lines/12598.rss">Edit text by columns, not lines</source>
+        </item>
+        <item>
+          <title>List of tasks in NotePlan?</title>
+          <dc:creator><![CDATA[Erfaringsutveksling1]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Hi there! I am considering moving to NotePlan 3 as my Task Management system, since I am a Setapp subscriber. There are a couple of NotePlan actions and action groups in the directory, however I can’t find any action that will take a list of items and turn them into separate tasks in NotePlan. Does anybody have any suggestion on how to accomplish this? Thanks!</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/list-of-tasks-in-noteplan/12565">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/list-of-tasks-in-noteplan/12565</link>
+          <pubDate>Fri, 29 Apr 2022 09:36:35 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12565</guid>
+          <source url="https://forums.getdrafts.com/t/list-of-tasks-in-noteplan/12565.rss">List of tasks in NotePlan?</source>
+        </item>
+        <item>
+          <title>Recent notes menu</title>
+          <dc:creator><![CDATA[Ofir_Bar-lev]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Hi,<br>
+I’m wondering, is there any built-in feature / action which can show last recent X notes opened?<br>
+Used that heavily with my previous notes app and haven’t found how to do that with Drafts.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/f/f601f03c343344a35e5560f258a36ecc88ba7eef.png" alt="2022-04-28_08-44-30" data-base62-sha1="z6hBROmIkNhIKaEk4CnbAR7NV5d" width="423" height="177"></p>
+<p>Any ideas?</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/recent-notes-menu/12561">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/recent-notes-menu/12561</link>
+          <pubDate>Thu, 28 Apr 2022 05:45:40 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12561</guid>
+          <source url="https://forums.getdrafts.com/t/recent-notes-menu/12561.rss">Recent notes menu</source>
+        </item>
+        <item>
+          <title>Is it possible to do batch import of tags into Drafts?</title>
+          <dc:creator><![CDATA[Drafts366]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I have a large list of tags that I wrote in both Agenda and Upnote apps that I would like to transfer to Drafts. Is it possible to do a batch import of tags? If yes, can you point me the way?</p>
+<p>I was able to copy them into a draft with the hashtags. However, what I want to do is to be able to just copy and paste them into “tags” so that I have all the tags available in Drafts without having to reenter them one at a time.</p>
+<p>Thanks for your tips!</p>
+            <p><small>9 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556</link>
+          <pubDate>Wed, 27 Apr 2022 14:20:38 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12556</guid>
+          <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+        </item>
+        <item>
+          <title>Accessing the Clipboard from Javascript</title>
+          <dc:creator><![CDATA[bws950]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I’m using the Insert ESV Text action from the Drafts Directory (<a href="https://actions.getdrafts.com/a/1SM" rel="noopener nofollow ugc">here</a>) to obtain a different passage each day; that action is set up, using Javascript, to provide a prompt to the user asking for the relevant passage, which it then submits to the API, ultimately returning the text of the passage.</p>
+<p>I’d like to modify the action so that rather than prompting me for the relevant passage, it instead pulls the passage from the clipboard (i.e., the clipboard would already contain the text that I’d otherwise type into the prompt, and would just run automatically without requiring any interaction from the user).  I’m almost completely Javascript-illiterate, though, and haven’t been able to figure out how to access the clipboard from within the script or to set a variable to the clipboard.  (I’ve pasted the the script below; I <em>think</em> that what I need to do is set the “passage” variable to be the clipboard.)</p>
+<p>Is there a way to accomplish that using javascript?  (I tried defining a Template tag in Drafts and then using that template tag within the Script step of my action, but that did not work.)  Thanks very much in advance for any help!</p>
+<pre><code class="lang-auto">&gt; // Insert Bible Verse into Drafts
+&gt; 
+&gt; // Store ESV API Token in the Drafts Credential Keychain. You will be prompted for your API Token
+&gt; 
+&gt; var credential = Credential.create("ESV", "ESV.org API");
+&gt; 
+&gt; credential.addPasswordField("API_Token", "API Token");
+&gt; 
+&gt; credential.authorize();
+&gt; var token = credential.getValue("API_Token");
+&gt; 
+&gt; // Create search prompt for Bible verses
+&gt; 
+&gt; var p = Prompt.create()
+&gt; p.title = "Bible Search";
+&gt; p.message = "What Passage From The Old Or New Testament Would You Like to Insert?";
+&gt; p.addTextField("query", "Passage", "Mark ")
+&gt; // Currently, the prompt defaults to inserting as a blockquote. If you want to change this default behavior, change the word "true" to "false" in the next line
+&gt; p.addSwitch("blockQuote", "Insert as Markdown Blockquote", false);
+&gt; p.addButton("Done");
+&gt; p.show();
+&gt; // Replace a space between book names and chapter/verse with a plus for URL purposes
+&gt; var passage = p.fieldValues["query"];
+&gt; var query = passage.replace(" ", "+");
+&gt; // Request Data from ESV API
+&gt; var http = HTTP.create();
+&gt; var response = http.request({
+&gt; 	"url": "https://api.esv.org/v3/passage/text/",
+&gt; 	"method": "GET",
+&gt; 	"parameters": {
+&gt; 		"q": query,
+&gt; 		"include-passage-references": "true",
+&gt; 		"include-footnotes": "false",
+&gt; 		"include-footnote-body": "false",
+&gt; 		"indent-poetry": "false",
+&gt; 		"indent-paragraphs": "false",
+&gt; 		"indent-declares": "false",
+&gt; 		"indent-psalm-doxology": "false"
+&gt; 	},
+&gt; 	"headers": {
+&gt; 	"Authorization": "Token " + token
+&gt; 	}
+&gt; });
+&gt; // Function to add Markdown Blockquotes to the beginning of each new line if the blockquote selector switch from the Prompt is toggled on.
+&gt; function addMarkdownQuote(text) {
+&gt; 	var lines = text.split("\n");
+&gt; 	var quoteLines = []
+&gt; 	for (var line of lines) {
+&gt; 		var blockQuote = "&gt; " + line
+&gt; 		quoteLines.push(blockQuote);
+&gt; 	}
+&gt; 	var quote = quoteLines.join("\n");
+&gt; 	return quote
+&gt; }
+&gt; // Processes JSON response from ESV Server and converts to text
+&gt; function processVerses(rawJSON) {
+&gt; var json = JSON.parse(rawJSON);
+&gt; 	var bibleVerses = json.passages[0];
+&gt; 	if (p.fieldValues["blockQuote"] == true) {
+&gt; 		var finalQuote = addMarkdownQuote(bibleVerses);
+&gt; 	}
+&gt; 	else {
+&gt; 		var finalQuote = bibleVerses;
+&gt; 	}
+&gt; 	return finalQuote
+&gt; }
+&gt; // Response Success and Failure Options
+&gt; if (response.success) {
+&gt; 	var passageForInsert = processVerses(response.responseText);
+&gt; 	draft.setTemplateTag("passage", passageForInsert);
+&gt; }
+&gt; else {
+&gt; 	console.log(response.statusCode);
+&gt; 	console.log(response.error);
+&gt; }
+</code></pre>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555</link>
+          <pubDate>Wed, 27 Apr 2022 00:29:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12555</guid>
+          <source url="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555.rss">Accessing the Clipboard from Javascript</source>
+        </item>
+        <item>
+          <title>Drafts on iPad keyboard activation suppression</title>
+          <dc:creator><![CDATA[ALikelyLad]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I’m trying to use a single Drafts document for a glossary of approximately 100 terms (subject irrelevant). It would be handy to be able to refer to the glossary on the iPad as well as the Mac.<br>
+Each term is a markdown heading and its definition is body text subordinate to the heading. I want to make heavy use of within-document links based on the headings as navigation markers.</p>
+<p>On the iPad, with the onscreen keyboard closed, when I tap on a link. the document is scrolled to the relevant marker but the keyboard is activated. In (preferred) landscape mode, it takes up half the screen depth. Drafts scrolls the document intelligently to the marker but the text for which the marker is the header is typically multi-line and all but the top couple of lines are covered by the keyboard.</p>
+<p>I can of course dismiss the keyboard with a single tap but I would like not to have this inconvenience.<br>
+In portrait mode, the k/b occupies about 1/3 of the screen depth. With the drafts list hidden, the greater editor width reduces the number of lines needed to display an entry.</p>
+<p>Is there a way to achieve the behaviour I’m looking for? Can the editor be put into a mode in which it responds to taps on links but doesn’t activate the keyboard?</p>
+<p>In the Editor settings, I see “Edit on draft selection” but both its settings don’t seem to affect the current behaviour. I also tried in Preview but the navigation-marker-based links are inactive. I guess what I’m after is something like “Activate k/b on jump to navigation marker”; it would be false for the behaviour I’m after.</p>
+<p>I’m happy to do some scripting if someone can kickstart me but it’s hard to imagine a scripted interaction as simple as tapping on a link. Sorry about the essay! On Drafts Pro 31.2 and iPadOS 15.4.</p>
+            <p><small>5 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550</link>
+          <pubDate>Tue, 26 Apr 2022 07:27:05 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12550</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss">Drafts on iPad keyboard activation suppression</source>
+        </item>
+        <item>
+          <title>Action to open random draft</title>
+          <dc:creator><![CDATA[Kamil_Ozirski]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Do you know how to make an action to randomly open drafts from inbox space?</p>
+            <p><small>12 posts - 5 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/action-to-open-random-draft/12543">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/action-to-open-random-draft/12543</link>
+          <pubDate>Mon, 25 Apr 2022 09:37:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12543</guid>
+          <source url="https://forums.getdrafts.com/t/action-to-open-random-draft/12543.rss">Action to open random draft</source>
+        </item>
+        <item>
+          <title>Run action on all drafts in a workspace</title>
+          <dc:creator><![CDATA[BenTrigg]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Hi everyone</p>
+<p>I’m in the process of writing some light user-manual type material in the form of separate drafts in their own workspace. Once I’ve finished writing them I’d like to be able to ‘get them all out of the workspace’ in one batch, ideally. I haven’t decided how, yet. Is there a way that I could select a workspace and run the appropriate action on all drafts in that workspace, rather than having to go through and do each one manually?</p>
+<p>Thanks<br>
+Ben</p>
+            <p><small>4 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/run-action-on-all-drafts-in-a-workspace/12534">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/run-action-on-all-drafts-in-a-workspace/12534</link>
+          <pubDate>Fri, 22 Apr 2022 14:28:45 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12534</guid>
+          <source url="https://forums.getdrafts.com/t/run-action-on-all-drafts-in-a-workspace/12534.rss">Run action on all drafts in a workspace</source>
+        </item>
+        <item>
+          <title>Editing JavaScript</title>
+          <dc:creator><![CDATA[nello]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>What tools are people using to create and edit Actions, i.e., write and edit JavaScript in Drafts?</p>
+<p>I’m going crazy doing it within Drafts on my iPhone.</p>
+<p>(Sorry if this question should have been posted in a different portion of the Community.  <img src="https://forums.getdrafts.com/images/emoji/apple/pleading_face.png?v=12" title=":pleading_face:" class="emoji" alt=":pleading_face:" loading="lazy" width="20" height="20">)</p>
+            <p><small>3 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/editing-javascript/12528">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/editing-javascript/12528</link>
+          <pubDate>Thu, 21 Apr 2022 12:11:37 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12528</guid>
+          <source url="https://forums.getdrafts.com/t/editing-javascript/12528.rss">Editing JavaScript</source>
+        </item>
+        <item>
+          <title>Action collecting the missed calls of the day</title>
+          <dc:creator><![CDATA[Kamil_Ozirski]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Is it possible to make such action which collects missed calls from given day. Something similar to calendar import action.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://directory.getdrafts.com/a/1If">
+  <header class="source">
+      <img src="https://directory.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="https://directory.getdrafts.com/a/1If" target="_blank" rel="noopener nofollow ugc">directory.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://directory.getdrafts.com/a/1If" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Import Calendar</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/action-collecting-the-missed-calls-of-the-day/12527">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/action-collecting-the-missed-calls-of-the-day/12527</link>
+          <pubDate>Thu, 21 Apr 2022 08:39:49 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12527</guid>
+          <source url="https://forums.getdrafts.com/t/action-collecting-the-missed-calls-of-the-day/12527.rss">Action collecting the missed calls of the day</source>
+        </item>
+        <item>
+          <title>Auto transcribe new voice memo in Drafts</title>
+          <dc:creator><![CDATA[havarha]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I am looking for a way to use the transcribing feature in Drafts (<a href="https://docs.getdrafts.com/docs/editor/transcription" class="inline-onebox" rel="noopener nofollow ugc">Transcribing Audio &amp; Video - Drafts User Guide</a>) to automatically transcribe audio memos.</p>
+<p>The dream is to have a process like:<br>
+Pressing record in Apple Voice Memos → making the recording → pressing stop → Drafts automaticly triggers and starts transcribing the audio.</p>
+<p>Additionally it would be nice if the finished draft included a link to the audio file in iCloud.</p>
+<p>I have tied playing around with it in Shortcuts, but can’t really find a way to trigger the transcribing feature. Wondering if it would be able to do something like this with a Drafts action triggered by Shortcuts?</p>
+<p>Thought maybe one of you Drafts wizards would have some ideas to how this could be solved.</p>
+            <p><small>5 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/auto-transcribe-new-voice-memo-in-drafts/12512">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/auto-transcribe-new-voice-memo-in-drafts/12512</link>
+          <pubDate>Mon, 18 Apr 2022 22:08:32 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12512</guid>
+          <source url="https://forums.getdrafts.com/t/auto-transcribe-new-voice-memo-in-drafts/12512.rss">Auto transcribe new voice memo in Drafts</source>
+        </item>
+        <item>
+          <title>Need Spark Action that Sends Copies</title>
+          <dc:creator><![CDATA[nello]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Please excuse me if I’m posting this in the wrong area of the Community.</p>
+<p>I much prefer <a href="https://apps.apple.com/us/app/spark-mail-email-by-readdle/id997102246" rel="noopener nofollow ugc">Spark</a> over Mail.</p>
+<p>Mail is very well supported by Drafts via the Mail Action Step, but I’m having trouble finding a similar level of support for Spark.  Yes, there are four <a href="https://directory.getdrafts.com/search?utf8=%E2%9C%93&amp;q=Spark+" rel="noopener nofollow ugc">Actions for Spark</a> in the directory, but none of them enables all the parameters of Spark’s x-callback-url scheme: subject, body, to, cc, and bcc.  Specially, I need support for all these parameters other than bcc.</p>
+<p>How do I write my own Action Step for Spark that supports at least: subject, body, to, and cc?</p>
+<p>Thank you for your help.</p>
+<p>UPDATE <span data-date="2022-04-17" data-time="07:18:00" class="discourse-local-date" data-format="LLL" data-timezone="America/Chicago" data-email-preview="2022-04-17T12:18:00Z UTC">2022-04-17T12:18:00Z UTC</span></p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/flohgro">@FlohGro</a><br>
+Thank you for telling me the correct area of the Community for this post.  Hopefully I’ve moved it correctly.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> and <a class="mention" href="https://forums.getdrafts.com/u/flohgro">@FlohGro</a><br>
+Apparently, Spark does NOT have x-callback-url support.  I apologize for using the term incorrectly.</p>
+            <p><small>27 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/need-spark-action-that-sends-copies/12486">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/need-spark-action-that-sends-copies/12486</link>
+          <pubDate>Sun, 17 Apr 2022 01:47:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12486</guid>
+          <source url="https://forums.getdrafts.com/t/need-spark-action-that-sends-copies/12486.rss">Need Spark Action that Sends Copies</source>
+        </item>
+        <item>
+          <title>Append to current draft</title>
+          <dc:creator><![CDATA[Rolfess]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action.</p>
+<p>Here is my current script:</p>
+<p>let f = () =&gt; {<br>
+// select an existing draft<br>
+let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);<br>
+if (!d) {<br>
+return false;<br>
+}</p>
+<pre><code>// append current draft
+draft.content = draft.content + " " + d.content;
+draft.update();
+return true;	
+</code></pre>
+<p>}</p>
+<p>if (!f()) {<br>
+context.cancel();<br>
+}</p>
+<p>What do I need to do to bring the revised note back as the active note?</p>
+<p>Thanks.</p>
+            <p><small>9 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/append-to-current-draft/12476</link>
+          <pubDate>Fri, 15 Apr 2022 15:25:49 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12476</guid>
+          <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+        </item>
+        <item>
+          <title>Send multiple highlights to Readwise in one action</title>
+          <dc:creator><![CDATA[bleedingsaber]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Hi, sorry for asking help here because this script is a little difficult for me to adjust.</p>
+<p>I want to send multiple highlights to Readwise and find this <a href="https://directory.getdrafts.com/a/1ut" class="inline-onebox" rel="noopener nofollow ugc">Send to Readwise | Drafts Directory</a> . This is exactly what I want, but can I make some adjustments? I don’t need to add “page” to every highlights. How can rewrite this script to delete “page” only keep “highlights”, “Title”, “Author”?</p>
+<p>Thanks for you time and kind help.</p>
+            <p><small>4 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468</link>
+          <pubDate>Thu, 14 Apr 2022 14:00:14 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12468</guid>
+          <source url="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468.rss">Send multiple highlights to Readwise in one action</source>
+        </item>
+        <item>
+          <title>Append to Evernote Journal action with 2 Evernote accounts</title>
+          <dc:creator><![CDATA[sb1317z]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>Forgive this post if this has been answered elsewhere. I’ve been using the “Append to Evernote Journal” action which seems to work well. I have 2 Evernote accounts however and would like to have the action in Drafts twice so that I can send different items to each Evernote account. I saw some things online about changing the “credentials” but have been unable to locate that option. Does anyone know of a way to set this action (or a similar one) up and be able to direct it to different accounts in Evernote?</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/append-to-evernote-journal-action-with-2-evernote-accounts/12451">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/append-to-evernote-journal-action-with-2-evernote-accounts/12451</link>
+          <pubDate>Mon, 11 Apr 2022 14:46:02 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12451</guid>
+          <source url="https://forums.getdrafts.com/t/append-to-evernote-journal-action-with-2-evernote-accounts/12451.rss">Append to Evernote Journal action with 2 Evernote accounts</source>
+        </item>
+        <item>
+          <title>Adding a return key space between a selection or &lt;br&gt; but not working</title>
+          <dc:creator><![CDATA[crownandbridge]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I have this action and it works well by itself. It basically wraps the selection and encloses it in the following format: {{c1:: selection goes in here }}</p>
+<p>So I wanted to added a return key space or <br> before it encloses meaning like this:</p>
+<p><strong>Prior to hitting the action</strong> This is the example and the selection goes in here</p>
+<p><strong>After hitting the action</strong></p>
+<p>This is the example and the</p>
+<p>{{c1:: selection goes in here }}</p>
+<p>This the current action I have, its in two steps</p>
+<ol>
+<li>{{c1::[[selection]]}</li>
+<li>}</li>
+</ol>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7e7264e99846b6990e06328b7092f420cd81f882.png" data-download-href="https://forums.getdrafts.com/uploads/default/7e7264e99846b6990e06328b7092f420cd81f882" title="Pasted Graphic 1"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7e7264e99846b6990e06328b7092f420cd81f882_2_690x155.png" alt="Pasted Graphic 1" data-base62-sha1="i2BftPMsKVLQknup8GaaSxxxzzk" width="690" height="155" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7e7264e99846b6990e06328b7092f420cd81f882_2_690x155.png, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7e7264e99846b6990e06328b7092f420cd81f882_2_1035x232.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/7e7264e99846b6990e06328b7092f420cd81f882.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7e7264e99846b6990e06328b7092f420cd81f882_2_10x10.png"></a></div><p></p>
+<p>Any help would be appreciated. I tried to add the <br> {{c1::[[selection]]} but that just that just literally the characters <br></p>
+<p>Also tried this but didn’t quite work → %%&nbsp;%%{{c1::[[selection]]}</p>
+<p>Thanks</p>
+            <p><small>4 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/adding-a-return-key-space-between-a-selection-or-br-but-not-working/12435">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/adding-a-return-key-space-between-a-selection-or-br-but-not-working/12435</link>
+          <pubDate>Sat, 09 Apr 2022 12:07:49 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12435</guid>
+          <source url="https://forums.getdrafts.com/t/adding-a-return-key-space-between-a-selection-or-br-but-not-working/12435.rss">Adding a return key space between a selection or &lt;br&gt; but not working</source>
+        </item>
+        <item>
+          <title>Inserting date in quick capture</title>
+          <dc:creator><![CDATA[belgarion]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I usually click <a href="https://actions.getdrafts.com/a/10q" rel="noopener nofollow ugc">insert date</a> action when I enter drafts in the main Drafts window. I also use the quick capture (in Mac) a lot and it does not seem to support actions at this moment. Am I missing some settings to enable this?</p>
+<p>Otherwise, I can only think of using text expansion software if I want to have a timestamp in quick capture.</p>
+            <p><small>7 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/inserting-date-in-quick-capture/12432">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/inserting-date-in-quick-capture/12432</link>
+          <pubDate>Sat, 09 Apr 2022 08:14:55 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12432</guid>
+          <source url="https://forums.getdrafts.com/t/inserting-date-in-quick-capture/12432.rss">Inserting date in quick capture</source>
+        </item>
+        <item>
+          <title>Send Draft to Asana</title>
+          <dc:creator><![CDATA[emckillen]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I work in a team and use Asana and Drafts. I want to be able to send a draft to Asana, with fields from the draft that feed into it (i.e. task, project, due date, assignee). I see few if any posts about Asana at all. Can someone help guide me?</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/send-draft-to-asana/12393">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/send-draft-to-asana/12393</link>
+          <pubDate>Fri, 01 Apr 2022 02:37:25 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12393</guid>
+          <source url="https://forums.getdrafts.com/t/send-draft-to-asana/12393.rss">Send Draft to Asana</source>
+        </item>
+        <item>
+          <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+          <dc:creator><![CDATA[automationisfun]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>I followed <a href="https://forums.getdrafts.com/u/Jaipal_Singh">Jaipal_Singh</a>’s steps from here <a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue/11516" class="inline-onebox">Thought asylum / Alfred 4 workflow issue</a>  and got my dlog command working. But somehow it’s only adding to whatever draft I’ve already got going for the day (or sometimes even a past draft), as opposed to creating a new draft and putting the entry there?</p>
+<p>I feel so close and yet so far away!</p>
+<p>In the immortal words of Leeloo, “Help please?”</p>
+            <p><small>16 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392</link>
+          <pubDate>Thu, 31 Mar 2022 23:51:54 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12392</guid>
+          <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+        </item>
+        <item>
+          <title>Join lines action request</title>
+          <dc:creator><![CDATA[timtcm]]></dc:creator>
+          <category>Actions - Help &amp; Questions</category>
+          <description><![CDATA[
+            <p>A one-button way to turn all lines in a draft into a single paragraph would be useful.</p>
+<p>Primary use case is turning a PDF, or other source that divides text into multiple lines, into something that reads smoothly with a screen reader or text-to-speech functionality.</p>
+<p>A screen reader doesn’t need paragraphs for readability, so all one paragraph would be fine and the most efficient method toward the desired end.</p>
+<p>Many thanks,<br>
+Tim<br>
+16,368 days</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/join-lines-action-request/12380">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/join-lines-action-request/12380</link>
+          <pubDate>Tue, 29 Mar 2022 23:43:26 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12380</guid>
+          <source url="https://forums.getdrafts.com/t/join-lines-action-request/12380.rss">Join lines action request</source>
+        </item>
+  </channel>
+</rss>

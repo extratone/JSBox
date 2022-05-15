@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Todoist with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-todoist-with-drafts/1845</link>
+    <description>![app-icon|105x105](upload://uQaFLbYJtqChbBbcn7FLgpnxWtn.jpg)
+
+- [**App Store**](https://itunes.apple.com/app/id572688855?mt=8&amp;at=11l4Cf&amp;ct=community)
+- [**REST API Documentation**](https://developer.todoist.com/rest/v8/)
+- **URL Scheme**: `todoist://`
+- [**URL Scheme Documentation**](https://developer.todoist.com/sync/v7/#tasks)
+
+[Todoist](http://todoist.com) is a task management platform. Drafts supports direct integration with Todoist via a number of methods, including those listed below.
+
+## Todoist Share Extension and URL actions
+
+If you have the [Todoist app](https://itunes.apple.com/app/id572688855?mt=8&amp;at=11l4Cf&amp;ct=community) installed on the device, you can take advantage of integration methods provided by the app. These include an iOS Share extension for quick add of individual tasks, and URL schemes which can open the app ready to add a task.
+
+- **Example Actions**:
+	- [**Share**](https://actions.getdrafts.com/a/1BF): This action comes in the default &quot;Basic&quot; action group and opens a system share sheet. It is not specific to Todoist, but will pass the text to the system share sheet and the Todoist share extension can be selected.
+	- [**Task in Todoist App**](https://actions.getdrafts.com/a/1CQ): URL-based action which opens the Todoist app. This version opens Todoist with the text of the current draft as the task content in a new task creation view.
+
+- **Pros**:
+	- These actions work locally with the Todoist app, so they work offline and the Todoist app will sync the changes when it is reconnected.
+	- Both these methods allow flexible selection of options (like project, labels, etc.) through the familiar Todoist interface when used.
+- **Cons**:
+	- Require the Todoist app be installed.
+	- Require additional taps to complete creation of tasks.
+	- Can only create a single tasks at a time.	
+	- URL based steps leave you in the Todoist app when completed.
+
+## Todoist Action Step
+
+Drafts provides a [Todoist Action Step](http://getdrafts.com/actions/steps/todoist.html) which can create tasks communicating directly with the Todoist REST API. The first time you use an action using Todoist direct integration, you will be directed to Todoist&#39;s website to authorize the Drafts access.
+
+- **Examples Actions:**
+	- [**Task in Todoist**](https://actions.getdrafts.com/a/1MU): Uses first line of draft as the task, additional lines as a comment attached to the task, and supports [Todoist quick add syntax](https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add) for markup like #projectname, @label, etc.
+	- [**Task in Todoist Shopping List**](https://actions.getdrafts.com/a/1MT): Example is the same as the one above, but with the task content template set to `#shopping [[title]]`. This automatically adds the project syntax to assign the task to a specific project (Project must already exist in Todoist). This example could be edited to create actions which target specific projects, labels without having to type the text by including the quick add syntax in the template.
+
+- **Pros**:
+	- One tap creation of task without leaving Drafts.
+	- Uses [Todoist quick add syntax](https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add) to allow assignment of projects, labels, etc.
+	- Easy to combine with other Drafts action steps.
+	- Templates to control task content, attached comments and the creation of reminders.
+- **Cons**:
+	- Requires network connection.
+
+## Scripted Actions
+
+Drafts also provides a scripting wrapper for the entire Todoist REST API via the [Todoist object](http://reference.getdrafts.com/objects/Todoist.html). It provides access to the entire REST API and has convenience methods for reading and writing tasks, projects, labels and comments.  This means it is possible to create complete projects from Drafts - or also import projects from Todoist.  
+
+Below we provide several example actions which are ready to use as-is, but also demonstrate those possibilities. Likely the most useful case it to create tasks in bulk, as in the [Tasks in Todoist](https://actions.getdrafts.com/a/1MV) example action, demonstrated in the video below:
+
+https://vimeo.com/279133862
+
+- **Example Actions:**
+	- [**Tasks in Todoist**](https://actions.getdrafts.com/a/1MV): Takes each line of a draft and sends each to Todoist as a separate task. Fully supports [Todoist quick add syntax](https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add) so each line can specify priorities, projects, labels, etc. This action is demonstrated in the video above and provides a great, powerful way to do bulk entry of tasks.
+	- [**Import Todoist Project**](https://actions.getdrafts.com/a/1MH): Prompts to select an existing Todoist project and imports tasks from the project into a new draft, in a basic Markdown format. Useful for grabbing a snapshot of a project to share. More values are possible to import via the API, this is only meant as a starting point.
+	- [**Task in Todoist with options**](https://actions.getdrafts.com/a/1MW): This example reads current project and labels from Todoist, then prompts the user to selection options before creating a task.
+
+Users may create other examples, so be sure to search the [Action Directory](https://actions.getdrafts.com) for other Todoist integration examples.</description>
+    
+    <lastBuildDate>Sat, 05 Sep 2020 00:37:44 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Todoist with Drafts</title>
+        <dc:creator><![CDATA[Meanbeard]]></dc:creator>
+        <description><![CDATA[
+            <p>I cant leave Drafts – just love it so much – I recently moved to Todoist (because they had an API) – I spent 10 hrs trying to figure out how can I automatically move my drafts to todoist every 30 mins and auto delete from drafts</p>
+          <p><a href="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-todoist-with-drafts/1845/3</link>
+        <pubDate>Sat, 05 Sep 2020 00:37:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1845-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845.rss">Using Todoist with Drafts</source>
+      </item>
+      <item>
+        <title>Using Todoist with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/d826fdf2f8277003068df5f28136c667a4d5cdcd.jpg" alt="app-icon" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/app/id572688855?mt=8&amp;at=11l4Cf&amp;ct=community" rel="nofollow noopener"><strong>App Store</strong></a></li>
+<li><a href="https://developer.todoist.com/rest/v8/" rel="nofollow noopener"><strong>REST API Documentation</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: <code>todoist://</code>
+</li>
+<li><a href="https://developer.todoist.com/sync/v7/#tasks" rel="nofollow noopener"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<p><a href="http://todoist.com" rel="nofollow noopener">Todoist</a> is a task management platform. Drafts supports direct integration with Todoist via a number of methods, including those listed below.</p>
+<h2>Todoist Share Extension and URL actions</h2>
+<p>If you have the <a href="https://itunes.apple.com/app/id572688855?mt=8&amp;at=11l4Cf&amp;ct=community" rel="nofollow noopener">Todoist app</a> installed on the device, you can take advantage of integration methods provided by the app. These include an iOS Share extension for quick add of individual tasks, and URL schemes which can open the app ready to add a task.</p>
+<ul>
+<li>
+<p><strong>Example Actions</strong>:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1BF" rel="nofollow noopener"><strong>Share</strong></a>: This action comes in the default “Basic” action group and opens a system share sheet. It is not specific to Todoist, but will pass the text to the system share sheet and the Todoist share extension can be selected.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1CQ" rel="nofollow noopener"><strong>Task in Todoist App</strong></a>: URL-based action which opens the Todoist app. This version opens Todoist with the text of the current draft as the task content in a new task creation view.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>These actions work locally with the Todoist app, so they work offline and the Todoist app will sync the changes when it is reconnected.</li>
+<li>Both these methods allow flexible selection of options (like project, labels, etc.) through the familiar Todoist interface when used.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Require the Todoist app be installed.</li>
+<li>Require additional taps to complete creation of tasks.</li>
+<li>Can only create a single tasks at a time.</li>
+<li>URL based steps leave you in the Todoist app when completed.</li>
+</ul>
+</li>
+</ul>
+<h2>Todoist Action Step</h2>
+<p>Drafts provides a <a href="http://getdrafts.com/actions/steps/todoist.html" rel="nofollow noopener">Todoist Action Step</a> which can create tasks communicating directly with the Todoist REST API. The first time you use an action using Todoist direct integration, you will be directed to Todoist’s website to authorize the Drafts access.</p>
+<ul>
+<li>
+<p><strong>Examples Actions:</strong></p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1MU" rel="nofollow noopener"><strong>Task in Todoist</strong></a>: Uses first line of draft as the task, additional lines as a comment attached to the task, and supports <a href="https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add" rel="nofollow noopener">Todoist quick add syntax</a> for markup like <span class="hashtag">#projectname</span>, <span class="mention">@label</span>, etc.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1MT" rel="nofollow noopener"><strong>Task in Todoist Shopping List</strong></a>: Example is the same as the one above, but with the task content template set to <code>#shopping [[title]]</code>. This automatically adds the project syntax to assign the task to a specific project (Project must already exist in Todoist). This example could be edited to create actions which target specific projects, labels without having to type the text by including the quick add syntax in the template.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>One tap creation of task without leaving Drafts.</li>
+<li>Uses <a href="https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add" rel="nofollow noopener">Todoist quick add syntax</a> to allow assignment of projects, labels, etc.</li>
+<li>Easy to combine with other Drafts action steps.</li>
+<li>Templates to control task content, attached comments and the creation of reminders.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Requires network connection.</li>
+</ul>
+</li>
+</ul>
+<h2>Scripted Actions</h2>
+<p>Drafts also provides a scripting wrapper for the entire Todoist REST API via the <a href="http://reference.getdrafts.com/objects/Todoist.html" rel="nofollow noopener">Todoist object</a>. It provides access to the entire REST API and has convenience methods for reading and writing tasks, projects, labels and comments.  This means it is possible to create complete projects from Drafts - or also import projects from Todoist.</p>
+<p>Below we provide several example actions which are ready to use as-is, but also demonstrate those possibilities. Likely the most useful case it to create tasks in bulk, as in the <a href="https://actions.getdrafts.com/a/1MV" rel="nofollow noopener">Tasks in Todoist</a> example action, demonstrated in the video below:</p>
+<p><p><a href="https://vimeo.com/279133862?app_id=122963">https://vimeo.com/279133862?app_id=122963</a></p></p>
+<ul>
+<li>
+<strong>Example Actions:</strong>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1MV" rel="nofollow noopener"><strong>Tasks in Todoist</strong></a>: Takes each line of a draft and sends each to Todoist as a separate task. Fully supports <a href="https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add" rel="nofollow noopener">Todoist quick add syntax</a> so each line can specify priorities, projects, labels, etc. This action is demonstrated in the video above and provides a great, powerful way to do bulk entry of tasks.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1MH" rel="nofollow noopener"><strong>Import Todoist Project</strong></a>: Prompts to select an existing Todoist project and imports tasks from the project into a new draft, in a basic Markdown format. Useful for grabbing a snapshot of a project to share. More values are possible to import via the API, this is only meant as a starting point.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1MW" rel="nofollow noopener"><strong>Task in Todoist with options</strong></a>: This example reads current project and labels from Todoist, then prompts the user to selection options before creating a task.</li>
+</ul>
+</li>
+</ul>
+<p>Users may create other examples, so be sure to search the <a href="https://actions.getdrafts.com" rel="nofollow noopener">Action Directory</a> for other Todoist integration examples.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-todoist-with-drafts/1845/1</link>
+        <pubDate>Mon, 09 Jul 2018 20:22:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1845-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845.rss">Using Todoist with Drafts</source>
+      </item>
+  </channel>
+</rss>

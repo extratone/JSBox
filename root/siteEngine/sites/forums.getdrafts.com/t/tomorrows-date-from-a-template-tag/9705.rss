@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Tomorrow&#39;s Date from a Template Tag</title>
+    <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705</link>
+    <description>I use Drafts to write my lesson plans, no surprise, but I love it! I made a video about how I use it here:
+
+https://www.youtube.com/watch?v=tRdL8oPR-jA
+
+Not one to leave well enough alone, I am hoping to use a template tag to pre-load an answer to one of the prompts. I want to use the date tag, but I want it to give me the date for tomorrow (example in the screenshot)
+
+![Screen Shot 2021-01-28 at 8.30.34 AM|643x500](upload://AbtPxQdtAOASYvIbM5F00KTQRH9.jpeg) 
+
+I got the tag formatting from this reference, but I don&#39;t see an option to get tomorrow&#39;s date.
+
+https://docs.getdrafts.com/docs/actions/templates#tags
+
+Any advice?</description>
+    
+    <lastBuildDate>Mon, 03 May 2021 09:15:04 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[blfarris]]></dc:creator>
+        <description><![CDATA[
+            <p>Brilliant. That did it – Thank You.</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/14</link>
+        <pubDate>Mon, 03 May 2021 09:15:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-14</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Your strftime formatting is off.</p>
+<ul>
+<li>%Y is the 4 digit year</li>
+<li>%M is the two digit minutes</li>
+<li>%m is the two digit month</li>
+<li>%D is a date format equivalent  to %m/%d/%y</li>
+<li>%d is the two digit day</li>
+</ul>
+<p>See <a href="https://man7.org/linux/man-pages/man3/strftime.3.html" class="inline-onebox">strftime(3) - Linux manual page</a> for further details on from at tokens.</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/13</link>
+        <pubDate>Mon, 03 May 2021 08:15:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-13</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[blfarris]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey all;</p>
+<p>I’m trying to modify Greg’s code to output today and yesterday’s date as YYYY-MM-DD</p>
+<p>Here’s what I tried:</p>
+<pre><code>// get tomorrow's date
+let tomorrow = Date.today().addDays(1);
+// convert it to a formatted date string
+let s = strftime(tomorrow, "%Y-%M-%D");
+// create the template tag
+draft.setTemplateTag("tomorrow", s);
+// now use [[tomorrow]] in your prompt step
+
+// get yesterday's date
+let yesterday = Date.today().addDays(-1);
+// convert it to a formatted date string
+let y = strftime(yesterday, "%Y-%M-%D");
+// create the template tag
+draft.setTemplateTag("yesterday", y);
+// now use [[yesterday]] in your prompt step
+</code></pre>
+<p>Today works like a champ, but yesterday outputs something like:</p>
+<pre><code>2021-00-05/01/21
+</code></pre>
+<p>I don’t know Javascript, just trying to hack what Greg wrote, so I’m guessing it’s something obvious that I just can’t see…</p>
+<p>Thanks for the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/12</link>
+        <pubDate>Mon, 03 May 2021 00:26:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-12</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Mike_Burke]]></dc:creator>
+        <description><![CDATA[
+            <p>I am glad it helped provide that context for you!</p>
+<p>Far from looking stupid, but If it helps, I didn’t even know you could define your own tags. So you are one up on me!</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/11</link>
+        <pubDate>Fri, 29 Jan 2021 15:30:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-11</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Mike_Burke]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for your kind words!</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/10</link>
+        <pubDate>Fri, 29 Jan 2021 15:26:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-10</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m going to look stupid <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> but this example made why one might create template tags in javascript gel in my mind.</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/9</link>
+        <pubDate>Fri, 29 Jan 2021 08:29:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-9</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Campjacob]]></dc:creator>
+        <description><![CDATA[
+            <p>Just thought I would say great video.</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/8</link>
+        <pubDate>Fri, 29 Jan 2021 07:45:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-8</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Mike_Burke]]></dc:creator>
+        <description><![CDATA[
+            <p>Sure, this is my first post to the action directory:</p>
+<p><a href="https://actions.getdrafts.com/a/1gu" class="onebox" target="_blank" rel="noopener nofollow ugc">https://actions.getdrafts.com/a/1gu</a></p>
+<p>I hope it helps you!</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/7</link>
+        <pubDate>Thu, 28 Jan 2021 18:38:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-7</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>Can you share the actions?</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/6</link>
+        <pubDate>Thu, 28 Jan 2021 16:11:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-6</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Mike_Burke]]></dc:creator>
+        <description><![CDATA[
+            <p>No expectation changes, just gratitude and awe! Thanks again!</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/5</link>
+        <pubDate>Thu, 28 Jan 2021 13:51:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-5</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, don’t expect that kind of response every time, just caught me over morning coffee. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/4</link>
+        <pubDate>Thu, 28 Jan 2021 13:46:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-4</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Mike_Burke]]></dc:creator>
+        <description><![CDATA[
+            <p>7 minutes! It only took you 7 minutes to reply with custom code to solve my problem, you sir are amazing!</p>
+<p>Thank you for not only making this app, but also being so active and supportive in the forums!</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/3</link>
+        <pubDate>Thu, 28 Jan 2021 13:44:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-3</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The template tags in and of themselves do not support date math, it requires scripting. If you put the following in a script step at the beginning your your action, it will define a new <code>[[tomorrow]]</code> template tag you can use to insert that date in later steps:</p>
+<pre><code class="lang-auto">// get tomorrow's date
+let tomorrow = Date.today().addDays(1);
+// convert it to a formatted date string
+let s = strftime(tomorrow, "%m-%d-%Y");
+// create the template tag
+draft.setTemplateTag("tomorrow", s);
+// now use [[tomorrow]] in your prompt step
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/2</link>
+        <pubDate>Thu, 28 Jan 2021 13:42:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-2</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+      <item>
+        <title>Tomorrow&#39;s Date from a Template Tag</title>
+        <dc:creator><![CDATA[Mike_Burke]]></dc:creator>
+        <description><![CDATA[
+            <p>I use Drafts to write my lesson plans, no surprise, but I love it! I made a video about how I use it here:</p>
+<p><a href="https://www.youtube.com/embed/tRdL8oPR-jA?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/tRdL8oPR-jA</a></p>
+
+<p>Not one to leave well enough alone, I am hoping to use a template tag to pre-load an answer to one of the prompts. I want to use the date tag, but I want it to give me the date for tomorrow (example in the screenshot)</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/f/fd9a81fcebebf27321bd3a36bfdd1e2102a14557.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/fd9a81fcebebf27321bd3a36bfdd1e2102a14557" title="Screen Shot 2021-01-28 at 8.30.34 AM"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/f/fd9a81fcebebf27321bd3a36bfdd1e2102a14557_2_643x500.jpeg" alt="Screen Shot 2021-01-28 at 8.30.34 AM" data-base62-sha1="AbtPxQdtAOASYvIbM5F00KTQRH9" width="643" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/f/fd9a81fcebebf27321bd3a36bfdd1e2102a14557_2_643x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/f/fd9a81fcebebf27321bd3a36bfdd1e2102a14557_2_964x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/f/fd9a81fcebebf27321bd3a36bfdd1e2102a14557_2_1286x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/f/fd9a81fcebebf27321bd3a36bfdd1e2102a14557_2_10x10.png"></a></div><p></p>
+<p>I got the tag formatting from this reference, but I don’t see an option to get tomorrow’s date.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="https://docs.getdrafts.com/docs/actions/templates#tags" target="_blank" rel="noopener nofollow ugc">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a8094238c4c0c0da862997b2ed8632b9e2b22855_2_690x362.jpeg" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a8094238c4c0c0da862997b2ed8632b9e2b22855_2_690x362.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/a/a8094238c4c0c0da862997b2ed8632b9e2b22855_2_1035x543.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/a/a8094238c4c0c0da862997b2ed8632b9e2b22855.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a8094238c4c0c0da862997b2ed8632b9e2b22855_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/actions/templates#tags" target="_blank" rel="noopener nofollow ugc">Templates</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Any advice?</p>
+          <p><a href="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705/1</link>
+        <pubDate>Thu, 28 Jan 2021 13:34:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9705-1</guid>
+        <source url="https://forums.getdrafts.com/t/tomorrows-date-from-a-template-tag/9705.rss">Tomorrow&#39;s Date from a Template Tag</source>
+      </item>
+  </channel>
+</rss>

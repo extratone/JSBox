@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Block level filter (MGCL/search) | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Ky/rzoDPsaNHdCXU2Yn6bg5B40Sz3UwWsR9KCIzKISZYMM1E5KQWRsgknoSNyqFwqeI9v00NBrCcbhhxpTK/1A==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Block level filter (MGCL/search)" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1px" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Block level filter (MGCL/search)" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1px" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/330-layers4.png" class="action-icon" />Block level filter (MGCL/search)</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by @jsamlarose,
+    Last update
+    8 months ago
+</div>
+
+    <div class='update_notes'>
+      <h3>UPDATES</h3>
+      <div id="firstUpdateNote">
+      <h4>8 months ago</h4>
+      <p>Now supports inline hashtags. Also a few cosmetic adjustments. </p>
+
+      </div>
+      <a href="1px.html#" onclick="document.getElementById('firstUpdateNote').classList.add('hide');document.getElementById('additionalNotes').classList.remove('hide');this.classList.add('hide');return false;">show all updates...</a>
+      <div id="additionalNotes" class='hide'>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Now supports inline hashtags. Also a few cosmetic adjustments. </p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Update to fix bug when starting search from another action (you can send text to this from another action or from a shortcut; prefix incoming text as &ldquo;fromWikiLink:&rdquo;) or from selected text. The first action step (preferences) now determines defaults for the way the action behaves, but can be overwritten by the first prompt if that setting is enabled.</p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Updates! </p>
+
+<ul>
+<li>Fixed display of modified/created label (<a href="../../forums.getdrafts.com/t/block-level-filtering-querying-aka-another-option-for-searching-for-things-in-drafts/11086/15@u=jsamlarose.html">https://forums.getdrafts.com/t/block-level-filtering-querying-aka-another-option-for-searching-for-things-in-drafts/11086/15?u=jsamlarose</a>)</li>
+<li>Added option for sorting by modified or created date.</li>
+<li>If the search returns a draft with the search result in the title, the first non-empty line of the draft is now shown as context, rather than nothing (if you haven’t set your preferences to show the full content of the draft). These lines are clearly labelled to avoid any misinterpretation/confusion.</li>
+<li>Other small, cosmetic updates.</li>
+</ul>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Now with added settings! </p>
+
+<ul>
+<li>The first action step allows you to control your preferences via the first action step (i.e. set it and forget it) or on the fly via the form. - If you manage your preferences in the action step you can set a few more options in the search scope (inbox, all, flagged, archive, trashed). </li>
+<li>If you choose to manage your preferences on the fly, the form displays two switches to control whether the full text of a draft is displayed, and whether you want to search in the “inbox” or “all” scope.</li>
+</ul>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Minor fix</p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <ul>
+<li>added another option: you can now set the filter options to search within your inbox, archive, flagged drafts or even trash</li>
+<li>tidied up some sections of the code to make it easier to parse for people making their own adjustments (lots more could be done to tidy this up further!)</li>
+<li>trapped an error that could be triggered by running the filter on a line containing an empty wiki-link</li>
+</ul>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Added an easy option to set whether or not a draft&rsquo;s full text is displayed in instances where the term you&rsquo;re searching for is found in that draft&rsquo;s title. The option is determined by a variable in the first action step. </p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Better support for wiki-links/backlinks/(whatever you call them)! The initial prompt now offers options for search queries based on the current draft’s title— nods to @yvonnezed. Also updated the explanation of the kind of search this action does— nods to @cfritze.</p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Updated regex for detecting wiki-links in current line, and handling of [[s: … ]] syntax definition (as well as my own [[@: … ]] syntax).</p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>If the search term is in the title, a search result will now show the content of the whole draft in the search item&rsquo;s context field (description). Felt like a waste for the context to simply repeat the title, otherwise. If the search item is in the title AND some lines within the content, you&rsquo;ll see those specific lines in the results as well. I might walk this back at some point in the future, but I&rsquo;m feeling like &ldquo;more is more&rdquo; in this circumstance. We&rsquo;ll see. I&rsquo;ve also set the list to render HTML and markdown, which makes links a bit tidier, but might break the list in some circumstances. Again, might walk that back, but it&rsquo;s working well for me for now&hellip; </p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Update to facilitate running this action from another action&hellip;</p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Minor update: initial prompt (if no text selected) gets focus when invoked.</p>
+
+        </div>
+        <div>
+        <h4>8 months ago</h4>
+        <p>Better handling of relative dates</p>
+
+        </div>
+        <div>
+        <h4>9 months ago</h4>
+        <p>Adjusted description.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='description'>
+        <p>Depends on <a href="../g/10X.html">Matt Gemmell&rsquo;s MGCheckListPrompt action</a>. This won&rsquo;t work if you don&rsquo;t have that installed (with apologies to Matt for my own less-than-elegant hackery around his brilliant work&hellip;;)</p>
+
+<p>This action queries drafts for a search term&hellip; <br>
+- if there&rsquo;s any text selected, that text will be used as a search. <br>
+- if no text is selected, you&rsquo;ll be offered a prompt to enter a search term<br>
+- if no text is selected, and the cursor is in a line with a wiki-linked phrase, that wiki-linked phrase is offered as an option for the search— if there&rsquo;s more than one, each will be offered as a separate option </p>
+
+<p>Once your search term is set, hits are loaded into an interface (the Matt Gemmell Checklist Prompt), displaying <strong>the entirety of each line that the search term is found in</strong> for context. </p>
+
+<p>Selecting any option from the list should highlight the search term in the draft. </p>
+
+<p>NOTES: <br>
+- The action currently has one setting for easy adjustment: if you&rsquo;d prefer that the list shows the full text of a draft if the term you&rsquo;re searching for is found in the title of that draft, set the variable in the first action step to be true. Otherwise, leave it false.<br>
+- The search that this action performs is an “exact phrase” search, meaning that if you search for a phrase consisting of more than one word, you’ll only see results containing exactly that phrase, rather than results that contain each of the words in that phrase. To borrow an example from <a href="../../docs.getdrafts.com/docs/drafts/filtering.html">Drafts’ guide on search and filtering</a>: &ldquo;red parachute&quot;will find a draft with the sentence “She used a red parachute when skydiving”, but not the draft “She used a red and blue parachute…” (…also, none of the other advanced query options detailed in that guide are enabled here!)</p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1px&amp;data=%7B%22uuid%22:%22A146E6BA-856F-440F-BE72-FE17C891CDE4%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20PREFERENCES%20%5Cn%5Cn//%20META:%20Do%20you%20want%20to%20set%20preferences%20here%20or%20on%20the%20form%20itself?%20Doing%20it%20here%20keeps%20the%20form%20tidy%20and%20allows%20for%20a%20wider%20range%20of%20options%20in%20search%20scope.%20Doing%20it%20on%20the%20form%20allows%20you%20to%20change%20things%20on%20the%20fly.%20Quotation%20marks%20required.%20%5Cn%5Cn//%20Options:%20%5C%22here%5C%22,%20%5C%22form%5C%22.%20%5Cn%5Cnvar%20preferences%20=%20%5C%22form%5C%22%5Cn%5Cn//%20Don&#39;t%20edit%20this%20next%20line...%20;)%5Cn%5Cn//%20if%20(preferences%20==%20%5C%22here%5C%22)%20%7B%5Cn%5Cn//%20If%20you&#39;ve%20selected%20%5C%22form%5C%22,%20any%20adjustments%20you%20make%20below%20will%20be%20ignored,%20except%20when%20starting%20a%20search%20from%20a%20wikilink%20or%20from%20selected%20text...%5Cn%5Cn//%20CONTEXT%20DISPLAY:%20How%20would%20you%20prefer%20the%20list%20to%20behave%20when%20the%20term%20you&#39;re%20searching%20for%20is%20found%20in%20the%20title%20of%20a%20draft?%20If%20it%20would%20be%20useful%20to%20see%20the%20whole%20draft%20in%20this%20instance,%20set%20this%20variable%20to%20true.%20Otherwise,%20if%20you%20have%20lots%20of%20long%20drafts,%20you%20may%20wish%20to%20keep%20this%20set%20as%20false,%20in%20which%20case%20the%20first%20non-empty%20line%20of%20the%20draft%20is%20returned.%20No%20quotation%20marks%20required.%5Cn%5Cn//%20Options:%20true,%20false%5Cn%5Cn%5Ctvar%20fullDraftsAsContext%20=%20false%5Cn%5Cn//%20SCOPE%20OF%20SEARCH:%20Where%20do%20you%20want%20your%20search%20to%20be%20run?%20Quotation%20marks%20required!%5Cn%5Cn//%20Options:%20%5C%22inbox%5C%22,%20%5C%22archive%5C%22,%20%5C%22flagged%5C%22,%20%5C%22trash%5C%22,%5C%22all%5C%22.%5Cn%5Cn%5Ctvar%20searchScope%20=%20%5C%22inbox%5C%22%5Cn%5Cn//%20SORT%20ORDER:%20How%20do%20you%20want%20your%20search%20results%20sorted?%20Quotation%20marks%20required!%5Cn%5Cn//%20Options:%20%5C%22modified%5C%22,%20%5C%22created%5C%22%5Cn%5Cn%5Ctvar%20modOrCreated%20=%20%5C%22modified%5C%22%5Cn%5Cn%5Ct//%20(Don&#39;t%20change%20this...)%5Cn%5Ct%5Cn%5Ctvar%20mocProp%20=%20modOrCreated%20+%20%5C%22At%5C%22%5Cn%5Cn//%20%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%226DA6E736-BD86-4E91-8533-1E53AD5F9B22%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22name%22:%22MGCheckListPrompt%20Library%22%7D,%22type%22:%22includeAction%22,%22isEnabled%22:true,%22uuid%22:%22BB1EDB95-5D30-4A73-AEE9-755C816EE380%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20INITIAL%20PROMPT%20TO%20DEFINE%20FILTER%5Cn%5Cn//%20the%20way%20the%20action%20is%20invoked%20determines%20whether%20this%20prompt%20is%20displayed...%5Cn%5Cnif%20(editor.getSelectedText().length%20%5Cu003e%201)%20%7B%5Cn%5Ctvar%20searchStr%20=%20editor.getSelectedText()%5Cn%7D%20else%20if%20(draft.content.startsWith(%5C%22fromWikiLink:%5C%22))%20%7B%5Cn%5Ctvar%20searchStr%20=%20draft.content.replace(%5C%22fromWikiLink:%5C%22,%5C%22%5C%22)%5Cn%7D%20else%20%7B%20%5Cn%5Cn%5Ct//%20no%20selection,%20and%20it%20wasn&#39;t%20invoked%20from%20a%20wikilink,%20so%20let&#39;s%20build%20the%20prompt...%5Cn%5Ct%5Cn%5Ctvar%20searchStr%20=%20%5C%22%5C%22%5Cn%5CtlSel%20=%20editor.getSelectedLineRange()%5Cn%5Ctsel%20=%20editor.getTextInRange(lSel[0],lSel[1])%5Cn%5Cn%5Ctvar%20p%20=%20Prompt.create();%5Cn%5Ctp.title%20=%20%5C%22Filter%5C%22;%5Cn%5Cn%5Ctp.addTextField(%5C%22searchTerm%5C%22,%20%5C%22Search%20for%5C%22,%20%5C%22%5C%22,%20%7B%5Cn%20%20%5Ct%5Ct%5C%22wantsFocus%5C%22:%20true%5Cn%5Ct%7D);%5Cn%5Ct%5Cn%5Ctp.addLabel(%5C%22label%5C%22,%5C%22ALTERNATIVELY,%20FILTER%20BY:%5C%22,%20%7B%5Cn%5Ct%5Ct%5C%22textSize%5C%22:%20%5C%22caption%5C%22%5Cn%5Ct%7D);%5Cn%5Ct%5Cn%20%20%20%20//%20options%20for%20backlinks...%5Cn%5Cn%5Ctvar%20linkRefs%20=%20[%5C%22(Linked%20references%20for%20this%20draft)%5C%22,%5C%22(Unlinked%20references%20for%20this%20draft)%5C%22];%5Cn%5Cn%5Ct//%20is%20there%20a%20wiki-link%20in%20the%20current%20line?%20Let&#39;s%20check,%20and%20if%20so,%20add%20to%20the%20list%20of%20potential%20filters...%5Cn%5Ctvar%20buildArr%20=%20[];%20%5Cn%5Ct%5Cn%5Ctif%20(/%5C%5CB%23(%5C%5Cd*[A-Za-z_]+%5C%5Cw*)%5C%5Cb(?!;)/.test(sel))%7B%20%5Cn%5Ct%5CtbuildArr%20=%20[...new%20Set(buildArr.concat(sel.match(/%5C%5CB%23(%5C%5Cd*[A-Za-z_]+%5C%5Cw*)%5C%5Cb(?!;)/g)))];%5Cn%5Ct%5Ct%7D%5Cn%5Cn%5Ctif%20%20(/%5C%5C[%5C%5C[[%5C%5C%23%7C%5C%5Cw%7C%5C%5Cs%7C@%7C%5C%5C.%7C%5C%5C?%7C%C2%BB%7C%5C%5C:%7C%5C%5C(%7C%5C%5C)%7C%5C%5C/%7C%5C%5C%7C%7C%5C%5C-%7C%5C%5C+%5C%22]+%5C%5C]%5C%5C]/.test(sel))%20%7B%5Cn%5Ct%5CtbuildArr%20=%20[...new%20Set(buildArr.concat(sel.match(/%5C%5C[%5C%5C[[%5C%5C%23%7C%5C%5Cw%7C%5C%5Cs%7C@%7C%5C%5C.%7C%5C%5C?%7C%C2%BB%7C%5C%5C:%7C%5C%5C(%7C%5C%5C)%7C%5C%5C/%7C%5C%5C%7C%7C%5C%5C-%7C%5C%5C+%5C%22]+%5C%5C]%5C%5C]/g)))]%7D%20%5Cn%5Ct%5Cn%5Ctvar%20opts%20=%20buildArr.concat(linkRefs)%5Cn%5Cn%5Ctp.addSelect(%5C%22linkSel%5C%22,%20%5C%22%5C%22,%20opts,%20[],%20false);%5Cn%5Cn%5Ct//%20show%20search%20settings%20if%20enabled%20in%20first%20action%20step...%5Cn%5Cn%5Ctif%20(preferences%20==%20%5C%22form%5C%22)%20%7B%5Cn%5Ct%5Cn%5Ct%5Ctp.addSwitch(%5C%22modOrCreated%5C%22,%20%5C%22Sort%20by%20modified?%20(off%20=%20created)%5C%22,%20false);%5Cn%5Ct%5Ctp.addSwitch(%5C%22context%5C%22,%20%5C%22Show%20full%20draft%20if%20search%20term%20is%20in%20title?%5C%22,%20false);%5Cn%5Ct%5Ctp.addSwitch(%5C%22searchScope%5C%22,%20%5C%22Search%20all?%20(off%20=%20search%20inbox%20only)%5C%22,%20false);%5Cn%5Cn%5Ct%7D%5Cn%5Ct%5Cn%5Ctp.addButton(%5C%22run%5C%22);%5Cn%5Cn%5Ctvar%20didSelect%20=%20p.show();%5Cn%5Cn%5Ct//%20set%20variables%20and%20settings%20in%20response%20to%20chosen/selected%20terms...%5Cn%5Ct%5Ct%5Cn%5Ctif%20(p.buttonPressed%20==%20%5C%22run%5C%22)%20%7B%5Cn%5Ct%5Ctif%20(preferences%20==%20%5C%22form%5C%22)%20%7B%5Cn%5Cn%5Ct%5Ct%5Ctvar%20fullDraftsAsContext%20=%20p.fieldValues[%5C%22context%5C%22]%5Cn%5Ct%5Ct%5Ctvar%20searchScope%20=%20p.fieldValues[%5C%22searchScope%5C%22]%20?%20%5C%22all%5C%22%20:%20%5C%22inbox%5C%22%5Cn%5Ct%5Ct%5Ctvar%20modOrCreated%20=%20p.fieldValues[%5C%22modOrCreated%5C%22]%20?%20%5C%22modified%5C%22%20:%20%5C%22created%5C%22%5Cn%5Ct%5Ct%5Ctvar%20mocProp%20=%20modOrCreated%20+%20%5C%22At%5C%22%5Cn%5Ct%5Ct%7D%5Cn%5Cn%5Ct%5Ctif%20(p.fieldValues[%5C%22searchTerm%5C%22].length%20%5Cu003e%200)%7B%5Cn%5Ct%5Ct%5CtsearchStr%20=%20p.fieldValues[%5C%22searchTerm%5C%22]%5Cn%5Ct%5Ct%7D%20else%20if%20(p.fieldValues[%5C%22linkSel%5C%22].toString().startsWith(%5C%22[[s:%5C%22)%7C%7Cp.fieldValues[%5C%22linkSel%5C%22].toString().startsWith(%5C%22[[@:%5C%22))%7B%5Cn%5Ct%5Ct%5Ct//%20a%20syntax%20defined%20search%20should%20just%20be%20a%20search%20term...%20%5Cn%5Ct%5Ct%5CtsearchStr%20=%20p.fieldValues[%5C%22linkSel%5C%22].toString().replace(%5C%22[[s:%5C%22,%5C%22%5C%22).replace(%5C%22[[@:%5C%22,%5C%22%5C%22).replace(%5C%22]]%5C%22,%5C%22%5C%22)%5Cn%5Ct%5Ct%7D%20else%20if%20(p.fieldValues[%5C%22linkSel%5C%22].toString().includes(%5C%22(Linked%20references%20for%20this%20draft)%5C%22))%7B%5Cn%5Ct%5Ct%5CtsearchStr%20=%20p.fieldValues[%5C%22linkSel%5C%22].toString()%5Cn%5Ct%5Ct%5Ctvar%20queries%20=%20[%5Cn%20%20%5Ct%5Ct%5Ct%5Ct%5C%22[[%5C%22+%20draft.displayTitle%20+%5C%22]]%5C%22,%5Cn%20%20%5Ct%5Ct%5Ct%5Ct%5C%22[[%23%20%5C%22+%20draft.displayTitle%20+%5C%22]]%5C%22,%5Cn%5Ct%5Ct%5Ct]%5Cn%5Ct%5Ct%7D%20else%20if%20(p.fieldValues[%5C%22linkSel%5C%22].toString().includes(%5C%22(Unlinked%20references%20for%20this%20draft)%5C%22))%7B%5Cn%5Ct%5Ct%5Ctvar%20searchStr%20=%20draft.displayTitle;%5Cn%5Ct%5Ct%7D%20else%20if%20(/%5C%5CB%23(%5C%5Cd*[A-Za-z_]+%5C%5Cw*)%5C%5Cb(?!;)/.test(p.fieldValues[%5C%22linkSel%5C%22].toString()))%7B%5Cn%5Ct%5Ct%5Ctvar%20searchStr%20=%20p.fieldValues[%5C%22linkSel%5C%22].toString();%5Cn%5Ct%5Ct%7D%20else%20if%20(p.fieldValues[%5C%22linkSel%5C%22].length%20%5Cu003e%200)%7B%5Cn%5Ct%5Ct%5Ct//%20searchStr%20=%20p.fieldValues[%5C%22linkSel%5C%22].toString().replace(%5C%22[[s:%5C%22,%5C%22[[%5C%22)%5Cn%5Ct%5Ct%5CtsearchStr%20=%20p.fieldValues[%5C%22linkSel%5C%22].toString()%5Cn%5Ct%5Ct%5CtsearchStr%20=%20searchStr.split(&#39;[[&#39;).pop().split(&#39;]]&#39;)[0].replace(%5C%22%23%20%5C%22,%5C%22%5C%22)%5Cn%5Ct%5Ct%5Ct//%20searchStr%20=%20%5C%22%5C%5C%5C%22[[%5C%22%20+%20searchStr%20+%20%5C%22%5C%5C%5C%22%20OR%20%5C%5C%5C%22[[%23%20%5C%22%20+%20searchStr%20+%20%5C%22%5C%5C%5C%22%5C%22%5Cn%5Ct%5Ct%5Ctvar%20queries%20=%20[%5Cn%20%20%5Ct%5Ct%5Ct%5Ct%5C%22[[%5C%22+%20searchStr%20+%5C%22]]%5C%22,%5Cn%20%20%5Ct%5Ct%5Ct%5Ct%5C%22[[%23%20%5C%22+%20searchStr%20+%5C%22]]%5C%22,%5Cn%5Ct%5Ct%5Ct];%5Cn%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Ctcontext.cancel()%5Cn%5Ct%5Ct%7D%5Cn%5Cn%5Ct%7D%5Cn%5Cn%7D%20%5Cn%5Ct%5Ct%5CnsearchStr%20==%20%5C%22%5C%22%20?%20context.cancel()%20:%20searchStr%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22F0B1583B-7532-4174-A141-031746823450%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20FUNCTIONS%5Cn%5Cn//%20escape%20characters%20for%20regex%20%5Cn%5Cnfunction%20escapeRegex(string)%20%7B%5Cn%20%20%20%20return%20string.replace(/[-%5C%5C/%5C%5C%5C%5C%5E$*+?.()%7C[%5C%5C]%7B%7D]/g,%20&#39;%5C%5C%5C%5C$%5Cu0026&#39;);%5Cn%7D%5Cn%5Cn//%20relative%20time%20formatting:%20https://stackoverflow.com/a/37802747%5Cn%5Cnfunction%20timeDifference(previous)%20%7B%5Cn%5Ctvar%20prefix%20=%20%5C%22(%5C%22%20+%20modOrCreated%20+%20%5C%22%20%5C%22%5Cn%5Ctvar%20suffix%20=%20%5C%22)%5C%22%5Cn%5Ctvar%20output%20=%20%5C%22%5C%22%5Cn%5Ctvar%20current%20=%20new%20Date()%5Cn%20%20%20%20var%20msPerMinute%20=%2060%20*%201000;%5Cn%20%20%20%20var%20msPerHour%20=%20msPerMinute%20*%2060;%5Cn%20%20%20%20var%20msPerDay%20=%20msPerHour%20*%2024;%5Cn%20%20%20%20var%20msPerMonth%20=%20msPerDay%20*%2030;%5Cn%20%20%20%20var%20msPerYear%20=%20msPerDay%20*%20365;%5Cn%5Cn%20%20%20%20var%20elapsed%20=%20current%20-%20previous;%5Cn%5Cn%20%20%20%20if%20(elapsed%20%5Cu003c%20msPerMinute)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20if%20(Math.round(elapsed/1000)==1)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20output%20=%20&#39;a%20second%20ago&#39;;%5Cn%20%20%20%20%5Ct%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20output%20=%20Math.round(elapsed/1000)%20+%20&#39;%20seconds%20ago&#39;;%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%5Cn%20%20%20%20else%20if%20(elapsed%20%5Cu003c%20msPerHour)%20%7B%5Cn%20%20%20%20%20%20%20%20%20if%20(Math.round(elapsed/msPerMinute)==1)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20output%20=%20&#39;a%20minute%20ago&#39;;%5Cn%20%20%20%20%5Ct%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20output%20=%20Math.round(elapsed/msPerMinute)%20+%20&#39;%20minutes%20ago&#39;;%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%7D%20%20%20%5Cn%20%20%20%20%7D%5Cn%5Cn%20%20%20%20else%20if%20(elapsed%20%5Cu003c%20msPerDay%20)%20%7B%5Cn%20%20%20%20%20%20%20%20%20if%20(Math.round(elapsed/msPerHour)==1)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20output%20=%20&#39;an%20hour%20ago&#39;;%5Cn%20%20%20%20%5Ct%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20output%20=%20Math.round(elapsed/msPerHour)%20+%20&#39;%20hours%20ago&#39;;%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%5Cn%20%20%20%20else%20if%20(elapsed%20%5Cu003c%20msPerMonth)%20%7B%5Cn%20%20%20%20%20%20%20%20if%20(Math.round(elapsed/msPerDay)==1)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20output%20=%20&#39;yesterday&#39;;%5Cn%20%20%20%20%5Ct%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20output%20=%20&#39;~&#39;%20+%20Math.round(elapsed/msPerDay)%20+%20&#39;%20days%20ago&#39;;%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%5Cn%20%20%20%20else%20if%20(elapsed%20%5Cu003c%20msPerYear)%20%7B%5Cn%20%20%20%20%20%20%20%20if%20(Math.round(elapsed/msPerMonth)==1)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20output%20=%20&#39;last%20month&#39;;%5Cn%20%20%20%20%5Ct%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20output%20=%20&#39;~&#39;%20+%20Math.round(elapsed/msPerMonth)%20+%20&#39;%20months%20ago&#39;;%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%5Cn%20%20%20%20else%20%7B%5Cn%20%20%20%20%20%20%20%20if%20(Math.round(elapsed/msPerYear)==1)%20%7B%5Cn%20%20%20%20%5Ct%20%20%20%20%20output%20=%20&#39;last%20year&#39;;%5Cn%20%20%20%20%5Ct%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20output%20=%20&#39;~&#39;%20+%20Math.round(elapsed/msPerYear)%20+%20&#39;%20years%20ago&#39;;%20%5Cn%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%5Ctreturn%20prefix%20+%20output%20+%20suffix%5Cn%7D%5Cn%5Cn//%20https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site%5Cn%5Cn/*%20function%20timeSince(date)%20%7B%5Cn%5Cn%20%20var%20seconds%20=%20Math.floor((new%20Date()%20-%20date)%20/%201000);%5Cn%5Cn%20%20var%20interval%20=%20seconds%20/%2031536000;%5Cn%5Cn%20%20if%20(interval%20%5Cu003e%201)%20%7B%5Cn%20%20%20%20return%20Math.floor(interval)%20+%20%5C%22%20years%5C%22;%5Cn%20%20%7D%5Cn%20%20interval%20=%20seconds%20/%202592000;%5Cn%20%20if%20(interval%20%5Cu003e%201)%20%7B%5Cn%20%20%20%20return%20Math.floor(interval)%20+%20%5C%22%20months%5C%22;%5Cn%20%20%7D%5Cn%20%20interval%20=%20seconds%20/%2086400;%5Cn%20%20if%20(interval%20%5Cu003e%201)%20%7B%5Cn%20%20%20%20return%20Math.floor(interval)%20+%20%5C%22%20days%5C%22;%5Cn%20%20%7D%5Cn%20%20interval%20=%20seconds%20/%203600;%5Cn%20%20if%20(interval%20%5Cu003e%201)%20%7B%5Cn%20%20%20%20return%20Math.floor(interval)%20+%20%5C%22%20hours%5C%22;%5Cn%20%20%7D%5Cn%20%20interval%20=%20seconds%20/%2060;%5Cn%20%20if%20(interval%20%5Cu003e%201)%20%7B%5Cn%20%20%20%20return%20Math.floor(interval)%20+%20%5C%22%20minutes%5C%22;%5Cn%20%20%7D%5Cn%20%20return%20Math.floor(seconds)%20+%20%5C%22%20seconds%5C%22;%5Cn%7D%5Cn%5Cn*/%5Cn%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%2289103AB1-1B58-4DF1-8728-6A6E28CA43B2%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20DISPLAY%20RESULTS%20AND%20NAVIGATE%20TO%20LOCATIONS%20WITHIN%20SELECTED%20DRAFTS%5Cn%5Cnvar%20i%20=%200;%5Cnvar%20backlinks%20=%20[]%5Cn%5Cnif%20(queries)%20%7B%20%5Cn%5Cn%5Ct//%20this,%20if%20we&#39;re%20searching%20for%20a%20linked%20reference%5Cn%5Cn%5Ctlet%20queriesDD%20=%20[...new%20Set(queries)];%5Cn%5Ctvar%20searchStr%20=%20%5C%22%5C%5C%5C%22%5C%22%20+%20queriesDD.join(%5C%22%5C%5C%5C%22%20OR%20%5C%5C%5C%22%5C%22)%20+%20%5C%22%5C%5C%5C%22%5C%22%5Cn%5Ctlet%20drafts%20=%20Draft.query(searchStr,%20searchScope,[],[],modOrCreated,true)%5Cn%5Cn%5Ctwhile(drafts[i])%7B%5Cn%5Ctvar%20q=0%5Cn%5Ctwhile(queries[q])%7B%5Cn%20%20%20%20%5Ct%5Cthits%20=%20drafts[i].lines.filter(element%20=%5Cu003e%20element.toString().toUpperCase().includes(queries[q].toString().toUpperCase())%20)%5Cn%20%20%20%20%5Ct%5Ctvar%20n=0%5Cn%20%20%20%20%5Ct%5Ctwhile(hits[n])%7B%5Cn%20%20%20%20%5Ct%5Ct%5Ct//%20descr%20=%20(typeof%20hits[n]%20==%20&#39;undefined&#39;)%20?%20drafts[i].title%20:%20hits[n]%5Cn%20%20%20%20%5Ct%5Ct%5Ctlet%20descr%20=%20hits[n]%20?%20hits[n]%20:%20drafts[i].title%5Cn%20%20%20%20%5Ct%5Ct%5Ctlet%20separator%20=%20drafts[i].tags.join()%20==%20%5C%22%5C%22%20?%20%5C%22%5C%22%20:%20%20%5C%22%20...%20%5C%22%5Cn%5Cn%5Ct%5Ct%5Ctbacklinks.push(%7B%5Cn%5Ct%5Ct%5Ct%5Cttitle:%20drafts[i].title,%5Cn%5Ct%5Ct%5Ct%5Ctdescription:%20descr,%5Cn%5Ct%5Ct%5Ct%5Ct//%20info:%20drafts[i].tags.join()+%20timeDifference(drafts[i].createdAt),%5Cn%5Ct%5Ct%5Ct%5Ctinfo:%20drafts[i].tags.join(%5C%22,%20%5C%22)%20+%20separator%20+%20timeDifference(drafts[i][mocProp]),%5Cn%5Ct%5Ct%5Ct%5Ctuuid:%20drafts[i].uuid,%5Cn%5Ct%5Ct%5Ct%5Ctmetadata:%20drafts[i].content,%5Cn%5Ct%5Ct%5Ct%5Ctpermalink:%20drafts[i].permalink%5Cn%20%20%20%20%20%20%20%20%5Ct%5Ct%7D);%5Cn%20%20%20%20%5Ct%5Ct%5Ctn++;%5Cn%20%20%20%20%5Ct%5Ct%7D%5Cn%5Ct%5Ctq++;%5Cn%5Ct%7D%5Cn%5Cti++;%5Cn%5Ct%7D%5Cn%5Cn%5Ctconst%5Cn%5Ctkeys%20=%20[&#39;title&#39;,%20&#39;description&#39;],%5Cn%20%20%20%20%5Ct%5Ctfiltered%20=%20backlinks.filter(%5Cn%20%20%20%20%20%20%20%20%5Ct%5Ct(s%20=%5Cu003e%20o%20=%5Cu003e%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%5Ct%5Ct(k%20=%5Cu003e%20!s.has(k)%20%5Cu0026%5Cu0026%20s.add(k))%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%5Ct%5Ct(keys.map(k%20=%5Cu003e%20o[k]).join(&#39;%7C&#39;))%5Cn%20%20%20%20%20%20%20%20%5Ct%5Ct)%5Cn%20%20%20%20%20%20%20%20%5Ct%5Ct(new%20Set)%5Cn%20%20%20%20%5Ct%5Ct);%5Cn%7D%20else%20%7B%5Cn%5Cn%5Ct//%20all%20other%20searches...%5Cn%5Cn%5Ctlet%20drafts%20=%20Draft.query(searchStr,%20searchScope,[],[],modOrCreated,true)%5Cn%5Ctwhile(drafts[i])%7B%5Cn%5Cn%20%20%20%20%5Ct%5Cthits%20=%20drafts[i].lines.filter(element%20=%5Cu003e%20element.toString().toUpperCase().includes(searchStr.toString().toUpperCase())%20)%5Cn%20%20%20%20%5Ct%5Ctvar%20n=0%5Cn%20%20%20%20%5Ct%5Ctwhile(hits[n])%7B%5Cn%20%20%20%20%5Ct%5Ctif%20(fullDraftsAsContext%20==%20true)%20%7B%5Cn%20%20%20%20%5Ct%5Ct%5Ctdescr%20=%20drafts[i].title%20==%20hits[n]%20?%20drafts[i].processTemplate(%5C%22[[body]]%5C%22)%20:%20hits[n]%5Cn%20%20%20%20%5Ct%5Ct%5Ct%7D%20else%20%7B%5Cn%20%20%20%20%5Ct%5Ct%5Ct//%20descr%20=%20drafts[i].title%20==%20hits[n]%20?%20%5C%22%5C%22%20:%20hits[n]%5Cn%20%20%20%20%5Ct%5Ct%5Ctdescr%20=%20drafts[i].title%20==%20hits[n]%20?%20draft.lines.filter((a)%20=%5Cu003e%20a)[1]%20+%20%5C%22%5C%5Cn%E2%86%B3%20_**first%20line%20of%20draft;%20search%20term%20in%20title**_%5C%22%20:%20hits[n]%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%5Ctlet%20separator%20=%20drafts[i].tags.join()%20==%20%5C%22%5C%22%20?%20%5C%22%5C%22%20:%20%20%5C%22%20...%20%5C%22%5Cn%5Ct%5Ct%5Ct%5Cn%5Ct%5Ct%5Ctbacklinks.push(%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Cttitle:%20drafts[i].title,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct//%20description:%20hits[n],%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ctdescription:%20descr.replace(/%5C%5Ct/g,%5C%22%5C%22),%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct//%20info:%20drafts[i].tags.join()+%20timeDifference(drafts[i][mocProp]),%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ctinfo:%20drafts[i].tags.join(%5C%22,%20%5C%22)%20+%20separator%20+%20timeDifference(drafts[i][mocProp]),%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ctmetadata:%20hits[n],%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ctuuid:%20drafts[i].uuid%5Cn%20%20%20%20%20%20%20%20%5Ct%5Ct%5Ct%7D);%5Cn%20%20%20%20%5Ct%5Ctn++;%5Cn%20%20%20%20%5Ct%5Ct%7D%5Cn%5Cti++;%5Cn%5Ct%7D%5Cn%5Cn%7D%5Cn%5Cn//%20Create%20an%20MGCheckListPrompt.%5Cnvar%20prompt%20=%20new%20MGCheckListPrompt();%5Cnprompt.message%20=%20%5C%22Query:%20%5C%22%20+%20searchStr;%5Cnprompt.addItems(backlinks)%5Cnprompt.allowsTypeToFilter%20=%20true%5Cnprompt.singleSelectionMode%20=%20true%5Cnprompt.selectsImmediately%20=%20true%5Cnprompt.processMarkdown%20=%20true%5Cnprompt.includedContent%20=%20%60%5Cn%5Cu003cstyle%5Cu003e%5Cn.item-description%20%7B%5Cn%5Ctfont-size:%2090%25;%5Cn%5Ctdisplay:%20inline;%5Cn%7D%5Cn%5Cu003c/style%5Cu003e%5Cn%60%5Cn%5Cn//%20Show%20the%20prompt.%5Cnvar%20selectedItems%20=%20prompt.show();%5Cn%5Cn//%20Report%20the%20result.%5Cnif%20(prompt.didShow)%20%7B%5Cn%5Ctif%20(selectedItems%20!=%20null)%20%7B%5Cn%5Ct%5Ctsource%20=%20Draft.find(backlinks[selectedItems[0]].uuid);%5Cn%5Ct%5Cteditor.load(source)%5Cn%5Ct%5CtfullText%20=%20editor.getText()%5Cn%5Ct%5Ctanchor%20=%20backlinks[selectedItems[0]].metadata%5Cn%5Ct%5Ctpos%20=%20fullText.indexOf(anchor)%5Cn%5Ct%5Ct//%20find%20position%20of%20selected%20line%5Cn%5Ct%5Ct//%20pos%20=%20fullText.search(%5C%22/%5C%22+%20escapeRegex(anchor)%20+%5C%22/i%5C%22)%5Cn%5Ct%5Ctif%20(queries)%20%7BsearchStr%20=%20queries[0].toString().substr(2).slice(0,%20-2)%7D%5Cn%5Ct%5Ctpos%20=%20fullText.toUpperCase().indexOf(searchStr.toString().toUpperCase(),%20pos)%20//%20this%20to%20select%20the%20search%20term%5Cn%5Ct%5Cteditor.setSelectedRange(pos,searchStr.toString().length)%20//%20anchor.length%20or%20searchStr.length,%20to%20select%20search%20term%5Cn%5Ct%5Cteditor.activate();%5Cn%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Cn%5Ct%7D%5Cn%7D%20else%20%7B%5Cn%5Ctapp.displayErrorMessage(%5C%22Looks%20like%20your%20query%20returned%20no%20results.%5C%22);%5Cn%5Ctcontext.cancel()%5Cn%7D%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22D60692A5-B5A7-435F-8626-F9FEB0CAFD1D%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:0,%22keyCommand%22:%7B%22optionKey%22:true,%22input%22:%22F%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Block%20level%20filter%20(MGCL/search)%22,%22shiftKey%22:false%7D,%22logLevel%22:0,%22groupDisposition%22:0,%22notificationType%22:0,%22tintColor%22:%22none%22,%22actionDescription%22:%22Depends%20on%20Matt%20Gemmell&#39;s%20MGCheckListPrompt%20action.%20This%20won&#39;t%20work%20if%20you%20don&#39;t%20have%20that%20installed%20(with%20apologies%20to%20Matt%20for%20my%20own%20less-than-elegant%20hackery%20around%20his%20brilliant%20work...;)%5Cn%5CnThis%20action%20queries%20drafts%20for%20a%20search%20term...%20%5Cn-%20if%20there&#39;s%20any%20text%20selected,%20that%20text%20will%20be%20used%20as%20a%20search.%20%5Cn-%20if%20no%20text%20is%20selected,%20you&#39;ll%20be%20offered%20a%20prompt%20to%20enter%20a%20search%20term%5Cn-%20if%20no%20text%20is%20selected,%20and%20the%20cursor%20is%20in%20a%20line%20with%20a%20wiki-linked%20phrase,%20that%20wiki-linked%20phrase%20is%20offered%20as%20an%20option%20for%20the%20search%E2%80%94%20if%20there&#39;s%20more%20than%20one,%20each%20will%20be%20offered%20as%20a%20separate%20option%20%5Cn%5CnOnce%20your%20search%20term%20is%20decided,%20hits%20are%20loaded%20into%20an%20interface%20(the%20Matt%20Gemmell%20Checklist%20Prompt),%20displaying%20**the%20entirety%20of%20the%20line%20that%20the%20search%20term%20is%20found%20in**%20for%20context.%20%5Cn%5CnSelecting%20an%20option%20from%20the%20list%20should%20highlight%20the%20search%20term%20in%20the%20draft.%20%5Cn%5CnStill%20some%20rough%20edges,%20but%20working%20well%20for%20me%20thus%20far.%22,%22keyUseIcon%22:false,%22icon%22:%22330-layers4%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%229037A795-450E-4708-9180-5F60E57F5E6A%22,%22assignTags%22:[],%22name%22:%22Block%20level%20filter%20(MGCL/search)%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// PREFERENCES 
+
+// META: Do you want to set preferences here or on the form itself? Doing it here keeps the form tidy and allows for a wider range of options in search scope. Doing it on the form allows you to change things on the fly. Quotation marks required. 
+
+// Options: &quot;here&quot;, &quot;form&quot;. 
+
+var preferences = &quot;form&quot;
+
+// Don&#39;t edit this next line... ;)
+
+// if (preferences == &quot;here&quot;) {
+
+// If you&#39;ve selected &quot;form&quot;, any adjustments you make below will be ignored, except when starting a search from a wikilink or from selected text...
+
+// CONTEXT DISPLAY: How would you prefer the list to behave when the term you&#39;re searching for is found in the title of a draft? If it would be useful to see the whole draft in this instance, set this variable to true. Otherwise, if you have lots of long drafts, you may wish to keep this set as false, in which case the first non-empty line of the draft is returned. No quotation marks required.
+
+// Options: true, false
+
+	var fullDraftsAsContext = false
+
+// SCOPE OF SEARCH: Where do you want your search to be run? Quotation marks required!
+
+// Options: &quot;inbox&quot;, &quot;archive&quot;, &quot;flagged&quot;, &quot;trash&quot;,&quot;all&quot;.
+
+	var searchScope = &quot;inbox&quot;
+
+// SORT ORDER: How do you want your search results sorted? Quotation marks required!
+
+// Options: &quot;modified&quot;, &quot;created&quot;
+
+	var modOrCreated = &quot;modified&quot;
+
+	// (Don&#39;t change this...)
+	
+	var mocProp = modOrCreated + &quot;At&quot;
+
+// }</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>includeAction</h3><table class='action-detail'><tr><td class='cell-label'>name</td><td class='value'><pre>MGCheckListPrompt Library</pre></td></tr></table></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// INITIAL PROMPT TO DEFINE FILTER
+
+// the way the action is invoked determines whether this prompt is displayed...
+
+if (editor.getSelectedText().length &gt; 1) {
+	var searchStr = editor.getSelectedText()
+} else if (draft.content.startsWith(&quot;fromWikiLink:&quot;)) {
+	var searchStr = draft.content.replace(&quot;fromWikiLink:&quot;,&quot;&quot;)
+} else { 
+
+	// no selection, and it wasn&#39;t invoked from a wikilink, so let&#39;s build the prompt...
+	
+	var searchStr = &quot;&quot;
+	lSel = editor.getSelectedLineRange()
+	sel = editor.getTextInRange(lSel[0],lSel[1])
+
+	var p = Prompt.create();
+	p.title = &quot;Filter&quot;;
+
+	p.addTextField(&quot;searchTerm&quot;, &quot;Search for&quot;, &quot;&quot;, {
+  		&quot;wantsFocus&quot;: true
+	});
+	
+	p.addLabel(&quot;label&quot;,&quot;ALTERNATIVELY, FILTER BY:&quot;, {
+		&quot;textSize&quot;: &quot;caption&quot;
+	});
+	
+    // options for backlinks...
+
+	var linkRefs = [&quot;(Linked references for this draft)&quot;,&quot;(Unlinked references for this draft)&quot;];
+
+	// is there a wiki-link in the current line? Let&#39;s check, and if so, add to the list of potential filters...
+	var buildArr = []; 
+	
+	if (/\B#(\d*[A-Za-z_]+\w*)\b(?!;)/.test(sel)){ 
+		buildArr = [...new Set(buildArr.concat(sel.match(/\B#(\d*[A-Za-z_]+\w*)\b(?!;)/g)))];
+		}
+
+	if  (/\[\[[\#|\w|\s|@|\.|\?|»|\:|\(|\)|\/|\||\-|\+&quot;]+\]\]/.test(sel)) {
+		buildArr = [...new Set(buildArr.concat(sel.match(/\[\[[\#|\w|\s|@|\.|\?|»|\:|\(|\)|\/|\||\-|\+&quot;]+\]\]/g)))]} 
+	
+	var opts = buildArr.concat(linkRefs)
+
+	p.addSelect(&quot;linkSel&quot;, &quot;&quot;, opts, [], false);
+
+	// show search settings if enabled in first action step...
+
+	if (preferences == &quot;form&quot;) {
+	
+		p.addSwitch(&quot;modOrCreated&quot;, &quot;Sort by modified? (off = created)&quot;, false);
+		p.addSwitch(&quot;context&quot;, &quot;Show full draft if search term is in title?&quot;, false);
+		p.addSwitch(&quot;searchScope&quot;, &quot;Search all? (off = search inbox only)&quot;, false);
+
+	}
+	
+	p.addButton(&quot;run&quot;);
+
+	var didSelect = p.show();
+
+	// set variables and settings in response to chosen/selected terms...
+		
+	if (p.buttonPressed == &quot;run&quot;) {
+		if (preferences == &quot;form&quot;) {
+
+			var fullDraftsAsContext = p.fieldValues[&quot;context&quot;]
+			var searchScope = p.fieldValues[&quot;searchScope&quot;] ? &quot;all&quot; : &quot;inbox&quot;
+			var modOrCreated = p.fieldValues[&quot;modOrCreated&quot;] ? &quot;modified&quot; : &quot;created&quot;
+			var mocProp = modOrCreated + &quot;At&quot;
+		}
+
+		if (p.fieldValues[&quot;searchTerm&quot;].length &gt; 0){
+			searchStr = p.fieldValues[&quot;searchTerm&quot;]
+		} else if (p.fieldValues[&quot;linkSel&quot;].toString().startsWith(&quot;[[s:&quot;)||p.fieldValues[&quot;linkSel&quot;].toString().startsWith(&quot;[[@:&quot;)){
+			// a syntax defined search should just be a search term... 
+			searchStr = p.fieldValues[&quot;linkSel&quot;].toString().replace(&quot;[[s:&quot;,&quot;&quot;).replace(&quot;[[@:&quot;,&quot;&quot;).replace(&quot;]]&quot;,&quot;&quot;)
+		} else if (p.fieldValues[&quot;linkSel&quot;].toString().includes(&quot;(Linked references for this draft)&quot;)){
+			searchStr = p.fieldValues[&quot;linkSel&quot;].toString()
+			var queries = [
+  				&quot;[[&quot;+ draft.displayTitle +&quot;]]&quot;,
+  				&quot;[[# &quot;+ draft.displayTitle +&quot;]]&quot;,
+			]
+		} else if (p.fieldValues[&quot;linkSel&quot;].toString().includes(&quot;(Unlinked references for this draft)&quot;)){
+			var searchStr = draft.displayTitle;
+		} else if (/\B#(\d*[A-Za-z_]+\w*)\b(?!;)/.test(p.fieldValues[&quot;linkSel&quot;].toString())){
+			var searchStr = p.fieldValues[&quot;linkSel&quot;].toString();
+		} else if (p.fieldValues[&quot;linkSel&quot;].length &gt; 0){
+			// searchStr = p.fieldValues[&quot;linkSel&quot;].toString().replace(&quot;[[s:&quot;,&quot;[[&quot;)
+			searchStr = p.fieldValues[&quot;linkSel&quot;].toString()
+			searchStr = searchStr.split(&#39;[[&#39;).pop().split(&#39;]]&#39;)[0].replace(&quot;# &quot;,&quot;&quot;)
+			// searchStr = &quot;\&quot;[[&quot; + searchStr + &quot;\&quot; OR \&quot;[[# &quot; + searchStr + &quot;\&quot;&quot;
+			var queries = [
+  				&quot;[[&quot;+ searchStr +&quot;]]&quot;,
+  				&quot;[[# &quot;+ searchStr +&quot;]]&quot;,
+			];
+		} else {
+			context.cancel()
+		}
+
+	}
+
+} 
+		
+searchStr == &quot;&quot; ? context.cancel() : searchStr
+</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// FUNCTIONS
+
+// escape characters for regex 
+
+function escapeRegex(string) {
+    return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, &#39;\\$&amp;&#39;);
+}
+
+// relative time formatting: https://stackoverflow.com/a/37802747
+
+function timeDifference(previous) {
+	var prefix = &quot;(&quot; + modOrCreated + &quot; &quot;
+	var suffix = &quot;)&quot;
+	var output = &quot;&quot;
+	var current = new Date()
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = current - previous;
+
+    if (elapsed &lt; msPerMinute) {
+    	     if (Math.round(elapsed/1000)==1) {
+    	     output = &#39;a second ago&#39;;
+    	     } else {
+         output = Math.round(elapsed/1000) + &#39; seconds ago&#39;;   
+         }
+    }
+
+    else if (elapsed &lt; msPerHour) {
+         if (Math.round(elapsed/msPerMinute)==1) {
+    	     output = &#39;a minute ago&#39;;
+    	     } else {
+         output = Math.round(elapsed/msPerMinute) + &#39; minutes ago&#39;;   
+         }   
+    }
+
+    else if (elapsed &lt; msPerDay ) {
+         if (Math.round(elapsed/msPerHour)==1) {
+    	     output = &#39;an hour ago&#39;;
+    	     } else {
+         output = Math.round(elapsed/msPerHour) + &#39; hours ago&#39;;   
+         }
+    }
+
+    else if (elapsed &lt; msPerMonth) {
+        if (Math.round(elapsed/msPerDay)==1) {
+    	     output = &#39;yesterday&#39;;
+    	     } else {
+        output = &#39;~&#39; + Math.round(elapsed/msPerDay) + &#39; days ago&#39;;   
+         }
+    }
+
+    else if (elapsed &lt; msPerYear) {
+        if (Math.round(elapsed/msPerMonth)==1) {
+    	     output = &#39;last month&#39;;
+    	     } else {
+         output = &#39;~&#39; + Math.round(elapsed/msPerMonth) + &#39; months ago&#39;;   
+         }
+    }
+
+    else {
+        if (Math.round(elapsed/msPerYear)==1) {
+    	     output = &#39;last year&#39;;
+    	     } else {
+         output = &#39;~&#39; + Math.round(elapsed/msPerYear) + &#39; years ago&#39;; 
+         }
+    }
+	return prefix + output + suffix
+}
+
+// https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site
+
+/* function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = seconds / 31536000;
+
+  if (interval &gt; 1) {
+    return Math.floor(interval) + &quot; years&quot;;
+  }
+  interval = seconds / 2592000;
+  if (interval &gt; 1) {
+    return Math.floor(interval) + &quot; months&quot;;
+  }
+  interval = seconds / 86400;
+  if (interval &gt; 1) {
+    return Math.floor(interval) + &quot; days&quot;;
+  }
+  interval = seconds / 3600;
+  if (interval &gt; 1) {
+    return Math.floor(interval) + &quot; hours&quot;;
+  }
+  interval = seconds / 60;
+  if (interval &gt; 1) {
+    return Math.floor(interval) + &quot; minutes&quot;;
+  }
+  return Math.floor(seconds) + &quot; seconds&quot;;
+}
+
+*/
+
+</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// DISPLAY RESULTS AND NAVIGATE TO LOCATIONS WITHIN SELECTED DRAFTS
+
+var i = 0;
+var backlinks = []
+
+if (queries) { 
+
+	// this, if we&#39;re searching for a linked reference
+
+	let queriesDD = [...new Set(queries)];
+	var searchStr = &quot;\&quot;&quot; + queriesDD.join(&quot;\&quot; OR \&quot;&quot;) + &quot;\&quot;&quot;
+	let drafts = Draft.query(searchStr, searchScope,[],[],modOrCreated,true)
+
+	while(drafts[i]){
+	var q=0
+	while(queries[q]){
+    		hits = drafts[i].lines.filter(element =&gt; element.toString().toUpperCase().includes(queries[q].toString().toUpperCase()) )
+    		var n=0
+    		while(hits[n]){
+    			// descr = (typeof hits[n] == &#39;undefined&#39;) ? drafts[i].title : hits[n]
+    			let descr = hits[n] ? hits[n] : drafts[i].title
+    			let separator = drafts[i].tags.join() == &quot;&quot; ? &quot;&quot; :  &quot; ... &quot;
+
+			backlinks.push({
+				title: drafts[i].title,
+				description: descr,
+				// info: drafts[i].tags.join()+ timeDifference(drafts[i].createdAt),
+				info: drafts[i].tags.join(&quot;, &quot;) + separator + timeDifference(drafts[i][mocProp]),
+				uuid: drafts[i].uuid,
+				metadata: drafts[i].content,
+				permalink: drafts[i].permalink
+        		});
+    			n++;
+    		}
+		q++;
+	}
+	i++;
+	}
+
+	const
+	keys = [&#39;title&#39;, &#39;description&#39;],
+    		filtered = backlinks.filter(
+        		(s =&gt; o =&gt; 
+            		(k =&gt; !s.has(k) &amp;&amp; s.add(k))
+            		(keys.map(k =&gt; o[k]).join(&#39;|&#39;))
+        		)
+        		(new Set)
+    		);
+} else {
+
+	// all other searches...
+
+	let drafts = Draft.query(searchStr, searchScope,[],[],modOrCreated,true)
+	while(drafts[i]){
+
+    		hits = drafts[i].lines.filter(element =&gt; element.toString().toUpperCase().includes(searchStr.toString().toUpperCase()) )
+    		var n=0
+    		while(hits[n]){
+    		if (fullDraftsAsContext == true) {
+    			descr = drafts[i].title == hits[n] ? drafts[i].processTemplate(&quot;[[body]]&quot;) : hits[n]
+    			} else {
+    			// descr = drafts[i].title == hits[n] ? &quot;&quot; : hits[n]
+    			descr = drafts[i].title == hits[n] ? draft.lines.filter((a) =&gt; a)[1] + &quot;\n↳ _**first line of draft; search term in title**_&quot; : hits[n]
+			}
+			let separator = drafts[i].tags.join() == &quot;&quot; ? &quot;&quot; :  &quot; ... &quot;
+			
+			backlinks.push({
+						title: drafts[i].title,
+						// description: hits[n],
+						description: descr.replace(/\t/g,&quot;&quot;),
+						// info: drafts[i].tags.join()+ timeDifference(drafts[i][mocProp]),
+						info: drafts[i].tags.join(&quot;, &quot;) + separator + timeDifference(drafts[i][mocProp]),
+						metadata: hits[n],
+						uuid: drafts[i].uuid
+        			});
+    		n++;
+    		}
+	i++;
+	}
+
+}
+
+// Create an MGCheckListPrompt.
+var prompt = new MGCheckListPrompt();
+prompt.message = &quot;Query: &quot; + searchStr;
+prompt.addItems(backlinks)
+prompt.allowsTypeToFilter = true
+prompt.singleSelectionMode = true
+prompt.selectsImmediately = true
+prompt.processMarkdown = true
+prompt.includedContent = `
+&lt;style&gt;
+.item-description {
+	font-size: 90%;
+	display: inline;
+}
+&lt;/style&gt;
+`
+
+// Show the prompt.
+var selectedItems = prompt.show();
+
+// Report the result.
+if (prompt.didShow) {
+	if (selectedItems != null) {
+		source = Draft.find(backlinks[selectedItems[0]].uuid);
+		editor.load(source)
+		fullText = editor.getText()
+		anchor = backlinks[selectedItems[0]].metadata
+		pos = fullText.indexOf(anchor)
+		// find position of selected line
+		// pos = fullText.search(&quot;/&quot;+ escapeRegex(anchor) +&quot;/i&quot;)
+		if (queries) {searchStr = queries[0].toString().substr(2).slice(0, -2)}
+		pos = fullText.toUpperCase().indexOf(searchStr.toString().toUpperCase(), pos) // this to select the search term
+		editor.setSelectedRange(pos,searchStr.toString().length) // anchor.length or searchStr.length, to select search term
+		editor.activate();
+	} else {
+		
+	}
+} else {
+	app.displayErrorMessage(&quot;Looks like your query returned no results.&quot;);
+	context.cancel()
+}
+</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Nothing
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">None</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">None</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

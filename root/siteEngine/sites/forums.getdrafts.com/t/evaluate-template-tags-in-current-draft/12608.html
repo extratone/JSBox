@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Evaluate Template Tags in Current Draft - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12608.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Evaluate Template Tags in Current Draft&#39;" href="12608.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608" />
+<meta property="og:title" content="Evaluate Template Tags in Current Draft" />
+<meta name="twitter:title" content="Evaluate Template Tags in Current Draft" />
+<meta property="og:description" content="I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, managed to modify some existing scripts to meet my needs, but I seem to be completely stuck on the fundamentals here.  Basically, I want to grab anything in the current Draft that uses the template tags like [[date]] or &lt;&lt;TextExpander_snippet&gt;&gt; and replace that placeholder with a..." />
+<meta name="twitter:description" content="I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, managed to modify some existing scripts to meet my needs, but I seem to be completely stuck on the fundamentals here.  Basically, I want to grab anything in the current Draft that uses the template tags like [[date]] or &lt;&lt;TextExpander_snippet&gt;&gt; and replace that placeholder with a..." />
+<meta property="article:published_time" content="2022-05-06T06:00:10+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="12608.html">Evaluate Template Tags in Current Draft</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Isshin'><span itemprop='name'>Isshin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12608.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-06T06:00:10Z' class='post-time'>
+                May 6, 2022,  6:00am
+              </time>
+              <meta itemprop='dateModified' content='2022-05-06T06:47:27Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, managed to modify some existing scripts to meet my needs, but I seem to be completely stuck on the fundamentals here.</p>
+<p>Basically, I want to grab anything in the current Draft that uses the template tags like <code>[[date]]</code> or <code>&lt;&lt;TextExpander_snippet&gt;&gt;</code> and replace that placeholder with appropriate information. I’m okay with either just grabbing the current line or evaluating the draft as a whole. I thought it would be simpler to process the Draft as a whole instead of trying to get tricky with selectors, but I’m not even having luck there.</p>
+<p>Based on my extremely limited understanding of scripting syntax I thought something like this would work: <code>let updated_text = processTemplate(draft.content);</code></p>
+<p>Edit:<br>
+This works for tags like <code>[[date]]</code></p>
+<p><code>draft.content = draft.processTemplate("[[draft]]”);</code><br>
+<code>draft.update();</code></p>
+<p>but TextExpander shortcuts like <code>&lt;&lt;ldate&gt;&gt;</code> do not work even though typing the abbreviation <code>ldate</code> into Drafts manually <em>does</em> expand as expected.</p>
+        </div>
+
+        <meta itemprop='headline' content='Evaluate Template Tags in Current Draft'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Isshin'><span itemprop='name'>Isshin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12608.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-09T06:53:53Z' class='post-time'>
+                May 9, 2022,  6:53am
+              </time>
+              <meta itemprop='dateModified' content='2022-05-09T06:53:53Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>After looking at some scripts to see how people write code that does something similar, this is what I’ve got at present:</p>
+<pre><code class="lang-auto">var text = editor.getSelectedText();
+let replacement = draft.processTemplate(text);
+editor.setSelectedText(replacement);
+draft.update();
+</code></pre>
+<p>I can select a tag, expand it, and the expansion replaces the selected text. This works with all Drafts square-bracket tags like <code>[[permalink]]</code>, but TextExpander tags with double-less/greater-than symbols like <code>&lt;&lt;TextExpander_abbreviation&gt;&gt;</code> do not seem to get processed. Am I asking for something that isn’t supported? According to the <a href="../../../docs.getdrafts.com/docs/actions/templates/drafts-templates.html" rel="noopener nofollow ugc">Drafts Templates</a> page TextExpander snippets in templates <em>should</em> expand when run through the parser, but it doesn’t work for me.</p>
+<p>Typing the abbreviation works; I use TextExpander snippets all the time, so I’ve had them enabled for forever. I’ve also checked to make sure that the option at <code>Settings &gt; TextExpander &gt; Expand in Action Templates</code> is enabled. I’ve also checked that the snippets I want to use exist and that snippets were refreshed.</p>
+<p>Does anybody have any idea why TextExpander snippets aren’t getting processed?</p>
+        </div>
+
+        <meta itemprop='headline' content='Evaluate Template Tags in Current Draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12608.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-09T12:01:18Z' class='post-time'>
+                May 9, 2022, 12:01pm
+              </time>
+              <meta itemprop='dateModified' content='2022-05-09T12:01:18Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Mentioned in the <a href="../using-textexpander-with-drafts/5030.html">TextExpander guide</a>, but, yes, those snippets are not supported in script for boring technical reasons.</p>
+<p>Could you explain what your use case is for this solution? It is a big at-odds with how template tags are meant to be used…perhaps there is a better solution.</p>
+        </div>
+
+        <meta itemprop='headline' content='Evaluate Template Tags in Current Draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Isshin'><span itemprop='name'>Isshin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12608.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-10T01:16:16Z' class='post-time'>
+                May 10, 2022,  1:16am
+              </time>
+              <meta itemprop='dateModified' content='2022-05-10T01:16:16Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have a set of class notes that differ depending on the day. I automated their creation by using Shortcuts to pull info from a JSON dictionary so that when a new term/year starts I don’t have to update a whole set of templates, I just update the information in one place and use Shortcuts to create that day’s set of notes. I did it this way to generate a new Draft dynamically instead of using a static source template because there are various tags and headings I need to enter that differ from class to class.</p>
+<p>For each class, I also have a student name list formatted as a checklist. I made those TextExpander snippets because I have to be able to enter those name lists in different places besides this template. I have been just typing the TextExpander snippet when I open the note, but the whole idea of automation is to take care of that kind of repetitive routine task.</p>
+<p>Ideally, I should be able to just update any info in TextExpander and have it work in any of the various places I need it. I thought that in-app scripting would be better than trying to do it another way since there wouldn’t be any other dependencies. Plus, as I pointed out earlier, I have almost no experience in scripting so this would be an excuse to learn a bit more.</p>
+<p>(Side topic: anyone know of a resource with a clear explanation of syntax and how to combine terms, with lots of examples of code? I’ve been feeling my way through this since most “tutorials” I’ve found jump from <em>this is a variable</em> level to <em>of course it’s a trivial exercise from this point to create your own Turing machine</em> with seemingly nothing in between. My problem is usually not to figure out <strong>what</strong> to do since I’m pretty good at breaking down problems into steps; but I often can’t find clear information on <strong>how</strong> to implement something.)</p>
+<p>I suppose I can just add a key to the JSON dictionary I’ve already set up for the classes themselves and add that step to the Shortcuts workflow. I’ll have to update the information manually there too, if I have to update anything during the term, but at least it will accomplish what I’m trying to do. I think.</p>
+        </div>
+
+        <meta itemprop='headline' content='Evaluate Template Tags in Current Draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12608.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-10T12:23:47Z' class='post-time'>
+                May 10, 2022, 12:23pm
+              </time>
+              <meta itemprop='dateModified' content='2022-05-10T12:23:47Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Seems like you have made good progress. I would suggest TextExpander is not a good option here for your data source, obvious because you cannot programmatically expand snippets, but also because programmatic expansion does not work at all on the Mac and because any change you make in TextExpander would not make it into Drafts on iOS until you “refresh snippets” to update the TextExpander snippet library.</p>
+<p>I’m not sure what other places you want to be able to use this information. It could be stored in a draft and inserted programmatically. It could be stored in a plain text file somewhere and read and inserted - either by Drafts or Shortcuts. Those both represent additional steps to use elsewhere.</p>
+        </div>
+
+        <meta itemprop='headline' content='Evaluate Template Tags in Current Draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Isshin'><span itemprop='name'>Isshin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12608.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-10T23:55:47Z' class='post-time'>
+                May 10, 2022, 11:55pm
+              </time>
+              <meta itemprop='dateModified' content='2022-05-11T00:01:16Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the caveat about TextExpander use and suggestions for alternative approaches. No wonder I wasn’t able to get it working; it simply wasn’t possible.</p>
+<p>For this, looks like my best bet is the JSON via Data Jar workflow that I’ve already got in place. I’ve used the text file approach for logging other bits of data in the past but sometimes it’s iffy because the Files app doesn’t necessarily update immediately, so I’ve come to use data in text files mostly for outgoing info, rolling logs, etc.</p>
+<p>Edited to add:</p>
+<p>I’m used to using this exclusively on iOS since I first started automating things like this with Drafts before the Drafts app or Shortcuts on macOS existed, so getting it to work Mac-side is not even really a consideration.</p>
+        </div>
+
+        <meta itemprop='headline' content='Evaluate Template Tags in Current Draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

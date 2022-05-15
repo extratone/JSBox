@@ -1,0 +1,382 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>GmailMessage | Drafts Script Reference</title>
+	<meta name="description" content="Documentation for Drafts Script Reference">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="https://scripting.getdrafts.com/index.html" class="title">Drafts Script Reference</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="gmailmessage.html#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="gmailmessage.html#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="gmailmessage.html">GmailMessage</a>
+				</li>
+			</ul>
+			<h1>Class GmailMessage</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="gmailmessage.html#gmailmessage" id="gmailmessage" style="color: inherit; text-decoration: none;">
+							<h1>GmailMessage</h1>
+						</a>
+					</div>
+					<p>The GmailMessage object can be used to create and send mail messages through Gmail accounts, similar to those created by a <a href="../../getdrafts.com/actions/steps/gmail.html">Gmail action step</a>. Creating and sending these messages happens in the background, with no user interface, so messages must be complete with recipients before calling send(). Sending is done via the <a href="https://developers.google.com/gmail/api/">Gmail API</a>. Gmail accounts are authenticated when used for the first time using OAuth - to use more than one account, call create with different identifier parameters.</p>
+					<a href="gmailmessage.html#example" id="example" style="color: inherit; text-decoration: none;">
+						<h3>Example</h3>
+					</a>
+					<pre><code class="language-javascript"><span class="hljs-keyword">let</span> message = GmailMessage.create();
+message.toRecipients = [<span class="hljs-string">&quot;joe@sample.com&quot;</span>];
+message.subject = <span class="hljs-string">&quot;My test message&quot;</span>;
+message.body = <span class="hljs-string">&quot;Body text&quot;</span>;
+
+<span class="hljs-keyword">var</span> success = message.send();
+<span class="hljs-keyword">if</span> (!success) {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Sending gmail failed&quot;</span>);
+  context.fail();
+}
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">GmailMessage</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="gmailmessage.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gmailmessage.html#bccrecipients" class="tsd-kind-icon">bcc<wbr>Recipients</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gmailmessage.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gmailmessage.html#ccrecipients" class="tsd-kind-icon">cc<wbr>Recipients</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gmailmessage.html#isbodyhtml" class="tsd-kind-icon">is<wbr>BodyHTML</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gmailmessage.html#subject" class="tsd-kind-icon">subject</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gmailmessage.html#torecipients" class="tsd-kind-icon">to<wbr>Recipients</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gmailmessage.html#send" class="tsd-kind-icon">send</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="gmailmessage.html#create" class="tsd-kind-icon">create</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Gmail<wbr>Message<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gmailmessage.html" class="tsd-signature-type">GmailMessage</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L56">GmailMessage.d.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create new instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> identifier: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gmailmessage.html" class="tsd-signature-type">GmailMessage</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="bccrecipients" class="tsd-anchor"></a>
+					<h3>bcc<wbr>Recipients</h3>
+					<div class="tsd-signature tsd-kind-icon">bcc<wbr>Recipients<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L33">GmailMessage.d.ts:33</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of email addresses to use as <code>BCC:</code> recipients. Each entry can be a valid email address, or a name and email in the format <code>Name&lt;email&gt;</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="body" class="tsd-anchor"></a>
+					<h3>body</h3>
+					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L40">GmailMessage.d.ts:40</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Body text of the mail message. Can be plain text or HTML if the <code>isBodyHTML</code> property is set to <code>true</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="ccrecipients" class="tsd-anchor"></a>
+					<h3>cc<wbr>Recipients</h3>
+					<div class="tsd-signature tsd-kind-icon">cc<wbr>Recipients<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L29">GmailMessage.d.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of email addresses to use as <code>CC:</code> recipients. Each entry can be a valid email address, or a name and email in the format <code>Name&lt;email&gt;</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="isbodyhtml" class="tsd-anchor"></a>
+					<h3>is<wbr>BodyHTML</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>BodyHTML<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L45">GmailMessage.d.ts:45</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>whether to treat the body string and plain text or HTML. When set to <code>true</code>, the <code>body</code> property should be set to full valid HTML.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="subject" class="tsd-anchor"></a>
+					<h3>subject</h3>
+					<div class="tsd-signature tsd-kind-icon">subject<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L35">GmailMessage.d.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="torecipients" class="tsd-anchor"></a>
+					<h3>to<wbr>Recipients</h3>
+					<div class="tsd-signature tsd-kind-icon">to<wbr>Recipients<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L25">GmailMessage.d.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of email addresses to use as <code>To:</code> recipients. Each entry can be a valid email address, or a name and email in the format <code>Name&lt;email&gt;</code>.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="send" class="tsd-anchor"></a>
+					<h3>send</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">send<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L50">GmailMessage.d.ts:50</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Send the mail message via the Gmail API.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="create" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gmailmessage.html" class="tsd-signature-type">GmailMessage</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/GmailMessage.d.ts#L56">GmailMessage.d.ts:56</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>create a new object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> identifier: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>notes which for Gmail account to use. This string is an arbitrary value, but we recommend using the email address you wish to associate with the script. Each unique identifier will be associated with its own <a href="../../getdrafts.com/settings/credentials.html">Credential</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="gmailmessage.html" class="tsd-signature-type">GmailMessage</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="gmailmessage.html" class="tsd-kind-icon">Gmail<wbr>Message</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="gmailmessage.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="gmailmessage.html#bccrecipients" class="tsd-kind-icon">bcc<wbr>Recipients</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="gmailmessage.html#body" class="tsd-kind-icon">body</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="gmailmessage.html#ccrecipients" class="tsd-kind-icon">cc<wbr>Recipients</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="gmailmessage.html#isbodyhtml" class="tsd-kind-icon">is<wbr>BodyHTML</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="gmailmessage.html#subject" class="tsd-kind-icon">subject</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="gmailmessage.html#torecipients" class="tsd-kind-icon">to<wbr>Recipients</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gmailmessage.html#send" class="tsd-kind-icon">send</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="gmailmessage.html#create" class="tsd-kind-icon">create</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="https://scripting.getdrafts.com/assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

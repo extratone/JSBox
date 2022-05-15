@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Rename actions, multiple lines of actions above keyboard</title>
+    <link>https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895</link>
+    <description>Hi, I&#39;m just starting to use the full version of drafts 5 and have a few questions.
+
+1. How do i rename actions?
+
+2. Is it possible to make multiples row of buttons above the keyboard so that I can access more functions quickly?
+
+3. Is it possible to see how an action was constructed so I can tweak actions in the drafts app? For example, if i download an action from the action directory, is there any easy way for me to make tweaks to how it works?
+
+Thanks.</description>
+    
+    <lastBuildDate>Sun, 16 Jun 2019 18:33:16 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Rename actions, multiple lines of actions above keyboard</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, I’ve quickly put together a full example for you.</p>
+<p>First of all, here’s a keyboard enabled action group to download.</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/g/1XW" rel="nofollow noopener"><strong>Group:</strong> Example</a>.</li>
+</ul>
+<p>It contains four actions.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/1/1bac31111ac9b754bcc8e62d392f8547fd378d5c.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/1bac31111ac9b754bcc8e62d392f8547fd378d5c" title="747F7D64-E7A9-4B81-8082-E1983FDEE02E.jpeg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1bac31111ac9b754bcc8e62d392f8547fd378d5c_2_690x44.jpeg" alt="image" data-base62-sha1="3WNOg83J7VLtfgloro5opjQUkb2" width="690" height="44" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1bac31111ac9b754bcc8e62d392f8547fd378d5c_2_690x44.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1bac31111ac9b754bcc8e62d392f8547fd378d5c_2_1035x66.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1bac31111ac9b754bcc8e62d392f8547fd378d5c_2_1380x88.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1bac31111ac9b754bcc8e62d392f8547fd378d5c_2_10x10.png"></a></div><p></p>
+<ol>
+<li>
+<strong>Choose</strong> - this action pops up the menu to choose from a list of other actions.  To make this self-contained, I’ve included the three actions it allows you to choose from in this action group.</li>
+<li>
+<strong>EG1</strong> - this action inserts the current date in YYYY-MM-DD format.</li>
+<li>
+<strong>EG2</strong> - this action inserts the current date in MM-DD-YYYY format.</li>
+<li>
+<strong>EG3</strong> - this action inserts the current date in DD-MM-YYYY format.</li>
+</ol>
+<p>When you select the <em>Choose</em> key it will pop-up a prompt with three buttons.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/f/f8fb05814c977e852e7aeab80f56b2156ef407d3.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/f8fb05814c977e852e7aeab80f56b2156ef407d3" title="C634300F-7920-47FB-BC8E-699A30360791.jpeg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f8fb05814c977e852e7aeab80f56b2156ef407d3_2_345x242.jpeg" alt="image" data-base62-sha1="zwAdS9ap3VnQERIPbECUwJ2Fqdd" width="345" height="242" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f8fb05814c977e852e7aeab80f56b2156ef407d3_2_345x242.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/f/f8fb05814c977e852e7aeab80f56b2156ef407d3_2_517x363.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/f/f8fb05814c977e852e7aeab80f56b2156ef407d3_2_690x484.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f8fb05814c977e852e7aeab80f56b2156ef407d3_2_10x10.png"></a></div><p></p>
+<p>Note that the buttons display a description of what to do rather than the name of the action.  I could have directly used the name of the action, but I figured this example could be more widely used and it might be better to be able to display different text that can be associated with the action.  But likewise you could always display the name of the action.</p>
+<p>When cancel is selected, an info message is popped up.  When a button is selected, the associated action is run.</p>
+<p>The script that does this is shown below.  It takes a set of JSON where the key-value pairs are ‘button text-action name’ and then queues the selected action to run once the current one (the one displaying the prompt) completes.</p>
+<pre><code class="lang-auto">//Define some JSON (key-value pairs), where the key is the button text to display
+//and the value is the name of the action to run
+let strActions = `
+{
+	"Date YYYY-MM-DD" : "EG1",
+	"Date MM-DD-YYYY" : "EG2",
+	"Date DD-MM-YYYY" : "EG3"
+}
+`
+
+//Send the JSON off to a function to display it to the user for selection and running
+chooseAndRunAction(strActions);
+
+
+// Here are the functions that make it work
+
+function promptButtonArray(p_strTitle, p_arrButtons)
+{
+	//Set-up the base prompt
+	let promptButtonArray = Prompt.create();
+	promptButtonArray.title = p_strTitle;
+
+	//Create a button for each array item
+	p_arrButtons.forEach(function(item)
+	{
+		promptButtonArray.addButton(item);
+	});
+	
+	if (promptButtonArray.show())
+	{
+		return promptButtonArray.buttonPressed;
+	}
+	else
+	{
+		return "";
+	}
+}
+
+function chooseAndRunAction(p_jsonActions)
+{
+	//initialise
+	let actionData = JSON.parse(p_jsonActions);
+	arrButtons = [];
+	
+	//Build an array of JSON keys
+	for (key in actionData)
+	{
+		arrButtons.push(key);
+	}
+	
+	//Pop-up some choices for the action to run
+	let strResult = promptButtonArray("Run", arrButtons);
+
+	//If we get a selection, queue up the action associated with the selection to run next.
+	if (strResult == "") app.displayInfoMessage("Cancelled");
+	else app.queueAction(Action.find(actionData[strResult]), draft);
+
+	//Reactivate the editor in case it lost focus
+	editor.activate();
+}
+</code></pre>
+<p>You should just be able to duplicate and amend the JSON and any other parts of the action you wish for your own use, as many times as you wish.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/5</link>
+        <pubDate>Sun, 16 Jun 2019 18:33:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4895-5</guid>
+        <source url="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895.rss">Rename actions, multiple lines of actions above keyboard</source>
+      </item>
+      <item>
+        <title>Rename actions, multiple lines of actions above keyboard</title>
+        <dc:creator><![CDATA[hobbyist]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group quote-modified" data-post="2" data-topic="4895">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>you could pop up prompts to let you choose from multiple options.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/b/b7597ec8f383040d1771e33db58df9c95cdb25b4.png" alt="" data-base62-sha1="q9Z7qt5DktH8vl4pMXQuOMMfLsE" width="20" height="20"> hobbyist:</p>
+<blockquote>
+<p>Is it possible to see how an action was constructed so</p>
+</blockquote>
+</blockquote>
+</aside>
+<p>Awesome, thanks! How can I make popup prompts? Is this a different feature than the one that <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> described about using multiple keyboards?</p>
+          <p><a href="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/4</link>
+        <pubDate>Sun, 16 Jun 2019 17:31:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4895-4</guid>
+        <source url="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895.rss">Rename actions, multiple lines of actions above keyboard</source>
+      </item>
+      <item>
+        <title>Rename actions, multiple lines of actions above keyboard</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It is not possible to display multiple rows simultaneously.  It is possible to configure as many action groups to be available as keyboards as you like, and switch between them using the <a href="https://getdrafts.com/editor/keyboard" rel="nofollow noopener">keyboard selector</a> or by <a href="https://forums.getdrafts.com/t/tip-swipe-up-and-down-on-extended-keyboard-to-swap-groups/706">swiping up and down on the keyboard row</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/3</link>
+        <pubDate>Thu, 06 Jun 2019 16:12:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4895-3</guid>
+        <source url="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895.rss">Rename actions, multiple lines of actions above keyboard</source>
+      </item>
+      <item>
+        <title>Rename actions, multiple lines of actions above keyboard</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-post="1" data-topic="4895">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/h/5f8ce5/40.png" class="avatar"> hobbyist:</div>
+<blockquote>
+<p>How do i rename actions?</p>
+</blockquote>
+</aside>
+<p>Swipe left to right on it in the list and select edit. You can rename in there.</p>
+<aside class="quote no-group" data-post="1" data-topic="4895">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/h/5f8ce5/40.png" class="avatar"> hobbyist:</div>
+<blockquote>
+<p>Is it possible to make multiples row of buttons above the keyboard so that I can access more functions quickly?</p>
+</blockquote>
+</aside>
+<p>No - only one row, but you could pop up prompts to let you choose from multiple options.</p>
+<aside class="quote no-group" data-post="1" data-topic="4895">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/h/5f8ce5/40.png" class="avatar"> hobbyist:</div>
+<blockquote>
+<p>Is it possible to see how an action was constructed so I can tweak actions in the drafts app? For example, if i download an action from the action directory, is there any easy way for me to make tweaks to how it works?</p>
+</blockquote>
+</aside>
+<p>Yes. Edit the action as above for renaming. The action directory also shows you how the actions are constructed.</p>
+          <p><a href="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/2</link>
+        <pubDate>Mon, 03 Jun 2019 15:55:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4895-2</guid>
+        <source url="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895.rss">Rename actions, multiple lines of actions above keyboard</source>
+      </item>
+      <item>
+        <title>Rename actions, multiple lines of actions above keyboard</title>
+        <dc:creator><![CDATA[hobbyist]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, I’m just starting to use the full version of drafts 5 and have a few questions.</p>
+<ol>
+<li>
+<p>How do i rename actions?</p>
+</li>
+<li>
+<p>Is it possible to make multiples row of buttons above the keyboard so that I can access more functions quickly?</p>
+</li>
+<li>
+<p>Is it possible to see how an action was constructed so I can tweak actions in the drafts app? For example, if i download an action from the action directory, is there any easy way for me to make tweaks to how it works?</p>
+</li>
+</ol>
+<p>Thanks.</p>
+          <p><a href="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895/1</link>
+        <pubDate>Mon, 03 Jun 2019 13:26:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4895-1</guid>
+        <source url="https://forums.getdrafts.com/t/rename-actions-multiple-lines-of-actions-above-keyboard/4895.rss">Rename actions, multiple lines of actions above keyboard</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>OneNote API Issues affect Append/Prepend functionality</title>
+    <link>https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541</link>
+    <description>I spent a good chuck of time yesterday and today troubleshooting an issue with OneNote actions, only to determine the issue is at Microsoft&#39;s end in the [OneNote resources in the Microsoft Graph API](https://docs.microsoft.com/en-us/graph/api/resources/onenote-api-overview?view=graph-rest-1.0) which Drafts uses to integrate.
+
+### What people using OneNote integration need to know:
+
+- This issue does _not_ affect actions which only create new pages in OneNote. 
+- Actions which update existing pages - like those configured to append/prepend/replace - may be very unreliable at the moment. In some cases they will create a new page instead of appending, etc.
+
+### What is happening?
+
+In order to update existing pages, Drafts has to query OneNote to find existing pages, get their current state, and construct the appropriate new information to send back to OneNote.  Currently (starting at least a month ago, it seems), the methods in the OneNote API to get information about pages are returning very old information...sometimes days or more old. It will not return information about recently created pages, and will often include information about pages which no longer exist or have been moved.
+
+Because of this, Drafts may get bad information about the state of your OneNote notebooks and not be able to find pages to update...or proceed to try to update pages which no longer exist, resulting in errors.
+
+### When did this start?
+
+I don&#39;t know exactly. It was drawn to my attention researching a support issue for a user who was seeing problems. Based on Googled-info, it&#39;s been around at least a month.  I know it used to work fine, so it is something that changed at Microsoft&#39;s end.
+
+### Will Microsoft fix this?
+
+Well, I certainly hope so. I&#39;m working on trying to get to a technical contact or support entity that could help, but with a big company like Microsoft, that&#39;s not that easy to do, especially if you are not inside a large corporation with MS support contracts.  I will update with information when or if anything changes. It certainly seems like a big issue that must be causing trouble for some other people. I have found a few people [reporting similar problems on Stack Overflow](https://stackoverflow.com/questions/59546904/why-is-the-onenote-api-lagging-by-roughly-3-days-on-my-account/59988960#59988960).
+
+### Technical Details
+
+**_This section is primarily intended for anyone inside Microsoft who might read this post_.**
+
+The specific issue is that API endpoints that return information about pages in OneNote seem to be working from cached information that is not getting updated properly when changes are made in a OneNote account.
+
+To reproduce, you do not need an app, but can use the [Microsoft Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). Steps:
+
+- Go to API Explorer, make a request for:
+    - GET https://graph.microsoft.com/v1.0/me/onenote/pages
+    - This should return a list of pages in the authenticated OneNote account.
+- Open the same OneNote account in the app or web interface, make a number of changes to pages. Add some new ones, delete some, whatever.
+- Go back to API Explorer, make same request again:
+    - GET https://graph.microsoft.com/v1.0/me/onenote/pages
+    - You will get the same data as the original call, not reflecting changes to pages.
+
+A few notes:
+
+- Data will eventually get updated, but it may take days (or possibly weeks).
+- This same issue can be reproduced requesting pages of a specific section under it&#39;s resource in the graph API.
+- This issue does *not* happen for other resources in the OneNote API. Changes to notebooks and sections, for example, are reflected immediately.</description>
+    
+    <lastBuildDate>Fri, 10 Jul 2020 22:34:05 +0000</lastBuildDate>
+    <category>Issues</category>
+    <atom:link href="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>OneNote API Issues affect Append/Prepend functionality</title>
+        <dc:creator><![CDATA[ShriM]]></dc:creator>
+        <description><![CDATA[
+            <p>I can confirm that this is still a problem.</p>
+<p>I suppose a workaround for now would be to use the OneNote email service, albeit with its limitations. It seems that it can only save notes into the Default notebook (but you can specify a section). OneNote’s “Email Settings” page says:</p>
+<blockquote>
+<p>Tip: You can also save your email to a different section in the default notebook by including the “@” symbol followed by the section name at the end of your email subject line.</p>
+<p>It might look like this:</p>
+<p>To: <a href="mailto:me@OneNote.com">me@OneNote.com</a><br>
+Subject: <span class="mention">@Trip</span> Details</p>
+</blockquote>
+          <p><a href="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/5</link>
+        <pubDate>Fri, 10 Jul 2020 22:34:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6541-5</guid>
+        <source url="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541.rss">OneNote API Issues affect Append/Prepend functionality</source>
+      </item>
+      <item>
+        <title>OneNote API Issues affect Append/Prepend functionality</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>As far as I know, still a problem. I did, via Twitter, reach the product manager for the Microsoft Graph API, and they are aware of the problem. I followed up with her several times - but its not something they have addressed. <img src="https://forums.getdrafts.com/images/emoji/apple/man_shrugging.png?v=9" title=":man_shrugging:" class="emoji" alt=":man_shrugging:"></p>
+          <p><a href="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/4</link>
+        <pubDate>Sun, 24 May 2020 23:28:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6541-4</guid>
+        <source url="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541.rss">OneNote API Issues affect Append/Prepend functionality</source>
+      </item>
+      <item>
+        <title>OneNote API Issues affect Append/Prepend functionality</title>
+        <dc:creator><![CDATA[chrises]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>Do you know if this problem has been resolved yet or taken notice of by Microsoft?</p>
+<p>Thanks,<br>
+Chris</p>
+          <p><a href="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/3</link>
+        <pubDate>Sun, 24 May 2020 19:35:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6541-3</guid>
+        <source url="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541.rss">OneNote API Issues affect Append/Prepend functionality</source>
+      </item>
+      <item>
+        <title>OneNote API Issues affect Append/Prepend functionality</title>
+        <dc:creator><![CDATA[Robert_Driskell]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes!! I could not figure out why all my onenote actions would create sections or pages but then not be able to append or create new ones. I could delete the section in onenote and run the action again and it would work but not append or overwrite anything existing</p>
+          <p><a href="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/2</link>
+        <pubDate>Fri, 07 Feb 2020 06:02:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6541-2</guid>
+        <source url="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541.rss">OneNote API Issues affect Append/Prepend functionality</source>
+      </item>
+      <item>
+        <title>OneNote API Issues affect Append/Prepend functionality</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I spent a good chuck of time yesterday and today troubleshooting an issue with OneNote actions, only to determine the issue is at Microsoft’s end in the <a href="https://docs.microsoft.com/en-us/graph/api/resources/onenote-api-overview?view=graph-rest-1.0">OneNote resources in the Microsoft Graph API</a> which Drafts uses to integrate.</p>
+<h3>What people using OneNote integration need to know:</h3>
+<ul>
+<li>This issue does <em>not</em> affect actions which only create new pages in OneNote.</li>
+<li>Actions which update existing pages - like those configured to append/prepend/replace - may be very unreliable at the moment. In some cases they will create a new page instead of appending, etc.</li>
+</ul>
+<h3>What is happening?</h3>
+<p>In order to update existing pages, Drafts has to query OneNote to find existing pages, get their current state, and construct the appropriate new information to send back to OneNote.  Currently (starting at least a month ago, it seems), the methods in the OneNote API to get information about pages are returning very old information…sometimes days or more old. It will not return information about recently created pages, and will often include information about pages which no longer exist or have been moved.</p>
+<p>Because of this, Drafts may get bad information about the state of your OneNote notebooks and not be able to find pages to update…or proceed to try to update pages which no longer exist, resulting in errors.</p>
+<h3>When did this start?</h3>
+<p>I don’t know exactly. It was drawn to my attention researching a support issue for a user who was seeing problems. Based on Googled-info, it’s been around at least a month.  I know it used to work fine, so it is something that changed at Microsoft’s end.</p>
+<h3>Will Microsoft fix this?</h3>
+<p>Well, I certainly hope so. I’m working on trying to get to a technical contact or support entity that could help, but with a big company like Microsoft, that’s not that easy to do, especially if you are not inside a large corporation with MS support contracts.  I will update with information when or if anything changes. It certainly seems like a big issue that must be causing trouble for some other people. I have found a few people <a href="https://stackoverflow.com/questions/59546904/why-is-the-onenote-api-lagging-by-roughly-3-days-on-my-account/59988960#59988960">reporting similar problems on Stack Overflow</a>.</p>
+<h3>Technical Details</h3>
+<p><strong><em>This section is primarily intended for anyone inside Microsoft who might read this post</em>.</strong></p>
+<p>The specific issue is that API endpoints that return information about pages in OneNote seem to be working from cached information that is not getting updated properly when changes are made in a OneNote account.</p>
+<p>To reproduce, you do not need an app, but can use the <a href="https://developer.microsoft.com/en-us/graph/graph-explorer">Microsoft Graph API Explorer</a>. Steps:</p>
+<ul>
+<li>Go to API Explorer, make a request for:
+<ul>
+<li>GET <a href="https://graph.microsoft.com/v1.0/me/onenote/pages">https://graph.microsoft.com/v1.0/me/onenote/pages</a>
+</li>
+<li>This should return a list of pages in the authenticated OneNote account.</li>
+</ul>
+</li>
+<li>Open the same OneNote account in the app or web interface, make a number of changes to pages. Add some new ones, delete some, whatever.</li>
+<li>Go back to API Explorer, make same request again:
+<ul>
+<li>GET <a href="https://graph.microsoft.com/v1.0/me/onenote/pages">https://graph.microsoft.com/v1.0/me/onenote/pages</a>
+</li>
+<li>You will get the same data as the original call, not reflecting changes to pages.</li>
+</ul>
+</li>
+</ul>
+<p>A few notes:</p>
+<ul>
+<li>Data will eventually get updated, but it may take days (or possibly weeks).</li>
+<li>This same issue can be reproduced requesting pages of a specific section under it’s resource in the graph API.</li>
+<li>This issue does <em>not</em> happen for other resources in the OneNote API. Changes to notebooks and sections, for example, are reflected immediately.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541/1</link>
+        <pubDate>Thu, 30 Jan 2020 17:04:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6541-1</guid>
+        <source url="https://forums.getdrafts.com/t/onenote-api-issues-affect-append-prepend-functionality/6541.rss">OneNote API Issues affect Append/Prepend functionality</source>
+      </item>
+  </channel>
+</rss>

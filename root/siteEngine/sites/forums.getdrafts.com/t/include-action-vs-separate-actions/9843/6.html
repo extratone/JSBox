@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Include Action vs. separate actions - #6 by sylumer - Scripting - Drafts Community</title>
+    <meta name="description" content="I use the New Draft with Template Metadata from @agiletortoise to create a new draft from template.  I have created several actions which then insert strings into the new draft at desired locations based on selections fr&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Include Action vs. separate actions&#39;" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843/6" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843/6" />
+<meta property="og:title" content="Include Action vs. separate actions" />
+<meta name="twitter:title" content="Include Action vs. separate actions" />
+<meta property="og:description" content="Anything that can utilise Drafts own template tags could be dealt with from the original template as that initial action can process them.    For example [date|%A] represents the full name of the current day of the week and could be included in your template.  For non-Drafts data, then you probably want to look at iteration through placeholder. There have been a few of these posted, but for flexibility, maybe check out this one." />
+<meta name="twitter:description" content="Anything that can utilise Drafts own template tags could be dealt with from the original template as that initial action can process them.    For example [date|%A] represents the full name of the current day of the week and could be included in your template.  For non-Drafts data, then you probably want to look at iteration through placeholder. There have been a few of these posted, but for flexibility, maybe check out this one." />
+<meta property="article:published_time" content="2021-02-22T07:21:10+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">Include Action vs. separate actions</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/kurt'><span itemprop='name'>kurt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-20T03:56:07Z' class='post-time'>
+                February 20, 2021,  3:56am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-20T03:56:07Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I use the New Draft with Template Metadata from <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> to create a new draft from template.  I have created several actions which then insert strings into the new draft at desired locations based on selections from a prompt.  These actions work as expected when invoked individually, one-by-one, on the draft created from the template.  However, if I create a separate actions which includes these actions using the Include Action functionality, my scripts act as if the editor is empty, rather than containing the new draft from template.  I can’t figure out why this doesn’t work as I expect.</p>
+<p>An example action is shown below.  This inserts the day of the week, after the string “Day:” in the new draft from template.</p>
+<p>//Function returns current day of week<br>
+function findDayofWeek() 	{<br>
+let d = new Date();<br>
+let day = d.getDay();<br>
+var dayOfWeek = [" Sunday", " Monday", " Tuesday", " Wednesday", " Thursday", " Friday", " Saturday"];<br>
+let currentDay = dayOfWeek[day];<br>
+return currentDay;<br>
+}</p>
+<p>// Find cursor insertion point using RegEx<br>
+// Function to escape special characters<br>
+function escapeRegExp(stringToGoIntoTheRegex) {<br>
+return stringToGoIntoTheRegex.replace(/[-/\^$*+?.()|[]{}]/g, ‘\$&amp;’);<br>
+}</p>
+<p>// Function to insert cursor after defined text in draft<br>
+// uses function to escape special characters in the string<br>
+function cursorInsert(stringToInsertAfter)  {<br>
+var textToFind = stringToInsertAfter;<br>
+var stringToGoIntoTheRegex = escapeRegExp(textToFind); //escape the string<br>
+var textName =  new RegExp(stringToGoIntoTheRegex);  //regex for the string<br>
+var textLength = textToFind.length;<br>
+var d = draft.content;<br>
+var textStart = d.search(textName);  //find start of the string</p>
+<pre><code>editor.setSelectedRange(textStart+textLength,""); //insert cursor at string end
+editor.activate();	
+</code></pre>
+<p>}</p>
+<p>var stringToInsertAfter = “Day:” //string to find in the draft, hardcoded<br>
+cursorInsert(stringToInsertAfter); // fnc puts cursor after chosen string</p>
+<p>var dayOfWeek = findDayofWeek();<br>
+editor.setSelectedText(dayOfWeek);<br>
+editor.activate();</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-20T09:25:42Z' class='post-time'>
+                February 20, 2021,  9:25am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-20T09:25:42Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It is hard to see what is going on without being able to see the <strong>exact</strong> details of the interactions you have set-up. It is useful to share links to *all* actions (parent and all child actions it includes) so that others can download the exact actions, reproduce the behaviour and analyse what is going on.</p>
+<p>Unfortunately I can’t find an action called “New Draft with Template Metadata” in the Action directory so even assuming just some basic setup isn’t possible.</p>
+<p>My initial guesses would be working on the wrong draft (current draft vs newly created draft) or a draft that hasn’t had an explicit update so no positioning can be found. But at the moment they are just guesses.</p>
+<hr>
+<p><strong>Tip:</strong> Wrap your code between triple back ticks to create a code block. It makes it easier to read as formatting is retained and some syntax highlighting is applied. Also it stops the forum software misinterpreting and misformatting the code.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/kurt'><span itemprop='name'>kurt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-21T02:47:12Z' class='post-time'>
+                February 21, 2021,  2:47am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-21T02:47:12Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you for the helpful tips.  Let me try again.</p>
+<p>The initial action is “New Draft with Template” from @ agiletortoise, <a href="../../../../actions.getdrafts.com/a/1VL.html" class="inline-onebox" rel="noopener nofollow ugc">New Draft with Template | Drafts Action Directory</a>.  I had apparently renamed it.</p>
+<p>This action places a chosen template as the active draft.  This is the exact copy of my template:</p>
+<p><strong>Daily Stuff</strong><br>
+Date:[[date|%Y-%m-%d]]<br>
+Day:</p>
+<pre><code>[[Activity]]:&lt;|&gt;
+[[Fitness]]:
+
+
+[[template/daily]]:
+</code></pre>
+<p>I have an action which inserts the day of the week, <a href="https://actions.getdrafts.com/a/1hg" class="inline-onebox" rel="noopener nofollow ugc">Insert Day of Week | Drafts Action Directory</a>.</p>
+<p>Invoking that action, after initially running “New Draft with Template” will insert the current day of the week immediately after the string “Day:” in the above draft, as expected.</p>
+<p>I created an action which sequentially calls these two actions using Include Action steps (<a href="https://actions.getdrafts.com/a/1hh" class="inline-onebox" rel="noopener nofollow ugc">test | Drafts Action Directory</a>).  This does not insert the day of the week at the proper location.</p>
+<p>I can’t figure out why these two different techniques of invoking the same actions sequentially do not produce the same output.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-21T10:39:21Z' class='post-time'>
+                February 21, 2021, 10:39am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-21T10:39:21Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay, I think I have a reasonable grip on what’s going on. let’s walk it through.,</p>
+<p>The initial template population action runs against a draft, let’s call it D1 for convenience, but the draft it builds is another draft, let’s call it D2.  At the end of that action D1 is unloaded from the Drafts editor, and D2 is loaded in its place.</p>
+<p>Now the action is still running against the original D1 draft when the second included action is triggered.</p>
+<p>The action contains the following code.</p>
+<pre><code class="lang-auto">// Function to insert cursor after defined string in draft
+// uses function to escape any special characters possibly in the string
+function cursorInsert(stringToInsertAfter)  {
+	var textToFind = stringToInsertAfter;
+	var stringToGoIntoTheRegex = escapeRegExp(textToFind); //escape the string
+	var textName =  new RegExp(stringToGoIntoTheRegex);  //regex for the string
+	var textLength = textToFind.length;
+	var d = draft.content;
+	var textStart = d.search(textName);  //find start of the string
+
+	editor.setSelectedRange(textStart+textLength,""); //insert cursor at string end
+	editor.activate();	
+}
+</code></pre>
+<p>What I’m going to focus on initially are the following lines:</p>
+<pre><code class="lang-auto">	var d = draft.content;
+	var textStart = d.search(textName);  //find start of the string
+</code></pre>
+<p>We can see <code>d</code> being set to the content of <code>draft</code>. Now <code>draft</code> is the draft the overall action was being run against, which is D1. Importantly, that is not D2, which is the draft we want it to be running against.</p>
+<p>The first mistake is essentially that even though this function is operating on the editor, the code initialises based on the draft; which we can see is not always the same thing.</p>
+<p>A simple change to the code to use the editor object instead resolves this and gets more or less everything working.</p>
+<pre><code class="lang-auto">// Function to insert cursor after defined string in draft
+// uses function to escape any special characters possibly in the string
+function cursorInsert(stringToInsertAfter)  {
+	var textToFind = stringToInsertAfter;
+	var stringToGoIntoTheRegex = escapeRegExp(textToFind); //escape the string
+	var textName =  new RegExp(stringToGoIntoTheRegex);  //regex for the string
+	var textLength = textToFind.length;
+
+	let textStart = editor.getText().search(textName);  //find start of the string
+
+	editor.setSelectedRange(textStart+textLength,""); //insert cursor at string end
+	editor.activate();	
+}
+</code></pre>
+<p>But, that isn’t quite the whole picture.  When I originally ran the action, I got this in the first couple of lines.</p>
+<pre><code class="lang-nohighlight">**D Sundayaily Stuff**
+Date:2021-02-21
+</code></pre>
+<p>i.e. <code> Sunday</code> had being inserted after the first three characters of the editor content (draft D2).</p>
+<p>The logical assumption might then be that the original draft (draft D1) had “Day:” at the start of it (“Day:” being the parameter passed into the function above, but that’s four characters long, and my D1 was actually blank.</p>
+<p>Repeating but with a starting draft containing “Day:”, the insertion was applied at the expected location. Therefore, the issue lies when “Day:” isn’t found.</p>
+<p>The key point is that the <code>search()</code> function returns <code>-1</code> if the searched for text is not found.  But that isn’t catered for in the function above, and since the length of “Day:” is four characters, that gives us a positive offset of three characters, hence the insertion three characters after the start of the editor content. While this might not matter too much with the fix above as the template would always have that text in, when run stand alone, that is not always the case.</p>
+<p>On that basis , I think that the code for this action, could be amended and rationalised to something like the following.</p>
+<pre><code class="lang-auto">// Function returns current day of week
+function findDayofWeek() 	{
+	let d = new Date();
+	let dayOfWeek = [" Sunday", " Monday", " Tuesday", " Wednesday", " Thursday", " Friday", " Saturday"];
+	return dayOfWeek[d.getDay()]; //current day of week
+}
+
+// Function to escape special characters
+function escapeRegExp(stringToGoIntoTheRegex) {
+    return stringToGoIntoTheRegex.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&amp;');
+}
+
+// Function to insert cursor after defined string in draft
+// uses function to escape any special characters possibly in the string
+function cursorInsert(stringToInsertAfter) {
+	let textName =  new RegExp(escapeRegExp(stringToInsertAfter));  //regex for the string
+	let textStart = editor.getText().search(textName);  //find start of the string
+	if(textStart == -1) return false;
+	editor.setSelectedRange(textStart + stringToInsertAfter.length, ""); //insert cursor at string end
+	return true;
+}
+
+let stringToInsertAfter = "Day:"
+if (cursorInsert(stringToInsertAfter))	editor.setSelectedText(findDayofWeek());
+editor.activate();
+</code></pre>
+<p>I think that covers everything for this particular instance. It may be that other actions are giving you issues for different reasons. If you can’t spot why, post back with the details.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/kurt'><span itemprop='name'>kurt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-21T23:17:35Z' class='post-time'>
+                February 21, 2021, 11:17pm
+              </time>
+              <meta itemprop='dateModified' content='2021-02-21T23:17:35Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That is extremely helpful and really increases my understanding of the how the environment works.   Thank you for taking the time to examine the code and provide such a detailed and understandable explanation.</p>
+<p>My problem, as you concluded, was not fully understanding the difference between the draft and editor objects.  My other actions now run correctly after fixing this issue.</p>
+<p>Since you have already examined this code and  have an understanding of the process, I am going to take the liberty of asking you one more general question:</p>
+<p>What you fixed is an example of a more general workflow I have been trying to optimize:</p>
+<ol>
+<li>Create a boilerplate template</li>
+<li>Add specific, variable data  (strings) to that template (such as the day of the week in the example you fixed; or strings chosen from a prompt).</li>
+<li>Insert the variable data (strings) into the template for the final output.</li>
+</ol>
+<p>The current insertion technique is to search for a known string in the template and insert the desired variable data (strings) after that string.  This seems like it would be a common workflow and someone has probably solved it in a more elegant and general way.   My approach feels a little clunky.  Do you know of examples of similar solutions/workflows that I might study and learn from, or do you have any suggestions yourself for a better strategy?</p>
+<p>Thanks again for your generosity.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-22T07:21:10Z' class='post-time'>
+                February 22, 2021,  7:21am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-22T07:21:10Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Anything that can utilise Drafts own template tags could be dealt with from the original template as that initial action can process them.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="../../../../docs.getdrafts.com/docs/actions/templates.html" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, ../../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, ../../../uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="../../../../docs.getdrafts.com/docs/actions/templates.html" target="_blank" rel="noopener">Templates</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>For example <code>[date|%A]</code> represents the full name of the current day of the week and could be included in your template.</p>
+<p>For non-Drafts data, then you probably want to look at iteration through placeholder. There have been a few of these posted, but for flexibility, maybe check out this one.</p>
+<aside class="quote quote-modified" data-post="1" data-topic="9310">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/pdavisonreiber/40/4524_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/mustache-prompt/9310/">Mustache Prompt</a> <a class="badge-wrapper  bullet" href="../../../c/actions-sharing.html"><span class="badge-category-bg" style="background-color: #9EB83B;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Made a cool action, or discovered a new way to use Drafts? Share it here.">Actions - Share What You've Made</span></a>
+  </div>
+  <blockquote>
+    <a href="../../../../actions.getdrafts.com/a/1fT.html" rel="noopener nofollow ugc">Mustache Prompt</a> works with templates written in the <a href="http://mustache.github.io/mustache.5.html" rel="noopener nofollow ugc">Mustache</a> template format. It will automatically detect and prompt you for the values of all the variables in your template, and then create a new draft using the data you entered. 
+It supports type annotations for dates, booleans, and arrays of strings. Try running the action on a draft containing the example text below to see how it works. For more information, <a href="https://polymaths.blog/2020/12/mustache-prompt-for-drafts" rel="noopener nofollow ugc">read my blog post</a> on this action. 
+
+Here is a basic {{text_variable}}. 
+{{bool:#boo…
+  </blockquote>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/kurt'><span itemprop='name'>kurt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-23T03:38:39Z' class='post-time'>
+                February 23, 2021,  3:38am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-23T03:38:39Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Using custom template tags might be an alternative to my cursor insertion method.</p>
+<p>I had stumbled across the Mustache stuff previously but not taken the time to learn more.   This looks like it may be a more powerful, general solution - worth spending some time learning.  Thanks for your many insights.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-23T13:31:58Z' class='post-time'>
+                February 23, 2021,  1:31pm
+              </time>
+              <meta itemprop='dateModified' content='2021-02-23T13:31:58Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Using Drafts custom template tags might be adequate and easier to work into the existing functionality. In the “New Draft with Template” script, you could modify this area of the script to add some custom tag values:</p>
+<pre><code class="lang-javascript">let d = Draft.create();
+for (let tag of template.tags) {
+	if (tag != "template") {
+		d.addTag(tag);
+	}
+}
+d.languageGrammar = template.languageGrammar;
+
+// BEGIN CUSTOM TEMPLATE TAGS
+d.setTemplateTag("mytag", "my value");
+d.setTemplateTag("myothertag", "my other value");
+// END
+
+d.content = d.processTemplate(template.content);
+</code></pre>
+<p>Then if you had <code>[[mytag]]</code> in the template, it would get replaced with <code>my value</code>, etc.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/kurt'><span itemprop='name'>kurt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/include-action-vs-separate-actions/9843">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-24T04:04:28Z' class='post-time'>
+                February 24, 2021,  4:04am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-24T04:04:28Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>After determining an insertion point in the template, I insert various strings selected from a prompt using:</p>
+<pre><code class="lang-auto">{{{editor.setSelectedText(p.fieldValues["myActivities"]);
+</code></pre>
+<p>Using your example, I would have a custom tag [[activity]] in the template that would be replaced with:</p>
+<pre><code class="lang-auto">d.setTemplateTag("activity", p.fieldValues["myActivities"]);
+</code></pre>
+<p>The custom tag then serves as the “insertion point finder”, so to speak, in the template. This seems like a more repeatable and understandable implementation  that what I’m currently doing.</p>
+        </div>
+
+        <meta itemprop='headline' content='Include Action vs. separate actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

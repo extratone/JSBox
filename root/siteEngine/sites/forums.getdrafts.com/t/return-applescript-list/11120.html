@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Return AppleScript List - Scripting - Drafts Community</title>
+    <meta name="description" content="I’ve been tinkering with some AppleScript and Drafts for several hours today, and I keep getting to the point where Drafts hangs and I am not sure what is wrong. I’m hoping someone can help me see the wood for the trees. &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11120.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Return AppleScript List&#39;" href="https://forums.getdrafts.com/t/return-applescript-list/11120.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/7/71965f0300821ca92f3d96f72c59739b8fe5dfcf.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/7/71965f0300821ca92f3d96f72c59739b8fe5dfcf.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/return-applescript-list/11120" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/return-applescript-list/11120" />
+<meta property="og:title" content="Return AppleScript List" />
+<meta name="twitter:title" content="Return AppleScript List" />
+<meta property="og:description" content="I’ve been tinkering with some AppleScript and Drafts for several hours today, and I keep getting to the point where Drafts hangs and I am not sure what is wrong. I’m hoping someone can help me see the wood for the trees.  I’ve tried the AppleScript both as part of an AppleScript action step and as an AppleScript scripting object, with both producing identical results for me. I’ve simplified my example case as much as possible, but it essentially revolves around AppleScript lists.  The documentat..." />
+<meta name="twitter:description" content="I’ve been tinkering with some AppleScript and Drafts for several hours today, and I keep getting to the point where Drafts hangs and I am not sure what is wrong. I’m hoping someone can help me see the wood for the trees.  I’ve tried the AppleScript both as part of an AppleScript action step and as an AppleScript scripting object, with both producing identical results for me. I’ve simplified my example case as much as possible, but it essentially revolves around AppleScript lists.  The documentat..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="4 ❤" />
+<meta property="article:published_time" content="2021-09-04T09:29:10+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="11120.html">Return AppleScript List</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11120.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/71965f0300821ca92f3d96f72c59739b8fe5dfcf.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-04T09:29:10Z' class='post-time'>
+                September 4, 2021,  9:29am
+              </time>
+              <meta itemprop='dateModified' content='2021-09-04T09:35:51Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve been tinkering with some AppleScript and Drafts for several hours today, and I keep getting to the point where Drafts hangs and I am not sure what is wrong. I’m hoping someone can help me see the wood for the trees.</p>
+<p>I’ve tried the AppleScript both as part of an <a href="../../../docs.getdrafts.com/docs/automation/applescript.html#using-applescript-from-drafts">AppleScript action step</a> and as an <a href="../../../scripting.getdrafts.com/classes/applescript.html">AppleScript scripting object</a>, with both producing identical results for me. I’ve simplified my example case as much as possible, but it essentially revolves around AppleScript lists.</p>
+<p>The documentation explicitly notes that you can return lists of the basic data types from AppleScript.</p>
+<p><img src="../../uploads/default/original/2X/7/71965f0300821ca92f3d96f72c59739b8fe5dfcf.png" alt="2021-09-04-10.21.37" data-base62-sha1="gcQ7Ccy3lkt7Xt9ykEmQLmUZgF9" width="611" height="183"></p>
+<p>If I start with a single string, and display the return from the AppleScript step using a bit of JavaScript, then I get an alert dialog displaying the string of text set to be returned by the AppleScript.</p>
+<ul>
+<li><a href="../../../actions.getdrafts.com/a/1qM.html">AS Test - Single String</a></li>
+</ul>
+<h3>
+<a name="step-1-applescript-1" class="anchor" href="11120.html#step-1-applescript-1"></a>Step 1 - AppleScript</h3>
+<pre><code class="lang-auto">on execute()
+    return "red, green, blue"
+end execute
+</code></pre>
+<h3>
+<a name="step-2-javascript-2" class="anchor" href="11120.html#step-2-javascript-2"></a>Step 2 - JavaScript"</h3>
+<pre><code class="lang-auto">alert(context.appleScriptResponses.join("\n"));
+</code></pre>
+<p>If I switch out the AppleScript to return a list, the action hangs on the first step and I have to close and reopen Drafts to free it up.</p>
+<ul>
+<li><a href="../../../actions.getdrafts.com/a/1qN.html">AS Test - List of Strings</a></li>
+</ul>
+<p>The replacement AppleScript looks like this:</p>
+<pre><code class="lang-auto">on execute()
+    return {"red", "green", "blue"}
+end execute
+</code></pre>
+<p>The statement is valid AppleScript when tested outside of Drafts:</p>
+<p><img src="../../uploads/default/original/2X/1/178c3658e076a43e5e5f9dc474031dc5014d28d4.png" alt="2021-09-04-10.34.11" data-base62-sha1="3mjnSZAyNGRBPCAQN8aY4ArWY6g" width="439" height="285"></p>
+<p>Does anyone have any ideas of what I have missed, or an example of an AppleScript in Drafts successfully returning a list (any type of call from an action)?</p>
+<p>Thanks in advance for any suggestions.</p>
+        </div>
+
+        <meta itemprop='headline' content='Return AppleScript List'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/drdrang'><span itemprop='name'>drdrang</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11120.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-04T13:27:07Z' class='post-time'>
+                September 4, 2021,  1:27pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-04T13:32:12Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is not a solution, but I wondered if your example would run if it were translated entirely into a single JavaScript script action.</p>
+<p>This works:</p>
+<pre><code class="lang-auto">let script = AppleScript.create(`on test()
+	return "red, green, blue"
+end test`)
+
+let success = script.execute('test');
+
+if (success) {
+	alert(script.lastResult);
+}
+else {
+	alert(script.lastError);
+}
+</code></pre>
+<p>And this hangs, forcing me to quit Drafts:</p>
+<pre><code class="lang-auto">let script = AppleScript.create(`on test()
+	return {"red", "green", "blue"}
+end test`)
+
+let success = script.execute('test');
+
+if (success) {
+	alert(script.lastResult);
+}
+else {
+	alert(script.lastError);
+}
+</code></pre>
+<p>So there is at least a consistency between the behavior of an AppleScript action and an AppleScript built and executed within JavaScript. And I can’t think of a simpler example, so we’ll have to wait to hear what Greg says about it.</p>
+<p>Minor update: Rewriting the <code>test</code> function to return a number works; rewriting it to return a list of numbers fails.</p>
+        </div>
+
+        <meta itemprop='headline' content='Return AppleScript List'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11120.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-04T13:33:24Z' class='post-time'>
+                September 4, 2021,  1:33pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-04T13:33:24Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="drdrang" data-post="2" data-topic="11120">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/drdrang/40/971_2.png" class="avatar"> drdrang:</div>
+<blockquote>
+<p>This is not a solution, but I wondered if your example would run if it were translated entirely into a single JavaScript script action.</p>
+</blockquote>
+</aside>
+<p>Yes, as noted above, I had tried it as both, and I had just gone with sharing the simplest form as an example of what I was trying:</p>
+<aside class="quote no-group" data-username="sylumer" data-post="1" data-topic="11120">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>I’ve tried the AppleScript both as part of an <a href="../../../docs.getdrafts.com/docs/automation/applescript.html#using-applescript-from-drafts">AppleScript action step</a> and as an <a href="../../../scripting.getdrafts.com/classes/applescript.html">AppleScript scripting object</a>, with both producing identical results for me.</p>
+</blockquote>
+</aside>
+<aside class="quote no-group" data-username="drdrang" data-post="2" data-topic="11120">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/drdrang/40/971_2.png" class="avatar"> drdrang:</div>
+<blockquote>
+<p>And this hangs, forcing me to quit Drafts:</p>
+</blockquote>
+</aside>
+<p>That’s useful as another user point of reference in that the behaviour is not confined to me with the code as is.</p>
+        </div>
+
+        <meta itemprop='headline' content='Return AppleScript List'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11120.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-04T13:34:19Z' class='post-time'>
+                September 4, 2021,  1:34pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-04T13:34:19Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is a bug. Just ran it in the debugger and it’s specific to the conversion process of Apple Event list values in the result. It will be fixed in the next beta.</p>
+        </div>
+
+        <meta itemprop='headline' content='Return AppleScript List'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/drdrang'><span itemprop='name'>drdrang</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11120.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-04T13:44:17Z' class='post-time'>
+                September 4, 2021,  1:44pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-04T13:44:17Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="1" data-topic="11120">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>I’ve tried the AppleScript both as part of an <a href="../../../docs.getdrafts.com/docs/automation/applescript.html#using-applescript-from-drafts" rel="noopener nofollow ugc">AppleScript action step</a> and as an <a href="../../../scripting.getdrafts.com/classes/applescript.html" rel="noopener nofollow ugc">AppleScript scripting object</a>, with both producing identical results for me.</p>
+</blockquote>
+</aside>
+<p>Ah, I read too fast and missed this in my rush to get to your scripts.</p>
+<p>With Greg’s response, at least I know my mistake is confined to sloppy reading.</p>
+        </div>
+
+        <meta itemprop='headline' content='Return AppleScript List'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11120.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-09T18:06:41Z' class='post-time'>
+                September 9, 2021,  6:06pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-09T18:06:41Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Finally got a few minutes to check the update in beta 27.5.37 this evening and the AppleScript list return fix is now working for my test case. Thanks Greg.</p>
+        </div>
+
+        <meta itemprop='headline' content='Return AppleScript List'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

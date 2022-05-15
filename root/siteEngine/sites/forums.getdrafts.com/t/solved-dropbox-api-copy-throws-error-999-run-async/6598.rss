@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>(Solved) Dropbox API copy throws error 999 - run async?</title>
+    <link>https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598</link>
+    <description># TLDR:
+I keep getting error code 999 on successful and unsuccessful copy actions through the Dropbox API. According to [this post](https://www.dropboxforum.com/t5/API-Support-Feedback/999-quot-cancelled-quot-Error/m-p/192324/highlight/true#M17655) on the Dropbox Forums, this error is: 
+ &gt; Returned when an asynchronous load is canceled.
+
+I&#39;m running these script actions synchronously. Which leads me to the following question:
+
+**Should I be running them asynchronously?**
+If so, how can I implement the async/await in the script to make it work?
+
+*Read below for more details.*
+
+# Dropbox API calls returning error code 999
+
+I&#39;m working on some scripts that copy certain folders in Dropbox to new locations based on text being parsed in various drafts, and thanks to @sylumer&#39;s wonderful [example](https://talk.automators.fm/t/drafts-file-manager/4278/5?u=stone) on the Automators forum of how to make a basic Dropbox API call, I have managed to successfully copy folders on Dropbox through an API call.
+
+However, I keep getting error message 999 from the Dropbox API.
+
+## Test Script
+This test script actually runs successfully if the folder exist in the source path and not the destination path. I only get the 999 error when the destination folder already exist, and nothing gets copied:
+```
+//Create Dropbox object
+let dbxMain = Dropbox.create()
+
+//Build some file info
+let src = &quot;/0-temp/test/source/testcopy&quot;
+let dst = &quot;/0-temp/test/destination/testcopy&quot;
+
+//Build the arguments for calling the Dropbox move
+let urlEndpoint = &quot;https://api.dropboxapi.com/2/files/copy_v2&quot;;
+let dictArgs = {
+	&quot;from_path&quot;: src,
+	&quot;to_path&quot;: dst,
+	&quot;allow_shared_folder&quot;: false,
+	&quot;autorename&quot;: false,
+	&quot;allow_ownership_transfer&quot;: false
+};
+
+//Move the file
+let objResp = dbxMain.rpcRequest(
+{
+	&quot;url&quot;: urlEndpoint,
+	&quot;method&quot;: &quot;POST&quot;,
+	&quot;data&quot;: dictArgs
+});
+
+//Baseline check if it worked
+if (objResp.statusCode != 200)
+{
+	//It didn&#39;t :o(
+	alert(&quot;Dropbox Returned an Error: [&quot; + objResp.statusCode + &quot;] &quot; + objResp.error);
+	context.fail();
+}
+else
+{
+	//It did :o)
+	alert(&quot;Success!&quot;);
+}
+```
+### Result:
+If destination folder exists:  `// Dropbox Returned an Error: [999]`
+If destination folder does not exists: `// Success!`
+
+## Actual script
+Testing paths in my actual script, I only get 999 errors:
+```
+let testPaths = [
+  {
+    src: &quot;/0-temp/test/src/testcopy1&quot;,
+    dst: &quot;/0-temp/test/dst/testcopy1&quot;
+  },
+  {
+    src: &quot;/0-temp/test/src/testcopy2&quot;,
+    dst: &quot;/0-temp/test/dst/testcopy2&quot;
+  },
+  {
+    src: &quot;/0-temp/test/src/testcopy3&quot;,
+    dst: &quot;/0-temp/test/dst/testcopy3&quot;
+  }
+];
+
+testPaths.forEach(path =&gt; {
+  copyFiles(path[&#39;src&#39;], path[&#39;dst&#39;]);
+});
+
+function copyFiles(src, dst) {
+  //Create Dropbox object
+  const dbxMain = Dropbox.create();
+  
+  //Build the arguments for calling the Dropbox copy
+  let urlEndpoint = &quot;https://api.dropboxapi.com/2/files/copy_v2&quot;;
+  let dictArgs = {
+    &quot;from_path&quot;: src,
+    &quot;to_path&quot;: dst,
+    &quot;allow_shared_folder&quot;: false,
+    &quot;autorename&quot;: false,
+    &quot;allow_ownership_transfer&quot;: false
+  };
+    
+  // Move the file
+  let objResp = dbxMain.rpcRequest(
+      {
+        &quot;url&quot;: urlEndpoint,
+        &quot;method&quot;: &quot;POST&quot;,
+        &quot;data&quot;: dictArgs
+      });
+
+  //Baseline check if it worked
+  if (objResp.statusCode != 200) {
+    	alert(&quot;Dropbox Returned an Error: [&quot; + objResp.statusCode + &quot;] &quot; + objResp.error);
+    	context.fail()
+  } 
+  else {
+    alert(&quot;Files copied from: \n&quot; + src + &quot;\n\n&quot; + &quot;to: \n&quot; + dst);
+  };
+```
+Folder exists in both src and dst `// Dropbox Returned an Error: [999]`
+Folder exists only in src `// Dropbox Returned an Error: [999]`
+Folder does not exist in src `// Dropbox Returned an Error: [999]`
+
+# Before:
+![Screenshot 2020-02-05 at 00.45.33|471x499, 50%](upload://48mGSSlvN4c4eKzGVnEB7nYko1F.png) 
+![Screenshot 2020-02-05 at 00.45.44|500x500, 50%](upload://9y9KnYsf3l7WTE0q3HExEymc3CB.png)
+
+# After:
+![Screenshot 2020-02-05 at 00.53.03|393x500, 50%](upload://v1TcZEuMUDH4LXlKzOFiQYMUyG.png) 
+
+As you can see, I get error 999 even when the copy is successful.
+
+## Unsuccessful attempt at using asynchronous load
+
+I read the post on [Asynchronous scripting in Drafts](https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460), and following the link to [javascript.info](https://javascript.info/async-await), I tried implementing their example of wrapping the function call in an async function. Did I screw this up?
+
+```
+// Inside the copyFiles function
+(async () =&gt; {
+  let objResp = await dbxMain.rpcRequest(
+    {
+	   &quot;url&quot;: urlEndpoint,
+	   &quot;method&quot;: &quot;POST&quot;,
+	   &quot;data&quot;: dictArgs
+    });
+})();
+```
+```
+// executing the copyFiles function
+testPaths.forEach(path =&gt; {
+  copyFiles(path[&#39;src&#39;], path[&#39;dst&#39;]);
+});
+script.complete();
+```
+### Result
+Fail. Drafts never reached script.complete() and timed out.</description>
+    
+    <lastBuildDate>Wed, 05 Feb 2020 21:35:15 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>(Solved) Dropbox API copy throws error 999 - run async?</title>
+        <dc:creator><![CDATA[steinar]]></dc:creator>
+        <description><![CDATA[
+            <p>You are right, it seems to be working now. I don’t know why I kept getting errors yesterday, maybe as you said Dropbox didn’t synchronize my deletions before I ran the script.</p>
+<p>Sorry for wasting your time, thanks for the help!</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598/3</link>
+        <pubDate>Wed, 05 Feb 2020 21:35:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6598-3</guid>
+        <source url="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598.rss">(Solved) Dropbox API copy throws error 999 - run async?</source>
+      </item>
+      <item>
+        <title>(Solved) Dropbox API copy throws error 999 - run async?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve run your example several times and only get the error when a folder exists at the destination path…which is expected behavior per the <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-copy">file/copy API docs</a>.</p>
+<p>Are you sure you have setup your example files so the destination folders do not exist (and those changes have finished syncing to Dropbox if made locally) before running the script?</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598/2</link>
+        <pubDate>Wed, 05 Feb 2020 13:57:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6598-2</guid>
+        <source url="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598.rss">(Solved) Dropbox API copy throws error 999 - run async?</source>
+      </item>
+      <item>
+        <title>(Solved) Dropbox API copy throws error 999 - run async?</title>
+        <dc:creator><![CDATA[steinar]]></dc:creator>
+        <description><![CDATA[
+            <h1>TLDR:</h1>
+<p>I keep getting error code 999 on successful and unsuccessful copy actions through the Dropbox API. According to <a href="https://www.dropboxforum.com/t5/API-Support-Feedback/999-quot-cancelled-quot-Error/m-p/192324/highlight/true#M17655" rel="nofollow noopener">this post</a> on the Dropbox Forums, this error is:</p>
+<blockquote>
+<p>Returned when an asynchronous load is canceled.</p>
+</blockquote>
+<p>I’m running these script actions synchronously. Which leads me to the following question:</p>
+<p><strong>Should I be running them asynchronously?</strong><br>
+If so, how can I implement the async/await in the script to make it work?</p>
+<p><em>Read below for more details.</em></p>
+<h1>Dropbox API calls returning error code 999</h1>
+<p>I’m working on some scripts that copy certain folders in Dropbox to new locations based on text being parsed in various drafts, and thanks to <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>’s wonderful <a href="https://talk.automators.fm/t/drafts-file-manager/4278/5?u=stone" rel="nofollow noopener">example</a> on the Automators forum of how to make a basic Dropbox API call, I have managed to successfully copy folders on Dropbox through an API call.</p>
+<p>However, I keep getting error message 999 from the Dropbox API.</p>
+<h2>Test Script</h2>
+<p>This test script actually runs successfully if the folder exist in the source path and not the destination path. I only get the 999 error when the destination folder already exist, and nothing gets copied:</p>
+<pre><code class="lang-auto">//Create Dropbox object
+let dbxMain = Dropbox.create()
+
+//Build some file info
+let src = "/0-temp/test/source/testcopy"
+let dst = "/0-temp/test/destination/testcopy"
+
+//Build the arguments for calling the Dropbox move
+let urlEndpoint = "https://api.dropboxapi.com/2/files/copy_v2";
+let dictArgs = {
+	"from_path": src,
+	"to_path": dst,
+	"allow_shared_folder": false,
+	"autorename": false,
+	"allow_ownership_transfer": false
+};
+
+//Move the file
+let objResp = dbxMain.rpcRequest(
+{
+	"url": urlEndpoint,
+	"method": "POST",
+	"data": dictArgs
+});
+
+//Baseline check if it worked
+if (objResp.statusCode != 200)
+{
+	//It didn't :o(
+	alert("Dropbox Returned an Error: [" + objResp.statusCode + "] " + objResp.error);
+	context.fail();
+}
+else
+{
+	//It did :o)
+	alert("Success!");
+}
+</code></pre>
+<h3>Result:</h3>
+<p>If destination folder exists:  <code>// Dropbox Returned an Error: [999]</code><br>
+If destination folder does not exists: <code>// Success!</code></p>
+<h2>Actual script</h2>
+<p>Testing paths in my actual script, I only get 999 errors:</p>
+<pre><code class="lang-auto">let testPaths = [
+  {
+    src: "/0-temp/test/src/testcopy1",
+    dst: "/0-temp/test/dst/testcopy1"
+  },
+  {
+    src: "/0-temp/test/src/testcopy2",
+    dst: "/0-temp/test/dst/testcopy2"
+  },
+  {
+    src: "/0-temp/test/src/testcopy3",
+    dst: "/0-temp/test/dst/testcopy3"
+  }
+];
+
+testPaths.forEach(path =&gt; {
+  copyFiles(path['src'], path['dst']);
+});
+
+function copyFiles(src, dst) {
+  //Create Dropbox object
+  const dbxMain = Dropbox.create();
+  
+  //Build the arguments for calling the Dropbox copy
+  let urlEndpoint = "https://api.dropboxapi.com/2/files/copy_v2";
+  let dictArgs = {
+    "from_path": src,
+    "to_path": dst,
+    "allow_shared_folder": false,
+    "autorename": false,
+    "allow_ownership_transfer": false
+  };
+    
+  // Move the file
+  let objResp = dbxMain.rpcRequest(
+      {
+        "url": urlEndpoint,
+        "method": "POST",
+        "data": dictArgs
+      });
+
+  //Baseline check if it worked
+  if (objResp.statusCode != 200) {
+    	alert("Dropbox Returned an Error: [" + objResp.statusCode + "] " + objResp.error);
+    	context.fail()
+  } 
+  else {
+    alert("Files copied from: \n" + src + "\n\n" + "to: \n" + dst);
+  };
+</code></pre>
+<p>Folder exists in both src and dst <code>// Dropbox Returned an Error: [999]</code><br>
+Folder exists only in src <code>// Dropbox Returned an Error: [999]</code><br>
+Folder does not exist in src <code>// Dropbox Returned an Error: [999]</code></p>
+<h1>Before:</h1>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47.png" data-download-href="https://forums.getdrafts.com/uploads/default/1cfacb20958ccf261e72ff213026371cfcb11e47" title="Screenshot 2020-02-05 at 00.45.33"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_235x249.png" alt="Screenshot 2020-02-05 at 00.45.33" data-base62-sha1="48mGSSlvN4c4eKzGVnEB7nYko1F" width="235" height="249" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_235x249.png, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_352x373.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_470x498.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_10x10.png"></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5.png" data-download-href="https://forums.getdrafts.com/uploads/default/42f0047ae711958c3e9db00ae2161de2f7fd46a5" title="Screenshot 2020-02-05 at 00.45.44"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_250x250.png" alt="Screenshot 2020-02-05 at 00.45.44" data-base62-sha1="9y9KnYsf3l7WTE0q3HExEymc3CB" width="250" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_250x250.png, https://forums.getdrafts.com/uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_375x375.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_500x500.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_10x10.png"></a></div><p></p>
+<h1>After:</h1>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906.png" data-download-href="https://forums.getdrafts.com/uploads/default/0381f827dd21bf30383ca51d1bac599100ae9906" title="Screenshot 2020-02-05 at 00.53.03"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_196x250.png" alt="Screenshot 2020-02-05 at 00.53.03" data-base62-sha1="v1TcZEuMUDH4LXlKzOFiQYMUyG" width="196" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_196x250.png, https://forums.getdrafts.com/uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_294x375.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_392x500.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_10x10.png"></a></div><p></p>
+<p>As you can see, I get error 999 even when the copy is successful.</p>
+<h2>Unsuccessful attempt at using asynchronous load</h2>
+<p>I read the post on <a href="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460">Asynchronous scripting in Drafts</a>, and following the link to <a href="https://javascript.info/async-await" rel="nofollow noopener">javascript.info</a>, I tried implementing their example of wrapping the function call in an async function. Did I screw this up?</p>
+<pre><code class="lang-auto">// Inside the copyFiles function
+(async () =&gt; {
+  let objResp = await dbxMain.rpcRequest(
+    {
+	   "url": urlEndpoint,
+	   "method": "POST",
+	   "data": dictArgs
+    });
+})();
+</code></pre>
+<pre><code class="lang-auto">// executing the copyFiles function
+testPaths.forEach(path =&gt; {
+  copyFiles(path['src'], path['dst']);
+});
+script.complete();
+</code></pre>
+<h3>Result</h3>
+<p>Fail. Drafts never reached script.complete() and timed out.</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598/1</link>
+        <pubDate>Wed, 05 Feb 2020 00:24:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6598-1</guid>
+        <source url="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598.rss">(Solved) Dropbox API copy throws error 999 - run async?</source>
+      </item>
+  </channel>
+</rss>

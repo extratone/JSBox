@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Query by tag, sort, and combine Drafts</title>
+    <link>https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271</link>
+    <description>I am attempting to query Draft(s) based on it’s tag (today’s date), sort them from oldest-newest creation date, and combine the Drafts into a single Draft. 
+
+I’m running into an issue with this: 
+
+
+```
+// Query Drafts tagged with Today&#39;s Date
+var tag = draft.processTemplate(&quot;[[date|%Y-%-m-%-d]]&quot;);
+var d = Draft.query(&quot;&quot;,&quot;inbox&quot;,[tag],&quot;created&quot;);
+editor.load(d);
+```
+
+
+
+I’m guessing what I’m missing here is fairly straightforward... 
+
+This is my first step in the script, so any tips or advice would be greatly appreciated!</description>
+    
+    <lastBuildDate>Wed, 21 Apr 2021 17:23:37 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Query by tag, sort, and combine Drafts</title>
+        <dc:creator><![CDATA[Jimmy]]></dc:creator>
+        <description><![CDATA[
+            <p>This worked beautifully, thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/5</link>
+        <pubDate>Wed, 21 Apr 2021 17:23:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10271-5</guid>
+        <source url="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271.rss">Query by tag, sort, and combine Drafts</source>
+      </item>
+      <item>
+        <title>Query by tag, sort, and combine Drafts</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>the <code>Draft.query()</code> returns an array of Drafts.<br>
+If you execute <code>draft.content = editor.load(d[0])</code> you’ll only have the first one.<br>
+if you take the script from <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> and add a for loop you’ll get what you wanted.<br>
+also I’d recommend, to create a new draft in the script. since <code>draft</code> is the current active Draft in the editor and you could overwrite something.<br>
+maybe you want to add the same tag afterwards, or trash every found draft. The script below is not tested but hopefully it points you into the right direction</p>
+<pre><code class="lang-auto">let tag = draft.processTemplate("[[date|%Y-%-m-%-d]]");
+let d = Draft.query("","inbox",[tag],"created");
+if(d.length &gt; 0)
+{
+  let newDraft = new Draft()
+  newDraft.content = "# Drafts from " + tag
+  for(cd of d){
+    newDraft.content += "\n\n" + cd.content
+  }
+  newDraft.update()
+  editor.load(newDraft);
+} 
+else app.displayErrorMessage("No drafts today");
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/4</link>
+        <pubDate>Tue, 20 Apr 2021 04:46:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10271-4</guid>
+        <source url="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271.rss">Query by tag, sort, and combine Drafts</source>
+      </item>
+      <item>
+        <title>Query by tag, sort, and combine Drafts</title>
+        <dc:creator><![CDATA[Jimmy]]></dc:creator>
+        <description><![CDATA[
+            <p>Ahh, yes that makes sense!  My plan, after this, is to simply combine these drafts (in order) into a new single draft.</p>
+<p>Am I correct in assuming that, with the queried drafts loaded into the editor, I simply need to <code>draft.content = editor.load(d[0]);</code> ? Or is it a bit more complicated than that?</p>
+<p>Thanks for the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/3</link>
+        <pubDate>Mon, 19 Apr 2021 22:14:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10271-3</guid>
+        <source url="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271.rss">Query by tag, sort, and combine Drafts</source>
+      </item>
+      <item>
+        <title>Query by tag, sort, and combine Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe try this?</p>
+<pre><code class="lang-auto">let tag = draft.processTemplate("[[date|%Y-%-m-%-d]]");
+let d = Draft.query("","inbox",[tag],"created");
+if(d.length &gt; 0) editor.load(d[0]);
+else app.displayErrorMessage("No drafts today");
+</code></pre>
+<p><code>query</code> would return an array of drafts, and the original code was treating the result as single draft.</p>
+<p><em>I’m assuming also that you are not expecting this to combine any drafts as per your overall requirement and that this is just a step in your process.</em></p>
+          <p><a href="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/2</link>
+        <pubDate>Mon, 19 Apr 2021 21:42:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10271-2</guid>
+        <source url="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271.rss">Query by tag, sort, and combine Drafts</source>
+      </item>
+      <item>
+        <title>Query by tag, sort, and combine Drafts</title>
+        <dc:creator><![CDATA[Jimmy]]></dc:creator>
+        <description><![CDATA[
+            <p>I am attempting to query Draft(s) based on it’s tag (today’s date), sort them from oldest-newest creation date, and combine the Drafts into a single Draft.</p>
+<p>I’m running into an issue with this:</p>
+<pre><code class="lang-auto">// Query Drafts tagged with Today's Date
+var tag = draft.processTemplate("[[date|%Y-%-m-%-d]]");
+var d = Draft.query("","inbox",[tag],"created");
+editor.load(d);
+</code></pre>
+<p>I’m guessing what I’m missing here is fairly straightforward…</p>
+<p>This is my first step in the script, so any tips or advice would be greatly appreciated!</p>
+          <p><a href="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271/1</link>
+        <pubDate>Mon, 19 Apr 2021 19:20:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10271-1</guid>
+        <source url="https://forums.getdrafts.com/t/query-by-tag-sort-and-combine-drafts/10271.rss">Query by tag, sort, and combine Drafts</source>
+      </item>
+  </channel>
+</rss>

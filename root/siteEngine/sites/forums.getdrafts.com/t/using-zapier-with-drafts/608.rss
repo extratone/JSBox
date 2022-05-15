@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Zapier with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-zapier-with-drafts/608</link>
+    <description>![iu|690x316, 50%](upload://tddIyIhTyy9NZRhe5WKcexdthTN.png)
+
+# Integrating with Zapier
+
+[Zapier](http://zapier.com) is an online automation service that integrates with hundreds of services and APIs. While Drafts has great direct integration with many services, Zapier supports many more. If there are services Drafts does not directly support, Zapier is a great way to incorporate them in your Drafts workflow. This includes Facebook, LinkedIn, Office365 apps, and [many more](https://zapier.com/apps).
+
+Zapier &quot;Zaps&quot; are automation tools set up with a trigger and action. This guide covers how to configure Drafts actions to send data to a trigger in a Zapier Zap...which can then be acted on in Zapier.
+
+&gt; **Zapier Guide**: _The team at Zapier has put together [their own guide to Drafts](https://zapier.com/blog/drafts-ios-guide/) which includes more extensive coverage of Drafts integration. It&#39;s [a great place to start](https://zapier.com/blog/drafts-ios-guide/)._
+
+## Webhooks
+
+Zaps can be configured with a &quot;Catch Hook&quot; type [Webhook](https://zapier.com/blog/what-are-webhooks/) trigger, which creates a unique URL to send information to and trigger the Zap. Using webhooks allows Drafts to send multiple values to Zapier which can be inserted into the Zap action.
+
+Once you have configured a Zap with a &quot;Catch Hook&quot; trigger, install one of these example actions:
+
+- [**Zapier: Catch Hook Example using Credentials**](http://actions.getdrafts.com/a/1Hf)
+    - Uses Drafts [Credentials](http://getdrafts.com/settings/credentials) to store the catch hook URL. The first time you run it you will be prompted to enter the hook URL which can be pasted from the Zapier site, and it will be remembered for future use. To set up multiple zaps, this action can be duplicated and the &quot;zapIdentifier&quot; in the first script step changes to a unique value for each zap you want to target.
+- [**Zapier: Catch Hook with Hard Coded URL**](http://actions.getdrafts.com/a/1Gb)
+    - This is same same as above, but with the `hookURL` hard-coded as a variable in the script. After installing the action, edit it and change the `hookURL` value to match the URL of your Zap.
+
+These examples send &quot;title&quot;, &quot;body&quot; and &quot;content&quot; values from the current draft to the Zap as elements that can be inserted into an action.
+
+## Email Triggers
+
+Zapier also supports triggering zap [via email triggers](https://zapier.com/apps/email/integrations).  When a zap is configured for email, it gets assigned a unique incoming email address. A Drafts [mail action step](http://getdrafts.com/actions/steps/mail) can then be configured to send to that email address and trigger the action. Since a unique address is used, the Drafts mail action step can be configued to &quot;Send in Background&quot;, so no additional action is required when running the action in Drafts.
+
+In general, unless you have a specific reason, we recommend you use Webhook triggers because they directly communicate with Zapier and will be more immediate as a result. Email triggers may be delayed by mail delivery time, etc.</description>
+    
+    <lastBuildDate>Thu, 07 May 2020 14:27:16 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-zapier-with-drafts/608.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Zapier with Drafts</title>
+        <dc:creator><![CDATA[TDK_SA90]]></dc:creator>
+        <description><![CDATA[
+            <p>Just curious, but is a similar integration with IFTTT ever likely, considering it supports webhooks (with up to 3 variables) too?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-zapier-with-drafts/608/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-zapier-with-drafts/608/2</link>
+        <pubDate>Thu, 07 May 2020 14:27:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-608-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-zapier-with-drafts/608.rss">Using Zapier with Drafts</source>
+      </item>
+      <item>
+        <title>Using Zapier with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f.png" data-download-href="https://forums.getdrafts.com/uploads/default/ccbda561f4231b2ce66ff378e8fd7751083ed70f" title="iu"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_345x158.png" alt="iu" data-base62-sha1="tddIyIhTyy9NZRhe5WKcexdthTN" width="345" height="158" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_345x158.png, https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_517x237.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_690x316.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_10x10.png"></a></div><p></p>
+<h1>
+<a name="integrating-with-zapier-1" class="anchor" href="https://forums.getdrafts.com#integrating-with-zapier-1"></a>Integrating with Zapier</h1>
+<p><a href="http://zapier.com">Zapier</a> is an online automation service that integrates with hundreds of services and APIs. While Drafts has great direct integration with many services, Zapier supports many more. If there are services Drafts does not directly support, Zapier is a great way to incorporate them in your Drafts workflow. This includes Facebook, LinkedIn, Office365 apps, and <a href="https://zapier.com/apps">many more</a>.</p>
+<p>Zapier “Zaps” are automation tools set up with a trigger and action. This guide covers how to configure Drafts actions to send data to a trigger in a Zapier Zap…which can then be acted on in Zapier.</p>
+<blockquote>
+<p><strong>Zapier Guide</strong>: <em>The team at Zapier has put together <a href="https://zapier.com/blog/drafts-ios-guide/">their own guide to Drafts</a> which includes more extensive coverage of Drafts integration. It’s <a href="https://zapier.com/blog/drafts-ios-guide/">a great place to start</a>.</em></p>
+</blockquote>
+<h2>
+<a name="webhooks-2" class="anchor" href="https://forums.getdrafts.com#webhooks-2"></a>Webhooks</h2>
+<p>Zaps can be configured with a “Catch Hook” type <a href="https://zapier.com/blog/what-are-webhooks/">Webhook</a> trigger, which creates a unique URL to send information to and trigger the Zap. Using webhooks allows Drafts to send multiple values to Zapier which can be inserted into the Zap action.</p>
+<p>Once you have configured a Zap with a “Catch Hook” trigger, install one of these example actions:</p>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1Hf"><strong>Zapier: Catch Hook Example using Credentials</strong></a>
+<ul>
+<li>Uses Drafts <a href="http://getdrafts.com/settings/credentials">Credentials</a> to store the catch hook URL. The first time you run it you will be prompted to enter the hook URL which can be pasted from the Zapier site, and it will be remembered for future use. To set up multiple zaps, this action can be duplicated and the “zapIdentifier” in the first script step changes to a unique value for each zap you want to target.</li>
+</ul>
+</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1Gb"><strong>Zapier: Catch Hook with Hard Coded URL</strong></a>
+<ul>
+<li>This is same same as above, but with the <code>hookURL</code> hard-coded as a variable in the script. After installing the action, edit it and change the <code>hookURL</code> value to match the URL of your Zap.</li>
+</ul>
+</li>
+</ul>
+<p>These examples send “title”, “body” and “content” values from the current draft to the Zap as elements that can be inserted into an action.</p>
+<h2>
+<a name="email-triggers-3" class="anchor" href="https://forums.getdrafts.com#email-triggers-3"></a>Email Triggers</h2>
+<p>Zapier also supports triggering zap <a href="https://zapier.com/apps/email/integrations">via email triggers</a>.  When a zap is configured for email, it gets assigned a unique incoming email address. A Drafts <a href="http://getdrafts.com/actions/steps/mail">mail action step</a> can then be configured to send to that email address and trigger the action. Since a unique address is used, the Drafts mail action step can be configued to “Send in Background”, so no additional action is required when running the action in Drafts.</p>
+<p>In general, unless you have a specific reason, we recommend you use Webhook triggers because they directly communicate with Zapier and will be more immediate as a result. Email triggers may be delayed by mail delivery time, etc.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-zapier-with-drafts/608/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-zapier-with-drafts/608/1</link>
+        <pubDate>Tue, 24 Apr 2018 17:26:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-608-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-zapier-with-drafts/608.rss">Using Zapier with Drafts</source>
+      </item>
+  </channel>
+</rss>

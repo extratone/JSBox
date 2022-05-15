@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Autocapitalization in script (SOLVED)</title>
+    <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349</link>
+    <description>Hi,
+
+I have just started looking at scripting and am having an issue that will probably turn out to be *really* obvious! I&#39;ve tried the Drafts scripting help.
+
+I have the following, simplified, script.
+
+```
+var p = Prompt.create();
+p.title = &quot;Test&quot;;
+
+p.addTextField(&quot;firstname&quot;, &quot;Firstname&quot;, &quot;&quot;, {autocapitalization:&quot;words&quot;, keyboard:&quot;default&quot;, wantsFocus:true});
+
+p.addButton(&quot;Create&quot;);
+
+var con = p.show();
+
+if (con) {
+    var fname = p.fieldValues[&quot;firstname&quot;];
+
+    var d = Draft.create();
+    d.content = fname;
+
+    d.update();
+    editor.load(d);
+    editor.activate();
+    app.hideActionList();  
+}
+else {
+    context.cancel();
+}
+```
+
+No matter what I try, the *autocapitalization* does not happen. No errors are shown, the output is simply the same as the (lowercase) input. I have also tried the *sentences* option with the same result (no uppercase).
+
+If I try setting the *keyboard* option to *numberPad* the correct keyboard is shown, so the options are being read.
+
+Anyone spot what I am missing?
+
+Thanks in anticipation.</description>
+    
+    <lastBuildDate>Fri, 30 Apr 2021 04:35:05 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Autocapitalization in script (SOLVED)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for changing that title to solved - a very neat thing and a great sign for others looking for solutions.</p>
+          <p><a href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/6</link>
+        <pubDate>Fri, 30 Apr 2021 04:35:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10349-6</guid>
+        <source url="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss">Autocapitalization in script (SOLVED)</source>
+      </item>
+      <item>
+        <title>Autocapitalization in script (SOLVED)</title>
+        <dc:creator><![CDATA[wightwizard]]></dc:creator>
+        <description><![CDATA[
+            <p>Solved!</p>
+<p>I had, at some stage in the dim and distant past, switched off Auto-Capitalisation in <em>Settings</em> &gt; <em>Keyboards</em> (iPhone settings, not Drafts) and that was over-riding the script setting.</p>
+<p>Thanks for your help <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> – the confirmation it was working for you and your explanation of how it should work triggered solution.</p>
+          <p><a href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/5</link>
+        <pubDate>Wed, 28 Apr 2021 12:25:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10349-5</guid>
+        <source url="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss">Autocapitalization in script (SOLVED)</source>
+      </item>
+      <item>
+        <title>Autocapitalization in script (SOLVED)</title>
+        <dc:creator><![CDATA[wightwizard]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve just tried it on my iPad Pro 12.9” 2018 (iPadOS 14.5 full release) and it is working correctly.</p>
+<p>I’ll keep digging.</p>
+          <p><a href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/4</link>
+        <pubDate>Wed, 28 Apr 2021 12:16:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10349-4</guid>
+        <source url="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss">Autocapitalization in script (SOLVED)</source>
+      </item>
+      <item>
+        <title>Autocapitalization in script (SOLVED)</title>
+        <dc:creator><![CDATA[wightwizard]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> Thanks for the fast reply. I’m on an iPhone 11 Pro Max, iOS 14.5 (full release, not the beta) and using the standard iPhone on screen keyboard. Drafts app is up to date (26.2.4) and my Pro subscription is active.</p>
+<p><a href="https://streamable.com/ka50mm" rel="noopener nofollow ugc">video</a> of it running for me.</p>
+          <p><a href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/3</link>
+        <pubDate>Wed, 28 Apr 2021 12:03:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10349-3</guid>
+        <source url="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss">Autocapitalization in script (SOLVED)</source>
+      </item>
+      <item>
+        <title>Autocapitalization in script (SOLVED)</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>That script works fine for me. As I type each word it is switching to capitalise the first letter as I type. That’s on an iPhone, with both SwiftKey and inbuilt Apple onscreen keyboards.</p>
+<p>I also checked to see if the capitalisation setting in the editor settings affected it, but it worked the same regardless.</p>
+<p>Using a hardware keyboard, that doesn’t auto capitalise as that’s not a dynamic key entry - it won’t miraculousy transform into a keypad for numeric entry for example. That applies to using my hardware keyboard with my phone and with my Mac.</p>
+<p>What platform and what keyboard are you using?</p>
+          <p><a href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/2</link>
+        <pubDate>Wed, 28 Apr 2021 11:49:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10349-2</guid>
+        <source url="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss">Autocapitalization in script (SOLVED)</source>
+      </item>
+      <item>
+        <title>Autocapitalization in script (SOLVED)</title>
+        <dc:creator><![CDATA[wightwizard]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>I have just started looking at scripting and am having an issue that will probably turn out to be <em>really</em> obvious! I’ve tried the Drafts scripting help.</p>
+<p>I have the following, simplified, script.</p>
+<pre><code class="lang-auto">var p = Prompt.create();
+p.title = "Test";
+
+p.addTextField("firstname", "Firstname", "", {autocapitalization:"words", keyboard:"default", wantsFocus:true});
+
+p.addButton("Create");
+
+var con = p.show();
+
+if (con) {
+    var fname = p.fieldValues["firstname"];
+
+    var d = Draft.create();
+    d.content = fname;
+
+    d.update();
+    editor.load(d);
+    editor.activate();
+    app.hideActionList();  
+}
+else {
+    context.cancel();
+}
+</code></pre>
+<p>No matter what I try, the <em>autocapitalization</em> does not happen. No errors are shown, the output is simply the same as the (lowercase) input. I have also tried the <em>sentences</em> option with the same result (no uppercase).</p>
+<p>If I try setting the <em>keyboard</em> option to <em>numberPad</em> the correct keyboard is shown, so the options are being read.</p>
+<p>Anyone spot what I am missing?</p>
+<p>Thanks in anticipation.</p>
+          <p><a href="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349/1</link>
+        <pubDate>Wed, 28 Apr 2021 11:12:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10349-1</guid>
+        <source url="https://forums.getdrafts.com/t/autocapitalization-in-script-solved/10349.rss">Autocapitalization in script (SOLVED)</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Send multiple highlights to Readwise in one action</title>
+    <link>https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468</link>
+    <description>Hi, sorry for asking help here because this script is a little difficult for me to adjust.
+
+I want to send multiple highlights to Readwise and find this https://directory.getdrafts.com/a/1ut . This is exactly what I want, but can I make some adjustments? I don&#39;t need to add &quot;page&quot; to every highlights. How can rewrite this script to delete &quot;page&quot; only keep &quot;highlights&quot;, &quot;Title&quot;, &quot;Author&quot;?
+
+Thanks for you time and kind help.</description>
+    
+    <lastBuildDate>Sat, 16 Apr 2022 02:49:56 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Send multiple highlights to Readwise in one action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Great! Glad you were able to sort it out and thanks for sharing the result.</p>
+          <p><a href="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/4</link>
+        <pubDate>Sat, 16 Apr 2022 02:49:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12468-4</guid>
+        <source url="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468.rss">Send multiple highlights to Readwise in one action</source>
+      </item>
+      <item>
+        <title>Send multiple highlights to Readwise in one action</title>
+        <dc:creator><![CDATA[bleedingsaber]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your help.I don’t have any coding experience but still try my best to make some adjustments to this action. Luckily, it worked. The author explained the script very well and I just delete some lines. It’s working for me now. I post it here in case other people want to use.</p>
+<p>Use it with this action to add "&gt; " quickly. <a href="https://actions.getdrafts.com/a/1DE" class="inline-onebox" rel="noopener nofollow ugc">Markdown Quotation (&gt;) | Drafts Directory</a></p>
+<pre><code class="lang-auto">// Global Variables
+
+let RWArray = [];
+let d = draft;
+
+// Get Title &amp; Author
+
+var title = d.displayTitle;
+var content = d.content;
+let author = content.match("Author: (.*)")[1];
+
+// Get Array of Quotes
+var content = d.content;
+var passages = content.split("## Quotes")[1];
+var passagesArray = passages.split("&gt; ");
+passagesArray.shift(); // First entry in array is blank. Get rid of it.
+
+// Create Array of Objects
+passagesArray.forEach(addToRWArray);
+
+// Send items to Readwise
+sendToReadwise(RWArray);
+
+// Function to create JSON object out of highlight and add it to the final array.
+function addToRWArray(item){
+
+    //Create an array with 2 items: the passage and the array
+    var highlightArray = item.split("@Page: ");
+    //alert("Highlight Array: " + highlightArray);
+
+    
+    // Create JSON and add it to array
+    var highlightObject = 
+    {
+        text: highlightArray[0],
+        title: title,
+        author: author,
+    };
+    //alert(JSON.stringify(highlightObject));
+
+    RWArray.push(highlightObject);
+    // alert({JSON.stringify(RWArray));
+}
+
+
+function sendToReadwise(RWArray) {
+    // Create HTTP Request
+    var rwToken = "YOUR READWISE TOKEN HERE"; //Get token here: https://readwise.io/access_token
+    var http = HTTP.create();
+
+    // Readwise Response
+    var response = http.request({
+        "url": "https://readwise.io/api/v2/highlights",
+        "method": "POST",
+        "data": {
+        "highlights": RWArray,
+        },
+        "headers": {
+            "Authorization": "Token " + rwToken,
+            "Content-Type": "application/json",
+        }
+    });
+}
+
+/* Example Drafts Entry
+# Moby Dick
+Author: Herman Melville
+
+## Quotes
+&gt; Call me Ishmael
+
+&gt; But don't ever call me an octopus.
+
+
+*/
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/3</link>
+        <pubDate>Sat, 16 Apr 2022 02:40:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12468-3</guid>
+        <source url="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468.rss">Send multiple highlights to Readwise in one action</source>
+      </item>
+      <item>
+        <title>Send multiple highlights to Readwise in one action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not terribly familiar with Readwise, and I’m not sure if the author of that action is on these forums to comment. It appears from a quick once over you would need to adjust the <code>addToRWArray</code> function to not look for and parse out the <code>@Page</code> value, and remove the<code>location_type</code> and <code>location</code> parameters in the call to Readwise’s API (which are both optional values).</p>
+<p>Do you have any scripting experience?</p>
+          <p><a href="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/2</link>
+        <pubDate>Fri, 15 Apr 2022 13:19:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12468-2</guid>
+        <source url="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468.rss">Send multiple highlights to Readwise in one action</source>
+      </item>
+      <item>
+        <title>Send multiple highlights to Readwise in one action</title>
+        <dc:creator><![CDATA[bleedingsaber]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, sorry for asking help here because this script is a little difficult for me to adjust.</p>
+<p>I want to send multiple highlights to Readwise and find this <a href="https://directory.getdrafts.com/a/1ut" class="inline-onebox" rel="noopener nofollow ugc">Send to Readwise | Drafts Directory</a> . This is exactly what I want, but can I make some adjustments? I don’t need to add “page” to every highlights. How can rewrite this script to delete “page” only keep “highlights”, “Title”, “Author”?</p>
+<p>Thanks for you time and kind help.</p>
+          <p><a href="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468/1</link>
+        <pubDate>Thu, 14 Apr 2022 14:00:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12468-1</guid>
+        <source url="https://forums.getdrafts.com/t/send-multiple-highlights-to-readwise-in-one-action/12468.rss">Send multiple highlights to Readwise in one action</source>
+      </item>
+  </channel>
+</rss>

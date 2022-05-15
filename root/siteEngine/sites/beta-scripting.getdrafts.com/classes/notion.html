@@ -1,0 +1,396 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Notion | Drafts Script Reference</title>
+	<meta name="description" content="Documentation for Drafts Script Reference">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="https://beta-scripting.getdrafts.com/index.html" class="title">Drafts Script Reference</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="notion.html#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="notion.html#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="https://beta-scripting.getdrafts.com/globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="https://beta-scripting.getdrafts.com/classes/notion.html">Notion</a>
+				</li>
+			</ul>
+			<h1>Class Notion</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="notion.html#notion" id="notion" style="color: inherit; text-decoration: none;">
+							<h1>Notion</h1>
+						</a>
+					</div>
+					<p>Script integration with <a href="https://www.notion.so/">Notion</a>. This object handles OAuth authentication and request signing. The entire <a href="https://developers.notion.com">Notion REST API</a> can be used with the <code>request</code> method.</p>
+					<a href="notion.html#example" id="example" style="color: inherit; text-decoration: none;">
+						<h3>Example</h3>
+					</a>
+					<pre><code><span class="hljs-regexp">//</span> list pages which have been shared with the Drafts integration
+<span class="hljs-regexp">//</span> API Docs: https:<span class="hljs-regexp">//</span>developers.notion.com<span class="hljs-regexp">/reference/</span>post-search
+let endpoint = <span class="hljs-string">&quot;https://api.notion.com/v1/search&quot;</span>
+
+let notion = Notion.create();
+let result = notion.request({
+    <span class="hljs-string">&quot;url&quot;</span>: endpoint,
+    <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+    <span class="hljs-string">&quot;data&quot;</span>: {
+        <span class="hljs-string">&quot;filter&quot;</span>: {
+            <span class="hljs-string">&quot;value&quot;</span>: <span class="hljs-string">&quot;page&quot;</span>,
+            <span class="hljs-string">&quot;property&quot;</span>: <span class="hljs-string">&quot;object&quot;</span>
+        }
+    }
+});
+
+<span class="hljs-regexp">//</span> result has JSON payload
+<span class="hljs-regexp">//</span> with page properties
+<span class="hljs-keyword">if</span> (result.statusCode == <span class="hljs-number">200</span>) {
+    alert(`Notion Pages Loaded:
+
+<span class="hljs-variable">${result.responseText}</span>`)
+}
+<span class="hljs-keyword">else</span> {
+    alert(`Notion Error: <span class="hljs-variable">${result.statusCode}</span>
+
+<span class="hljs-variable">${notion.lastError}</span>`);
+    context.fail();
+}
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Notion</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="https://beta-scripting.getdrafts.com/classes/notion.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="https://beta-scripting.getdrafts.com/classes/notion.html#lasterror" class="tsd-kind-icon">last<wbr>Error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="https://beta-scripting.getdrafts.com/classes/notion.html#lastresponse" class="tsd-kind-icon">last<wbr>Response</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="https://beta-scripting.getdrafts.com/classes/notion.html#request" class="tsd-kind-icon">request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="https://beta-scripting.getdrafts.com/classes/notion.html#create" class="tsd-kind-icon">create</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Notion<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://beta-scripting.getdrafts.com/classes/notion.html" class="tsd-signature-type">Notion</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Notion.d.ts#L74">Notion.d.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create new instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> identifier: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="https://beta-scripting.getdrafts.com/classes/notion.html" class="tsd-signature-type">Notion</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="lasterror" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> last<wbr>Error</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Notion.d.ts#L49">Notion.d.ts:49</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If a function fails, this property will contain the last error as a string message, otherwise it will be <code>undefined</code>.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="lastresponse" class="tsd-anchor"></a>
+					<h3>last<wbr>Response</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Notion.d.ts#L44">Notion.d.ts:44</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If a function succeeds, this property will contain the last response returned by Notion. The JSON returned by Notion will be parsed to an object and placed in this property. Refer to <a href="https://developers.notion.com">Notion API documentation</a> for details on the contents of this object based on call made.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="request" class="tsd-anchor"></a>
+					<h3>request</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">request<span class="tsd-signature-symbol">(</span>settings<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>parameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://beta-scripting.getdrafts.com/classes/httpresponse.html" class="tsd-signature-type">HTTPResponse</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Notion.d.ts#L57">Notion.d.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Execute a request against the Notion API. For successful requests, the HTTPResponse object will contain an object or array or objects decoded from the JSON returned by Notion as appropriate to the request made. Refer to Notion&#39;s API documentation for details about the expected parameters and responses. Drafts will handle wrapping the request in the appropriate OAuth authentication flow.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>settings: <span class="tsd-signature-symbol">{ </span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>parameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">; </span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an object configuring the request.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>A JavaScript object containing data to be encoded into the HTTP body of the request. Refer to API documentation for appropriate information to include.</p>
+												</div>
+											</div>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-index-signature">
+													<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>An object contain key-values to be added as custom headers in the request. There is no need to provide authorization headers, Drafts will add those. Drafts will automatically include required authentication and versioning headers.</p>
+												</div>
+											</div>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-index-signature">
+													<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+										</li>
+										<li class="tsd-parameter">
+											<h5>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>The HTTP method, like &quot;GET&quot;, &quot;POST&quot;, etc.</p>
+												</div>
+											</div>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> parameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>An object containing key-values to be added to the request as URL parameters.</p>
+												</div>
+											</div>
+											<ul class="tsd-parameters">
+												<li class="tsd-parameter-index-signature">
+													<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+												</li>
+											</ul>
+										</li>
+										<li class="tsd-parameter">
+											<h5>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>The full URL to the endpoint in the <a href="hhttps://developers.notion.com.">Notion REST API</a>.</p>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="https://beta-scripting.getdrafts.com/classes/httpresponse.html" class="tsd-signature-type">HTTPResponse</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="create" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span>identifier<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="https://beta-scripting.getdrafts.com/classes/notion.html" class="tsd-signature-type">Notion</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Notion.d.ts#L74">Notion.d.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new Notion object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>identifier: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional string value used to identify a Notion account. Typically this can be omitted if you only work with one Notion account in Drafts. Each unique identifier used for Notion accounts will share credentials - across both action steps and scripts.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="https://beta-scripting.getdrafts.com/classes/notion.html" class="tsd-signature-type">Notion</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="https://beta-scripting.getdrafts.com/globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="https://beta-scripting.getdrafts.com/classes/notion.html" class="tsd-kind-icon">Notion</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="https://beta-scripting.getdrafts.com/classes/notion.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="https://beta-scripting.getdrafts.com/classes/notion.html#lasterror" class="tsd-kind-icon">last<wbr>Error</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="https://beta-scripting.getdrafts.com/classes/notion.html#lastresponse" class="tsd-kind-icon">last<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="https://beta-scripting.getdrafts.com/classes/notion.html#request" class="tsd-kind-icon">request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="https://beta-scripting.getdrafts.com/classes/notion.html#create" class="tsd-kind-icon">create</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="https://beta-scripting.getdrafts.com/assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notion functions | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="4D1M38CsCVKOVe1x0kTVzJUPUe96KlQWmzTywjIAHZWTImpVpMeutwEFViGGB47SMqyPFIT6HrC2RaC7G/iDZw==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Notion functions" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1tx" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Notion functions" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1tx" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="https://actions.getdrafts.com/index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="https://actions.getdrafts.com/getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="https://actions.getdrafts.com/docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="https://actions.getdrafts.com/tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="https://actions.getdrafts.com/scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="https://actions.getdrafts.com/search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="https://actions.getdrafts.com/getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/action_circle5.png" class="action-icon" />Notion functions</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by moggy1972,
+    Last update
+    4 months ago
+</div>
+
+
+    <div class='description'>
+        <p>List of functions and variables to access Notion API</p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1tx&amp;data=%7B%22uuid%22:%22F12BCB3F-95A8-4532-A323-AAE0A173A5EA%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20Credentials%20and%20basic%20variables%5Cn%5Cn//%20Gets%20Notion%20secret%20from%20keychain,%20and%20sets%20version%20and%20personal%20environment%20variables%5Cn%5Cnfunction%20notionClient()%20%7B%5Cn%5Ctvar%20credential%20=%20Credential.create(%5C%22Notion%5C%22,%20%5C%22Notion%20API%5C%22);%5Cn%5Ctcredential.addPasswordField(%5C%22secret%5C%22,%20%5C%22Secret%5C%22);%5Cn%5Ctcredential.authorize();%5Cn%5Cn%5Ct//Get%20token%5Cn%5Ctvar%20secret%20=%20credential.getValue(%5C%22secret%5C%22)%5Cn%5Cn%5Ctreturn%20secret%5Cn%7D%5Cn%5Cn//%20Get%20link%20for%20daily%20note%20if%20it%20exist%5Cn%5Cn%5Cnfunction%20getDailyNoteId(dateObject)%20%7B%5Cn%5Cn%5Ctoptions%20=%20%7Bweekday:%20&#39;short&#39;,%20year:%20&#39;numeric&#39;,%20month:%20&#39;short&#39;,%20day:%20&#39;2-digit&#39;%20%7D;%5Cn%5CtdateText%20=%20dateObject.toLocaleDateString(&#39;en-GB&#39;,%20options).replace(%5C%22,%5C%22,%5C%22%5C%22)%5Cn%5CtdateText%20=%20dateText.substring(0,10)%5Cn%5Ct%5Cn%5Ctpages%20=%20queryPageTitleDb(%5C%223564b4cfdbbd47529b8f61ee240427b6%5C%22,%20dateText)%5Cn%5Cn%5Ctif%20(pages.results.length%20==%200)%20%7B%5Cn%5Ct%5CtpageId%20=%20inbox%5Cn%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5CtpageId%20=%20pages.results[0].id%5Cn%5Ct%5Ct%7D%5Cn%5Cn%5Ctreturn%20pageId%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20Basic%20variables%5Cnbase%20=%20%5C%22https://api.notion.com/v1/%5C%22%5Cnversion%20=%5C%222021-08-16%5C%22%20//updated%5Cn%5Cn//Personal%20environment%20variables%5Cn%5Cninbox%20=%20%5C%2214c0f34131574be1b78c9add79264c31%5C%22%20//%20page%20that%20I%20use%20as%20my%20inbox%5Cnactions%20=%20%5C%223564b4cfdbbd47529b8f61ee240427b6%5C%22%20//%20database%20for%20actions%20-%20same%20as%20notes%20now%20-%20all%20objects%20in%20one%20place.%5Cnnotes%20=%20%5C%223564b4cfdbbd47529b8f61ee240427b6%5C%22%20//%5Cn%5Cn//%20Notes%5Cn//%20previously%20used%20a%20%5C%22require(%5C%22notion.js%5C%22)%5C%22%20to%20include%20functions%20from%20a%20js%20file.%20This%20seemed%20to%20be%20slower.%5Cn//%20and%20also%20used%20to%20get%20functions%20from%20a%20draft:%5Cn//%20var%20s%20=%20Draft.find(UUID);%5Cn//%20this.eval(s.content);%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%2261BE4F5D-C453-4F6C-9041-7CA88CCF5FD8%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20Page%20functions%5Cn%5Cn//%20addPage(parentId,%20title)%20-%20adds%20a%20subpage%20or%20database%20page,%20depending%20on%20type%20of%20page%5Cn//%20getPage(pageId)%20-%20gets%20details%20of%20a%20page%5Cn//%20getChildren(pageId)%5Cn//%20addChildren(pageId,children)%5Cn//%20addTextBlock(page_id,children)%5Cn%5Cnfunction%20addPage(parentId,%20title)%20%7B%5Cn%5Cn%5Ctbody%20=%20%7B%5Ct%5C%22parent%5C%22:%20%7B%20%5C%22page_id%5C%22:%20parentId%20%7D,%5C%22properties%5C%22:%20%7B%5C%22title%5C%22:%20[%7B%5C%22text%5C%22:%20%7B%5C%22content%5C%22:%20title%7D%7D]%7D%7D%5Cn%5Cturl%20=%20base+%5C%22pages%5C%22%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%5Cn%5Cn///////////////////%5Cn%5Cnfunction%20getPage(pageId)%20%7B%5Cn%5Cn%5Cturl%20=%20base%20+%20%5C%22pages/%5C%22%20+%20pageId%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22GET%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret,%5Cn%5Ct%5Ct%5C%22Notion-Version%5C%22:%20version%20%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Ct%5Ct%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%5Ctconsole.log(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%5Cn%7D%5Cn%5Cnfunction%20getChildren(pageId)%20%7B%5Cn%5Cturl%20=%20base+%5C%22blocks/%5C%22%20+%20pageId%20+%20%5C%22/children%5C%22%5Cn%5Ctconsole.log(url)%5Cn%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22GET%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret,%5Cn%5Ct%5Ct%5C%22Notion-Version%5C%22:%20version%20%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%5Ctconsole.log(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results.results%5Cn%7D%5Cn%5Cnfunction%20addChildren(pageId,%20children)%20%7B%5Cn%5Cn%5Cturl%20=%20&#39;https://api.notion.com/v1/blocks/&#39;%20+%20pageId%20+%20&#39;/children&#39;%5Cn%5Ctbody%20=%20%7B%5C%22children%5C%22:%20children%7D%5Cn%5Ct%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22PATCH%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cnfunction%20addTextBlock(parent_id,%20children)%20%7B%5Cn%5Cturl%20=%20base+%5C%22blocks/%5C%22%20+%20parent_id%20+%20%5C%22/children%5C%22%5Cn%5Ctblocks%20=%20[]%5Cn%5Ct%5Ctfor(c%20=%200;%20c%20%5Cu003c%20children.length;%20c++)%7B%5Cn%5Ct%5Ctchild%20=%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%5C%22object%5C%22:%20%5C%22block%5C%22,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%5C%22type%5C%22:%20%5C%22paragraph%5C%22,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%5C%22paragraph%5C%22:%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%5C%22text%5C%22:%20[%7B%20%5C%22type%5C%22:%20%5C%22text%5C%22,%20%5C%22text%5C%22:%20%7B%20%5C%22content%5C%22:%20children[c]%7D%20%7D]%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ctblocks.push(child)%5Cn%5Ct%5Ct%7D%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22PATCH%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20%7B%5C%22children%5C%22:%20blocks%7D,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22F3CC4ACC-A468-46F9-9729-63F0CE085EB5%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20Database%20functions%5Cn%5Cn//%20listDatabases()%20-%20returns%20a%20list%20of%20databases%20with%20integrations%20to%20API%20(i.e.%20not%20all%20databases).%5Cn//%20addDatabasePage(parentId,%20title)%20-%20adds%20a%20new%20database%20page%5Cn//%20queryPageTitleDb(databaseId,text)%20-%20simple%20query%20of%20a%20database%20for%20an%20exact%20match%20of%20page%20title%5Cn//%20queryDatabase(databaseId,filter,sorts)%20-%20database%20query%20using%20submitted%20filter%20and%20sorts%5Cn%5Cnfunction%20listDatabases()%20%7B%5Cn%5Cn%5Cturl%20=%20base+%5C%22databases%5C%22%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22GET%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results.results%5Cn%7D%5Cn%5Cnfunction%20addDatabasePageOld(databaseId,%20title)%20%7B%5Cn%5Cturl%20=%20base+%5C%22pages%5C%22%5Cn%5Ctbody%20=%20%7B%5Ct%5C%22parent%5C%22:%20%7B%20%5C%22database_id%5C%22:%20databaseId%20%7D,%5C%22properties%5C%22:%20%7B%5C%22Name%5C%22:%20%7B%5C%22title%5C%22:%20[%7B%5C%22text%5C%22:%20%7B%5C%22content%5C%22:%20title%7D%7D]%7D%7D%7D%5Cn%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%5Cn%5Cnfunction%20addDatabasePage(databaseId,%20body)%20%7B%5Cn%5Cturl%20=%20base+%5C%22pages%5C%22%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%5Cn%5Cn%5Cnfunction%20addDatabasePage2(databaseId,%20title,%20description,%20type,%20icon)%20%7B%5Cn%5Cturl%20=%20base+%5C%22pages%5C%22%5Cn%5Ctbody%20=%20%7B%5Ct%5C%22parent%5C%22:%20%7B%20%5C%22database_id%5C%22:%20databaseId%20%7D,%5Cn%5Ct%5Ct%5Ct%5C%22icon%5C%22:%20%7B%5C%22type%5C%22:%5C%22external%5C%22,%5C%22external%5C%22:%7B%5C%22url%5C%22:icon%7D%7D,%5Cn%5Ct%5Ct%5Ct%5C%22properties%5C%22:%20%7B%5Cn%5Ct%5Ct%5Ct%5C%22Name%5C%22:%20%7B%5C%22title%5C%22:%20[%7B%5C%22text%5C%22:%20%7B%5C%22content%5C%22:%20title%7D%7D]%7D,%5Cn%5Ct%5Ct%5Ct%5C%22Type%5C%22:%20%7B%5C%22select%5C%22:%20%7B%5C%22name%5C%22:type%7D%7D,%5Cn%5Ct%5Ct%5Ct%5C%22Description%5C%22:%20%7B%5C%22rich_text%5C%22:%20[%5Ct%7B%5C%22text%5C%22:%20%7B%5C%22content%5C%22:%20description%7D%7D]%7D%5Ct%5Cn%5Ct%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%5Cn%5Cnfunction%20editDatabasePage(pageId,%20body)%20%7B%5Cn%5Cturl%20=%20base+%5C%22pages/%5C%22+pageId%5Cn%5Ct%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22PATCH%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%5Cn%5Cnfunction%20queryPageTitleDb(databaseId,text)%20%7B%5Cn%5Cn%5Ctfilter%20=%20%7B%5C%22property%5C%22:%20%5C%22Name%5C%22,%5C%22text%5C%22:%20%7B%5C%22equals%5C%22:%20text%20%7D%7D%5Cn%5Ctbody%20=%20%7B%5C%22filter%5C%22:filter%7D%5Cn%5Cn%5Cturl%20=%20base%20+%20%5C%22databases/%5C%22%20+%20databaseId%20+%20%5C%22/query%5C%22%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret,%5Cn%5Ct%5Ct%5C%22Notion-Version%5C%22:%20version%20%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%5Cn%7D%5Cn%5Cnfunction%20queryDatabase(databaseId,filter,sorts)%20%7B%5Cn%5Cn%5Ct//body%20=%20%7B%5C%22filter%5C%22:filter%7D%5Cn%5Ctbody%20=%20%7B%5C%22filter%5C%22:filter,%20%5C%22sorts%5C%22:%20sorts,%20%5C%22page_size%5C%22:%20100%7D%5Cn%5Cn%5Cturl%20=%20base%20+%20%5C%22databases/%5C%22%20+%20databaseId%20+%20%5C%22/query%5C%22%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret,%5Cn%5Ct%5Ct%5C%22Notion-Version%5C%22:%20version%20%5Cn%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ct//console.log(results.has_more)%5Cn%5Ctreturn%20results%5Cn%7D%5Ct%5Cn%5Cnfunction%20queryDatabasePagination(databaseId,filter,sorts)%20%7B%5Cn%5Ct//%20to%20get%20result%20sets%20of%20more%20than%20100%5Cn%5Ctstart_cursor%20=%20%5C%22%5C%22%5Cn%5Ctitems%20=%20[]%5Cn%5Cn%5Ctdo%20%7B%5Cn%5Ct%5Ctbody%20=%20%7B%5C%22filter%5C%22:filter,%20%5C%22sorts%5C%22:%20sorts,%20%5C%22page_size%5C%22:%20100%7D%5Cn%5Ct%5Ctif%20(start_cursor%20!=%20%5C%22%5C%22)%20%7B%5Cn%5Ct%5Ct%5Ctbody.start_cursor%20=%20start_cursor%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Cturl%20=%20base%20+%20%5C%22databases/%5C%22%20+%20databaseId%20+%20%5C%22/query%5C%22%5Cn%5Ct%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Ct%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%5Ct%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%5Ct%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%5Ct%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret,%5Cn%5Ct%5Ct%5Ct%5C%22Notion-Version%5C%22:%20version%20%5Cn%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ct%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ctelse%20%7B%5Cn%5Ct%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Cthas_more%20=%20results.has_more%5Cn%5Ct%5Ctstart_cursor%20=%20results.next_cursor%5Cn%5Ct%5Ctitems%20=%20items.concat(results.results)%5Cn%5Ct%5Cn%5Ct%7D%5Cn%5Ctwhile%20(has_more%20==%20true)%5Cn%5Cn%5Ctreturn%20items%5Cn%7D%5Ct%5Cn%5Cn%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%225397A9CF-1DAB-4DB7-A401-D728C964EA5F%22%7D,%7B%22platforms%22:0,%22data%22:%7B%22script%22:%22//%20Not%20used%5Cn//%20addPageOrDatabase(parentId,%20title)%20-%20uses%20listDatabases%20function%20to%20see%20whether%20the%20parent%20is%20a%20database,%20and%20then%20adds%20page%20accordingly.%20Body%20is%20different%20structure%20for%20database%20pages.%5Cn%5Cn%5Cnfunction%20addPageOrDatabase(parentId,%20title)%20%7B%5Cn%5Cn%5Ct//check%20whether%20parentId%20is%20a%20database%5Cn%5Ctdatabases%20=%20listDatabases()%5Cn%5CtdatabaseList%20=%20[]%5Cn%5Ctfor(i%20=%200;%20i%20%5Cu003c%20databases.length;%20i++)%7B%5Cn%5Ct%5CtdatabaseList.push(databases[i].id)%5Cn%5Ct%5CtdatabaseList.push(databases[i].id.replaceAll(%5C%22-%5C%22,%5C%22%5C%22))%5Cn%5Ct%7D%5Cn%5Cn%5Ctif%20(databaseList.includes(parentId))%20%7B%5Cn%5Ct%5Cn%5Ct%5Ctbody%20=%20%7B%5Ct%5C%22parent%5C%22:%20%7B%20%5C%22database_id%5C%22:%20parentId%20%7D,%5C%22properties%5C%22:%20%7B%5C%22Name%5C%22:%20%7B%5C%22title%5C%22:%20[%7B%5C%22text%5C%22:%20%7B%5C%22content%5C%22:%20title%7D%7D]%7D%7D%7D%5Cn%5Ct%5Ctconsole.log(%5C%22Is%20database%5C%22)%5Cn%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ctbody%20=%20%7B%5Ct%5C%22parent%5C%22:%20%7B%20%5C%22page_id%5C%22:%20parentId%20%7D,%5C%22properties%5C%22:%20%7B%5C%22title%5C%22:%20[%7B%5C%22text%5C%22:%20%7B%5C%22content%5C%22:%20title%7D%7D]%7D%7D%5Cn%5Ct%5Ctconsole.log(%5C%22Is%20page%5C%22)%5Cn%5Ct%7D%5Cn%5Ct%5Cn%5Cturl%20=%20base+%5C%22pages%5C%22%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22POST%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret%5Cn%20%20%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D);%5Cn%5Cn%5Ctif%20(response.success)%20%7B%5Cn%5Ct%5Ctvar%20text%20=%20response.responseText;%5Cn%5Ct%5Ctvar%20data%20=%20response.responseData;%5Cn%5Ct%5Ctvar%20results%20=%20JSON.parse(text)%5Cn%5Ct%5Ctconsole.log(text)%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5Ctconsole.log(response.statusCode);%5Cn%5Ct%5Ctconsole.log(response.error);%5Cn%5Ct%7D%5Cn%5Ctreturn%20results%5Cn%7D%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:false,%22uuid%22:%22CC70E170-BB7D-40BD-89E9-D3FA0FFEB407%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20Icon%20functions%5Cn%5Cnfunction%20getIconUrl(page)%20%7B%5Cn%5CticonUrl%20=%20%5C%22%5C%22%5Cn%5Ctif%20(page.icon%20!=%20null)%20%7B%5Cn%5Ct%5Ctif%20(page.icon.type%20==%20%5C%22external%5C%22)%20%7B%5Cn%5Ct%5Ct%5CticonUrl%20=%20page.icon.external.url%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D%5Cn%5Ctreturn%20iconUrl%5Cn%7D%5Cn%5Cnfunction%20updateIcon(pageId,iconUrl)%20%7B%5Cn%5Cturl%20=%20base%20+%20%5C%22pages/%5C%22%20+%20pageId%5Cn%5Ctbody%20=%20%7B%5Ct%5C%22icon%5C%22:%20%7B%5C%22type%5C%22:%5C%22external%5C%22,%5C%22external%5C%22:%7B%5C%22url%5C%22:%20iconUrl%7D%7D%7D%5Cn%5Ct%5Ct%5Cn%5Ctvar%20http%20=%20HTTP.create();%20//%20create%20HTTP%20object%5Cn%5Ctvar%20response%20=%20http.request(%7B%5Cn%5Ct%5Ct%5C%22url%5C%22:%20url,%5Cn%5Ct%5Ct%5C%22method%5C%22:%20%5C%22PATCH%5C%22,%5Cn%20%20%5Ct%5Ct%5C%22data%5C%22:%20body,%5Cn%20%20%5Ct%5Ct%5C%22headers%5C%22:%20%7B%5Cn%20%20%5Ct%5Ct%5Ct%5C%22Authorization%5C%22:%20%5C%22Bearer%20%5C%22%20+%20secret,%5Cn%20%20%5Ct%5Ct%5Ct%5C%22Notion-Version%5C%22%20:%20version%5Cn%20%20%5Ct%5Ct%7D%5Cn%5Ct%7D);%5Cnreturn%20response%5Cn%7D%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22E7782789-C029-4C47-8C65-A81D5A0A3276%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Notion%20functions%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22none%22,%22actionDescription%22:%22List%20of%20functions%20and%20variables%20to%20access%20Notion%20API%22,%22keyUseIcon%22:false,%22icon%22:%22%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%223911A98A-0588-45E5-A65C-92315E9A1D99%22,%22assignTags%22:[],%22name%22:%22Notion%20functions%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// Credentials and basic variables
+
+// Gets Notion secret from keychain, and sets version and personal environment variables
+
+function notionClient() {
+	var credential = Credential.create(&quot;Notion&quot;, &quot;Notion API&quot;);
+	credential.addPasswordField(&quot;secret&quot;, &quot;Secret&quot;);
+	credential.authorize();
+
+	//Get token
+	var secret = credential.getValue(&quot;secret&quot;)
+
+	return secret
+}
+
+// Get link for daily note if it exist
+
+
+function getDailyNoteId(dateObject) {
+
+	options = {weekday: &#39;short&#39;, year: &#39;numeric&#39;, month: &#39;short&#39;, day: &#39;2-digit&#39; };
+	dateText = dateObject.toLocaleDateString(&#39;en-GB&#39;, options).replace(&quot;,&quot;,&quot;&quot;)
+	dateText = dateText.substring(0,10)
+	
+	pages = queryPageTitleDb(&quot;3564b4cfdbbd47529b8f61ee240427b6&quot;, dateText)
+
+	if (pages.results.length == 0) {
+		pageId = inbox
+		} else {
+		pageId = pages.results[0].id
+		}
+
+	return pageId
+}
+
+
+
+// Basic variables
+base = &quot;https://api.notion.com/v1/&quot;
+version =&quot;2021-08-16&quot; //updated
+
+//Personal environment variables
+
+inbox = &quot;14c0f34131574be1b78c9add79264c31&quot; // page that I use as my inbox
+actions = &quot;3564b4cfdbbd47529b8f61ee240427b6&quot; // database for actions - same as notes now - all objects in one place.
+notes = &quot;3564b4cfdbbd47529b8f61ee240427b6&quot; //
+
+// Notes
+// previously used a &quot;require(&quot;notion.js&quot;)&quot; to include functions from a js file. This seemed to be slower.
+// and also used to get functions from a draft:
+// var s = Draft.find(UUID);
+// this.eval(s.content);</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// Page functions
+
+// addPage(parentId, title) - adds a subpage or database page, depending on type of page
+// getPage(pageId) - gets details of a page
+// getChildren(pageId)
+// addChildren(pageId,children)
+// addTextBlock(page_id,children)
+
+function addPage(parentId, title) {
+
+	body = {	&quot;parent&quot;: { &quot;page_id&quot;: parentId },&quot;properties&quot;: {&quot;title&quot;: [{&quot;text&quot;: {&quot;content&quot;: title}}]}}
+	url = base+&quot;pages&quot;
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}
+
+///////////////////
+
+function getPage(pageId) {
+
+	url = base + &quot;pages/&quot; + pageId
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;GET&quot;,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret,
+		&quot;Notion-Version&quot;: version 
+  			}
+		});
+		
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+		console.log(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+
+}
+
+function getChildren(pageId) {
+	url = base+&quot;blocks/&quot; + pageId + &quot;/children&quot;
+	console.log(url)
+
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;GET&quot;,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret,
+		&quot;Notion-Version&quot;: version 
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+		console.log(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results.results
+}
+
+function addChildren(pageId, children) {
+
+	url = &#39;https://api.notion.com/v1/blocks/&#39; + pageId + &#39;/children&#39;
+	body = {&quot;children&quot;: children}
+	
+	var http = HTTP.create(); // create HTTP object
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;PATCH&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+}
+
+function addTextBlock(parent_id, children) {
+	url = base+&quot;blocks/&quot; + parent_id + &quot;/children&quot;
+	blocks = []
+		for(c = 0; c &lt; children.length; c++){
+		child = {
+						&quot;object&quot;: &quot;block&quot;,
+						&quot;type&quot;: &quot;paragraph&quot;,
+						&quot;paragraph&quot;: {
+							&quot;text&quot;: [{ &quot;type&quot;: &quot;text&quot;, &quot;text&quot;: { &quot;content&quot;: children[c]} }]
+							}
+					}
+		blocks.push(child)
+		}
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;PATCH&quot;,
+  		&quot;data&quot;: {&quot;children&quot;: blocks},
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// Database functions
+
+// listDatabases() - returns a list of databases with integrations to API (i.e. not all databases).
+// addDatabasePage(parentId, title) - adds a new database page
+// queryPageTitleDb(databaseId,text) - simple query of a database for an exact match of page title
+// queryDatabase(databaseId,filter,sorts) - database query using submitted filter and sorts
+
+function listDatabases() {
+
+	url = base+&quot;databases&quot;
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;GET&quot;,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results.results
+}
+
+function addDatabasePageOld(databaseId, title) {
+	url = base+&quot;pages&quot;
+	body = {	&quot;parent&quot;: { &quot;database_id&quot;: databaseId },&quot;properties&quot;: {&quot;Name&quot;: {&quot;title&quot;: [{&quot;text&quot;: {&quot;content&quot;: title}}]}}}
+
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}
+
+function addDatabasePage(databaseId, body) {
+	url = base+&quot;pages&quot;
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}
+
+
+function addDatabasePage2(databaseId, title, description, type, icon) {
+	url = base+&quot;pages&quot;
+	body = {	&quot;parent&quot;: { &quot;database_id&quot;: databaseId },
+			&quot;icon&quot;: {&quot;type&quot;:&quot;external&quot;,&quot;external&quot;:{&quot;url&quot;:icon}},
+			&quot;properties&quot;: {
+			&quot;Name&quot;: {&quot;title&quot;: [{&quot;text&quot;: {&quot;content&quot;: title}}]},
+			&quot;Type&quot;: {&quot;select&quot;: {&quot;name&quot;:type}},
+			&quot;Description&quot;: {&quot;rich_text&quot;: [	{&quot;text&quot;: {&quot;content&quot;: description}}]}	
+				}
+			}
+
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}
+
+function editDatabasePage(pageId, body) {
+	url = base+&quot;pages/&quot;+pageId
+	
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;PATCH&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}
+
+function queryPageTitleDb(databaseId,text) {
+
+	filter = {&quot;property&quot;: &quot;Name&quot;,&quot;text&quot;: {&quot;equals&quot;: text }}
+	body = {&quot;filter&quot;:filter}
+
+	url = base + &quot;databases/&quot; + databaseId + &quot;/query&quot;
+	var http = HTTP.create(); // create HTTP object
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+		&quot;data&quot;: body,
+		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret,
+		&quot;Notion-Version&quot;: version 
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+		}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+
+}
+
+function queryDatabase(databaseId,filter,sorts) {
+
+	//body = {&quot;filter&quot;:filter}
+	body = {&quot;filter&quot;:filter, &quot;sorts&quot;: sorts, &quot;page_size&quot;: 100}
+
+	url = base + &quot;databases/&quot; + databaseId + &quot;/query&quot;
+	var http = HTTP.create(); // create HTTP object
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+		&quot;data&quot;: body,
+		&quot;headers&quot;: {
+ 		&quot;Authorization&quot;: &quot;Bearer &quot; + secret,
+		&quot;Notion-Version&quot;: version 
+ 			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+		}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	//console.log(results.has_more)
+	return results
+}	
+
+function queryDatabasePagination(databaseId,filter,sorts) {
+	// to get result sets of more than 100
+	start_cursor = &quot;&quot;
+	items = []
+
+	do {
+		body = {&quot;filter&quot;:filter, &quot;sorts&quot;: sorts, &quot;page_size&quot;: 100}
+		if (start_cursor != &quot;&quot;) {
+			body.start_cursor = start_cursor
+			}
+		url = base + &quot;databases/&quot; + databaseId + &quot;/query&quot;
+		var http = HTTP.create(); // create HTTP object
+		var response = http.request({
+			&quot;url&quot;: url,
+			&quot;method&quot;: &quot;POST&quot;,
+			&quot;data&quot;: body,
+			&quot;headers&quot;: {
+ 			&quot;Authorization&quot;: &quot;Bearer &quot; + secret,
+			&quot;Notion-Version&quot;: version 
+ 			}
+		});
+
+		if (response.success) {
+			var text = response.responseText;
+			var data = response.responseData;
+			var results = JSON.parse(text)
+			}
+		else {
+			console.log(response.statusCode);
+			console.log(response.error);
+			}
+		has_more = results.has_more
+		start_cursor = results.next_cursor
+		items = items.concat(results.results)
+	
+	}
+	while (has_more == true)
+
+	return items
+}	
+
+
+</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3 class='disabled'>script (disabled)</h3><pre><code class='language-javascript'>// Not used
+// addPageOrDatabase(parentId, title) - uses listDatabases function to see whether the parent is a database, and then adds page accordingly. Body is different structure for database pages.
+
+
+function addPageOrDatabase(parentId, title) {
+
+	//check whether parentId is a database
+	databases = listDatabases()
+	databaseList = []
+	for(i = 0; i &lt; databases.length; i++){
+		databaseList.push(databases[i].id)
+		databaseList.push(databases[i].id.replaceAll(&quot;-&quot;,&quot;&quot;))
+	}
+
+	if (databaseList.includes(parentId)) {
+	
+		body = {	&quot;parent&quot;: { &quot;database_id&quot;: parentId },&quot;properties&quot;: {&quot;Name&quot;: {&quot;title&quot;: [{&quot;text&quot;: {&quot;content&quot;: title}}]}}}
+		console.log(&quot;Is database&quot;)
+	} else {
+		body = {	&quot;parent&quot;: { &quot;page_id&quot;: parentId },&quot;properties&quot;: {&quot;title&quot;: [{&quot;text&quot;: {&quot;content&quot;: title}}]}}
+		console.log(&quot;Is page&quot;)
+	}
+	
+	url = base+&quot;pages&quot;
+	var http = HTTP.create(); // create HTTP object
+
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;POST&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  		&quot;Authorization&quot;: &quot;Bearer &quot; + secret
+  			}
+		});
+
+	if (response.success) {
+		var text = response.responseText;
+		var data = response.responseData;
+		var results = JSON.parse(text)
+		console.log(text)
+	}
+	else {
+		console.log(response.statusCode);
+		console.log(response.error);
+	}
+	return results
+}
+</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// Icon functions
+
+function getIconUrl(page) {
+	iconUrl = &quot;&quot;
+	if (page.icon != null) {
+		if (page.icon.type == &quot;external&quot;) {
+			iconUrl = page.icon.external.url
+			}
+		}
+	return iconUrl
+}
+
+function updateIcon(pageId,iconUrl) {
+	url = base + &quot;pages/&quot; + pageId
+	body = {	&quot;icon&quot;: {&quot;type&quot;:&quot;external&quot;,&quot;external&quot;:{&quot;url&quot;: iconUrl}}}
+		
+	var http = HTTP.create(); // create HTTP object
+	var response = http.request({
+		&quot;url&quot;: url,
+		&quot;method&quot;: &quot;PATCH&quot;,
+  		&quot;data&quot;: body,
+  		&quot;headers&quot;: {
+  			&quot;Authorization&quot;: &quot;Bearer &quot; + secret,
+  			&quot;Notion-Version&quot; : version
+  		}
+	});
+return response
+}
+</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Default
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Info</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Info</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="https://actions.getdrafts.com/getdrafts.com/support/privacy.html">Privacy</a> | <a href="https://actions.getdrafts.com/getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

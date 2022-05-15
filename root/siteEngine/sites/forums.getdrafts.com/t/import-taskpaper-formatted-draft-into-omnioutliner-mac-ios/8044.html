@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Import Taskpaper-formatted Draft into OmniOutliner (Mac/iOS) - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="This Drafts 5 action imports a TaskPaper-formatted Draft into OmniOutliner using the new OmniJS API. 
+For example, starting with this text: 
+Gardening:
+	- Choose location.
+	- Buy basic garden tools.
+	- Nurture the garden&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="8044.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Import Taskpaper-formatted Draft into OmniOutliner (Mac/iOS)&#39;" href="https://forums.getdrafts.com/t/import-taskpaper-formatted-draft-into-omnioutliner-mac-ios/8044.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef.jpeg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef.jpeg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/import-taskpaper-formatted-draft-into-omnioutliner-mac-ios/8044" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/import-taskpaper-formatted-draft-into-omnioutliner-mac-ios/8044" />
+<meta property="og:title" content="Import Taskpaper-formatted Draft into OmniOutliner (Mac/iOS)" />
+<meta name="twitter:title" content="Import Taskpaper-formatted Draft into OmniOutliner (Mac/iOS)" />
+<meta property="og:description" content="This Drafts 5 action imports a TaskPaper-formatted Draft into OmniOutliner using the new OmniJS API.  For example, starting with this text:  Gardening: 	- Choose location. 	- Buy basic garden tools. 	- Nurture the garden. 		A rule of thumb for watering the plants is one inch of water per week during the growing season. Write a book: 	- Establish my writing space. 	- Assemble my writing tools. 		Pen, pencil and paper. 	- Write.  Produces this OmniOutliner outline:     Link:  https://actions.getdr..." />
+<meta name="twitter:description" content="This Drafts 5 action imports a TaskPaper-formatted Draft into OmniOutliner using the new OmniJS API.  For example, starting with this text:  Gardening: 	- Choose location. 	- Buy basic garden tools. 	- Nurture the garden. 		A rule of thumb for watering the plants is one inch of water per week during the growing season. Write a book: 	- Establish my writing space. 	- Assemble my writing tools. 		Pen, pencil and paper. 	- Write.  Produces this OmniOutliner outline:     Link:  https://actions.getdr..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2020-08-01T02:41:42+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="8044.html">Import Taskpaper-formatted Draft into OmniOutliner (Mac/iOS)</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/unlocked2412'><span itemprop='name'>unlocked2412</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8044.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-01T02:41:42Z' class='post-time'>
+                August 1, 2020,  2:41am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-01T02:41:42Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This Drafts 5 action imports a TaskPaper-formatted Draft into OmniOutliner using the new OmniJS API.</p>
+<p>For example, starting with this text:</p>
+<pre><code class="lang-auto">Gardening:
+	- Choose location.
+	- Buy basic garden tools.
+	- Nurture the garden.
+		A rule of thumb for watering the plants is one inch of water per week during the growing season.
+Write a book:
+	- Establish my writing space.
+	- Assemble my writing tools.
+		Pen, pencil and paper.
+	- Write.
+</code></pre>
+<p>Produces this OmniOutliner outline:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/56a493600b18deb2f33e7deb5d705e71edfaf0ef" title="Screen Shot 2020-07-31 at 23.31.26"><img src="../../uploads/default/optimized/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef_2_486x499.jpeg" alt="Screen Shot 2020-07-31 at 23.31.26" data-base62-sha1="cmtFbk1D3z89bFoZJrHmACThnuD" width="486" height="499" srcset="../../uploads/default/optimized/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef_2_486x499.jpeg, ../../uploads/default/optimized/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef_2_729x748.jpeg 1.5x, ../../uploads/default/original/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/56a493600b18deb2f33e7deb5d705e71edfaf0ef_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screen Shot 2020-07-31 at 23.31.26</span><span class="informations">904×930 126 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Link:<br>
+<a href="../../../actions.getdrafts.com/a/1ar.html" class="onebox" target="_blank" rel="nofollow noopener">https://actions.getdrafts.com/a/1ar</a></p>
+<p>Code:</p>
+<pre><code class="lang-auto">// Twitter: @unlocked2412
+// DRAFTS JS CODE --------------------------------------------------------
+const draftsJSContext = () =&gt; {
+    // main :: IO ()
+    const main = () =&gt; {
+        return runOmniJSWithArgsFromDrafts(
+            'omnioutliner://localhost/omnijs-run',
+            omniJSContext,
+            options
+        )
+    };
+
+    // OMNI JS CODE ---------------------------------------
+    const omniJSContext = opts =&gt; {
+        // main :: IO ()
+        const main = () =&gt; {
+            const forest = compose(
+                map(
+                    compose(
+                        fmapTree(
+                            x =&gt; ({
+                                topic: x.text,
+                                note: x.note
+                            })
+                        ),
+                        treeWithNotes
+                    )
+                ),
+                forestFromTaskPaperString
+            )(opts.content)
+
+            return Document.makeNewAndShow(
+                doc =&gt; ooRowsFromForest(doc.outline.rootItem)(
+                    forest
+                )
+            )
+        };
+
+        // GENERIC FUNCTIONS ----------------------------------
+        // https://github.com/RobTrew/prelude-jxa
+        // JS Prelude --------------------------------------------------
+        // Just :: a -&gt; Maybe a
+        const Just = x =&gt; ({
+            type: 'Maybe',
+            Nothing: false,
+            Just: x
+        });
+
+        // Node :: a -&gt; [Tree a] -&gt; Tree a
+        const Node = v =&gt;
+            // Constructor for a Tree node which connects a
+            // value of some kind to a list of zero or
+            // more child trees.
+            xs =&gt; ({
+                type: 'Node',
+                root: v,
+                nest: xs || []
+            });
+
+        // Nothing :: Maybe a
+        const Nothing = () =&gt; ({
+            type: 'Maybe',
+            Nothing: true,
+        });
+
+        // Tuple (,) :: a -&gt; b -&gt; (a, b)
+        const Tuple = a =&gt;
+            b =&gt; ({
+                type: 'Tuple',
+                '0': a,
+                '1': b,
+                length: 2
+            });
+
+        // compose (&lt;&lt;&lt;) :: (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+        const compose = (...fs) =&gt;
+            // A function defined by the right-to-left
+            // composition of all the functions in fs.
+            fs.reduce(
+                (f, g) =&gt; x =&gt; f(g(x)),
+                x =&gt; x
+            );
+
+        // div :: Int -&gt; Int -&gt; Int
+        const div = x =&gt;
+            y =&gt; Math.floor(x / y);
+
+        // eq (==) :: Eq a =&gt; a -&gt; a -&gt; Bool
+        const eq = a =&gt;
+            // True when a and b are equivalent in the terms
+            // defined below for their shared data type.
+            b =&gt; {
+                const t = typeof a;
+                return t !== typeof b ? (
+                    false
+                ) : 'object' !== t ? (
+                    'function' !== t ? (
+                        a === b
+                    ) : a.toString() === b.toString()
+                ) : (() =&gt; {
+                    const kvs = Object.entries(a);
+                    return kvs.length !== Object.keys(b).length ? (
+                        false
+                    ) : kvs.every(([k, v]) =&gt; eq(v)(b[k]));
+                })();
+            };
+
+        // filter :: (a -&gt; Bool) -&gt; [a] -&gt; [a]
+        const filter = p =&gt;
+            // The elements of xs which match
+            // the predicate p.
+            xs =&gt; [...xs].filter(p);
+
+        // findIndices :: (a -&gt; Bool) -&gt; [a] -&gt; [Int]
+        // findIndices :: (String -&gt; Bool) -&gt; String -&gt; [Int]
+        const findIndices = p =&gt;
+            xs =&gt; (
+                ys =&gt; ys.flatMap((y, i) =&gt; p(y, i, ys) ? (
+                    [i]
+                ) : [])
+            )([...xs])
+
+        // first :: (a -&gt; b) -&gt; ((a, c) -&gt; (b, c))
+        const first = f =&gt;
+            // A simple function lifted to one which applies
+            // to a tuple, transforming only its first item.
+            xy =&gt; Tuple(f(xy[0]))(
+                xy[1]
+            );
+
+        // flip :: (a -&gt; b -&gt; c) -&gt; b -&gt; a -&gt; c
+        const flip = op =&gt;
+            // The binary function op with its arguments reversed.
+            1 &lt; op.length ? (
+                (a, b) =&gt; op(b, a)
+            ) : (x =&gt; y =&gt; op(y)(x));
+
+        // fmapTree :: (a -&gt; b) -&gt; Tree a -&gt; Tree b
+        const fmapTree = f =&gt; {
+            // A new tree. The result of a structure-preserving
+            // application of f to each root in the existing tree.
+            const go = tree =&gt; Node(f(tree.root))(
+                tree.nest.map(go)
+            );
+            return go;
+        };
+
+        // foldTree :: (a -&gt; [b] -&gt; b) -&gt; Tree a -&gt; b
+        const foldTree = f =&gt; {
+            // The catamorphism on trees. A summary
+            // value obtained by a depth-first fold.
+            const go = tree =&gt; f(tree.root)(
+                tree.nest.map(go)
+            );
+            return go;
+        };
+
+        // fst :: (a, b) -&gt; a
+        const fst = tpl =&gt;
+            // First member of a pair.
+            tpl[0];
+
+        // isSpace :: Char -&gt; Bool
+        const isSpace = c =&gt;
+            // True if c is a white space character.
+            /\s/.test(c);
+
+        // length :: [a] -&gt; Int
+        const length = xs =&gt;
+            // Returns Infinity over objects without finite
+            // length. This enables zip and zipWith to choose
+            // the shorter argument when one is non-finite,
+            // like cycle, repeat etc
+            'GeneratorFunction' !== xs.constructor.constructor.name ? (
+                xs.length
+            ) : Infinity;
+
+        // lines :: String -&gt; [String]
+        const lines = s =&gt;
+            // A list of strings derived from a single
+            // newline-delimited string.
+            0 &lt; s.length ? (
+                s.split(/[\r\n]/)
+            ) : [];
+
+        // list :: StringOrArrayLike b =&gt; b -&gt; [a]
+        const list = xs =&gt;
+            // xs itself, if it is an Array,
+            // or an Array derived from xs.
+            Array.isArray(xs) ? (
+                xs
+            ) : Array.from(xs || []);
+
+        // map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+        const map = f =&gt;
+            // The list obtained by applying f
+            // to each element of xs.
+            // (The image of xs under f).
+            xs =&gt; [...xs].map(f);
+
+        // matching :: [a] -&gt; (a -&gt; Int -&gt; [a] -&gt; Bool)
+        const matching = pat =&gt; {
+            // A sequence-matching function for findIndices etc
+            // findIndices(matching([2, 3]), [1, 2, 3, 1, 2, 3])
+            // -&gt; [1, 4]
+            const
+                lng = pat.length,
+                bln = 0 &lt; lng,
+                h = bln ? pat[0] : undefined;
+            return x =&gt; i =&gt; src =&gt;
+                bln &amp;&amp; h == x &amp;&amp; eq(pat)(
+                    src.slice(i, lng + i)
+                );
+        };
+
+        // minimum :: Ord a =&gt; [a] -&gt; a
+        const minimum = xs =&gt; (
+            // The least value of xs.
+            ys =&gt; 0 &lt; ys.length ? (
+                ys.slice(1)
+                .reduce((a, y) =&gt; y &lt; a ? y : a, ys[0])
+            ) : undefined
+        )(list(xs));
+
+        // nest :: Tree a -&gt; [a]
+        const nest = tree =&gt; {
+            // Allowing for lazy (on-demand) evaluation.
+            // If the nest turns out to be a function –
+            // rather than a list – that function is applied
+            // here to the root, and returns a list.
+            const xs = tree.nest;
+            return 'function' !== typeof xs ? (
+                xs
+            ) : xs(root(x));
+        };
+
+        // Derive a function from the name of a JS infix operator
+        // op :: String -&gt; (a -&gt; a -&gt; b)
+        const op = strOp =&gt;
+            eval(`(a, b) =&gt; a ${strOp} b`);
+
+        // partition :: (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
+        const partition = p =&gt;
+            // A tuple of two lists - those elements in 
+            // xs which match p, and those which don't.
+            xs =&gt; list(xs).reduce(
+                (a, x) =&gt; p(x) ? (
+                    Tuple(a[0].concat(x))(a[1])
+                ) : Tuple(a[0])(a[1].concat(x)),
+                Tuple([])([])
+            );
+
+        // root :: Tree a -&gt; a
+        const root = tree =&gt; tree.root;
+
+        // snd :: (a, b) -&gt; b
+        const snd = tpl =&gt; tpl[1];
+
+        // span, applied to a predicate p and a list xs, returns a tuple of xs of 
+        // elements that satisfy p and second element is the remainder of the list:
+        //
+        // &gt; span (&lt; 3) [1,2,3,4,1,2,3,4] == ([1,2],[3,4,1,2,3,4])
+        // &gt; span (&lt; 9) [1,2,3] == ([1,2,3],[])
+        // &gt; span (&lt; 0) [1,2,3] == ([],[1,2,3])
+        //
+        // span p xs is equivalent to (takeWhile p xs, dropWhile p xs) 
+        // span :: (a -&gt; Bool) -&gt; [a] -&gt; ([a], [a])
+        const span = p =&gt;
+            // Longest prefix of xs consisting of elements which
+            // all satisfy p, tupled with the remainder of xs.
+            xs =&gt; {
+                const
+                    ys = 'string' !== typeof xs ? (
+                        list(xs)
+                    ) : xs,
+                    iLast = ys.length - 1;
+                return splitAt(
+                    until(
+                        i =&gt; iLast &lt; i || !p(ys[i])
+                    )(i =&gt; 1 + i)(0)
+                )(ys);
+            };
+
+        // splitArrow (***) :: (a -&gt; b) -&gt; (c -&gt; d) -&gt; ((a, c) -&gt; (b, d))
+        const splitArrow = f =&gt;
+            // The functions f and g combined in a single function
+            // from a tuple (x, y) to a tuple of (f(x), g(y))
+            // (see bimap)
+            g =&gt; tpl =&gt; Tuple(f(tpl[0]))(
+                g(tpl[1])
+            );
+
+        // splitAt :: Int -&gt; [a] -&gt; ([a], [a])
+        const splitAt = n =&gt;
+            xs =&gt; Tuple(xs.slice(0, n))(
+                xs.slice(n)
+            );
+
+        // splitOn :: [a] -&gt; [a] -&gt; [[a]]
+        // splitOn :: String -&gt; String -&gt; [String]
+        const splitOn = pat =&gt; src =&gt;
+            /* A list of the strings delimited by
+               instances of a given pattern in s. */
+            ('string' === typeof src) ? (
+                src.split(pat)
+            ) : (() =&gt; {
+                const
+                    lng = pat.length,
+                    tpl = findIndices(matching(pat))(src).reduce(
+                        (a, i) =&gt; Tuple(
+                            fst(a).concat([src.slice(snd(a), i)])
+                        )(lng + i),
+                        Tuple([])(0),
+                    );
+                return fst(tpl).concat([src.slice(snd(tpl))]);
+            })();
+
+        // take :: Int -&gt; [a] -&gt; [a]
+        // take :: Int -&gt; String -&gt; String
+        const take = n =&gt;
+            // The first n elements of a list,
+            // string of characters, or stream.
+            xs =&gt; 'GeneratorFunction' !== xs
+            .constructor.constructor.name ? (
+                xs.slice(0, n)
+            ) : [].concat.apply([], Array.from({
+                length: n
+            }, () =&gt; {
+                const x = xs.next();
+                return x.done ? [] : [x.value];
+            }));
+
+        // uncons :: [a] -&gt; Maybe (a, [a])
+        const uncons = xs =&gt; {
+            // Just a tuple of the head of xs and its tail, 
+            // Or Nothing if xs is an empty list.
+            const lng = length(xs);
+            return (0 &lt; lng) ? (
+                Infinity &gt; lng ? (
+                    Just(Tuple(xs[0])(xs.slice(1))) // Finite list
+                ) : (() =&gt; {
+                    const nxt = take(1)(xs);
+                    return 0 &lt; nxt.length ? (
+                        Just(Tuple(nxt[0])(xs))
+                    ) : Nothing();
+                })() // Lazy generator
+            ) : Nothing();
+        };
+
+        // unlines :: [String] -&gt; String
+        const unlines = xs =&gt;
+            // A single string formed by the intercalation
+            // of a list of strings with the newline character.
+            xs.join('\n');
+
+        // until :: (a -&gt; Bool) -&gt; (a -&gt; a) -&gt; a -&gt; a
+        const until = p =&gt; f =&gt; x =&gt; {
+            let v = x;
+            while (!p(v)) v = f(v);
+            return v;
+        };
+
+        // JS Trees ----------------------------------------------------
+        // forestFromLineIndents :: [(Int, String)] -&gt; [Tree String]
+        const forestFromLineIndents = tuples =&gt; {
+            const go = xs =&gt;
+                0 &lt; xs.length ? (() =&gt; {
+                    const [n, s] = Array.from(xs[0]);
+                    // Lines indented under this line,
+                    // tupled with all the rest.
+                    const [firstTreeLines, rest] = Array.from(
+                        span(x =&gt; n &lt; x[0])(xs.slice(1))
+                    );
+                    // This first tree, and then the rest.
+                    return [
+                        Node({
+                            body: s,
+                            depth: n
+                        })(go(firstTreeLines))
+                    ].concat(go(rest));
+                })() : [];
+            return go(tuples);
+        };
+
+        // forestFromTaskPaperString :: String -&gt; Tree Dict
+        const forestFromTaskPaperString = s =&gt; {
+            const
+                tpItemType = x =&gt; x.startsWith('- ') ? ({
+                    text: x.slice(2),
+                    type: 'task'
+                }) : x.endsWith(':') ? ({
+                    text: x.slice(0, -1),
+                    type: 'project'
+                }) : {
+                    text: x,
+                    type: 'note'
+                },
+                tpTagDict = xs =&gt; xs.reduce((a, x) =&gt; {
+                    const kv = x.split('(');
+                    return Object.assign(a, {
+                        [kv[0]]: 1 &lt; kv.length ? (
+                            kv[1].split(')')[0]
+                        ) : ''
+                    })
+                }, {}),
+                tpParse = dct =&gt; {
+                    const
+                        pair = splitArrow(tpItemType)(tpTagDict)(
+                            uncons(
+                                splitOn(' @')(dct.body)
+                            ).Just
+                        );
+                    return Object.assign({}, dct, pair[0], {
+                        tags: pair[1]
+                    });
+                };
+            return compose(
+                map(fmapTree(tpParse)),
+                forestFromLineIndents,
+                indentLevelsFromLines,
+                filter(Boolean),
+                lines
+            )(s);
+        };
+
+        // indentLevelsFromLines :: [String] -&gt; [(Int, String)]
+        const indentLevelsFromLines = xs =&gt; {
+            const
+                indentTextPairs = xs.map(compose(
+                    first(length),
+                    span(isSpace)
+                )),
+                indentUnit = minimum(
+                    indentTextPairs.flatMap(pair =&gt; {
+                        const w = fst(pair);
+                        return 0 &lt; w ? [w] : [];
+                    })
+                );
+            return indentTextPairs.map(
+                first(flip(div)(indentUnit))
+            );
+        };
+
+        // indentedLinesFromTrees :: String -&gt; (a -&gt; String) -&gt;
+        //      [Tree a] -&gt; [String]
+        const indentedLinesFromTrees = strTab =&gt; f =&gt; trees =&gt; {
+            const go = indent =&gt; node =&gt; [indent + f(node)]
+                .concat(node.nest.flatMap(go(strTab + indent)));
+            return trees.flatMap(go(''));
+        };
+
+        // treeWithNotes :: Tree Dict -&gt; Tree Dict
+        const treeWithNotes = foldTree(item =&gt; subtrees =&gt; {
+            const [withNotes, withoutNotes] = Array.from(
+                partition(
+                    child =&gt; child.root.type === 'note'
+                )(subtrees)
+            );
+            return Node(
+                Object.assign({},
+                    item, {
+                        note: compose(
+                            unlines,
+                            indentedLinesFromTrees('\t')(
+                                compose(
+                                    x =&gt; x.text,
+                                    root
+                                )
+                            )
+                        )(withNotes)
+                    }
+                )
+            )(
+                withoutNotes
+            )
+        })
+
+        // OmniOutliner OmniJS -----------------------------------------
+        // ooRowsFromForest :: OO Item -&gt; [Tree] -&gt; [OO Item]
+        const ooRowsFromForest = parent =&gt; trees =&gt; {
+            const go = parent =&gt; tree =&gt; {
+                const
+                    item = parent.addChild(
+                        null,
+                        x =&gt; Object.assign(
+                            x, tree.root
+                        )
+                    );
+                return (
+                    tree.nest.map(go(item)),
+                    item
+                );
+            };
+            return trees.map(go(parent));
+        };
+
+        // MAIN -----------------------------------------
+        return main()
+    };
+
+    // runOmniJSWithArgsFromDrafts :: URL String -&gt; Function -&gt; [...OptionalArgs] -&gt; a
+    function runOmniJSWithArgsFromDrafts(baseURL, f) {
+        const
+            strCode = encodeURIComponent(
+                `(${f})(${Array.from(arguments)
+                .slice(2).map(JSON.stringify)})`
+            ),
+            strURL = `${baseURL}?script=${strCode}`;
+        return app.openURL(strURL)
+}
+
+    return main()
+};
+draftsJSContext()
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Import Taskpaper-formatted Draft into OmniOutliner (Mac/iOS)'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="https://forums.getdrafts.com/t/essentiali-for-omnioutliner-users/8045/2" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/essentiali-for-omnioutliner-users/8045/2'>
+                      <span itemprop='name'>Essential for OmniOutliner Users</span>
+                    </a>
+                    <meta itemprop='position' content='3'>
+                  </div>
+            </div>
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Integration Guides - Drafts Community</title>
+    <link>https://forums.getdrafts.com/c/integration-guides/7</link>
+    <description>Topics in the &#39;Integration Guides&#39; category Integration guides are short articles covering ways Drafts can integrate with different Apps and Services.  Looking for an app integration not covered here, visit the &lt;a href=&quot;http://actions.getdrafts.com/&quot;&gt;Drafts Directory&lt;/a&gt;</description>
+    
+      <lastBuildDate>Wed, 16 Feb 2022 16:36:57 +0000</lastBuildDate>
+      <atom:link href="https://forums.getdrafts.com/c/integration-guides/7.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>Using Notion with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/2X/8/8de55c8e06744ca3ae87c5add6cb5d1453baf844.png" alt="notion" data-base62-sha1="kfgJ95xnp9sAMMBNS6WbTNliysk" width="311" height="165"></p>
+<h1>
+<a name="using-notion-with-drafts-1" class="anchor" href="https://forums.getdrafts.com#using-notion-with-drafts-1"></a>Using Notion with Drafts</h1>
+<blockquote>
+<p><strong>NOTE:</strong> Notion integration requires Drafts v31 or greater. The Notion API used for integration is still in beta, as such aspects of this functionality may change or break and Notion finalizes their API.</p>
+</blockquote>
+<p><a href="https://www.notion.so">Notion</a> is an online project management and information system. Drafts currently two ways to integrate with Notion:</p>
+<ul>
+<li>
+<a href="https://docs.getdrafts.com/docs/actions/steps/services#notion">Notion action step</a>. Can create new sub-pages, or append to existing pages, as plain text or as to-do lists.</li>
+<li>
+<a href="https://scripting.getdrafts.com/classes/notion"><code>Notion</code> script object</a>: Provides a <code>request</code> method which allows you to script calls to the full Notion API, while providing automatic OAuth authenticate flow.</li>
+</ul>
+<p>The action step provides a basic, easy to approach way to get your data from Drafts to Notion. Scripting supports advanced integration, for users needing to work with databases and other block types in Notion.</p>
+<h2>
+<a name="notion-authentication-and-permissions-2" class="anchor" href="https://forums.getdrafts.com#notion-authentication-and-permissions-2"></a>Notion Authentication and Permissions</h2>
+<p>Like most services Drafts integrates with, Notion uses the <a href="https://en.wikipedia.org/wiki/OAuth">OAuth standard</a> for authentication. The first time you use an action that integrates with Notion, you will be redirected to the Notion website and asked to log in and authorize Drafts to use your account.</p>
+<p>When authenticating, Notion has an additional step of selecting specific pages in Notions which the integration will be granted permissions to access. It is recommended you give Drafts permissions <em>only</em> to the pages you plan to target with actions.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f.png" data-download-href="https://forums.getdrafts.com/uploads/default/27e6dbf034b521ba318be9a70426e1e426e6424f" title="notion-authentication"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f_2_690x367.png" alt="notion-authentication" data-base62-sha1="5GZeyq75fzyHzjsUiUFdzmCuZH1" width="690" height="367" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f_2_690x367.png, https://forums.getdrafts.com/uploads/default/original/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f_2_10x10.png"></a></div><p></p>
+<p>After you have authorized Drafts, you can add and remove page permissions in the Notion interface:</p>
+<ul>
+<li>Navigate to the Notion Page you wish to add to the Drafts integration.</li>
+<li>Select “Share”, then “Invite” and select the “Drafts” integration to allow it permission to use the page.</li>
+</ul>
+<p>Permissions are inherited, so granting Drafts permission to access a page or workspace, gives it permission to access child elements of that item.</p>
+<p>If “Drafts” does not appear as an option when to invite in your share page, make sure you have run a Notion action in Drafts and successfully authenticated to the correct workspace in Notion.</p>
+<h2>
+<a name="notion-action-step-3" class="anchor" href="https://forums.getdrafts.com#notion-action-step-3"></a>Notion Action Step</h2>
+<p>The <a href="https://docs.getdrafts.com/docs/actions/steps/services#notion">Notion action step</a> can add text or to-do lists to pages in Notion. Aspects of this step may change, but it’s a start. To get started, install an example action:</p>
+<ul>
+<li><a href="https://directory.getdrafts.com/a/1uS">Notion-Create Page</a></li>
+<li><a href="https://directory.getdrafts.com/a/1uC">Notion-Append as Text</a></li>
+<li><a href="https://directory.getdrafts.com/a/1uT">Notion-Append as To-Do List</a></li>
+<li><a href="https://directory.getdrafts.com/a/1uD">Notion-Append as To Do List</a></li>
+</ul>
+<p>By default, these examples ask you to select a Notion page as a target each time they are run. They can also be configured to target a specific page by page ID. See next section on obtaining IDs, and the <a href="https://docs.getdrafts.com/docs/actions/steps/services#notion">step documentation</a> for further details on options available.</p>
+<h2>
+<a name="obtaining-notion-page-ids-4" class="anchor" href="https://forums.getdrafts.com#obtaining-notion-page-ids-4"></a>Obtaining Notion Page IDs</h2>
+<p>To configure action steps to target a specific page in Notion, you can use the “Select” button in the action step configuration, or obtain a specific Page ID from Notion.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1.png" data-download-href="https://forums.getdrafts.com/uploads/default/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1" title="notion-page-id"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1_2_690x386.png" alt="notion-page-id" data-base62-sha1="slEXJlvCo6JOqrUZk8k0MMP56jD" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1_2_10x10.png"></a></div><p></p>
+<p>To get a page ID:</p>
+<ul>
+<li>Navigate to the page in the Notion website or app.</li>
+<li>Use the “Share” button, and “Copy Link” to get the unique URL for the page.</li>
+<li>The Page ID is the string of numbers and letters at the end of the URL.</li>
+</ul>
+<p>Once you obtain that page ID, you can paste it in an action and change the action to “Assign” the target page.</p>
+<p><em>Be sure the page you wish to target has been invited to the “Drafts” integration (see permissions section above) or the action will fail.</em></p>
+<h2>
+<a name="using-the-notion-api-in-script-5" class="anchor" href="https://forums.getdrafts.com#using-the-notion-api-in-script-5"></a>Using the Notion API in Script</h2>
+<p>For advanced users, Drafts also provides a <a href="https://scripting.getdrafts.com/classes/notion">Notion Script object</a> that allows you to make requests directly against the Notion API. Any API calls can be used, see <a href="https://developers.notion.com/reference/intro">Notion API docs</a> for information on available methods. This object may add convenience methods for some functions, but right now only has a single <code>request</code> method that allows for arbitrary calls against the Notion API. Example action:</p>
+<ul>
+<li><a href="https://directory.getdrafts.com/a/1uE">Notion: List Pages</a></li>
+</ul>
+<h2>
+<a name="notion-and-markdownrich-texthtml-6" class="anchor" href="https://forums.getdrafts.com#notion-and-markdownrich-texthtml-6"></a>Notion and Markdown/Rich Text/HTML</h2>
+<p>Notion stores text in its own <a href="https://developers.notion.com/reference/block">structured block format</a>. In their own apps and web version, they have tools that convert between Markdown pasted into the interface, and this native block format.</p>
+<p>At this time, Notion has not added the ability to convert between this native block format and HTML or Markdown to the capabilities of the API.</p>
+<p>It is possible to construct Notion blocks using JavaScript in Drafts (they are just complex JSON objects), and pass those values to the API, but due to the complexity of the format, we do not have any automated tools to do this conversion.</p>
+<p>We are hoping Notion adds this capability before the API is final, and we will certain support it to provide a smoother way to pass Markdown and/or HTML to Notion if they do.</p>
+            <p><small>30 posts - 11 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107</link>
+          <pubDate>Wed, 16 Feb 2022 16:36:57 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12107</guid>
+          <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+        </item>
+        <item>
+          <title>Using Obsidian with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/7dabfb5511d212b7b8358016f48fb1081909b4b4" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_250x250.jpeg" alt="image" data-base62-sha1="hVK9uiem912r4Uzuuq2ENlHAkde" width="250" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_250x250.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_375x375.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_500x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_10x10.png"></a></div><p></p>
+<ul>
+<li><a href="https://obsidian.md"><strong>Obsidian Website</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: <code>obsidian://</code>
+</li>
+<li><a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<blockquote>
+<p>Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to expand on these ideas, or let us know if we’ve missed something important.</p>
+</blockquote>
+<p><a href="https://obsidian.md">Obsidian</a> is a popular personal knowledge management application that focuses on organizing and cross-linking Markdown files.</p>
+<p>Drafts works nicely as a capture front-end for Obsidian. This article covers methods available to send items you have captured in Drafts to your Obsidian vaults. The actions provide here are all cross-platform and will work on both iOS and Mac.</p>
+<p>Not all ways to work with Obsidian are covered here, just some basics to get you started.</p>
+<h2>
+<a name="url-based-actions-1" class="anchor" href="https://forums.getdrafts.com#url-based-actions-1"></a>URL-Based Actions</h2>
+<p><a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI">Obsidian’s URL scheme support</a> allows Drafts to create new files in Obsidian, passing details to control which vault, file name, and content to include.</p>
+<p>Below are example actions with variations of what is possible with URLs, see “Modifying URL Action Examples” below for details on adapting these to your needs:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1qB"><strong>Send to Obsidian</strong></a>
+<ul>
+<li>This action creates a new file with the content of the current draft in the active Obsidian vault, using the first line of the draft as a file name. It also appends any tags assigned in Drafts as <span class="hashtag">#hashtags</span> at the end of the file. The file will be stored in the default location for new files, as specified in Obsidian settings.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1qm"><strong>Send to Obsidian Vault</strong></a>
+<ul>
+<li>A modified version of the above action, this action also specifies which vault to use. If you have multiple Obsidian vaults, you might create multiple duplicates of this action, specifying a different target vault in each. See the “Modifying…” section below for details on changing the vault name.</li>
+</ul>
+</li>
+</ul>
+<p>For advanced use cases, see the <a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI">Obsidian URL documentation</a> for details on available parameters. It is possible to use different parameter combinations to target specific paths, etc.</p>
+<h4>
+<a name="modifying-url-action-examples-2" class="anchor" href="https://forums.getdrafts.com#modifying-url-action-examples-2"></a>Modifying URL Action Examples</h4>
+<p>Each of the example actions above defines the parameters used to construct the Obsidian URL in a series of “Define Template Tag” action steps. To modify these parameters, you can edit the templates of each of these steps.</p>
+<p>For the “Send to Obsidian Vault” example to be useful, you will have to edit the action and change the template value “MY-VAULT” in the first step of the action to match the name of a vault in your Obsidian installation.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png" data-download-href="https://forums.getdrafts.com/uploads/default/d6a7b2f47d998be446eec4ee86b61cb6092646cf" title="obsidian-url"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_690x386.png" alt="obsidian-url" data-base62-sha1="uCVthd02cpGSEVQfzEk9QCrC4PB" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_10x10.png"></a></div><p></p>
+<h4>
+<a name="url-pros-cons-3" class="anchor" href="https://forums.getdrafts.com#url-pros-cons-3"></a>URL Pros &amp; Cons</h4>
+<ul>
+<li>
+<strong>PROS</strong>:
+<ul>
+<li>Not important where you store your vaults.</li>
+<li>Works with encrypted vaults.</li>
+<li>After completion, you are left in Obsidian editing the newly created file, if you need to make any additional tweaks.</li>
+</ul>
+</li>
+<li>
+<strong>CONS</strong>:
+<ul>
+<li>Obsidian app must opened to complete the action.</li>
+<li>Obsidian does not support callback URLs, so this method cannot return results to Drafts, or be combined with other action steps as effectively.</li>
+<li>Cannot update existing files, only create new ones.</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a name="file-based-actions-4" class="anchor" href="https://forums.getdrafts.com#file-based-actions-4"></a>File-Based Actions</h2>
+<p>Obsidian vaults are a set of text files in a folder. Drafts can read-write-update files. Therefore, as long as your Obsidian vault is stored in a location accessible to Drafts actions, Drafts can also add to files in your vault directly, without the need to launch Obsidian.</p>
+<blockquote>
+<p>Both of the below example actions rely on <a href="https://docs.getdrafts.com/docs/settings/bookmarks">Folder Bookmarks</a>, a new feature introduced in Draft v28. Make sure you are up-to-date before using these actions.</p>
+</blockquote>
+<p>Below are file action examples:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1qn"><strong>Save to Obsidian Vault</strong></a>
+<ul>
+<li>Save current draft to the root folder associated with the bookmark named “Obsidian Vault”, using the first line as the file name.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1qo"><strong>Append to Obsidian Journal</strong></a>
+<ul>
+<li>Appends text of current draft to daily journal file named like <code>Daily-YYYY-MM-DD</code> in the folder <code>Journal</code>. If the file does not exist, it will be created.</li>
+</ul>
+</li>
+</ul>
+<h4>
+<a name="about-bookmarks-5" class="anchor" href="https://forums.getdrafts.com#about-bookmarks-5"></a>About Bookmarks</h4>
+<p>Both of these examples rely on <a href="https://docs.getdrafts.com/docs/settings/bookmarks">Folder Bookmarks</a>. The first time you run each of these examples on a device, you will be prompted to select your Obsidian Vault folder to grant Drafts permission to create files in that folder. More details on how bookmarks operate in the docs, but your vault must reside in a location which can be accessed by bookmarks. On Mac, this is any folder you have permissions to modify, but it is more limited on iOS, as many file provider apps (like Dropbox, Google Drive) do not support bookmarking. The most reliable place to store a vault to be able to use file-based actions on iOS is in your iCloud Drive folder.</p>
+<h4>
+<a name="modifying-file-actions-6" class="anchor" href="https://forums.getdrafts.com#modifying-file-actions-6"></a>Modifying File Actions</h4>
+<p>Each of the above examples uses a single <a href="https://docs.getdrafts.com/docs/actions/steps/services#file">File action step</a>. File action steps have extensive options for configuring the path, file name, and content of the file. See <a href="https://docs.getdrafts.com/docs/actions/steps/services#file">docs</a> for details on configuring these options.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png" data-download-href="https://forums.getdrafts.com/uploads/default/5d64a0ed7b26bd7c246eea87ead747b03deb94d6" title="obsidian-file"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_690x386.png" alt="obsidian-file" data-base62-sha1="dkc02f6qxYiYrD0mVVsF3ibFZXM" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_10x10.png"></a></div><p></p>
+<h4>
+<a name="file-pros-cons-7" class="anchor" href="https://forums.getdrafts.com#file-pros-cons-7"></a>File Pros &amp; Cons</h4>
+<ul>
+<li>
+<strong>PROS</strong>:
+<ul>
+<li>No need to launch Obsidian to add content to a vault.</li>
+<li>Actions can also append-prepend-update files, not just create new ones.</li>
+</ul>
+</li>
+<li>
+<strong>CONS</strong>:
+<ul>
+<li>Vault must be store in a location accessible to Drafts.</li>
+</ul>
+</li>
+</ul>
+            <p><small>6 posts - 6 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221</link>
+          <pubDate>Tue, 21 Sep 2021 20:34:48 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11221</guid>
+          <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+        </item>
+        <item>
+          <title>Using Google Task with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/8/8c3020405de66cea668ea89d836c7cab96f2e432.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/8c3020405de66cea668ea89d836c7cab96f2e432" title="google-tasks"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c3020405de66cea668ea89d836c7cab96f2e432_2_345x156.jpeg" alt="google-tasks" data-base62-sha1="k09XebIu6dljQsRrWTNs1Re4u9I" width="345" height="156" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c3020405de66cea668ea89d836c7cab96f2e432_2_345x156.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c3020405de66cea668ea89d836c7cab96f2e432_2_517x234.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c3020405de66cea668ea89d836c7cab96f2e432_2_690x312.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c3020405de66cea668ea89d836c7cab96f2e432_2_10x10.png"></a></div><p></p>
+<ul>
+<li>
+<a href="https://mail.google.com/"><strong>Web Version (in Gmail)</strong></a>: On the web, Google Tasks are integrated into Gmail. For help using Tasks on the web, see <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjJ8YWWhOXwAhWWWc0KHXe2BUgQFjABegQIBBAE&amp;url=https%3A%2F%2Fsupport.google.com%2Ftasks%2Fanswer%2F7675772%3Fco%3DGENIE.Platform%253DDesktop%26hl%3Den&amp;usg=AOvVaw07xzw2Ik70f0mdkgonDQUF">Google’s documentation</a>
+</li>
+<li><a href="https://apps.apple.com/us/app/google-tasks-get-things-done/id1353634006"><strong>App Store</strong></a></li>
+</ul>
+<p><a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjJ8YWWhOXwAhWWWc0KHXe2BUgQFjABegQIBBAE&amp;url=https%3A%2F%2Fsupport.google.com%2Ftasks%2Fanswer%2F7675772%3Fco%3DGENIE.Platform%253DDesktop%26hl%3Den&amp;usg=AOvVaw07xzw2Ik70f0mdkgonDQUF">Google Tasks</a> is Google task management tool, which is available on the web within Gmail, or as an app on iOS and Android.</p>
+<h2>
+<a name="action-steps-1" class="anchor" href="https://forums.getdrafts.com#action-steps-1"></a>Action Steps</h2>
+<p>Drafts offers native integration with Google Tasks using two available action steps:</p>
+<h4>
+<a name="google-taskhttpdocsgetdraftscomdocsactionsstepsservicesgoogle-task-2" class="anchor" href="https://forums.getdrafts.com#google-taskhttpdocsgetdraftscomdocsactionsstepsservicesgoogle-task-2"></a><a href="http://docs.getdrafts.com/docs/actions/steps/services#google-task">Google Task</a>
+</h4>
+<p>The “Google Task” action step creates a single task in Google Tasks. The default configuration creates a task in your default list, using the first line of the draft as the title, and remaining text (if present) as notes. An alternate list name can be specified in the action configuration, if you would prefer, say, to have an action which sends to your “Grocery” list.</p>
+<ul>
+<li>Example Action: <a href="https://actions.getdrafts.com/a/1mj"><strong>Task in Google Tasks</strong></a>
+</li>
+</ul>
+<h4>
+<a name="list-in-google-taskshttpdocsgetdraftscomdocsactionsstepsserviceslist-in-google-task-3" class="anchor" href="https://forums.getdrafts.com#list-in-google-taskshttpdocsgetdraftscomdocsactionsstepsserviceslist-in-google-task-3"></a><a href="http://docs.getdrafts.com/docs/actions/steps/services#list-in-google-task">List in Google Tasks</a>
+</h4>
+<p>The “List in Google Tasks” action steps creates a task in Google Tasks for each line of the current draft. Very useful for bulk entry of tasks captured in Drafts.</p>
+<ul>
+<li>Example Action: <a href="https://actions.getdrafts.com/a/1mk"><strong>List in Google Tasks</strong></a>
+</li>
+</ul>
+<p>This step works similarly to the “List in Reminders” action step, allowing a specific list to be hard-coded in the action, or dynamically specified by prefixing the first line of the draft with a <code>#</code>. If the specified list does not exist, it will be created. Notes can also be added by placing additional text on the line after a <code>|</code> (pipe) character. For example a using the “List in Google Tasks” action on a draft with the text:</p>
+<pre><code class="lang-markdown"># Groceries
+Bananas
+Apples
+Grapes|Red Grapes only!
+</code></pre>
+<p>Would results in the tasks “Bananas”, “Apples”, and “Grapes” being added to a list named “Groceries” in To Do. Additionally, the “Grapes” task would have notes “Red Grapes only!” attached.</p>
+<h2>
+<a name="url-based-actions-4" class="anchor" href="https://forums.getdrafts.com#url-based-actions-4"></a>URL-Based Actions</h2>
+<p>It does not appear the Microsoft To Do app supports any special URL scheme commands at this time. Please let us know if you are aware of any we missed.</p>
+<h2>
+<a name="scripting-direct-api-access-5" class="anchor" href="https://forums.getdrafts.com#scripting-direct-api-access-5"></a>Scripting / Direct API Access</h2>
+<p>For more advanced integrations, Drafts provides the <a href="https://scripting.getdrafts.com/classes/googletask"><code>GoogleTask</code> script object</a>.</p>
+<p>Using scripting, it is possible to configure more advanced task features, like due dates and reminders, but also import data <em>from</em> Tasks.</p>
+<p>The <code>GoogleTask</code> object has convenience methods for creating and working with lists and tasks via script, but also can be used to access the entire <a href="https://developers.google.com/tasks">Google Tasks API</a>. Scripting is beyond to scope of this article, but the <a href="https://scripting.getdrafts.com/classes/googletask">documentation</a> has links to example actions. If you have more advanced integration needs, take a look at the possibilities.</p>
+            <p><small>3 posts - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-google-task-with-drafts/10575">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-google-task-with-drafts/10575</link>
+          <pubDate>Tue, 25 May 2021 15:39:14 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10575</guid>
+          <source url="https://forums.getdrafts.com/t/using-google-task-with-drafts/10575.rss">Using Google Task with Drafts</source>
+        </item>
+        <item>
+          <title>Using Microsoft To Do with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/2X/c/cd3c1a35fb15332b70ea85808948777cbb4bcc44.jpeg" alt="ms-todo" data-base62-sha1="thAEjpnV4eQ71R6HPmvbGfd6n8U" width="335" height="178"></p>
+<ul>
+<li><a href="https://todo.microsoft.com/"><strong>Web Version</strong></a></li>
+<li><a href="https://apps.apple.com/app/apple-store/id1274495053"><strong>App Store</strong></a></li>
+</ul>
+<p><a href="https://todo.microsoft.com/">Microsoft To Do</a> is a popular task manager from Microsoft, which is available on the web or as an app on iOS and Mac. Drafts 27 added support for powerful direct integration with To Do.</p>
+<h2>
+<a name="action-steps-1" class="anchor" href="https://forums.getdrafts.com#action-steps-1"></a>Action Steps</h2>
+<p>Drafts offers native integration with Microsoft To Do using two available action steps:</p>
+<h4>
+<a name="microsoft-to-dohttpdocsgetdraftscomdocsactionsstepsserviceshtmlmicrosoft-to-do-2" class="anchor" href="https://forums.getdrafts.com#microsoft-to-dohttpdocsgetdraftscomdocsactionsstepsserviceshtmlmicrosoft-to-do-2"></a><a href="http://docs.getdrafts.com/docs/actions/steps/services.html#microsoft-to-do">Microsoft To Do</a>
+</h4>
+<p>The “Microsoft To Do” action step creates a single task in To Do. The default configuration creates a task in your default list, using the first line of the draft as the title, and remaining text (if present) as notes. An alternate list name can be specified in the action configuration, if you would prefer, say, to have an action which sends to your “Grocery” list.</p>
+<ul>
+<li>Example Action: <a href="https://actions.getdrafts.com/a/1mg"><strong>Task in Microsoft To Do</strong></a>
+</li>
+</ul>
+<p>This step also has a “Link to Draft” option, which will add a linked resource to the created task in To Do, which links back to the draft in Drafts.</p>
+<h4>
+<a name="list-in-microsoft-to-dohttpdocsgetdraftscomdocsactionsstepsserviceshtmllist-in-microsoft-to-do-3" class="anchor" href="https://forums.getdrafts.com#list-in-microsoft-to-dohttpdocsgetdraftscomdocsactionsstepsserviceshtmllist-in-microsoft-to-do-3"></a><a href="http://docs.getdrafts.com/docs/actions/steps/services.html#list-in-microsoft-to-do">List in Microsoft To Do</a>
+</h4>
+<p>The “List in Microsoft To Do” action steps creates a task in To Do for each line of the current draft. Very useful for bulk entry of tasks captured in Drafts.</p>
+<ul>
+<li>Example Action: <a href="https://actions.getdrafts.com/a/1ml"><strong>List in Microsoft To Do</strong></a>
+</li>
+</ul>
+<p>This step works similarly to the “List in Reminders” action step, allowing a specific list to be hard-coded in the action, or dynamically specified by prefixing the first line of the draft with a <code>#</code>. If the specified list does not exist, it will be created. Notes can also be added by placing additional text on the line after a <code>|</code> (pipe) character. For example a using the “List in Microsoft To Do” action on a draft with the text:</p>
+<pre><code class="lang-markdown"># Groceries
+Bananas
+Apples
+Grapes|Red Grapes only!
+</code></pre>
+<p>Would results in the tasks “Bananas”, “Apples”, and “Grapes” being added to a list named “Groceries” in To Do. Additionally, the “Grapes” task would have notes “Red Grapes only!” attached.</p>
+<h2>
+<a name="share-extension-4" class="anchor" href="https://forums.getdrafts.com#share-extension-4"></a>Share Extension</h2>
+<p><a href="https://apps.apple.com/app/apple-store/id1274495053">Microsoft To Do’s iOS app</a> offers a Share extension for creating tasks that can be used with the Drafts’ Share action. This requires no special setup or configuration, just that both apps be installed on the device. Tap the “Share” action in Drafts, and select To Do. The share extension offers flexibility to select the destination section, etc. The Share extension has the advantage that it can be used offline, and the To Do app will be responsible for synching the new task to the cloud when you are re-connected to a network.</p>
+<h2>
+<a name="url-based-actions-5" class="anchor" href="https://forums.getdrafts.com#url-based-actions-5"></a>URL-Based Actions</h2>
+<p>It does not appear the Microsoft To Do app supports any special URL scheme commands at this time. Please let us know if you are aware of any we missed.</p>
+<h2>
+<a name="scripting-direct-api-access-6" class="anchor" href="https://forums.getdrafts.com#scripting-direct-api-access-6"></a>Scripting / Direct API Access</h2>
+<p>For more advanced integrations, Drafts provides the <a href="https://scripting.getdrafts.com/classes/microsofttodo"><code>MicrosoftToDo</code> script object</a>.</p>
+<p>Using scripting, it is possible to configure more advanced task features, like due dates and reminders, but also import data <em>from</em> To Do.</p>
+<p>The <code>MicrosoftToDo</code> object has convenience methods for creating and working with lists and tasks via script, but also can be used to access the entire <a href="https://docs.microsoft.com/en-us/graph/api/resources/todo-overview?view=graph-rest-1.0">Microsoft To Do API</a>. Scripting is beyond to scope of this article, but the <a href="https://scripting.getdrafts.com/classes/microsofttodo">documentation</a> has links to example actions. If you have more advanced integration needs, take a look at the possibilities.</p>
+            <p><small>2 posts - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-microsoft-to-do-with-drafts/10574">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-microsoft-to-do-with-drafts/10574</link>
+          <pubDate>Tue, 25 May 2021 15:16:23 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10574</guid>
+          <source url="https://forums.getdrafts.com/t/using-microsoft-to-do-with-drafts/10574.rss">Using Microsoft To Do with Drafts</source>
+        </item>
+        <item>
+          <title>Using TextExpander with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/2X/b/bef9dc99823a91d7fb5f52894f1e73806a06be57.jpeg" alt="iu" data-base62-sha1="rfs2PsGybT1XdXXFQPHoOCnanS7" width="150" height="150"></p>
+<p>Smile Software’s <a href="https://shareasale.com/r.cfm?b=1244193&amp;u=2085159&amp;m=81274&amp;urllink=&amp;afftrack=">TextExpander</a> is a text expansion utility that allows quick conversion of short, easy to type abbreviations into larger snippets or blocks of text. It is a powerful and convenient tool to boost your productivity.</p>
+<p>TextExpander is available on many platforms. On Mac it works everywhere because of the system level integration available on the platform. On iOS, Smile provides an <a href="https://smilesoftware.com/textexpander-ios/sdk">integration SDK</a>. Drafts supports this integration, but it requires a couple of extra steps to get setup and running.</p>
+<p>TextExpander on iOS also provides a <a href="https://textexpander.com/entry/how-to-textexpander-custom-keyboard/">custom keyboard</a> which can be used in any app. This article is specifically about direct integration with Drafts, which allows TextExpander snippets to be expanded when using other keyboards.</p>
+<h2>
+<a name="textexpander-with-drafts-on-mac-1" class="anchor" href="https://forums.getdrafts.com#textexpander-with-drafts-on-mac-1"></a>TextExpander with Drafts on Mac</h2>
+<p>No special steps are needed to use TextExpander with the Mac version of Drafts. TextExpander works system on macOS. Note that expansion in actions as described below is also an iOS-only feature.</p>
+<h2>
+<a name="enabling-textexpander-ios-only-2" class="anchor" href="https://forums.getdrafts.com#enabling-textexpander-ios-only-2"></a>Enabling TextExpander (iOS only)</h2>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006.png" data-download-href="https://forums.getdrafts.com/uploads/default/232ec514cfa6edbc8dd551248a7b86de4f5c0006" title="text-expander"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006_2_674x500.png" alt="text-expander" data-base62-sha1="51eUKOyyqk88sdiNu48W6gSXU8K" width="674" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006_2_674x500.png, https://forums.getdrafts.com/uploads/default/original/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006_2_10x10.png"></a></div><p></p>
+<p>To enable TextExpander support in Drafts on iOS:</p>
+<ul>
+<li>Make sure TextExpander is installed on your system and you have run it at least once to configure your TextExpander account, if necessary.</li>
+<li>Open Settings (Gear icon in lower right).</li>
+<li>Scroll down to the “Extensions” section and tap “TextExpander”.</li>
+<li>Turn on “Enable Expansion”. If enabled, TextExpander will attempt to expand your abbreviations while typing in Drafts’ editor.</li>
+<li>Optionally, turn on “Expand in Action Templates”. If enabled, when running actions, TextExpander snippets in action step templates wrapped in <code>&lt;&lt; &gt;&gt;</code> will be expanded (see details below).</li>
+<li>Tap “Refresh Snippets”. This will trigger TextExpander to launch, and return to Drafts, updating your current snippet library for use in Drafts.</li>
+</ul>
+<p>That’s it, you are ready to go! Return to you the Drafts editor, and type one of your snippet abbreviations and it will be quickly expanded.</p>
+<h2>
+<a name="refreshing-snippets-ios-only-3" class="anchor" href="https://forums.getdrafts.com#refreshing-snippets-ios-only-3"></a>Refreshing Snippets (iOS only)</h2>
+<p>Due to the way apps are sandboxed for security in iOS, it is not possible automatically receive updates to your snippets from TextExpander. When you make changes to your snippet library in TextExpander, you will need to “refresh snippets” in Drafts to pick up these changes.</p>
+<p>This can be done by visiting the settings screen shown above, and tapping “Refresh Snippets”.  A refresh can also be triggered by a URL in Drafts. We provide an example <a href="https://actions.getdrafts.com/a/1X1">Refresh TextExpander Snippets</a> Drafts action which can be installed to more easily access this refresh, or you can configure your favorite launcher app or Shortcuts to open the below URL to trigger a refresh:</p>
+<pre><code class="lang-nohighlight">drafts://refresh_text_expander
+</code></pre>
+<h2>
+<a name="expanding-snippets-in-action-templates-ios-only-4" class="anchor" href="https://forums.getdrafts.com#expanding-snippets-in-action-templates-ios-only-4"></a>Expanding Snippets in Action Templates (iOS only)</h2>
+<blockquote>
+<p><strong>Note:</strong> <em>“fill-in” snippets are <em>not</em> supported in action expansion, and this expansion is not available when processing templates in script.</em></p>
+</blockquote>
+<p>As mentioned above, TextExpander snippets can be dynamically evaluated in action templates by including one of your abbreviations, wrapped in <code>&lt;&lt; &gt;&gt;</code>. For example, if you have an abbreviations <code>..e</code> in TextExpander which expands to your email address, in an action template you can include <code>My email is &lt;&lt;..e&gt;&gt;</code> and when the action is run the snippet will be expanded.</p>
+<p>This is most useful for insertion of time-sensitive snippets - for example dates - that you want to be evaluated when an action is run, not when you are typing the draft. For more details about using action templates, see our <a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">introductory article on using templates</a>.</p>
+<p>Be sure you have turned on “Expand in Action Templates” in the TextExpander settings page to enable this feature.</p>
+            <p><small>10 posts - 5 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030</link>
+          <pubDate>Wed, 19 Jun 2019 12:39:26 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-5030</guid>
+          <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+        </item>
+        <item>
+          <title>Using Microsoft OneNote with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><strong>New in Release 5.10</strong></p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/0/0402f919309661cd4721fa9902c032c329970a3c.png" data-download-href="https://forums.getdrafts.com/uploads/default/0402f919309661cd4721fa9902c032c329970a3c" title="OneNote-Logo"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0402f919309661cd4721fa9902c032c329970a3c_2_345x139.png" alt="OneNote-Logo" data-base62-sha1="zuhkKAqBjqszkZKoIvfdisJgFS" width="345" height="139" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0402f919309661cd4721fa9902c032c329970a3c_2_345x139.png, https://forums.getdrafts.com/uploads/default/optimized/2X/0/0402f919309661cd4721fa9902c032c329970a3c_2_517x208.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/0/0402f919309661cd4721fa9902c032c329970a3c_2_690x278.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0402f919309661cd4721fa9902c032c329970a3c_2_10x10.png"></a></div><p></p>
+<ul>
+<li><a href="https://itunes.apple.com/app/id410395246"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: onenote:</li>
+</ul>
+<p><a href="http://onenote.com">OneNote</a> is a popular note platform from Microsoft. Drafts can send text to OneNote in a number of ways.</p>
+<h4>
+<a name="onenote-action-step-1" class="anchor" href="https://forums.getdrafts.com#onenote-action-step-1"></a>OneNote Action step</h4>
+<p>Drafts offers native integration with OneNote using the <a href="http://getdrafts.com/actions/steps/onenote">OneNote action step</a>. Actions using this step can create, replace, append or prepend to pages in any section of any of your notebooks…even convert Markdown to OneNote’s HTML-based rich text. Some ready to use samples from the directory:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1VP">Save to OneNote</a>: Saves draft to OneNote in a timestamped page, in a Section named “Drafts” of your default notebook, converting Markdown to OneNote’s native HTML rich-text format.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1VR">Append to OneNote Journal</a>: Append draft to rolling monthly journal pages in a section named “Journal” in your default notebook.</li>
+</ul>
+<p>Using advanced configuration options in the action step, you can target different notebooks, sections and pages. See <a href="http://getdrafts.com/actions/steps/onenote">OneNote action step</a> documentation for details of options available.</p>
+<h4>
+<a name="share-extension-2" class="anchor" href="https://forums.getdrafts.com#share-extension-2"></a>Share Extension</h4>
+<p><a href="https://itunes.apple.com/app/id410395246">OneNote’s iOS app</a> offers a Share extension for creating tasks which can be used with the Drafts’ Share action. This requires no special setup or configuration, just that both apps be installed on the device. Tap the “Share” action in Drafts, and use select OneNote. The share extension offers flexibility to select the destination section, etc. The Share extension has the advantage that it can be used offline, and the OneNote app will be responsible for synching the new note to the cloud when you are re-connected to a network.</p>
+<h4>
+<a name="url-based-actions-3" class="anchor" href="https://forums.getdrafts.com#url-based-actions-3"></a>URL-Based Actions</h4>
+<p>It does not appear the iOS OneNote app supports any special URL scheme commands at this time. Please let us know if you are aware of any we missed.</p>
+<h4>
+<a name="emailing-into-onenote-4" class="anchor" href="https://forums.getdrafts.com#emailing-into-onenote-4"></a>Emailing into OneNote</h4>
+<p>OneNote offers <a href="https://www.onenote.com/EmailToOneNote">the ability to email notes</a>. Details about how to email to OneNote is available in <a href="https://www.onenote.com/EmailToOneNote">their documentation</a>. If you configure an email action in Drafts to send to “<a href="mailto:me@onenote.com">me@onenote.com</a>”, it can be used to send text to OneNote - but this is not generally a great option relative to the Share extension or dedicated OneNote actions.</p>
+            <p><small>31 posts - 11 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-microsoft-onenote-with-drafts/4285">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-microsoft-onenote-with-drafts/4285</link>
+          <pubDate>Wed, 10 Apr 2019 15:23:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-4285</guid>
+          <source url="https://forums.getdrafts.com/t/using-microsoft-onenote-with-drafts/4285.rss">Using Microsoft OneNote with Drafts</source>
+        </item>
+        <item>
+          <title>Using Drafts Templates</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <h1>
+<a name="template-basics-1" class="anchor" href="https://forums.getdrafts.com#template-basics-1"></a>Template Basics</h1>
+<p>Drafts actions consist of “steps.” <a href="https://docs.getdrafts.com/actions/steps/">Action steps</a> are available for a wide range of functions and services: Sending messages, mail, saving files, and much more. Regardless of the purpose of the step, any step that output information has some fields that allow you to control what text the step uses, and (with a few minor exceptions) use templates to dynamically generate that text.</p>
+<p>If you have poked around in the action editor and wondered what some of those <code>[[title]]</code> and <code>[[body]]</code> things are, this article is for you.</p>
+<p>Templates are plain text combined with tags. Consider tags placeholders for some piece of information you want to be inserted when the action is run. Drafts tags are identified by double square brackets (<code>[[ ]]</code>), surrounding the tag name and options. Most tags insert some content or meta data related to the current draft on which an action is being performed.</p>
+<h2>
+<a name="common-content-tags-2" class="anchor" href="https://forums.getdrafts.com#common-content-tags-2"></a>Common Content Tags</h2>
+<p>The tags that get the most use, and which you are likely to see as defaults in many action steps, are:</p>
+<ul>
+<li>
+<strong><code>[[draft]]</code></strong> : Replaced with full text of the current draft.</li>
+<li>
+<strong><code>[[title]]</code></strong> : Replaced with text of the first line of a draft.</li>
+<li>
+<strong><code>[[body]]</code></strong> : Replace with everything <em>but</em> the first line of the draft.</li>
+</ul>
+<p>Take the “Copy” action, which ships with Drafts in the “Basic” action group. The action places the contents of the current draft in the clipboard. The action itself consists of one <a href="https://docs.getdrafts.com/docs/actions/steps/system#clipboard">Clipboard action step</a>, with the template <code>[[draft]]</code>.  If you wanted an action that copied just the first line of the draft to the clipboard, you could change the template of the clipboard action step to <code>[[title]]</code>.</p>
+<p>The default “Mail” action, which ships with the app, uses the <code>[[title]]</code> tag for the subject line of the email, and <code>[[body]]</code> as the content of the email.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/c6401fdeec9efe8693616b4fde9e5f23ce336ac8" title="1%202019-01-31%2016-39-17"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_345x184.jpeg" alt="1%202019-01-31%2016-39-17" data-base62-sha1="shNVmE8WSxl2JFqpdoNpVctg4xG" width="345" height="184" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_345x184.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_517x276.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_690x368.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_10x10.png"></a></div><p></p>
+<p>You can mix tags with static text in templates, so you could also have the template string <code>Title: [[title]]</code>, which would produce the first line of the draft, with the prefix <code>Title: </code>.</p>
+<p>There is a handy <code>[[line|n]]</code> tag that lets you extract individual or ranges of lines from the content of a draft. The <code>line</code> tag is an example of a tag with a formatting option, separated from the tag name by a <code>|</code> pipe character.  In this case, that option takes line number (1 for the first, 2 for the second, etc.), or range, like <code>1..3</code> for first through the third line.  If you omit the beginning or end line number, the range will assume beginning or end, so <code>..4</code> is the first four lines, and <code>5..</code> is the fifth line to the end of the draft. Negative indexes which count back from the end can also be used, so <code>[[line|-1]]</code> would get you just the last line.</p>
+<p>The <code>linke</code> can be very useful in splitting up values from a draft into separate values. Say you want an action that saves to a folder in Dropbox, but you want to specify that in the draft itself. You could type the following draft:</p>
+<pre><code class="lang-nohighlight">My File Name
+Personal
+
+The content of the draft.
+</code></pre>
+<p>Then have an action configured with a <a href="https://docs.getdrafts.com/docs/actions/steps/services#dropbox">Dropbox action step</a> using the following template values for its fields:</p>
+<ul>
+<li>
+<strong>Name</strong>: <code>[[line|1]].txt</code>
+</li>
+<li>
+<strong>Path</strong>: <code>/[[line|2]]/</code>
+</li>
+<li>
+<strong>Template</strong>: <code>[[line|3..]]</code>
+</li>
+</ul>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/749ea3cbd1093d34902dff048de0115e3a18de10" title="1%202019-01-31%2016-42-01"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_304x250.jpeg" alt="1%202019-01-31%2016-42-01" data-base62-sha1="gDFgN6c1U0LxyROgibFWsZt4MpO" width="304" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_304x250.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_456x375.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_608x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_10x10.png"></a></div><p></p>
+<p>Using this action, on the draft sample text above would result in a file on Dropbox named “My File Name.txt” in the folder “Personal”, with the content “The content of the draft.”</p>
+<h2>
+<a name="date-and-time-tags-3" class="anchor" href="https://forums.getdrafts.com#date-and-time-tags-3"></a>Date and Time Tags</h2>
+<p>Another commonly used set of tags are date-related tags. The available date tags are:</p>
+<ul>
+<li>
+<strong><code>[[date]]</code></strong>: Current date, defaulting to the format <code>%Y-%m-%d</code>, which is equivalent to YYYY-MM-DD.</li>
+<li>
+<strong><code>[[created]]</code></strong>: The date the current draft was created.</li>
+<li>
+<strong><code>[[modified]]</code></strong>: The date the content of the current draft was last modified.</li>
+</ul>
+<p>Each of these tags can also take a formatting string, after the <code>|</code> separator, using <a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/strftime.3.html">strftime</a> formatting. There are formatting characters to allow configuration of almost any possible date and time string - including year, month names, day names, and much more. The <a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/strftime.3.html">Apple strftime reference</a> has details on all the available options. A few commonly used format examples:</p>
+<ul>
+<li>
+<code>[[date|%Y-%m-%d]]</code> : <em>Result:</em> 2019-01-31</li>
+<li>
+<code>[[date|%I:%M %p]]</code> : <em>Result:</em> 06:19 PM</li>
+<li>
+<code>[[date|%d %B %Y %H:%M:%S]]</code> : <em>Result:</em> 31 January 2019 21:19:20</li>
+</ul>
+<p>Dr. Drang wrote an <a href="http://www.leancrew.com/all-this/2013/02/new-flexible-timestamps-in-drafts/">excellent blog post about date tags in Drafts</a> which is an excellent resource as well.</p>
+<p>To test formats, we also recommend <a href="http://strftime.net">strftime.net</a>, an online format builder which previews the output of format strings.</p>
+<p>The most common use case for date tags is timestamping when appending to a daily journal file, or starting a draft from a template.</p>
+<h2>
+<a name="additional-tags-4" class="anchor" href="https://forums.getdrafts.com#additional-tags-4"></a>Additional Tags</h2>
+<p>Visit the <a href="https://docs.getdrafts.com/docs/actions/templates">template tag reference</a> for a complete list of available built-in tags. Using tags you can access information like location data stored with a draft, its UUID and permalink, tags, and more.</p>
+<h2>
+<a name="no-tags-required-5" class="anchor" href="https://forums.getdrafts.com#no-tags-required-5"></a>No Tags Required</h2>
+<p>Keep in mind that just because templates in actions can contain tags to dynamically insert text, they don’t need to. Many times you just want plain static text in a template to add boilerplate snippets,</p>
+<h2>
+<a name="special-template-markup-6" class="anchor" href="https://forums.getdrafts.com#special-template-markup-6"></a>Special Template Markup</h2>
+<p>In addition to tags, there are a couple of special markup conventions used in templates for convenience, they are:</p>
+<ul>
+<li>
+<strong><code>{{ }}</code></strong> : Any text between double curly braces will be URL encoded for use in URL query parameters. This is typically used in <a href="https://getdrafts.com/actions/steps/openurl">Open URL action steps</a> to properly encode text to be included in a URL.</li>
+<li>
+<strong><code>%% %%</code></strong> : Any text between double percent signs will be converted from Markdown to HTML using your default <a href="https://getdrafts.com/settings/markdown">Markdown options</a>. Useful when publishing to locations that want HTML input.</li>
+<li>
+<strong><code>&lt;&lt;textexpander-shortcut&gt;&gt;</code></strong> <em>[iOS Only]</em> : If you use <a href="https://textexpander.com/">TextExpander</a>, it is possible to dynamically expand a TextExpander snippet when a template is evaluated. Generally useful for snippets you do not want to be expanded until the action is run because they contain dates or other output which is time-sensitive. To expand a snippet in a template, wrap the snippet’s shortcut text in <code>&lt;&lt; &gt;&gt;</code>.</li>
+</ul>
+<h2>
+<a name="conclusion-7" class="anchor" href="https://forums.getdrafts.com#conclusion-7"></a>Conclusion</h2>
+<p>With just a few tweaks to templates, you can create an array of useful actions that save time and formatting.</p>
+            <p><small>13 posts - 7 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-drafts-templates/3728</link>
+          <pubDate>Thu, 31 Jan 2019 22:43:26 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-3728</guid>
+          <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+        </item>
+        <item>
+          <title>Sending Mail with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <h1>Sending Mail with Drafts</h1>
+<p>Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within the app - or by integrating with third party Mail clients. Even write with Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts and different methods available.</p>
+<h3>Mail Action Step</h3>
+<p>Drafts ships with a default <a href="https://actions.getdrafts.com/a/1BC">Mail</a> action, in the “Basic” action group.  This action is configured to use the first line of the draft as the subject line, and the remaining text as the body of the message. When used, a Mail mesage will pop up with the text already filled in. You add a recipient and tap “Send” and your mail is on the way.</p>
+<p>On iOS, it will use APIs to send via Apple’s Mail app. On the Mac, it uses <code>mailto:</code> URLs to open a message in your default email client.</p>
+<p>This is only the beginning of what is possible with the <a href="https://getdrafts.com/actions/steps/mail">Mail action step</a>. Multiple actions can be set up using Mail action steps, each configured to have pre-defined To, CC &amp; BCC recipients, stock subject lines, or body templates which automatically add signatures or other reused content and formatting.  So it’s easy to set up, for example, a group email action to send to your project team or family.</p>
+<h3>Configuring Mail Action Steps</h3>
+<p>If you are new to actions, you can get familiar with the basics of editing actions in <a href="https://vimeo.com/276095230">our Create an Action screencast</a>, that’s a little beyond this article, but below shows a sample configuration of a Mail action step.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png" data-download-href="https://forums.getdrafts.com/uploads/default/eacc913bf772a9771a126f047a26d1fcbd465a27" title="mail-action"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_496x500.png" alt="mail-action" data-base62-sha1="xv80IoA4hXuEMlPJyR4MoQtkPnp" width="496" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_496x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_744x750.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_10x10.png"></a></div><p></p>
+<p>There are more detailed explanations of the fields in the <a href="https://getdrafts.com/actions/steps/mail">Mail action step documentation</a>. Each of these fields support <a href="https://reference.getdrafts.com/topics/templates">Drafts template tags</a>, including the recipient fields, so it is possible to dynamically insert content.</p>
+<p>The basics are:</p>
+<ul>
+<li>
+<strong>Recipient fields (To, CC, BCC)</strong>: These fields can each have one or more email addresses (separated by commas). If values are configured for these fields, they will be pre-filled in the Mail window that opens, leaving you only to tap “Send” to finish the email. Use the (+) button to select email addresses from your contact list.</li>
+<li>
+<strong>Subject/Body fields</strong>: These templates control what text will be filled in the content fields of the mail message. The default values use tags which insert the first line (<code>[[title]]</code>) in the subject, and the remaining text (<code>[[body]]</code>) in the body of the message. The figure above demonstrates how these tags can be combined with static text. With the subject template <code>Band Update: [[title]]</code> the subject line will come out in the mail as <code>Band Update: First Line of Draft</code>. <em><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">More about using Templates</a>.</em>
+</li>
+<li>
+<strong>Advanced Options</strong>:
+<ul>
+<li>
+<em>Send as HTML</em>: If on, this will treat the output of the template as HTML and create a rich-text email. This means that the template should have HTML tags in it. This is typically used along with Markdown, see section below for details.</li>
+<li>
+<em>Send in background</em>: Used to send the email via web service without the requirement of opening a preview of the message. Because these message come “From” a generic address, it’s best for action which email to your own email address as a reminder, or similar.</li>
+</ul>
+</li>
+</ul>
+<h3>Markdown Mail</h3>
+<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a text-to-HTML conversion tool that lets you write in simple plain text markup and easily convert it to HTML. Drafts has great <a href="https://getdrafts.com/settings/markdown">Markdown support</a>, and it works nicely with Mail steps to create rich-text formatted emails.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png" data-download-href="https://forums.getdrafts.com/uploads/default/5657be8471de771cbc3fad05504fb98ec51272b1" title="mail-markdown"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_612x499.png" alt="mail-markdown" data-base62-sha1="cjP3jSq7H9TseiIZCsIlluP9Il3" width="612" height="499" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_612x499.png, https://forums.getdrafts.com/uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_10x10.png"></a></div><p></p>
+<p>To get started, install the <a href="https://actions.getdrafts.com/a/1Cp">Markdown Mail</a> sample action from the Action Directory. This action uses a standard Mail action step, with two configuration changes:</p>
+<ul>
+<li>The “Send as HTML” option is enabled.</li>
+<li>The body template is changed to <code>%%[[body]]%%</code>. The double-percent syntax is a feature of the [Drafts template engine] that tells Drafts to treat any text between the double-percents as Markdown, and convert it to HTML.</li>
+</ul>
+<p>Using this step, it makes it quick and easy to send professional, rich-text email without a lot of fiddling with text selections in Mail.app.</p>
+<p>Because this relies on APIs that are not available on macOS, the basic implementation of Markdown Mail is not compatible with the Mac. We do offer a free helper app that enables this functionality on the Mac, called Mail Assistant. If you are interested in sending Markdown mail on the Mac, <a href="https://docs.getdrafts.com/misc/mail-assistant">get more information and sample actions in our Mail Assistant article</a>.</p>
+<h3>Mailto: URLs</h3>
+<p>With the introduction of iOS 14, it is now possible to have third party email clients configured as your default application to handle <code>mailto</code> URLs. Because of this change, it might be desirable to have mail actions which explicitly use the <code>mailto</code> URL structure to send on both iOS and Mac.</p>
+<p>We have posted an <a href="https://docs.getdrafts.com/misc/mail-assistant">example mailto-based action</a>.</p>
+<p>The biggest downside to this approach is that you must leave Drafts to complete the sending process.</p>
+<h3>Gmail and Outlook Action Steps</h3>
+<p>In addition to the “Mail” action step, there are dedicated steps available to send background email via <a href="https://getdrafts.com/actions/steps/gmail">Gmail</a> or <a href="https://getdrafts.com/actions/steps/outlook">Microsoft Outlook.com/Live/O365</a> accounts. These steps are configured very similar to the Mail step as covered above, but they do <em>not</em> open a window before sending the email. As a result these action steps <em>must</em> include at least one valid recipient email to send properly.</p>
+<p>The primary advantage of these steps is to allow a background email (without additional “Send” popup step) to be sent “From” your actual address with one of these services.</p>
+<h3>Third Party Email Apps</h3>
+<p>In addition to direct Mail support, Drafts can work with many third-party email clients directly. There are two common ways to send email using third party iOS email clients: Share extensions and URL schemes.</p>
+<p>Many email client apps provide share extensions that can accept text and can be used via the Drafts <a href="https://actions.getdrafts.com/a/1BF">Share action</a>. When provided, these extensions will generally allow you to send an email, and use the text as the body of the email - requiring you to fill in the recipients and subject - just as the built-in iOS Mail share option.</p>
+<p>Many popular email client apps also provide support for integration via custom URL schemes. The format of the required URLs and the features they support varies between clients, but most allow sending subject and body text.  Some example actions are available in our Action Directory for most popular third party clients, like:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1J3">Spark</a></li>
+<li><a href="https://actions.getdrafts.com/a/1F2">Airmail</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Fd">Outlook</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Fj">Gmail</a></li>
+<li><a href="https://actions.getdrafts.com/a/1LB">Newton</a></li>
+</ul>
+<h3>Scripting Mail</h3>
+<p>This introduction doesn’t go deep enough to talk about scripting, but be aware that feature described above can also be accessed <a href="https://reference.getdrafts.com/objects/Mail.html">via the Mail script object</a> in script steps - open all sorts of advanced possibilities. Scripting interfaces are also available to send via <a href="https://reference.getdrafts.com/objects/GmailMessage.html">Gmail</a> and <a href="https://reference.getdrafts.com/objects/OutlookMessage.html">Outlook</a> accounts directly - allowing use cases like looping over a list of email addresses and sending the same email individually to each as a “To:” recipient.</p>
+<h3>Common Questions</h3>
+<ul>
+<li>
+<strong>Can I send in the background using my own Mail accounts?</strong>
+<ul>
+<li>Yes, if you use Gmail or Outlook integrated accounts. If a mail step uses the “Send in Background” option, it is sent using a web service. Mail.app does not support background sending.</li>
+</ul>
+</li>
+<li>
+<strong>Can I pre-configure the “from” address in the Mail window if I have multiple accounts?</strong>
+<ul>
+<li>No, sadly. This is not an option provided by Apple in the APIs that work with Mail.app. It can be changed in the window that pops up by tapping on the from line.</li>
+</ul>
+</li>
+</ul>
+<h3>Other Sample Actions</h3>
+<p>A <a href="https://actions.getdrafts.com/search?utf8=%E2%9C%93&amp;search_type=actions&amp;q=mail">search for “Mail” in the Action Directory</a> will always turn up some other interesting ideas for customizing mail actions - a few choice examples:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1Mr">Email to myself</a></li>
+<li><a href="https://actions.getdrafts.com/a/1ER">Email to group</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Kd">Email teacher…</a></li>
+</ul>
+            <p><small>12 posts - 6 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597</link>
+          <pubDate>Mon, 14 Jan 2019 20:50:05 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-3597</guid>
+          <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+        </item>
+        <item>
+          <title>Using WordPress with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/f0aade27d7c9cfdb6e3b263f51e26ce69c627b55.png" alt="wordpress-logo" width="306" height="165"></p>
+<p>Drafts (v5.4 or greater) can be used with the <a href="https://wordpress.org" rel="nofollow noopener">WordPress</a> blogging and content management system via integration with the <a href="https://codex.wordpress.org/XML-RPC_Support" rel="nofollow noopener">WordPress XML-RPC API</a>.</p>
+<p>The XML-RPC API is available, and enabled by default, in WordPress version 3.5 or greater, but its availability, and limits on its use, may vary by where your WordPress site is hosted. It is highly recommend you use secure connections (https) to connect to your site using XML-RPC.</p>
+<h2>Posting to WordPress</h2>
+<p>Drafts provides a <a href="https://getdrafts.com/actions/steps/wordpress" rel="nofollow noopener">WordPress action step</a> which allows creation and publishing of posts on a WordPress site. Example action:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1Os" rel="nofollow noopener">Post to WordPress</a></li>
+</ul>
+<p>This example posts to a WordPress blog in “Draft” status (to be published in the web interface later), using the first line of the title as the title of the post, and remaining text as the content.</p>
+<p>This basic example can be modified to control post status, automatically assign categories, tags and even custom fields. The details of available options can be found in the <a href="https://getdrafts.com/actions/steps/wordpress" rel="nofollow noopener">action step documentation</a>.</p>
+<h2>WordPress Credentials and Sites</h2>
+<p>The first time you run an action using a WordPress action step, you will be asked for details required to connect to your site. These include the host name of the home page of the WordPress site, and your username and password.  These will be stored for future use with the action.</p>
+<p>Be sure to enter the full URL to the home page of the WordPress site when prompted. This includes the “http://” or “https://” the host name and partial path if the site is hosted in a sub-directory, like: “<a href="https://mysite.com/blog/" rel="nofollow noopener">https://mysite.com/blog/</a>”.</p>
+<p>If you only post to one WordPress site, no additional configuration is needed. If you wish to have actions which post to different WordPress sites, configure a unique value in the “Credential Identifier” field of the WordPress action step.  All WordPress action steps with the same “Credential Identifier” will share the same login.  This value can be anything, but using something like the host name of the site for easy identification is recommended.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png" data-download-href="https://forums.getdrafts.com/uploads/default/d134f3fe894a10b55e915877ddb09295b7aefa68" title="wordpress-credentials.png"><img src="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_690x386.png" alt="wordpress-credentials" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png 1.5x, https://forums.getdrafts.com/uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_10x10.png"></a></div><p></p>
+<p>To reset credentials and login again, visit Settings &gt; Credentials and “Forget” the WordPress credentials. <a href="https://getdrafts.com/settings/credentials" rel="nofollow noopener">Read more about Credentials</a>.</p>
+<h2>Using the WordPress app share extension</h2>
+<p>WordPress also offers their own <a href="https://apps.wordpress.com/mobile/" rel="nofollow noopener">WordPress iOS app</a> which can be used to post to <a href="http://WordPress.com" rel="nofollow noopener">WordPress.com</a> of self-hosted WordPress blogs. The app offers a share extension, so if it is installed an configured on your device, it can be used via the Drafts “Share” action and the system share sheet.  This approach is less automated, but is often a good choice if you want to make some selections of categories, tags, published status, etc., on the fly when you publish.</p>
+<h2>Scripting and the XML-RPC API</h2>
+<p>Drafts provides a <a href="https://reference.getdrafts.com/objects/WordPress.html" rel="nofollow noopener"><code>WordPress</code> scripting object</a> which can be used to make direct requests to any methods available in the <a href="https://codex.wordpress.org/XML-RPC_WordPress_API" rel="nofollow noopener">WordPress XML-RPC API</a>. The object provides several convenience methods to fetch taxonomy information, etc., and also a <code>runMethod</code> function to call any method available in the API.</p>
+<p>Using scripting, WordPress posts and taxonomy information can be queried, downloaded, updated, existing posts can be imports and more.</p>
+<p>This wrapper handles the XML part of XML-RPC, making it easy to work with the WordPress API in Javascript, but is an advanced topic. For details, visit the <a href="https://reference.getdrafts.com/objects/WordPress.html" rel="nofollow noopener">scripting reference</a>.</p>
+<p>Example Scripted Actions:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1OC" rel="nofollow noopener">WordPress - Get Recent Posts</a>
+<ul>
+<li>Retrieves recents posts from the WordPress site and creates a new draft with a summary of the posts.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1OB" rel="nofollow noopener">WordPress - New Post</a>
+<ul>
+<li>Demonstrates creating a new post via script.</li>
+</ul>
+</li>
+</ul>
+<h4>Troubleshooting</h4>
+<p>If you have trouble posting to your WordPress blog, try the following:</p>
+<ul>
+<li>If posting has never worked, ensure the site host, username and password are all correct and entered properly. You can forget the credentials in settings and re-run the action to re-enter them.</li>
+<li>Check the action log after running a failed action for details on what error occurred.</li>
+<li>Check with your hosting provider to be sure that the WordPress XML-RPC interface is allowed and enabled on WordPress installations on their service.</li>
+</ul>
+            <p><small>14 posts - 10 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492</link>
+          <pubDate>Fri, 14 Sep 2018 13:25:01 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-2492</guid>
+          <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+        </item>
+        <item>
+          <title>Using Todoist with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/d826fdf2f8277003068df5f28136c667a4d5cdcd.jpg" alt="app-icon" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/app/id572688855?mt=8&amp;at=11l4Cf&amp;ct=community" rel="nofollow noopener"><strong>App Store</strong></a></li>
+<li><a href="https://developer.todoist.com/rest/v8/" rel="nofollow noopener"><strong>REST API Documentation</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: <code>todoist://</code>
+</li>
+<li><a href="https://developer.todoist.com/sync/v7/#tasks" rel="nofollow noopener"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<p><a href="http://todoist.com" rel="nofollow noopener">Todoist</a> is a task management platform. Drafts supports direct integration with Todoist via a number of methods, including those listed below.</p>
+<h2>Todoist Share Extension and URL actions</h2>
+<p>If you have the <a href="https://itunes.apple.com/app/id572688855?mt=8&amp;at=11l4Cf&amp;ct=community" rel="nofollow noopener">Todoist app</a> installed on the device, you can take advantage of integration methods provided by the app. These include an iOS Share extension for quick add of individual tasks, and URL schemes which can open the app ready to add a task.</p>
+<ul>
+<li>
+<p><strong>Example Actions</strong>:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1BF" rel="nofollow noopener"><strong>Share</strong></a>: This action comes in the default “Basic” action group and opens a system share sheet. It is not specific to Todoist, but will pass the text to the system share sheet and the Todoist share extension can be selected.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1CQ" rel="nofollow noopener"><strong>Task in Todoist App</strong></a>: URL-based action which opens the Todoist app. This version opens Todoist with the text of the current draft as the task content in a new task creation view.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>These actions work locally with the Todoist app, so they work offline and the Todoist app will sync the changes when it is reconnected.</li>
+<li>Both these methods allow flexible selection of options (like project, labels, etc.) through the familiar Todoist interface when used.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Require the Todoist app be installed.</li>
+<li>Require additional taps to complete creation of tasks.</li>
+<li>Can only create a single tasks at a time.</li>
+<li>URL based steps leave you in the Todoist app when completed.</li>
+</ul>
+</li>
+</ul>
+<h2>Todoist Action Step</h2>
+<p>Drafts provides a <a href="http://getdrafts.com/actions/steps/todoist.html" rel="nofollow noopener">Todoist Action Step</a> which can create tasks communicating directly with the Todoist REST API. The first time you use an action using Todoist direct integration, you will be directed to Todoist’s website to authorize the Drafts access.</p>
+<ul>
+<li>
+<p><strong>Examples Actions:</strong></p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1MU" rel="nofollow noopener"><strong>Task in Todoist</strong></a>: Uses first line of draft as the task, additional lines as a comment attached to the task, and supports <a href="https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add" rel="nofollow noopener">Todoist quick add syntax</a> for markup like <span class="hashtag">#projectname</span>, <span class="mention">@label</span>, etc.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1MT" rel="nofollow noopener"><strong>Task in Todoist Shopping List</strong></a>: Example is the same as the one above, but with the task content template set to <code>#shopping [[title]]</code>. This automatically adds the project syntax to assign the task to a specific project (Project must already exist in Todoist). This example could be edited to create actions which target specific projects, labels without having to type the text by including the quick add syntax in the template.</li>
+</ul>
+</li>
+<li>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>One tap creation of task without leaving Drafts.</li>
+<li>Uses <a href="https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add" rel="nofollow noopener">Todoist quick add syntax</a> to allow assignment of projects, labels, etc.</li>
+<li>Easy to combine with other Drafts action steps.</li>
+<li>Templates to control task content, attached comments and the creation of reminders.</li>
+</ul>
+</li>
+<li>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Requires network connection.</li>
+</ul>
+</li>
+</ul>
+<h2>Scripted Actions</h2>
+<p>Drafts also provides a scripting wrapper for the entire Todoist REST API via the <a href="http://reference.getdrafts.com/objects/Todoist.html" rel="nofollow noopener">Todoist object</a>. It provides access to the entire REST API and has convenience methods for reading and writing tasks, projects, labels and comments.  This means it is possible to create complete projects from Drafts - or also import projects from Todoist.</p>
+<p>Below we provide several example actions which are ready to use as-is, but also demonstrate those possibilities. Likely the most useful case it to create tasks in bulk, as in the <a href="https://actions.getdrafts.com/a/1MV" rel="nofollow noopener">Tasks in Todoist</a> example action, demonstrated in the video below:</p>
+<p><p><a href="https://vimeo.com/279133862?app_id=122963">https://vimeo.com/279133862?app_id=122963</a></p></p>
+<ul>
+<li>
+<strong>Example Actions:</strong>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1MV" rel="nofollow noopener"><strong>Tasks in Todoist</strong></a>: Takes each line of a draft and sends each to Todoist as a separate task. Fully supports <a href="https://support.todoist.com/hc/en-us/articles/115001745265-Task-Quick-Add" rel="nofollow noopener">Todoist quick add syntax</a> so each line can specify priorities, projects, labels, etc. This action is demonstrated in the video above and provides a great, powerful way to do bulk entry of tasks.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1MH" rel="nofollow noopener"><strong>Import Todoist Project</strong></a>: Prompts to select an existing Todoist project and imports tasks from the project into a new draft, in a basic Markdown format. Useful for grabbing a snapshot of a project to share. More values are possible to import via the API, this is only meant as a starting point.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1MW" rel="nofollow noopener"><strong>Task in Todoist with options</strong></a>: This example reads current project and labels from Todoist, then prompts the user to selection options before creating a task.</li>
+</ul>
+</li>
+</ul>
+<p>Users may create other examples, so be sure to search the <a href="https://actions.getdrafts.com" rel="nofollow noopener">Action Directory</a> for other Todoist integration examples.</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-todoist-with-drafts/1845</link>
+          <pubDate>Mon, 09 Jul 2018 20:22:35 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-1845</guid>
+          <source url="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845.rss">Using Todoist with Drafts</source>
+        </item>
+        <item>
+          <title>Sending Messages (iMessage/SMS) with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/38413cc839f5e2a892a21ef21177d6c3c4809e5e.png" alt="app-icon" width="105" height="105"></p>
+<h3>Screencast</h3>
+<p><p><a href="https://vimeo.com/270394681?app_id=122963">https://vimeo.com/270394681?app_id=122963</a></p></p>
+<h3>Messages Basics</h3>
+<p>Drafts can send messages using Apple’s Messages app with the <a href="http://getdrafts.com/actions/steps/message" rel="nofollow noopener">Message action step</a>. The Message step works by opening a Message window pre-filled with information configured in the action step – which can include the text of the message, and also it’s recipients.</p>
+<p>Since the app uses the Message app’s own interfaces, Message will be sent exactly as they would if you opened the Messages app to send them. Recipients can be iMessage or SMS/MMS and messages initiated in Drafts will go into the same conversation history as if they were sent in Messages.</p>
+<p>Drafts ships with a default <a href="http://actions.getdrafts.com/a/1BD" rel="nofollow noopener">Message</a> action which takes the full text of the current draft and pre-fills it ready to send in the Messages window. You then add one or more recipients, and tap the send button.</p>
+<h3>Customizing Message Actions</h3>
+<p>Message action steps can be configured to include one or more pre-defined recipients. Recipients can be added by selecting from contacts or simply entering valid phone numbers or iMessage-enabled email addresses separated by commas.</p>
+<p>Message action steps also have a template that defines the text to be inserted. This template typically defaults to <code>[[draft]]</code> which inserts the content of the current draft, but can contain other boilerplate text or <a href="http://getdrafts.com/actions/templates" rel="nofollow noopener">template tags</a>.</p>
+<h3>Messages App</h3>
+<p>In addition to being use to send messages, Drafts offers an iMessages app which allow text from drafts to be inserted into conversations from the Message app. You can find details about using Drafts as a snippet library in the Messages app <a href="http://getdrafts.com/messages/" rel="nofollow noopener">on our documentation site</a>.</p>
+<h3>Scripting</h3>
+<p>Note that the functionality of the Messages action step can also be used from scripted actions using the <code>Message</code> object. <a href="http://reference.getdrafts.com/objects/Message.html" rel="nofollow noopener">Details and example code at the scripting reference</a>.</p>
+            <p><small>5 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/sending-messages-imessage-sms-with-drafts/940">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/sending-messages-imessage-sms-with-drafts/940</link>
+          <pubDate>Thu, 17 May 2018 15:00:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-940</guid>
+          <source url="https://forums.getdrafts.com/t/sending-messages-imessage-sms-with-drafts/940.rss">Sending Messages (iMessage/SMS) with Drafts</source>
+        </item>
+        <item>
+          <title>Using Apple Notes with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/f9cef0215f5b4b289868f873ac8f3f09fcd81113.png" alt="image" data-base62-sha1="zDUfFGYWYZ5iL12nKprGvNK1IRl" width="118" height="118"></p>
+<p>This is a short article, but we do get asked often how to integrate with the built-in Apple Notes app.  Unfortunately, at this time, Apple does not provide ways to integrate with Notes that would allow more direct, interaction-free integration with third-party apps. You can, of course, always copy and paste from Drafts into a note in Notes, but we cover the other options below…</p>
+<h2>Using the “Share” Action</h2>
+<p>Content can be sent to Apple Notes via its Share extension on both iOS and Mac.</p>
+<p>Use the <a href="http://actions.getdrafts.com/a/1BF">Share</a> action, which comes in the default “Basic” action group and select the “Notes” app.  From this share extension, the draft text can be added to Notes as a new note, or appended to an existing note.</p>
+<p>If you share often, it might also be useful to install the <a href="http://actions.getdrafts.com/a/1BF">Share (selection)</a> action, which sends only the current text selection, not the entire draft.</p>
+<h2>Using Shortcuts (iOS only)</h2>
+<p>On iOS, Apple’s Shortcuts app has additional abilities to integrate with Notes that are not available directly to third party apps…including creating notes in specific folders, appending to notes, and doing these things without any additional interaction.</p>
+<p>Drafts can trigger Shortcuts using the <a href="https://docs.getdrafts.com/docs/actions/steps/advanced.html#run-shortcut">Run Shortcut</a> action step.</p>
+<p>For a simple example:</p>
+<ul>
+<li>Install the <a href="https://www.icloud.com/shortcuts/133201c2b9d047ddb4975ee3f0331d34">Create note in Notes</a> example shortcut. It is configured to create a note with the content input to the shortcut.</li>
+<li>Install edit <a href="https://actions.getdrafts.com/a/13T">Create note in Notes</a> example Drafts action, which calls the above shortcut.</li>
+<li>Create a draft, and run the action.</li>
+<li>Go to Notes, and find your new note!</li>
+</ul>
+<p>This same basic setup can be used with additional shortcuts configured to send to specific folders, etc. The details of configuring such shortcuts is a little beyond what I can cover in this article. If you plan to configure additional Shortcuts, <a href="https://forums.getdrafts.com/t/tip-calling-shortcuts-from-drafts/3603">this article on adding Shortcuts to Drafts</a> is worth a read.</p>
+<h2>AppleScript (Mac Only)</h2>
+<p>On the Mac, Drafts ability to run AppleScripts can be used to integrate with Notes. We have provided a <a href="https://actions.getdrafts.com/a/16g">Markdown to Notes</a> example action to get you started with the possibilities.</p>
+            <p><small>20 posts - 8 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-apple-notes-with-drafts/899">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-apple-notes-with-drafts/899</link>
+          <pubDate>Fri, 11 May 2018 16:46:43 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-899</guid>
+          <source url="https://forums.getdrafts.com/t/using-apple-notes-with-drafts/899.rss">Using Apple Notes with Drafts</source>
+        </item>
+        <item>
+          <title>Using Zapier with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f.png" data-download-href="https://forums.getdrafts.com/uploads/default/ccbda561f4231b2ce66ff378e8fd7751083ed70f" title="iu"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_345x158.png" alt="iu" data-base62-sha1="tddIyIhTyy9NZRhe5WKcexdthTN" width="345" height="158" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_345x158.png, https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_517x237.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_690x316.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/ccbda561f4231b2ce66ff378e8fd7751083ed70f_2_10x10.png"></a></div><p></p>
+<h1>
+<a name="integrating-with-zapier-1" class="anchor" href="https://forums.getdrafts.com#integrating-with-zapier-1"></a>Integrating with Zapier</h1>
+<p><a href="http://zapier.com">Zapier</a> is an online automation service that integrates with hundreds of services and APIs. While Drafts has great direct integration with many services, Zapier supports many more. If there are services Drafts does not directly support, Zapier is a great way to incorporate them in your Drafts workflow. This includes Facebook, LinkedIn, Office365 apps, and <a href="https://zapier.com/apps">many more</a>.</p>
+<p>Zapier “Zaps” are automation tools set up with a trigger and action. This guide covers how to configure Drafts actions to send data to a trigger in a Zapier Zap…which can then be acted on in Zapier.</p>
+<blockquote>
+<p><strong>Zapier Guide</strong>: <em>The team at Zapier has put together <a href="https://zapier.com/blog/drafts-ios-guide/">their own guide to Drafts</a> which includes more extensive coverage of Drafts integration. It’s <a href="https://zapier.com/blog/drafts-ios-guide/">a great place to start</a>.</em></p>
+</blockquote>
+<h2>
+<a name="webhooks-2" class="anchor" href="https://forums.getdrafts.com#webhooks-2"></a>Webhooks</h2>
+<p>Zaps can be configured with a “Catch Hook” type <a href="https://zapier.com/blog/what-are-webhooks/">Webhook</a> trigger, which creates a unique URL to send information to and trigger the Zap. Using webhooks allows Drafts to send multiple values to Zapier which can be inserted into the Zap action.</p>
+<p>Once you have configured a Zap with a “Catch Hook” trigger, install one of these example actions:</p>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1Hf"><strong>Zapier: Catch Hook Example using Credentials</strong></a>
+<ul>
+<li>Uses Drafts <a href="http://getdrafts.com/settings/credentials">Credentials</a> to store the catch hook URL. The first time you run it you will be prompted to enter the hook URL which can be pasted from the Zapier site, and it will be remembered for future use. To set up multiple zaps, this action can be duplicated and the “zapIdentifier” in the first script step changes to a unique value for each zap you want to target.</li>
+</ul>
+</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1Gb"><strong>Zapier: Catch Hook with Hard Coded URL</strong></a>
+<ul>
+<li>This is same same as above, but with the <code>hookURL</code> hard-coded as a variable in the script. After installing the action, edit it and change the <code>hookURL</code> value to match the URL of your Zap.</li>
+</ul>
+</li>
+</ul>
+<p>These examples send “title”, “body” and “content” values from the current draft to the Zap as elements that can be inserted into an action.</p>
+<h2>
+<a name="email-triggers-3" class="anchor" href="https://forums.getdrafts.com#email-triggers-3"></a>Email Triggers</h2>
+<p>Zapier also supports triggering zap <a href="https://zapier.com/apps/email/integrations">via email triggers</a>.  When a zap is configured for email, it gets assigned a unique incoming email address. A Drafts <a href="http://getdrafts.com/actions/steps/mail">mail action step</a> can then be configured to send to that email address and trigger the action. Since a unique address is used, the Drafts mail action step can be configued to “Send in Background”, so no additional action is required when running the action in Drafts.</p>
+<p>In general, unless you have a specific reason, we recommend you use Webhook triggers because they directly communicate with Zapier and will be more immediate as a result. Email triggers may be delayed by mail delivery time, etc.</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-zapier-with-drafts/608">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-zapier-with-drafts/608</link>
+          <pubDate>Tue, 24 Apr 2018 17:26:58 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-608</guid>
+          <source url="https://forums.getdrafts.com/t/using-zapier-with-drafts/608.rss">Using Zapier with Drafts</source>
+        </item>
+        <item>
+          <title>Using Twitter with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/7912005f343dbae96249be87f40eeb5070af521f.png" alt="app-icon" data-base62-sha1="hh2lc6xvUiOpOrMAf7Y9uxmnuSb" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id333903271?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: twitter://</li>
+<li>
+<strong>URL Scheme Documentation</strong>: Not officially documented</li>
+</ul>
+<p>Twitter is wonderful*, but often you may have something you want to share on Twitter but would prefer to avoid getting sucked into your timeline. More so, you may have an idea for a tweet that is not fully formed. Enter Drafts. Drafts is a great place to jot down and craft those pithy witticisms, and its Twitter integration allows you to post directly from Drafts, without ever launching your Twitter client. This article is a brief review of some of your options for using Drafts with Twitter, including sample actions for more advanced integrations, like the Tweet Storm example action that allows you to craft and post entire threads.</p>
+<p><em>* Your mileage may vary</em></p>
+<h2>
+<a name="direct-posting-with-the-twitter-action-step-1" class="anchor" href="https://forums.getdrafts.com#direct-posting-with-the-twitter-action-step-1"></a>Direct Posting with the Twitter Action Step</h2>
+<p>Drafts can post directly to <a href="http://twitter.com">Twitter</a> using the <a href="https://docs.getdrafts.com/docs/actions/steps/services#twitter">Twitter action step</a>.  Example action:</p>
+<ul>
+<li><a href="http://actions.getdrafts.com/a/1E5">Tweet</a></li>
+</ul>
+<p>The first time you run this action, you will be directed to Twitter to log in and allow Drafts permissions to post to your account.</p>
+<h2>
+<a name="configuring-tweet-actions-2" class="anchor" href="https://forums.getdrafts.com#configuring-tweet-actions-2"></a>Configuring Tweet Actions</h2>
+<h3>
+<a name="multiple-accounts-3" class="anchor" href="https://forums.getdrafts.com#multiple-accounts-3"></a>Multiple Accounts</h3>
+<p>Twitter action steps support multiple accounts using the Drafts <a href="https://docs.getdrafts.com/docs/settings/credentials">Credentials system</a>.  You can duplicate the <a href="http://actions.getdrafts.com/a/1E5">Tweet</a> action above, edit the action, selecting the “Twitter” step, and change the credential identifier to target a different account.</p>
+<p>The identifier can be any value, but all Twitter action steps with the same identifier will use the same credentials (e.g. post to the same Twitter account).  In the case of Twitter, I recommend filling in the Twitter handle you want to target.  The first time you use each action with a unique identifier, you will be asked to authenticate again via Safari. Be sure you are logged into the correct account in Safari to complete this process and link the action to the correct Twitter handle.</p>
+<h3>
+<a name="templates-4" class="anchor" href="https://forums.getdrafts.com#templates-4"></a>Templates</h3>
+<p>The Twitter action step has a template. By default, the value of this template is the Drafts’ <code>[[draft]]</code> tag, which will insert the full text of the current draft.  It can also be handy to set up alternate actions for live-tweeting events, and similar, where the template is not only the <code>[[draft]]</code> tag, but also contains a hashtag or other content which will automatically be added when used - like <code>[[draft]] #Oscars</code>. This technique is demonstrated in the <a href="https://actions.getdrafts.com/a/10h">Tweet #AppleEvent</a> example action.</p>
+<h3>
+<a name="after-success-5" class="anchor" href="https://forums.getdrafts.com#after-success-5"></a>After Success</h3>
+<p>Twitter actions are great candidates to use the <a href="https://docs.getdrafts.com/docs/actions/editing-actions#after-success---filing">After Success</a> settings. For example, you might set your Twitter action to archive the draft and assign the tag “tweet” when run, getting the draft tweet out of your inbox, and making it easy to look up all your tweets later using a tag filter.</p>
+<h2>
+<a name="url-actions-for-twitter-clients-6" class="anchor" href="https://forums.getdrafts.com#url-actions-for-twitter-clients-6"></a>URL Actions for Twitter Clients</h2>
+<p>Many Twitter client apps, including the official Twitter app, support URL schemes to pre-fill their compose window.  If you are a regular user of Twitter, it is handy to also have a URL-based action for your favorite Twitter client installed - this allows you to send text to that app, and complete composing the tweet - for example attaching an image or other media file - before sending.  Example actions for popular clients can be installed from the directory:</p>
+<ul>
+<li><a href="http://actions.getdrafts.com/a/1CV">Tweet with Twitter app</a></li>
+<li><a href="http://actions.getdrafts.com/a/1CU">Tweet with Twitterrific</a></li>
+<li><a href="http://actions.getdrafts.com/a/1CT">Tweet with Tweetbot</a></li>
+</ul>
+<h2>
+<a name="tweet-storm-composing-full-threads-7" class="anchor" href="https://forums.getdrafts.com#tweet-storm-composing-full-threads-7"></a>Tweet Storm: Composing Full Threads</h2>
+<p>The <a href="https://actions.getdrafts.com/a/1Hu">Tweet Storm</a> example action is a great tool for composing entire Twitter threads in Drafts.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/7de9a70b9b32235f6044b356d1e8b01d09455b22" title="tweet-storm-preview"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_517x293.jpeg" alt="tweet-storm-preview" data-base62-sha1="hXShu63dKCy6EEcfLrfATchVjhM" width="517" height="293" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_517x293.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_775x439.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_10x10.png"></a></div><p></p>
+<p>The action takes a longer draft, splits it up into paragraphs, and composes a Twitter thread, with a separate tweet for each paragraph. The action adds the <code>(1/3)</code>, <code>(2/3)</code>, etc. numbering common on Twitter theads, and previews the resulting thread for you to confirm. The preview will validate the content to make sure each paragraph will fit in a tweet, and then if you “Continue” post each resulting tweet in the proper reply structure to be a thread.</p>
+<p>Very handy when you have a lot on your mind.</p>
+<h2>
+<a name="advanced-twitter-api-scripting-8" class="anchor" href="https://forums.getdrafts.com#advanced-twitter-api-scripting-8"></a>Advanced Twitter API Scripting</h2>
+<p>Drafts exposes the complete Twitter API to scripting via the <a href="https://scripting.getdrafts.com/classes/twitter">Twitter object</a>. The API is too broad to cover here, but you can use it to read information from Twitter, download timelines, etc., as well as post a tweet.  Below are two sample actions demonstrating advanced use of the API:</p>
+<ul>
+<li>
+<strong><a href="http://actions.getdrafts.com/a/1Hu">Tweet Storm</a></strong>: Breaks a longer draft into paragraphs, shows a preview of how it would be tweeted as a multi-tweet threaded tweet storm - and then posts those tweets if a preview is confirmed.</li>
+<li>
+<strong><a href="http://actions.getdrafts.com/a/1Ht">Twitter API: Get Likes</a></strong>: Downloads recent favorite/liked tweets for any user and creates a new draft with their content.</li>
+<li>
+<strong><a href="https://actions.getdrafts.com/a/1MZ">Import Twitter Search</a></strong>: Prompts for search text, gets a list of matching tweets, and creates a new draft with a list of tweets in Markdown format.</li>
+</ul>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-twitter-with-drafts/109">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-twitter-with-drafts/109</link>
+          <pubDate>Thu, 12 Apr 2018 17:06:53 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-109</guid>
+          <source url="https://forums.getdrafts.com/t/using-twitter-with-drafts/109.rss">Using Twitter with Drafts</source>
+        </item>
+        <item>
+          <title>Using Reminders with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/95576316ab537ccdade67e9302b4ceaa6c43c8a1.png" alt="image" data-base62-sha1="lj8mSvFteiNX1kl9MUM3CgJN49r" width="110" height="110"></p>
+<h2>
+<a name="importing-from-reminders-1" class="anchor" href="https://forums.getdrafts.com#importing-from-reminders-1"></a>Importing From Reminders</h2>
+<p>Drafts can import reminders from a list in the iOS Reminders app. If you enable this feature, when drafts is launched, it will look for a list in the Reminders app, and create drafts using the title and note content of any incomplete tasks in that list. After successful import, it will mark those tasks as complete to prevent duplicate imports.</p>
+<p>The default list to import from is “Drafts”, but the list name you wish to import from can be changed in settings.</p>
+<p>If you are using iCloud sync for Reminders, you can add to the “Drafts” reminder list in the Reminders app on OS X.  The reminders will sync to your iOS devices, then be imported into Drafts the next time it launches on your iPhone or iPad if you have enabled the “Import reminders” feature.</p>
+<h2>
+<a name="creating-reminders-2" class="anchor" href="https://forums.getdrafts.com#creating-reminders-2"></a>Creating Reminders</h2>
+<p>Drafts has two action steps that can also create individual reminders, or full lists of reminders in very flexible ways. For information on export to reminders read about the <a href="https://docs.getdrafts.com/docs/actions/steps/system#reminder">Reminders</a> and <a href="https://docs.getdrafts.com/docs/actions/steps/system#list-in-reminders">List in Reminders</a> action steps.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d.png" data-download-href="https://forums.getdrafts.com/uploads/default/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d" title="list-in-reminders"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d_2_690x311.png" alt="list-in-reminders" data-base62-sha1="zfT1JcpSY2iO7NKJKqd7FhnH3yd" width="690" height="311" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d_2_690x311.png, https://forums.getdrafts.com/uploads/default/original/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d_2_10x10.png"></a></div><p></p>
+<h4>
+<a name="example-actions-3" class="anchor" href="https://forums.getdrafts.com#example-actions-3"></a>Example actions:</h4>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1E8"><strong>Reminder</strong></a>: Creates a single reminder task using the first line of the draft as the title and remain text as a note.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1E7"><strong>List in Reminders</strong></a>: Adds each line of the draft as a separate reminder task. This action can be modified to point to a specific list, or the first line of the draft can specify a list dynamically by started with a # character.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1Rr"><strong>Reminder with options</strong></a>: Prompts to create a reminder with a number of options for setting due date, priority and selecting target list.</li>
+</ul>
+<h2>
+<a name="scripting-reminders-4" class="anchor" href="https://forums.getdrafts.com#scripting-reminders-4"></a>Scripting Reminders</h2>
+<p>For more advanced integrations, Drafts can script reading and writing of Reminders and Reminder lists. Visit the <a href="https://reference.getdrafts.com/objects/Reminder.html">Reminder</a> and <a href="https://reference.getdrafts.com/objects/ReminderList.html">ReminderList</a> scripting documentation for details.</p>
+<h4>
+<a name="reminder-and-privacy-settings-5" class="anchor" href="https://forums.getdrafts.com#reminder-and-privacy-settings-5"></a>Reminder and Privacy Settings</h4>
+<p>For any of Drafts reminders integration features to work, you must allow Drafts access to Reminders.</p>
+<p>The first time you attempt to use any Reminders-related features in Drafts, you will be asked for permission.  If you “Don’t Allow” and later want to enable access, visit the iOS Settings app, under Privacy to enable Drafts access.</p>
+            <p><small>13 posts - 6 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-reminders-with-drafts/81">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-reminders-with-drafts/81</link>
+          <pubDate>Fri, 06 Apr 2018 19:58:44 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-81</guid>
+          <source url="https://forums.getdrafts.com/t/using-reminders-with-drafts/81.rss">Using Reminders with Drafts</source>
+        </item>
+        <item>
+          <title>Using Bear with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/7e0f78fd2f2c836620a0563583026e9c5e5d5927.png" alt="app-icon" data-base62-sha1="hZbjif7awQ6CAGcgoYHzFEvsSHl" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/bear-beautiful-writing-app/id1016366447?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=website"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: bear://</li>
+<li><a href="http://www.bear-writer.com/faq/X-callback-url%20Scheme%20documentation/"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<p>The note taking app Bear supports integration via it’s Share extension, and URL schemes.  For basic needs, use the Drafts <a href="https://actions.getdrafts.com/a/1BF">Share</a> action and select Bear in the iOS share sheet. Bear’s share extension supports capturing new notes, or append-prepending to existing notes you select in the share extension.</p>
+<h3>URL Actions</h3>
+<p>Bear has extensive x-callback-url support, allowing creation of new notes, as well as appending/prepending text, navigating to and searching notes. More details can be found in <a href="http://www.bear-writer.com/faq/X-callback-url%20Scheme%20documentation/">the Bear URL scheme documentation</a>.  A few ready-to-use example actions:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1CZ">Send to Bear</a>: Send current draft to Bear as a new note, using the first line as the note title, and remaining text as the content of the note - returns to Drafts after completion.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1Em">Append to Bear Journal</a>: Append draft to rolling series of monthly Journal notes.</li>
+</ul>
+<h3>Cross-Linking</h3>
+<p>Drafts’ <a href="https://docs.getdrafts.com/docs/drafts/cross-linking#wiki-style-external-links">cross-linking syntax</a> supports linking directly to notes in Bear using their title, in the format <code>[[bear:Title of Note]]</code>. Using this syntax you can create tappable links which open Bear directly to a specific note.</p>
+<h3>Scripting</h3>
+<p>Although URL schemes are the only method to integrate with Bear, they can be powerful. <span class="mention">@olivierg</span> has shared a <a href="https://actions.getdrafts.com/a/1Eo">BearAPI</a> that makes using the more advanced features available with Bear’s URL schemes easy in Drafts action scripts. Advanced users might want to take a look at it.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-bear-with-drafts/79">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-bear-with-drafts/79</link>
+          <pubDate>Fri, 06 Apr 2018 13:27:59 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-79</guid>
+          <source url="https://forums.getdrafts.com/t/using-bear-with-drafts/79.rss">Using Bear with Drafts</source>
+        </item>
+        <item>
+          <title>Using Things with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/3e529da240d7f93c3cb565dbcba9d425dcc95a72.png" alt="app-icon" data-base62-sha1="8TkBBOns1QXDlDrDyFnTGmfM0Ei" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id904237743?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store - iPhone</strong></a></li>
+<li>[<a href="https://itunes.apple.com/us/app/things-3-for-ipad/id904244226?mt=8"><strong>App Store - iPad</strong></a>
+</li>
+<li>
+<strong>URL Scheme</strong>: things://</li>
+<li><a href="https://support.culturedcode.com/customer/en/portal/articles/2803573-things-url-scheme"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<p>Things 3 can be integrated with Drafts in a number of powerful ways.</p>
+<h3>Sending Individual Tasks</h3>
+<p>Things has an iOS Share extension which can be used with Drafts’ Share action, or URL-based actions can be used to send the text of the current draft as a task to Things inbox.</p>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1CO"><strong>Task in Things</strong></a>
+<ul>
+<li>Send draft to Things as new task, using first line as the title and the remaining text as a note.</li>
+</ul>
+</li>
+</ul>
+<h3>Scripting Things</h3>
+<p>Drafts provides convenience wrappers for Things more advanced URL schemes which allow creation of multiple tasks or even whole projects with tags and dates assigned, etc.</p>
+<p>Documentation for <a href="https://scripting.getdrafts.com/classes/tjscontainer.html">Things Scripting</a> is available at our Scripting Reference site, and many example actions utilizing these methods can be found by <a href="http://actions.getdrafts.com/search?utf8=%E2%9C%93&amp;search_type=actions&amp;q=things&amp;button=">searching the Action Directory</a></p>
+<h3>Emailing To Things</h3>
+<p>Things also provides a <a href="https://support.culturedcode.com/customer/en/portal/articles/2908262-using-mail-to-things">Mail to Things</a> feature which can be used along with Drafts <a href="http://getdrafts.com/actions/steps/mail">Mail script steps</a> to send email to your unique Things email address.</p>
+<h3>Other Advanced Examples</h3>
+<p>Looking to build full project templates in Drafts, you might be interest in Peter Davison-Reiber’s excellent <a href="https://forums.getdrafts.com/t/things-parser-2-0/158">Things Parser</a> action.</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-things-with-drafts/27">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-things-with-drafts/27</link>
+          <pubDate>Wed, 04 Apr 2018 17:11:08 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-27</guid>
+          <source url="https://forums.getdrafts.com/t/using-things-with-drafts/27.rss">Using Things with Drafts</source>
+        </item>
+        <item>
+          <title>Using OmniFocus with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/cd4ed30ff90418c689e6df7bc30707867d1fe85c.png" alt="app-icon" data-base62-sha1="tieLfpA2DgpLY3f7TduMCoZTrT6" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id904071710?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: OmniFocus://</li>
+</ul>
+<blockquote>
+<h4>Learn OmniFocus Drafts Course</h4>
+<p>The folks over at Learn OmniFocus have put together a great <a href="https://learnomnifocus.com/courses/using-omnifocus-with-drafts/">“Using OmniFocus with Drafts” video course</a>. If you are looking for a jumpstart to using Drafts with OF, it’s a great place to start!</p>
+</blockquote>
+<p>OmniGroup’s <a href="https://www.omnigroup.com/omnifocus/">OmniFocus</a> is one of the most popular GTD/Todo/Task managers for keeping you organized and productive on iOS and the Mac.</p>
+<p>Drafts can work with OmniFocus as a front-end capture tool in a number of ways. This article discusses a few of them to help get you started.</p>
+<h4>Share Extension</h4>
+<p>OmniFocus offers an iOS Share extension for creating tasks which can be used with the Drafts’ Share action. This requires no special setup or configuration, just that both apps be installed on the device.</p>
+<ul>
+<li>
+<em>Pros:</em> No setup required. Great flexibility in the Share extension to assign OmniFocus contexts, tags, etc., before confirming creation of tasks.</li>
+<li>
+<em>Cons:</em> Can only create a single task at a time. Requires more user-interaction and extra taps/selections to complete creation of tasks.</li>
+</ul>
+<h4>URL-Based Actions</h4>
+<p>OmniFocus supports URL schemes, including x-callback-url. There is an excellent overview of some of the capabilities of the OmniFocus URL actions at <a href="https://inside.omnifocus.com/url-schemes">Inside OmniFocus</a>, if you are looking to accomplish advanced integrations.</p>
+<p>A few basic, ready-to-use examples:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1CP">Task in OmniFocus</a>: Sends the current draft to OmniFocus as a task, with the first line of the draft as the task name and any remaining text as a note.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1E6">Tasks in OmniFocus</a>: Sends each line of a draft to OmniFocus as an individual task.</li>
+</ul>
+<p>Details:</p>
+<ul>
+<li>
+<em>Pros:</em> OmniFocus opens, and you can further categorize the new task (assign project, due date, etc). Does not require network connection.</li>
+<li>
+<em>Cons:</em> None significant.</li>
+</ul>
+<h4>OmniFocus Mail Drop</h4>
+<p>OmniFocus offers the ability to email tasks to OmniFocus using <a href="https://support.omnigroup.com/omnifocus-mail-drop/">Mail Drop</a>. Using Mail Drop, along with a Drafts’ <a href="https://docs.getdrafts.com/docs/actions/steps/system#mail">Mail action step</a> configured to use your unique Mail Drop email address and to “Send in Background” can be a quick easy way to send a task to OmniFocus.</p>
+<ul>
+<li>
+<em>Pros:</em> Immediately sends task in background without leaving Drafts.</li>
+<li>
+<em>Cons:</em> Requires network connection (to send in background). Requires using OmniGroup’s own sync services. Goes to inbox, no way to categorize ahead of time.</li>
+</ul>
+<h4>Drafts &gt; Reminders &gt; OmniFocus</h4>
+<p>Drafts <a href="http://getdrafts.com/actions/steps/listinreminders">List in Reminders</a> action step allows you to quickly type up a list of items, one per line, in a draft, and send them to the built-in iOS Reminders app as a list. OmniFocus has the ability to <a href="https://support.omnigroup.com/collecting-with-siri-in-omnifocus-2/">import tasks from the iOS Reminders app</a>. If you create and configure an action to send to the Reminders list used by OmniFocus, you can quickly dump a list of tasks to OmniFocus, using Reminders as an intermediary.</p>
+<ul>
+<li>
+<em>Pros:</em> Create many tasks quickly.</li>
+<li>
+<em>Cons:</em> Requires a bit of configuration, and creating otherwise unnecessary data in Reminders. Reminders integration only support by OmniFocus on iOS.</li>
+</ul>
+<h4>Other Advanced Integrations and Resources</h4>
+<p>There are many variations and customizations that are possible, but beyond the scope of this article. A great example is <a href="https://www.rosemaryorchard.com/blog/using-drafts-5-taskpaper-with-omnifocus">Rosemary Orchard’s TaskPaper - OF integrations</a>. A <a href="https://actions.getdrafts.com/search?utf8=%E2%9C%93&amp;search_type=actions&amp;q=omnifocus&amp;button=">search for OmniFocus on the Action Directory</a> always yields some interesting results as well.</p>
+<p>The Omni Group’s Omni Automation website also has a page specific to <a href="https://omni-automation.com/drafts-app/index.html">using Drafts with Omni Automation</a>.</p>
+<p><a href="https://learnomnifocus.com/apps/drafts/">Learn OmniFocus</a> is a great resource for getting more out of OmniFocus, with a number of Webinars and screencasts <a href="https://learnomnifocus.com/apps/drafts/">specific to working with Drafts</a>.</p>
+            <p><small>4 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-omnifocus-with-drafts/26">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-omnifocus-with-drafts/26</link>
+          <pubDate>Wed, 04 Apr 2018 16:59:26 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-26</guid>
+          <source url="https://forums.getdrafts.com/t/using-omnifocus-with-drafts/26.rss">Using OmniFocus with Drafts</source>
+        </item>
+        <item>
+          <title>Using Fantastical with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/c6d26c10c0d41b39dc3c5e496f3c08ccf8eb4d17.png" alt="app-icon" data-base62-sha1="smRmILxCVA8MWap3A8tSCWBaDtR" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id718043190?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store - iPhone</strong></a></li>
+<li><a href="https://itunes.apple.com/app/id830708155?mt=8"><strong>App Store - iPad</strong></a></li>
+<li><a href="https://apps.apple.com/us/app/fantastical-calendar/id975937182?mt=12">[<em>Mac App Store</em>*]</a></li>
+<li>
+<strong>URL Scheme</strong>: fantastical2://</li>
+<li><a href="https://flexibits.com/fantastical-iphone/faq"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<p>Fantastical is a popular calendar app with excellent natural language parsing capabilities which can be integrated into Drafts in a number of ways.</p>
+<p>Fantastical can provides an iOS Share extension which can be used with Drafts’ Share action.  It also has excellent <a href="http://x-callback-url.com">x-callback-url</a> support to integrate directly with Drafts - on iOS. The Mac version does not currently support the same URL schemes.</p>
+<h3>
+<a name="example-actions-1" class="anchor" href="https://forums.getdrafts.com#example-actions-1"></a>Example Actions</h3>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1CM"><strong>Event in Fantastical</strong></a>
+<ul>
+<li>Takes the text of the current draft, and sends it to Fantastical to be parsed as a new calendar event. This version works on both iOS and Mac, but has to use different URLs on each platform.</li>
+</ul>
+</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1CM"><strong>Reminder in Fantastical</strong></a>
+<ul>
+<li>Takes the text of the current draft, and sends it to Fantastical to be parsed as a new reminder. This version works on both iOS and Mac, but has to use different URLs on each platform.</li>
+</ul>
+</li>
+</ul>
+<h3>
+<a name="scripted-example-action-2" class="anchor" href="https://forums.getdrafts.com#scripted-example-action-2"></a>Scripted Example Action</h3>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1ED"><strong>Events in Fantastical</strong></a>
+<ul>
+<li>Send each line of a draft to Fantastical as an individual event. This action demonstrates use of scripting to break up a draft and execute individual URL callback tasks on the values. This version works only on iOS due to the lack of callback support on Fantastical’s Mac app.</li>
+</ul>
+</li>
+</ul>
+<h3>
+<a name="other-advanced-examples-3" class="anchor" href="https://forums.getdrafts.com#other-advanced-examples-3"></a>Other Advanced Examples</h3>
+<ul>
+<li>Peter Davison-Reiber’s <a href="https://polymaths.blog/2018/06/fantastically-good-event-parser-for-drafts-5">Fantastically Good Event Parser</a> has similar functionality and natural language event parsing, but does not rely on Fantastical.</li>
+</ul>
+            <p><small>11 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-fantastical-with-drafts/25">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-fantastical-with-drafts/25</link>
+          <pubDate>Wed, 04 Apr 2018 16:55:12 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-25</guid>
+          <source url="https://forums.getdrafts.com/t/using-fantastical-with-drafts/25.rss">Using Fantastical with Drafts</source>
+        </item>
+        <item>
+          <title>Using Evernote with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/f850009db41e32e6c34669b1f112fdea4fa69a91.png" alt="app-icon" data-base62-sha1="zqFOEGFMgEzzOhEYnhqru3KGdWx" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id281796108?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme:</strong> en://</li>
+<li><a href="https://github.com/evernote/evernote-ios-x-callback-url"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<blockquote>
+<p><strong>Warning</strong>: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), several of the key methods of integration with new app updates (AppleScript, URL schemes), and <em>no longer supports</em> their integration SDKs. Although some of these methods do still work, we are not sure how long they will continue to work.</p>
+</blockquote>
+<p><a href="http://evernote.com">Evernote</a> is a popular note platform. Drafts can capture text to Evernote in a number of ways.</p>
+<h2>Evernote Action step (iOS Only)</h2>
+<blockquote>
+<p><strong>Note</strong>: The Evernote action step relies on the <a href="https://github.com/evernote/evernote-cloud-sdk-ios">Evernote SDK</a>, which Evernote no longer supports. We are maintaining our own version of this SDK to keep it working for now, but are not sure about the future of these features, and there are a few “gotchas”, including the fact that if you login to Evernote using a Google account, you cannot use these features. This is not something we can fix or workaround, it would require a fix from Evernote.</p>
+</blockquote>
+<p>Drafts offers native integration with Evernote using the <a href="http://getdrafts.com/actions/steps/evernote">Evernote action step</a>. Actions using this step can create, replace, append or prepend to notes in any notebook, assign tags, etc…even convert Markdown to Evernote rich text. Some ready to use samples from the directory:</p>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1E9">Save to Evernote</a>: Saves draft to Evernote in a timestamped note, converting Markdown to Evernote’s native ENML rich-text format.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1E0">Append to Evernote Journal</a>: Append draft to rolling monthly journal notes in Evernote.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1Ea">Evernote with Todos</a>: Saves to Evernote converting Drafts’ [ ] task marks to Evernote checkboxes.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1Ll">Save to Evernote (Text)</a>: Same as save action above, but treats text as plain text converting line breaks, but not applying any Markdown formatting.</li>
+</ul>
+<p><strong>Formatting</strong>: <em>see the formatting footnote below to better understand how text is converted to Evernote</em>.</p>
+<p><strong>Mac Note</strong>: Evernote does not provide a standard REST API, so these actions rely on a custom SDK from Evernote. Evernote does not offer a similar SDK for Mac at this time, so these features are not enabled.</p>
+<h2>Share Extension (iOS Only)</h2>
+<p>Evernote offers an iOS Share extension for creating tasks which can be used with the Drafts’ Share action. This requires no special setup or configuration, just that both apps be installed on the device. Just tap the “Share” action, and use select Evernote.  The share extension offers great flexibility in assigning Evernote tags and destination notebooks.</p>
+<p><strong>Mac Note</strong>: Note that Evernote does have a share extension in their Mac application, but it does not accept text for some reason, so does not appear as an option when sharing from Drafts. This is something Evernote would have to change at their end to function with Drafts.</p>
+<h2>URL-Based Actions (iOS Only) DEPRECATED!!!</h2>
+<blockquote>
+<p><strong>As of September, 2020, the Evernote iOS app was updated and no longer supports the URL schemes it has in the past. This method is no longer available!</strong></p>
+</blockquote>
+<p>Evernote supports <a href="https://github.com/evernote/evernote-ios-x-callback-url">URL schemes</a>, including x-callback-url.</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1C1">New Note in Evernote</a>: Sends the current draft to Evernote as a new note, with the first line of the draft as the title and remaining text as the content of the note.</li>
+</ul>
+<p><strong>Mac Note</strong>: Evernote’s Mac app does not implement support for the same URL schemes as their iOS app. They do register the same <code>Evernote:</code> URL scheme, but the action do not work, so generally if you run a URL-based Evernote action on the Mac, the Evernote app will launch, but nothing will happen.</p>
+<h2>Emailing into Evernote</h2>
+<p>Evernote offers the ability to email notes. Details about how to email to Evernote are available in <a href="https://help.evernote.com/hc/en-us/articles/209005347-How-to-save-email-into-Evernote">their documentation</a>.  Once you determine your unique Evernote email address, you can configure a Drafts’ <a href="http://getdrafts.com/actions/steps/mail">Mail action step</a> with that “To” email address and “Send in Background” enabled for a quick, single tap method to send a note to Evernote.</p>
+<p>This is generally the best option for integrating with Evernote on the Mac.</p>
+<h2>AppleScript (macOS Only) DEPRECATED!!!</h2>
+<blockquote>
+<p><strong>As of October, 2020, the Evernote Mac app was updated and no longer supports the AppleScript. This method is no longer available!</strong></p>
+</blockquote>
+<p>It is also possible to do advanced creation and modification of notes in Evernote via AppleScript integration. We have <a href="https://forums.getdrafts.com/t/evernote-example-with-cross-platform-support-via-applescript/7058">posted a sample action</a> demonstrating how to create cross-platform Evernote actions with AppleScript.</p>
+<h2>Formatting Text for Evernote</h2>
+<p>Evernote stores notes using it’s own <a href="https://dev.evernote.com/doc/articles/enml.php">ENML</a> markup, which is very much like HTML. When displayed in Evernote’s apps, the ENML is rendered much like HTML is in a web-browser to appear as rich-text…but, ultimately, under the hood, it is stored in this HTML-like markup.</p>
+<p>Drafts edits plain text notes. When sending text from Drafts to Evernote using their APIs, the text has to be converted to ENML. Drafts offers several strategies to do this, as controlled by the template output format of the <a href="https://docs.getdrafts.com/docs/actions/steps/services.html#evernote">Evernote action step</a>. The two common options are:</p>
+<ul>
+<li>
+<strong>Text:</strong> Using this option, Drafts assumes you want your output treated as plain text. It will encode HTML entities, add line break tags where you have them, etc., when sending to Evernote. It will <em>not</em>, however, result in any rich-text formatting in Evernote. If you do not use Markdown, this is probably the option you want.</li>
+<li>
+<strong>Markdown::</strong> Using this option, Draft will run the output through your preferred Markdown parser to convert it to HTML before sending to Evernote. Since ENML is very close to HTML, this generally works to get nice rich-text formatting of bold, italics, lists, links and other common markup in the resulting Evernote document.</li>
+</ul>
+            <p><small>17 posts - 9 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21</link>
+          <pubDate>Wed, 04 Apr 2018 16:41:38 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-21</guid>
+          <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+        </item>
+        <item>
+          <title>Using Dropbox with Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/307e2e78fe1513aa8afa5f5cc4ae8df267bb9259.png" alt="app-icon" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id327630330?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory" rel="nofollow noopener"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: dbapi-1://</li>
+</ul>
+<p><a href="http://dropbox.com" rel="nofollow noopener">Dropbox</a> is a file storage service. Drafts offers direct integration with Dropbox through several methods.</p>
+<h4>Dropbox Action Steps</h4>
+<p><a href="http://getdrafts.com/actions/steps/dropbox" rel="nofollow noopener">Dropbox action steps</a> directly integrate with Dropbox through their API and are a powerful, flexible way to create, append and prepend to files anywhere in your Dropbox. Sample ready to use examples:</p>
+<ul>
+<li><a href="http://actions.getdrafts.com/a/1EU" rel="nofollow noopener">Save to Dropbox</a></li>
+<li><a href="http://actions.getdrafts.com/a/1EV" rel="nofollow noopener">Append to Dropbox Journal</a></li>
+</ul>
+<p>Each of these action steps has fields to configure how the file is named, the path (folder) it will be placed in and the content of the resulting file. See the <a href="https://getdrafts.com/actions/steps/dropbox" rel="nofollow noopener">Dropbox action step</a> documentation for more information on available fields.</p>
+<h4>Export and Import through Files</h4>
+<p>The Dropbox app provides integration through iOS 11 Files app. With the Dropbox app installed on your iOS device, files can be imported by tapping and holding the “+” new draft button in the editor, and selecting “Import file”.</p>
+<p>Also the Drafts <a href="http://getdrafts.com/actions/steps/export" rel="nofollow noopener">Export action step</a> allows saving to arbitrary destinations in the Files app, including Dropbox.</p>
+<h4>Scripting</h4>
+<p>Drafts scripts can also read from and write to files in Dropbox using the <a href="https://github.com/agiletortoise/drafts-documentation/wiki/Dropbox" rel="nofollow noopener">Dropbox</a> object, and using it’s advanced methods access the entire Dropbox API - including Dropbox Paper, list files, generating share links and more.  See the documentation for details, or start with these sample actions:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1NE" rel="nofollow noopener">Send to Dropbox Paper</a></li>
+<li><a href="https://actions.getdrafts.com/a/1NF" rel="nofollow noopener">Save to Dropbox &amp; Create Share Link</a></li>
+</ul>
+<h4>Screencast</h4>
+<p>Although it covers Drafts 4, <a href="https://forums.getdrafts.com/t/using-dropbox-with-drafts/20">this screencast by David Sparks</a> covers using Dropbox actions and most of the action configuration tips still apply to Drafts 5.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/using-dropbox-with-drafts/20">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/using-dropbox-with-drafts/20</link>
+          <pubDate>Wed, 04 Apr 2018 16:33:37 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-20</guid>
+          <source url="https://forums.getdrafts.com/t/using-dropbox-with-drafts/20.rss">Using Dropbox with Drafts</source>
+        </item>
+        <item>
+          <title>About the Integration Guides category</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>Integration Guides</category>
+          <description><![CDATA[
+            <p>Integration guides are short articles covering ways Drafts can integrate with different Apps and Services.  Looking for an app integration not covered here, visit the <a href="http://actions.getdrafts.com/">Drafts Directory</a></p>
+<p><em>Integration guides are not meant to be complete. There may be additional ways to integrate with these apps &amp; services not mentioned.</em></p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/about-the-integration-guides-category/19">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/about-the-integration-guides-category/19</link>
+          <pubDate>Wed, 04 Apr 2018 16:29:34 +0000</pubDate>
+          <discourse:topicPinned>Yes</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-19</guid>
+          <source url="https://forums.getdrafts.com/t/about-the-integration-guides-category/19.rss">About the Integration Guides category</source>
+        </item>
+  </channel>
+</rss>

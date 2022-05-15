@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Sending Mail with Drafts</title>
+    <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597</link>
+    <description># Sending Mail with Drafts
+
+Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it&#39;s easy to send email directly within the app - or by integrating with third party Mail clients. Even write with Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts and different methods available.
+
+### Mail Action Step
+
+Drafts ships with a default [Mail](https://actions.getdrafts.com/a/1BC) action, in the &quot;Basic&quot; action group.  This action is configured to use the first line of the draft as the subject line, and the remaining text as the body of the message. When used, a Mail mesage will pop up with the text already filled in. You add a recipient and tap &quot;Send&quot; and your mail is on the way.
+
+On iOS, it will use APIs to send via Apple&#39;s Mail app. On the Mac, it uses `mailto:` URLs to open a message in your default email client.
+
+This is only the beginning of what is possible with the [Mail action step](https://getdrafts.com/actions/steps/mail). Multiple actions can be set up using Mail action steps, each configured to have pre-defined To, CC &amp; BCC recipients, stock subject lines, or body templates which automatically add signatures or other reused content and formatting.  So it&#39;s easy to set up, for example, a group email action to send to your project team or family.
+
+### Configuring Mail Action Steps
+
+If you are new to actions, you can get familiar with the basics of editing actions in [our Create an Action screencast](https://vimeo.com/276095230), that&#39;s a little beyond this article, but below shows a sample configuration of a Mail action step.
+
+![mail-action|496x500](upload://xv80IoA4hXuEMlPJyR4MoQtkPnp.png) 
+
+There are more detailed explanations of the fields in the [Mail action step documentation](https://getdrafts.com/actions/steps/mail). Each of these fields support [Drafts template tags](https://reference.getdrafts.com/topics/templates), including the recipient fields, so it is possible to dynamically insert content.
+
+The basics are:
+
+- **Recipient fields (To, CC, BCC)**: These fields can each have one or more email addresses (separated by commas). If values are configured for these fields, they will be pre-filled in the Mail window that opens, leaving you only to tap &quot;Send&quot; to finish the email. Use the (+) button to select email addresses from your contact list.
+- **Subject/Body fields**: These templates control what text will be filled in the content fields of the mail message. The default values use tags which insert the first line (`[[title]]`) in the subject, and the remaining text (`[[body]]`) in the body of the message. The figure above demonstrates how these tags can be combined with static text. With the subject template `Band Update: [[title]]` the subject line will come out in the mail as `Band Update: First Line of Draft`. *[More about using Templates](https://forums.getdrafts.com/t/using-drafts-templates/3728).*
+- **Advanced Options**:
+	- *Send as HTML*: If on, this will treat the output of the template as HTML and create a rich-text email. This means that the template should have HTML tags in it. This is typically used along with Markdown, see section below for details.
+	- *Send in background*: Used to send the email via web service without the requirement of opening a preview of the message. Because these message come &quot;From&quot; a generic address, it&#39;s best for action which email to your own email address as a reminder, or similar.
+
+### Markdown Mail
+
+[Markdown](https://daringfireball.net/projects/markdown/) is a text-to-HTML conversion tool that lets you write in simple plain text markup and easily convert it to HTML. Drafts has great [Markdown support](https://getdrafts.com/settings/markdown), and it works nicely with Mail steps to create rich-text formatted emails.
+
+![mail-markdown|612x499](upload://cjP3jSq7H9TseiIZCsIlluP9Il3.png) 
+
+To get started, install the [Markdown Mail](https://actions.getdrafts.com/a/1Cp) sample action from the Action Directory. This action uses a standard Mail action step, with two configuration changes:
+
+- The &quot;Send as HTML&quot; option is enabled.
+- The body template is changed to `%%[[body]]%%`. The double-percent syntax is a feature of the [Drafts template engine] that tells Drafts to treat any text between the double-percents as Markdown, and convert it to HTML.
+
+Using this step, it makes it quick and easy to send professional, rich-text email without a lot of fiddling with text selections in Mail.app.
+
+Because this relies on APIs that are not available on macOS, the basic implementation of Markdown Mail is not compatible with the Mac. We do offer a free helper app that enables this functionality on the Mac, called Mail Assistant. If you are interested in sending Markdown mail on the Mac, [get more information and sample actions in our Mail Assistant article](https://docs.getdrafts.com/misc/mail-assistant).
+
+### Mailto: URLs
+
+With the introduction of iOS 14, it is now possible to have third party email clients configured as your default application to handle `mailto` URLs. Because of this change, it might be desirable to have mail actions which explicitly use the `mailto` URL structure to send on both iOS and Mac.
+
+We have posted an [example mailto-based action](https://docs.getdrafts.com/misc/mail-assistant).
+
+The biggest downside to this approach is that you must leave Drafts to complete the sending process.
+
+### Gmail and Outlook Action Steps
+
+In addition to the &quot;Mail&quot; action step, there are dedicated steps available to send background email via [Gmail](https://getdrafts.com/actions/steps/gmail) or [Microsoft Outlook.com/Live/O365](https://getdrafts.com/actions/steps/outlook) accounts. These steps are configured very similar to the Mail step as covered above, but they do *not* open a window before sending the email. As a result these action steps *must* include at least one valid recipient email to send properly.
+
+The primary advantage of these steps is to allow a background email (without additional &quot;Send&quot; popup step) to be sent &quot;From&quot; your actual address with one of these services. 
+
+### Third Party Email Apps
+
+In addition to direct Mail support, Drafts can work with many third-party email clients directly. There are two common ways to send email using third party iOS email clients: Share extensions and URL schemes.  
+
+Many email client apps provide share extensions that can accept text and can be used via the Drafts [Share action](https://actions.getdrafts.com/a/1BF). When provided, these extensions will generally allow you to send an email, and use the text as the body of the email - requiring you to fill in the recipients and subject - just as the built-in iOS Mail share option.
+
+Many popular email client apps also provide support for integration via custom URL schemes. The format of the required URLs and the features they support varies between clients, but most allow sending subject and body text.  Some example actions are available in our Action Directory for most popular third party clients, like:
+
+- [Spark](https://actions.getdrafts.com/a/1J3)
+- [Airmail](https://actions.getdrafts.com/a/1F2)
+- [Outlook](https://actions.getdrafts.com/a/1Fd)
+- [Gmail](https://actions.getdrafts.com/a/1Fj)
+- [Newton](https://actions.getdrafts.com/a/1LB)
+
+### Scripting Mail
+
+This introduction doesn&#39;t go deep enough to talk about scripting, but be aware that feature described above can also be accessed [via the Mail script object](https://reference.getdrafts.com/objects/Mail.html) in script steps - open all sorts of advanced possibilities. Scripting interfaces are also available to send via [Gmail](https://reference.getdrafts.com/objects/GmailMessage.html) and [Outlook](https://reference.getdrafts.com/objects/OutlookMessage.html) accounts directly - allowing use cases like looping over a list of email addresses and sending the same email individually to each as a &quot;To:&quot; recipient.
+
+### Common Questions
+
+- **Can I send in the background using my own Mail accounts?**
+	- Yes, if you use Gmail or Outlook integrated accounts. If a mail step uses the &quot;Send in Background&quot; option, it is sent using a web service. Mail.app does not support background sending.
+- **Can I pre-configure the &quot;from&quot; address in the Mail window if I have multiple accounts?**
+	- No, sadly. This is not an option provided by Apple in the APIs that work with Mail.app. It can be changed in the window that pops up by tapping on the from line.
+
+### Other Sample Actions
+
+A [search for &quot;Mail&quot; in the Action Directory](https://actions.getdrafts.com/search?utf8=✓&amp;search_type=actions&amp;q=mail) will always turn up some other interesting ideas for customizing mail actions - a few choice examples:
+
+- [Email to myself](https://actions.getdrafts.com/a/1Mr)
+- [Email to group](https://actions.getdrafts.com/a/1ER)
+- [Email teacher...](https://actions.getdrafts.com/a/1Kd)</description>
+    
+    <lastBuildDate>Mon, 25 Oct 2021 13:59:00 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There are several options, which are discussed above, but it can be a bit confusing.</p>
+<p>If your mail accounts are with Gmail or Outlook, you can send directly through those accounts with actions that communicate directly to Google or Microsoft’s APIs. There are links to example actions for this above and these work on both Mac and iOS.</p>
+<p>Otherwise, you have to use a Mail app to send the email. On iOS, the “Mail” action is able to use Mail app without actually opening the app because Apple provides APIs to do that…those are not directly supported on Mac, so the “Mail” action step falls back to using “mailto:” URLs, which will open your default mail app to send mail.</p>
+<p>The Mail Assistant uses Apple’s Catalyst technology to access the iOS APIs to send mail from a Mac.  There is a sample action you can install that is linked in the Mail Assistant article (<a href="https://directory.getdrafts.com/a/11l">found here</a>) that is already configured to use Mail Assistant on Mac. You do not need to worry about the URLs - just install Mail Assistant, and install this action in Drafts and use it, and you will get roughly the behavior you get on iOS with the Mail action.  You will have to have your outgoing Mail accounts configured for use in Mail.app for it to work, even if you are using AirMail as your client.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/13</link>
+        <pubDate>Mon, 25 Oct 2021 13:59:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-13</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[melhopkop]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your response, <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>. That makes sense.</p>
+<p>I’ve downloaded Mail Assistant and read through the docs. I’ve downloaded the Markdown email example so I could see how it was structured. I looked through the Actions directly to see if something already existed that does this.</p>
+<p>I apologise if my ignorance is annoying here - I’m new to Drafts and still playing with it to work with my workflow. And I’m unclear still how to get it to do what I want it to do.</p>
+<p>I want to be able to send an email from Drafts without seeing my inbox. I guess this involves using Mail Assistant to work with the Mail App but I don’t currently understand how to use the URL scheme to get it to do this. Thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/12</link>
+        <pubDate>Mon, 25 Oct 2021 13:37:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-12</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Mac does not have the same APIs available to send mail that iOS has…the Mail Assistant is a way to work around that problem. You have to use modified Mail actions that use the Mail Assistant, which is described in the <a href="https://docs.getdrafts.com/misc/mail-assistant">Mail Assistant docs</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/11</link>
+        <pubDate>Mon, 25 Oct 2021 11:09:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-11</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[melhopkop]]></dc:creator>
+        <description><![CDATA[
+            <blockquote>
+<p>If you are sending mail using the Mail app, does that not mean that you are explicitly l <em>not</em> staying within Drafts?</p>
+</blockquote>
+<p>That’s not my understanding. In the iPhone app, for example, the Drafts action needs to use a mail client in order to pull up a list of emails, for example, but by using the native Maill app, it can do so with the app in the background and just show you the email your sending. If I use a 3rd party app, it pulls the app into the foreground and I see my stupid email inbox.</p>
+<p>I’ll take a look at the Mail Assistant - without further info, it didn’t look to me like it would address the issue I have here since the “mailto:” function seems to be calling whatever is selected as the default app for emailing but I’ll take a look.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/10</link>
+        <pubDate>Mon, 25 Oct 2021 09:52:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-10</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="melhopkop" data-post="8" data-topic="3597">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/melhopkop/40/5740_2.png" class="avatar"> melhopkop:</div>
+<blockquote>
+<p>However, I’d like Drafts to send email with the Mail app so I can stay within Drafts.</p>
+</blockquote>
+</aside>
+<p>If you are sending mail using the Mail app, does that not mean that you are explicitly l <em>not</em> staying within Drafts?</p>
+<p>Have you looked at the Mail Assistant for Drafts referenced above? There is a from parameter for sending that relies on the Mail app account configuration. I suspect this is what you want to be using.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/9</link>
+        <pubDate>Mon, 25 Oct 2021 09:29:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-9</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[melhopkop]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi there! I’m fairly new to Drafts.</p>
+<p>I’m trying to configure it so that I can send email directly from Drafts, thus bypassing the need to check my email inbox. I’ve successfully configured this on my iPhone.</p>
+<p>On my Mac, my default mail client is Airmail. However, I’d like Drafts to send email with the Mail app so I can stay within Drafts. The mailto: action seems to be using whatever is the default app. Is there a way to set up the action to use Mail, even if it’s not the default?</p>
+<p>Thank you!</p>
+<p>Best wishes,</p>
+<p>Mel</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/8</link>
+        <pubDate>Mon, 25 Oct 2021 09:16:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-8</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[fabiomacori]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello guys,<br>
+Is it possible to configure the action with protonmail?</p>
+<p>If yes, can you point me out?</p>
+<p>Thank you<br>
+Fabio</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/7</link>
+        <pubDate>Fri, 09 Apr 2021 15:51:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-7</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Most of what is discussed in this article works on Mac. What are you specifically needing or is not working for you?</p>
+<p>The only exception to working out of the box on the Mac is Markdown formatted mail, which requires the installation and setup of the <a href="https://docs.getdrafts.com/misc/mail-assistant">Mail Assistant helper app</a>, as discussed above.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/6</link>
+        <pubDate>Tue, 05 Jan 2021 13:33:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-6</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[RichardHanmer]]></dc:creator>
+        <description><![CDATA[
+            <p>As far as I can tell this feature still only works on iOS.  Will this be available on the desktop version anytime soon?  It’s particularly frustrating as it’s been a long coming - esp as we’re subscribers to the app.  And the desktop version shows it as a “supported action”.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/5</link>
+        <pubDate>Tue, 05 Jan 2021 11:36:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-5</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>You need to forget the credentials for the service in settings. <a href="https://docs.getdrafts.com/docs/settings/credentials.html" rel="nofollow noopener">Details</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/4</link>
+        <pubDate>Sat, 09 Nov 2019 15:16:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-4</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[Pierre_Schurmann]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>, need help with an issue. Due to migrating gmail accounts, I had to revoke the  OAuth permission that allowed me to send emails in the background and am getting an “oautherror error -11” message.</p>
+<p>Could you please tell me How can I reauthirize  with a new gmail account?<br>
+Thanks !</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/3</link>
+        <pubDate>Sat, 09 Nov 2019 05:57:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-3</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+      <item>
+        <title>Sending Mail with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h1>Sending Mail with Drafts</h1>
+<p>Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within the app - or by integrating with third party Mail clients. Even write with Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts and different methods available.</p>
+<h3>Mail Action Step</h3>
+<p>Drafts ships with a default <a href="https://actions.getdrafts.com/a/1BC">Mail</a> action, in the “Basic” action group.  This action is configured to use the first line of the draft as the subject line, and the remaining text as the body of the message. When used, a Mail mesage will pop up with the text already filled in. You add a recipient and tap “Send” and your mail is on the way.</p>
+<p>On iOS, it will use APIs to send via Apple’s Mail app. On the Mac, it uses <code>mailto:</code> URLs to open a message in your default email client.</p>
+<p>This is only the beginning of what is possible with the <a href="https://getdrafts.com/actions/steps/mail">Mail action step</a>. Multiple actions can be set up using Mail action steps, each configured to have pre-defined To, CC &amp; BCC recipients, stock subject lines, or body templates which automatically add signatures or other reused content and formatting.  So it’s easy to set up, for example, a group email action to send to your project team or family.</p>
+<h3>Configuring Mail Action Steps</h3>
+<p>If you are new to actions, you can get familiar with the basics of editing actions in <a href="https://vimeo.com/276095230">our Create an Action screencast</a>, that’s a little beyond this article, but below shows a sample configuration of a Mail action step.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png" data-download-href="https://forums.getdrafts.com/uploads/default/eacc913bf772a9771a126f047a26d1fcbd465a27" title="mail-action"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_496x500.png" alt="mail-action" data-base62-sha1="xv80IoA4hXuEMlPJyR4MoQtkPnp" width="496" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_496x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_744x750.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_10x10.png"></a></div><p></p>
+<p>There are more detailed explanations of the fields in the <a href="https://getdrafts.com/actions/steps/mail">Mail action step documentation</a>. Each of these fields support <a href="https://reference.getdrafts.com/topics/templates">Drafts template tags</a>, including the recipient fields, so it is possible to dynamically insert content.</p>
+<p>The basics are:</p>
+<ul>
+<li>
+<strong>Recipient fields (To, CC, BCC)</strong>: These fields can each have one or more email addresses (separated by commas). If values are configured for these fields, they will be pre-filled in the Mail window that opens, leaving you only to tap “Send” to finish the email. Use the (+) button to select email addresses from your contact list.</li>
+<li>
+<strong>Subject/Body fields</strong>: These templates control what text will be filled in the content fields of the mail message. The default values use tags which insert the first line (<code>[[title]]</code>) in the subject, and the remaining text (<code>[[body]]</code>) in the body of the message. The figure above demonstrates how these tags can be combined with static text. With the subject template <code>Band Update: [[title]]</code> the subject line will come out in the mail as <code>Band Update: First Line of Draft</code>. <em><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">More about using Templates</a>.</em>
+</li>
+<li>
+<strong>Advanced Options</strong>:
+<ul>
+<li>
+<em>Send as HTML</em>: If on, this will treat the output of the template as HTML and create a rich-text email. This means that the template should have HTML tags in it. This is typically used along with Markdown, see section below for details.</li>
+<li>
+<em>Send in background</em>: Used to send the email via web service without the requirement of opening a preview of the message. Because these message come “From” a generic address, it’s best for action which email to your own email address as a reminder, or similar.</li>
+</ul>
+</li>
+</ul>
+<h3>Markdown Mail</h3>
+<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a text-to-HTML conversion tool that lets you write in simple plain text markup and easily convert it to HTML. Drafts has great <a href="https://getdrafts.com/settings/markdown">Markdown support</a>, and it works nicely with Mail steps to create rich-text formatted emails.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png" data-download-href="https://forums.getdrafts.com/uploads/default/5657be8471de771cbc3fad05504fb98ec51272b1" title="mail-markdown"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_612x499.png" alt="mail-markdown" data-base62-sha1="cjP3jSq7H9TseiIZCsIlluP9Il3" width="612" height="499" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_612x499.png, https://forums.getdrafts.com/uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_10x10.png"></a></div><p></p>
+<p>To get started, install the <a href="https://actions.getdrafts.com/a/1Cp">Markdown Mail</a> sample action from the Action Directory. This action uses a standard Mail action step, with two configuration changes:</p>
+<ul>
+<li>The “Send as HTML” option is enabled.</li>
+<li>The body template is changed to <code>%%[[body]]%%</code>. The double-percent syntax is a feature of the [Drafts template engine] that tells Drafts to treat any text between the double-percents as Markdown, and convert it to HTML.</li>
+</ul>
+<p>Using this step, it makes it quick and easy to send professional, rich-text email without a lot of fiddling with text selections in Mail.app.</p>
+<p>Because this relies on APIs that are not available on macOS, the basic implementation of Markdown Mail is not compatible with the Mac. We do offer a free helper app that enables this functionality on the Mac, called Mail Assistant. If you are interested in sending Markdown mail on the Mac, <a href="https://docs.getdrafts.com/misc/mail-assistant">get more information and sample actions in our Mail Assistant article</a>.</p>
+<h3>Mailto: URLs</h3>
+<p>With the introduction of iOS 14, it is now possible to have third party email clients configured as your default application to handle <code>mailto</code> URLs. Because of this change, it might be desirable to have mail actions which explicitly use the <code>mailto</code> URL structure to send on both iOS and Mac.</p>
+<p>We have posted an <a href="https://docs.getdrafts.com/misc/mail-assistant">example mailto-based action</a>.</p>
+<p>The biggest downside to this approach is that you must leave Drafts to complete the sending process.</p>
+<h3>Gmail and Outlook Action Steps</h3>
+<p>In addition to the “Mail” action step, there are dedicated steps available to send background email via <a href="https://getdrafts.com/actions/steps/gmail">Gmail</a> or <a href="https://getdrafts.com/actions/steps/outlook">Microsoft Outlook.com/Live/O365</a> accounts. These steps are configured very similar to the Mail step as covered above, but they do <em>not</em> open a window before sending the email. As a result these action steps <em>must</em> include at least one valid recipient email to send properly.</p>
+<p>The primary advantage of these steps is to allow a background email (without additional “Send” popup step) to be sent “From” your actual address with one of these services.</p>
+<h3>Third Party Email Apps</h3>
+<p>In addition to direct Mail support, Drafts can work with many third-party email clients directly. There are two common ways to send email using third party iOS email clients: Share extensions and URL schemes.</p>
+<p>Many email client apps provide share extensions that can accept text and can be used via the Drafts <a href="https://actions.getdrafts.com/a/1BF">Share action</a>. When provided, these extensions will generally allow you to send an email, and use the text as the body of the email - requiring you to fill in the recipients and subject - just as the built-in iOS Mail share option.</p>
+<p>Many popular email client apps also provide support for integration via custom URL schemes. The format of the required URLs and the features they support varies between clients, but most allow sending subject and body text.  Some example actions are available in our Action Directory for most popular third party clients, like:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1J3">Spark</a></li>
+<li><a href="https://actions.getdrafts.com/a/1F2">Airmail</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Fd">Outlook</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Fj">Gmail</a></li>
+<li><a href="https://actions.getdrafts.com/a/1LB">Newton</a></li>
+</ul>
+<h3>Scripting Mail</h3>
+<p>This introduction doesn’t go deep enough to talk about scripting, but be aware that feature described above can also be accessed <a href="https://reference.getdrafts.com/objects/Mail.html">via the Mail script object</a> in script steps - open all sorts of advanced possibilities. Scripting interfaces are also available to send via <a href="https://reference.getdrafts.com/objects/GmailMessage.html">Gmail</a> and <a href="https://reference.getdrafts.com/objects/OutlookMessage.html">Outlook</a> accounts directly - allowing use cases like looping over a list of email addresses and sending the same email individually to each as a “To:” recipient.</p>
+<h3>Common Questions</h3>
+<ul>
+<li>
+<strong>Can I send in the background using my own Mail accounts?</strong>
+<ul>
+<li>Yes, if you use Gmail or Outlook integrated accounts. If a mail step uses the “Send in Background” option, it is sent using a web service. Mail.app does not support background sending.</li>
+</ul>
+</li>
+<li>
+<strong>Can I pre-configure the “from” address in the Mail window if I have multiple accounts?</strong>
+<ul>
+<li>No, sadly. This is not an option provided by Apple in the APIs that work with Mail.app. It can be changed in the window that pops up by tapping on the from line.</li>
+</ul>
+</li>
+</ul>
+<h3>Other Sample Actions</h3>
+<p>A <a href="https://actions.getdrafts.com/search?utf8=%E2%9C%93&amp;search_type=actions&amp;q=mail">search for “Mail” in the Action Directory</a> will always turn up some other interesting ideas for customizing mail actions - a few choice examples:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1Mr">Email to myself</a></li>
+<li><a href="https://actions.getdrafts.com/a/1ER">Email to group</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Kd">Email teacher…</a></li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-mail-with-drafts/3597/1</link>
+        <pubDate>Mon, 14 Jan 2019 20:50:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3597-1</guid>
+        <source url="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597.rss">Sending Mail with Drafts</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Prompt with empty text field not working reliably on macOS - Drafts Community</title>
+    <meta name="description" content="I have created an action with a prompt including a text field. 
+This action does always work on my iOS and iPadOS devices and it does always work on macOS when the text field is not empty. 
+But when the text field is emp&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12440.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Prompt with empty text field not working reliably on macOS&#39;" href="12440.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440" />
+<meta property="og:title" content="Prompt with empty text field not working reliably on macOS" />
+<meta name="twitter:title" content="Prompt with empty text field not working reliably on macOS" />
+<meta property="og:description" content="I have created an action with a prompt including a text field.  This action does always work on my iOS and iPadOS devices and it does always work on macOS when the text field is not empty.  But when the text field is empty it does work on macOS only every now and then. That’s the only way I can describe it, I could not detect any pattern. If it didn’t work at all I’d assume there is a mistake in my code. But it does work—occasionally.  And no, it does not not work just with certain buttons. And ..." />
+<meta name="twitter:description" content="I have created an action with a prompt including a text field.  This action does always work on my iOS and iPadOS devices and it does always work on macOS when the text field is not empty.  But when the text field is empty it does work on macOS only every now and then. That’s the only way I can describe it, I could not detect any pattern. If it didn’t work at all I’d assume there is a mistake in my code. But it does work—occasionally.  And no, it does not not work just with certain buttons. And ..." />
+<meta property="article:published_time" content="2022-04-10T07:33:01+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="12440.html">Prompt with empty text field not working reliably on macOS</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/suavito'><span itemprop='name'>suavito</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T07:33:01Z' class='post-time'>
+                April 10, 2022,  7:33am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T07:33:01Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have created an action with a prompt including a text field.</p>
+<p>This action does always work on my iOS and iPadOS devices and it does always work on macOS when the text field is not empty.</p>
+<p>But when the text field is empty it does work on macOS only every now and then. That’s the only way I can describe it, I could not detect any pattern. If it didn’t work at all I’d assume there is a mistake in my code. But it does work—occasionally.</p>
+<p>And no, it does not not work just with certain buttons. And yes, I have a condition in the script handling the prompt data that does not process <code>prompt_text</code> when it is does not have content.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T07:52:14Z' class='post-time'>
+                April 10, 2022,  7:52am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T07:52:14Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Can you share the action so others can reproduce the issue and see if a pattern can be identified?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/suavito'><span itemprop='name'>suavito</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T10:02:22Z' class='post-time'>
+                April 10, 2022, 10:02am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T10:02:22Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Of course I can. Should I post it here?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T10:49:10Z' class='post-time'>
+                April 10, 2022, 10:49am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T10:49:10Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Posting a link here will let other Drafts users access it and know that it relates to your topic. Posting a link elsewhere won’t provide any relevance to this topic.</p>
+<p>At the moment all that is presented is an anecdotal point for an abstract action description.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/suavito'><span itemprop='name'>suavito</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T11:16:08Z' class='post-time'>
+                April 10, 2022, 11:16am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T11:20:01Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sorry for being a bit slow in getting what you where asking for. I have either never uploaded an action before or only a long time ago.</p>
+<p>Anyway, here is the <a href="../../../directory.getdrafts.com/a/1y8.html" rel="noopener nofollow ugc">Link to my action</a>.</p>
+<p>I set it to “unlisted” because besides from what this thread is about it is not ready for public yet.</p>
+<p>I have to add that the part of the second script that inserts the output of the action into the draft<br>
+is based on the Tag action. I don’t know if that action comes with <em>Drafts</em> or if I had downloaded from the Directory. Because if so, it was quite a while ago.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T13:11:24Z' class='post-time'>
+                April 10, 2022,  1:11pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T13:11:24Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I could not get it to fail, but I’m running a beta and believe it has a related fix to a timing issue manipulating the updating the draft that is currently loaded in the editor.</p>
+<p>That said, you can wait for the fix, but I would recommend you use the <a href="../../../scripting.getdrafts.com/classes/editor.html"><code>editor</code> functions</a> to manipulate the text instead, which are the preferred way to manipulate text currently loaded in the editor and not susceptible to this bug. They have better convenience methods to get/selected text, etc., and insert text without needing to slice and dice the full content of the draft.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/suavito'><span itemprop='name'>suavito</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T14:05:32Z' class='post-time'>
+                April 10, 2022,  2:05pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T14:05:32Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for pointing me in the right direction.</p>
+<p>Timing issue sounds great—because that would mean it’s not my long time not used and therefore quite dusted programming skills which caused the unstableness.</p>
+<p>Like I said, the inserting part of the script was nicked from another script I can’t tell where it’s from or how old it is. I will look into the editor functions and try to improve the script.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/suavito'><span itemprop='name'>suavito</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12440.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-10T15:43:43Z' class='post-time'>
+                April 10, 2022,  3:43pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-10T15:43:43Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sorry for bothering you again. Since I did not find example scripts for moving and inserting in the Editor I am not sure if I am using the proper method now.</p>
+<p>My task is simple: Insert text in Editor. If text was selected, replace it. If not, insert at cursor position. After inserting cursor position is after the inserted text. Nothing is selected. Editor is active. Draft is saved.</p>
+<p>Does this do it?:</p>
+<pre><code class="lang-auto">theText = "something";
+editor.setSelectedText(theText);
+theSelection = editor.getSelectedRange()[0];
+editor.setSelectedRange((theSelection + theText.length),0);
+editor.activate();
+editor.save;
+</code></pre>
+<p>Unlike the unreliable method (see above) this works. But it flashes, due to selecting I guess. Is there a better way?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt with empty text field not working reliably on macOS'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

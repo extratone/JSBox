@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>MGCheckListPrompt Paste selection in current draft</title>
+    <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146</link>
+    <description>I downloaded the action group  [MGCheckListPrompt](https://actions.getdrafts.com/g/10X) (many thanks to @mattgemmell ) and I&#39;m trying to copy the content of the selected draft (the array of selected drafts if possible) in my current draft. 
+
+I&#39;m new to scripting and after several trials and errors, I learned a lot about scripting but I still can&#39;t figure out what to write.  
+I understand that editor.setSelectedText() should be used after 
+var selectedItems = prompt.show(); 
+, perhaps using a variable defined in the action group&#39;s Code Library (MGCheckListPrompt Library). 
+
+Any help would be greatly appreciated.</description>
+    
+    <lastBuildDate>Thu, 09 Sep 2021 02:00:15 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>MGCheckListPrompt Paste selection in current draft</title>
+        <dc:creator><![CDATA[emanuel_cyr]]></dc:creator>
+        <description><![CDATA[
+            <p>It works well like this:</p>
+<pre><code class="lang-auto">// Report the result.
+if (prompt.didShow) {
+	if (selectedItems != null) {
+		let m = selectedItems.map(intIndex =&gt; 
+	(drafts[intIndex].content));
+		
+		let s = m.join("\n");
+		
+editor.setSelectedText(s);
+
+	}
+</code></pre>
+<p>Thanks again for your help.</p>
+          <p><a href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/6</link>
+        <pubDate>Thu, 09 Sep 2021 02:00:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11146-6</guid>
+        <source url="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss">MGCheckListPrompt Paste selection in current draft</source>
+      </item>
+      <item>
+        <title>MGCheckListPrompt Paste selection in current draft</title>
+        <dc:creator><![CDATA[emanuel_cyr]]></dc:creator>
+        <description><![CDATA[
+            <p>No but I will take a look.</p>
+          <p><a href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/5</link>
+        <pubDate>Wed, 08 Sep 2021 16:56:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11146-5</guid>
+        <source url="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss">MGCheckListPrompt Paste selection in current draft</source>
+      </item>
+      <item>
+        <title>MGCheckListPrompt Paste selection in current draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Do you know about joining arrays in JavaScript?</p>
+<p><a href="https://www.w3schools.com/jsref/jsref_join.asp" class="onebox" target="_blank" rel="noopener">https://www.w3schools.com/jsref/jsref_join.asp</a></p>
+<p>I think it might be ideally suited if you built an array of draft content from the array of selected draft indices.</p>
+          <p><a href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/4</link>
+        <pubDate>Wed, 08 Sep 2021 16:43:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11146-4</guid>
+        <source url="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss">MGCheckListPrompt Paste selection in current draft</source>
+      </item>
+      <item>
+        <title>MGCheckListPrompt Paste selection in current draft</title>
+        <dc:creator><![CDATA[emanuel_cyr]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>, very appreciated.<br>
+I got it to work like this:</p>
+<pre><code class="lang-auto">if (prompt.didShow) {
+	if (selectedItems != null) {
+		selectedItems.map(intIndex =&gt; 
+([st, len] = editor.getSelectedRange(), 
+s = (drafts[intIndex].content), 
+editor.setTextInRange(st, s.length, s),
+editor.setSelectedRange(st+s.length, 0)))
+}
+</code></pre>
+<p>Probably not the most elegant, but it works.<br>
+Now, when I select several items, I would like every item to start at the beginning of a line. I’m trying to add +"\n\n"  next to a variable I just described, with no success. Any clue?</p>
+          <p><a href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/3</link>
+        <pubDate>Wed, 08 Sep 2021 16:39:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11146-3</guid>
+        <source url="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss">MGCheckListPrompt Paste selection in current draft</source>
+      </item>
+      <item>
+        <title>MGCheckListPrompt Paste selection in current draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>See if this gets you on the right track.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1qW">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1qW" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1qW" target="_blank" rel="noopener">Drafts Directory: Draft content example</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>I modified one of the standard demo actions to display the content of each selected draft as an alert.</p>
+<p>The prompt looks to be returning an array of the indices of the original selection, so it is just a case of getting the content of those selections and processing it as you wish.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/2</link>
+        <pubDate>Wed, 08 Sep 2021 06:25:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11146-2</guid>
+        <source url="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss">MGCheckListPrompt Paste selection in current draft</source>
+      </item>
+      <item>
+        <title>MGCheckListPrompt Paste selection in current draft</title>
+        <dc:creator><![CDATA[emanuel_cyr]]></dc:creator>
+        <description><![CDATA[
+            <p>I downloaded the action group  <a href="https://actions.getdrafts.com/g/10X" rel="noopener nofollow ugc">MGCheckListPrompt</a> (many thanks to <a class="mention" href="https://forums.getdrafts.com/u/mattgemmell">@mattgemmell</a> ) and I’m trying to copy the content of the selected draft (the array of selected drafts if possible) in my current draft.</p>
+<p>I’m new to scripting and after several trials and errors, I learned a lot about scripting but I still can’t figure out what to write.<br>
+I understand that editor.setSelectedText() should be used after<br>
+var selectedItems = prompt.show();<br>
+, perhaps using a variable defined in the action group’s Code Library (MGCheckListPrompt Library).</p>
+<p>Any help would be greatly appreciated.</p>
+          <p><a href="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146/1</link>
+        <pubDate>Wed, 08 Sep 2021 02:53:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11146-1</guid>
+        <source url="https://forums.getdrafts.com/t/mgchecklistprompt-paste-selection-in-current-draft/11146.rss">MGCheckListPrompt Paste selection in current draft</source>
+      </item>
+  </channel>
+</rss>

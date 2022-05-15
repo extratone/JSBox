@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Append to current draft - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action. 
+He&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12476.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Append to current draft&#39;" href="12476.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/append-to-current-draft/12476" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/append-to-current-draft/12476" />
+<meta property="og:title" content="Append to current draft" />
+<meta name="twitter:title" content="Append to current draft" />
+<meta property="og:description" content="I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action.  Here is my current script:  let f = () =&gt; {  // select an existing draft  let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);  if (!d) {  return false;  }  // append current draft draft.content = draft.content + &quot; &quot; + d.content; draft.update(); return true;	  }  if (!f()) { ..." />
+<meta name="twitter:description" content="I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action.  Here is my current script:  let f = () =&gt; {  // select an existing draft  let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);  if (!d) {  return false;  }  // append current draft draft.content = draft.content + &quot; &quot; + d.content; draft.update(); return true;	  }  if (!f()) { ..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2022-04-15T15:25:49+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="12476.html">Append to current draft</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Rolfess'><span itemprop='name'>Rolfess</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-15T15:25:49Z' class='post-time'>
+                April 15, 2022,  3:25pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-15T15:25:49Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action.</p>
+<p>Here is my current script:</p>
+<p>let f = () =&gt; {<br>
+// select an existing draft<br>
+let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);<br>
+if (!d) {<br>
+return false;<br>
+}</p>
+<pre><code>// append current draft
+draft.content = draft.content + " " + d.content;
+draft.update();
+return true;	
+</code></pre>
+<p>}</p>
+<p>if (!f()) {<br>
+context.cancel();<br>
+}</p>
+<p>What do I need to do to bring the revised note back as the active note?</p>
+<p>Thanks.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-15T16:33:31Z' class='post-time'>
+                April 15, 2022,  4:33pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-15T16:33:31Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Rolfess" data-post="1" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note.</p>
+</blockquote>
+</aside>
+<p>Your action looks to me like it adds the content of another draft to the current draft, which is not what you describe. Can you confirm what you wish to do with  an action, including if a draft is not found, etc?</p>
+<p>Please also remember to put your script in a code block, denoted by placing it between a pair of triple back ticks (```).</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Rolfess'><span itemprop='name'>Rolfess</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-15T18:04:12Z' class='post-time'>
+                April 15, 2022,  6:04pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-15T18:04:12Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks, I was not clear. I want to append an existing draft to the active draft.</p>
+<p>I have not yet decided what I want to do if there is no draft to append.</p>
+<p>Eventually I may want to offer a few choices to append to the original, but that is not decided.</p>
+<p>Right now I want the original to end up as the active draft so I can pass it to another script.</p>
+<p>I have hit a dead end, and I think I should approach it a completely different way, but I am at a loss as to what that would be. A template possibly?</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Rolfess'><span itemprop='name'>Rolfess</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-15T19:55:47Z' class='post-time'>
+                April 15, 2022,  7:55pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-15T19:55:47Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Added corrected script.<br>
+‘’’<br>
+let f = () =&gt; {<br>
+// select an existing draft<br>
+let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);<br>
+if (!d) {<br>
+return false;<br>
+}</p>
+<pre><code class="lang-auto">// append current draft
+draft.content = draft.content + " " + d.content;
+draft.update();
+return true;	
+</code></pre>
+<p>}</p>
+<p>if (!f()) {<br>
+context.cancel();<br>
+}<br>
+‘’’</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-16T06:59:35Z' class='post-time'>
+                April 16, 2022,  6:59am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-16T06:59:35Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>to load a draft you can use <code>editor.load()</code> (<a href="../../../scripting.getdrafts.com/classes/editor.html#load">scripting reference</a>)<br>
+In your case try to add the following snippet:</p>
+<pre><code class="lang-auto">…
+draft.update()
+editor.load(d)
+return true
+…
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-16T10:06:58Z' class='post-time'>
+                April 16, 2022, 10:06am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-16T10:06:58Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>Thanks, I was not clear. I want to append an existing draft to the active draft.</p>
+</blockquote>
+</aside>
+<p>Okay, that matches what the action was doing, so that clarifies things there. Specifically you are adding the content of a particular, pre-existing draft (presumably what you subsequently refer to as “original”) to the current draft loaded in the editor.</p>
+<p>Based on that, your initial script can be simplified further through using append and maybe simplifying some of the <code>if</code> statements? Here is a potential revision:</p>
+<pre><code class="lang-auto">let f = () =&gt; {
+	// select an existing draft
+	let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+	if (!d) return false;
+	draft.append(d.content, " ");
+	draft.update();
+	return true;
+}
+
+if (!f()) context.cancel();
+</code></pre>
+<p><em>Also please note you tried to use single quotes rather than <a href="https://www.computerhope.com/jargon/b/backquot.htm">backticks</a> on your repost of the code on the forum which is why it still did not work, as the forum truns quotes into smart quotes, loses any indentation, etc.</em></p>
+<aside class="quote no-group" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>I have not yet decided what I want to do if there is no draft to append.</p>
+</blockquote>
+</aside>
+<p>Your original code cancels the context, so perhaps just a message (we can do that through fail, which seems more appropriate) and then simplifying the script?</p>
+<pre><code class="lang-auto">let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+if (!d) {
+	let strErrMsg = "Specified draft to append not found.";
+	app.displayErrorMessage(strErrMsg);
+	context.cancel(strErrMsg);
+}
+else {
+	draft.append(d.content, " ");
+	draft.update();
+}
+</code></pre>
+<aside class="quote no-group" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>Eventually I may want to offer a few choices to append to the original, but that is not decided.</p>
+</blockquote>
+</aside>
+<p>In the interim, you could simply pop-up the standard Drafts draft search box and grab the result or deal with a cancellation from that; until such time as you are ready to constrain your results to a known subset of drafts.</p>
+<pre><code class="lang-auto">let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+if (!d) d = app.selectDraft();
+if (typeof d !== "undefined") {
+	draft.append(d.content, " ");
+	draft.update();
+}
+</code></pre>
+<aside class="quote no-group quote-modified" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>IRight now I want the original to end up as the active draft so I can pass it to another script.</p>
+</blockquote>
+</aside>
+<p>This is where we get to the response from <a class="mention" href="https://forums.getdrafts.com/u/flohgro">@FlohGro</a>, specifically the <code>editor.load(d)</code> line, but is also where we are again back in the realms of requiring more clarity.</p>
+<p>That line of instruction will load the “original” draft into the editor. That line will work if you are going to manually run another action on the currently active draft subsequently, or on an action that has it loaded into the editor. <strong>BUT</strong>, you indicate that you are going to “<em>pass it to another script</em>”. That is non-specific enough to cover a variety of activities. “another script” could refer to any of the following and potentially a few other more complex options and variations too:</p>
+<ol>
+<li>Another JavaScript function in the same script step of the currently being run action.</li>
+<li>Another script step in the currently being run action.</li>
+<li>Another script step in another action that you manually trigger.</li>
+</ol>
+<p>In addition, you can run an action on a different draft using the <code>app.queueAction()</code> function, which accepts a draft as a parameter, but that would not require the draft to be loaded into the editor.</p>
+<p>Also keep in mind that the <code>draft</code> and <code>editor</code> objects are not equivalent. What do your subsequent scripts work on? What is currently loaded in the editor, a draft object that is passed to it, or the ‘current draft’ referenced by <code>draft</code>, which would be the draft on which the action was originally triggered.</p>
+<p>It may well be that what you are after is something like:</p>
+<pre><code class="lang-auto">let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+if (!d) d = app.selectDraft();
+if (typeof d !== "undefined") {
+	draft.append(d.content, " ");
+	draft.update();
+	editor.load(d);
+	editor.activate();
+}
+</code></pre>
+<p>But, it is at least equally as likely that it might be something else that you require. More specifics and more detail as what is required gets you clsoer to a final answer faster.</p>
+<p>Hopefully, that helps clarify a few things to you, as well as helping you think about what it is you are attempting to do overall and the sorts of things you must consider.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Rolfess'><span itemprop='name'>Rolfess</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-16T16:16:54Z' class='post-time'>
+                April 16, 2022,  4:16pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-16T16:16:54Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>First, thanks for all the information. I really appreciate your helpfulness, and it will take me awhile to absorb it all.</p>
+<p>Second, sorry for the single quotes. I was using the keyboard on the iPad screen, and I could not (still can’t) find the right key. I know what you are referring to, but I don’t find it anywhere on this keyboard.</p>
+<p>third, I think I have managed to make this too complicated. Simply put, I want to insert text at the end of the current active draft (is that the right terminology?) before sending the active draft to another action.</p>
+<p>I think “Insert Text” will meet my needs. But eventually I will want to offer several choices of text, one of which will have to be selected by me before continuing. I have created these kinds of choices before, but I am not fluent in it, and I will have to remember how to do it.</p>
+<p>To explain what I am doing:</p>
+<p>I use FlohGro’s action “Prepend to Craft Note as todo item.” But to use its full power of putting tasks into one of several documents, I need to add a markdown link at the end that will reference a page in Craft. That way, all tasks can be found in one of 2-4 pages instead of in one of possibly 20 documents. Currently I use TextExpander to add one markdown link manually.</p>
+<p>I want to automate it, and I would eventually like to offer 3-4 choices.</p>
+<p>The way I was approaching this was perfectly good, but using “Insert Text” is simpler. I just need to make sure the cursor is actually at the end of the line, which it usually is, and I need to remember how to offer a few choices.</p>
+<p>Thanks to both of you for all your help, When I get home and can think more, I will absorb it and decide if that is better than Insert Text or not.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-16T16:19:18Z' class='post-time'>
+                April 16, 2022,  4:19pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-16T16:19:18Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Rolfess" data-post="7" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>Second, sorry for the single quotes. I was using the keyboard on the iPad screen, and I could not (still can’t) find the right key. I know what you are referring to, but I don’t find it anywhere on this keyboard.</p>
+</blockquote>
+</aside>
+<p>Press and hold the single quote to reveal more options.</p>
+<aside class="quote no-group" data-username="Rolfess" data-post="7" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>third, I think I have managed to make this too complicated. Simply put, I want to insert text at the end of the current active draft (is that the right terminology?) before sending the active draft to another action.</p>
+</blockquote>
+</aside>
+<p>If you are processing the draft, and want to continue processing the same draft, then you would not have to do anything. Unless you specify to start jumping around, or archiving/trashing drafts, Drafts will stay put.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12476.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-17T13:37:27Z' class='post-time'>
+                April 17, 2022,  1:37pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-17T13:37:27Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just to note it might not be necessary to alter the original draft. Perhaps this new text is something you actually want in the draft, but if it is just meta-data you are adding for the benefit of whatever other app or service you are targeting, you might just have the action include that text via templates, and not actually insert it in the original text.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append to current draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

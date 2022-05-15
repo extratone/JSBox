@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Drafts Capture</title>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/outboxcraft/beauter/master/beauter.min.css" />
+    <link rel="stylesheet" href="css/styles.css">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Drafts Capture">
+    <meta name="twitter:description"
+        content="Web capture tool for Drafts">
+    <meta name="twitter:creator" content="draftsapp">
+    <meta name="twitter:image" content="https://capture.getdrafts.com/images/og-image.png" />
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Drafts Capture">
+    <meta property="og:description"
+        content="Web capture tool for Drafts">
+    <meta property="og:image" content="https://capture.getdrafts.com/images/og-image.png" />
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://capture.getdrafts.com/images/favicons/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="images/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="images/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="images/favicons/manifest.json">
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-TileImage" content="https://capture.getdrafts.com/images/favicons/mstile-144x144.png">
+
+    <script async defer data-domain="capture.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+</head>
+<body>
+
+    <div id="top-nav">
+        <a href="index.html" class="site-title" title="Drafts Capture">
+            <img src="images/drafts-capture-header.svg" alt="Drafts Capture" style="max-height: 30px;" />
+        </a>
+        <div style="float:right;padding-top: .5em;">
+            <a href="../getdrafts.com/index.html">Get Drafts →</a>
+        </div>
+    </div>
+
+    <div id="content">
+        <div id="alerts"></div>
+
+        <div id="content-unauthenticated" style='display: none;'>
+            <div style='text-align:center;width: 280px;margin: 1em auto;'>
+                Drafts Capture is a tool to allow users of <a href='../getdrafts.com/index.html'>Drafts</a> to add content to their library from a web browser.<br>
+                <a href='../docs.getdrafts.com/docs/extensions/web-capture.html'>Learn more</a>
+            </div>
+            <div style='text-align:center;width: 300px;margin: 1em auto;font-size: .8em;color:#6a6a6a;'>
+                Sign-in with your Apple ID to enable capture
+            </div>
+            <div style="width:220px;margin: 0 auto;">
+                <div id="apple-sign-in-button"></div>
+            </div>
+        </div>
+
+        <div id='content-authenticated' style='display: none;'>
+        <form id='capture-form' onsubmit="postCaptureForm(); return false;">
+            <fieldset>
+                <div class='row'>
+                    <div class="col m2">
+                        <label for="draft-tags">Flagged</label>
+                        <div class="squaredThree">
+                            <input type="checkbox" value="None" id="draft-flagged" aria-label="flagged" name="check" />
+                            <label for="draft-flagged"></label>
+                        </div>
+                    </div>
+                    <div class="col m10">
+                        <label for="draft-tags">Tags</label>
+                        <input type="text" id="draft-tags" name="draft-tags" aria-label="Tags" placeholder="comma-separated tags" style="width: 100%;">
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col">
+                        <label for="draft-content">Content</label>
+                        <textarea name="draft-content" id="draft-content" aria-label="Draft content" cols="60" rows="20" style="width: 100%;height: 200px;"></textarea>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col m4'>
+                        <label for="draft-syntax">Syntax</label>
+                        <select name="draft-syntax" id="draft-syntax" onchange='saveSyntax();' aria-label="Syntax">
+                            <option value="Plain Text">Plain Text</option>
+                            <option value="Markdown" selected>Markdown</option>
+                            <option value="MultiMarkdown">MultiMarkdown</option>
+                            <option value="GitHub Markdown">GitHub Markdown</option>
+                            <option value="Taskpaper">Taskpaper</option>
+                            <option value="Simple List">Simple List</option>
+                        </select>
+                    </div>
+                    <div class='col m8' style='text-align:right;padding-top:2.5em;'>
+                        <button tabindex="-1" type="button" style='' class="" onclick="clearCaptureForm();return false;">Clear</button>&nbsp;
+                        <button tabindex="0" style='' class="_primary" onclick="postCaptureForm();return false;" aria-label="Create Draft">Create Draft</button>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class="col">
+                        <input type='checkbox' name="draft-location-enabled" id="draft-location-enabled" aria-label="Location enabled" onchange='saveLocationEnabled();' />
+                        <label class='inline' for="draft-location-enabled">Use Location</label>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div id="sign-out">
+            <div style='text-align: center;'>
+                <a href='../docs.getdrafts.com/docs/extensions/web-capture.html'>Drafts Capture Help</a>
+            </div>
+            <div style='text-align:center;width: 300px;margin: 1em auto;font-size: .8em;color:#6a6a6a;'>
+                Sign out after use on any public or shared computers
+            </div>
+            <div style="width:220px;margin: 0 auto;">
+                <div id="apple-sign-out-button"></div>
+            </div>
+        </div>
+
+        <div style='width: 300px;text-align:center;margin: 1em auto;font-size: .8em;'>
+            <table style='width: 100%;'>
+                <thead>
+                <tr>
+                    <th colspan='2'>Keyboard Shorcuts</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>shift-ctrl-return</td>
+                    <td>Create Draft</td>
+                </tr>
+                <tr>
+                    <td>shift-ctrl-B</td>
+                    <td>Edit content</td>
+                </tr>
+                <tr>
+                    <td>shift-ctrl-T</td>
+                    <td>Edit tags</td>
+                </tr>
+                <tr>
+                    <td>shift-ctrl-L</td>
+                    <td>Toggle flagged</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <div style='width: 320px;text-align:center;margin: 4em auto;font-size: .8em;'>
+        <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+            <img src="images/appstore.svg" alt="Download on App Store" />
+        </a>
+        <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+            <img src="images/macappstore.svg" alt="Download on Mac App Store" />
+        </a>
+        <div>
+            &copy; 2012-2021 by Agile Tortoise, Inc.<br />
+            Drafts is a registered Trademark of Agile Tortoise, Inc.<br />
+            <a href="../getdrafts.com/support/privacy.html">Privacy</a> | <a
+                href="../getdrafts.com/support/terms.html">Terms</a>
+        </div>
+    </div>
+
+    <div id="page-cover">
+        <img src='images/loader.gif' title="loading" alt="loading" />
+    </div>
+
+    <script>
+        /*
+         * Initialize the global objects we will need.
+         */
+        if (typeof CKCatalog === 'undefined') {
+            CKCatalog = {};
+        }
+    </script>
+    <script src="https://rawgit.com/outboxcraft/beauter/master/beauter.min.js"></script>
+    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/functions.js"></script>
+    <script>
+    window.addEventListener('cloudkitloaded', function () {
+        CKCatalog.init();
+        var container = CloudKit.getDefaultContainer();
+
+        self.displayUserName = (name) => {
+            document.getElementById('username').innerHTML = name;
+        }
+        self.gotoAuthenticatedState = (userInfo) => {
+            showElement('content-authenticated');
+            hideElement('content-unauthenticated');
+            document.getElementById('draft-content').focus();
+            container
+                .whenUserSignsOut()
+                .then(gotoUnauthenticatedState);
+            getLocation();
+        }
+        self.gotoUnauthenticatedState = (error) => {
+            hideElement('content-authenticated');
+            showElement('content-unauthenticated');
+            
+            container
+                .whenUserSignsIn()
+                .then(gotoAuthenticatedState)
+                .catch(gotoUnauthenticatedState);
+        }
+        container.setUpAuth().then(function (userInfo) {
+            console.log("setUpAuth");
+            stopActivity();
+            if (userInfo) {
+                self.gotoAuthenticatedState(userInfo);
+            } else {
+                self.gotoUnauthenticatedState();
+            }
+        });
+
+        const initialContent = getParam('text');
+        if (initialContent) {
+            document.getElementById('draft-content').value = initialContent;
+        }
+        else {
+            const sel = getParam('sel');
+            const url = getParam('url');
+            const title = getParam('title');
+            if (url && title) {
+                let s = `[${title}](${url})`
+                if (sel) {
+                    s = s + `
+
+> ${sel}
+`;
+                }
+                document.getElementById('draft-content').value = s;
+            }
+        }
+        const initialTags = getParam('tags');
+        if (initialTags) {
+            document.getElementById('draft-tags').value = initialTags;
+        }
+        const initialFlagged = getParam('flagged');
+        if (initialFlagged && initialFlagged == '1') {
+            document.getElementById('draft-flagged').checked = true
+        }
+        readSyntax();
+        readLocationEnabled();
+    });
+
+    document.onkeydown = function (e) {
+        if (e.ctrlKey && e.shiftKey && e.which == 13) { // ctrl-return
+            postCaptureForm();
+        }
+        else if (e.ctrlKey && e.shiftKey && e.which == 76) { // shift-control-L
+            let el = document.getElementById('draft-flagged')
+            el.checked = !el.checked;
+        }
+        else if (e.ctrlKey && e.shiftKey && e.which == 84) { // ctrl-T
+            document.getElementById('draft-tags').focus();
+        }
+        else if (e.ctrlKey && e.shiftKey && e.which == 66) { // ctrl-T
+            document.getElementById('draft-content').focus();
+        }
+    };
+    </script>
+    <script async src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"></script>
+    <script src="https://rawgit.com/outboxcraft/beauter/master/beauter.min.js"></script>
+</body>
+</html>

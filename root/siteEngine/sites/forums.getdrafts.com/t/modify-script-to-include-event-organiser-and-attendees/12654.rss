@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Modify Script to Include Event Organiser and Attendees</title>
+    <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654</link>
+    <description>Hi
+
+I would like to add the event organiser and event attendees to this script.
+
+https://scripting.getdrafts.com/classes/event#attendees
+
+Can anyone help?
+
+
+// Create meeting minutes
+var calendars = [&quot;Kalender&quot;, &quot;Ralf&quot;];
+var today = new Date();
+var yesterday = new Date(today.getTime() - 1000*60*60*24);
+var print_event = (e) =&gt; `${strftime(e.startDate, &quot;%R&quot;)} - ${e.title}`;
+var events = calendars
+ .reduce((e, c) =&gt; e.concat(Calendar.find(c).events(yesterday, today)), [])
+ .sort((a, b) =&gt; a.startDate - b.startDate)
+ .reverse()
+ .filter(e =&gt; !e.isAllDay)
+var event_template =
+ MustacheTemplate.createWithTemplate(Draft.find(&quot;74554985-BE84–4C11-A7AE-07883A9A5C19&quot;).content);
+var p = Prompt.create();
+p.title = &quot;Meeting Note&quot;;
+p.message = &quot;Choose an event. the current draft will be appended to the template and tagged `meeting`.&quot;;
+if (events) {
+ p.addSelect(&quot;event&quot;, &quot;Events&quot;, events.map(e =&gt; print_event(e)), [], false);
+ p.addButton(&quot;Create Meeting Note&quot;);
+prompt = p.show();
+if (p.buttonPressed == &quot;Create Meeting Note&quot;) {
+ // process the event
+ event = events.find(e =&gt; print_event(e) == p.fieldValues[&quot;event&quot;])
+ 
+ var data = {
+ &quot;title&quot;: event.title,
+ &quot;startDate&quot;: strftime(event.startDate, &quot;%Y-%m-%d-%H%M&quot;),
+ &quot;notes&quot;: event.notes,
+ &quot;content&quot;: increaseMDLevel(draft)
+ };
+result = event_template.render(data);
+draft.addTag(&quot;meeting&quot;);
+ draft.content = result;
+ draft.update();
+ }
+}</description>
+    
+    <lastBuildDate>Thu, 12 May 2022 21:07:34 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Modify Script to Include Event Organiser and Attendees</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh, got it…answering too quickly. Yes, those properties are available and documented in the scripting reference.</p>
+          <p><a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/5</link>
+        <pubDate>Thu, 12 May 2022 21:07:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12654-5</guid>
+        <source url="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss">Modify Script to Include Event Organiser and Attendees</source>
+      </item>
+      <item>
+        <title>Modify Script to Include Event Organiser and Attendees</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I believe the OP is outputting the event details into a draft for meeting notes, so it would just be reading the data.</p>
+          <p><a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/4</link>
+        <pubDate>Thu, 12 May 2022 20:57:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12654-4</guid>
+        <source url="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss">Modify Script to Include Event Organiser and Attendees</source>
+      </item>
+      <item>
+        <title>Modify Script to Include Event Organiser and Attendees</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Not possible. Apple’s APIs only support reading the values for organizer and attendees, not setting them.</p>
+          <p><a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/3</link>
+        <pubDate>Thu, 12 May 2022 20:55:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12654-3</guid>
+        <source url="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss">Modify Script to Include Event Organiser and Attendees</source>
+      </item>
+      <item>
+        <title>Modify Script to Include Event Organiser and Attendees</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The forum will mess with the code if you don’t put it between triple back ticks to make it a code block.</p>
+<p>Here is a reformatted version of your code.</p>
+<pre><code class="lang-auto">//Create meeting minutes
+var calendars = ["Kalender", "Ralf"];
+var today = new Date();
+var yesterday = new Date(today.getTime() - 10006060 * 24);
+var print_event = (e) =&gt; $
+{
+	strftime(e.startDate, "%R")
+} - $
+{
+	e.title
+};
+var events = calendars
+	.reduce((e, c) =&gt; e.concat(Calendar.find(c).events(yesterday, today)), [])
+	.sort((a, b) =&gt; a.startDate - b.startDate)
+	.reverse()
+	.filter(e =&gt; !e.isAllDay)
+var event_template =
+	MustacheTemplate.createWithTemplate(Draft.find("74554985-BE84–4C11-A7AE-07883A9A5C19").content);
+var p = Prompt.create();
+p.title = "Meeting Note";
+p.message = "Choose an event. the current draft will be appended to the template and tagged meeting.";
+if (events)
+{
+	p.addSelect("event", "Events", events.map(e =&gt; print_event(e)), [], false);
+	p.addButton("Create Meeting Note");
+	prompt = p.show();
+	if (p.buttonPressed == "Create Meeting Note")
+	{
+		// process the event
+		event = events.find(e =&gt; print_event(e) == p.fieldValues["event"])
+
+		var data = {
+			"title": event.title,
+			"startDate": strftime(event.startDate, "%Y-%m-%d-%H%M"),
+			"notes": event.notes,
+			"content": increaseMDLevel(draft)
+		};
+		result = event_template.render(data);
+		draft.addTag("meeting");
+		draft.content = result;
+		draft.update();
+	}
+}
+</code></pre>
+<p>The <code>data</code> variable is where the attendee information would get added in, but I don’t see an organiser attribute on the <em>event</em> object. I don’t know how you would get that without going out to something else. Maybe AppleScript might allow it if this was to be run on the Mac only?</p>
+<p>However, adding the attendees and any other data to the <code>data</code> variable is only half the battle. The script references another draft which is presumably a mustache template. Can you provide details for that too?</p>
+          <p><a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/2</link>
+        <pubDate>Thu, 12 May 2022 20:55:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12654-2</guid>
+        <source url="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss">Modify Script to Include Event Organiser and Attendees</source>
+      </item>
+      <item>
+        <title>Modify Script to Include Event Organiser and Attendees</title>
+        <dc:creator><![CDATA[Rhydon_Me]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi</p>
+<p>I would like to add the event organiser and event attendees to this script.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://scripting.getdrafts.com/classes/event#attendees">
+  <header class="source">
+
+      <a href="https://scripting.getdrafts.com/classes/event#attendees" target="_blank" rel="noopener nofollow ugc">scripting.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    
+
+<h3><a href="https://scripting.getdrafts.com/classes/event#attendees" target="_blank" rel="noopener nofollow ugc">Event | Drafts Script Reference</a></h3>
+
+  <p>Documentation for Drafts Script Reference</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>Can anyone help?</p>
+<p>// Create meeting minutes<br>
+var calendars = [“Kalender”, “Ralf”];<br>
+var today = new Date();<br>
+var yesterday = new Date(today.getTime() - 1000<em>60</em>60*24);<br>
+var print_event = (e) =&gt; <code>${strftime(e.startDate, "%R")} - ${e.title}</code>;<br>
+var events = calendars<br>
+.reduce((e, c) =&gt; e.concat(Calendar.find(c).events(yesterday, today)), [])<br>
+.sort((a, b) =&gt; a.startDate - b.startDate)<br>
+.reverse()<br>
+.filter(e =&gt; !e.isAllDay)<br>
+var event_template =<br>
+MustacheTemplate.createWithTemplate(Draft.find(“74554985-BE84–4C11-A7AE-07883A9A5C19”).content);<br>
+var p = Prompt.create();<br>
+p.title = “Meeting Note”;<br>
+p.message = “Choose an event. the current draft will be appended to the template and tagged <code>meeting</code>.”;<br>
+if (events) {<br>
+p.addSelect(“event”, “Events”, events.map(e =&gt; print_event(e)), [], false);<br>
+p.addButton(“Create Meeting Note”);<br>
+prompt = p.show();<br>
+if (p.buttonPressed == “Create Meeting Note”) {<br>
+// process the event<br>
+event = events.find(e =&gt; print_event(e) == p.fieldValues[“event”])</p>
+<p>var data = {<br>
+“title”: event.title,<br>
+“startDate”: strftime(event.startDate, “%Y-%m-%d-%H%M”),<br>
+“notes”: event.notes,<br>
+“content”: increaseMDLevel(draft)<br>
+};<br>
+result = event_template.render(data);<br>
+draft.addTag(“meeting”);<br>
+draft.content = result;<br>
+draft.update();<br>
+}<br>
+}</p>
+          <p><a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654/1</link>
+        <pubDate>Thu, 12 May 2022 20:39:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12654-1</guid>
+        <source url="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss">Modify Script to Include Event Organiser and Attendees</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to preserve create time and modification time while importing? - import - Drafts Community</title>
+    <meta name="description" content="How to preserve create time and modification time while importing? 
+I have lots of “md” files created by  iA Writer, and I would like to importing all of them to Drafts. But the only problem is all these drafts would be &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="6782.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;How to preserve create time and modification time while importing?&#39;" href="6782.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/how-to-preserve-create-time-and-modification-time-while-importing/6782" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/how-to-preserve-create-time-and-modification-time-while-importing/6782" />
+<meta property="og:title" content="How to preserve create time and modification time while importing?" />
+<meta name="twitter:title" content="How to preserve create time and modification time while importing?" />
+<meta property="og:description" content="How to preserve create time and modification time while importing?  I have lots of “md” files created by  iA Writer, and I would like to importing all of them to Drafts. But the only problem is all these drafts would be “created” now, which ruined my review process and workflow on my drafts. I would like the “created” and “modified” timestamp to be the same as the file’s info.  I tried use “automatic import” feature, and the “scripting” too. The “FileManager” class does not have any method to re..." />
+<meta name="twitter:description" content="How to preserve create time and modification time while importing?  I have lots of “md” files created by  iA Writer, and I would like to importing all of them to Drafts. But the only problem is all these drafts would be “created” now, which ruined my review process and workflow on my drafts. I would like the “created” and “modified” timestamp to be the same as the file’s info.  I tried use “automatic import” feature, and the “scripting” too. The “FileManager” class does not have any method to re..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="10 ❤" />
+<meta property="article:published_time" content="2020-02-24T09:07:56+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="6782.html">How to preserve create time and modification time while importing?</a>
+    </h1>
+
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/import.html' class='discourse-tag' rel="tag">import</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/rymism'><span itemprop='name'>rymism</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-24T09:07:56Z' class='post-time'>
+                February 24, 2020,  9:07am
+              </time>
+              <meta itemprop='dateModified' content='2020-02-24T09:07:56Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How to preserve create time and modification time while importing?</p>
+<p>I have lots of “md” files created by  iA Writer, and I would like to importing all of them to Drafts. But the only problem is all these drafts would be “created” now, which ruined my review process and workflow on my drafts. I would like the “created” and “modified” timestamp to be the same as the file’s info.</p>
+<p>I tried use “automatic import” feature, and the “scripting” too. The “FileManager” class does not have any method to retain file info.</p>
+<p>So is it possible to achieve that? Thanks</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+          <meta itemprop='keywords' content='import'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../give-the-scripting-ability-to-change-drafts-createdat-and-modifiedat-property/6784/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/give-the-scripting-ability-to-change-drafts-createdat-and-modifiedat-property/6784/3'>
+                      <span itemprop='name'>[Solved] Give the scripting ability to change draft&#39;s createdAt and modifiedAt property</span>
+                    </a>
+                    <meta itemprop='position' content='1'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../possible-to-change-timestamps/7068/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/possible-to-change-timestamps/7068/3'>
+                      <span itemprop='name'>Possible to change timestamps?</span>
+                    </a>
+                    <meta itemprop='position' content='2'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../lost-date-created-information-during-import/7617/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/lost-date-created-information-during-import/7617/2'>
+                      <span itemprop='name'>Lost Date Created Information During Import</span>
+                    </a>
+                    <meta itemprop='position' content='3'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/rymism'><span itemprop='name'>rymism</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-24T09:26:17Z' class='post-time'>
+                February 24, 2020,  9:26am
+              </time>
+              <meta itemprop='dateModified' content='2020-02-24T09:26:17Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Update:</p>
+<p>Cannot change draft’s created time and modified time through scripting too</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-24T13:49:07Z' class='post-time'>
+                February 24, 2020,  1:49pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-24T13:49:07Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The only way to import creation/modification date information currently is via Drafts native JSON export format. Which looks like:</p>
+<pre><code class="lang-json">[
+  {
+    "created_at" : "2020-02-24T13:45:57Z",
+    "tags" : [
+
+    ],
+    "accessed_at" : "2020-02-24T13:45:57Z",
+    "uuid" : "39EA5821-A1A5-4DE6-AD06-F17381A24D85",
+    "folder" : 0,
+    "languageGrammar" : "Markdown",
+    "created_latitude" : 0.00000,
+    "modified_longitude" : 0.00000,
+    "content" : "Test Draft",
+    "flagged" : false,
+    "modified_latitude" : 0.00000,
+    "created_longitude" : 0.00000,
+    "modified_at" : "2020-02-24T13:46:04Z"
+  }
+]
+</code></pre>
+<p>If you created this format outside of drafts, named the file with a <code>.draftsExport</code> extension, and import it you would retain the date information.</p>
+<p>It not necessarily a bad idea to allow script access to some date values, but no one has ever requested it, and it presents some complexity to avoid the automatic mechanisms for maintaining and updating those values from conflicting with manually set values.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../bulk-import-of-notes-preserving-date-times/8240/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/bulk-import-of-notes-preserving-date-times/8240/3'>
+                      <span itemprop='name'>Bulk import of notes, preserving date / times</span>
+                    </a>
+                    <meta itemprop='position' content='1'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/rymism'><span itemprop='name'>rymism</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-24T13:59:39Z' class='post-time'>
+                February 24, 2020,  1:59pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-24T13:59:39Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks so much for this workaround.</p>
+<p>And thanks for creating this awesome app too. It actually simplified my whole workflow so well. That’s why I’d like to import all of my texts to it to keep unification.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/derekvan'><span itemprop='name'>derekvan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-24T01:51:26Z' class='post-time'>
+                June 24, 2020,  1:51am
+              </time>
+              <meta itemprop='dateModified' content='2020-06-24T01:51:26Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="agiletortoise" data-post="3" data-topic="6782">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/agiletortoise/40/1822_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p><code>"uuid" : "39EA5821-A1A5-4DE6-AD06-F17381A24D85",</code></p>
+</blockquote>
+</aside>
+<p>I am trying to import text files using this method, going from Day One JSON to Drafts. How can I create the UUID for the drafts JSON? I’ve got all the other keys mapped from the Day One JSON output to the Drafts JSON import, but Day One uses a different UUID format.</p>
+<p>Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-24T12:46:20Z' class='post-time'>
+                June 24, 2020, 12:46pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-24T12:46:20Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Drafts will generate a new UUID when importing, so I think you can just leave that blank or omit the key.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/derekvan'><span itemprop='name'>derekvan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-25T10:48:29Z' class='post-time'>
+                June 25, 2020, 10:48am
+              </time>
+              <meta itemprop='dateModified' content='2020-06-25T10:48:29Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I can confirm that this works. Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jessegray'><span itemprop='name'>jessegray</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-27T02:43:25Z' class='post-time'>
+                December 27, 2020,  2:43am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-27T02:43:25Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am trying to import all of my bear notes into Drafts, while preserving create date and time. I have exported them as .md, renamed them .draftsExport. Bear doesn’t have a JSON export option. When trying to import to Draft, but I get an “Import Error - Unable to load import file. Import cancelled. Error: The data couldn’t be read because it isn’t in the correct format.”</p>
+<p>Is there another format I can use from Bear that will allow JSON export? Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-27T07:46:41Z' class='post-time'>
+                December 27, 2020,  7:46am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-27T07:46:41Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Maybe this thread could help:</p>
+<aside class="quote" data-post="1" data-topic="8240">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/gcaprio/40/3998_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/bulk-import-of-notes-preserving-date-times/8240">Bulk import of notes, preserving date / times</a> <a class="badge-wrapper  bullet" href="../../c/actions.html"><span class="badge-category-bg" style="background-color: #652D90;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Need help with an action?  Not sure how to go about creating the right action, or if something is even possible in Drafts? This is the place to discuss.">Actions - Help &amp; Questions</span></a>
+  </div>
+  <blockquote>
+    Hey everyone, 
+I’m migrating my notes into Drafts and wanted to know if there’s a way to bulk import .md files while also preserving the date/time of the file? Every time I import notes, they get lumped to the top of my list and set to today’s date/time.
+  </blockquote>
+</aside>
+
+<p>The code (python) is on github.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jessegray'><span itemprop='name'>jessegray</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-27T13:36:53Z' class='post-time'>
+                December 27, 2020,  1:36pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-27T13:36:53Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve already download both yours and <a class="mention" href="https://forums.getdrafts.com/u/gcaprio">@gcaprio</a> 's scripts. I have read a few tutorials, but haven’t been able to figure out how to get the python script to run. I have tried modifying it where the command line is showing errors. It appears that being an orthodontist does not equip me with the skillset to competently run python scripts. Thanks for all your work on this!</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-27T19:11:00Z' class='post-time'>
+                December 27, 2020,  7:11pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-27T19:11:00Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>ok. if you like I can coach you through the python 3 setup.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jessegray'><span itemprop='name'>jessegray</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-28T03:27:57Z' class='post-time'>
+                December 28, 2020,  3:27am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-28T03:27:57Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That would be amazing! Just let me know how to make that happen.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/2/2efc9be8935b3ddff1e5beb99fefb28cdff65a7b.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-31T21:52:49Z' class='post-time'>
+                December 31, 2020,  9:52pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-31T21:52:49Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/jessegray">@jessegray</a>, just in case you haven’t got the Python approach working yet, and for anyone else looking to do this in the future I’ve been working on some updates to the <a href="../../../actions.getdrafts.com/search@utf8=✓&amp;q=thoughtasylum.html">ThoughtAsylum Action Group Suite</a>, and along with <a href="https://tadpole.thoughtasylum.com/classes/tadbear.html">a whole new class for TADpoLe for working with the Bear URL-scheme “API”</a>, I’ve added a set of actions for working with Bear.</p>
+<p>The <a href="../../../actions.getdrafts.com/g/1cw.html">ThoughtAsylum - Export/Import/Share</a> action group contains a couple of actions that work directly with Bear to import notes into Drafts (there’s also an export too for those wanting to send a draft to Bear with Drafts tags intact). You can find the Bear-related actions in the <em>Bear</em> section of that action group.</p>
+<blockquote>
+<h4>TAD-Import Note From Bear</h4>
+<p>Enter the ID of the Bear note to import and specify any additional tags that should be applied to it. All Bear tags will be copied across as drafts tags. The creation date will also be copied across.</p>
+</blockquote>
+<blockquote>
+<h4>TAD-Import Notes From Bear</h4>
+<p>Enter a set of search criteria to run against Bear. All matching (non-trashed) notes will be (bulk) imported into Drafts. All Bear tags on a note will be copied across along with the content of the note. The creation date will also be copied across.</p>
+</blockquote>
+<p><a class="mention" href="https://forums.getdrafts.com/u/jessegray">@jessegray</a>, if you are still looking, this second one is probably the one you would be most interested in as you are looking to import all notes.  Run the action, leave the search term and tag blank. Consider adding some tags of your own (e.g. “import, bear”), and then let Drafts request the details of each note and build a draft for it.</p>
+<p><img src="../../uploads/default/original/2X/2/2efc9be8935b3ddff1e5beb99fefb28cdff65a7b.jpeg" alt="2020-12-31-21.44.24" data-base62-sha1="6HFaUpkqgV12wO5XZ9FMJrz1BbR" width="386" height="300"></p>
+<p>If you want to just run a quick test, try setting a specific tag or specific search term to bring across a small sub-set of notes.  I don’t use Bear much, so my scale of notes isn’t that far into double figures.  Should volume be an issue for anyone, then I would suggest batching up notes by using the search and tag constraint criteria to bring the notes over in groups.</p>
+<p>Hope people find the Bear stuff useful.</p>
+<p>FWIW, the <a href="../../../actions.getdrafts.com/g/1cw.html">ThoughtAsylum - Export/Import/Share</a> action group also has an action in it for importing files, maintaining creation time (based on file creation), and importing <a href="https://jekyllrb.com/docs/front-matter/">front matter specified tags</a>.</p>
+<blockquote>
+<h4>TAD-File Import With Tags</h4>
+<p>Import files into Drafts, transferring file creation and modification timestamps, as well as specifying and importing simple front matter tags.</p>
+</blockquote>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6782.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-30T23:37:41Z' class='post-time'>
+                May 30, 2021, 11:37pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-30T23:37:41Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just another note of gratitude. Had cause to import 3000+ notes from plain text files this evening, various sources. Gathered everything in Bear then ran the TAD importer. Worked like a dream.</p>
+        </div>
+
+        <meta itemprop='headline' content='How to preserve create time and modification time while importing?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

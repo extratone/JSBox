@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Prompt with empty text field not working reliably on macOS</title>
+    <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440</link>
+    <description>I have created an action with a prompt including a text field.
+
+This action does always work on my iOS and iPadOS devices and it does always work on macOS when the text field is not empty.
+
+But when the text field is empty it does work on macOS only every now and then. That&#39;s the only way I can describe it, I could not detect any pattern. If it didn&#39;t work at all I&#39;d assume there is a mistake in my code. But it does work—occasionally.
+
+And no, it does not not work just with certain buttons. And yes, I have a condition in the script handling the prompt data that does not process `prompt_text` when it is does not have content.</description>
+    
+    <lastBuildDate>Sun, 10 Apr 2022 15:43:43 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[suavito]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry for bothering you again. Since I did not find example scripts for moving and inserting in the Editor I am not sure if I am using the proper method now.</p>
+<p>My task is simple: Insert text in Editor. If text was selected, replace it. If not, insert at cursor position. After inserting cursor position is after the inserted text. Nothing is selected. Editor is active. Draft is saved.</p>
+<p>Does this do it?:</p>
+<pre><code class="lang-auto">theText = "something";
+editor.setSelectedText(theText);
+theSelection = editor.getSelectedRange()[0];
+editor.setSelectedRange((theSelection + theText.length),0);
+editor.activate();
+editor.save;
+</code></pre>
+<p>Unlike the unreliable method (see above) this works. But it flashes, due to selecting I guess. Is there a better way?</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/8</link>
+        <pubDate>Sun, 10 Apr 2022 15:43:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-8</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[suavito]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for pointing me in the right direction.</p>
+<p>Timing issue sounds great—because that would mean it’s not my long time not used and therefore quite dusted programming skills which caused the unstableness.</p>
+<p>Like I said, the inserting part of the script was nicked from another script I can’t tell where it’s from or how old it is. I will look into the editor functions and try to improve the script.</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/7</link>
+        <pubDate>Sun, 10 Apr 2022 14:05:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-7</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I could not get it to fail, but I’m running a beta and believe it has a related fix to a timing issue manipulating the updating the draft that is currently loaded in the editor.</p>
+<p>That said, you can wait for the fix, but I would recommend you use the <a href="https://scripting.getdrafts.com/classes/editor"><code>editor</code> functions</a> to manipulate the text instead, which are the preferred way to manipulate text currently loaded in the editor and not susceptible to this bug. They have better convenience methods to get/selected text, etc., and insert text without needing to slice and dice the full content of the draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/6</link>
+        <pubDate>Sun, 10 Apr 2022 13:11:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-6</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[suavito]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry for being a bit slow in getting what you where asking for. I have either never uploaded an action before or only a long time ago.</p>
+<p>Anyway, here is the <a href="https://directory.getdrafts.com/a/1y8" rel="noopener nofollow ugc">Link to my action</a>.</p>
+<p>I set it to “unlisted” because besides from what this thread is about it is not ready for public yet.</p>
+<p>I have to add that the part of the second script that inserts the output of the action into the draft<br>
+is based on the Tag action. I don’t know if that action comes with <em>Drafts</em> or if I had downloaded from the Directory. Because if so, it was quite a while ago.</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/5</link>
+        <pubDate>Sun, 10 Apr 2022 11:16:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-5</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Posting a link here will let other Drafts users access it and know that it relates to your topic. Posting a link elsewhere won’t provide any relevance to this topic.</p>
+<p>At the moment all that is presented is an anecdotal point for an abstract action description.</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/4</link>
+        <pubDate>Sun, 10 Apr 2022 10:49:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-4</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[suavito]]></dc:creator>
+        <description><![CDATA[
+            <p>Of course I can. Should I post it here?</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/3</link>
+        <pubDate>Sun, 10 Apr 2022 10:02:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-3</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Can you share the action so others can reproduce the issue and see if a pattern can be identified?</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/2</link>
+        <pubDate>Sun, 10 Apr 2022 07:52:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-2</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+      <item>
+        <title>Prompt with empty text field not working reliably on macOS</title>
+        <dc:creator><![CDATA[suavito]]></dc:creator>
+        <description><![CDATA[
+            <p>I have created an action with a prompt including a text field.</p>
+<p>This action does always work on my iOS and iPadOS devices and it does always work on macOS when the text field is not empty.</p>
+<p>But when the text field is empty it does work on macOS only every now and then. That’s the only way I can describe it, I could not detect any pattern. If it didn’t work at all I’d assume there is a mistake in my code. But it does work—occasionally.</p>
+<p>And no, it does not not work just with certain buttons. And yes, I have a condition in the script handling the prompt data that does not process <code>prompt_text</code> when it is does not have content.</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440/1</link>
+        <pubDate>Sun, 10 Apr 2022 07:33:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12440-1</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-empty-text-field-not-working-reliably-on-macos/12440.rss">Prompt with empty text field not working reliably on macOS</source>
+      </item>
+  </channel>
+</rss>

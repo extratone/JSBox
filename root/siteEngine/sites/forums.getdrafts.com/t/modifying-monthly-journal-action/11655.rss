@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Modifying Monthly Journal Action</title>
+    <link>https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655</link>
+    <description>Hello, I am attempting to modify this action: [monthly journal](https://actions.getdrafts.com/a/1Zk). I would like to add these properties to the journal, draft created date/time, created lat / long.
+
+So my work flow would be, I create a draft and at a later time I process it using the &quot;Monthly Journal&quot; action. Right now the time I process it would be recorded in the journal. My goal is to have the metadata from when the draft was created be put in the journal.
+
+I assume I would have to modify this. Below inserts the current date/time into monthly journal, rather than the creation date/time of the draft. 
+let contentTemplate = `-- [[time|%d %B %Y %I:%M %p]]
+
+Any advice on how to add this info?</description>
+    
+    <lastBuildDate>Sat, 27 Nov 2021 17:49:44 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Modifying Monthly Journal Action</title>
+        <dc:creator><![CDATA[djs71a]]></dc:creator>
+        <description><![CDATA[
+            <p>Works great (I just had to take the ` off the end of the line). Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655/3</link>
+        <pubDate>Sat, 27 Nov 2021 17:49:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11655-3</guid>
+        <source url="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655.rss">Modifying Monthly Journal Action</source>
+      </item>
+      <item>
+        <title>Modifying Monthly Journal Action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, you are on the right track. If you modify the <code>contentTemplate</code> variable assign to the below, it will use the created date of the draft instead of the current time:</p>
+<pre><code class="lang-javascript">let contentTemplate = `-- [[created|%d %B %Y %I:%M %p]]`
+</code></pre>
+<p>This is using template tags, there are many available, you call also add <code>[[created_longitude]]</code>, <code>[[created_latitude]]</code> in a format you prefer. You can get started <a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">with this article</a> about using template tags.</p>
+<p>You might be looking for something like the below, it sounds like:</p>
+<pre><code class="lang-javascript">let contentTemplate = `-- [[created|%d %B %Y %I:%M %p]], [[created_longitude]], [[created_latitude]]`
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655/2</link>
+        <pubDate>Sat, 27 Nov 2021 15:26:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11655-2</guid>
+        <source url="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655.rss">Modifying Monthly Journal Action</source>
+      </item>
+      <item>
+        <title>Modifying Monthly Journal Action</title>
+        <dc:creator><![CDATA[djs71a]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, I am attempting to modify this action: <a href="https://actions.getdrafts.com/a/1Zk" rel="noopener nofollow ugc">monthly journal</a>. I would like to add these properties to the journal, draft created date/time, created lat / long.</p>
+<p>So my work flow would be, I create a draft and at a later time I process it using the “Monthly Journal” action. Right now the time I process it would be recorded in the journal. My goal is to have the metadata from when the draft was created be put in the journal.</p>
+<p>I assume I would have to modify this. Below inserts the current date/time into monthly journal, rather than the creation date/time of the draft.<br>
+let contentTemplate = `-- [[time|%d %B %Y %I:%M %p]]</p>
+<p>Any advice on how to add this info?</p>
+          <p><a href="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655/1</link>
+        <pubDate>Sat, 27 Nov 2021 15:19:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11655-1</guid>
+        <source url="https://forums.getdrafts.com/t/modifying-monthly-journal-action/11655.rss">Modifying Monthly Journal Action</source>
+      </item>
+  </channel>
+</rss>

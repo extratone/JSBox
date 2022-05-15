@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>News &amp; Updates - Drafts Community</title>
+    <link>https://forums.getdrafts.com/c/news/5</link>
+    <description>Topics in the &#39;News &amp; Updates&#39; category News &amp;amp; Updates will contain periodic announcements, links to interesting Drafts news from the web and release notes for new versions.</description>
+    
+      <lastBuildDate>Wed, 04 May 2022 11:40:33 +0000</lastBuildDate>
+      <atom:link href="https://forums.getdrafts.com/c/news/5.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>Drafts 32 Released - Action Bar Color, Date Math, Template improvements</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-320-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-320-has-been-released-1"></a>Drafts 32.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<hr>
+<h2>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h2>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480.png" data-download-href="https://forums.getdrafts.com/uploads/default/7aee1eadb078af1fa0955d28bacb9c02111ad480" title="r32@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_517x319.png" alt="r32@2x" data-base62-sha1="hxuq5x51aGb2lBNR6YGEac3mzXG" width="517" height="319" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_517x319.png, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_775x478.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_1034x638.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7aee1eadb078af1fa0955d28bacb9c02111ad480_2_10x10.png"></a></div><p></p>
+<h3>
+<a name="action-bar-tint-colors-3" class="anchor" href="https://forums.getdrafts.com#action-bar-tint-colors-3"></a>Action Bar Tint Colors</h3>
+<p>For those who are fond of using color to distinguish items on screen, there is now an option to use action tint colors in the <a href="https://docs.getdrafts.com/docs/editor/action-bar">Action Bar</a>. To enable on iOS, scroll to Action Bar options in <code>Aa</code> editor settings. On Mac, toggle menu item in Action Bar’s group selection drop-down menu.</p>
+<h3>
+<a name="date-math-travel-in-time-sort-of-4" class="anchor" href="https://forums.getdrafts.com#date-math-travel-in-time-sort-of-4"></a>Date Math - Travel in Time, Sort of…</h3>
+<p>It is sometimes useful to output a date that is relative to another date (usually the current one), adjusted by some time interval. It has always been possible in script to create and adjust future and past dates, but now it is easier with the addition of a new method to adjust dates using simple date math expressions.</p>
+<p>This begins with a new way to create related date expressions, which consist of a list of plus or minus time intervals which can applied to a date. Each expression look like <code>(+|-)(integer) (unit)</code>, and can be combined in a list to make multiple adjustments to a date. A couple of quick examples:</p>
+<ul>
+<li>
+<code>+1 year</code> : Add one year to the date.</li>
+<li>
+<code>-2 months -6 hours</code>: Subtract two months and six hours from date.</li>
+</ul>
+<p>Units supported are: year, month, day, hour, minute, second. Units can be used in either singular or plural forms.</p>
+<p>These expressions can be used in JavaScripts with the <a href="https://scripting.getdrafts.com/globals#adjustdate"><code>adjustDate(date, expression)</code> function</a>, or by providing an additional expression argument, along with the strftime formatting argument, in template tags which work with date. Those tags are the <code>[[date]]</code>, <code>[[time]]</code>, <code>[[created]]</code>, and <code>[[modified]]</code> tags. Again, by example:</p>
+<ul>
+<li>
+<code>[[date|+1 year|%Y-%m-%d]]</code>: Current date next year. So, on May 1, 2022, this would output: 2023-05-01.</li>
+<li>
+<code>[[created|-1 month|%Y-%m-%d]]</code>: Output a month before the creation date of the draft.</li>
+</ul>
+<p>Adjustment expressions are calendar-aware, such that adding 1 month to May 31 would result in June 30, since June does not have a 31st.</p>
+<p>A couple of ready to use examples:</p>
+<ul>
+<li>
+<a href="https://directory.getdrafts.com/a/1z3">Insert Tomorrow</a>: Action which inserts tomorrow’s date at the cursor location in the editor.</li>
+<li>
+<a href="https://forums.getdrafts.com">Date: Tomorrow Autocomplete Suggestion</a>: Install a <a href="https://docs.getdrafts.com/docs/editor/autocomplete#global-autocomplete-suggestions">global autocomplete suggestion</a> which inserts tomorrow’s date.</li>
+</ul>
+<h3>
+<a name="mustache-templates-5" class="anchor" href="https://forums.getdrafts.com#mustache-templates-5"></a>Mustache Templates</h3>
+<p>Drafts templates, with their square-bracket, <code>[[title]]</code>-style tags are still the default throughout actions, but with this update we have introduced the option to use an alternate template engine based on Mustache templates.</p>
+<p>Mustache templates provide some additional power, like the ability to have conditionally rendered blocks, loop over arrays, insert information from other drafts, as well as more powerful filtering options. For details, <a href="https://docs.getdrafts.com/docs/actions/templates/mustache">see the Mustache documentation</a>.</p>
+<p>Mustache templates are available as a option on all long-form templates in action steps, can can also be triggered via script using the <a href="https://scripting.getdrafts.com/classes/draft#processmustachetemplate"><code>draft.processMustacheTemplate</code> function</a>.</p>
+<h3>
+<a name="using-mustache-templates-for-safari-web-capture-6" class="anchor" href="https://forums.getdrafts.com#using-mustache-templates-for-safari-web-capture-6"></a>Using Mustache Templates for Safari Web Capture</h3>
+<p>If you often capture using the share extension and Safari, you might be interested in switching your <a href="https://docs.getdrafts.com/docs/extensions/share#web-capture-template">web capture template</a> to use Mustache. This has the advantage of being able to use conditional sections to only render part of the text template for the captured text selection <em>if</em> a selection exists.</p>
+<h3>
+<a name="improved-template-editing-7" class="anchor" href="https://forums.getdrafts.com#improved-template-editing-7"></a>Improved Template Editing</h3>
+<p>Drafts now includes basic syntax hightlighting definitions for both Drafts templates, and the new Mustache templates. When editing long-form templates in actions steps, the templates can now (optionally) be opened in an editor with syntax highlighting and basic autocomplete for common tags. Use the edit button by the template in the action editor to open the template editor.</p>
+<h4>
+<a name="other-changes-and-updates-8" class="anchor" href="https://forums.getdrafts.com#other-changes-and-updates-8"></a>Other Changes and Updates</h4>
+<ul>
+<li>
+<strong>All Platforms</strong>
+<ul>
+<li>
+<strong>New:</strong> “Include Action” step configuration now includes “Select” button to allow selection of an existing action, rather that requiring typing of the action name.</li>
+<li>
+<strong>Fix:</strong> TaskPaper syntax did not size indents correctly.</li>
+</ul>
+</li>
+<li>
+<strong>iOS</strong>
+<ul>
+<li>
+<strong>Fix:</strong> External keyboard navigation of dialogs (up-down arrows, etc.) was not working on iOS 15.</li>
+<li>
+<strong>Fix:</strong> Share button with options was not visible on in the Preview window on iPad.</li>
+<li>
+<strong>Change:</strong> Navigation to markers should respect the “Edit on selection” preference, not activating the editor after scrolling to the properly location if it off.</li>
+</ul>
+</li>
+<li>
+<strong>Mac</strong>
+<ul>
+<li>
+<strong>Change:</strong> When new modal capture windows are opened via Services or Sharing, they should appear more as modals with a “Cancel” button to clarify that they are transient and cannot be closed without losing the text.</li>
+<li>
+<strong>Fix (Mac):</strong> Issue were editor undo could corrupt if using the “Undo” command on an empty, new draft.</li>
+<li>
+<strong>Fix (Mac):</strong> If paragraph number display was active, and the window was narrow, text might not wrap properly and it would get clipped.</li>
+</ul>
+</li>
+</ul>
+            <p><small>8 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595</link>
+          <pubDate>Wed, 04 May 2022 11:40:33 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12595</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-32-released-action-bar-color-date-math-template-improvements/12595.rss">Drafts 32 Released - Action Bar Color, Date Math, Template improvements</source>
+        </item>
+        <item>
+          <title>PR: 10 Years of Drafts</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h3>
+<a name="summary-1" class="anchor" href="https://forums.getdrafts.com#summary-1"></a>Summary</h3>
+<blockquote>
+<p>Drafts quick-capture notes app celebrates ten years of helping people capture text with a special offer for new users</p>
+</blockquote>
+<p><a href="https://getdrafts.com/offers"><img src="https://forums.getdrafts.com/uploads/default/original/2X/c/c2e1f2c85e5cf72a04a661013abb6601bc6f6f8c.png" alt="drafts-pr-10th" data-base62-sha1="rO0IJ7RGYia7lpf6pG5IVftSLOQ" width="517" height="270"></a></p>
+<blockquote>
+<p><a href="https://getdrafts.com/offers"><em>I’ll read this later, take me to the offer →</em></a></p>
+</blockquote>
+<p><strong>N. Richland Hills, Texas</strong>: Today, Drafts, an iPhone, iPad, Mac, and Apple Watch app, celebrates ten years of availability in the Apple App Store and offers new customers the chance to sign up for a special introductory offer.</p>
+<p>Regularly featured by Apple and the App Store, Drafts is a stalwart of the Apple ecosystem and has pride of place on countless Home screens around the world. Drafts has undergone many changes over those ten years, but its focus remains on making it as quick and easy to capture thoughts as possible. To that end, Drafts opens to a blank page, ready for text to be typed.</p>
+<p>In the decade since its debut, Drafts has become <em>the</em> place where people put their ideas, notes, shopping lists, and more. No matter where that text might end up, it starts in Drafts. From there, Drafts’ note sorting and management features can be used to organize thoughts or text can be sent to other apps and web services for processing. Whether it’s a message to be sent via the Messages app or something as powerful as publishing a blog post, Drafts captures the text and sends it where it needs to be — and fast!</p>
+<p>Ten years in the App Store has helped Drafts grow a community of users of all levels who are ready to help people as they get started. A growing directory of actions couples with a community always eager to help makes Drafts the perfect way to do almost anything with words.</p>
+<p>When speed is of the essence, Drafts is the perfect place to capture everything whether people are following the Getting Things Done methodology or just want to note those shower thoughts before they pass. Robby, an educator, author, podcaster, and percussionist has been using Drafts for every one of those ten years and enjoys the way Drafts is always there, ready to capture thoughts that can be processed later.</p>
+<blockquote>
+<p>Of the many professional domains I juggle, my job as a middle school band director alone requires me to manage a lot of responsibility. I have to be a master teacher, performer, arranger, composer, conductor, data clerk, fundraiser, field trip planner, and more. Being able to tap the Drafts icon on my dock and quickly enter any thought that enters into my mind has been nothing short of life-changing. I used to be overwhelmed by my responsibilities, but through organization systems, and particularly Drafts, I have been able to take away the friction between the thoughts that grab my attention and what gets permanently saved in a computer. Drafts turns my devices into a second brain, and my rampant thoughts fade out of sight, out of mind.</p>
+</blockquote>
+<p>Using all of the latest Apple technologies and by leveraging the power of iCloud, everything Drafts captures is quickly and automatically synced to all your devices. The ultimate quick-capture device, Apple Watch supports voice input and more.</p>
+<p>To celebrate ten years of Drafts and to help people see how it can help them, developer Agile Tortoise is offering the first year of Drafts Pro for just $4.99 — a notable saving on the normal $19.99 subscription. This offer is available to new customers and will run from today through April 30, 2022. To claim the offer, users should visit <a href="https://forums.getdrafts.com">getdrafts.com/offers</a></p>
+<p>As part of the celebration, Agile Tortoise is also opening a Drafts Store with branded t-shirts and other merchandise. The Drafts Store can be found at <a href="http://getdrafts.com/store">getdrafts.com/store</a>.</p>
+<ul>
+<li><a href="https://getdrafts.com/offer">Get details about the 10th-anniversary discount offer</a></li>
+<li><a href="https://getdrafts.com/store">Visit the new Drafts Store</a></li>
+<li><a href="https://getdrafts.com">Learn more about Drafts</a></li>
+<li>Drafts can be downloaded from the App Store and is a free download with an optional Drafts Pro unlocking additional features.</li>
+</ul>
+            <p><small>11 posts - 6 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/pr-10-years-of-drafts/12408">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/pr-10-years-of-drafts/12408</link>
+          <pubDate>Thu, 07 Apr 2022 11:39:12 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>Yes</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12408</guid>
+          <source url="https://forums.getdrafts.com/t/pr-10-years-of-drafts/12408.rss">PR: 10 Years of Drafts</source>
+        </item>
+        <item>
+          <title>Drafts 31 Released: Interface Refresh, Notion Support</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-310-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-310-has-been-released-1"></a>Drafts 31.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<hr>
+<h3>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h3>
+<h2>
+<a name="interface-refresh-3" class="anchor" href="https://forums.getdrafts.com#interface-refresh-3"></a>Interface Refresh</h2>
+<p>Lots of general usability and interface and improvements,  including updated icons, some button re-organization, and a variety of new features. Highlights:</p>
+<ul>
+<li>
+<strong>iOS</strong>:
+<ul>
+<li>
+<a href="https://docs.getdrafts.com/docs/drafts/quick-search">Quick Search</a> is now in the top toolbar. Note that you can tap and hold on the search button for quick access to “Find in Draft…” as well.</li>
+<li>Menus to load workspaces and action groups are now <code>(v)</code> down-arrow menus at the top of the list. If you would also like to access from the bottom of the screen, enable workspace/action group bars in <code>(...)</code> list options</li>
+<li>The <code>(i)</code> detail button was removed to reduce clutter. Long press the draft icon at the top left of the editor and select “Get Info” to access draft details.</li>
+<li>Actions can be accessed from the <a href="https://docs.getdrafts.com/docs/editor/action-bar">Action Bar</a> above the keyboard without loading the action group in the bar. Tap the group icon at the left to select groups, and each group has a list icon along with it which will open a menu of actions in that group. This makes it easy to access seldom used text manipulation actions without swapping out the group displayed in the action bar.</li>
+<li>New options (in <code>Aa</code> editor settings) to toggle visibility of the word, character, and selection counts. These can also be toggled quickly by long-pressing the <code>Aa</code> button.</li>
+</ul>
+</li>
+<li>
+<strong>Mac</strong>:
+<ul>
+<li>Workspace and action group bars are now available at the bottom of the list panes for quick access to loading groups and workspaces in the lists. These can be toggled on and off in the <code>View</code> menu.</li>
+</ul>
+</li>
+<li>
+<strong>Configure Window action step</strong>. Provides an easy way to create actions that configure the editing window, hiding/showing side panes, switching pinning/link mode, and loading workspaces and/or action groups. Great for jumping to a particular workflow. <a href="http://docs.getdrafts.com/docs/actions/steps/utility.html#configure-window">(more)</a>
+</li>
+<li>
+<strong>Show/hide character, word, and selection counts</strong>. Options in the <code>Aa</code> editor settings view. These options can quickly be toggled using the long-press menu on the <code>Aa</code> button.</li>
+<li>
+<strong>Focus Mode is now Pinning</strong>. The “focus” name was a bit confusing, and the eyeball icon did not clarify what it did. Apple adding the “Focus” system feature didn’t help, either. This mode has been replaced by the “pinning” option, which pins the current draft in the editor, temporarily disabling the “new draft after” timeout. <a href="https://docs.getdrafts.com/docs/editor/new-drafts-and-pinning">(more)</a>
+</li>
+<li>New setting available to control what happens in the editor after an action’s “After Success” setting files a draft in the archive or trash. The default is to open a new draft, but, optionally, the “next draft” from the current draft list can be loaded. This was a feature of focus mode, but one that few people knew about.</li>
+<li>
+<strong>Workspaces Backups</strong>: Workspaces are now included in periodic backups. Options in Settings &gt; Backups. <a href="https://docs.getdrafts.com/docs/settings/backups">(more)</a>
+</li>
+</ul>
+<h2>
+<a name="notion-integration-beta-4" class="anchor" href="https://forums.getdrafts.com#notion-integration-beta-4"></a>Notion Integration (Beta)</h2>
+<p>This version introduces basic integration with the <a href="https://www.notion.so">Notion</a> online project management system. <a href="https://developers.notion.com">Notion’s API</a> is still in beta but has become stable enough to start offering integration in Drafts. Be aware that aspects of this functionality may change or stop working if Notion makes changes in its API during the development process. We also plan to expand functionality based on feedback, so if you are using Drafts with Notion, please let us know other features you would like to see added.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/e76740fea1beaff16f743ef991ce23aa370a0b01.png" data-download-href="https://forums.getdrafts.com/uploads/default/e76740fea1beaff16f743ef991ce23aa370a0b01" title="r31-2@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76740fea1beaff16f743ef991ce23aa370a0b01_2_517x319.png" alt="r31-2@2x" data-base62-sha1="x15vZTLE8W4y25pjXFLO7vIS4Fj" width="517" height="319" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76740fea1beaff16f743ef991ce23aa370a0b01_2_517x319.png, https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76740fea1beaff16f743ef991ce23aa370a0b01_2_775x478.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76740fea1beaff16f743ef991ce23aa370a0b01_2_1034x638.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76740fea1beaff16f743ef991ce23aa370a0b01_2_10x10.png"></a></div><p></p>
+<p>This initial integration provides:</p>
+<ul>
+<li>
+<a href="https://docs.getdrafts.com/docs/actions/steps/services#notion">Notion Action Step</a> that allows easy configuration of actions which create or append to pages in Notion as either text or todo lists.</li>
+<li>The <a href="https://scripting.getdrafts.com/classes/notion"><code>Notion</code> script object</a>, which provides access to the entire Notion API for advanced use cases.</li>
+</ul>
+<p><em>For details, example actions, etc., see our <a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107">Notion Integration Guide</a>.</em></p>
+<h2>
+<a name="maintenance-tasks-5" class="anchor" href="https://forums.getdrafts.com#maintenance-tasks-5"></a>Maintenance Tasks</h2>
+<p>New “Maintenance” view in Settings/Preferences. This view is a home for completely optional periodic maintenance tasks to help restore defaults, clean up data you may no longer care about, or improve performance. Make sure you understand what the tasks do before running one because some are destructive and not reversible. Details on available tasks in the <a href="https://docs.getdrafts.com/docs/settings/maintenance">User Guide</a>.</p>
+<h2>
+<a name="other-changes-and-updates-6" class="anchor" href="https://forums.getdrafts.com#other-changes-and-updates-6"></a>Other Changes and Updates</h2>
+<ul>
+<li>
+<strong>All Platforms</strong>
+<ul>
+<li>
+<strong>Change:</strong> Action steps configurations can now be viewed as read-only in the free version to allow for better content review.
+<ul>
+<li>
+<strong>Fix:</strong> Revamp handling a number of text modifications in the editor, both via the <code>editor</code> script object in actions, and via autocomplete, auto-match, and list completions, to better participate in the editor’s undo/redo stack and avoid a few cases where undo could stop functioning.</li>
+<li>
+<strong>New:</strong> WordPress action step now includes the option to specify whether user comments should be allowed on the resulting post.</li>
+</ul>
+</li>
+<li>
+<strong>Fix:</strong> Autocomplete canceling when typewriter scrolling enabled.</li>
+<li>
+<strong>New:</strong> Individual autocomplete items can be shared as URLs which can be used to installed in other installations of Drafts.</li>
+</ul>
+</li>
+<li>
+<strong>Scripting Changes</strong>:
+<ul>
+<li>
+<code>Reminder</code> script object now has <code>startDate</code>, <code>startDateIncludesTime</code>, and <code>completionDate</code>, and <code>location</code> properties available.</li>
+<li>
+<code>editor.focusModeEnabled</code> deprecated, and replaced by <code>editor.pinningEnabled</code> (still works, may be phased out on future release)</li>
+<li>
+<code>FileManager.exists</code> method</li>
+<li>
+<code>ActionLog.status</code> readonly property to indicate status (“completed”, “failed”, etc.) of the log entry.</li>
+</ul>
+</li>
+<li>
+<strong>iOS</strong>
+<ul>
+<li>
+<strong>Fix:</strong> Clearing search in the action list would not reload the last loaded group if a group had not be selected since cold start of the app.</li>
+</ul>
+</li>
+<li>
+<strong>Mac</strong>
+<ul>
+<li>
+<strong>Fix:</strong> Issue deleting actions shared to the Directory in the “Manage Actions” view.</li>
+<li>
+<strong>Fix:</strong> Paragraph numbers not always redrawing on scrolling.</li>
+</ul>
+</li>
+<li><strong>Apple Watch</strong></li>
+</ul>
+            <p><small>26 posts - 12 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-31-released-interface-refresh-notion-support/12165">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-31-released-interface-refresh-notion-support/12165</link>
+          <pubDate>Fri, 25 Feb 2022 12:59:20 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12165</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-31-released-interface-refresh-notion-support/12165.rss">Drafts 31 Released: Interface Refresh, Notion Support</source>
+        </item>
+        <item>
+          <title>Drafts 2021: Year in Review</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>2021 has been a busy year for Drafts. I am, generally speaking, a person who prefers to spend their time contemplating the present and future, but it’s not a bad idea to look back now and then and remind yourself of what you have accomplished.</p>
+<p>In case you missed some of it, here are a few of the major features that have made their way into Drafts in 2021:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/extending/">Custom Syntaxes and Themes</a></li>
+<li>
+<a href="https://forums.getdrafts.com/t/using-google-task-with-drafts/10575">Google Task</a> and <a href="https://forums.getdrafts.com/t/using-drafts-with-microsoft-to-do/10574">Microsoft To Do</a> Integration</li>
+<li>
+<a href="https://docs.getdrafts.com/docs/extensions/widgets">Widget</a> Theming</li>
+<li><a href="https://docs.getdrafts.com/docs/editor/document-scanning">Document Scanning and Live Text Support</a></li>
+<li><a href="https://docs.getdrafts.com/docs/settings/bookmarks">Folder Bookmarks</a></li>
+<li><a href="https://docs.getdrafts.com/docs/automation/shortcuts">Shortcuts Support on Mac</a></li>
+<li><a href="https://docs.getdrafts.com/docs/extensions/applewatch">New Apple Watch App</a></li>
+<li><a href="https://docs.getdrafts.com/docs/editor/autocomplete#syntax-specific-autocomplete-suggestions">Auto-Complete for <code>[[Wiki-Style]]</code> Links</a></li>
+<li><a href="https://docs.getdrafts.com/docs/editor/autocomplete#global-autocomplete-suggestions">Global Auto-Complete Suggestions</a></li>
+<li><a href="https://docs.getdrafts.com/docs/editor/transcription">Transcription of Audio and Video Files</a></li>
+<li><a href="https://docs.getdrafts.com/docs/editor/document-scanning#extracting-text-from-pdf-files">Extract Text from PDFs</a></li>
+</ul>
+<p>I would like to thank everyone who uses Drafts, those that support the app with a Pro subscription, and all the great community members who share their time and creative solutions with others – both on this forum and elsewhere!</p>
+<p>I don’t like to be too specific about future plans, but we have a lot of good things coming in 2022…including celebrating the 10th anniversary of Drafts’ original 1.0 release (Yikes!).</p>
+<p>Here’s hoping 2022 is great for you and yours, and thanks again for using Drafts!</p>
+            <p><small>4 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-2021-year-in-review/11840">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-2021-year-in-review/11840</link>
+          <pubDate>Mon, 27 Dec 2021 15:18:53 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11840</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-2021-year-in-review/11840.rss">Drafts 2021: Year in Review</source>
+        </item>
+        <item>
+          <title>Drafts 30 Released - Transcribe Audio-Video, Extract Text from PDFs</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-300-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-300-has-been-released-1"></a>Drafts 30.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<hr>
+<h2>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h2>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/ea2d3b522686ef367c1a8641cd60ade534965856.png" data-download-href="https://forums.getdrafts.com/uploads/default/ea2d3b522686ef367c1a8641cd60ade534965856" title="r30@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/ea2d3b522686ef367c1a8641cd60ade534965856_2_517x319.png" alt="r30@2x" data-base62-sha1="xpCDt6lhkVaE7A7wcWi3CXPEjXM" width="517" height="319" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/ea2d3b522686ef367c1a8641cd60ade534965856_2_517x319.png, https://forums.getdrafts.com/uploads/default/optimized/2X/e/ea2d3b522686ef367c1a8641cd60ade534965856_2_775x478.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/e/ea2d3b522686ef367c1a8641cd60ade534965856_2_1034x638.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/ea2d3b522686ef367c1a8641cd60ade534965856_2_10x10.png"></a></div><p></p>
+<h3>
+<a name="transcribe-text-from-audio-and-video-files-3" class="anchor" href="https://forums.getdrafts.com#transcribe-text-from-audio-and-video-files-3"></a>Transcribe Text from Audio and Video Files</h3>
+<p>Drafts now registers itself to open most common audio and video formats. If you open an audio or video file in Drafts, you will be prompted with an option to transcribe text using speech recognition. Speech recognition will process the audio in the same way as dictation, so dictation commands for punctuation, etc., are supported.</p>
+<p>This is most useful for transcribing the content of single-speaker voice audio, like a voice memo, or recorded lecture, but it will happily attempt to transcribe other forms of audio as well, though the quality of the results may vary.</p>
+<p>To try it out:</p>
+<ul>
+<li>
+<strong>iOS</strong>
+<ul>
+<li>Tap and hold the “+” button, and select “Transcribe…”. You will be prompted to select an audio or video file.</li>
+<li>Share any audio or video file from other apps, including Files and Voice Memos, to Drafts.</li>
+</ul>
+</li>
+<li>
+<strong>Mac</strong>
+<ul>
+<li>Select <code>File &gt; Import...</code> from the main menu, and choose and audio or video file.</li>
+<li>Drag and drop an audio or video file on the Drafts app icon.</li>
+</ul>
+</li>
+</ul>
+<p><em>If you plan to use this transcription, please <a href="https://docs.getdrafts.com/docs/editor/transcription">read the full documentation</a> to understand its capabilities and limitations.</em></p>
+<h3>
+<a name="extract-text-from-pdfs-4" class="anchor" href="https://forums.getdrafts.com#extract-text-from-pdfs-4"></a>Extract Text from PDFs</h3>
+<p>If you attempt to open a PDF file in Drafts, you will now be offered the option to extract text from the PDF into a new Drafts.</p>
+<p>To try it out:</p>
+<ul>
+<li>
+<strong>iOS</strong>
+<ul>
+<li>Tap and hold the “+” button, and select “Import File…”. Select any PDF file.</li>
+<li>Share any PDF file from other apps, including Files, to Drafts.</li>
+</ul>
+</li>
+<li>
+<strong>Mac</strong>
+<ul>
+<li>Select <code>File &gt; Import...</code> from the main menu, and choose a PDF file.</li>
+<li>Drag and drop a PDF file on the Drafts app icon.</li>
+</ul>
+</li>
+</ul>
+<p>Extraction will only grab actual text content from the PDF. Some PDF files have embedded image content and will not work with this feature.</p>
+<p><em>Learn more about <a href="https://docs.getdrafts.com/docs/editor/document-scanning.html#extracting-text-from-pdf-files">PDF Text Extraction</a></em></p>
+<h4>
+<a name="other-changes-and-updates-5" class="anchor" href="https://forums.getdrafts.com#other-changes-and-updates-5"></a>Other Changes and Updates</h4>
+<ul>
+<li>
+<strong>Change:</strong> Replaced microphone icon on Apple Watch complications and buttons. Since Apple has made it so it is not possible to launch input directly to dictation on watchOS 8.1, it no longer makes sense to use microphone icon. (<em>PS: Please let Apple know if you do not like this change! We’d love to get back the ability to go straight to dictation.</em>)</li>
+<li>
+<strong>Change:</strong> Change sort order of trash to use accessed date/descending to make it easier to find and restore items recently added to the trash.</li>
+<li>
+<strong>Change:</strong> <code>[[line]]</code> template tag when used with specifying a line argument, now returns the text of the current selection extended to the beginning and end of the lines. Useful for grabbing the current line text in an action without needing to select the text first.</li>
+<li>
+<strong>Fix (iOS):</strong> Issues sorting actions upwards in the action list.</li>
+<li>
+<strong>Fix:</strong> Issue appending to files in Bookmark folders from different devices.</li>
+<li>A variety of performance improvements and fixed for visual glitches.</li>
+</ul>
+            <p><small>12 posts - 10 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-30-released-transcribe-audio-video-extract-text-from-pdfs/11677">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-30-released-transcribe-audio-video-extract-text-from-pdfs/11677</link>
+          <pubDate>Wed, 01 Dec 2021 19:44:04 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11677</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-30-released-transcribe-audio-video-extract-text-from-pdfs/11677.rss">Drafts 30 Released - Transcribe Audio-Video, Extract Text from PDFs</source>
+        </item>
+        <item>
+          <title>Drafts 29 Released - Autocomplete, Shortcuts for Mac support</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-290-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-290-has-been-released-1"></a>Drafts 29.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<hr>
+<h1>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h1>
+<h2>
+<a name="shortcuts-for-mac-macos-12-support-3" class="anchor" href="https://forums.getdrafts.com#shortcuts-for-mac-macos-12-support-3"></a>Shortcuts for Mac / macOS 12 Support</h2>
+<p>Drafts provides a <a href="https://docs.getdrafts.com/docs/automation/shortcuts">wide variety of actions</a> for use in Apple’s automation app, Shortcuts. These can be used for simple things like creating a new draft, opening Drafts directly to specific workspaces – or advanced processing by querying and updating multiple drafts.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/c/c03661855cd7be470de62371bc76ebfb7622151f.jpeg" alt="r29-4" data-base62-sha1="rqobsY3bYaNjFgeIqYJk11m6xKD" width="480" height="297"></p>
+<p>With macOS 12, Apple has brought the power of Shortcuts to the Mac, and Drafts is ready. All Drafts’ Shortcuts actions now work on both iOS and Mac, and shortcuts created using these actions work cross-platform, allowing you to create, modify, and use those shortcuts on all your devices!</p>
+<h2>
+<a name="autocomplete-4" class="anchor" href="https://forums.getdrafts.com#autocomplete-4"></a>Autocomplete</h2>
+<p>Drafts now includes an extensible system to provide drop-down autocomplete suggestions while typing in the editor. Autocomplete includes a global system for creating and inserting text snippets. Additional autocomplete suggestions can also be provided by <a href="https://forums.getdrafts.com/docs/extending/syntaxes">syntax definitions</a>.</p>
+<h3>
+<a name="global-autcomplete-suggestions-5" class="anchor" href="https://forums.getdrafts.com#global-autcomplete-suggestions-5"></a>Global Autcomplete Suggestions</h3>
+<p>Do you have snippets of text you reuse regularly? Email addresses? Templates? Then autocomplete suggestions will be a handy addition.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/5/5353b059293f9b0421ebc37d49d64ec88051f201.png" alt="r29-3" data-base62-sha1="bT8VOVD9hqAR5Havvsb9GN4cBvH" width="480" height="297"></p>
+<p>Visit the <code>Autocomplete</code> tab in Editor Preferences (<code>Aa</code> button below editor) to get started configuring your suggestion drop-down items. Set the “Trigger” text to control what sequence of characters will trigger the suggestion drop-down to appear, and add items for frequently used snippets. Suggestions can use <a href="https://docs.getdrafts.com/docs/actions/templates">Drafts template tags</a> to insert the current date, location, or other values.</p>
+<h3>
+<a name="link-completion-and-draft-insertion-6" class="anchor" href="https://forums.getdrafts.com#link-completion-and-draft-insertion-6"></a>Link Completion and Draft Insertion</h3>
+<p>Drafts built-in Markdown syntaxes (Markdown, GitHub Markdown, and MultiMarkdown) now include two additional autocompletion features to work with other drafts in your library:</p>
+<ul>
+<li>Type <code>[[</code> to trigger auto-completion of <code>[[wiki-style]]</code> links to other drafts by title.</li>
+<li>Type <code>&lt;&lt;</code> to trigger the selection of another draft and insert the full content of that draft.</li>
+</ul>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/f/fdfd8ba546ea3bc2777e12b0729f82eaf20cb986.png" alt="r29-2" data-base62-sha1="AeU1a0nCZ75hZsnLCIZHo15UJVk" width="480" height="297"></p>
+<p>These features are implemented using a new set of configuration options available to all syntax definitions. If you create custom syntax definitions, and would like to add this functionality (or similar) to your custom syntax definitions, take a look at the related documentation on <a href="https://forums.getdrafts.com/docs/extending/development/syntax-format.html#autocomplete-definitions">autocomplete in syntaxes</a></p>
+<p><a href="https://docs.getdrafts.com/docs/editor/autocomplete"><em>Learn more about Autocomplete</em></a></p>
+<h2>
+<a name="other-updates-and-fixes-7" class="anchor" href="https://forums.getdrafts.com#other-updates-and-fixes-7"></a>Other Updates and Fixes</h2>
+<h4>
+<a name="all-platforms-8" class="anchor" href="https://forums.getdrafts.com#all-platforms-8"></a>All Platforms</h4>
+<ul>
+<li>
+<strong>Fix:</strong> A numbered list item with more than one digit, indented 4 characters, would be treated as code block in Markdown syntaxes.</li>
+<li>
+<strong>Fix:</strong> <code>/open</code> URL with <code>title</code> param would not properly find drafts with “:” in the title parameter.</li>
+</ul>
+<h4>
+<a name="ios-9" class="anchor" href="https://forums.getdrafts.com#ios-9"></a>iOS</h4>
+<ul>
+<li>
+<strong>Fix:</strong> “Last Draft” option available with long press on app icon would not work properly on iOS 15 if the app was already running and the new draft timeout had passed.</li>
+<li>Configuration tweak to allow the “Add Link” option to work to create links to the current draft in Quick Notes.</li>
+</ul>
+            <p><small>22 posts - 7 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-29-released-autocomplete-shortcuts-for-mac-support/11431">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-29-released-autocomplete-shortcuts-for-mac-support/11431</link>
+          <pubDate>Mon, 25 Oct 2021 12:03:53 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11431</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-29-released-autocomplete-shortcuts-for-mac-support/11431.rss">Drafts 29 Released - Autocomplete, Shortcuts for Mac support</source>
+        </item>
+        <item>
+          <title>Drafts 28.1 Released - Bug fixes</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-281-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-281-has-been-released-1"></a>Drafts 28.1 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<h2>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h2>
+<blockquote>
+<p>See the <a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201">Drafts 28 Release Notes</a> for new stuff - this is a bug fix release.</p>
+</blockquote>
+<h2>
+<a name="changes-3" class="anchor" href="https://forums.getdrafts.com#changes-3"></a>Changes</h2>
+<p>Bug fix release addressing a few issues in release 28:</p>
+<ul>
+<li>
+<strong>General</strong>
+<ul>
+<li>
+<strong>Change:</strong> Improve efficiency of workspace count calculations for widgets to avoid an issue that could result in a blank widget in some configurations.</li>
+<li>
+<strong>Change:</strong> Internal link previews now only work on iOS 15 to workaround issue that conflicted with use of cut/copy/paste menu.</li>
+<li>
+<strong>New:</strong> “Process Template” shortcut action which takes a template and draft and runs the text through the Drafts template engine to expand tags (like [[body]], [[title]], etc.)</li>
+<li>
+<strong>Fix:</strong> Prevent case where sending file to share extension would not capture content, or duplicate content.</li>
+<li>Change to find/replace regular expression configuration to support replacement of positive lookahead constructs.</li>
+<li>
+<strong>Fix:</strong> Case where an internal link by title could find drafts that had the query title string in some place other than the first line.</li>
+<li>
+<code>[[hashtags]]</code> template tag should replace spaces in tags with “-”.</li>
+<li>
+<code>availability</code> property of <code>Event</code> object should be a read/write property, not read only.</li>
+<li>Address several VoiceOver issues.</li>
+</ul>
+</li>
+<li>
+<strong>iOS-Watch Only</strong>
+<ul>
+<li>
+<strong>Fix:</strong> Add keyboard shortcuts (⌘-,  option-⌘-,) back for Settings/Preferences and Editor Settings/Preferences.</li>
+<li>
+<strong>Fix-Watch:</strong> Background scheduling crash</li>
+</ul>
+</li>
+<li>
+<strong>Mac Only</strong>
+<ul>
+<li>
+<strong>Fix:</strong> Issue re-showing action bar if it was hidden.</li>
+<li>
+<strong>Fix:</strong> Issue configuring widgets on macOS 11 (Big Sur).</li>
+<li>
+<strong>Fix:</strong> Last line in action script editor clipping.</li>
+</ul>
+</li>
+</ul>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-28-1-released-bug-fixes/11274">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-28-1-released-bug-fixes/11274</link>
+          <pubDate>Tue, 28 Sep 2021 20:59:10 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11274</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-28-1-released-bug-fixes/11274.rss">Drafts 28.1 Released - Bug fixes</source>
+        </item>
+        <item>
+          <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-280-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-280-has-been-released-1"></a>Drafts 28.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<h2>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h2>
+<h3>
+<a name="ready-for-ios-15-and-macos-12-3" class="anchor" href="https://forums.getdrafts.com#ready-for-ios-15-and-macos-12-3"></a>Ready for iOS 15 and macOS 12</h3>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/f/fc3b54c6bb2d889fe6383d9c36455d1512e20530.png" alt="r28" data-base62-sha1="zZlrdpei9BL0aSkbpEA8PGlgeYw" width="641" height="396"></p>
+<p>Drafts is ready for iOS 15 and macOS 12! Updated for compatibility, of course, but also to take advantage of some of the great new features. New details below, but Drafts works great with “Live Text” to capture text from images, has full support for Shortcuts on the Mac, and brings great new iPad features, like powerful external keyboard menus.</p>
+<h3>
+<a name="new-apple-watch-app-4" class="anchor" href="https://forums.getdrafts.com#new-apple-watch-app-4"></a>New Apple Watch App</h3>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/0/03b171ef70c448deb76051755b96bed5b5134559.png" alt="r28-2" data-base62-sha1="wFBC9hpsE5e3zTOnavMF5WuB1T" width="641" height="396"></p>
+<p>We have re-written the Drafts Apple Watch app from the ground up to use the latest watchOS technologies. It’s still the best, easiest way to capture ideas on the go, but has a few new tricks:</p>
+<ul>
+<li>Multiple complication types to capture, capture with options, or see your inbox or flagged draft count.</li>
+<li>Inbox drafts synced to watch now reflect your default workspace options on the phone.</li>
+<li>Flagged drafts now also synced to the watch.</li>
+<li>Requires watchOS 7.1 or greater.</li>
+</ul>
+<p><em><a href="https://docs.getdrafts.com/docs/extensions/applewatch">Learn More About Drafts on Apple Watch →</a></em></p>
+<h3>
+<a name="shortcuts-support-on-macos-12-5" class="anchor" href="https://forums.getdrafts.com#shortcuts-support-on-macos-12-5"></a>Shortcuts Support on macOS 12</h3>
+<p>We’re ready for Shortcuts on the Mac! It’s just not quite ready for us. Look for full, cross-platform support for all of Drafts’ Shortcuts actions when macOS 12 (Monterey) is released in the coming weeks!</p>
+<p>We’re ready for Shortcuts on the Mac! It’s just not quite ready for us. Look for full, cross-platform support for all of Drafts’ Shortcuts actions when macOS 12 (Monterey) is released in the coming weeks!</p>
+<p>In the meantime, enjoy these new shortcut actions on iOS:</p>
+<ul>
+<li>
+<strong>Get Current Draft</strong>: Retrieves the draft object for the draft currently open in the editor.</li>
+<li>
+<strong>Open Draft Enhancements</strong>: The “Open Draft” shortcut action now has a bunch of additional optional parameters to configure Drafts while opening - to load a workspace, actions groups, hide/show the drafts and action lists, etc. Great for bookmarking a specific set of options in a Shortcut.<br>
+<em><a href="https://docs.getdrafts.com/docs/automation/shortcuts">Learn More About Shortcuts →</a></em>
+</li>
+</ul>
+<h2>
+<a name="folder-bookmarks-6" class="anchor" href="https://forums.getdrafts.com#folder-bookmarks-6"></a>Folder Bookmarks</h2>
+<p>Up to now, Drafts file actions and scripts have been limited to working with files in the “Drafts” folder in iCloud Drive (or by working directly with cloud-provider APIs, like Dropbox and Google Drive). With folder bookmarks, it is now possible to grant permissions to additional folders outside the Drafts App Sandbox, making it easier to integrate with other apps and services, to, say, export a draft content to another system - like an Obsidian Vault, etc.</p>
+<p><em><a href="https://docs.getdrafts.com/docs/settings/bookmarks">Learn More About Bookmarks →</a></em></p>
+<h2>
+<a name="document-scanning-and-live-text-support-7" class="anchor" href="https://forums.getdrafts.com#document-scanning-and-live-text-support-7"></a>Document Scanning and Live Text Support</h2>
+<p>Drafts has been tested and works great with the new “Live Text” features in iOS 15 and macOS 12. In addition, we have incorporated document scanning to OCR directly in the iOS app. Tap and hold the “+” and select “Scan Document” to open the document scanning camera. It supports scanning multi-page documents, and directly runs the results through OCR to create a new draft with the result text.</p>
+<p><em><a href="https://docs.getdrafts.com/docs/editor/document-scanning">Learn More About Live Text &amp; Scanning →</a></em></p>
+<h2>
+<a name="share-extension-and-capture-window-updates-8" class="anchor" href="https://forums.getdrafts.com#share-extension-and-capture-window-updates-8"></a>Share Extension and Capture Window Updates</h2>
+<p>Drafts capture flow used in the iOS Share extension and the “Capture” window on Mac, has received a number of updates:</p>
+<ul>
+<li>Both now remember your recently used selections for appending and prepending to existing drafts, to make it easier to re-use active drafts.</li>
+<li>The Mac Share extension now displays in a new capture window, allow preview/editing of captured text as well as appending-prepending to other drafts - more like the iOS Share extension.</li>
+<li>Mac Services menu now contains “Capture to Drafts” and “Capture to Drafts with Options” services to send text selections to Drafts from anywhere in the system. The “with Options” version displays a capture window, while the other version capture silently as a new draft.</li>
+<li>New <code>/capture</code> URL scheme, and Shortcut “Show Capture” action, allow you display the capture window in app, optionally pre-filled with text and tags. This is useful in capture workflows from other apps, as well as web bookmarklets.</li>
+</ul>
+<p><em>Learn more about the <a href="https://docs.getdrafts.com/docs/extensions/share">iOS Share Extension</a> and <a href="https://docs.getdrafts.com/docs/extensions/capture-window">Mac Capture Window</a></em></p>
+<h2>
+<a name="general-improvements-9" class="anchor" href="https://forums.getdrafts.com#general-improvements-9"></a>General Improvements</h2>
+<ul>
+<li>New tag suggestion interface on iOS to make it easier to tag your drafts with just the right tags.</li>
+<li>On iOS, long press on links to other drafts now generates a preview and several command options for the draft. This includes <code>[[wiki-style]]</code> links, or <code>drafts://open</code> links in link mode.</li>
+<li>On Mac, <code>command-click</code> on links to other drafts to open them in a new window.</li>
+<li>Tags in the tag filter pane now have contextual menu (tap and hold) with “rename” and “delete” commands to bulk manage tags. These options already existed in the draft list “Operations” commands, but these versions pre-fill the tag value for better accuracy.</li>
+</ul>
+<h4>
+<a name="other-updates-and-fixes-10" class="anchor" href="https://forums.getdrafts.com#other-updates-and-fixes-10"></a>Other Updates and Fixes</h4>
+<h3>
+<a name="all-platforms-11" class="anchor" href="https://forums.getdrafts.com#all-platforms-11"></a>All Platforms</h3>
+<ul>
+<li>New “What’s New” screen accessible via Settings &gt; What’s New (iOS) or Help &gt; What’s New (macOS)</li>
+<li>“Run Shortcut” action step has new “Return to Drafts” option. If disabled, Drafts will not include callback parameters to return to Drafts after completing the Shortcut. If you do not care about a result from Shortcuts, and wish to end up in a different app when the shortcut finishes, disable this option.</li>
+<li>
+<code>[[hashtags]]</code> template tag. Returns assigned tags as comma-separated list, with each tag prefixed with a “#”. Convenience tag to remove the need to script this conversion when exporting to systems that use hash tags.</li>
+<li>Estimated read time now calculated and displayed in draft detail <code>(i)</code> screen.</li>
+<li>
+<strong>Fix:</strong> Markdown syntaxes not recognizing [ref][links] with space.</li>
+<li>
+<strong>Fix:</strong> After success “Trash” would not load next draft properly in focus mode.</li>
+</ul>
+<h3>
+<a name="ios-12" class="anchor" href="https://forums.getdrafts.com#ios-12"></a>iOS</h3>
+<ul>
+<li>Refactor the next-previous button logic because it was not updating properly in some cases.</li>
+<li>A few new app icon options.</li>
+<li>Require iOS 14.1 or greater.</li>
+<li>Remove pre-iOS 14 “Today” widgets.</li>
+</ul>
+<h3>
+<a name="mac-13" class="anchor" href="https://forums.getdrafts.com#mac-13"></a>Mac</h3>
+<ul>
+<li>More toolbar options to customize your toolbar. Focus, link modes, preview, arrange buttons now available.</li>
+<li>List types returned from AppleScript not converted properly to JavaScript arrays.</li>
+</ul>
+<h3>
+<a name="scripting-shortcuts-and-url-schemes-14" class="anchor" href="https://forums.getdrafts.com#scripting-shortcuts-and-url-schemes-14"></a>Scripting, Shortcuts, and URL Schemes</h3>
+<ul>
+<li>
+<code>version.delete()</code> function to allow scripted deletion of versions in the version history. (<a href="https://scripting.getdrafts.com/classes/version#delete">docs</a>)</li>
+<li>
+<code>ActionLog</code> script object used to read and manipulation entries in the Action Log. Generally accessed from the <code>draft.actionLogs</code> property. (<a href="https://scripting.getdrafts.com/classes/actionlog">docs</a>)</li>
+<li>
+<code>/scandocument</code> URL scheme. (<a href="https://docs.getdrafts.com/docs/automation/urlschemes#scandocument">docs</a>)</li>
+<li>
+<code>editor.scanDocument() -&gt; string</code> function. Also similar to <code>editor.dictate()</code> function, opens the document scanner and returns any OCR results as a string which you can do with as you please. (<a href="https://scripting.getdrafts.com/classes/editor#scandocument">docs</a>)</li>
+<li>New “Get Current Draft” shortcut action retreives the draft currently open in the main editor.</li>
+<li>“Open Draft” shortcut action has additional options to configure state of window (show/hide side panes, load workspace, etc. - <a href="https://docs.getdrafts.com/docs/automation/shortcuts#open-draft">docs</a>)</li>
+<li>
+<code>/open</code> and <code>/create</code> URL schemes now support several additional parameters to configure the environment (<a href="https://docs.getdrafts.com/docs/automation/urlschemes#open">docs</a>):
+<ul>
+<li>
+<code>showDraftList</code> [true/false]</li>
+<li>
+<code>showActionList</code> [true/false]</li>
+<li>
+<code>loadWorkspace</code>, <code>loadActionGroup</code>, <code>loadActionBarGroup</code>: take names of valid group/workspaces and applies them</li>
+</ul>
+</li>
+</ul>
+            <p><small>24 posts - 7 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201</link>
+          <pubDate>Fri, 17 Sep 2021 11:51:13 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11201</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+        </item>
+        <item>
+          <title>Minimum System Requirement Changes Coming</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>Drafts 28 is coming in the next couple of months. The actual release date will depend on when Apple releases the final versions of iOS 15, watchOS 8, and macOS 12, but I wanted to make people aware of planned changes to the minimum system requirements for Drafts in this release.</p>
+<p>Beginning with Drafts 28, the minimum OS versions support will be:</p>
+<ul>
+<li>
+<strong>iOS/iPadOS 14.1 or greater</strong> (was iOS/iPadOS 13.4)</li>
+<li>
+<strong>watchOS 7.1 or greater</strong> (previously watchOS 5.0)</li>
+<li>
+<strong>macOS 10.13 (High Sierra) or greater</strong> (no change)</li>
+</ul>
+<p>This represents no change to Mac requirements, and leaves no devices behind on iOS as any device capable of running iOS 13 can (and should!) update to iOS 14. <em>It does mean the Apple Watch app will no longer be available on Series 1 and 2 Apple Watches.</em></p>
+<p>We try to maintain backward compatibility when reasonable, but we can’t allow supporting older OS versions to prevent the app from moving forward with new capabilities (like an all-new Watch app!)</p>
+            <p><small>9 posts - 5 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/minimum-system-requirement-changes-coming/11015">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/minimum-system-requirement-changes-coming/11015</link>
+          <pubDate>Fri, 13 Aug 2021 18:23:25 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11015</guid>
+          <source url="https://forums.getdrafts.com/t/minimum-system-requirement-changes-coming/11015.rss">Minimum System Requirement Changes Coming</source>
+        </item>
+        <item>
+          <title>Drafts Pro now only $19.99 (USD) per year</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <blockquote>
+<p><strong>Announcement:</strong> <em>The annual subscription rate for <a href="https://docs.getdrafts.com/draftspro">Drafts Pro</a> is now only $19.99 (USD).</em></p>
+</blockquote>
+<p>This change is a return to the original annual pricing available before January 2021. Many of you who have annual subscriptions started before January already receive this pricing. The change will affect any new annual subscriptions and will be reduced at renewal time automatically for anyone who subscribed this year.</p>
+<p>The original intent of the January price increase was to create breathing room, enabling me to work with promotional and introductory offers to create incentives to entice new subscribers, ultimately creating a space where most people were still paying $19.99. This move seemed like, and probably is, the “smart business” thing to do.</p>
+<p>In practice, I found I’m much more interested in improving quality and delivering new functionality than I am in optimizing the growth path of Drafts with marketing incentives. Due to this lack of motivation, I have not delivered on providing such offers and discounts.</p>
+<p>Rather than refocus my marketing efforts, I have deciding to return to the original price and focus on delivering value in the app. I hope people will be willing to recognize and support this approach.</p>
+<p>Note that the monthly rate of $2.99 (USD) will remain in place. I hope that having a greater relative discount for investing in the annual subsription will encourage more people to take a leap and give Drafts a chance to become a crucial, valuable tool in their productivity workflow.</p>
+<p>The free version will, of course, continue as-is.</p>
+            <p><small>9 posts - 7 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-pro-now-only-19-99-usd-per-year/10898">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-pro-now-only-19-99-usd-per-year/10898</link>
+          <pubDate>Sun, 25 Jul 2021 14:33:47 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10898</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-pro-now-only-19-99-usd-per-year/10898.rss">Drafts Pro now only $19.99 (USD) per year</source>
+        </item>
+        <item>
+          <title>Drafts Beta Program Open</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>Not everyone’s cup of tea, but for those brave souls who are willing to help with compatibility testing and shaping new features, the Drafts Beta is open again with builds compatible with the iOS 15 and macOS 12 betas.  Details:</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://docs.getdrafts.com/beta/">
+  <header class="source">
+      
+
+      <a href="https://docs.getdrafts.com/beta/" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/beta/" target="_blank" rel="noopener">Beta Program</a></h3>
+
+  <p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>If you plan to join, please do read the beta page, join the beta Slack for questions, etc.</p>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-beta-program-open/10875">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-beta-program-open/10875</link>
+          <pubDate>Wed, 21 Jul 2021 18:28:10 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10875</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-beta-program-open/10875.rss">Drafts Beta Program Open</source>
+        </item>
+        <item>
+          <title>Automating Drafts article+video from Matt Birchler</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>Nice video and associated article covering a complete workflow in drafts…perhaps of interest to some:</p>
+<blockquote>
+<p>Today we’re going to look at how I’ve set up Drafts to be where all my writing happens for YouTube videos. This involves a document with specific formatting, tags to sort things in my Drafts library, and a few more small details. I’ve been able to make this work well for me, and even if you’re not working on YouTube, you could also use this process to make Drafts a nice writing app for publishing to <a href="https://micro.blog/">Micro.blog</a>, <a href="https://ulysses.app/">Ulysses</a>, <a href="https://dayoneapp.com/">Day One</a>, and more.</p>
+</blockquote>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://thesweetsetup.com/automating-drafts-to-create-custom-documents-in-seconds/">
+  <header class="source">
+
+      <a href="https://thesweetsetup.com/automating-drafts-to-create-custom-documents-in-seconds/" target="_blank" rel="noopener" title="03:00PM - 06 July 2021">The Sweet Setup – 6 Jul 21</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/459;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/2/28ced5a0ebe64c65ad2fcbc547960ebddef4d9f4_2_690x459.jpeg" class="thumbnail" width="690" height="459" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/2/28ced5a0ebe64c65ad2fcbc547960ebddef4d9f4_2_690x459.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/2/28ced5a0ebe64c65ad2fcbc547960ebddef4d9f4_2_1035x688.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/2/28ced5a0ebe64c65ad2fcbc547960ebddef4d9f4_2_1380x918.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/28ced5a0ebe64c65ad2fcbc547960ebddef4d9f4_2_10x10.png"></div>
+
+<h3><a href="https://thesweetsetup.com/automating-drafts-to-create-custom-documents-in-seconds/" target="_blank" rel="noopener">Automating Drafts to Create Custom Documents in Seconds – The Sweet Setup</a></h3>
+
+  <p>You can technically write an entire novel inside of Apple Notes or compose your blog posts in Notepad on your Windows computer. The basic concept of letting users type text into an app is not special, and yet writing apps are one of those things that...</p>
+
+  <p>
+    <span class="label1">Est. reading time: 7 minutes</span>
+  </p>
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/automating-drafts-article-video-from-matt-birchler/10809">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/automating-drafts-article-video-from-matt-birchler/10809</link>
+          <pubDate>Mon, 12 Jul 2021 12:12:43 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10809</guid>
+          <source url="https://forums.getdrafts.com/t/automating-drafts-article-video-from-matt-birchler/10809.rss">Automating Drafts article+video from Matt Birchler</source>
+        </item>
+        <item>
+          <title>Drafts 27 Released - Widget Themes, Google Tasks &amp; Microsoft To Do Support</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>
+<a name="drafts-270-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-270-has-been-released-1"></a>Drafts 27.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<h3>
+<a name="custom-theme-support-for-widgets-new-action-icons-2" class="anchor" href="https://forums.getdrafts.com#custom-theme-support-for-widgets-new-action-icons-2"></a>Custom Theme Support for Widgets + New Action Icons</h3>
+<p>It is now possible to select custom light and dark themes for Home Screen (iOS) and Notification Center (macOS) widgets from the built-in and <a href="https://docs.getdrafts.com/docs/extending/themes">custom themes</a> you have installed in Drafts. To make changes, tap and hold on a widget, select “Edit Widget”, and make changes in the widget configuration.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/1/1b72a318724a9c8b8050f4438bed447f74811eb9.png" alt="r27" data-base62-sha1="3UOv24lffA1NNjQjd1sVBxiijy1" width="480" height="297"></p>
+<p>We have also added dozens of new icons for actions/workspaces in categories like Health, Animals, Education, Email, and more.</p>
+<p>If you create custom themes, you may wish to add the following new keys in <code>colors.interface</code>: <code>widgetBackground</code>, <code>widgetBackgroundAlternate</code>, <code>widgetForeground</code>, <code>widgetForegroundAlternate</code>. If not present, these values will fall back to existing related keys: <code>background</code>, <code>backgroundCollection</code>, <code>foreground</code>, so existing themes should work out of the box without updates.</p>
+<h3>
+<a name="google-tasks-and-microsoft-to-do-integration-3" class="anchor" href="https://forums.getdrafts.com#google-tasks-and-microsoft-to-do-integration-3"></a>Google Tasks and Microsoft To Do Integration</h3>
+<p>Extensive integration with two of the most popular task managers:  Google Tasks and Microsoft To Do. This version adds new action steps which can create individual tasks, or add each line of draft as a task, to lists in either Google Tasks or Microsoft To Do.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/c/c80d800541553b14bdda6bf4b334796d9533995d.png" alt="r27-2" data-base62-sha1="sxKpUk4XIWWlNs0vQjKZzkABsS1" width="480" height="297"></p>
+<p>Both services are available via scripting, with powerful script objects with convenience methods for creating and updated tasks and lists, while also exposing the full APIs to advanced users.</p>
+<p>For sample actions and details:</p>
+<ul>
+<li><a href="https://forums.getdrafts.com/t/using-drafts-with-google-task/10575"><strong>Using Drafts with Google Tasks</strong></a></li>
+<li><a href="https://forums.getdrafts.com/t/using-drafts-with-microsoft-to-do/10574"><strong>Using Drafts with Microsoft To Do</strong></a></li>
+</ul>
+<h3>
+<a name="arrange-mode-improvements-4" class="anchor" href="https://forums.getdrafts.com#arrange-mode-improvements-4"></a>Arrange Mode Improvements</h3>
+<p><a href="https://docs.getdrafts.com/docs/editor/arrangemode">Arrange mode</a> has better external keyboard support, especially on iOS, including:<br>
+- <code>Esc</code> and <code>⌘-return</code> to cancel or accept changes<br>
+- Arrow keys navigate up-down in the list<br>
+- <code>⌘-up/down</code> move the selected line up and down in the list.</p>
+<h4>
+<a name="other-updates-and-fixes-5" class="anchor" href="https://forums.getdrafts.com#other-updates-and-fixes-5"></a>Other Updates and Fixes</h4>
+<ul>
+<li>
+<strong>Change (iOS):</strong> iOS 12 no longer supported.</li>
+<li>
+<strong>Fix (iOS):</strong> URL scheme could be called twice on cold start of app.</li>
+<li>
+<strong>Fix:</strong> Better support for import of exported files from Drafts 3 or earlier</li>
+<li>Script changes:
+<ul>
+<li>
+<code>Event</code> object properties:
+<ul>
+<li><code>identifier</code></li>
+<li>
+<code>attendees</code> array to access (readonly) attendee list.</li>
+<li>
+<code>availability</code> string with values <code>busy</code>, <code>free</code>, <code>tentative</code>, <code>unavailable</code>, <code>notSupported</code>
+</li>
+</ul>
+</li>
+<li>
+<code>Reminder</code> object properties:
+<ul>
+<li><code>identifier</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>Fix:</strong> Drafts set in the editor via <code>editor.load</code> should get added to recent drafts list.</li>
+<li>
+<strong>Fix (iOS):</strong> Messages app background in dark mode had issues.</li>
+<li>
+<strong>Fix (macOS):</strong> <code>loadActionGroup</code> and <code>loadActionBar</code> URLs were not supported on Mac.</li>
+<li>
+<strong>Fix (macOS):</strong> Possible fix case where “Undo” would stop working in the editor until the app was restarted.</li>
+<li>Refactor assets to save on binary size.</li>
+</ul>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-27-released-widget-themes-google-tasks-microsoft-to-do-support/10584">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-27-released-widget-themes-google-tasks-microsoft-to-do-support/10584</link>
+          <pubDate>Wed, 26 May 2021 19:37:03 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10584</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-27-released-widget-themes-google-tasks-microsoft-to-do-support/10584.rss">Drafts 27 Released - Widget Themes, Google Tasks &amp; Microsoft To Do Support</source>
+        </item>
+        <item>
+          <title>Interact Scratchpad (Mac) now a free download</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>A few of you might be interested to know I’ve updated and released my contact creation utility <a href="https://docs.getdrafts.com/docs/misc/interact-scratchpad">Interact Scratchpad</a> for Mac.</p>
+<p>It is now a free utility that lets you take a block of text and have contact information, like name, address, email, phone numbers, etc, automatically identified and converted into a contact record - without the pain of copying and pasting each field into individual fields in the Contacts app.</p>
+<p>Also works great with Drafts, either via the <a href="https://actions.getdrafts.com/a/1CW">Send to Interact action</a>, or the “Services” menu.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="https://docs.getdrafts.com/docs/misc/interact-scratchpad" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/misc/interact-scratchpad" target="_blank" rel="noopener">Interact Scratchpad</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>I used to sell this utility in the App Store, but I’m just going to maintain it for now as a free app for those who find it useful - partially because I continue to use it myself. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+            <p><small>9 posts - 7 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/interact-scratchpad-mac-now-a-free-download/10401">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/interact-scratchpad-mac-now-a-free-download/10401</link>
+          <pubDate>Mon, 03 May 2021 17:56:45 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10401</guid>
+          <source url="https://forums.getdrafts.com/t/interact-scratchpad-mac-now-a-free-download/10401.rss">Interact Scratchpad (Mac) now a free download</source>
+        </item>
+        <item>
+          <title>ANN: Drafts Web Capture! Add to Drafts from any browser</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>We are super excited to launch <a href="https://docs.getdrafts.com/docs/extensions/web-capture">Drafts Web Capture</a>, a new way to capture text to your Drafts library, from any modern web browser, on any platform!</p>
+<h2>
+<a name="what-is-drafts-web-capture-1" class="anchor" href="https://forums.getdrafts.com#what-is-drafts-web-capture-1"></a>What is Drafts Web Capture?</h2>
+<p>Drafts Web Capture is a web page that integrates directly with your Drafts iCloud storage, allowing the creation of drafts from any web browser on any platform. Key use cases for Drafts Web Capture:</p>
+<ul>
+<li>
+<strong>You are someplace you do not have access to the Drafts app directly.</strong> On a Windows PC at work? Have an Android tablet? Now you can capture that idea directly to Drafts without pulling out your iPhone.</li>
+<li>
+<strong>You want to use Drafts as a bookmark library, read-it-later service, or general research tool to keep up with links and text quotes from web pages.</strong> Combined with a bookmarklet (examples below), Draft Web Capture makes it smooth and easy to enable such workflows.</li>
+</ul>
+<p>Drafts Web Capture should work in most modern browsers (Safari, Chrome, Firefox) on any platform (Windows, Linux, Android - as well as macOS, iOS).</p>
+<h2>
+<a name="intro-screencast-2" class="anchor" href="https://forums.getdrafts.com#intro-screencast-2"></a>Intro Screencast</h2>
+<p><a href="https://www.youtube.com/embed/eoM8MhqApCc?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/eoM8MhqApCc</a></p>
+
+<h2>
+<a name="ready-to-get-started-3" class="anchor" href="https://forums.getdrafts.com#ready-to-get-started-3"></a>Ready to Get Started?</h2>
+<p>Ready to start using Drafts Web Capture:</p>
+<ul>
+<li>Head to <a href="https://capture.getdrafts.com">https://capture.getdrafts.com</a>
+</li>
+<li>Install example Bookmarklets, and get more details <a href="https://docs.getdrafts.com/docs/extensions/web-capture">at the User Guide</a>.</li>
+</ul>
+            <p><small>26 posts - 13 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/ann-drafts-web-capture-add-to-drafts-from-any-browser/10350">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/ann-drafts-web-capture-add-to-drafts-from-any-browser/10350</link>
+          <pubDate>Wed, 28 Apr 2021 13:24:25 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10350</guid>
+          <source url="https://forums.getdrafts.com/t/ann-drafts-web-capture-add-to-drafts-from-any-browser/10350.rss">ANN: Drafts Web Capture! Add to Drafts from any browser</source>
+        </item>
+        <item>
+          <title>Screencast: Building a Journal System in Drafts (feat. David Sparks)</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>Let David Sparks walk you through building a journal system in Drafts! Learn about using templates, workspaces, and more…</p>
+<p><a href="https://www.youtube.com/embed/Vgx2ShN3NMg?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/Vgx2ShN3NMg</a></p>
+
+            <p><small>7 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/screencast-building-a-journal-system-in-drafts-feat-david-sparks/10336">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/screencast-building-a-journal-system-in-drafts-feat-david-sparks/10336</link>
+          <pubDate>Mon, 26 Apr 2021 13:28:37 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10336</guid>
+          <source url="https://forums.getdrafts.com/t/screencast-building-a-journal-system-in-drafts-feat-david-sparks/10336.rss">Screencast: Building a Journal System in Drafts (feat. David Sparks)</source>
+        </item>
+        <item>
+          <title>Screencast: Creating Lists in Drafts (feat. David Sparks)</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>Learn how to use Drafts to capture and organize running lists of books, movies, or whatever.</p>
+<p><a href="https://www.youtube.com/embed/msoZe7AQgZY?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/msoZe7AQgZY</a></p>
+
+<p>Mentioned:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1Ga">Add to List action</a></li>
+</ul>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/screencast-creating-lists-in-drafts-feat-david-sparks/10227">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/screencast-creating-lists-in-drafts-feat-david-sparks/10227</link>
+          <pubDate>Tue, 13 Apr 2021 15:39:05 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10227</guid>
+          <source url="https://forums.getdrafts.com/t/screencast-creating-lists-in-drafts-feat-david-sparks/10227.rss">Screencast: Creating Lists in Drafts (feat. David Sparks)</source>
+        </item>
+        <item>
+          <title>Theme Builder Tool</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>We’ve released a new online <a href="https://tools.getdrafts.com/themes/theme-builder">Theme Builder</a> tool for manipulating themes. It’s best suited to making minor tweaks to existing themes. The video below is a quick walkthrough of how to load a theme from the Directory and make tweaks to it.</p>
+<p><a href="https://www.youtube.com/embed/WnuyF7Rb9IQ?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/WnuyF7Rb9IQ</a></p>
+
+<p>The theme builder is not a complete solution, by any means, but it’s a lot easier than directly editing the raw JSON format in a text editor.</p>
+<p>Reading over the <a href="https://docs.getdrafts.com/docs/extending/development/theme-format">documentation on Creating Themes</a> is still a good idea to get a feel for what the different elements in the theme do.</p>
+            <p><small>15 posts - 5 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/theme-builder-tool/10193">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/theme-builder-tool/10193</link>
+          <pubDate>Fri, 09 Apr 2021 20:53:52 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10193</guid>
+          <source url="https://forums.getdrafts.com/t/theme-builder-tool/10193.rss">Theme Builder Tool</source>
+        </item>
+        <item>
+          <title>Screencast: Automating Email with Drafts (feat. David Sparks)</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>We were happy to work with <a href="https://www.macsparky.com">David Sparks</a> on several new videos introducing a number of basic Drafts concepts and workflows. The first in the series (below) covers using Drafts to capture and send emails. Look for more in the coming weeks discussing journaling, and building lists!</p>
+<p><a href="https://www.youtube.com/embed/uWwKguStmkw?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/uWwKguStmkw</a></p>
+
+            <p><small>5 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/screencast-automating-email-with-drafts-feat-david-sparks/10181">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/screencast-automating-email-with-drafts-feat-david-sparks/10181</link>
+          <pubDate>Wed, 07 Apr 2021 20:42:13 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10181</guid>
+          <source url="https://forums.getdrafts.com/t/screencast-automating-email-with-drafts-feat-david-sparks/10181.rss">Screencast: Automating Email with Drafts (feat. David Sparks)</source>
+        </item>
+        <item>
+          <title>Sunsetting iOS 12 support</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>I wanted to drop a note of warning that Drafts 26 is planned to be the last major feature release to support iOS 12.</p>
+<p>There will likely be a couple more bug fix releases in the 26.x line that will still support iOS 12, but then it will be removed from new releases.</p>
+<p>The last supported version will likely remain compatible and functional for sometime after that, but iOS 12 will stop receiving updates.</p>
+<p>We try to remain compatible for a reasonably long time, but at a certain point it holds the app back from being able to take advantage of newer APIs and Frameworks - and the vast majority of Drafts users are on newer OS versions. &lt;1% of active users remain on iOS 12.</p>
+            <p><small>2 posts - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/sunsetting-ios-12-support/10079">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/sunsetting-ios-12-support/10079</link>
+          <pubDate>Tue, 23 Mar 2021 21:37:47 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10079</guid>
+          <source url="https://forums.getdrafts.com/t/sunsetting-ios-12-support/10079.rss">Sunsetting iOS 12 support</source>
+        </item>
+        <item>
+          <title>Drafts 26 Released - Custom Syntax &amp; Themes</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>Drafts 26.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-ios">iOS Changelog</a></li>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-mac">Mac Changelog</a></li>
+</ul>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/4/4386bc3c3bebb29007f173d7b62d14fcc8559c56.png" alt="r26" data-base62-sha1="9DmETkKtynLUDYg69HtS2fSFjue" width="480" height="297"></p>
+<p>This release brings support for custom syntaxes and themes, which allow the Drafts editor to be extended to support additional syntax highlighting options, and the appearance of the app to be modified. Details below.</p>
+<p>After you read all those release notes (of course you will), you can also dive into themes. We made a quick walkthrough of the install and selection process, and you can get examples from our great beta testers in the Directory:</p>
+<ul>
+<li><a href="https://forums.getdrafts.com/t/tip-installing-and-using-themes/10073/2">TIP: Installing and Using Themes</a></li>
+<li><a href="https://actions.getdrafts.com/theme_definitions">Themes in the Drafts Directory</a></li>
+</ul>
+            <p><small>6 posts - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-26-released-custom-syntax-themes/10072">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-26-released-custom-syntax-themes/10072</link>
+          <pubDate>Tue, 23 Mar 2021 12:40:25 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-10072</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-26-released-custom-syntax-themes/10072.rss">Drafts 26 Released - Custom Syntax &amp; Themes</source>
+        </item>
+        <item>
+          <title>Drafts 25.1 Released</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>Drafts 25.1 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-ios">iOS Changelog</a></li>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-mac">Mac Changelog</a></li>
+</ul>
+            <p><small>4 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-25-1-released/9542">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-25-1-released/9542</link>
+          <pubDate>Wed, 06 Jan 2021 16:32:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-9542</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-25-1-released/9542.rss">Drafts 25.1 Released</source>
+        </item>
+        <item>
+          <title>Drafts 2020: Year in Review</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <p>Drafts entered 2020 at version 16, full action support for the Mac had just shipped. Drafts will be leaving 2020 at version 25. Time to look back at some of the highlights of what has been going on with Drafts this year.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/1/1ffb3a021d2d61dc3787f3e440e1d34a68b6bafb.jpeg" alt="2020" data-base62-sha1="4yV3ecjqMObqX0N4KhwPepL5DrJ" width="320" height="198"></p>
+<h2>Highlights of 2020 Releases</h2>
+<ul>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-17-ios-released-editor-improvements-medium-support-and-more/6365">v17</a>: Editor improvements, like insertion point highlighting, and max. characters per line. New themes, Medium posting support.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-18-0-ios-released-contextual-menus-taskpaper-improvements/6799">v18</a>: TaskPaper and arrange mode improvements, tons of additional contextual menus on iOS. More app and action icons.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046">v19</a>: Quick Search. Support for running AppleScript and Shell Scripts in actions.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-20-released-cross-linking-drafts-typewriter-scrolling/7455/26">v20</a>: Wiki-style cross-linking support, Typewriter scrolling.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706">v21</a>: Undo support for drafts list actions. Advanced HTML Previews</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-22-released-widgets-ios-14-support-and-more/8424">v22</a>: Widgets, iOS 14 support, including significant design updates. Support for workspaces with date ranges.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774">v23</a>: Advanced search query support, including boolean and regular expression searches.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-24-released/9048">v24</a>: Big Sur and Apple Silicon support. Local assets support in HTML Previews. FlickType keyboard integration on Apple Watch. Keyword searching of action icons.</li>
+<li>
+<a href="https://forums.getdrafts.com/t/drafts-25-released/9366">v25</a>: Performance and memory use improvements. Display keyboard shortcuts in action list.</li>
+</ul>
+<h2>Looking Ahead to 2021</h2>
+<p>Things keep moving forward with Drafts. 2021 will bring a lot of new things to the app, as we continue to move forward with the implementation of custom syntax highlighting definitions and themes. Expect those features, new service integrations, as well as a new focus on building resources to help you get the most out of Drafts! Stay tuned.</p>
+<h2>Drafts Pro Changes</h2>
+<p>The price of Drafts Pro will be changing on Jan. 1, 2021. We have <a href="https://forums.getdrafts.com/t/drafts-pro-price-change-coming-jan-1-2021/9271">posted more details about this change</a>, but be aware that if you have an existing subscription, or start one before Jan. 1, 2021, the price change will not affect you.</p>
+<h2>Thank You!</h2>
+<p>A big thanks to all the people who use Drafts. I’m always amazed by the consistently positive, productive people who engage with Drafts, use it in their workflows, and share what they’ve done with the community. It’s a big part of what makes Drafts great, and I genuinely appreciate the support!</p>
+            <p><small>7 posts - 7 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-2020-year-in-review/9460">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-2020-year-in-review/9460</link>
+          <pubDate>Tue, 29 Dec 2020 14:26:49 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-9460</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-2020-year-in-review/9460.rss">Drafts 2020: Year in Review</source>
+        </item>
+        <item>
+          <title>Drafts 25 Released</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>Drafts 25.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-ios">iOS Changelog</a></li>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-mac">Mac Changelog</a></li>
+</ul>
+<p>Lots of performance improvements, particularly on Mac, support for using Tab / Shift-Tab as keyboard shortcuts - and convenience feature to optionally display assigned keyboard shortcuts in the action list.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/7/70c61757c938e08223bdf6ba79f1438c21143c1c.png" alt="r25" data-base62-sha1="g5DSSisEY4esyZbxKzTWUYs3Lly" width="480" height="297"></p>
+            <p><small>4 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-25-released/9366">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-25-released/9366</link>
+          <pubDate>Fri, 18 Dec 2020 20:48:18 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-9366</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-25-released/9366.rss">Drafts 25 Released</source>
+        </item>
+        <item>
+          <title>Drafts 24.2 Released - Icon Search</title>
+          <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+          <category>News &amp; Updates</category>
+          <description><![CDATA[
+            <h2>Drafts 24.2 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-ios">iOS Changelog</a></li>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-mac">Mac Changelog</a></li>
+</ul>
+<h2>Icon Keyword Search</h2>
+<p>Not a huge additional, but a nice convenience…</p>
+<p><a href="https://www.youtube.com/embed/8s3XMlmKN1U?autoplay=1&amp;feature=oembed&amp;wmode=opaque">https://www.youtube.com/embed/8s3XMlmKN1U</a></p>
+
+            <p><small>9 posts - 6 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/drafts-24-2-released-icon-search/9277">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/drafts-24-2-released-icon-search/9277</link>
+          <pubDate>Tue, 08 Dec 2020 16:10:53 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-9277</guid>
+          <source url="https://forums.getdrafts.com/t/drafts-24-2-released-icon-search/9277.rss">Drafts 24.2 Released - Icon Search</source>
+        </item>
+  </channel>
+</rss>

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Export multiple drafts as individual text files</title>
+    <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536</link>
+    <description>Is there a straightforward way to export a selection of drafts as individual text or MD files to Files or Dropbox? I don&#39;t know how to split the JSON or CSV file back into individual files.
+
+I have about 450 entries that I want to export.
+
+I&#39;ve hunted around, because this seems to be something that should be self-evident. But apparently not.</description>
+    
+    <lastBuildDate>Sat, 19 Feb 2022 16:49:27 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[belgarion]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for confirming. I’m thinking of a hack using Hazel to monitor my Obsidian data folder and grabbing the [[created]] date from the first line of an exported Drafts to set the file meta data. A bit of a stretch, but I guess that might work out. Thanks again.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/17</link>
+        <pubDate>Sat, 19 Feb 2022 16:49:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-17</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The <code>Export</code> step cannot set the creation date or other metadata. It is a system function, like a Save as dialog on Mac, Drafts is handing off the content to the system, and the file selection/write process is all handled out of the app’s process because of sandbox security.</p>
+<p>If you want to update that information, you have to use the <code>File</code> step or a scripted action, and it has to write to the “Drafts” folder in iCloud Drive, or a bookmarked folder, so that Drafts has security permissions to access that file.</p>
+<p>You could, in theory, write a scripted action that provided a custom file-picker, but it would be limited in scope to only one of those destinations.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/16</link>
+        <pubDate>Sat, 19 Feb 2022 13:55:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-16</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[belgarion]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="agiletortoise" data-post="14" data-topic="4536">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>The <a href="https://docs.getdrafts.com/docs/actions/steps/services#file" rel="noopener nofollow ugc">File action step </a> can be configured to write as “.md” files, maintain creation/modification dates, and assign drafts tags as Finder tags.</p>
+</blockquote>
+</aside>
+<p>I found out, to my dismay, that my “Save as .md” export action item, which is customized from <a href="https://actions.getdrafts.com/a/1EX" rel="noopener nofollow ugc">Save to file as…</a> , does not modify the file meta data, so I lost the creation dates when I export my drafts into iCloud Drive. I exported about 10 notes from Drafts today and all the “Date Created” were set to today <img src="https://forums.getdrafts.com/images/emoji/apple/man_facepalming.png?v=12" title=":man_facepalming:" class="emoji" alt=":man_facepalming:" loading="lazy" width="20" height="20"></p>
+<p>I searched the forum and File action has a parameter to “maintain” Create Date. I need Export so that I can choose the folder to save the file. If I use File, I don’t think it will pop up a dialog box to choose the location.<br>
+Update: I can use File with Bookmark to save to specific location but I’d REALLY like to be able to choose my folder.</p>
+<p>Appreciate any guidance.</p>
+<p>TL;DR - is there a way to use Export function and preserve Create Date?</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/15</link>
+        <pubDate>Sat, 19 Feb 2022 07:05:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-15</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The <a href="https://docs.getdrafts.com/docs/actions/steps/services#file">File action step</a> can be configured to write as “.md” files, maintain creation/modification dates, and assign drafts tags as Finder tags.</p>
+<p>I would suggest you just configure an action using the File step to write the files the way you want them to the destination you want them (within iCloud Drive). You can then bulk export using “Run Action” on selected drafts in the draft list, or create another batch processing action that queues the action to run on all drafts in a workspace, or that match a query if you need a more automated export option.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/14</link>
+        <pubDate>Fri, 22 Jan 2021 16:38:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-14</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[mkqs]]></dc:creator>
+        <description><![CDATA[
+            <p>Intermediate drafts user here - I’m considering exporting my drafts as a JSON file (which seems to preserve much of the metadata) and parsing that file with some sort of script. Has anyone tried this option (or is it not possible because of something I’m missing)?</p>
+<p>I want my drafts to end up as individual .md files (preferably with metadata) that I can archive somewhere like Devonthink.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/13</link>
+        <pubDate>Fri, 22 Jan 2021 13:02:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-13</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[danblondell]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve used and loved Drafts for years, but it’s always been in a weird tension with my ever growing folder of plaintext notes. I was considering going all in on Drafts until I saw that I couldn’t easily leave. Portability &gt; extensibility for me, personally. Still one of the best apps going though.</p>
+<p>Funny solution: I imported everything into Bear and then immediately exported everything from Bear. Problem solved in ~6 min (not including a couple hours of googling).</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/12</link>
+        <pubDate>Wed, 13 May 2020 01:47:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-12</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts has metadata that isn’t present for text files such as creation location, so a blanket export from the Drafts database to a file isn’t necessarily a round peg in a round hole sort of action.</p>
+<p>What Drafts is really good at is being extensible to ways of working and personal requirements. It also has a strong community of helpful people, including the developer.  That combination puts it head and shoulders above many other apps in terms of capabilities.</p>
+<p>I’m sure that  if you started a thread on what you want to do exactly in terms of your export, and how far you can get/have got on your own, others would be happy to help. In fact there’s  a good chance that many others could find it useful too.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/11</link>
+        <pubDate>Tue, 12 May 2020 21:40:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-11</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[danblondell]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks – I was able to do a sloppier version of this, so this will be helpful for cleaning up. But I was hoping to preserve the actual metadata. I emailed support and it seems not possible within Drafts and will require learning whole new skillsets (AppleScript or some other scripting), which I guess is nice from a personal growth perspective but not from a UX perspective.</p>
+<p>I was impressed recently by both SimpleNotes (which preserved all metadata since 2011 and exported to text file in one button on my phone) and Ulysses (which lets you drag notes out into finder and also preserves metadata). These are both similarish apps, so I was sad to see the feature missing from Drafts.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/10</link>
+        <pubDate>Tue, 12 May 2020 21:09:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-10</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Try updating in the <code>processTemplate</code> step to include the created date as a datestamp.</p>
+<pre><code class="lang-auto">myDraft.processTemplate("[[created|%Y-%m-%d]]_[[safe_title]].txt")
+</code></pre>
+<p>Ref. date template tags.<br>
+</p><aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/5c0cc117a6b9d3a4f004daf59096c7a1a2c40e73.png" class="site-icon" width="32" height="32">
+      <a href="https://docs.getdrafts.com/docs/actions/templates#dates-and-locations" target="_blank" rel="nofollow noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/4/47222154763f675538c8d1ca8e8a07e871527c1f_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/4/47222154763f675538c8d1ca8e8a07e871527c1f_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/4/47222154763f675538c8d1ca8e8a07e871527c1f_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/4/47222154763f675538c8d1ca8e8a07e871527c1f.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/4/47222154763f675538c8d1ca8e8a07e871527c1f_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/actions/templates#dates-and-locations" target="_blank" rel="nofollow noopener">Templates</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/9</link>
+        <pubDate>Tue, 12 May 2020 20:21:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-9</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[danblondell]]></dc:creator>
+        <description><![CDATA[
+            <p>Does anyone know how to add creation date to an export like this? I now have a folder of text documents from the last several years all “created today.” Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/8</link>
+        <pubDate>Tue, 12 May 2020 17:01:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-8</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[eruizdechavez]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks <a class="mention" href="https://forums.getdrafts.com/u/rosemaryorchard">@RosemaryOrchard</a>! I only had to do a couple of small tweaks to your example to make it work for me.</p>
+<p>Here is my result:</p>
+<pre><code>let fmCloud = FileManager.createCloud();
+let path = 'Export';
+
+let draftsGroup = Draft.query('', 'all');
+draftsGroup.forEach(function(myDraft) {
+	const title = myDraft.processTemplate('[[safe_title]]');
+	fmCloud.writeString(`${path}/${title}.md`, myDraft.content);
+});</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/7</link>
+        <pubDate>Fri, 06 Mar 2020 14:01:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-7</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[FabNT]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello and happy new year !</p>
+<p>Thank you very much <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> for your code. It works well. Thank you also for your explanations they will help me understand what was wrong in my code.</p>
+<p>Drafts is a great app and has a great community !</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/6</link>
+        <pubDate>Thu, 09 Jan 2020 09:42:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-6</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The best thing to do is to see what it says in <a href="https://docs.getdrafts.com/docs/actions/action-log.html" rel="nofollow noopener">the log</a>.</p>
+<p>But from the script you posted and without seeing the log details:</p>
+<ol>
+<li>There were a lot of smart/curly quotes which should have been straight/dumb quotes.</li>
+<li>You had a problem in the write function where there should have been a “+” rather than a “,”.</li>
+<li>You need to ensure you have at least one draft tagged “my Tag”.</li>
+<li>You need to ensure that there is a folder called “myPath” in your Dropbox root.</li>
+<li>The script won’t work if your Dropbox credentials are outdated.</li>
+</ol>
+<p>The amended script below worked for me when all of the prerequisites were in place.</p>
+<pre><code class="lang-auto">let db = Dropbox.create();
+let path = "/myPath/";
+let draftsGroup = Draft.query("", "all", ["myTag"]);
+draftsGroup.forEach(function(myDraft)
+		{
+			db.write(path + myDraft.processTemplate("[[safe_title]].txt"), myDraft.content, "add", false);
+			});
+</code></pre>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/5</link>
+        <pubDate>Thu, 02 Jan 2020 07:23:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-5</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[FabNT]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello</p>
+<p>Sorry to revive this topic but I tried to do the same thing (export multiple drafts) in Dropbox.<br>
+I cannot see why it doesn’t work. I’m new to scripting and I would really appreciate  some help if it’s possible.<br>
+Here is my code:</p>
+<p><code>let db = Dropbox.create();<br>
+let path = “/myPath/”;<br>
+let draftsGroup = Draft.query("", “all”, [“myTag”]);<br>
+draftsGroup.forEach(function(myDraft) {<br>
+db.write(path, myDraft.processTemplate("[[safe_title]].txt"), myDraft.content, “add”, false);<br>
+});</code></p>
+<p>Thé code runs but it does nothing in my dropbox !<br>
+To try to understand, I read this <a href="https://forums.getdrafts.com/t/safe-title-attribute-of-draft-for-scripting/2078/2">thread</a> and ran this <a href="https://actions.getdrafts.com/a/1NF" rel="nofollow noopener">code</a> which worked fine.</p>
+<p>Thanks for your help</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/4</link>
+        <pubDate>Wed, 01 Jan 2020 22:49:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-4</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[amc]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for the generous help, Rosemary. And yes, I’d already concluded that I could do what I wanted through an action on a multiple selection, and did so. But i appreciate the script suggestion.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/3</link>
+        <pubDate>Mon, 29 Apr 2019 00:31:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-3</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[RosemaryOrchard]]></dc:creator>
+        <description><![CDATA[
+            <p>I would suggest a script for this - to be executed as a Drafts action. Something along the lines of:</p>
+<pre><code class="lang-auto">let fmCloud = FileManager.createCloud();
+let yourFolder = 'YOUR_FOLDER';
+fmCloud.createDirectory(yourFolder, "/");
+
+let draftsGroup = Draft.query(YOUR_QUERY_HERE);
+draftsGroup.forEach(function(myDraft) {
+    fmCloud.writeString(myDraft.processTemplate('safe_title') + '.md', myDraft.content);
+});
+</code></pre>
+<p>You’ll need to define the query - <a href="https://reference.getdrafts.com/objects/Draft.html" rel="nofollow noopener">https://reference.getdrafts.com/objects/Draft.html</a>, and specify your folder. This saves to iCloud.</p>
+<p>I’ve not had time to test my code, but it should hopefully point you in the right direction.</p>
+<hr>
+<p>Alternatively, press and hold on the select button on iOS, and then execute one action on all of the selected drafts (every draft in your current workspace view will be selected). In hindsight that’s probably easier than the code I thought up <img src="https://forums.getdrafts.com/images/emoji/apple/laughing.png?v=9" title=":laughing:" class="emoji" alt=":laughing:"></p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/2</link>
+        <pubDate>Fri, 26 Apr 2019 06:25:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-2</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+      <item>
+        <title>Export multiple drafts as individual text files</title>
+        <dc:creator><![CDATA[amc]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there a straightforward way to export a selection of drafts as individual text or MD files to Files or Dropbox? I don’t know how to split the JSON or CSV file back into individual files.</p>
+<p>I have about 450 entries that I want to export.</p>
+<p>I’ve hunted around, because this seems to be something that should be self-evident. But apparently not.</p>
+          <p><a href="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536/1</link>
+        <pubDate>Fri, 26 Apr 2019 01:59:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4536-1</guid>
+        <source url="https://forums.getdrafts.com/t/export-multiple-drafts-as-individual-text-files/4536.rss">Export multiple drafts as individual text files</source>
+      </item>
+  </channel>
+</rss>

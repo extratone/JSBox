@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Problems with actions after upgrading from Drafts4</title>
+    <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834</link>
+    <description>My main use for Drafts is as the creation stage in my GTD workflow. I use on an iPhone, iPad and Mac to create Inbox items in Drafts that then get sent to Evernote for onward processing. This workflow has worked perfectly through each upgrade of Drafts - until now.
+
+I have two problems after upgrading:
+
+1. I have several near-identical actions, each of which creates an Evernote note with a defined title and body. The only difference is each has a different keyword at the start of the title: e.g. `Personal - [[title]]`. Some of these actions work OK, others just provoke a `!action` redbox.
+2. Drafts for iMac (which is newly installed), found my actions but says `Action not supported`. Just to experiment, I created a new Action with the same action. drafts for Mac allowed me to create the Evernote action, but still says it&#39;s not supported.</description>
+    
+    <lastBuildDate>Fri, 03 Jul 2020 14:12:47 +0000</lastBuildDate>
+    <category>Issues</category>
+    <atom:link href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[Guff666]]></dc:creator>
+        <description><![CDATA[
+            <p>That seems to have done the trick.</p>
+<p>However, this is a change in behaviour between 4 and 5, so it might be worth mentioning in any migration documentation, FAQs etc.</p>
+<p>Thanks for your help.</p>
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/7</link>
+        <pubDate>Fri, 03 Jul 2020 14:12:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-7</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[Guff666]]></dc:creator>
+        <description><![CDATA[
+            <p>Hmm. Those actions work fine on Drafts 4 (I’ve still got Drafts 4 installed on the iPhone), so something has changed on your side if you are throwing an error when there is no body text.</p>
+<p>The only difference between the failing and passing actions is that the latter inserts a keyword at the start of the title. However, other actions that also add in keywords fail as well.</p>
+<p>EDIT: On closer inspection, I see that the failing action has [[body]] in the Template, whereas the working one has [[draft]]. I’ll go through and amend the failing ones.</p>
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/6</link>
+        <pubDate>Fri, 03 Jul 2020 13:57:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-6</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>That error (“No note content to upload”) is because you have a title (first line) and no additional text in the draft. Evernote will not accept a blank note, it generates an error. If you use it on a more typical note, with text in the <code>[[body]]</code>, it should work fine.</p>
+<p>There are ways to make cross-platform Evernote actions - some details in the <a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21">Evernote integration guide</a>. It’s unfortunate that Evernote’s own cross-platform support is not ideal.</p>
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/5</link>
+        <pubDate>Fri, 03 Jul 2020 12:45:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-5</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[Guff666]]></dc:creator>
+        <description><![CDATA[
+            <p>Here are the screen shots . I created a new draft and then tried my default <code>action</code> action: which failed. I then tried <code>action - Genealogy</code> which worked. This was all on the iPad.</p>
+<p>The only difference I could see was that the failing action had a Notebook specified. However, removing that made no difference.</p>
+<p>The images can be seen at <a href="https://www.dropbox.com/sh/51dxa10zzj6qlxu/AACrpwl6-b5TJaGTQehrDvV2a?dl=0" rel="nofollow noopener">https://www.dropbox.com/sh/51dxa10zzj6qlxu/AACrpwl6-b5TJaGTQehrDvV2a?dl=0</a> as I don’t have the privilege to upload more than one mage.</p>
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/4</link>
+        <pubDate>Fri, 03 Jul 2020 12:39:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-4</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[Guff666]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, Stephen<br>
+I’ll re-create and error and post here.</p>
+<p>Re: <span class="hashtag">#2</span>, I’m not that fussed if it’s a faff to work around. I’ll just delete Drafts for Mac: I’ve only ever used it on iOS in the past. Unless the functionality is the same on all platforms, the additional app of no use to me: there’s no way my old brain can hold differences in usage between platforms <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/3</link>
+        <pubDate>Fri, 03 Jul 2020 12:28:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-3</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p><strong>Problem <span class="hashtag">#1</span></strong> - Can you post details of what is in the action log for one of these failures along with the content of the draft, and a link to the action you are using?</p>
+<p><strong>Problem <span class="hashtag">#2</span></strong> - that’s going to be to do with the compatibility. Not everything works on both platforms. Some action steps only work on some platforms; though for Evernote, I think there should be some workarounds possible with x-callback-url and/or AppleScript.</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/5c0cc117a6b9d3a4f004daf59096c7a1a2c40e73.png" class="site-icon" width="32" height="32">
+      <a href="https://docs.getdrafts.com/docs/actions/platform-notes#action-step-compatibility" target="_blank" rel="nofollow noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    
+
+<h3><a href="https://docs.getdrafts.com/docs/actions/platform-notes#action-step-compatibility" target="_blank" rel="nofollow noopener">Cross-Platform Notes</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/2</link>
+        <pubDate>Fri, 03 Jul 2020 11:54:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-2</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+      <item>
+        <title>Problems with actions after upgrading from Drafts4</title>
+        <dc:creator><![CDATA[Guff666]]></dc:creator>
+        <description><![CDATA[
+            <p>My main use for Drafts is as the creation stage in my GTD workflow. I use on an iPhone, iPad and Mac to create Inbox items in Drafts that then get sent to Evernote for onward processing. This workflow has worked perfectly through each upgrade of Drafts - until now.</p>
+<p>I have two problems after upgrading:</p>
+<ol>
+<li>I have several near-identical actions, each of which creates an Evernote note with a defined title and body. The only difference is each has a different keyword at the start of the title: e.g. <code>Personal - [[title]]</code>. Some of these actions work OK, others just provoke a <code>!action</code> redbox.</li>
+<li>Drafts for iMac (which is newly installed), found my actions but says <code>Action not supported</code>. Just to experiment, I created a new Action with the same action. drafts for Mac allowed me to create the Evernote action, but still says it’s not supported.</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/1</link>
+        <pubDate>Fri, 03 Jul 2020 11:35:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7834-1</guid>
+        <source url="https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834.rss">Problems with actions after upgrading from Drafts4</source>
+      </item>
+  </channel>
+</rss>

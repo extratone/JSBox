@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>SOLVED: TADpoLe: tad-meta.json</title>
+    <link>https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422</link>
+    <description>@sylumer 
+
+I looked at the `TA_metaRead()`  and `TA_metaWrite()` functions of your library `tad.js` but I do not get the use case. The documentation is hard to understand for me 
+
+&gt; Merge data for the draft from the meta data file with into the meta data for the draft.
+
+Looking at some functions in the library did not help me to grasp it fully.
+Do you use `TA_fileMetaLoad()` to load an iCloud file content to a specific draft and store it with `TA_fileMetaSave()`.
+
+What are your specific use-cases for that? 
+
+Cheers
+  Andreas_Haeberle</description>
+    
+    <lastBuildDate>Thu, 17 Sep 2020 06:12:05 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>SOLVED: TADpoLe: tad-meta.json</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>true. I was in idea creation mode and did pick up the wrong track. I thought you wrote about storing drafts own meta data draft.meta object and was wondering why it would not appear in the json file.</p>
+<p>Reading the comments in tad.js the „with into“ puzzled me, hence I never red any such construction.</p>
+<p>The comment is:</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8422">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>Merge data for the draft from the meta data file with into the meta data for the draft.</p>
+</blockquote>
+</aside>
+<p>As I understand it now:</p>
+<p>Peristaltic storage of the draft.meta object in a file-database. The file defined in metaPath will be used. The data will be merged if there is already meta data in the file-database.<br>
+Retrieve it with the corresponding function…</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/5</link>
+        <pubDate>Thu, 17 Sep 2020 06:12:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8422-5</guid>
+        <source url="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422.rss">SOLVED: TADpoLe: tad-meta.json</source>
+      </item>
+      <item>
+        <title>SOLVED: TADpoLe: tad-meta.json</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="3" data-topic="8422">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>Now I get why you where wondering about my question because it is exactly the use case we where talking about.</p>
+</blockquote>
+</aside>
+<p>The reason I posted about it in the <a href="https://forums.getdrafts.com/t/yaml-json-converter-support/7419/18">other thread</a> was because you said “maybe we could define a meta object file with the same title or connect it via the drafts uuid.”</p>
+<p>As you hopefully see, while it isn’t storing data in one file per draft, it is storing the custom meta data externally to a draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/4</link>
+        <pubDate>Thu, 17 Sep 2020 05:53:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8422-4</guid>
+        <source url="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422.rss">SOLVED: TADpoLe: tad-meta.json</source>
+      </item>
+      <item>
+        <title>SOLVED: TADpoLe: tad-meta.json</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>Totally and completely. Thanks.<br>
+This is rather detailed for my taste.<br>
+But sure a complete reference if you do not have red the code.</p>
+<aside class="quote no-group" data-username="sylumer" data-post="2" data-topic="8422">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/sylumer/40/2731_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>store some front matter against a draft for when you publish it to a Jekyll driven web site. Rather than having the meta data clutter up the draft itself, you could create a prompt to store one or more meta data entrie</p>
+</blockquote>
+</aside>
+<p>Now I get why you where wondering about my question because it is exactly the use case we where talking about. I have to think about some of the byproduct by this way.</p>
+<p>I do have to check even more from your post that is outside the scope of this thread.</p>
+<p>thanks a lot.</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/3</link>
+        <pubDate>Thu, 17 Sep 2020 05:20:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8422-3</guid>
+        <source url="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422.rss">SOLVED: TADpoLe: tad-meta.json</source>
+      </item>
+      <item>
+        <title>SOLVED: TADpoLe: tad-meta.json</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8422">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>I looked at the <code>TA_metaRead()</code> and <code>TA_metaWrite()</code> functions of your library <code>tad.js</code> but I do not get the use case. The documentation is hard to understand for me</p>
+</blockquote>
+</aside>
+<p>First off, I would suggest referring back to the example you probably got the idea to look at this from: <a href="https://forums.getdrafts.com/t/yaml-json-converter-support/7419/19" class="inline-onebox">YAML &lt;&gt; JSON Converter/Support</a></p>
+<p>In a nutshell the <code>TA_metaRead()</code> function preps a draft to store additional meta data under the <code>meta</code> property, and if any properties have already been committed to the meta data file, it will load the properties in and set-up the <code>meta</code> sub-properties and values on the draft object.  If/when you wish to save any changes back to the file (for persistence), you call the <code>TA_metaSave()</code> function.</p>
+<p>Now one point to note is that the read function isn’t setting things up from scratch each time, but as the documentation indicates, it is merging data in.</p>
+<p>If you set up a property called <em>meta</em>, and added a sub-property called <em>foo</em>, and then read in settings that contained only a sub-property called <em>bar</em>, your updated draft object would have both <em>meta.foo</em> <strong>and</strong> <em>meta.bar</em>, not just the latter.  The original remains unaffected because it is merging properties into <em>meta</em> and not replacing <em>meta</em> from file.</p>
+<p>The <code>metaPath</code> property of the TADpoLe library object holds a path to a single JSON file that by default is used to store the meta data, it defaults to <code>/Library/Scripts/tad-meta.json</code>, but you can of course override this.</p>
+<p>Here’s an example file generated using these functions.</p>
+<pre><code class="lang-json">{
+  "D245C74F-ED96-4D21-99C6-1F7821EC31B1" : {
+    "foo" : "bar"
+  },
+  "542265A1-EBC1-40C2-91C1-D7F2EABB6965" : {
+    "filePath" : "\/xabc.txt"
+  }
+}
+</code></pre>
+<p>Note that the draft data is held under a key value that is the UUID of the draft it relates to, and the <code>meta</code> sub-properties are key value pairs within that.</p>
+<p>The first entry above pertains to what you might see from the example I posted on the other thread referenced earlier.  The second example is from using the actions in the ‘<em>Meta Based File Management</em>’ section of the ThoughtAsylum Action Group.</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8422">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>Do you use <code>TA_fileMetaLoad()</code> to load an iCloud file content to a specific draft and store it with <code>TA_fileMetaSave()</code> .</p>
+</blockquote>
+</aside>
+<p>Sort of; it is actually a sub-set of data from a JSON file that relates to the custom meta data of the draft.</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8422">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>What are your specific use-cases for that?</p>
+</blockquote>
+</aside>
+<p>Any time I would want to store any meta data about a draft that Drafts does not support natively. I don’t necessarily have specific cases to share as my cases do change.</p>
+<p>The example I put into the ThoughtAsylum Action Group, as noted above it around file paths.  The three actions allow you to specify a file path for a Draft and then load and export it from the file. Maybe you want to work on a file external to Drafts in Drafts. Set the path, load it in, make your changes, export it out. Make more changes, export it again. Make some changes in a text editor, then import them back into Drafts. After there is a file path associated with the draft it is just like having actions for refresh and save.</p>
+<p>As for other examples that might give people some ideas…</p>
+<p>Maybe you want to store some front matter against a draft for when you publish it to a Jekyll driven web site. Rather than having the meta data clutter up the draft itself, you could create a prompt to store one or more meta data entries, which when you run your publish action could then read in the properties and access them directly from the draft object to build your final output to push to the web site.</p>
+<p>Maybe you want to track how many times that you run a <em>particular</em> action against a draft, or when it was last run against a draft? You could store these as custom meta data against the draft but updating the values whenever that particular action runs.</p>
+<p>Maybe you want to have an import action that captures and stores some sort of source reference that you are not interested in seeing in the draft, but you want for citation or reference purposes. You could store that as custom meta data.</p>
+<p>Like I say, any sort of data I want to store that is in some way descriptive to a Draft, but not natively available, you could use this meta data approach.</p>
+<p>Does that explain things more clearly and give you some ideas?</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/2</link>
+        <pubDate>Wed, 16 Sep 2020 21:20:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8422-2</guid>
+        <source url="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422.rss">SOLVED: TADpoLe: tad-meta.json</source>
+      </item>
+      <item>
+        <title>SOLVED: TADpoLe: tad-meta.json</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a></p>
+<p>I looked at the <code>TA_metaRead()</code>  and <code>TA_metaWrite()</code> functions of your library <code>tad.js</code> but I do not get the use case. The documentation is hard to understand for me</p>
+<blockquote>
+<p>Merge data for the draft from the meta data file with into the meta data for the draft.</p>
+</blockquote>
+<p>Looking at some functions in the library did not help me to grasp it fully.<br>
+Do you use <code>TA_fileMetaLoad()</code> to load an iCloud file content to a specific draft and store it with <code>TA_fileMetaSave()</code>.</p>
+<p>What are your specific use-cases for that?</p>
+<p>Cheers<br>
+Andreas_Haeberle</p>
+          <p><a href="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422/1</link>
+        <pubDate>Wed, 16 Sep 2020 18:52:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8422-1</guid>
+        <source url="https://forums.getdrafts.com/t/solved-tadpole-tad-meta-json/8422.rss">SOLVED: TADpoLe: tad-meta.json</source>
+      </item>
+  </channel>
+</rss>

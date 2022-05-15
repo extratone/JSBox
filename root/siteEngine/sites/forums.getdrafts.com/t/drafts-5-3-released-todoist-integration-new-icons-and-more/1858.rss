@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 5.3 Released - Todoist integration, new icons and more</title>
+    <link>https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858</link>
+    <description>Drafts 5.3.0 is now available [in the App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site). 
+
+#### New in 5.3
+
+- **TODOIST SUPPORT**
+  - For full details, see our new [Todoist integration guide](https://forums.getdrafts.com/t/using-todoist-with-drafts/1845).
+  - Todoist action step. Adds task to Todoist inbox, which optional configuration to specify reminder and comment. [Details](http://getdrafts.com/actions/steps/todoist.html)
+  - `Todoist` script object access any methods on the Todoist REST API. Allow creation and updating and reading of tasks, projects, comments, labels and more. See [reference for details](http://reference.getdrafts.com/objects/Todoist.html)
+- **Three new alternate app icons** options for Pro subscribers, accessed via &quot;Aa&quot; appearance settings.
+- **Prompt improvements**
+  - `addPicker` method on Prompt object to add iOS picker style control for selecting values. Details in [reference](http://reference.getdrafts.com/objects/Prompt.html)
+  - Prompt `addButton` method can now take optional second value parameter.  When provided, the the `buttonPressed` property will be returned as the value instead of the button name. Value can be any data type. Useful for associating non-string values with a prompt button, or simply alternate string values.
+  - Prompt addTextField and addTextView options parameter can now accept a `wantsFocus` boolean value to hint that the field should be focused for editing when the prompt is displayed. Should only be set on one field in the prompt.
+  - Prompts with only one button will treat that one button as the default action and continue with CMD-Return on external keyboard as if that button was pressed.
+- ReminderList object now has `getAllReminderLists()` and `find(title)` methods to match those on `Calendar` object.
+- Learning resources page in Settings for easy access to community site, screencasts, etc.
+
+#### Other Fixes and Changes in 5.3
+
+- **Change:** Allow higher paragraph spacing settings to work better with larger font sizes.
+- **Change:** More aggressively attempt to re-process Watch transactions which may have failed. Should avoid cases where some drafts created on the watch were stuck an not transferred to the phone.
+- **Change:** Tighten tolerances of side-panel display gestures to cancel if the swipe moves too much up or down to avoid accidental swipes.
+- **Fix:** Changing draft list filters should scroll to top of list.
+- **New:** Add several small animation and visual tweaks.
+- **Fix:** Insert text step after a script step that called `draft.update()` might not get freshest draft content.
+- **Change:** Reset tag entry field when tag is selected in tag suggestions.
+- **New:** Add `uuid` parameter to x-success callbacks for the /create URL scheme (also supports retParam to specify parameter name to use).
+- **Fix:** Embedded iframes in HTML preview action steps were triggering redirects.
+- **Change:** Refactored all handling of &quot;after success&quot; settings on actions to avoid a few edge cases where the move to archive/trash might not get saved properly.
+- **Change:** General pass of tweaks to prompts to better support Dynamic text and display better.
+- **Change:** Tweaks to Markdown bold/italic syntax definitions.
+- **Fix:** Subproject syntax highlighting in Taskpaper.
+- **Change:** Text views will also be focused if provided in a prompt.
+- **Fix:** Issue where &quot;after success&quot; settings on an action might not take properly when in focus mode.
+- **Fix:** Deleting an action group in manage view should not leave edit mode.
+
+[Changelog history](http://getdrafts.com/changelog)</description>
+    
+    <lastBuildDate>Wed, 11 Jul 2018 18:13:00 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 5.3 Released - Todoist integration, new icons and more</title>
+        <dc:creator><![CDATA[KathrynRhind]]></dc:creator>
+        <description><![CDATA[
+            <p>And you just fixed the only thing that annoyed me about Drafts! Reset tag field when tag is chosen from list! Thanks. No more accidental one letter tags getting created.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858/2</link>
+        <pubDate>Wed, 11 Jul 2018 18:13:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1858-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858.rss">Drafts 5.3 Released - Todoist integration, new icons and more</source>
+      </item>
+      <item>
+        <title>Drafts 5.3 Released - Todoist integration, new icons and more</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts 5.3.0 is now available <a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">in the App Store</a>.</p>
+<h4>New in 5.3</h4>
+<ul>
+<li>
+<strong>TODOIST SUPPORT</strong>
+<ul>
+<li>For full details, see our new <a href="https://forums.getdrafts.com/t/using-todoist-with-drafts/1845">Todoist integration guide</a>.</li>
+<li>Todoist action step. Adds task to Todoist inbox, which optional configuration to specify reminder and comment. <a href="http://getdrafts.com/actions/steps/todoist.html">Details</a>
+</li>
+<li>
+<code>Todoist</code> script object access any methods on the Todoist REST API. Allow creation and updating and reading of tasks, projects, comments, labels and more. See <a href="http://reference.getdrafts.com/objects/Todoist.html">reference for details</a>
+</li>
+</ul>
+</li>
+<li>
+<strong>Three new alternate app icons</strong> options for Pro subscribers, accessed via “Aa” appearance settings.</li>
+<li>
+<strong>Prompt improvements</strong>
+<ul>
+<li>
+<code>addPicker</code> method on Prompt object to add iOS picker style control for selecting values. Details in <a href="http://reference.getdrafts.com/objects/Prompt.html">reference</a>
+</li>
+<li>Prompt <code>addButton</code> method can now take optional second value parameter.  When provided, the the <code>buttonPressed</code> property will be returned as the value instead of the button name. Value can be any data type. Useful for associating non-string values with a prompt button, or simply alternate string values.</li>
+<li>Prompt addTextField and addTextView options parameter can now accept a <code>wantsFocus</code> boolean value to hint that the field should be focused for editing when the prompt is displayed. Should only be set on one field in the prompt.</li>
+<li>Prompts with only one button will treat that one button as the default action and continue with CMD-Return on external keyboard as if that button was pressed.</li>
+</ul>
+</li>
+<li>ReminderList object now has <code>getAllReminderLists()</code> and <code>find(title)</code> methods to match those on <code>Calendar</code> object.</li>
+<li>Learning resources page in Settings for easy access to community site, screencasts, etc.</li>
+</ul>
+<h4>Other Fixes and Changes in 5.3</h4>
+<ul>
+<li>
+<strong>Change:</strong> Allow higher paragraph spacing settings to work better with larger font sizes.</li>
+<li>
+<strong>Change:</strong> More aggressively attempt to re-process Watch transactions which may have failed. Should avoid cases where some drafts created on the watch were stuck an not transferred to the phone.</li>
+<li>
+<strong>Change:</strong> Tighten tolerances of side-panel display gestures to cancel if the swipe moves too much up or down to avoid accidental swipes.</li>
+<li>
+<strong>Fix:</strong> Changing draft list filters should scroll to top of list.</li>
+<li>
+<strong>New:</strong> Add several small animation and visual tweaks.</li>
+<li>
+<strong>Fix:</strong> Insert text step after a script step that called <code>draft.update()</code> might not get freshest draft content.</li>
+<li>
+<strong>Change:</strong> Reset tag entry field when tag is selected in tag suggestions.</li>
+<li>
+<strong>New:</strong> Add <code>uuid</code> parameter to x-success callbacks for the /create URL scheme (also supports retParam to specify parameter name to use).</li>
+<li>
+<strong>Fix:</strong> Embedded iframes in HTML preview action steps were triggering redirects.</li>
+<li>
+<strong>Change:</strong> Refactored all handling of “after success” settings on actions to avoid a few edge cases where the move to archive/trash might not get saved properly.</li>
+<li>
+<strong>Change:</strong> General pass of tweaks to prompts to better support Dynamic text and display better.</li>
+<li>
+<strong>Change:</strong> Tweaks to Markdown bold/italic syntax definitions.</li>
+<li>
+<strong>Fix:</strong> Subproject syntax highlighting in Taskpaper.</li>
+<li>
+<strong>Change:</strong> Text views will also be focused if provided in a prompt.</li>
+<li>
+<strong>Fix:</strong> Issue where “after success” settings on an action might not take properly when in focus mode.</li>
+<li>
+<strong>Fix:</strong> Deleting an action group in manage view should not leave edit mode.</li>
+</ul>
+<p><a href="http://getdrafts.com/changelog">Changelog history</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858/1</link>
+        <pubDate>Tue, 10 Jul 2018 18:08:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1858-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-3-released-todoist-integration-new-icons-and-more/1858.rss">Drafts 5.3 Released - Todoist integration, new icons and more</source>
+      </item>
+  </channel>
+</rss>

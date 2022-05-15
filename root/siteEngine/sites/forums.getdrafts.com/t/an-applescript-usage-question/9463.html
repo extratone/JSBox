@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>An AppleScript Usage Question - Drafts for Mac - Drafts Community</title>
+    <meta name="description" content="Hey! 
+New member here.  I’ve poked around a bit and can’t seem to anything directly on point. 
+I’m trying to run a query from another Mac app.  What I want is the ‘name’ and the ‘permalink’ of the current draft (the draf&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="9463.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;An AppleScript Usage Question&#39;" href="9463.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/an-applescript-usage-question/9463" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/an-applescript-usage-question/9463" />
+<meta property="og:title" content="An AppleScript Usage Question" />
+<meta name="twitter:title" content="An AppleScript Usage Question" />
+<meta property="og:description" content="Hey!  New member here.  I’ve poked around a bit and can’t seem to anything directly on point.  I’m trying to run a query from another Mac app.  What I want is the ‘name’ and the ‘permalink’ of the current draft (the draft which has the ‘focus’)  Something like:  tell application “Drafts”  set thisDraft to draft 1  set theResult to {|url|:permalink of thisDraft, title:name of thisDraft}  end tell  return (theResult as record)  Can someone steer me in the right direction?  Thank-You.  Steve" />
+<meta name="twitter:description" content="Hey!  New member here.  I’ve poked around a bit and can’t seem to anything directly on point.  I’m trying to run a query from another Mac app.  What I want is the ‘name’ and the ‘permalink’ of the current draft (the draft which has the ‘focus’)  Something like:  tell application “Drafts”  set thisDraft to draft 1  set theResult to {|url|:permalink of thisDraft, title:name of thisDraft}  end tell  return (theResult as record)  Can someone steer me in the right direction?  Thank-You.  Steve" />
+<meta property="article:published_time" content="2020-12-29T15:56:28+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="9463.html">An AppleScript Usage Question</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/drafts-for-mac.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Drafts for Mac</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Steve_Cronin'><span itemprop='name'>Steve_Cronin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9463.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-29T15:56:28Z' class='post-time'>
+                December 29, 2020,  3:56pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-29T15:56:28Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey!</p>
+<p>New member here.  I’ve poked around a bit and can’t seem to anything directly on point.</p>
+<p>I’m trying to run a query from another Mac app.  What I want is the ‘name’ and the ‘permalink’ of the current draft (the draft which has the ‘focus’)<br>
+Something like:<br>
+tell application “Drafts”<br>
+set thisDraft to draft 1<br>
+set theResult to {|url|:permalink of thisDraft, title:name of thisDraft}<br>
+end tell<br>
+return (theResult as record)</p>
+<p>Can someone steer me in the right direction?<br>
+Thank-You.<br>
+Steve</p>
+        </div>
+
+        <meta itemprop='headline' content='An AppleScript Usage Question'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9463.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-29T16:31:18Z' class='post-time'>
+                December 29, 2020,  4:31pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-29T16:31:18Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>AppleScript support is very limited right now. Only creation of new drafts is supported. We plan to expand that support, but can’t promise a timeframe.</p>
+<p>Details in <a href="../../../docs.getdrafts.com/docs/automation/applescript.html#using-drafts-from-applescript">documentation</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='An AppleScript Usage Question'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Steve_Cronin'><span itemprop='name'>Steve_Cronin</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9463.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-29T21:19:26Z' class='post-time'>
+                December 29, 2020,  9:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-29T21:19:26Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the prompt reply!</p>
+<p>Whatever encouragement I can supply - please consider it offered.<br>
+Obviously I’d like you to consider implementing what I have described…<br>
+From this end it seems relatively straightforward - you already have a ‘make new’ operation as well as a ‘draft’ type ‘item’… It seems like my request can be reduced to implementing a special instance of this ‘draft’ item which would be ‘current draft’… Everything I need is already implemented as a ‘property’ of the ‘draft’ item…</p>
+<p>Thanks Again - Keep up the Good Work<br>
+Steve</p>
+        </div>
+
+        <meta itemprop='headline' content='An AppleScript Usage Question'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9463.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T13:10:26Z' class='post-time'>
+                January 1, 2021,  1:10pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T13:10:26Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You could drop to calling a shell script from AppleScript to get you the answer via the <a href="https://github.com/martinfinke/xcall">xcall</a> command line app and using that to call Drafts’ <code>/getCurrentDraft</code> URL Scheme action.  Then you parse the results.</p>
+<p>Here’s a crude example, but you could try using something like <a href="https://stedolan.github.io/jq/"><code>jq</code></a> for something that’s probably more robust (it’s available via <a href="https://brew.sh">homebrew</a>).</p>
+<pre><code class="lang-auto">#!/bin/zsh
+
+# Get the JSON for the current draft from Drafts
+JSON=$(/Applications/xcall.app/Contents/MacOS/xcall -url "drafts://x-callback-url/getCurrentDraft" -activateApp NO)
+
+# Grab the line about the title and then strip out the extraneous JSON
+TITLE=$(echo $JSON | grep '"title" : "')
+TITLE=${TITLE//  \"title\" : \"/}
+TITLE=${TITLE//\"/}
+TITLE=${TITLE//,/}
+
+# Output the title
+echo $TITLE
+
+# Grab the line about the permalink and then strip out the extraneous JSON
+URL=$(echo $JSON | grep '"url" : "')
+URL=${URL//  \"url\" : \"/}
+URL=${URL//\"/}
+URL=${URL//,/}
+
+# Unescape the URL
+URL=${URL//\\/}
+
+# Output the URL
+echo $URL
+</code></pre>
+<p>The output of the script is the title on line 1 and the permalink on line 2.</p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='An AppleScript Usage Question'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

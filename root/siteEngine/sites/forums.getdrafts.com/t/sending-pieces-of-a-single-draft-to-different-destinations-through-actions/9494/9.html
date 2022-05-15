@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sending pieces of a single Draft to different destinations through Actions - #9 by sylumer - Drafts Community</title>
+    <meta name="description" content="Is this doable: 
+I would like to keep one note open each day as sort of a mashup between a commonplace journal, a daily activity journal, a log of my billable hours and my to-do list. It would be just like the pad I no l&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Sending pieces of a single Draft to different destinations through Actions&#39;" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494/9" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494/9" />
+<meta property="og:title" content="Sending pieces of a single Draft to different destinations through Actions" />
+<meta name="twitter:title" content="Sending pieces of a single Draft to different destinations through Actions" />
+<meta property="og:description" content="Please note that the processing action from from the Quick Journalling action group has some limitations of applicability for this particular case.  That is purely because it is a particular solution to someone else’s requirements, but there’s actually not that much overlap to the example above.  The points that I would note are:   The processing action does not have anything for working with Reminders (or whatever as yet undisclosed “my todo app”) or Evernote (Google Sheets seems to have disapp..." />
+<meta name="twitter:description" content="Please note that the processing action from from the Quick Journalling action group has some limitations of applicability for this particular case.  That is purely because it is a particular solution to someone else’s requirements, but there’s actually not that much overlap to the example above.  The points that I would note are:   The processing action does not have anything for working with Reminders (or whatever as yet undisclosed “my todo app”) or Evernote (Google Sheets seems to have disapp..." />
+<meta property="article:published_time" content="2021-01-01T19:58:44+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">Sending pieces of a single Draft to different destinations through Actions</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/snsokstan1'><span itemprop='name'>snsokstan1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-31T19:47:19Z' class='post-time'>
+                December 31, 2020,  7:47pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-31T19:47:19Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is this doable:</p>
+<p>I would like to keep one note open each day as sort of a mashup between a commonplace journal, a daily activity journal, a log of my billable hours and my to-do list. It would be just like the pad I no longer keep at my desk or the little notebook in my pocket.</p>
+<p>Then at the end of the day, I can select parts of the daily note to send to different destinations through actions.</p>
+<ul>
+<li>
+<ol>
+<li>Knowledge and ideas got to Evernote</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>Billable hours goes to a GSheet</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>Reminders goes to Reminders app</li>
+</ol>
+</li>
+</ul>
+<p>Is it possible to create actions that act on selected areas of notes rather than entire notes?</p>
+<p>I’ve used Drafts for quite a while but am still low on the learning curve.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-31T20:03:27Z' class='post-time'>
+                December 31, 2020,  8:03pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-31T20:03:27Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It is definitely possible if you create some custom actions using JavaScript. I’ve modified some Omnifocus tasks that Rosemary Orchard created to work off of selected text instead of an entire draft. If you’re interested in pursuing that as an option, let me know and I’ll share some sample code to help get you started.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/snsokstan1'><span itemprop='name'>snsokstan1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-31T20:59:23Z' class='post-time'>
+                December 31, 2020,  8:59pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-31T21:00:37Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <blockquote>
+<p>Blockquote<br>
+let me know and I’ll share some sample code to help get you started.</p>
+</blockquote>
+<p>Sure but my knowledge of JavaScript is minimal to nonexistent. I have managed to edit a few Actions, so if it just a matter of changing the target and if I have examples, I may be able to.</p>
+<p>Added:<br>
+I just find myself creating too many drafts in a day and wind up with the equivalent of a bunch of notes on my desk.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-31T21:15:33Z' class='post-time'>
+                December 31, 2020,  9:15pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-31T21:15:33Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The key is typically to have some sort of notation that the action can then pick use to pick out which line (or set of lines) should go to which destination.  The action can then examine each line/section, and process the content to apply the correct action.</p>
+<p>Now depending upon the details of each action, the lines may also need to be structured in a certain way.</p>
+<p>Let’s take reminders as an example.</p>
+<ol>
+<li>Do your reminders always/sometimes/never have a reminder time/location associated with them?</li>
+<li>Do they ever need a priority, etc.</li>
+</ol>
+<p>If it is anything but a basic add an entry to a reminder then either there needs to be a structure to the line of information that the action can then interpret, or you need a much more sophisticated action to apply some logic to “figure-out” what you meant by what you entered.</p>
+<p>Maybe you could share a sanitised (i.e. modified for public sharing) example of a daily note, and then describe what you would like the action to do in more detail?</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T09:52:11Z' class='post-time'>
+                January 1, 2021,  9:52am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-02T08:35:05Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Agree <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> on using/creating structure.</p>
+<p>I’d use some heading level (4?) to demarcate sections - and give them standard names.</p>
+<p>And/or use Taskpaper format - starting with a dash - for tasks.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/snsokstan1'><span itemprop='name'>snsokstan1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T16:59:48Z' class='post-time'>
+                January 1, 2021,  4:59pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T17:00:15Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><em>OK, here is a copy of a sanitized note… three different actions on sections of one note needed.</em></p>
+<p>Top section: send to my todo app or Reminders in MacOS</p>
+<p><em>Middle section: billable hours. I have an action that embeds a tag and files it in a specific folder in Evernote</em></p>
+<p><em>Bottom section: an article and a tutorial  I save and want tofile in a folder in Evernote called Reference</em></p>
+<p>{ } pick up finished prints at printer<br>
+{ } get milk at grocer at 3 pm<br>
+{ } create PDF from Acme analysis and send to client</p>
+<hr>
+<p>Beta Corp: analysis of recent purchases.  2 hr billable time</p>
+<hr>
+<p>Tutorial on photoshop instant mask blending<br>
+youtube dot com/watch?v=1jISfd4Oi5w&amp;feature=emb_logo</p>
+<p>Investment advice on bonds<br>
+January 2021 Kiplingers  Jeff Kostnett</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T17:47:16Z' class='post-time'>
+                January 1, 2021,  5:47pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T17:47:16Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Can you put your content between triple back ticks so we can see the exact content? The forum software will interpret Markdown and I’m guessing you probably have some sort of dashed lines to separate your sections.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/John53'><span itemprop='name'>John53</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T19:19:55Z' class='post-time'>
+                January 1, 2021,  7:19pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T19:19:55Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It might be worth having a look at an Action Group in the Draft Directory called Quick Journaling.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T19:58:44Z' class='post-time'>
+                January 1, 2021,  7:58pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T19:58:44Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Please note that the processing action from from the Quick Journalling action group has some limitations of applicability for this particular case.  That is purely because it is a particular solution to someone else’s requirements, but there’s actually not that much overlap to the example above.</p>
+<p>The points that I would note are:</p>
+<ol>
+<li>The processing action does not have anything for working with Reminders (or whatever as yet undisclosed “my todo app”) or Evernote (Google Sheets seems to have disappeared as a requirement).</li>
+<li>The processing action deals with line markers. It doe not deal with a daily note structure based on sections.</li>
+<li>The processing action does not take into account any multiline inputs, only single line inputs.</li>
+<li>The only parsing of content occurs when it is a Fantastical entry, and it is Fantastical that is doing the parsing, not the processing action.</li>
+</ol>
+<p>However, if <a class="mention" href="https://forums.getdrafts.com/u/snsokstan1">@snsokstan1</a> is willing to change the entire approach to creating the daily note draft to align to the different structure, then the processing action could be used as the basis for processing the content of the draft.  But determining the type of line entry isn’t the hardest part. Figuring out the processing for each line is much trickier, and because the action doesn’t cover any of the apps required (unless the mysterious “my todo app” is one of the ones catered for), it isn’t going to provide any insights there.</p>
+<p>Greg’s <a href="../../../../actions.getdrafts.com/a/1Rr.html">Reminder with Options</a> action has some Reminders parsing in it and would probably be a useful resource for figuring out how to process reminders.</p>
+<p>There are also lots of actions that deal with Evernote in various ways that could be the basis of working with those two sections.  However, Evernote also has issues in regards to <a href="../../evernote-ios-app-removes-url-scheme-support/8416.html">URL schemes</a>, and <a href="../../evernote-mac-app-drops-applescript-support/8716.html">support for AppleScript</a>, so using Drafts’ <a href="../../../../docs.getdrafts.com/docs/actions/steps/services.html#evernote">standard Evernote action step</a> is probably the only way to go; but it does support notebook and tags, and we can have multiple steps to create multiple notes.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/snsokstan1'><span itemprop='name'>snsokstan1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T20:59:00Z' class='post-time'>
+                January 1, 2021,  8:59pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T20:59:00Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> Thanks. I will look at these suggestions.  My todo app is GoodTask (iOS and MacOS), which is just an interface to iOS Reminders, so going to Reminders if fine.</p>
+<p>With either templates or keyboard macros in Alfred, structuring a note to facilitate processing should be easy.</p>
+<p>I presume I can run two or more actions on the same note, with the last one archiving the note when done.</p>
+<p>Exact content of the note above now contained in back ticks follows. Must be a reason for bolding “get” “from” that I am not familiar with.</p>
+<hr>
+<pre><code class="lang-auto">{ } get milk at grocer at 3 pm
+{ } create PDF from Acme analysis and send to client
+
+____
+
+Beta Corp: analysis of recent purchases.  2 hr billable time
+
+
+____
+
+
+Tutorial on photoshop instant mask blending
+https://www.youtube.com/watch?v=1jISfd4Oi5w&amp;feature=emb_logo
+
+Investment advice on bonds
+January 2021 Kiplingers  Jeff Kostnett```</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/snsokstan1'><span itemprop='name'>snsokstan1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T21:27:47Z' class='post-time'>
+                January 1, 2021,  9:27pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T21:27:47Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><em>(In this forum, I feel that I am in a Drafts 201 course without having taken Drafts 101.)</em></p>
+<p>Looked at links above.</p>
+<p>“Reminders with Options” is what I need. Ditto Standard Evernote action step. Both Installed and running well.</p>
+<p>Any guidance or references on how to create/edit/adapt a  processing action based on markers in note structure would be appreciated.</p>
+<p>Sorry to be so needy.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T22:27:56Z' class='post-time'>
+                January 1, 2021, 10:27pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T22:27:56Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay, here’s your starter for 10, with some caveats.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="../../../uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1fn" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="9.html" class="thumbnail" width="" height="">
+
+<h3><a href="https://actions.getdrafts.com/a/1fn" target="_blank" rel="noopener">Process Daily | Drafts Action Directory</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<ol>
+<li>I made a change to one of your reminders. <code>{ } get milk at grocer at 3 pm</code> became <code>{ } get milk from grocer at 3 pm</code> … that way we can split on any “at” and check it for being a valid date/time.  The code could absolutely be changed to cater for this (just check each entry in the split rather than just the second one), but as I say, this is a quick starter for you.</li>
+<li>Because of all of the Evernote stuff I noted above, I’ve set this to use the Evernote Legacy app which still supports AppleScript.  If you are wanting to run this on iOS, you would just need to swap in the Evernote action steps - I’ve gone for the more complicated one to illustrate the approach.
+<ul>
+<li>The third and fourth action steps have entries in them for note titles and tags that you would probably want to tailor.</li>
+</ul>
+</li>
+<li>The first action step is a template tag that specifies which Reminders List you want to add to. Change this to whatever your destination list name is.</li>
+<li>I haven’t added anything in for reminder priority or alarms as there was nothing in the example case for this.</li>
+<li>There is an option on the action settings that you can set to automatically archive a draft when it runs successfully.</li>
+</ol>
+<p>Overall, with the one caveat on the groceries, this worked fine for me on the example draft content, creating three reminders in the correct list, one with a due time, and two notes in Evernote with the content from the draft.</p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/snsokstan1'><span itemprop='name'>snsokstan1</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-01T22:45:18Z' class='post-time'>
+                January 1, 2021, 10:45pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-01T22:45:18Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Wow, this is very kind of you. I will install and run with this.</p>
+<p>Thanks again.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-02T08:40:05Z' class='post-time'>
+                January 2, 2021,  8:40am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-02T08:40:05Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The one thing that occurs to me is that this is all a bit fragile, format wise. So, for example, when <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> suggested that “at” should be a keyword you might as well go the whole way with tasks and code them as Taskpaper - assuming Goodtask can handle that format.</p>
+<p>As I said before, I’d structure this with e.g Heading 4 lines - one per section.</p>
+<p>I would also suggest a template or an action to hatch a draft from - to make this all easier to comply with.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-02T09:08:39Z' class='post-time'>
+                January 2, 2021,  9:08am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-02T09:08:39Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="martinpacker" data-post="14" data-topic="9494">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<p>The one thing that occurs to me is that this is all a bit fragile, format wise.  So, for example, when <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> suggested that “at” should be a keyword you might as well go the whole way with tasks and code them as Taskpaper - assuming Goodtask can handle that format.</p>
+</blockquote>
+</aside>
+<p>I wouldn’t necessarily agree with the whole sentiment there.  Using “<code>at</code>” as the  separator here just fit this example case, and as I noted above my suggestion was for the action to be a starting point.  <a href="https://forum.goodtaskapp.com/t/create-new-single-task-from-copied-text/617">GoodTask does not support Taskpaper as far as I know</a>, but free format entry of content is becoming ever more commonplace, and parsing of that falls to the coding, but generally makes it easier for the user.</p>
+<p>The advantages of using a stricter format like Taskpaper is that it is easier to code, easier to debug, more accurately processed, and often shorter for the user to enter. The big disadvantage is the cognitive aspect in that the format has to be remembered. For some people this is trivial. For many more it is not - hence the investment in natural language processing (since the 1950s).</p>
+<p>I’m fortunate to be someone who can pick up new structures relatively easily, though I do still find myself pausing to recollect or look up elements I don’t use often. That overall slows down my data entry. I could use a helper (Drafts action, text expansion snippet, etc) to assist me in entering the data, but at that point, why not also create the result?</p>
+<p>The popularity of Peter’s Things parser action(s) and his Fantastically Good Reminder and Event parser actions highlight how useful many people find the unstructured approach to entering details for later processing.</p>
+<p>I think one thing is for certain. Stan will want to amend and develop the structure and processing over time. Writing full-on, complex parsing algorithms, even on relatively constrained domains like reminders, is a time consuming task (if you do it well). So the question for the user becomes where do you spend your time? Learning a more structured way to enter content that is easier to parse in the code, or writing more extensive and complex code so that you can enter whatever you like and still have it parsed correctly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/sending-pieces-of-a-single-draft-to-different-destinations-through-actions/9494">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-02T09:58:02Z' class='post-time'>
+                January 2, 2021,  9:58am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-02T09:58:02Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ah, the “Toolmaker’s Dilemma”… <img src="../../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Sending pieces of a single Draft to different destinations through Actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

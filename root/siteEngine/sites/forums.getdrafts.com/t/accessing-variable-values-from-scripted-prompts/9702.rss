@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Accessing Variable Values from Scripted Prompts</title>
+    <link>https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702</link>
+    <description>I am struggling to use a prompt to create a draft. I can set up multiple prompts one after another, but my preference would be to gather them all on one form and go through them part by part. I have been playing around with a lot of ideas. I tried the [Mustache Prompt](https://actions.getdrafts.com/a/1fT) method, but I would like more control over how the prompt appears like I can if I script it myself.
+
+For getting the text into the actual draft, I have looked into both [template strings/literals](https://forums.getdrafts.com/t/long-text-prompt-variables/7914/2?u=campjacob) and I have also tried `setTemplateTag`. My problem is that I don&#39;t know how to access the value of the prompt text field.
+
+Below is a minimal example of my plan. I think if I understand how to access the value for one `addTextField`, I can duplicate that for my other `addTextField` and `addPicker`. I could find an example I was able to adapt of the `setTemplateTag` to tell if I was getting results and had it formatted correctly.
+
+```js
+
+// Minimal Code Example
+
+var p = Prompt.create();
+
+p.title = &quot;Title&quot;;
+p.message = &quot;Description&quot;;
+p.addTextField(&quot;textFieldVariable&quot;, &quot;Text Field Variable: &quot;, &quot;&quot;);
+
+isCancellable: true;
+p.addButton(&quot;Ok&quot;);
+
+var didSelect = p.show();
+
+// create template
+const template = `# Title of the draft
+Insert info from prompt...
+
+${textFieldVariable}
+or
+[[textFieldVariable]]
+
+`;
+
+// create the draft
+var d = Draft.create();
+d.content = d.processTemplate(template);
+d.update()
+
+// load in editor and focus for editing
+editor.load(d);
+editor.activate()
+
+```
+
+Would it be better to use the template strings or `setTemplateTag`? Would anybody be able to help show me how to format my script to add it into a new draft?</description>
+    
+    <lastBuildDate>Thu, 28 Jan 2021 19:11:40 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Accessing Variable Values from Scripted Prompts</title>
+        <dc:creator><![CDATA[Campjacob]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you so much for the help. The idea of HTML prompts is interesting, but I think I will need to wait for that. I’ve already probably used too much time on this. I was able to make this concept work. I figured I would share the full working code for my action in case it helps anybody. I will say that I have no real skill with JavaScript and just bang my head against my keyboard trying variations until something works. That being said, this is probably not the most beautiful code ever.</p>
+<p>First, a little background: I’m working on my Ph.D. currently. With buying a new M1 MacbookAir, I’ve been more heavily relying on MacOS. I had a shortcut that created this same file in drafts for me. It also uses DataJar to pull the Arrays that I use, and I don’t like having to “hard code” them into my script, but until I make a plan for what to do about not currently having access to DataJar on MacOS, this might be what I do.</p>
+<p>The way I do my academic writing is that the first line of a draft is the document’s title. The second line of the draft is the folder where I will save it. I have an action that will convert my markdown to HTML, and I can post discussion replies to our Canvas. After completing and publishing my discussion, I can later process it and decide if I need to do anything else with the text or save a version in my OneDrive account.</p>
+<p>The code creates a prompt that has some pickers and a text field for my classes. It sets up the file name/folder variables, along with some data that I want to save as <a href="https://en.wikipedia.org/wiki/YAML" rel="noopener nofollow ugc">YAML</a> metadata. I had to use <code>if(){}</code>, <code>if else(){}</code> statements to determine the array number of the selected response and provide text for the <code>addPicker()</code>. It also splits one of the variables so that my metadata can have separate data about the <em>Course ID</em> and <em>Course Title</em>.</p>
+<p>It creates a new draft with a template pulling the variables gathered from the prompt. The draft processes itself again to use other templates (e.g., the date). It also adds tags. I separate my tags by category (i.e., "l - " is a location or area of my life, "a - " is an action, and "s - " is a status).</p>
+<p>Anyways, I hope that my banging my head against my keyboard is useful for others.</p>
+<pre><code class="lang-auto">//  Template Set Up for new writing projects for classes
+
+//  Create Prompt
+
+var p = Prompt.create();
+p.title = "CIIS New Writing Project";
+p.message = "Fill in form to create new CIIS writing project.";
+
+p.addPicker("pickerCourseDescription", "Course: ", [["Reverse Imagineering", "Methodology Comprehensive Examination", "Literature Review Comprehensive Exam", "Learning Community IV"]], [0]);
+p.addPicker("pickerLocation", "Location: ", [["Personal Journal Space", "Research Journal", "Small Group Discussion", "Large Group Discussion", "Paper", "Document"]], [3])
+p.addTextField("textFieldTopic", "Topic: ", "");
+
+isCancellable: true;
+p.addButton("Ok");
+
+if (p.show())
+
+// Set up frontmatter and project variables
+
+var topic = p.fieldValues["textFieldTopic"];
+
+// Course variable
+var courseIDandTitle;
+if (p.fieldValues["pickerCourseDescription"] == "0") {
+	courseIDandTitle = "TSD 6137 - Reverse Imagineering";
+} else if (p.fieldValues["pickerCourseDescription"] == "1") {
+	courseIDandTitle = "TSD 9611 - Methodology Comprehensive Examination";
+} else if (p.fieldValues["pickerCourseDescription"] == "2") {
+	courseIDandTitle = "TSD 9610 - Literature Review Comprehensive Exam";
+} else if (p.fieldValues["pickerCourseDescription"] == "3") {
+	courseIDandTitle = "TSD 8420 - Learning Community IV";
+} else {
+	courseIDandTitle = "There is an error in pickerCourseDescription";
+}
+
+// Split Course ID and Title Variable
+
+var res = courseIDandTitle.split(" - ");
+var courseID = res[0];
+var courseTitle = res[1];
+
+
+// Location variable
+var location;
+if (p.fieldValues["pickerLocation"] == "0") {
+	location = "Personal Journal Space";
+} else if (p.fieldValues["pickerLocation"] == "1") {
+	location = "Research Journal";
+} else if (p.fieldValues["pickerLocation"] == "2") {
+	location = "Small Group Discussion";
+} else if (p.fieldValues["pickerLocation"] == "3") {
+	location = "Large Group Discussion";
+} else if (p.fieldValues["pickerLocation"] == "4") {
+	location = "Paper";
+} else if (p.fieldValues["pickerLocation"] == "5") {
+	location = "Document";
+} else {
+	location = "There is an error in pickerLocation";
+}
+
+{
+	
+	// create the draft
+	let d = Draft.create();
+	d.content = `[[date]], ${location} Topic - ${topic}
+${courseIDandTitle}
+---
+Course ID: ${courseID}  
+Course Title: ${courseTitle}  
+Date: [[date]]  
+Location: ${location}  
+Topic: ${topic}  
+
+---
+
+# ${location} Topic
+
+**Topic**: ${topic}  
+**Date**: [[date|%m/%d/%Y]]  
+**Title**: 
+
+---
+
+
+`;
+
+wholeContent = d.content;
+d.content = d.processTemplate(wholeContent);
+d.addTag("l - ciis");
+d.addTag("a - process");
+d.addTag("s - draft");
+d.update()
+
+// load in editor and focus for editing
+editor.load(d);
+editor.activate()
+
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702/3</link>
+        <pubDate>Thu, 28 Jan 2021 19:11:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9702-3</guid>
+        <source url="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702.rss">Accessing Variable Values from Scripted Prompts</source>
+      </item>
+      <item>
+        <title>Accessing Variable Values from Scripted Prompts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>This seems to me to be the simplest option.</p>
+<pre><code class="lang-auto">let p = Prompt.create();
+p.title = "Title";
+p.message = "Description";
+p.addTextField("textFieldVariable", "Text Field Variable: ", "");
+p.isCancellable = true;
+p.addButton("OK");
+
+if (p.show())
+{
+	// create the draft
+	let d = Draft.create();
+	d.content = `# Title of the draft
+Insert info from prompt...
+
+${p.fieldValues["textFieldVariable"]}`;
+	d.update();
+
+	// load in editor and focus for editing
+	editor.load(d);
+	editor.activate();
+}
+</code></pre>
+<p>You might also want to take a look at this action from Greg for some tips.</p>
+<p><a href="https://actions.getdrafts.com/a/1OV" class="onebox" target="_blank" rel="noopener">https://actions.getdrafts.com/a/1OV</a></p>
+<p>I would also suggest looking into HTML prompts if you want even more control over your capture prompt.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702/2</link>
+        <pubDate>Thu, 28 Jan 2021 08:07:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9702-2</guid>
+        <source url="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702.rss">Accessing Variable Values from Scripted Prompts</source>
+      </item>
+      <item>
+        <title>Accessing Variable Values from Scripted Prompts</title>
+        <dc:creator><![CDATA[Campjacob]]></dc:creator>
+        <description><![CDATA[
+            <p>I am struggling to use a prompt to create a draft. I can set up multiple prompts one after another, but my preference would be to gather them all on one form and go through them part by part. I have been playing around with a lot of ideas. I tried the <a href="https://actions.getdrafts.com/a/1fT" rel="noopener nofollow ugc">Mustache Prompt</a> method, but I would like more control over how the prompt appears like I can if I script it myself.</p>
+<p>For getting the text into the actual draft, I have looked into both <a href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914/2">template strings/literals</a> and I have also tried <code>setTemplateTag</code>. My problem is that I don’t know how to access the value of the prompt text field.</p>
+<p>Below is a minimal example of my plan. I think if I understand how to access the value for one <code>addTextField</code>, I can duplicate that for my other <code>addTextField</code> and <code>addPicker</code>. I could find an example I was able to adapt of the <code>setTemplateTag</code> to tell if I was getting results and had it formatted correctly.</p>
+<pre><code class="lang-auto">
+// Minimal Code Example
+
+var p = Prompt.create();
+
+p.title = "Title";
+p.message = "Description";
+p.addTextField("textFieldVariable", "Text Field Variable: ", "");
+
+isCancellable: true;
+p.addButton("Ok");
+
+var didSelect = p.show();
+
+// create template
+const template = `# Title of the draft
+Insert info from prompt...
+
+${textFieldVariable}
+or
+[[textFieldVariable]]
+
+`;
+
+// create the draft
+var d = Draft.create();
+d.content = d.processTemplate(template);
+d.update()
+
+// load in editor and focus for editing
+editor.load(d);
+editor.activate()
+
+</code></pre>
+<p>Would it be better to use the template strings or <code>setTemplateTag</code>? Would anybody be able to help show me how to format my script to add it into a new draft?</p>
+          <p><a href="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702/1</link>
+        <pubDate>Thu, 28 Jan 2021 07:02:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9702-1</guid>
+        <source url="https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702.rss">Accessing Variable Values from Scripted Prompts</source>
+      </item>
+  </channel>
+</rss>

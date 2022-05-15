@@ -1,0 +1,643 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Simple shortcut replacement</title>
+    <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125</link>
+    <description>This action scans the current draft for shortcut abbreviations and expands them into larger phrases of text that you define.
+
+Action Directory link: https://actions.getdrafts.com/a/1IS
+
+Drafts Forum: https://forums.getdrafts.com/t/simple-shortcut-replacement/125
+
+
+## Quick Start
+
+Create a draft with a tag `shortcuts` and add abbreviations you want replaced with longer phrases of text. Put each abbreviation and phrase on one line separated by a colon.
+
+```
+.hw: Hello World
+.pi: 3.14159265358979323846
+.ty: Thank you for your assistance in resolving this matter.
+```
+
+Type out abbreviations as you write your draft.
+
+```
+Programmers start by saying, &quot;.hw&quot;
+
+pi to 20 places is .pi
+
+.ty
+```
+
+Then run the shortcut action to expand the abbreviations.
+
+```
+Programmers start by saying, &quot;Hello World&quot;
+
+pi to 20 places is 3.14159265358979323846
+
+Thank you for your assistance in resolving this matter.
+```
+
+You can run the shortcut action once when you&#39;re done or periodically while you&#39;re typing.
+
+The &quot;**Include Action**&quot; step can be used to automatically run the shortcut action as part of other actions, like before sending a text or email.
+
+
+## Defining Long Phrases
+
+In the shortcuts draft, long phrases can be split across multiple lines with single or double quotes:
+
+```
+.longphrase: &quot;
+This is a long phrase
+   that is split across
+        multiple lines.
+```
+
+Line endings and leading whitespace will be ignored when `.longphrase` is replaced:
+
+```
+This is a long phrase that is split across multiple lines.
+```
+
+Multiline phrases can be entered in &quot;block style&quot; by starting with a pipe character (`|`) and indenting each line with two spaces:
+
+```
+.multi: |
+  Ths is a multiple line
+  phrase defined in
+  block style
+```
+
+Line endings will be preserved when `.multi` is replaced:
+
+```
+Ths is a multiple line
+phrase defined in
+block style
+```
+
+The shortcut syntax is YAML, so there are lots of options for defining multiple line strings. 
+
+
+## Multiple Choice Abbreviations
+
+Abbreviations can be defined with a list of possible choices and the shortcut action will display a prompt to select one of the phrases for expansion. This is useful for email or message templates that are sent frequently.
+
+To define a multiple choice abbreviation, place each phrase on a separate line indented with two spaces and a dash (`-`). 
+
+```
+.capitals:
+  - Montgomery, Alabama
+  - Juneau, Alaska
+  - Phoenix, Arizona
+  - Little Rock, Arkansas
+  - Sacramento, California
+  - Denver, Colorado
+  ...
+```
+
+## Drafts Template Tags
+
+Shortcuts can include tags that will be expanded by [Drafts&#39; template engine](https://reference.getdrafts.com/topics/templates.html). Some useful tags are `[[date]]` and `[[template|path]]`.
+
+Tags must be enclosed within double quotes when defining a shortcut as shown below.
+
+```
+.date: &quot;[[date]]&quot;
+
+.location: &quot;[[latitiude]] [[longitude]]&quot;
+
+.disclaimer: &quot;[[template|corporate-disclaimer.txt]]&quot;
+```
+
+
+## Organizing Shortcuts
+
+The shortcut action will look for abbreviations in all drafts with the `shortcuts` tag. This allows shortcuts to be saved in different drafts for better organization or for sharing.
+
+
+## YAML
+
+Shortcuts are defined using basic [YAML](http://yaml.org/). Advanced users can take advantage of the YAML syntax especially for defining multiple line strings. Refer to a YAML tutorial like https://yaml-multiline.info/ for more information.
+
+
+## Changes
+
+## 1.03
+
+- Allow `shortcutTag` to be defined in first Script step. Contributed by @MrBlaschke.
+
+
+## 1.02
+
+- Add support for Drafts tags. Contributed by @pdavidsonreiber.
+
+
+## 1.01
+
+This version changes the shortcuts from comma separated values (CSV) to YAML. To upgrade your existing shortcuts:
+
+
+```
+.hw,Hello World
+.pi,3.14159265358979323846
+.ty,Thank you.
+```
+
+Replace the comma (`,`) with a colon and a single space (`: `) as shown below:
+
+```
+.hw: Hello World
+.pi: 3.14159265358979323846
+.ty: Thank you.
+```</description>
+    
+    <lastBuildDate>Tue, 07 Jul 2020 20:44:43 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[jackp]]></dc:creator>
+        <description><![CDATA[
+            <p>You fixed it! There was another draft with the “shortcuts” tag and a few snippets defined. When I moved that one to the trash the action started working correctly. Moving the second tagged draft back to the inbox reproduced the error. I thought that multiple drafts with the “shortcuts” tag was okay (one for personal, one for work, etc) but I can live with just one. Having this text expansion action inside of Drafts (including the template engine!), especially now that I’ve assigned a hotkey to it, is magical. Thanks again for the help and for this great action!</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/45">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/45</link>
+        <pubDate>Thu, 02 Jul 2020 22:53:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-45</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p>Hmm. This has me stumped. It looks like the number is being replaced but the digits are being replaced with <code>:</code>.</p>
+<p>Do you happen to have any other “shortcuts” drafts with other replacements defined?</p>
+<p>What version of the shortcuts action do you have?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/4/4bbbf34a6ab46f06af38ce31a38830ce00bea277.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/4bbbf34a6ab46f06af38ce31a38830ce00bea277" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/4/4bbbf34a6ab46f06af38ce31a38830ce00bea277_2_480x500.jpeg" alt="image" data-base62-sha1="aNYuvtNMcLbdN9hSk7T8iFQGgET" width="480" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/4/4bbbf34a6ab46f06af38ce31a38830ce00bea277_2_480x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/4/4bbbf34a6ab46f06af38ce31a38830ce00bea277_2_720x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/4/4bbbf34a6ab46f06af38ce31a38830ce00bea277_2_960x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/4/4bbbf34a6ab46f06af38ce31a38830ce00bea277_2_10x10.png"></a></div><p></p>
+<p>What version of Drafts?</p>
+<p>What if we try a couple of other “shortcuts”</p>
+<pre><code class="lang-auto"># Personal Snippets
+
+.pn: 555-555-5555
+.em: 🤓
+.sn: hello world
+</code></pre>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/9/9061cc1afded10c66a857b046ed5e4bca3e5c315.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/9061cc1afded10c66a857b046ed5e4bca3e5c315" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/9/9061cc1afded10c66a857b046ed5e4bca3e5c315_2_690x218.jpeg" alt="image" data-base62-sha1="kBghHkp5jTJT9zDBiLuuwvF5o0J" width="690" height="218" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/9/9061cc1afded10c66a857b046ed5e4bca3e5c315_2_690x218.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/9/9061cc1afded10c66a857b046ed5e4bca3e5c315_2_1035x327.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/9/9061cc1afded10c66a857b046ed5e4bca3e5c315_2_1380x436.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/9/9061cc1afded10c66a857b046ed5e4bca3e5c315_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/44">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/44</link>
+        <pubDate>Thu, 02 Jul 2020 20:43:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-44</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[jackp]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi dchar,<br>
+Okay, that change made a difference but the output still isn’t correct. Any other suggestions?</p>
+<p>Thanks for help!<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/dbc362c6dce05da2ded9000ab6ee93235e4d0e74.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/dbc362c6dce05da2ded9000ab6ee93235e4d0e74" title="text-snippets2"><img src="https://forums.getdrafts.com/uploads/default/original/2X/d/dbc362c6dce05da2ded9000ab6ee93235e4d0e74.jpeg" alt="text-snippets2" data-base62-sha1="vm7b3hR8RmRZL0sTbEkmB6hKFvK" width="624" height="500" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/dbc362c6dce05da2ded9000ab6ee93235e4d0e74_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/43">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/43</link>
+        <pubDate>Wed, 01 Jul 2020 05:07:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-43</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p>The “shortcuts” draft uses YAML formatting and can be finicky to start with. Please try to modify your shortcuts draft by adding a hashtag (<code>#</code>) at the beginning of the first line to make it a “comment”:</p>
+<pre><code># Personal Snippets
+
+.pn: 555-555-5555
+</code></pre>
+<p>With that change, your sample worked for me:</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/a0208c456c3b3ad4359b611ec91ef3d67c588a31.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/a0208c456c3b3ad4359b611ec91ef3d67c588a31" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a0208c456c3b3ad4359b611ec91ef3d67c588a31_2_690x164.jpeg" alt="image" data-base62-sha1="mQy7ZumeLSMuAd8pXi5UQ9mpH0d" width="690" height="164" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a0208c456c3b3ad4359b611ec91ef3d67c588a31_2_690x164.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/a/a0208c456c3b3ad4359b611ec91ef3d67c588a31_2_1035x246.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/a/a0208c456c3b3ad4359b611ec91ef3d67c588a31_2_1380x328.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a0208c456c3b3ad4359b611ec91ef3d67c588a31_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/42">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/42</link>
+        <pubDate>Mon, 29 Jun 2020 03:15:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-42</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[jackp]]></dc:creator>
+        <description><![CDATA[
+            <p>This action does nothing when I run it. At first it threw an error. Fixed that by removing the space after the : in the “shortcuts” draft. Now the action runs successfully but doesn’t replace the text. Very strange. What am I doing wrong?<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/a0dfac559bbaad16a166d71aa0fde0f5672172d7.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/a0dfac559bbaad16a166d71aa0fde0f5672172d7" title="text-snippets"><img src="https://forums.getdrafts.com/uploads/default/original/2X/a/a0dfac559bbaad16a166d71aa0fde0f5672172d7.jpeg" alt="text-snippets" data-base62-sha1="mX9BZNW6zejrCkMs1nsQaXctbvN" width="666" height="500" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a0dfac559bbaad16a166d71aa0fde0f5672172d7_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/41">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/41</link>
+        <pubDate>Fri, 26 Jun 2020 23:03:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-41</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p>Updated per your suggestion. Please test and let me know if you have any issues.</p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/40">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/40</link>
+        <pubDate>Thu, 28 May 2020 01:36:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-40</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[MrBlaschke]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh - and a thing i stumbled across:<br>
+The first Step inside the Action</p>
+<p><code>    const shortcutTag = "shortcuts";</code></p>
+<p>gets overridden inside the „big script“.</p>
+<p>I guess its best to comment that line out from the „big one“ and it is easier to edit the „single line“ entry inside of Drafts if one need/wants to change the TAG to react on.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/cb835d16b8baac067f7d2a0d0572334378ef3590.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/cb835d16b8baac067f7d2a0d0572334378ef3590" title="Drafts_Replacement_DoubleConst"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/c/cb835d16b8baac067f7d2a0d0572334378ef3590_2_690x428.jpeg" alt="Drafts_Replacement_DoubleConst" data-base62-sha1="t2mn36DEfJbxnohLqS7mxpmnY7C" width="690" height="428" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/c/cb835d16b8baac067f7d2a0d0572334378ef3590_2_690x428.jpeg, https://forums.getdrafts.com/uploads/default/original/2X/c/cb835d16b8baac067f7d2a0d0572334378ef3590.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/c/cb835d16b8baac067f7d2a0d0572334378ef3590.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/cb835d16b8baac067f7d2a0d0572334378ef3590_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/39">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/39</link>
+        <pubDate>Wed, 27 May 2020 15:34:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-39</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[MrBlaschke]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi there.<br>
+I just popped in to say „Huge Thanks“ to <a class="mention" href="https://forums.getdrafts.com/u/dchar">@dchar</a> for this and all other contributors.<br>
+This is just a beautiful thing - i missed TextExpander since it got subscription and i never fully liked the iOS integration of it anyway.</p>
+<p>Off to play with this.<br>
+Kind regards and stay safe.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/38">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/38</link>
+        <pubDate>Wed, 27 May 2020 14:51:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-38</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[jarno527]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/images/emoji/apple/man_facepalming/2.png?v=9" title=":man_facepalming:t2:" class="emoji" alt=":man_facepalming:t2:"> Of course that’s it! Fabulous. Thanks a ton!!</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/37">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/37</link>
+        <pubDate>Wed, 29 May 2019 03:30:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-37</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p>Since <code>.split</code> is likely to appear in the code, I’d suggest a different shortcut string like <code>$split</code> or <code>,,split</code>:</p>
+<pre><code class="lang-auto">,,split: |
+  // Quick line split
+  var text = editor.getText();
+  text = text.split("\n");
+  text = text.join(" \n");
+  editor.setText(text);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/36">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/36</link>
+        <pubDate>Wed, 29 May 2019 03:28:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-36</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[jarno527]]></dc:creator>
+        <description><![CDATA[
+            <p>First off, this action is incredibly useful. Thanks!</p>
+<p>So it was inevitable. An action this useful has to go meta and start getting used on code. I have pieces of code that I use a lot and it’s easier to do this quickly. But the following snippet gives unexpected results because it’s interacting with your code. If I break it on purpose, everything comes out just fine.</p>
+<p>.split: |<br>
+// Quick line split<br>
+var text = editor.getText();<br>
+text = text.split("\n");<br>
+text = text.join("  \n");<br>
+editor.setText(text);</p>
+<p>Thoughts?</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/34</link>
+        <pubDate>Wed, 29 May 2019 01:03:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-34</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, here you go: <a href="https://actions.getdrafts.com/a/1VS" rel="nofollow noopener">https://actions.getdrafts.com/a/1VS</a></p>
+<p>Personally I use the Share Action with this script (I didn‘t share it because its not very well developed baut ist works:) ):</p>
+<pre><code class="lang-auto">var p = Prompt.create();
+p.title = "Share draft:";
+p.message = "Select an option or cancel if you need the draft later.";
+var buttonArray = ["iMessage","WhatsApp","Clipboard","E-Mail"];
+
+for(str in buttonArray)
+{
+	p.addButton(buttonArray[str]);
+}
+
+//p.addButton
+//p.addButton("iMessage");
+//p.addButton("Clipboard");
+
+var didSelect = p.show();
+
+if(didSelect == true)
+{
+	var selection = p.buttonPressed;
+	
+	if (selection == "iMessage")
+	{
+		var msg = Message.create();
+ 		msg.body = draft.content;
+		var result = msg.send();
+		if (result == true)
+		{
+			app.displaySuccessMessage("successfully sent iMessage");
+		} else
+		{
+			app.displayWarningMessage("did not sent the iMessage");
+		}
+		
+	} else if (selection == "Clipboard")
+	{
+		app.setClipboard(draft.content);
+	} else if (selection == "E-Mail")
+	{
+		var mail = Mail.create();
+		var mailP = Prompt.create();
+		mailP.title = "E-Mail Subject";
+		mailP.message = "select subject for your E-Mail";
+
+		mailP.addButton("use custom subject");
+		mailP.addTextField("custom subject","custom subject","");
+		mailP.addButton("use title of draft");		
+		var titleIsSubject = 0;
+		var mailPdidSelect = mailP.show();
+		if(mailPdidSelect == true)
+		{
+			var mailPselection = mailP.buttonPressed;
+			var subject;
+			if(mailPselection == "use title of draft")
+			{
+				subject = draft.title;
+				titleIsSubject = 1;
+			} else if (mailPselection == "use custom subject")
+			{
+				subject = mailP.fieldValues["custom subject"];
+			}
+			mail.subject = subject;
+			
+		}
+		
+		if(titleIsSubject == 1)
+		{
+			mail.body = draft.processTemplate("[[body]]");
+		} else
+		{
+			mail.body = draft.content;
+		}
+		var result = mail.send();
+		
+	} else if (selection == "WhatsApp") {
+		if (device.model == "iPhone") {
+			app.openURL("whatsapp://send?text=" + encodeURI(draft.content));
+		} else {
+			alert("WhatsApp is only possible on iPhone");
+			context.fail("Share via WhatsApp is not possible on" + device.model + ".");
+		}
+		
+	}
+	
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/33</link>
+        <pubDate>Tue, 09 Apr 2019 13:54:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-33</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[thecarphunter72]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/flohgro">@FlohGro</a></p>
+<p>Hello FloGroh,<br>
+I am interested in this modification, as it also affects my workflow and use case relatively exactly. Thanks for sharing.</p>
+<p><span class="mention">@all</span>: Thank you so much for sharing this workflow, great.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/32</link>
+        <pubDate>Tue, 09 Apr 2019 09:02:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-32</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi and thanks again for your great work!</p>
+<p>I combined the action you made with this one <a href="https://actions.getdrafts.com/a/1IN" rel="nofollow noopener">https://actions.getdrafts.com/a/1IN</a> to be able to use both - defined shortcuts and also placeholders for e.g. names and so on which arent defined as a shortcut.<br>
+This is really useful for me because often I write Messages / E-Mails to persons just a few times - and its not neccessary to save their names as a shortcut. The message itself stays the same so this way I have the benefits from both actions!<br>
+Another very important point is that I dont want the original template for a message to be replaced with the inserted values, thats why i create a duplicate of the parsed body and the template can be used 100s of times.</p>
+<p>If somebody is interested I can share this to the directory, but I just need to make some tweaks for sharing the parsed draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/31</link>
+        <pubDate>Wed, 20 Mar 2019 08:30:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-31</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a> I added your changed and updated the documentation. Thanks!</p>
+<h2>Drafts Template Tags</h2>
+<p>Shortcuts can include tags that will be expanded by <a href="https://reference.getdrafts.com/topics/templates.html" rel="nofollow noopener">Drafts’ template engine</a>. Some useful tags are <code>[[date]]</code> and <code>[[template|path]]</code>.</p>
+<p>Tags must be enclosed within double quotes when defining a shortcut as shown below.</p>
+<pre><code class="lang-auto">.date: "[[date]]"
+
+.location: "[[latitiude]] [[longitude]]"
+
+.disclaimer: "[[template|corporate-disclaimer.txt]]"
+</code></pre>
+<h2>1.02</h2>
+<ul>
+<li>Add support for Drafts tags. Contributed by <a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a>.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/30</link>
+        <pubDate>Sat, 02 Mar 2019 02:38:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-30</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>For the second tweak, I just edited your <code>replaceAll</code> function. Here’s my new version:</p>
+<pre><code class="lang-auto">function replaceAll(text, searchValue, newValue) {
+    return text.split(searchValue).join(draft.processTemplate(newValue));
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/29</link>
+        <pubDate>Thu, 28 Feb 2019 15:54:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-29</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks!</p>
+<p>Please message me patches of your changes.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/28</link>
+        <pubDate>Thu, 28 Feb 2019 15:51:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-28</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>I just wanted to say thank you for this wonderful shortcut. I had been using TextExpander for my snippets in Drafts, but because I was <em>only</em> using it for Drafts, it didn’t feel like it was worth the monthly charge. I wanted something that would replace it using some automation, and your script exactly fit the bill.</p>
+<p>I’ve made a couple of tweaks to your script since installing it. One was just to make it run from a directory of text files in the Drafts /Library directory. That’s really just personal preference: I prefer these kind of configuration files to be outside of my Drafts database. The other I have found really useful is to process the replacements through the draft.processTemplate method. This means I can have a snippet like <code>.ddd: "[[date]]"</code> which expands to today’s date. (I’m not quite sure why, but it only seems to work with the quote marks present.) Thought this second tweak might be something you would be interested in incorporating into your version.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/27</link>
+        <pubDate>Thu, 28 Feb 2019 15:48:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-27</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[slyfox]]></dc:creator>
+        <description><![CDATA[
+            <p>Can you please check</p>
+<blockquote>
+<p>.longphrase: "</p>
+<p>This is a long phrase</p>
+<p>that is split across</p>
+<p>multiple lines."</p>
+</blockquote>
+<p>Results in a in “block style” without using “|”</p>
+<p><strong>Edit:</strong> I figured it out. You have to use an escape from YAML. Empty lines should contain \ in them.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/26</link>
+        <pubDate>Fri, 04 Jan 2019 16:43:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-26</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[macintacos]]></dc:creator>
+        <description><![CDATA[
+            <p><s>Is it possible to have “Comments” that are ignored in the actual shortcuts draft that the shortcuts are defined in? I tried the default comment syntax of a <code>#</code> symbol for YAML, but it doesn’t seem like it allows expansion. I really just want it to skip over any lines that start with the <code>#</code> symbol; I don’t think this warrants any special algorithms to detect if that symbol is found after the beginning of the line. Essentially:</s></p>
+<pre><code class="lang-auto">1 | # This is a comment describing the snippet below
+2 | .prj
+3 |   - Project 1
+4 |   - Project 2
+</code></pre>
+<p><s>I want comments so that I can define my shortcuts a bit more descriptively in case I need to go back after a while and recall what it was for modifying the shortcuts. Hope that makes sense!</s></p>
+<p>Nevermind; this was my mistake. Comments work fine!</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/25</link>
+        <pubDate>Sun, 25 Nov 2018 19:48:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-25</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[John53]]></dc:creator>
+        <description><![CDATA[
+            <p>This is awesome, thanks for sharing. Great piece of work.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/24</link>
+        <pubDate>Tue, 06 Nov 2018 08:12:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-24</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[slyfox]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/dchar">@dchar</a>  What you did with Drafts App action, does this exist on a Mac? Perhaps in Keyboard Maestro or something similar?</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/23</link>
+        <pubDate>Mon, 05 Nov 2018 15:21:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-23</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[dchar]]></dc:creator>
+        <description><![CDATA[
+            <p>Fixed …</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/22</link>
+        <pubDate>Fri, 12 Oct 2018 17:55:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-22</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[slyfox]]></dc:creator>
+        <description><![CDATA[
+            <p>Can you update the example with the longphrase? There is a missing quotation mark at the end.</p>
+<p>Should be:</p>
+<blockquote>
+<p>.longphrase: "<br>
+This is a long phrase<br>
+that is split across<br>
+multiple lines."</p>
+</blockquote>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/21</link>
+        <pubDate>Fri, 12 Oct 2018 15:37:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-21</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+      <item>
+        <title>Simple shortcut replacement</title>
+        <dc:creator><![CDATA[slyfox]]></dc:creator>
+        <description><![CDATA[
+            <p>Please disregard. You were right. I had to Digg through some other shortcuts and found that there is a possible error with a shortcuts that contains long sentences.</p>
+          <p><a href="https://forums.getdrafts.com/t/simple-shortcut-replacement/125/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/simple-shortcut-replacement/125/20</link>
+        <pubDate>Fri, 12 Oct 2018 01:17:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-125-20</guid>
+        <source url="https://forums.getdrafts.com/t/simple-shortcut-replacement/125.rss">Simple shortcut replacement</source>
+      </item>
+  </channel>
+</rss>

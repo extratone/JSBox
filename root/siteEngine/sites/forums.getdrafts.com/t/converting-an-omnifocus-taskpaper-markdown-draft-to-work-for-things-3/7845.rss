@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</title>
+    <link>https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845</link>
+    <description>Hi Drafts community,
+
+I&#39;m a bit stuck and I was wondering whether anyone here could offer some assistance. 
+I used to use Omnifocus and am now slowly transitioning back to Things3 but I have a draft that I use quite often which I managed to get working for Omnifocus but I have no idea how to do it for Things3. 
+
+I would be incredibly grateful if anyone has any input for how to adapt it for Things3 compatibility.
+
+It is written in javascript and basically parses my meeting notes template in drafts and picks out all markdown tasks and then copies them into Omnifocus (I think in taskpaper format) so in the following document it would pull out Task 1 and add the tag &quot;Meeting Action&quot; to it:
+
+```
+# Meeting Notes
+
+## Actions
+- [ ] Task 1
+
+## Content
+Bla bla bla 
+```
+
+So essentially if anyone knows a quick fix for adapting it or would be willing to help me out real quick I would be infinitely grateful. I don&#39;t really know javascript too well but if anyone can help me out I&#39;m willing to tip for your time as this is really invaluable to my workflow.
+
+This is the current code I&#39;m using and a screenshot of my usage:
+
+![Image](upload://cvuBzVZc5Cotlgr1ji6OasQjVNX.png)
+
+
+
+```
+let taskpaper = &#39;&#39;;
+draft.content.split(&quot;\n&quot;).forEach(function(line){
+	if (line.startsWith(&#39;- [ ]&#39;)) {
+		taskpaper += &quot;Meeting Task: &quot; + line.replace(&#39;[ ]&#39;, &#39;&#39;) + &quot; @tags(Meeting Action 🎙)\n&quot;;
+	}
+});
+
+const baseURL = &quot;omnifocus://x-callback-url/paste&quot;;
+let cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter(&quot;content&quot;, taskpaper.trim());
+cb.open();
+
+```</description>
+    
+    <lastBuildDate>Sun, 05 Jul 2020 17:36:08 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</title>
+        <dc:creator><![CDATA[nicolo]]></dc:creator>
+        <description><![CDATA[
+            <p>For reference, I ended up using the following code to achieve my goals and it worked perfectly <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<pre><code class="lang-auto">var content = editor.getText();
+var check = content.length;
+var taskList = "";
+
+if (content.length == 0) {
+alert("Draft is blank");
+context.cancel("Draft was blank");
+}
+
+// Call API for each line in a draft
+// split draft and loop over lines
+var lines = content.split("\n");
+
+var thingsTask = Array();
+
+for (var line of lines) {
+if (line.startsWith("- [ ]")) {
+task = line.replace("- [ ]", "").trim();
+temp = TJSTodo.create();
+temp.title = task;
+temp.tags = ["Meeting Action 🎙"];
+thingsTask.push(temp);
+taskList += task + "\n";
+//content = content.replace(line + "\n", "");
+}
+}
+
+if (thingsTask.length) {
+var container = TJSContainer.create(thingsTask);
+var cb = CallbackURL.create();
+cb.baseURL = container.url;
+var success = cb.open();
+if (success) {
+console.log("Tasks created in Things");
+content = content + "\n\nTasks collected:\n" + taskList;
+editor.setText(content);
+} else {
+context.fail();
+}
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/4</link>
+        <pubDate>Sun, 05 Jul 2020 17:36:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7845-4</guid>
+        <source url="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845.rss">Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</source>
+      </item>
+      <item>
+        <title>Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</title>
+        <dc:creator><![CDATA[nicolo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Cpac,</p>
+<p>That actually looks really good! I’ll give this a go when I get home, I’m not great at javascript but this seems pretty straight forward <img src="https://forums.getdrafts.com/images/emoji/apple/blush.png?v=9" title=":blush:" class="emoji" alt=":blush:"></p>
+<p>Thanks so much!</p>
+          <p><a href="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/3</link>
+        <pubDate>Sun, 05 Jul 2020 14:53:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7845-3</guid>
+        <source url="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845.rss">Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</source>
+      </item>
+      <item>
+        <title>Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</title>
+        <dc:creator><![CDATA[cpac]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Nicolo,</p>
+<p>It shouldn’t be too hard to adapt your action for use with Things.</p>
+<p>You’ll want to look at the <a href="https://scripting.getdrafts.com/classes/tjscontainer" rel="nofollow noopener">TJSContainer</a> object in the Drafts scripting guide. (TJS stands for Things Javascript).</p>
+<p>Us a TJS container to build up your tasks instead of the callback URL in your current script and you should be golden.</p>
+          <p><a href="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/2</link>
+        <pubDate>Sun, 05 Jul 2020 14:49:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7845-2</guid>
+        <source url="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845.rss">Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</source>
+      </item>
+      <item>
+        <title>Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</title>
+        <dc:creator><![CDATA[nicolo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Drafts community,</p>
+<p>I’m a bit stuck and I was wondering whether anyone here could offer some assistance.<br>
+I used to use Omnifocus and am now slowly transitioning back to Things3 but I have a draft that I use quite often which I managed to get working for Omnifocus but I have no idea how to do it for Things3.</p>
+<p>I would be incredibly grateful if anyone has any input for how to adapt it for Things3 compatibility.</p>
+<p>It is written in javascript and basically parses my meeting notes template in drafts and picks out all markdown tasks and then copies them into Omnifocus (I think in taskpaper format) so in the following document it would pull out Task 1 and add the tag “Meeting Action” to it:</p>
+<pre><code class="lang-auto"># Meeting Notes
+
+## Actions
+- [ ] Task 1
+
+## Content
+Bla bla bla 
+</code></pre>
+<p>So essentially if anyone knows a quick fix for adapting it or would be willing to help me out real quick I would be infinitely grateful. I don’t really know javascript too well but if anyone can help me out I’m willing to tip for your time as this is really invaluable to my workflow.</p>
+<p>This is the current code I’m using and a screenshot of my usage:</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/57a975bcfdfccfc62d7f19acb3385601f8de0ba5.png" data-download-href="https://forums.getdrafts.com/uploads/default/57a975bcfdfccfc62d7f19acb3385601f8de0ba5" title="Image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/57a975bcfdfccfc62d7f19acb3385601f8de0ba5_2_231x500.png" alt="Image" data-base62-sha1="cvuBzVZc5Cotlgr1ji6OasQjVNX" width="231" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/57a975bcfdfccfc62d7f19acb3385601f8de0ba5_2_231x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/5/57a975bcfdfccfc62d7f19acb3385601f8de0ba5_2_346x750.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/5/57a975bcfdfccfc62d7f19acb3385601f8de0ba5_2_462x1000.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/57a975bcfdfccfc62d7f19acb3385601f8de0ba5_2_10x10.png"></a></div><p></p>
+<pre><code class="lang-auto">let taskpaper = '';
+draft.content.split("\n").forEach(function(line){
+	if (line.startsWith('- [ ]')) {
+		taskpaper += "Meeting Task: " + line.replace('[ ]', '') + " @tags(Meeting Action 🎙)\n";
+	}
+});
+
+const baseURL = "omnifocus://x-callback-url/paste";
+let cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter("content", taskpaper.trim());
+cb.open();
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845/1</link>
+        <pubDate>Sat, 04 Jul 2020 22:42:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7845-1</guid>
+        <source url="https://forums.getdrafts.com/t/converting-an-omnifocus-taskpaper-markdown-draft-to-work-for-things-3/7845.rss">Converting an Omnifocus Taskpaper Markdown Draft to work for Things 3</source>
+      </item>
+  </channel>
+</rss>

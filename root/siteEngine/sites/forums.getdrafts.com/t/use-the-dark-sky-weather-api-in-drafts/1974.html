@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Use the Dark Sky weather API in Drafts - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="I made a quick demo action using the Dark Sky API to grab current weather conditions for your location and display them in a prompt - which also offers a link to the Dark Sky website for more details if needed. 
+ 
+To use&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="1974.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Use the Dark Sky weather API in Drafts&#39;" href="https://forums.getdrafts.com/t/use-the-dark-sky-weather-api-in-drafts/1974.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d.jpg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d.jpg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/use-the-dark-sky-weather-api-in-drafts/1974" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/use-the-dark-sky-weather-api-in-drafts/1974" />
+<meta property="og:title" content="Use the Dark Sky weather API in Drafts" />
+<meta name="twitter:title" content="Use the Dark Sky weather API in Drafts" />
+<meta property="og:description" content="I made a quick demo action using the Dark Sky API to grab current weather conditions for your location and display them in a prompt - which also offers a link to the Dark Sky website for more details if needed.     To use the action, you’ll need to sign up for a Free Dark Sky API account and copy-paste in the API Key they give you the first time you run the action.  There’s lots more that could be done with this…the forecast API includes all sorts of detailed information…I just cherry-picked a f..." />
+<meta name="twitter:description" content="I made a quick demo action using the Dark Sky API to grab current weather conditions for your location and display them in a prompt - which also offers a link to the Dark Sky website for more details if needed.     To use the action, you’ll need to sign up for a Free Dark Sky API account and copy-paste in the API Key they give you the first time you run the action.  There’s lots more that could be done with this…the forecast API includes all sorts of detailed information…I just cherry-picked a f..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="8 ❤" />
+<meta property="article:published_time" content="2018-07-20T15:27:55+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="1974.html">Use the Dark Sky weather API in Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+            <link itemprop="image" href="../../uploads/default/original/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d.jpg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-07-20T15:27:55Z' class='post-time'>
+                July 20, 2018,  3:27pm
+              </time>
+              <meta itemprop='dateModified' content='2018-07-20T16:08:31Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I made a quick demo action using the <a href="https://darksky.net/dev" rel="nofollow noopener">Dark Sky API</a> to grab current weather conditions for your location and display them in a prompt - which also offers a link to the Dark Sky website for more details if needed.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d.jpg" data-download-href="https://forums.getdrafts.com/uploads/default/3113adf7370de3e7c2c95ac2ed6974121f67e70d" title="IMG_0273.jpg"><img src="../../uploads/default/optimized/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d_2_555x500.jpg" alt="IMG_0273" width="555" height="500" srcset="../../uploads/default/optimized/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d_2_555x500.jpg, ../../uploads/default/original/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d.jpg 1.5x, ../../uploads/default/original/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d.jpg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/3113adf7370de3e7c2c95ac2ed6974121f67e70d_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">IMG_0273.jpg</span><span class="informations">821×739 63.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>To use the action, you’ll need to sign up for a <a href="https://darksky.net/dev" rel="nofollow noopener">Free Dark Sky API account</a> and copy-paste in the API Key they give you the first time you run the action.</p>
+<p>There’s lots more that could be done with this…the forecast API includes all sorts of detailed information…I just cherry-picked a few useful values to demonstrate.</p>
+<p><a href="../../../actions.getdrafts.com/a/1Ms.html" rel="nofollow noopener"><strong>Install the Dark Sky Forecast action</strong></a></p>
+<p>Once you sign in at Dark Sky, the below shows the API key value you will need to copy and paste into the prompt the first time you run the action:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/1X/c1aef716b18dcb19604d081ee26698a0f1d3c573.png" data-download-href="https://forums.getdrafts.com/uploads/default/c1aef716b18dcb19604d081ee26698a0f1d3c573" title="Dark Sky API: Developer Console 2018-07-20 11-06-28.png"><img src="../../uploads/default/optimized/1X/c1aef716b18dcb19604d081ee26698a0f1d3c573_2_690x310.png" alt="Dark%20Sky%20API%3A%20Developer%20Console%202018-07-20%2011-06-28" width="690" height="310" srcset="../../uploads/default/optimized/1X/c1aef716b18dcb19604d081ee26698a0f1d3c573_2_690x310.png, ../../uploads/default/optimized/1X/c1aef716b18dcb19604d081ee26698a0f1d3c573_2_1035x465.png 1.5x, ../../uploads/default/original/1X/c1aef716b18dcb19604d081ee26698a0f1d3c573.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/c1aef716b18dcb19604d081ee26698a0f1d3c573_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Dark Sky API: Developer Console 2018-07-20 11-06-28.png</span><span class="informations">1364×614 36.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="4" />
+           <span class='post-likes'>4 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/crosseel'><span itemprop='name'>crosseel</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-29T04:20:21Z' class='post-time'>
+                December 29, 2018,  4:20am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-29T04:20:21Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is there a way to get the forecast of my current location time and date. Retrieve this info and put this into my current draft? No prompt but directly into the editor written down?</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/zheard'><span itemprop='name'>zheard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-29T17:13:03Z' class='post-time'>
+                December 29, 2018,  5:13pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-29T17:13:03Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I pasted in my API key but the action fails. I tried deleting the action and reinstalling, in case I put the key in wrong (?), but the action seems to have stored that key. How do I start over or re-input the key?</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-29T17:54:57Z' class='post-time'>
+                December 29, 2018,  5:54pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-29T17:54:57Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="3" data-topic="1974">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/zheard/40/100_1.png" class="avatar"> zheard:</div>
+<blockquote>
+<p>How do I start over or re-input the key?</p>
+</blockquote>
+</aside>
+<p>Look at your credentials under Drafts’ internal settings, and Forget the Dark Sky API Key. Next time you run the action you should be prompted again for the key.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/zheard'><span itemprop='name'>zheard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-29T18:03:47Z' class='post-time'>
+                December 29, 2018,  6:03pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-29T18:03:47Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks sylumer. That worked!</p>
+<p>However I re-input my key and the action still fails.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-29T18:20:56Z' class='post-time'>
+                December 29, 2018,  6:20pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-29T18:20:56Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Have a <a href="../../../getdrafts.com/editor/index.html" rel="nofollow noopener">look at your log against the draft you ran the action against</a>.</p>
+<p>I’ve just downloaded the action for the first time, put in my API key and it ran okay for me.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f" title="E0B58E68-867E-4942-AED2-5D53664648F9.jpeg"><img src="../../uploads/default/optimized/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f_2_690x455.jpeg" alt="image" width="690" height="455" srcset="../../uploads/default/optimized/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f_2_690x455.jpeg, ../../uploads/default/optimized/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f_2_1035x682.jpeg 1.5x, ../../uploads/default/optimized/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f_2_1380x910.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6ab6aefaa99dcd2a6338c493084f19a5f3e0140f_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">E0B58E68-867E-4942-AED2-5D53664648F9.jpeg</span><span class="informations">1418×937 73 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/michaelw'><span itemprop='name'>michaelw</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-30T02:58:04Z' class='post-time'>
+                December 30, 2018,  2:58am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-30T03:16:11Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I could not get this to work, then I went to iPhone setting—&gt;privacy—&gt;location services and Drafts was blank. I turned on location services and bam-o it works.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/zheard'><span itemprop='name'>zheard</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-30T04:17:36Z' class='post-time'>
+                December 30, 2018,  4:17am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-30T04:17:36Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Me too! Thanks michaelw.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/MatthewJConnors'><span itemprop='name'>MatthewJConnors</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-05-13T18:52:52Z' class='post-time'>
+                May 13, 2019,  6:52pm
+              </time>
+              <meta itemprop='dateModified' content='2019-05-13T18:52:52Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I too am curious if there is a way to adapt this action to automatically input the retrieved Dark Sky information into a current draft.</p>
+<p>I currently keep a Bear app journal that  I typically update using Drafts. I would like to have the Dark Sky data added at the head of my draft, type an entry and then use my Bear Journal action to send the draft entry to Bear.</p>
+<p>I have attempted reading and adjusting the script, but the scripting is beyond my skill. Thanks for any help.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-05-13T19:04:02Z' class='post-time'>
+                May 13, 2019,  7:04pm
+              </time>
+              <meta itemprop='dateModified' content='2019-05-13T19:04:02Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m not including the entire script, but the part to change. This example removes the prompt displaying the results, and instead adds that same text to the end of the current draft.  Then your URL action after this script step in the same action will include it in the <code>[[body]]</code>, <code>[[draft]]</code> or other tags you might be using to send to Bear.</p>
+<pre><code class="lang-javascript">let data = getForecast(lat, lon);
+if (data) {
+  // See details on all information in response at API docs
+  // https://darksky.net/dev/docs
+  let d = [];
+  d.push(`Temperature: ${data.currently.temperature}`);
+  d.push(`Summary: ${data.currently.summary}`);
+  d.push(`Expected: ${data.minutely.summary}`);
+  d.push(`Today's High: ${data.daily.data[0].temperatureHigh}`);
+  d.push(`Today's Low: ${data.daily.data[0].temperatureLow}`);
+  let weather = d.join("\n");
+  // weather var now has the weather data in it.
+  // here we'll append it to the end of the current draft...
+  draft.content = draft.content + "\n\n" + weather;
+  draft.update(); // remove this line if you don't want to save the changes
+}
+else {
+  alert("Unable to fetch Dark Sky forecast information. Check action log for details");
+}
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/MatthewJConnors'><span itemprop='name'>MatthewJConnors</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-05-13T19:40:18Z' class='post-time'>
+                May 13, 2019,  7:40pm
+              </time>
+              <meta itemprop='dateModified' content='2019-05-13T19:40:18Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the quick reply! That is exactly what I needed.</p>
+<p>With a little adaption to my Bear action, I am now automatically adding weather data to my garden/orchard journal entries.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Uhnnohn'><span itemprop='name'>Uhnnohn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-24T15:29:45Z' class='post-time'>
+                April 24, 2021,  3:29pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-24T15:29:45Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I set this up a while back<br>
+I want to change the longitude &amp; latitude</p>
+<p>Where is that set/saved?</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-24T15:36:17Z' class='post-time'>
+                April 24, 2021,  3:36pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-24T16:01:14Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you are relying on this, you might want to take note of the fact that the Dark Sky API is shutting down July 1, 2021.</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Uhnnohn'><span itemprop='name'>Uhnnohn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="1974.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-24T15:37:56Z' class='post-time'>
+                April 24, 2021,  3:37pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-24T15:37:56Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>crap,<br>
+I have been using it for a daily journal - thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Use the Dark Sky weather API in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

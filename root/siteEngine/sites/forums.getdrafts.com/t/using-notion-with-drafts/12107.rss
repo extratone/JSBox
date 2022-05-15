@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Notion with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107</link>
+    <description>![notion|622x330, 50%](upload://kfgJ95xnp9sAMMBNS6WbTNliysk.png)
+
+# Using Notion with Drafts
+
+&gt; **NOTE:** Notion integration requires Drafts v31 or greater. The Notion API used for integration is still in beta, as such aspects of this functionality may change or break and Notion finalizes their API.
+
+[Notion](https://www.notion.so) is an online project management and information system. Drafts currently two ways to integrate with Notion: 
+
+* [Notion action step](https://docs.getdrafts.com/docs/actions/steps/services#notion). Can create new sub-pages, or append to existing pages, as plain text or as to-do lists.
+* [`Notion` script object](https://scripting.getdrafts.com/classes/notion): Provides a `request` method which allows you to script calls to the full Notion API, while providing automatic OAuth authenticate flow.
+
+The action step provides a basic, easy to approach way to get your data from Drafts to Notion. Scripting supports advanced integration, for users needing to work with databases and other block types in Notion.
+
+## Notion Authentication and Permissions
+
+Like most services Drafts integrates with, Notion uses the [OAuth standard](https://en.wikipedia.org/wiki/OAuth) for authentication. The first time you use an action that integrates with Notion, you will be redirected to the Notion website and asked to log in and authorize Drafts to use your account.
+
+When authenticating, Notion has an additional step of selecting specific pages in Notions which the integration will be granted permissions to access. It is recommended you give Drafts permissions *only* to the pages you plan to target with actions.
+
+![notion-authentication|690x367, 100%](upload://5GZeyq75fzyHzjsUiUFdzmCuZH1.png)
+
+After you have authorized Drafts, you can add and remove page permissions in the Notion interface:
+
+- Navigate to the Notion Page you wish to add to the Drafts integration.
+- Select &quot;Share&quot;, then &quot;Invite&quot; and select the &quot;Drafts&quot; integration to allow it permission to use the page. 
+
+Permissions are inherited, so granting Drafts permission to access a page or workspace, gives it permission to access child elements of that item.
+
+If &quot;Drafts&quot; does not appear as an option when to invite in your share page, make sure you have run a Notion action in Drafts and successfully authenticated to the correct workspace in Notion.
+
+## Notion Action Step
+
+The [Notion action step](https://docs.getdrafts.com/docs/actions/steps/services#notion) can add text or to-do lists to pages in Notion. Aspects of this step may change, but it&#39;s a start. To get started, install an example action:
+
+* [Notion-Create Page](https://directory.getdrafts.com/a/1uS)
+* [Notion-Append as Text](https://directory.getdrafts.com/a/1uC)
+* [Notion-Append as To-Do List](https://directory.getdrafts.com/a/1uT)
+* [Notion-Append as To Do List](https://directory.getdrafts.com/a/1uD)
+
+By default, these examples ask you to select a Notion page as a target each time they are run. They can also be configured to target a specific page by page ID. See next section on obtaining IDs, and the [step documentation](https://docs.getdrafts.com/docs/actions/steps/services#notion) for further details on options available.
+
+## Obtaining Notion Page IDs
+
+To configure action steps to target a specific page in Notion, you can use the &quot;Select&quot; button in the action step configuration, or obtain a specific Page ID from Notion. 
+
+![notion-page-id|690x386](upload://slEXJlvCo6JOqrUZk8k0MMP56jD.png)
+
+To get a page ID:
+
+* Navigate to the page in the Notion website or app.
+* Use the &quot;Share&quot; button, and &quot;Copy Link&quot; to get the unique URL for the page.
+* The Page ID is the string of numbers and letters at the end of the URL.
+
+Once you obtain that page ID, you can paste it in an action and change the action to &quot;Assign&quot; the target page.
+
+*Be sure the page you wish to target has been invited to the &quot;Drafts&quot; integration (see permissions section above) or the action will fail.*
+
+## Using the Notion API in Script
+
+For advanced users, Drafts also provides a [Notion Script object](https://scripting.getdrafts.com/classes/notion) that allows you to make requests directly against the Notion API. Any API calls can be used, see [Notion API docs](https://developers.notion.com/reference/intro) for information on available methods. This object may add convenience methods for some functions, but right now only has a single `request` method that allows for arbitrary calls against the Notion API. Example action:
+
+* [Notion: List Pages](https://directory.getdrafts.com/a/1uE)
+
+## Notion and Markdown/Rich Text/HTML
+
+Notion stores text in its own [structured block format](https://developers.notion.com/reference/block). In their own apps and web version, they have tools that convert between Markdown pasted into the interface, and this native block format.
+
+At this time, Notion has not added the ability to convert between this native block format and HTML or Markdown to the capabilities of the API.
+
+It is possible to construct Notion blocks using JavaScript in Drafts (they are just complex JSON objects), and pass those values to the API, but due to the complexity of the format, we do not have any automated tools to do this conversion.
+
+We are hoping Notion adds this capability before the API is final, and we will certain support it to provide a smoother way to pass Markdown and/or HTML to Notion if they do.</description>
+    
+    <lastBuildDate>Tue, 10 May 2022 16:06:38 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[albas_phaysal]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh, I get it, it’s working now. Seems like because there was no line break it was taking the whole paragraph as a single line. Thanks for the clarification.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/30</link>
+        <pubDate>Tue, 10 May 2022 16:06:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-30</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[ottorama41]]></dc:creator>
+        <description><![CDATA[
+            <p>Many thanks for creating this integration!</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/29</link>
+        <pubDate>Sun, 08 May 2022 02:10:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-29</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="albas_phaysal" data-post="27" data-topic="12107">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/albas_phaysal/40/6641_2.png" class="avatar"> albas_phaysal:</div>
+<blockquote>
+<p>As you can see from <a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/21">here</a> the drafts page I’m trying to add to Notion is not empty</p>
+</blockquote>
+</aside>
+<p>From the screenshot it looks like all of your text might be on the first line, the title - which would mean there is no content beyond the title, which as Greg noted above is what is used for the content sent to Notion.</p>
+<p>What do you get with a draft like this? The same error, or does it then work, with lines 2-4 being used as the content?</p>
+<pre data-code-wrap="md"><code class="lang-nohighlight">I am the title line
+I am the first content line
+...
+I am the last content line
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/28</link>
+        <pubDate>Sat, 07 May 2022 09:34:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-28</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[albas_phaysal]]></dc:creator>
+        <description><![CDATA[
+            <p>As you can see from <a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/21">here</a> the drafts page I’m trying to add to Notion is not empty. The Notion page I’m trying to append to as well is not empty page, there’s a lot of text in it. I’ve also tried appending to other pages as well but it’s still not working.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/27</link>
+        <pubDate>Sat, 07 May 2022 09:22:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-27</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This message is pretty clear…what is the content of the draft you are trying to run this action on? Per the <a href="https://directory.getdrafts.com/a/1uT">description</a>, this action takes the first line of the draft as a title, and the remaining lines as to-dos. Do you have multiple lines in your draft?  It sounds like it’s trying to create a blank page in Notion, which is not valid.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/26</link>
+        <pubDate>Thu, 05 May 2022 11:56:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-26</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[albas_phaysal]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh yeah, here’s the error message from the latest run.</p>
+<pre><code class="lang-auto">Notion: Content cannot be empty.
+</code></pre>
+<p>Screeshot:<br>
+<img src="https://forums.getdrafts.com/uploads/default/original/2X/1/1383d76ca284c2a89a4bc56509f5ac3de6b4c598.png" alt="Screen Shot 2022-05-05 at 12.12.25" data-base62-sha1="2MDxxNXNG3SMOi3hY3Hbb2Q2Xiw" width="365" height="428"></p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/25</link>
+        <pubDate>Thu, 05 May 2022 08:14:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-25</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Is this all on a single run, or on multiple runs? Really what you want is the exact log entries of the most recent single run. You should just be able to copy and paste the content of the messages section directly into the forum post.</p>
+<p>E.g. Here is a recent error from my log.</p>
+<hr>
+<pre><code class="lang-auto">Script step completed.
+Script step completed.
+Script Error: ReferenceError: Can't find variable: strRegExSearch
+Line number: 34, Column 21
+</code></pre>
+<hr>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/24</link>
+        <pubDate>Wed, 04 May 2022 09:03:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-24</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[albas_phaysal]]></dc:creator>
+        <description><![CDATA[
+            <p>The first one showed “Service login required” which I guess was because I haven’t logged in yet. Following that were a few that showed “Notion: Parent required” and the last few showed “Notion: Content cannot be empty”.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/23</link>
+        <pubDate>Wed, 04 May 2022 06:38:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-23</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>What error details are showing in the action log?</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://docs.getdrafts.com/docs/actions/action-log">
+  <header class="source">
+      <img src="https://docs.getdrafts.com/favicon.ico" class="site-icon" width="" height="">
+
+      <a href="https://docs.getdrafts.com/docs/actions/action-log" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://docs.getdrafts.com/images/og-image.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/actions/action-log" target="_blank" rel="noopener">Action Log</a></h3>
+
+  <p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/22</link>
+        <pubDate>Tue, 03 May 2022 09:08:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-22</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[albas_phaysal]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve downloaded the example actions but they’re not working. I’ve authenticated everything and shared it with Drafts from Notion but I keep getting error when running an action.<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/51ed644686ccb366ef101b27964a0683f8176c83.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/51ed644686ccb366ef101b27964a0683f8176c83" title="Screen Shot 2022-05-03 at 11.08.20"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/51ed644686ccb366ef101b27964a0683f8176c83_2_690x388.jpeg" alt="Screen Shot 2022-05-03 at 11.08.20" data-base62-sha1="bGLhDxE3JVoDqSlfJnTNGmv7IR5" width="690" height="388" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/51ed644686ccb366ef101b27964a0683f8176c83_2_690x388.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/5/51ed644686ccb366ef101b27964a0683f8176c83_2_1035x582.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/5/51ed644686ccb366ef101b27964a0683f8176c83_2_1380x776.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/51ed644686ccb366ef101b27964a0683f8176c83_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/21</link>
+        <pubDate>Tue, 03 May 2022 07:10:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-21</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[GS_Boss]]></dc:creator>
+        <description><![CDATA[
+            <p>Its working well, many thanks</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/20</link>
+        <pubDate>Fri, 15 Apr 2022 10:32:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-20</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[feliz]]></dc:creator>
+        <description><![CDATA[
+            <p>I have updated the action.</p>
+<p>I also added a note in the script to check that your database pages title property is called “Name” which is the default. I did not explain this in the last version.</p>
+<p>If you changed the default, then you will need to replace “Name” in the script with exact name of the title field.<br>
+Hope it works for you !</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/19</link>
+        <pubDate>Tue, 22 Mar 2022 18:25:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-19</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[feliz]]></dc:creator>
+        <description><![CDATA[
+            <p>HI, I created the action you are referring to.<br>
+It has stopped working recently - I’m not very experienced in this so I am trying to work out what has changed. It may be the Notion API changes.<br>
+Apologies for the problem, if I work out what is wrong I will post an update!</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/18</link>
+        <pubDate>Tue, 22 Mar 2022 03:50:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-18</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Databases are not supported by the action step. Only pages at this time.</p>
+<p>Databases could be addressed directly with scripted actions.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/17</link>
+        <pubDate>Mon, 21 Mar 2022 15:32:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-17</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[GS_Boss]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, I am trying to use the new action to add a page to the database, but it’s not working.</p>
+<ul>
+<li>Added integration with Notion&lt;&gt;Drafts</li>
+<li>Shared DB with the Integration</li>
+<li>Got Database ID and pasted to the scriptthe  (part where you mention YOUR DATABASE ID HERE<br>
+I tried multiple times with different databases, but nothing is going to Notion</li>
+</ul>
+<p>Can you help, please?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/16</link>
+        <pubDate>Mon, 21 Mar 2022 15:16:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-16</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>As noted, it is possible to script updates to databases. I’m working on some example actions to demonstrate.  It’s not too easy to have a baked-in action step to update databases, because every database has a different structure so it can’t really be done in a simple way that work work for any database.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/15</link>
+        <pubDate>Sat, 05 Mar 2022 20:29:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-15</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[Marsch]]></dc:creator>
+        <description><![CDATA[
+            <p>+1<br>
+I agree - that would be very helpful.<br>
+For instance in order to be able to create an Actions/Task in an Action Item database.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/14</link>
+        <pubDate>Sat, 05 Mar 2022 20:09:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-14</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>There is a create page example action listed in the original post above, and as noted, you can interact with the Notion API in any way you like via the scripting object. So as long as the API supports an interaction, the Drafts implementation also supports it as it supports interacting with the official API.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/13</link>
+        <pubDate>Sat, 05 Mar 2022 17:32:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-13</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[Keenan_Burke-Pitts]]></dc:creator>
+        <description><![CDATA[
+            <p>Just want to confirm if this update allows for insertion of notes into Notion databases? Does this integration allow for draft notes to be added as new pages (aka new rows inserted) within a Notion database? Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/12</link>
+        <pubDate>Sat, 05 Mar 2022 16:58:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-12</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts store account information in <a href="https://docs.getdrafts.com/docs/settings/credentials">Credentials</a>. Visit that section in settings and forget your Notion credentials if you need to re-authenticate for some reason.</p>
+<p>You do <em>not</em> need to re-authenticate to change what pages/databaases the integration has access to, however. See information above on inviting the Drafts integration to other content in Notion.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/11</link>
+        <pubDate>Thu, 03 Mar 2022 15:12:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-11</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[jejaramillo]]></dc:creator>
+        <description><![CDATA[
+            <p>How can I reinstall from 0 actions to create pages in NOTION? I have deleted it from Draft, I have reinstalled it but I can’t get it to ask me again for permissions and authentications in Notion to be able to reinstall it correctly. It always gives me an error.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/10</link>
+        <pubDate>Thu, 03 Mar 2022 15:08:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-10</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[nk141700]]></dc:creator>
+        <description><![CDATA[
+            <p>Understood, thanks! I’ll give that a shot and see what I can come up with.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/9</link>
+        <pubDate>Sun, 27 Feb 2022 15:36:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-9</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>In case it helps, it should be possible now - see “Using the Notion API in Script” above. It is just that you have to do some of the lifting rather than there being a prebuilt action to help.</p>
+<p>If there’s a demand and use there for these options in particular, I wouldn’t be surprised if Greg built it into Drafts, or a Notion &amp; Drafts user shared an action to do this based on scripting the interaction.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/8</link>
+        <pubDate>Sun, 27 Feb 2022 09:58:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-8</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[nk141700]]></dc:creator>
+        <description><![CDATA[
+            <p>Good to see some Notion integrations!</p>
+<p>After playing around with these options, I take it neither the “Create Page” or “Append as Text” action steps are capable of creating a new entry / page in a database?</p>
+<p>Is that capability on the horizon?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/7</link>
+        <pubDate>Sun, 27 Feb 2022 04:17:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-7</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+      <item>
+        <title>Using Notion with Drafts</title>
+        <dc:creator><![CDATA[yacafx]]></dc:creator>
+        <description><![CDATA[
+            <p>U r the best! Thank u! <img src="https://forums.getdrafts.com/images/emoji/apple/smiley.png?v=12" title=":smiley:" class="emoji" alt=":smiley:" loading="lazy" width="20" height="20"><img src="https://forums.getdrafts.com/images/emoji/apple/smiley.png?v=12" title=":smiley:" class="emoji" alt=":smiley:" loading="lazy" width="20" height="20"><img src="https://forums.getdrafts.com/images/emoji/apple/smiley.png?v=12" title=":smiley:" class="emoji" alt=":smiley:" loading="lazy" width="20" height="20"></p>
+          <p><a href="https://forums.getdrafts.com/t/using-notion-with-drafts/12107/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-notion-with-drafts/12107/6</link>
+        <pubDate>Sat, 26 Feb 2022 23:51:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12107-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-notion-with-drafts/12107.rss">Using Notion with Drafts</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Move selected lines Up or Down</title>
+    <link>https://forums.getdrafts.com/t/move-selected-lines-up-or-down/11339</link>
+    <description>Hi, I’ve made an action to move the selected lines up or down, you can download the main action [here](drafts5://action?data=%7B%22uuid%22:%22EF1A5FEF-89B5-4944-8312-BF8252FA9BE2%22,%22steps%22:%5B%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22%5C/%5C/%20See%20online%20documentation%20for%20examples%5Cn%5C/%5C/%20https:%5C/%5C/docs.getdrafts.com%5C/docs%5C/actions%5C/scripting%5Cn%5Cnfunction%20swap()%20%7B%5Cnvar%20lines%20%3D%20draft.getTemplateTag(&#39;swap-lines&#39;)%5Cn%5Cnif%20(lines%20%3D%3D%20&#39;&#39;)%20%7B%5Cn%5Ctapp.displayErrorMessage(&#39;Error%20decoding%20lines&#39;)%5Cn%5Ctreturn%20%5Cn%7D%5Cn%5Cnlet%20ranges%20%3D%20lines.split(&#39;,&#39;)%5Cnvar%20firstRange%20%3D%20ranges%5B0%5D.split(&#39;-&#39;).map((i)%20%3D%3E%20Number(i))%5Cnvar%20secondRange%20%3D%20ranges%5B1%5D.split(&#39;-&#39;).map((i)%20%3D%3E%20Number(i))%5Cn%5Cnvar%20selection%20%3D%20editor.getSelectedRange()%5Cn%5Cnif%20(firstRange%5B0%5D%20%3C%20secondRange%5B0%5D)%20%7B%5Cn%5Ctif%20(firstRange%5B0%5D%20+%20firstRange%5B1%5D%20%3E%20secondRange%5B0%5D)%20%7B%5Cn%5Ct%5Ctapp.displayErrorMessage(&#39;Cannot%20swap%20line%20that%20contains%20itslef&#39;)%5Cn%5Ct%5Ctreturn%5Cn%5Ct%7D%5Cn%5C/%5C/%5Ctalert(selection%20+%20&#39;%20-%20&#39;%20+%20secondRange)%5Cn%5Ctselection%5B0%5D%20+%3D%20secondRange%5B1%5D%5Cn%7D%20else%20%7B%5Cn%5Ctif%20(firstRange%5B0%5D%20+%20firstRange%5B1%5D%20%3C%20secondRange%5B0%5D)%20%7B%5Cn%5Ct%5Ctapp.displayErrorMessage(&#39;Cannot%20swap%20line%20that%20contains%20itslef&#39;)%5Cn%5Ct%7D%5Cn%5Ctlet%20temp%20%3D%20firstRange%5Cn%5CtfirstRange%20%3D%20secondRange%5Cn%5CtsecondRange%20%3D%20temp%5Cn%5Ct%5Cn%5Ctselection%5B0%5D%20-%3D%20firstRange%5B1%5D%5Cn%7D%5Cn%5Cnif%20(firstRange%5B0%5D%20+%20firstRange%5B1%5D%20!%3D%3D%20secondRange%5B0%5D)%20%7B%5Cn%5Ctapp.displayErrorMessage(&#39;Lines%20are%20not%20adjacent&#39;)%5Cn%5Ctreturn%5Cn%7D%5Cn%5Cnlet%20firstText%20%3D%20editor.getTextInRange(firstRange%5B0%5D,%20firstRange%5B1%5D)%5Cnlet%20secondText%20%3D%20editor.getTextInRange(secondRange%5B0%5D,%20secondRange%5B1%5D)%5Cn%5Cnlet%20fullText%20%3D%20secondText%20+%20firstText%5Cn%5Cn%5C/%5C/editor.setTextInRange(secondRange%5B0%5D,%20secondRange%5B1%5D,%20firstText)%5Cn%5C/%5C/editor.setTextInRange(firstRange%5B0%5D,%20firstRange%5B1%5D,%20secondText)%5Cn%5Cneditor.setTextInRange(firstRange%5B0%5D,%20firstRange%5B1%5D%20+%20secondRange%5B1%5D,%20fullText)%5Cn%5Cn%5C/%5C/editor.setSelectedRange(selection%5B0%5D,%20selection%5B1%5D)%5Cneditor.setSelectedRange(selection%5B0%5D,%20selection%5B1%5D)%5Cn%5Cn%7D%5Cn%5Cnswap()%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%225353FFD4-B373-49FE-8D16-F8DC6DE4A1FF%22%7D%5D,%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Swap%20Lines%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22gray%22,%22actionDescription%22:%22%22,%22keyUseIcon%22:false,%22icon%22:%22action_runworkflow%22,%22visibility%22:160,%22backingIsSeparator%22:false,%22groupUUID%22:%22F1BB295C-DF0C-4685-9B62-60EFFB49D97C%22,%22assignTags%22:%5B%5D,%22name%22:%22Swap%20Lines%22%7D).
+
+But you will also need this two actions [Move Line Up](drafts5://action?data=%7B%22uuid%22:%223FE6FB0B-1F4F-45DE-88C9-12CBEB6C3C00%22,%22steps%22:%5B%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22%5C/%5C/%20See%20online%20documentation%20for%20examples%5Cn%5C/%5C/%20https:%5C/%5C/docs.getdrafts.com%5C/docs%5C/actions%5C/scripting%5Cn%5Cnvar%20selection%20%3D%20editor.getSelectedLineRange()%5Cnlet%20selectedText%20%3D%20editor.getTextInRange(selection%5B0%5D,%20selection%5B1%5D)%5Cn%5Cn%5C/%5C/editor.setSelectedRange(selection%5B0%5D%20+%20selection%5B1%5D,%200)%5Cn%5Cnvar%20nextLineRange%20%3D%20editor.getLineRange(selection%5B0%5D-1,%200)%5Cnlet%20newLineText%20%3D%20%20editor.getTextInRange(nextLineRange%5B0%5D,%20nextLineRange%5B1%5D)%5Cn%5Cnvar%20swapLines%20%3D%20selection.join(&#39;-&#39;)%20+%20&#39;,&#39;%20+%20nextLineRange.join(&#39;-&#39;)%5Cn%5Cndraft.setTemplateTag(%5C%22swap-lines%5C%22,%20swapLines)%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%221C87F0F9-341F-4605-A022-0436B40A3998%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22name%22:%22Swap%20Lines%22%7D,%22type%22:%22includeAction%22,%22isEnabled%22:true,%22uuid%22:%2249DBB9E2-41B8-4546-9DD1-CD241E4CD53E%22%7D%5D,%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:true,%22input%22:%22%23UP%22,%22controlKey%22:false,%22commandKey%22:true,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Move%20Line%20Up%22,%22shiftKey%22:false%7D,%22logLevel%22:0,%22groupDisposition%22:0,%22notificationType%22:0,%22tintColor%22:%22gray%22,%22actionDescription%22:%22%22,%22keyUseIcon%22:true,%22icon%22:%22arrow-up%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22F1BB295C-DF0C-4685-9B62-60EFFB49D97C%22,%22assignTags%22:%5B%5D,%22name%22:%22Move%20Line%20Up%22%7D) and [Move Line Down](drafts5://action?data=%7B%22uuid%22:%22578747CD-8274-44B1-B0C3-51DBFEC34CE7%22,%22steps%22:%5B%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22%5C/%5C/%20See%20online%20documentation%20for%20examples%5Cn%5C/%5C/%20https:%5C/%5C/docs.getdrafts.com%5C/docs%5C/actions%5C/scripting%5Cn%5Cnvar%20selection%20%3D%20editor.getSelectedLineRange()%5Cnlet%20selectedText%20%3D%20editor.getTextInRange(selection%5B0%5D,%20selection%5B1%5D)%5Cn%5Cn%5C/%5C/editor.setSelectedRange(selection%5B0%5D%20+%20selection%5B1%5D,%200)%5Cn%5Cnvar%20nextLineRange%20%3D%20editor.getLineRange(selection%5B0%5D+selection%5B1%5D,%200)%5Cnlet%20newLineText%20%3D%20%20editor.getTextInRange(nextLineRange%5B0%5D,%20nextLineRange%5B1%5D)%5Cn%5Cnvar%20swapLines%20%3D%20selection.join(&#39;-&#39;)%20+%20&#39;,&#39;%20+%20nextLineRange.join(&#39;-&#39;)%5Cn%5Cndraft.setTemplateTag(%5C%22swap-lines%5C%22,%20swapLines)%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22CBFA9503-6315-480A-AA73-4954A21C4A56%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22name%22:%22Swap%20Lines%22%7D,%22type%22:%22includeAction%22,%22isEnabled%22:true,%22uuid%22:%22DD2CA99B-4CCB-4DB3-8E0D-1CC449C0FA17%22%7D%5D,%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:true,%22input%22:%22%23DOWN%22,%22controlKey%22:false,%22commandKey%22:true,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Move%20Line%20Down%22,%22shiftKey%22:false%7D,%22logLevel%22:0,%22groupDisposition%22:0,%22notificationType%22:0,%22tintColor%22:%22gray%22,%22actionDescription%22:%22%22,%22keyUseIcon%22:true,%22icon%22:%22arrow-down%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22F1BB295C-DF0C-4685-9B62-60EFFB49D97C%22,%22assignTags%22:%5B%5D,%22name%22:%22Move%20Line%20Down%22%7D).
+
+You need them beacause the main action just receives the lines you want to swap.
+
+**Hope this helps**
+
+## For modifications
+
+If you want to modify this action theres only one drawback, in my script you can only swap lines that are adjacent. I made it this way because it was easier to check for errors.
+
+It can be modified to swap any two lines in the editor, you just need to make sure to check for cases in witch the text will be moved inside the other range. That caused problems for me.
+
+---
+If you want to call the action with your own action in requires a `templateTag` named `’swap-lines’` that need to contain the index and range of both of the full lines you want to swap encoded in the following way: 
+
+``` css
+“4-5,9-3”
+```
+
+Where `4-5` means the second line starts in index `4` and has a length of `5` and the next line starts at index `9` with a length of `3`
+
+### Keep Selection
+
+This action keeps the same text selected when you swap to adjacent lines, it does that by receiving the selected line in the first parameter.
+
+If you want to swap two lines and non of them are selected, you would need to modify the selection process</description>
+    
+    <lastBuildDate>Sat, 09 Oct 2021 01:29:51 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/move-selected-lines-up-or-down/11339.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Move selected lines Up or Down</title>
+        <dc:creator><![CDATA[Zrapata]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, I’ve made an action to move the selected lines up or down, you can download the main action <a href="https://forums.getdrafts.com">here</a>.</p>
+<p>But you will also need this two actions <a href="https://forums.getdrafts.com">Move Line Up</a> and <a href="https://forums.getdrafts.com">Move Line Down</a>.</p>
+<p>You need them beacause the main action just receives the lines you want to swap.</p>
+<p><strong>Hope this helps</strong></p>
+<h2>
+<a name="for-modifications-1" class="anchor" href="https://forums.getdrafts.com#for-modifications-1"></a>For modifications</h2>
+<p>If you want to modify this action theres only one drawback, in my script you can only swap lines that are adjacent. I made it this way because it was easier to check for errors.</p>
+<p>It can be modified to swap any two lines in the editor, you just need to make sure to check for cases in witch the text will be moved inside the other range. That caused problems for me.</p>
+<hr>
+<p>If you want to call the action with your own action in requires a <code>templateTag</code> named <code>’swap-lines’</code> that need to contain the index and range of both of the full lines you want to swap encoded in the following way:</p>
+<pre><code class="lang-css">“4-5,9-3”
+</code></pre>
+<p>Where <code>4-5</code> means the second line starts in index <code>4</code> and has a length of <code>5</code> and the next line starts at index <code>9</code> with a length of <code>3</code></p>
+<h3>
+<a name="keep-selection-2" class="anchor" href="https://forums.getdrafts.com#keep-selection-2"></a>Keep Selection</h3>
+<p>This action keeps the same text selected when you swap to adjacent lines, it does that by receiving the selected line in the first parameter.</p>
+<p>If you want to swap two lines and non of them are selected, you would need to modify the selection process</p>
+          <p><a href="https://forums.getdrafts.com/t/move-selected-lines-up-or-down/11339/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-selected-lines-up-or-down/11339/1</link>
+        <pubDate>Sat, 09 Oct 2021 01:29:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11339-1</guid>
+        <source url="https://forums.getdrafts.com/t/move-selected-lines-up-or-down/11339.rss">Move selected lines Up or Down</source>
+      </item>
+  </channel>
+</rss>

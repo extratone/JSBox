@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Markdown rendering for Drafts iOS widget?</title>
+    <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515</link>
+    <description>Hi all —
+
+I’m experimenting with Drafts widgets as a way to display reminders of weekly/quarterly goals, and would like them to show up as a nicely formatted numbered list. I have the widget displaying a particular Draft, but the numbered list doesn’t indent correctly because it is raw markdown instead of rendered. Is there a way to have the widget render its contents using Markdown or similar?
+
+Thanks!</description>
+    
+    <lastBuildDate>Wed, 02 Jun 2021 12:08:13 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Technically, this is not really possible at the moment. Widgets are very limited. To render the output of Markdown as HTML, you have to use a web view, and they are not supported in Widgets, to the best of my understanding.</p>
+<p>Widgets are designed to be very lightweight for battery use reasons, and things like web views (WKWebView) are not allowed - only native SwiftUI layouts that can be snapshotted by the system to be rendered at very low CPU cost.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/11</link>
+        <pubDate>Wed, 02 Jun 2021 12:08:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-11</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>I mean if Drafts were to say “this is clearly too long to format well on a widget of this size”.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/10</link>
+        <pubDate>Wed, 02 Jun 2021 07:00:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-10</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[Felciano]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Martin –</p>
+<p>Definitely agree with <span class="hashtag">#1</span>, although that hazard exists today since unformatted Drafts get cut off if they are too long a/o the widget is too small.</p>
+<p>Curious about your second one – what is “refused”? Do you mean if it fails to format due to malformed markdown or similar?</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/9</link>
+        <pubDate>Tue, 01 Jun 2021 16:17:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-9</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>The hazards here are twofold, to my eyes:</p>
+<ol>
+<li>A user being unhappy with a cut off draft.</li>
+<li>A user being unhappy when a draft is refused.</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/8</link>
+        <pubDate>Tue, 01 Jun 2021 06:59:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-8</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[Felciano]]></dc:creator>
+        <description><![CDATA[
+            <p>I would think about it differently. Rather than a widget that needs to be an equivalent to the Drafts app UI itself, and thus be able to display any type of draft equally well, it is instead designed to only display small, short drafts. That puts the onus on the user to only pick small, short drafts to display, and if necessary, wordsmith the draft text to make it display better.</p>
+<p>My main use cases are for things like:</p>
+<ul>
+<li>Weekly goals</li>
+<li>Daily reminders</li>
+<li>Quote of the week</li>
+<li>Etc</li>
+</ul>
+<p>Obviously the first time you read it you need to see the whole text. But in many cases, seeing the first part of the goals/reminders/QOTW/etc is enough to remind you of it and bring it to front of the mind. At that point, it has done its job, even if 100% of the text wasn’t visible.</p>
+<p>That said, scrolling by dragging would be great, as would some sort of widget auto-resize if Apple enables that at some point. Giving a broader range of formatting options (font sizing, margins, option to hide the title) would also help. But for now, just having real Markdown formatting so the text formats, indents and flows correctly would be a great start.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/7</link>
+        <pubDate>Mon, 31 May 2021 16:53:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-7</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[camxcube]]></dc:creator>
+        <description><![CDATA[
+            <p>+1 Here. I’ve been wanting this function for a long time.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/6</link>
+        <pubDate>Sat, 29 May 2021 05:16:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-6</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>I agree. That does sound like “special formatting” though…</p>
+<p>… Suppose you have a draft with 5 items in a list and there is only space for 4. What do you want to have happen? It can’t scroll. It might be able to have ellipsis to indicate “there’s more”.</p>
+<p>Even if we said “don’t make the list overflow and if it does we’ll just crop to fit the widget” there’s still how to render onto the widget.</p>
+<p>My point is that quite a lot of parallel infrastructure would be needed.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/5</link>
+        <pubDate>Thu, 20 May 2021 08:45:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-5</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[Felciano]]></dc:creator>
+        <description><![CDATA[
+            <p>I think the most obvious use case here is drafts that just consist of lists, potentially short ones. There are a number of Drafts actions that make it easy to e.g. add a new item to the bottom of a list of ideas/movies/blog posts/etc. So I’d like to see that list displayed as a nicely-formatted ordered (numbered) or unordered (bullets) list in the widget. Could only be 2-3 items (e.g. my top 3 goals for the week)</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/4</link>
+        <pubDate>Wed, 19 May 2021 23:30:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-4</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>How much of a draft would you expect to get rendered on a widget. Even a large one would be hard pressed to show much. And, unless iOS 15 brings big changes, I wouldn’t expect it to scroll.</p>
+<p>(Not against; Just wondering how practical this would be.)</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/3</link>
+        <pubDate>Wed, 19 May 2021 08:32:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-3</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>+1 on That request would be Great if the syntax of a draft could be reflected in the widget</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/2</link>
+        <pubDate>Tue, 18 May 2021 21:12:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-2</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+      <item>
+        <title>Markdown rendering for Drafts iOS widget?</title>
+        <dc:creator><![CDATA[Felciano]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi all —</p>
+<p>I’m experimenting with Drafts widgets as a way to display reminders of weekly/quarterly goals, and would like them to show up as a nicely formatted numbered list. I have the widget displaying a particular Draft, but the numbered list doesn’t indent correctly because it is raw markdown instead of rendered. Is there a way to have the widget render its contents using Markdown or similar?</p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515/1</link>
+        <pubDate>Tue, 18 May 2021 18:14:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10515-1</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-rendering-for-drafts-ios-widget/10515.rss">Markdown rendering for Drafts iOS widget?</source>
+      </item>
+  </channel>
+</rss>

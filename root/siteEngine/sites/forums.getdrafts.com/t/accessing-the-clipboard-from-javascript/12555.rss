@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Accessing the Clipboard from Javascript</title>
+    <link>https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555</link>
+    <description>I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I&#39;m using the Insert ESV Text action from the Drafts Directory ([here](https://actions.getdrafts.com/a/1SM)) to obtain a different passage each day; that action is set up, using Javascript, to provide a prompt to the user asking for the relevant passage, which it then submits to the API, ultimately returning the text of the passage.  
+
+I&#39;d like to modify the action so that rather than prompting me for the relevant passage, it instead pulls the passage from the clipboard (i.e., the clipboard would already contain the text that I&#39;d otherwise type into the prompt, and would just run automatically without requiring any interaction from the user).  I&#39;m almost completely Javascript-illiterate, though, and haven&#39;t been able to figure out how to access the clipboard from within the script or to set a variable to the clipboard.  (I&#39;ve pasted the the script below; I *think* that what I need to do is set the &quot;passage&quot; variable to be the clipboard.)
+
+Is there a way to accomplish that using javascript?  (I tried defining a Template tag in Drafts and then using that template tag within the Script step of my action, but that did not work.)  Thanks very much in advance for any help!
+
+
+```
+&gt; // Insert Bible Verse into Drafts
+&gt; 
+&gt; // Store ESV API Token in the Drafts Credential Keychain. You will be prompted for your API Token
+&gt; 
+&gt; var credential = Credential.create(&quot;ESV&quot;, &quot;ESV.org API&quot;);
+&gt; 
+&gt; credential.addPasswordField(&quot;API_Token&quot;, &quot;API Token&quot;);
+&gt; 
+&gt; credential.authorize();
+&gt; var token = credential.getValue(&quot;API_Token&quot;);
+&gt; 
+&gt; // Create search prompt for Bible verses
+&gt; 
+&gt; var p = Prompt.create()
+&gt; p.title = &quot;Bible Search&quot;;
+&gt; p.message = &quot;What Passage From The Old Or New Testament Would You Like to Insert?&quot;;
+&gt; p.addTextField(&quot;query&quot;, &quot;Passage&quot;, &quot;Mark &quot;)
+&gt; // Currently, the prompt defaults to inserting as a blockquote. If you want to change this default behavior, change the word &quot;true&quot; to &quot;false&quot; in the next line
+&gt; p.addSwitch(&quot;blockQuote&quot;, &quot;Insert as Markdown Blockquote&quot;, false);
+&gt; p.addButton(&quot;Done&quot;);
+&gt; p.show();
+&gt; // Replace a space between book names and chapter/verse with a plus for URL purposes
+&gt; var passage = p.fieldValues[&quot;query&quot;];
+&gt; var query = passage.replace(&quot; &quot;, &quot;+&quot;);
+&gt; // Request Data from ESV API
+&gt; var http = HTTP.create();
+&gt; var response = http.request({
+&gt; 	&quot;url&quot;: &quot;https://api.esv.org/v3/passage/text/&quot;,
+&gt; 	&quot;method&quot;: &quot;GET&quot;,
+&gt; 	&quot;parameters&quot;: {
+&gt; 		&quot;q&quot;: query,
+&gt; 		&quot;include-passage-references&quot;: &quot;true&quot;,
+&gt; 		&quot;include-footnotes&quot;: &quot;false&quot;,
+&gt; 		&quot;include-footnote-body&quot;: &quot;false&quot;,
+&gt; 		&quot;indent-poetry&quot;: &quot;false&quot;,
+&gt; 		&quot;indent-paragraphs&quot;: &quot;false&quot;,
+&gt; 		&quot;indent-declares&quot;: &quot;false&quot;,
+&gt; 		&quot;indent-psalm-doxology&quot;: &quot;false&quot;
+&gt; 	},
+&gt; 	&quot;headers&quot;: {
+&gt; 	&quot;Authorization&quot;: &quot;Token &quot; + token
+&gt; 	}
+&gt; });
+&gt; // Function to add Markdown Blockquotes to the beginning of each new line if the blockquote selector switch from the Prompt is toggled on.
+&gt; function addMarkdownQuote(text) {
+&gt; 	var lines = text.split(&quot;\n&quot;);
+&gt; 	var quoteLines = []
+&gt; 	for (var line of lines) {
+&gt; 		var blockQuote = &quot;&gt; &quot; + line
+&gt; 		quoteLines.push(blockQuote);
+&gt; 	}
+&gt; 	var quote = quoteLines.join(&quot;\n&quot;);
+&gt; 	return quote
+&gt; }
+&gt; // Processes JSON response from ESV Server and converts to text
+&gt; function processVerses(rawJSON) {
+&gt; var json = JSON.parse(rawJSON);
+&gt; 	var bibleVerses = json.passages[0];
+&gt; 	if (p.fieldValues[&quot;blockQuote&quot;] == true) {
+&gt; 		var finalQuote = addMarkdownQuote(bibleVerses);
+&gt; 	}
+&gt; 	else {
+&gt; 		var finalQuote = bibleVerses;
+&gt; 	}
+&gt; 	return finalQuote
+&gt; }
+&gt; // Response Success and Failure Options
+&gt; if (response.success) {
+&gt; 	var passageForInsert = processVerses(response.responseText);
+&gt; 	draft.setTemplateTag(&quot;passage&quot;, passageForInsert);
+&gt; }
+&gt; else {
+&gt; 	console.log(response.statusCode);
+&gt; 	console.log(response.error);
+&gt; }
+```</description>
+    
+    <lastBuildDate>Wed, 27 Apr 2022 11:43:37 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Accessing the Clipboard from Javascript</title>
+        <dc:creator><![CDATA[bws950]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks very much - that worked perfectly.</p>
+          <p><a href="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555/3</link>
+        <pubDate>Wed, 27 Apr 2022 11:43:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12555-3</guid>
+        <source url="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555.rss">Accessing the Clipboard from Javascript</source>
+      </item>
+      <item>
+        <title>Accessing the Clipboard from Javascript</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Try commenting out the prompt related lines, but leave <code>var passage = p.fieldValues["query"];</code> uncommented and change it to <code>var passage = app.getClipboard();</code>.</p>
+<p>That should then stop the prompt processing being carried out and read the result it would have provided from the clipboard instead.</p>
+          <p><a href="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555/2</link>
+        <pubDate>Wed, 27 Apr 2022 05:27:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12555-2</guid>
+        <source url="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555.rss">Accessing the Clipboard from Javascript</source>
+      </item>
+      <item>
+        <title>Accessing the Clipboard from Javascript</title>
+        <dc:creator><![CDATA[bws950]]></dc:creator>
+        <description><![CDATA[
+            <p>I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I’m using the Insert ESV Text action from the Drafts Directory (<a href="https://actions.getdrafts.com/a/1SM" rel="noopener nofollow ugc">here</a>) to obtain a different passage each day; that action is set up, using Javascript, to provide a prompt to the user asking for the relevant passage, which it then submits to the API, ultimately returning the text of the passage.</p>
+<p>I’d like to modify the action so that rather than prompting me for the relevant passage, it instead pulls the passage from the clipboard (i.e., the clipboard would already contain the text that I’d otherwise type into the prompt, and would just run automatically without requiring any interaction from the user).  I’m almost completely Javascript-illiterate, though, and haven’t been able to figure out how to access the clipboard from within the script or to set a variable to the clipboard.  (I’ve pasted the the script below; I <em>think</em> that what I need to do is set the “passage” variable to be the clipboard.)</p>
+<p>Is there a way to accomplish that using javascript?  (I tried defining a Template tag in Drafts and then using that template tag within the Script step of my action, but that did not work.)  Thanks very much in advance for any help!</p>
+<pre><code class="lang-auto">&gt; // Insert Bible Verse into Drafts
+&gt; 
+&gt; // Store ESV API Token in the Drafts Credential Keychain. You will be prompted for your API Token
+&gt; 
+&gt; var credential = Credential.create("ESV", "ESV.org API");
+&gt; 
+&gt; credential.addPasswordField("API_Token", "API Token");
+&gt; 
+&gt; credential.authorize();
+&gt; var token = credential.getValue("API_Token");
+&gt; 
+&gt; // Create search prompt for Bible verses
+&gt; 
+&gt; var p = Prompt.create()
+&gt; p.title = "Bible Search";
+&gt; p.message = "What Passage From The Old Or New Testament Would You Like to Insert?";
+&gt; p.addTextField("query", "Passage", "Mark ")
+&gt; // Currently, the prompt defaults to inserting as a blockquote. If you want to change this default behavior, change the word "true" to "false" in the next line
+&gt; p.addSwitch("blockQuote", "Insert as Markdown Blockquote", false);
+&gt; p.addButton("Done");
+&gt; p.show();
+&gt; // Replace a space between book names and chapter/verse with a plus for URL purposes
+&gt; var passage = p.fieldValues["query"];
+&gt; var query = passage.replace(" ", "+");
+&gt; // Request Data from ESV API
+&gt; var http = HTTP.create();
+&gt; var response = http.request({
+&gt; 	"url": "https://api.esv.org/v3/passage/text/",
+&gt; 	"method": "GET",
+&gt; 	"parameters": {
+&gt; 		"q": query,
+&gt; 		"include-passage-references": "true",
+&gt; 		"include-footnotes": "false",
+&gt; 		"include-footnote-body": "false",
+&gt; 		"indent-poetry": "false",
+&gt; 		"indent-paragraphs": "false",
+&gt; 		"indent-declares": "false",
+&gt; 		"indent-psalm-doxology": "false"
+&gt; 	},
+&gt; 	"headers": {
+&gt; 	"Authorization": "Token " + token
+&gt; 	}
+&gt; });
+&gt; // Function to add Markdown Blockquotes to the beginning of each new line if the blockquote selector switch from the Prompt is toggled on.
+&gt; function addMarkdownQuote(text) {
+&gt; 	var lines = text.split("\n");
+&gt; 	var quoteLines = []
+&gt; 	for (var line of lines) {
+&gt; 		var blockQuote = "&gt; " + line
+&gt; 		quoteLines.push(blockQuote);
+&gt; 	}
+&gt; 	var quote = quoteLines.join("\n");
+&gt; 	return quote
+&gt; }
+&gt; // Processes JSON response from ESV Server and converts to text
+&gt; function processVerses(rawJSON) {
+&gt; var json = JSON.parse(rawJSON);
+&gt; 	var bibleVerses = json.passages[0];
+&gt; 	if (p.fieldValues["blockQuote"] == true) {
+&gt; 		var finalQuote = addMarkdownQuote(bibleVerses);
+&gt; 	}
+&gt; 	else {
+&gt; 		var finalQuote = bibleVerses;
+&gt; 	}
+&gt; 	return finalQuote
+&gt; }
+&gt; // Response Success and Failure Options
+&gt; if (response.success) {
+&gt; 	var passageForInsert = processVerses(response.responseText);
+&gt; 	draft.setTemplateTag("passage", passageForInsert);
+&gt; }
+&gt; else {
+&gt; 	console.log(response.statusCode);
+&gt; 	console.log(response.error);
+&gt; }
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555/1</link>
+        <pubDate>Wed, 27 Apr 2022 00:29:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12555-1</guid>
+        <source url="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555.rss">Accessing the Clipboard from Javascript</source>
+      </item>
+  </channel>
+</rss>

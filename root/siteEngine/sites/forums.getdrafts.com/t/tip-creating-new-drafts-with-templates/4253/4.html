@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TIP: Creating New Drafts with Templates - #4 by agiletortoise - Tips &amp; Tricks - Drafts Community</title>
+    <meta name="description" content="UPDATE - 2021/09/01 Updated action to support a “Omit First Line in New Draft” option, that allows you to use a friendly name for the template in the first line, like “Meeting Notes Template” that is help for selecting &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="../4253.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;TIP: Creating New Drafts with Templates&#39;" href="../4253.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07.jpeg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07.jpeg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/tip-creating-new-drafts-with-templates/4253/4" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/tip-creating-new-drafts-with-templates/4253/4" />
+<meta property="og:title" content="TIP: Creating New Drafts with Templates" />
+<meta name="twitter:title" content="TIP: Creating New Drafts with Templates" />
+<meta property="og:description" content="This Using Drafts Templates article is the best place to start on how tags work in Drafts. This action runs the template draft through the template engine like it would be if it was a template in an action step, so all the tags will be evaluated when the action is run - in this case the new draft is empty, so it’s really only useful for time stamps." />
+<meta name="twitter:description" content="This Using Drafts Templates article is the best place to start on how tags work in Drafts. This action runs the template draft through the template engine like it would be if it was a template in an action step, so all the tags will be evaluated when the action is run - in this case the new draft is empty, so it’s really only useful for time stamps." />
+<meta property="article:published_time" content="2019-04-08T16:39:38+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="../4253@page=2.html">
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="../4253.html">TIP: Creating New Drafts with Templates</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../../c/tips.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #12A89D'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Tips &amp; Tricks</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../../tag/tip.html' class='discourse-tag' rel="tag">tip</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-08T13:46:21Z' class='post-time'>
+                April 8, 2019,  1:46pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-01T13:47:29Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <blockquote>
+<p><strong>UPDATE - 2021/09/01</strong> Updated action to support a “Omit First Line in New Draft” option, that allows you to use a friendly name for the template in the first line, like “Meeting Notes Template” that is help for selecting templates in the prompt, but will no be included in the output.</p>
+</blockquote>
+<blockquote>
+<p><strong>UPDATE - 2020/11/01</strong> The current version of this action has been updated with new features, such as cursor placement, as of Nov. 1, 2020. You may need to reinstall the <a href="../../../../actions.getdrafts.com/a/1VL.html">action from the directory</a> if you have a previous version installed.</p>
+</blockquote>
+<p>It is often handy to create a new draft based on some boilerplate template content to ease the creation of meetings notes, lists, or other content with repetitive structure. The <a href="../../../../actions.getdrafts.com/a/1VL.html">New Draft with Template</a> example action provides an easy way to do this based on templates maintained in other drafts. Let’s briefly discuss how to use this action to maintain a robust template system in Drafts.</p>
+<h2>
+<a name="install-the-action-1" class="anchor" href="4.html#install-the-action-1"></a>Install the Action</h2>
+<p>Visit the <a href="../../../../actions.getdrafts.com/a/1VL.html">New Draft with Template</a> action in the Action Directory on a device with Drafts installed. Tap the “install” link to install the action and Drafts will launch and prompt to complete the install.</p>
+<h2>
+<a name="create-templates-2" class="anchor" href="4.html#create-templates-2"></a>Create Templates</h2>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/c64faa4e80527ea8cf59a9ae2a823332fd751d07" title="IMG_0417"><img src="../../../uploads/default/optimized/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07_2_345x208.jpeg" alt="IMG_0417" data-base62-sha1="sildIdRzeh7fMdlakUSQ1LSbca3" width="345" height="208" srcset="../../../uploads/default/optimized/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07_2_345x208.jpeg, ../../../uploads/default/optimized/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07_2_517x312.jpeg 1.5x, ../../../uploads/default/optimized/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07_2_690x416.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c64faa4e80527ea8cf59a9ae2a823332fd751d07_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">IMG_0417</span><span class="informations">709×428 28.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>For the “New Draft with Template” action to work, you must first create one or more templates. Do the following:</p>
+<ul>
+<li>Create a new draft. Put in the text content you want to use as a template for new drafts in this draft.</li>
+<li>Make sure the first line (title) of the draft is something identifiable, as it is used to identify the template when the action is run.</li>
+<li>Assign the tag “template” (singular) to the draft.</li>
+<li>Assign any additional tags desired. When a new draft is created using a template, any tags (other than “template”) will be assigned to the new draft. So, for example, your “Meeting Notes” template might also have a “meeting” tag so it will automatically be filed properly.</li>
+<li>Repeat for any additional templates you wish.</li>
+</ul>
+<p>These template drafts can be in the archive or inbox, but I recommend moving them to the archive to avoid cluttering your inbox. Templates can also be flagged. When the action is run the prompt to select a template sorts based on the text of the draft, but also sorts flagged templates to the top of the select list, so if you flag often used templates they will appear first.</p>
+<h2>
+<a name="using-template-tags-3" class="anchor" href="4.html#using-template-tags-3"></a>Using Template Tags</h2>
+<p>Template drafts can also contain <a href="../../../../reference.getdrafts.com/topics/templates.html">drafts tags</a>. Tags will be evaluated when new drafts are created using the template, so are great for inserting dynamic time stamps. If you are new to using tags in Drafts, <a href="../../using-drafts-templates/3728.html">this is a great guide</a>.</p>
+<p>This action also supports a special tag to control placement of the cursor in the newly created draft. If you place the text <code>&lt;|&gt;</code> in your template draft, when this action is used to create a new draft, the <code>&lt;|&gt;</code> will be removed and the cursor placed that location to begin editing. For example, you might wish to use <code>Attendees: &lt;|&gt;</code> in a meeting notes template, and you will start the new draft ready to type in attendees names.</p>
+<h2>
+<a name="run-the-action-4" class="anchor" href="4.html#run-the-action-4"></a>Run the Action</h2>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/8/8c111b432a439bcd6bb8c01faf1577f2352c266f.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/8c111b432a439bcd6bb8c01faf1577f2352c266f" title="IMG_0420"><img src="../../../uploads/default/optimized/2X/8/8c111b432a439bcd6bb8c01faf1577f2352c266f_2_318x250.jpeg" alt="IMG_0420" data-base62-sha1="jZ5uLZCPltbJnnBWtYnFkHtBZ2T" width="318" height="250" srcset="../../../uploads/default/optimized/2X/8/8c111b432a439bcd6bb8c01faf1577f2352c266f_2_318x250.jpeg, ../../../uploads/default/optimized/2X/8/8c111b432a439bcd6bb8c01faf1577f2352c266f_2_477x375.jpeg 1.5x, ../../../uploads/default/optimized/2X/8/8c111b432a439bcd6bb8c01faf1577f2352c266f_2_636x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c111b432a439bcd6bb8c01faf1577f2352c266f_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">IMG_0420</span><span class="informations">766×602 60.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>Once you have created one or more templates, run the <a href="../../../../actions.getdrafts.com/a/1VL.html">New Draft with Template</a> action.  You will be prompted to select from a list of all your templates. This list is dynamically generated by finding all drafts assigned the tag “template”. So, at any time you can add to or remove templates from the options simply by adding or removing the “template” tag from drafts.</p>
+<p>After you select template, the action will do the following:</p>
+<ul>
+<li>Create a new draft with the content of the template</li>
+<li>Assign any additional tags from the template to the new draft</li>
+<li>Load the new draft in the editor, ready to edit.</li>
+</ul>
+<h2>
+<a name="template-workspace-5" class="anchor" href="4.html#template-workspace-5"></a>Template Workspace</h2>
+<blockquote>
+<p><strong>Note:</strong> You can create the workspace described below manually, or <a href="../../../../actions.getdrafts.com/w/1eP.html">install a sample “Templates” workspace</a> from the directory.</p>
+</blockquote>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/0/0e69d03322c3b05cef165987e05accad8dd3dfdd.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/0e69d03322c3b05cef165987e05accad8dd3dfdd" title="IMG_0418"><img src="../../../uploads/default/optimized/2X/0/0e69d03322c3b05cef165987e05accad8dd3dfdd_2_340x250.jpeg" alt="IMG_0418" data-base62-sha1="23vo5mVIOf2K1Y9sWy9L89mQASp" width="340" height="250" srcset="../../../uploads/default/optimized/2X/0/0e69d03322c3b05cef165987e05accad8dd3dfdd_2_340x250.jpeg, ../../../uploads/default/optimized/2X/0/0e69d03322c3b05cef165987e05accad8dd3dfdd_2_510x375.jpeg 1.5x, ../../../uploads/default/optimized/2X/0/0e69d03322c3b05cef165987e05accad8dd3dfdd_2_680x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0e69d03322c3b05cef165987e05accad8dd3dfdd_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">IMG_0418</span><span class="informations">796×585 56.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>If you plan to use this action, it’s a great idea to create a “Templates” <a href="../../../../getdrafts.com/drafts/listoptions.html">workspace</a> to keep up with your templates, so you can easily update them as needed. I recommend configuring the workspace with the following options:</p>
+<ul>
+<li>
+<strong>Tag Filter</strong>: <code>template</code>
+</li>
+<li>
+<strong>Archive Sort Order</strong>: <code>Text - Ascending</code>
+</li>
+<li>
+<strong>Archive - Sort flagged to top</strong>: <code>On</code>
+</li>
+<li>
+<strong>Select Archive</strong> : To automatically switch to archive when loading workspace.</li>
+</ul>
+<p>When you need to edit your templates, you can open this workspace to access them all in one place easily.</p>
+<h2>
+<a name="widgets-6" class="anchor" href="4.html#widgets-6"></a>Widgets!!!</h2>
+<p>The “New Draft with Template” action is great for use with <a href="../../../../docs.getdrafts.com/docs/extensions/widgets.html">iOS Widgets</a>! Add the action to a grid widget on you Home Screen and you can easily jump straight into Drafts with a new draft based on one of your template ready-to-go.</p>
+<h2>
+<a name="summary-7" class="anchor" href="4.html#summary-7"></a>Summary</h2>
+<p>With a few simple steps and just one action, you can manage a robust template system in Drafts. Have special requirements? Use this example as a starting point to modify to suit your needs.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+          <meta itemprop='keywords' content='tip'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="19" />
+           <span class='post-likes'>19 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../help-with-templates/9504/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/help-with-templates/9504/2'>
+                      <span itemprop='name'>Help With Templates</span>
+                    </a>
+                    <meta itemprop='position' content='10'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../template-for-recurent-content/10049/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/template-for-recurent-content/10049/2'>
+                      <span itemprop='name'>Template for recurent content</span>
+                    </a>
+                    <meta itemprop='position' content='11'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../create-a-shortcut-using-a-drafts-template/6479/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/create-a-shortcut-using-a-drafts-template/6479/3'>
+                      <span itemprop='name'>Create a Shortcut Using a Drafts Template</span>
+                    </a>
+                    <meta itemprop='position' content='12'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../date-format-for-template/11338/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/date-format-for-template/11338/3'>
+                      <span itemprop='name'>Date format for template</span>
+                    </a>
+                    <meta itemprop='position' content='13'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../textexpander-snippet-expansion-within-a-url-scheme-action/11084/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/textexpander-snippet-expansion-within-a-url-scheme-action/11084/2'>
+                      <span itemprop='name'>TextExpander Snippet Expansion *within* a URL Scheme Action?</span>
+                    </a>
+                    <meta itemprop='position' content='14'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../ipad-ios-widget-running-action-and-cursor-placement/12514/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/2'>
+                      <span itemprop='name'>iPad iOS Widget - Running Action and Cursor Placement</span>
+                    </a>
+                    <meta itemprop='position' content='15'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../cursor-placement-on-templetes/11892/4.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/cursor-placement-on-templetes/11892/4'>
+                      <span itemprop='name'>Cursor Placement on Templetes?</span>
+                    </a>
+                    <meta itemprop='position' content='16'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../modifying-a-template-before-emailing/11123/6.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/modifying-a-template-before-emailing/11123/6'>
+                      <span itemprop='name'>Modifying a Template before Emailing</span>
+                    </a>
+                    <meta itemprop='position' content='17'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../textexpander-in-new-draft-with-template-action/12038/6.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/textexpander-in-new-draft-with-template-action/12038/6'>
+                      <span itemprop='name'>&lt;&lt;TextExpander&gt;&gt; in New Draft with Template Action</span>
+                    </a>
+                    <meta itemprop='position' content='18'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yashodhankhare'><span itemprop='name'>yashodhankhare</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-08T16:13:25Z' class='post-time'>
+                April 8, 2019,  4:13pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-08T16:13:25Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is very useful. Thanks. Just one query. How can I configure the text so that the date is initiated as the current date. I have a TE snippet and it expands. What does [[date]] do? I couldn’t get that part. If you can explain how the current date will be automatically inserted, it would be might useful. Even now it is, but ironing out the date wrinkle will help. Sorry to be sounding completely naive, but I don’t have any knowledge of Java script etc.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-08T16:28:37Z' class='post-time'>
+                April 8, 2019,  4:28pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-08T16:28:37Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The <a href="../../../../reference.getdrafts.com/topics/templates.html" rel="nofollow noopener">drafts tags</a> link above links to information that covers this. It isn’t JavaScript, but a feature built into Drafts itself.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/04cc8b5c6c64405162cb92139b2c702c34ed1dbd" title="E9F538FF-9EB0-4669-9F2A-28EBFFAFC226.jpeg"><img src="../../../uploads/default/optimized/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd_2_690x310.jpeg" alt="image" width="690" height="310" srcset="../../../uploads/default/optimized/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd_2_690x310.jpeg, ../../../uploads/default/optimized/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd_2_1035x465.jpeg 1.5x, ../../../uploads/default/optimized/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd_2_1380x620.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/04cc8b5c6c64405162cb92139b2c702c34ed1dbd_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">E9F538FF-9EB0-4669-9F2A-28EBFFAFC226.jpeg</span><span class="informations">1643×739 311 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-08T16:39:38Z' class='post-time'>
+                April 8, 2019,  4:39pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-08T16:39:38Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This <a href="../../using-drafts-templates/3728.html">Using Drafts Templates</a> article is the best place to start on how tags work in Drafts. This action runs the template draft through the template engine like it would be if it was a template in an action step, so all the tags will be evaluated when the action is run - in this case the new draft is empty, so it’s really only useful for time stamps.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yashodhankhare'><span itemprop='name'>yashodhankhare</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-09T02:30:40Z' class='post-time'>
+                April 9, 2019,  2:30am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-09T02:30:40Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For using the draft templates, should I change the settings from Markdown to simple text?</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/spikebyt'><span itemprop='name'>spikebyt</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-09T17:12:08Z' class='post-time'>
+                April 9, 2019,  5:12pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-09T17:12:08Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This looks very usefl to me. ONly I seem to have missed something becausen I do not know how to take the first step on my iPhone 8</p>
+<aside class="quote no-group" data-post="1" data-topic="4253">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/agiletortoise/40/33_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<h2>Install the Action</h2>
+<p>Visit the <a href="../../../../actions.getdrafts.com/a/1VL.html" rel="nofollow noopener">New Draft with Template </a> action in the Action Directory on a (iOS) device with Drafts installed. Tap the “install” link to install the action.</p>
+</blockquote>
+</aside>
+<p>Can you help me with that please<br>
+TIA</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-09T18:08:45Z' class='post-time'>
+                April 9, 2019,  6:08pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-09T18:08:45Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Actions are installed from the action directory by tapping the “Install” link, see attached. You need to be on your iPhone, in Safari, on <a href="../../../../actions.getdrafts.com/a/1VL.html" rel="nofollow noopener">the action page</a> and tap “Install” - it will open Drafts and ask what action group to place the action.  That’s it.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26.png" data-download-href="https://forums.getdrafts.com/uploads/default/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26" title="New Draft with Template | Drafts Action Directory 2019-04-09 13-06-34.png"><img src="../../../uploads/default/optimized/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26_2_320x250.png" alt="New%20Draft%20with%20Template%20%7C%20Drafts%20Action%20Directory%202019-04-09%2013-06-34" width="320" height="250" srcset="../../../uploads/default/optimized/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26_2_320x250.png, ../../../uploads/default/optimized/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26_2_480x375.png 1.5x, ../../../uploads/default/optimized/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26_2_640x500.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/205ec1a96dd66c7ff9ec49f49997f7fe92fc8a26_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">New Draft with Template | Drafts Action Directory 2019-04-09 13-06-34.png</span><span class="informations">944×736 75.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/claudcameron'><span itemprop='name'>claudcameron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-09T20:39:20Z' class='post-time'>
+                April 9, 2019,  8:39pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-09T20:39:20Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is it possible to create a time stamp in the military time date group format (ddHHmm MMMyy or ddHHmm “Z” MMMyy)?</p>
+<p>For example, 06/12/20 at 08:13 in the Central Time Zone is “060813SDec20”.  Eastern time is “R”, Central is “S”, and so on.  Frequently the time zone is omitted.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-09T21:39:10Z' class='post-time'>
+                April 9, 2019,  9:39pm
+              </time>
+              <meta itemprop='dateModified' content='2019-04-09T21:39:10Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To insert a date/time in the format <code>ddHHmm MMMyy</code>, you can just use the date template tag with a format string like this.</p>
+<ul>
+<li><a href="../../../../actions.getdrafts.com/a/1VV.html" rel="nofollow noopener">Date Format ddHHmm MMMyy</a></li>
+</ul>
+<p>The template tag and format used looks like this.</p>
+<pre><code class="lang-auto">[[date|%d%H%M %b%y]]
+</code></pre>
+<p>The other format (<code>ddHHmm “Z” MMMyy</code>) is a bit tricker as it isn’t natively supported by <em>strftime</em>, but it can be achieved with a little bit of scripting.  But for this reason, it does mean you can’t just drop it into a template for evaluation.</p>
+<p>However, to provide an example as it may be useful elsewhere, here’s how I approached doing this.</p>
+<ul>
+<li><a href="../../../../actions.getdrafts.com/a/1VW.html" rel="nofollow noopener">Date Format ddHHmm “Z” MMMyy</a></li>
+</ul>
+<p>It works quite similarly to the previous use of the date template tag, but it uses the JavaScript below to lookup the timezone offset identifier and then inserts the defined date/time string to the current selection and after that, jumps the cursor to the end of the newly inserted text.</p>
+<pre><code class="lang-auto">let timezoneoffset = draft.processTemplate("[[date|%z]]")
+let timezone = ""
+
+switch (timezoneoffset)
+{
+	case "+0100":
+		timezone = "A"
+		break;
+		
+	case "+0200":
+		timezone = "B"
+		break;
+		
+	case "+0300":
+		timezone = "C"
+		break;
+	
+	case "+0400":
+		timezone = "D"
+		break;
+		
+	case "+0500":
+		timezone = "E"
+		break;
+		
+	case "+0600":
+		timezone = "F"
+		break;
+		
+	case "+0700":
+		timezone = "G"
+		break;
+		
+	case "+0800":
+		timezone = "H"
+		break;
+		
+	case "+0900":
+		timezone = "I"
+		break;
+		
+	case "+1000":
+		timezone = "K"
+		break;
+		
+	case "+1100":
+		timezone = "L"
+		break;
+		
+	case "+1200":
+		timezone = "M"
+		break;
+		
+	case "-0100":
+		timezone = "N"
+		break;
+		
+	case "-0200":
+		timezone = "O"
+		break;
+		
+	case "-0300":
+		timezone = "P"
+		break;
+		
+	case "-0400":
+		timezone = "Q"
+		break;
+		
+	case "-0500":
+		timezone = "R"
+		break;
+		
+	case "-0600":
+		timezone = "S"
+		break;
+		
+	case "-0700":
+		timezone = "T"
+		break;
+		
+	case "-0800":
+		timezone = "U"
+		break;
+		
+	case "-0900":
+		timezone = "V"
+		break;
+		
+	case "-1000":
+		timezone = "W"
+		break;
+		
+	case "-1100":
+		timezone = "X"
+		break;
+		
+	case "-1200":
+		timezone = "Y"
+		break;
+		
+	case "+0000":
+		timezone = "Z"
+		break;
+}
+
+editor.setSelectedText(draft.processTemplate('[[date|%d%H%M]]' + ' "' + timezone +  '" ' + '[[date|%b%y]]'))
+let selRange = editor.getSelectedRange()
+editor.setSelectedRange(selRange[0] + selRange[1], 0)
+</code></pre>
+<p>There seemed to be some variation in the use of spacing in the original post, so I’ve included them just in case.  If not required, they can be easily removed.</p>
+<p>Hopefully that all makes sense and helps for what you want.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/claudcameron'><span itemprop='name'>claudcameron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T01:53:06Z' class='post-time'>
+                April 10, 2019,  1:53am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T01:53:06Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My apologies for the variation in spacing, I wasn’t sure of the best way to present the “Z” to make it more readable without the spaces.</p>
+<p>I’m in the shallow end of the gene pool when it comes to programming, where does the code go with respect to the Template action “New draft with template”?</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yashodhankhare'><span itemprop='name'>yashodhankhare</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T05:03:47Z' class='post-time'>
+                April 10, 2019,  5:03am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T05:03:47Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>What is the date format if I want the date as ‘Wednesday, 10 April 2019’?</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T06:07:08Z' class='post-time'>
+                April 10, 2019,  6:07am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T06:07:08Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="10" data-topic="4253">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/claudcameron/40/908_2.png" class="avatar"> claudcameron:</div>
+<blockquote>
+<p>I’m in the shallow end of the gene pool when it comes to programming, where does the code go with respect to the Template action “New draft with template”?</p>
+</blockquote>
+</aside>
+<p>The template tag in the first example would just go directly in your template.</p>
+<p>The second example you could run afterwards as a separate action, or you could integrate the script into an action by adding it into a script action step.  That’s why I noted the second option couldn’t just be dropped in. If you have a look at the provided action above, you should see how it is included in that action.  The key point here though is that this isn’t generic and presumably not something you would want to do with every template you use, so you would have to be “creative” in modifying Greg’s original action if you want to ensure it stays generic.</p>
+<p>Given your statement above re. programming, it may simply be that, for now, using that first format is the way to go and with more experience you might come up with a good way for you to include in the original action; but in the interim you can always have the action I posted available to manually insert it if required.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T06:11:20Z' class='post-time'>
+                April 10, 2019,  6:11am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T06:11:20Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="11" data-topic="4253" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../../letter_avatar_proxy/v3/letter/y/da6949/40.png" class="avatar"> yashodhankhare:</div>
+<blockquote>
+<p>What is the date format if I want the date as ‘Wednesday, 10 April 2019’?</p>
+</blockquote>
+</aside>
+<p>You can do this as follows.</p>
+<pre><code class="lang-auto">[[date|%A %d %B %Y]]
+</code></pre>
+<p>Note the references to “strftime” above. If you Google that term, you’ll find lots of information about the available options.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/claudcameron'><span itemprop='name'>claudcameron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T06:39:31Z' class='post-time'>
+                April 10, 2019,  6:39am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T06:39:31Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok, I installed the script in a new action group. However I believe Daylight Savings Time may be playing havoc, the date I get when running it is:  100132 “R” Apr19</p>
+<p>I live in the Central Time zone, which is “S”, which is offset -0600, it should now be -0500. I think I can fix that.</p>
+<p>What I’d like it to look like is:  100132SApr19. How can I remove the quotation marks?</p>
+<p>Thank you very much for your help with this. It will indeed get me started.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/claudcameron'><span itemprop='name'>claudcameron</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T07:09:54Z' class='post-time'>
+                April 10, 2019,  7:09am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T07:09:54Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Got it!  Here’s the result:  100207SApr19</p>
+<p>I know, “whoopie”.</p>
+<p>Thanks for all your help.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-10T07:11:54Z' class='post-time'>
+                April 10, 2019,  7:11am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-10T07:11:54Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Try changing</p>
+<pre><code class="lang-auto">editor.setSelectedText(draft.processTemplate('[[date|%d%H%M]]' + ' "' + timezone +  '" ' + '[[date|%b%y]]'))
+</code></pre>
+<p>to</p>
+<pre><code class="lang-auto">editor.setSelectedText(draft.processTemplate('[[date|%d%H%M]]' + timezone +  '[[date|%b%y]]'))
+</code></pre>
+<p>The time zone is picked up from your device, so yes, you may need to account for that if you are in a DST observing location when working backwards to the identifier.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-11T05:55:41Z' class='post-time'>
+                April 11, 2019,  5:55am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-11T05:55:41Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is excellent.</p>
+<p>One thing I would like is the ability to prompt the user for non-standard template items. So the code would use a service (probably a new one) to scan the selected template and use it to pop up prompts the user would fill in.</p>
+<p>So, for example, a template might have [[customerName]] somewhere in it and the code would detect that and prompt me for “customerName”.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_18' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-11T06:01:20Z' class='post-time'>
+                April 11, 2019,  6:01am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-11T06:01:20Z'>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="17" data-topic="4253">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<p>So, for example, a template might have [[customerName]] somewhere in it and the code would detect that and prompt me for “customerName”.</p>
+</blockquote>
+</aside>
+<p>this is already existing: <a href="../../../../actions.getdrafts.com/a/1IN.html" rel="nofollow noopener">https://actions.getdrafts.com/a/1IN</a> credits to <a class="mention" href="https://forums.getdrafts.com/u/dansays">@dansays</a></p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_19' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-11T06:19:07Z' class='post-time'>
+                April 11, 2019,  6:19am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-11T06:19:07Z'>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So, combining the two - the template chooser and this - would be handy.</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_20' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../4253.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-11T06:39:58Z' class='post-time'>
+                April 11, 2019,  6:39am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-11T12:09:25Z'>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="17" data-topic="4253">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<p>So, for example, a template might have [[customerName]] somewhere in it and the code would detect that and prompt me for “customerName”.</p>
+</blockquote>
+</aside>
+<p>I’ve not got time to try it this morning, but I’m wondering what would happen if you used double chevrons for the TextExpander snippet expansions and it’s fill in fields?</p>
+<p>Unlike the action based option above, I’m curious if this would automatically trigger the capture and population of content via TextExpander?</p>
+        </div>
+
+        <meta itemprop='headline' content='TIP: Creating New Drafts with Templates'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="../4253@page=2.html">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

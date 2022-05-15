@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+    <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759</link>
+    <description>I have a script that sets a template tag then queues up multiple actions. On macOS, the tag is unset when the last action is run, and on iOS, the tag does not seem to set at all.
+
+Action 1:
+```
+draft.setTemplateTag(&quot;Test&quot;,&quot;Hello World&quot;);
+
+// Using draft.update() appears to makes no difference.
+//draft.update();
+
+// My original code
+var actions = [&quot;Action 2&quot;,&quot;Action 2&quot;,&quot;Action 2&quot;]
+for (var i in actions) {
+  		action = Action.find(actions[i]);
+  		app.queueAction(action, draft);
+}
+
+// Same problem using this code
+/*
+action = Action.find(&quot;Action 2&quot;);
+app.queueAction(action, draft);
+action = Action.find(&quot;Action 2&quot;);
+app.queueAction(action, draft);
+action = Action.find(&quot;Action 2&quot;);
+app.queueAction(action, draft);
+*/
+```
+
+Action 2
+```
+var tag = draft.getTemplateTag(&quot;Test&quot;);
+if ( tag ) {
+	alert(&quot;Template tag set to: &quot; + tag);
+} else {
+	alert(&quot;Template tag is not set.&quot;);
+}
+```</description>
+    
+    <lastBuildDate>Thu, 15 Oct 2020 11:49:53 +0000</lastBuildDate>
+    <category>Issues</category>
+    <atom:link href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[dewittn]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> This is great! I had no idea that library existed. I’ll definitely check it out! Thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/12</link>
+        <pubDate>Thu, 15 Oct 2020 11:49:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-12</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dewittn" data-post="10" data-topic="8759">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/dewittn/40/4212_2.png" class="avatar"> dewittn:</div>
+<blockquote>
+<p>Another possible solution could be to save the journey name as a tag or append it as text to the end of the draft. I don’t like those solutions as much because then I’m adding something to a draft only to remove it in the next action.</p>
+</blockquote>
+</aside>
+<p>You could store them as metadata using the functions I wrote into the <a href="https://tadpole.thoughtasylum.com">TADpoLe library</a>. They store the data outside of the draft so as not to pollute the existing content or meta data (e.g. tags).</p>
+<p>Once you include the library (including the <code>TAD</code> action from the <a href="https://actions.getdrafts.com/g/1aM">ThoughtAsylum Action group</a> (download it and run the refresh action as per the instructions to get the latest library file on your devices) you can then call the meta data functions.</p>
+<p><code>draft.TA_metaRead()</code> will initialise the current draft with any persistent data held on file.</p>
+<p><code>draft.TA_metaWrite()</code> will write the current draft meta data to be persistently held to file.</p>
+<p>Then in action <span class="hashtag">#1</span> you could write something like this:</p>
+<pre><code class="lang-auto">draft.TA_metaRead();
+draft.meta.test = "hello world";
+draft.TA_metaWrite();
+</code></pre>
+<p>In action 2, you could read the value of the <code>test</code> property back like this:</p>
+<pre><code class="lang-auto">draft.TA_metaRead();
+alert(draft.meta.test);
+</code></pre>
+<p>Examples:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1d9">Action #1</a></li>
+<li><a href="https://actions.getdrafts.com/a/1d0">Action #2</a></li>
+</ul>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/11</link>
+        <pubDate>Thu, 15 Oct 2020 11:43:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-11</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[dewittn]]></dc:creator>
+        <description><![CDATA[
+            <p>HI <a class="mention" href="https://forums.getdrafts.com/u/andreas_haberle">@Andreas_Haberle</a>, yeah absolutely!</p>
+<p>The basic idea is that I want to have a global action that handles the creation of DayOne entries.</p>
+<p>Every morning I start the day with a “morning pages” exercise where I clear my head and write down any tasks I need to do for the day. When I’m done writing, I have a <code>Complete Morning Pages</code> action that marks the task complete in Streaks, creates a new draft from selected text, and sends all To-do’s to things. Once all of those steps have been completed the draft is passed off to the <code>DayOne</code> action which files it away.</p>
+<p>I could combine all of these actions into a single script but I’d like to keep the morning pages <em>routine</em> separate from the DayOne <em>export</em>. This not only makes my DayOne action reusable with other actions, but makes it easier to manage if I ever want to make changes to the way I export to DayOne.</p>
+<p>Here is the code for the two related actions.</p>
+<h2>Action: Complete Morning Pages</h2>
+<p>Step 1: Script</p>
+<pre><code class="lang-auto">// If running on an iPhone or iPad, open streaks.
+const baseURL = "streaks://x-callback-url/completed/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
+if (device.model != "Mac") { openCallback(baseURL); }
+  
+draft.setTemplateTag("journal","Morning Pages");
+
+// Que actions to run 
+var actions = ["New from selection","Send To-do’s to things","DayOne"]
+  for (var i in actions) {
+  		action = Action.find(actions[i]);
+  		app.queueAction(action, draft);
+ }
+</code></pre>
+<h2>Action: DayOne</h2>
+<p>Step 1: Script</p>
+<pre><code class="lang-auto">var journals = [
+	"Journal",
+	"Morning Pages",
+	"Memories",
+	"Frisbee Scores"
+	];
+var templateTag = "journal";
+
+if (!draft.getTemplateTag(templateTag)) {
+  var p = Prompt.create();
+  p.title = "Choose A Journal";
+  p.message = "Which Journal would you like to use?";
+  p.addButton("OK");
+  p.addSelect(templateTag, "Journals", journals);
+
+  if (p.show()) { 
+   draft.setTemplateTag(templateTag,p.fieldValues[templateTag]);
+  } else {
+    context.cancel();
+  }
+}
+</code></pre>
+<p>Step 2: URL</p>
+<pre><code class="lang-auto">dayone2://post?entry=[[draft]]&amp;tags=[[tags]]&amp;journal=[[journal]]
+</code></pre>
+<h2></h2>
+<p>I like passing Template tags between scripts because it can drop right into the URL schema. I’ve been running it this way for months using the <strong>Include Action</strong> Step Type but I wanted to see if I could replicate this behavior with code.</p>
+<p>Another possible solution could be to save the journey name as a tag or append it as text to the end of the draft. I don’t like those solutions as much because then I’m adding something to a draft only to remove it in the next action.</p>
+<p>After some more testing, the code below works and sets a template tag for a queued action, but I have a feeling it might be more of a hack than an actual solution. <img src="https://forums.getdrafts.com/images/emoji/apple/sweat_smile.png?v=9" title=":sweat_smile:" class="emoji" alt=":sweat_smile:"></p>
+<pre><code class="lang-auto">var d = Draft.find(draft.uuid);
+var action = Action.find("DayOne");
+
+d.setTemplateTag("journal","Morning Pages");
+app.queueAction(action, d);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/10</link>
+        <pubDate>Thu, 15 Oct 2020 10:41:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-10</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>hi <a class="mention" href="https://forums.getdrafts.com/u/dewittn">@dewittn</a> looks like a nice nut of automation you have set to crack yourself.</p>
+<p>Would you be willing to share your working action here or via the action directory?</p>
+<p>I would be highly interested</p>
+<p>Thanks<br>
+Andreas</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/9</link>
+        <pubDate>Wed, 14 Oct 2020 19:04:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-9</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There is not scripting equivalent of the <a href="https://docs.getdrafts.com/docs/actions/steps/advanced#include-action">Include Action step</a>. The action name field in the Include Action step is a dynamic template, however…so, you can use a template tag to define the action used…so, if your script does:</p>
+<pre><code class="lang-javascript">draft.setTemplateTag("actionName", "Action 2");
+</code></pre>
+<p>And there is an Include Action step after that script with the action name defined as <code>[[actionName]]</code>, it will roll in the steps from “Action 2”.</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/8</link>
+        <pubDate>Wed, 14 Oct 2020 15:35:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-8</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[dewittn]]></dc:creator>
+        <description><![CDATA[
+            <p>Got it! Thank you so much.</p>
+<p>So then there is no equivalent “Insert Action” that can be used with scripting?</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/7</link>
+        <pubDate>Wed, 14 Oct 2020 15:05:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-7</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="dewittn" data-post="5" data-topic="8759">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/dewittn/40/4212_2.png" class="avatar"> dewittn:</div>
+<blockquote>
+<p>Am I using tags wrong, or is there a difference between the way Step Types and app.queueAction are processed?</p>
+</blockquote>
+</aside>
+<p>Steps are within a <em>single</em> action and a single context for the custom template tags.</p>
+<p>Queueing of actions are all separate actions and so have separate contexts. The custom tags are unique to the context of each queued* separat* action.</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/6</link>
+        <pubDate>Wed, 14 Oct 2020 14:53:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-6</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[dewittn]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the clarification.</p>
+<p>I’m trying to set a template tag in one action that can be used in the callback URL of a second action, specifically the name of a journal in DayOne.</p>
+<p>For example, my first action adds a template tag of “journal” with the value “Memories.” Then, my second action checks to see if the journal tag is set. If not, it prompts me to pick one, and if it is, it opens the DayOne callback URL using the predefined template tag.</p>
+<p>Maybe I’m misusing tags because I’ve been chaining actions together this way for months. The only difference is that I have been using Step Types instead of a script. With Step Types, you can have a “Define Template Tag” step followed by an “Include Action” step, and the template tag will persist. This is why I thought it was a scripting bug.</p>
+<p>Am I using tags wrong, or is there a difference between the way Step Types and app.queueAction are processed?</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/5</link>
+        <pubDate>Wed, 14 Oct 2020 14:35:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-5</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I think <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>’s description is correct. As stated in the quote you inserted, “custom tags which become available to action steps run after the script in the <em>same</em> action”. This is definitely not a bug.</p>
+<p>Queuing an action is setting it up to run after the current action, but it is <em>not</em> part of the same action, so has a different context. Perhaps that could be clarified more in the scripting docs…current text, “Queues an action to run on a draft after the current action is complete.”</p>
+<p>There are many other ways to pass data between actions, if that is your desired outcome…which is best might depend on what you are trying to pass. Do you have a more concrete explanation of what you are trying to accomplish?</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/4</link>
+        <pubDate>Wed, 14 Oct 2020 14:06:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-4</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[dewittn]]></dc:creator>
+        <description><![CDATA[
+            <p>Forgive me, maybe I’m just having a dyslexic moment here, but where does it say that tags do are not intended to persist between actions? I don’t see it.</p>
+<blockquote>
+<p>In addition to the predefined tags always available, scripts in an action can create custom tags which become available to action steps run after the script in the same action. This is useful if a scripted action step processes text to create a value that then needs to be inserted in a later step that shares that text. The below example shows a simple script with creates a tag.</p>
+</blockquote>
+<p>If that is the intended behavior then I’ll find a different way to pass information between the scripts. Not a problem. However, I’m still getting a bug running the following code on iOS and macOS.</p>
+<pre><code class="lang-auto">draft.setTemplateTag("Test","Hello World");
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+</code></pre>
+<p>Action 2 reports that no tag has been set.</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/3</link>
+        <pubDate>Wed, 14 Oct 2020 13:50:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-3</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Template tags are not intended to persist between actions. This is referenced explicitly in the custom template tag docs.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="https://docs.getdrafts.com/docs/actions/templates#custom-tags" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/actions/templates#custom-tags" target="_blank" rel="noopener">Templates</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Note that queued actions are separate actions that are run after the original action and so should not be able to access such tags.</p>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/2</link>
+        <pubDate>Wed, 14 Oct 2020 13:17:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-2</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+      <item>
+        <title>Calling an action after setTemplateTag (bug with app.queueAction)</title>
+        <dc:creator><![CDATA[dewittn]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a script that sets a template tag then queues up multiple actions. On macOS, the tag is unset when the last action is run, and on iOS, the tag does not seem to set at all.</p>
+<p>Action 1:</p>
+<pre><code class="lang-auto">draft.setTemplateTag("Test","Hello World");
+
+// Using draft.update() appears to makes no difference.
+//draft.update();
+
+// My original code
+var actions = ["Action 2","Action 2","Action 2"]
+for (var i in actions) {
+  		action = Action.find(actions[i]);
+  		app.queueAction(action, draft);
+}
+
+// Same problem using this code
+/*
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+*/
+</code></pre>
+<p>Action 2</p>
+<pre><code class="lang-auto">var tag = draft.getTemplateTag("Test");
+if ( tag ) {
+	alert("Template tag set to: " + tag);
+} else {
+	alert("Template tag is not set.");
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/1</link>
+        <pubDate>Wed, 14 Oct 2020 10:58:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8759-1</guid>
+        <source url="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759.rss">Calling an action after setTemplateTag (bug with app.queueAction)</source>
+      </item>
+  </channel>
+</rss>

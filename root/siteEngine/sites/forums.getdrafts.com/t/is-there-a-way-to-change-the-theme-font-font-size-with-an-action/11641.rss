@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Is there a way to change the theme + font + font size with an action?</title>
+    <link>https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641</link>
+    <description>Hello!
+
+I&#39;ve been playing around with themes and costume syntaxes for a couple of days and I&#39;ve noticed that JavaScript syntax modifies the font to monospace no matter what font I was previously using. I believe it should be this since going back to another draft after viewing one with a JavaScript syntax also reverts to the font previously used. 
+
+I&#39;m stuck however figuring out how the [JavaScript syntax](https://config.agiletortoise.com/examples/grammar-javascript.json) selects the font since there is there no font case. I&#39;ve looked at the [font code](https://tools.getdrafts.com/themes/theme-builder?identifier=1kL) too and found no link either.
+
+This got me wondering, can a custom syntax be used to change the font, font size, and theme? Maybe with a scriptable action, using [existing solutions](https://www.thoughtasylum.com/2021/11/13/drafts-syntax-development-tip/) to take care of themes?
+
+I don&#39;t know if this is too picky, haha, but thank you very much!</description>
+    
+    <lastBuildDate>Wed, 24 Nov 2021 14:50:05 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Is there a way to change the theme + font + font size with an action?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You could have two identical syntax definitions with different names and assign different editor settings for fonts to them.</p>
+<p>You can <a href="https://scripting.getdrafts.com/classes/draft#syntax">set the syntax associated with a draft using an action</a>, so as long as you have done the preparation in terms of the syntax duplication and editor settings, you could effectively drive the change of font from an action, you just would define the actual font and the syntax details outside of the action.</p>
+<p>Themes are an app level setting, and <a href="https://scripting.getdrafts.com/classes/app#currentthememode">you can set them (dark &amp; light) using an action</a>, but it is not associated with a draft, or with a syntax (though there is a relationship in terms of supported features between the two), so you would be effectively manually managing a relationship there if you use an action to switch syntax and theme, such that when you navigate to a draft with a different syntax, the theme will not automatically change.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/5</link>
+        <pubDate>Wed, 24 Nov 2021 14:50:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11641-5</guid>
+        <source url="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641.rss">Is there a way to change the theme + font + font size with an action?</source>
+      </item>
+      <item>
+        <title>Is there a way to change the theme + font + font size with an action?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Specific fonts and base font size are user preferences, not part of a syntax. Generally speaking, syntaxes mark areas in a text to have certain “scopes”, then themes determine which attributes each of those scopes will have when rendered. <a href="https://docs.getdrafts.com/extending/development">Start here</a> in the docs for more details.</p>
+<p>Attributes which can be set by themes are things like bold, italic, color. The only font-related attributes are relative size (small, medium, large, etc.) and whether the scope should be rendered in normal or monospace font. What specific font is used for normal and monospaced are based on the user’s preferences.</p>
+<p>So you cannot have a syntax/theme combination assign totally different fonts.</p>
+          <p><a href="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/4</link>
+        <pubDate>Wed, 24 Nov 2021 13:50:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11641-4</guid>
+        <source url="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641.rss">Is there a way to change the theme + font + font size with an action?</source>
+      </item>
+      <item>
+        <title>Is there a way to change the theme + font + font size with an action?</title>
+        <dc:creator><![CDATA[EduGon]]></dc:creator>
+        <description><![CDATA[
+            <p>I see. So would selecting a syntax, changing the font, and exporting the syntax make the font choice stay?</p>
+<p>I like to use 2 kinds of fonts depending on what I’m doing in drafts: One’s Apple’s SF in a big size, which makes it easy to write down quick notes, the other is Avenir in a smaller font, which lets me write more lengthy notes comfortably on iPad for instance.</p>
+<p>Thanks for the help!</p>
+          <p><a href="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/3</link>
+        <pubDate>Wed, 24 Nov 2021 10:04:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11641-3</guid>
+        <source url="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641.rss">Is there a way to change the theme + font + font size with an action?</source>
+      </item>
+      <item>
+        <title>Is there a way to change the theme + font + font size with an action?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://docs.getdrafts.com/docs/editor/editorsettings.html">Editor preferences</a> like font, font size, etc., are specific to the syntax - so your Markdown, TaskPaper, JavaScript drafts each have their own set of settings which are applied when you open a draft with that syntax.</p>
+<p>Not sure what your overall goal is…the JavaScript syntax does not modify the font, but, by default, the font used for JavaScript syntax, as selected in Editor Preferences, is a monospaced font.</p>
+          <p><a href="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/2</link>
+        <pubDate>Wed, 24 Nov 2021 03:52:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11641-2</guid>
+        <source url="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641.rss">Is there a way to change the theme + font + font size with an action?</source>
+      </item>
+      <item>
+        <title>Is there a way to change the theme + font + font size with an action?</title>
+        <dc:creator><![CDATA[EduGon]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello!</p>
+<p>I’ve been playing around with themes and costume syntaxes for a couple of days and I’ve noticed that JavaScript syntax modifies the font to monospace no matter what font I was previously using. I believe it should be this since going back to another draft after viewing one with a JavaScript syntax also reverts to the font previously used.</p>
+<p>I’m stuck however figuring out how the <a href="https://config.agiletortoise.com/examples/grammar-javascript.json" rel="noopener nofollow ugc">JavaScript syntax</a> selects the font since there is there no font case. I’ve looked at the <a href="https://tools.getdrafts.com/themes/theme-builder?identifier=1kL" rel="noopener nofollow ugc">font code</a> too and found no link either.</p>
+<p>This got me wondering, can a custom syntax be used to change the font, font size, and theme? Maybe with a scriptable action, using <a href="https://www.thoughtasylum.com/2021/11/13/drafts-syntax-development-tip/" rel="noopener nofollow ugc">existing solutions</a> to take care of themes?</p>
+<p>I don’t know if this is too picky, haha, but thank you very much!</p>
+          <p><a href="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641/1</link>
+        <pubDate>Wed, 24 Nov 2021 02:47:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11641-1</guid>
+        <source url="https://forums.getdrafts.com/t/is-there-a-way-to-change-the-theme-font-font-size-with-an-action/11641.rss">Is there a way to change the theme + font + font size with an action?</source>
+      </item>
+  </channel>
+</rss>

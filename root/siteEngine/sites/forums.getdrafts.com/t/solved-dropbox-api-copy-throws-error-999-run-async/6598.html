@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>(Solved) Dropbox API copy throws error 999 - run async? - Scripting - Drafts Community</title>
+    <meta name="description" content="TLDR:
+I keep getting error code 999 on successful and unsuccessful copy actions through the Dropbox API. According to this post on the Dropbox Forums, this error is: 
+
+Returned when an asynchronous load is canceled. 
+
+I’&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="../dropbox-api-copy-throws-error-999-run-async/6598.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;(Solved) Dropbox API copy throws error 999 - run async?&#39;" href="6598.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/solved-dropbox-api-copy-throws-error-999-run-async/6598" />
+<meta property="og:title" content="(Solved) Dropbox API copy throws error 999 - run async?" />
+<meta name="twitter:title" content="(Solved) Dropbox API copy throws error 999 - run async?" />
+<meta property="og:description" content="TLDR: I keep getting error code 999 on successful and unsuccessful copy actions through the Dropbox API. According to this post on the Dropbox Forums, this error is:   Returned when an asynchronous load is canceled.   I’m running these script actions synchronously. Which leads me to the following question:  Should I be running them asynchronously?  If so, how can I implement the async/await in the script to make it work?  Read below for more details.  Dropbox API calls returning error code 999 I..." />
+<meta name="twitter:description" content="TLDR: I keep getting error code 999 on successful and unsuccessful copy actions through the Dropbox API. According to this post on the Dropbox Forums, this error is:   Returned when an asynchronous load is canceled.   I’m running these script actions synchronously. Which leads me to the following question:  Should I be running them asynchronously?  If so, how can I implement the async/await in the script to make it work?  Read below for more details.  Dropbox API calls returning error code 999 I..." />
+<meta property="article:published_time" content="2020-02-05T00:24:13+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="../dropbox-api-copy-throws-error-999-run-async/6598.html">(Solved) Dropbox API copy throws error 999 - run async?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/dropbox.html' class='discourse-tag' rel="tag">dropbox</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/steinar'><span itemprop='name'>steinar</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../dropbox-api-copy-throws-error-999-run-async/6598.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-05T00:24:13Z' class='post-time'>
+                February 5, 2020, 12:24am
+              </time>
+              <meta itemprop='dateModified' content='2020-02-05T21:35:36Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <h1>TLDR:</h1>
+<p>I keep getting error code 999 on successful and unsuccessful copy actions through the Dropbox API. According to <a href="https://www.dropboxforum.com/t5/API-Support-Feedback/999-quot-cancelled-quot-Error/m-p/192324/highlight/true#M17655" rel="nofollow noopener">this post</a> on the Dropbox Forums, this error is:</p>
+<blockquote>
+<p>Returned when an asynchronous load is canceled.</p>
+</blockquote>
+<p>I’m running these script actions synchronously. Which leads me to the following question:</p>
+<p><strong>Should I be running them asynchronously?</strong><br>
+If so, how can I implement the async/await in the script to make it work?</p>
+<p><em>Read below for more details.</em></p>
+<h1>Dropbox API calls returning error code 999</h1>
+<p>I’m working on some scripts that copy certain folders in Dropbox to new locations based on text being parsed in various drafts, and thanks to <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>’s wonderful <a href="https://talk.automators.fm/t/drafts-file-manager/4278/5?u=stone" rel="nofollow noopener">example</a> on the Automators forum of how to make a basic Dropbox API call, I have managed to successfully copy folders on Dropbox through an API call.</p>
+<p>However, I keep getting error message 999 from the Dropbox API.</p>
+<h2>Test Script</h2>
+<p>This test script actually runs successfully if the folder exist in the source path and not the destination path. I only get the 999 error when the destination folder already exist, and nothing gets copied:</p>
+<pre><code class="lang-auto">//Create Dropbox object
+let dbxMain = Dropbox.create()
+
+//Build some file info
+let src = "/0-temp/test/source/testcopy"
+let dst = "/0-temp/test/destination/testcopy"
+
+//Build the arguments for calling the Dropbox move
+let urlEndpoint = "https://api.dropboxapi.com/2/files/copy_v2";
+let dictArgs = {
+	"from_path": src,
+	"to_path": dst,
+	"allow_shared_folder": false,
+	"autorename": false,
+	"allow_ownership_transfer": false
+};
+
+//Move the file
+let objResp = dbxMain.rpcRequest(
+{
+	"url": urlEndpoint,
+	"method": "POST",
+	"data": dictArgs
+});
+
+//Baseline check if it worked
+if (objResp.statusCode != 200)
+{
+	//It didn't :o(
+	alert("Dropbox Returned an Error: [" + objResp.statusCode + "] " + objResp.error);
+	context.fail();
+}
+else
+{
+	//It did :o)
+	alert("Success!");
+}
+</code></pre>
+<h3>Result:</h3>
+<p>If destination folder exists:  <code>// Dropbox Returned an Error: [999]</code><br>
+If destination folder does not exists: <code>// Success!</code></p>
+<h2>Actual script</h2>
+<p>Testing paths in my actual script, I only get 999 errors:</p>
+<pre><code class="lang-auto">let testPaths = [
+  {
+    src: "/0-temp/test/src/testcopy1",
+    dst: "/0-temp/test/dst/testcopy1"
+  },
+  {
+    src: "/0-temp/test/src/testcopy2",
+    dst: "/0-temp/test/dst/testcopy2"
+  },
+  {
+    src: "/0-temp/test/src/testcopy3",
+    dst: "/0-temp/test/dst/testcopy3"
+  }
+];
+
+testPaths.forEach(path =&gt; {
+  copyFiles(path['src'], path['dst']);
+});
+
+function copyFiles(src, dst) {
+  //Create Dropbox object
+  const dbxMain = Dropbox.create();
+  
+  //Build the arguments for calling the Dropbox copy
+  let urlEndpoint = "https://api.dropboxapi.com/2/files/copy_v2";
+  let dictArgs = {
+    "from_path": src,
+    "to_path": dst,
+    "allow_shared_folder": false,
+    "autorename": false,
+    "allow_ownership_transfer": false
+  };
+    
+  // Move the file
+  let objResp = dbxMain.rpcRequest(
+      {
+        "url": urlEndpoint,
+        "method": "POST",
+        "data": dictArgs
+      });
+
+  //Baseline check if it worked
+  if (objResp.statusCode != 200) {
+    	alert("Dropbox Returned an Error: [" + objResp.statusCode + "] " + objResp.error);
+    	context.fail()
+  } 
+  else {
+    alert("Files copied from: \n" + src + "\n\n" + "to: \n" + dst);
+  };
+</code></pre>
+<p>Folder exists in both src and dst <code>// Dropbox Returned an Error: [999]</code><br>
+Folder exists only in src <code>// Dropbox Returned an Error: [999]</code><br>
+Folder does not exist in src <code>// Dropbox Returned an Error: [999]</code></p>
+<h1>Before:</h1>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47.png" data-download-href="https://forums.getdrafts.com/uploads/default/1cfacb20958ccf261e72ff213026371cfcb11e47" title="Screenshot 2020-02-05 at 00.45.33"><img src="../../uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_235x249.png" alt="Screenshot 2020-02-05 at 00.45.33" data-base62-sha1="48mGSSlvN4c4eKzGVnEB7nYko1F" width="235" height="249" srcset="../../uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_235x249.png, ../../uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_352x373.png 1.5x, ../../uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_470x498.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1cfacb20958ccf261e72ff213026371cfcb11e47_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screenshot 2020-02-05 at 00.45.33</span><span class="informations">798×846 27.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5.png" data-download-href="https://forums.getdrafts.com/uploads/default/42f0047ae711958c3e9db00ae2161de2f7fd46a5" title="Screenshot 2020-02-05 at 00.45.44"><img src="../../uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_250x250.png" alt="Screenshot 2020-02-05 at 00.45.44" data-base62-sha1="9y9KnYsf3l7WTE0q3HExEymc3CB" width="250" height="250" srcset="../../uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_250x250.png, ../../uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_375x375.png 1.5x, ../../uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_500x500.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/4/42f0047ae711958c3e9db00ae2161de2f7fd46a5_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screenshot 2020-02-05 at 00.45.44</span><span class="informations">684×684 22.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<h1>After:</h1>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906.png" data-download-href="https://forums.getdrafts.com/uploads/default/0381f827dd21bf30383ca51d1bac599100ae9906" title="Screenshot 2020-02-05 at 00.53.03"><img src="../../uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_196x250.png" alt="Screenshot 2020-02-05 at 00.53.03" data-base62-sha1="v1TcZEuMUDH4LXlKzOFiQYMUyG" width="196" height="250" srcset="../../uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_196x250.png, ../../uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_294x375.png 1.5x, ../../uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_392x500.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0381f827dd21bf30383ca51d1bac599100ae9906_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screenshot 2020-02-05 at 00.53.03</span><span class="informations">656×834 25.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>As you can see, I get error 999 even when the copy is successful.</p>
+<h2>Unsuccessful attempt at using asynchronous load</h2>
+<p>I read the post on <a href="../asynchronous-scripting-in-drafts-async-await-promises-etc/6460.html">Asynchronous scripting in Drafts</a>, and following the link to <a href="https://javascript.info/async-await" rel="nofollow noopener">javascript.info</a>, I tried implementing their example of wrapping the function call in an async function. Did I screw this up?</p>
+<pre><code class="lang-auto">// Inside the copyFiles function
+(async () =&gt; {
+  let objResp = await dbxMain.rpcRequest(
+    {
+	   "url": urlEndpoint,
+	   "method": "POST",
+	   "data": dictArgs
+    });
+})();
+</code></pre>
+<pre><code class="lang-auto">// executing the copyFiles function
+testPaths.forEach(path =&gt; {
+  copyFiles(path['src'], path['dst']);
+});
+script.complete();
+</code></pre>
+<h3>Result</h3>
+<p>Fail. Drafts never reached script.complete() and timed out.</p>
+        </div>
+
+        <meta itemprop='headline' content='(Solved) Dropbox API copy throws error 999 - run async?'>
+          <meta itemprop='keywords' content='dropbox'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../dropbox-api-copy-throws-error-999-run-async/6598.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-05T13:57:55Z' class='post-time'>
+                February 5, 2020,  1:57pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-05T13:57:55Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve run your example several times and only get the error when a folder exists at the destination path…which is expected behavior per the <a href="https://www.dropbox.com/developers/documentation/http/documentation#files-copy">file/copy API docs</a>.</p>
+<p>Are you sure you have setup your example files so the destination folders do not exist (and those changes have finished syncing to Dropbox if made locally) before running the script?</p>
+        </div>
+
+        <meta itemprop='headline' content='(Solved) Dropbox API copy throws error 999 - run async?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/steinar'><span itemprop='name'>steinar</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../dropbox-api-copy-throws-error-999-run-async/6598.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-05T21:35:15Z' class='post-time'>
+                February 5, 2020,  9:35pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-05T21:35:15Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You are right, it seems to be working now. I don’t know why I kept getting errors yesterday, maybe as you said Dropbox didn’t synchronize my deletions before I ran the script.</p>
+<p>Sorry for wasting your time, thanks for the help!</p>
+        </div>
+
+        <meta itemprop='headline' content='(Solved) Dropbox API copy throws error 999 - run async?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

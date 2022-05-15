@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Add tasks as project in 2Do</title>
+    <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199</link>
+    <description>I&#39;ve adapted a few existing actions to [create a new one](drafts5://action?data=%7B%22uuid%22:%22FFFFCC01-7F23-4B09-9926-BA48A630DE24%22,%22steps%22:%5B%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22draft.addTag(%5C%22todo%5C%22);%5Cndraft.update();%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%226F493419-190E-4BE1-ABCA-E667573E3966%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22%5C/%5C/%20Process%20Tasks%5Cn%5Cnconst%20baseURL%20%3D%20%5C%22twodo:%5C/%5C/x-callback-url%5C/add%5C%22;%5Cn%5Cn%5C/%5C/%20Scan%20for%20lines%20with%20tasks%20and%20send%20them%20to%202Do%5Cn%5Cnvar%20tasks%20%3D%20draft.content.split(%5C%22%5C%5Cn%5C%22);%5Cnfor%20(var%20line%20of%20tasks)%7B%5Cn%5Ctif%20(line.includes(%5C%22-%20%5B%20%5D%5C%22))%20%7B%5Cn%5Ct%5Ct%5C/%5C/%20add%20to%202do%5Cn%5Ct%5Ctvar%20task%20%3D%20line.replace(%5C%22-%20%5B%20%5D%5C%22,%5C%22%5C%22);%5Cn%5Ct%5Cttask%20%3D%20task.trim();%5Cn%5Ct%5Ct%5C/%5C/%20create%20and%20configure%20callback%20object%5Cn%5Ctvar%20cb%20%3D%20CallbackURL.create();%5Cn%5Ctcb.baseURL%20%3D%20baseURL;%5Cn%5Ctcb.addParameter(%5C%22task%5C%22,%20task);%5Cn%5Ctcb.addParameter(%5C%22forlist%5C%22,%20%5C%22Inbox%5C%22);%5Cn%5Ct%5C/%5C/%20open%20and%20wait%20for%20result%5Cn%5Ctvar%20success%20%3D%20cb.open();%5Cn%5Ctif%20(success)%20%7B%5Cn%5Ct%5Ctconsole.log(%5C%22Task%20created%5C%22);%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%20%5Cn%5Ct%5C/%5C/%20something%20went%20wrong%20or%20was%20cancelled%5Cn%5Ct%20%20%5Ctconsole.log(cb.status);%5Cn%5Ct%20%20%5Ctif%20(cb.status%20%3D%3D%20%5C%22cancel%5C%22)%20%7B%5Cn%5Ct%5Ct%5Ctcontext.cancel();%5Cn%5Ct%5Ct%7D%5Cn%5Ct%5Ctelse%20%7B%5Cn%5Ct%5Ct%5Ctcontext.fail();%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%5Ct%7D%5Cn%5Ctelse%20%7B%5Cn%5Ct%5C/%5C/%20do%20nothing%20with%20the%20line%5Cn%5Ct%7D%5Cn%7D%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%222E845C31-214B-4A67-98B2-E3D70772D6F2%22%7D%5D,%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:1,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%222Do%20Tasks%20(task%20list)%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22indigo%22,%22actionDescription%22:%22This%20action%20takes%20the%20each%20line%20of%20the%20current%20Draft%20and%20adds%20them%20to%202do%20as%20a%20separate%20note.%22,%22keyUseIcon%22:true,%22icon%22:%22328-layers2%22,%22visibility%22:2,%22backingIsSeparator%22:false,%22groupUUID%22:%22DEF1381B-CA07-437B-812A-80790DCD5BBB%22,%22assignTags%22:%5B%5D,%22name%22:%222Do%20Tasks%20(task%20list)%22%7D) that will scan a Draft for all markdown formatted tasks and then create a new task in my 2Do inbox for each item. This seems to be working well. But what I would like to do now is have the action create a new project in 2Do from the document title and then add each of these items as sub-tasks in that project. So, for instance, if I have a document like this:
+
+```
+# Title
+- [ ] Item 1
+- [ ] Item 2
+```
+
+I will get a 2Do project named &quot;title&quot; with &quot;item 1&quot; and &quot;item 2&quot; as sub-tasks in that project. I&#39;ve tried a few different ways to do this, but nothing has worked. (Unfortunately my scripting ability is very limited and all I can really do is slightly modify existing scripts, not create new ones from scratch.) Thanks for your help!
+
+(Note that this action should work even if some of the lines in the document are not tasks. The idea is that I could take notes at a meeting, add some tasks, and then have a new 2Do project for items to followup on after that meeting.)</description>
+    
+    <lastBuildDate>Sun, 25 Nov 2018 14:45:50 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[luhmann]]></dc:creator>
+        <description><![CDATA[
+            <p>Success. Thanks so much for your help!</p>
+<p><a href="https://actions.getdrafts.com/a/1Qx" class="onebox" target="_blank" rel="nofollow noopener">https://actions.getdrafts.com/a/1Qx</a></p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/9</link>
+        <pubDate>Sun, 25 Nov 2018 14:45:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-9</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[luhmann]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks. Just posting this here as a reference:</p>
+<aside class="onebox stackexchange">
+  <header class="source">
+      <a href="https://stackoverflow.com/questions/1288095/append-to-string-variable" target="_blank" rel="nofollow noopener">stackoverflow.com</a>
+  </header>
+  <article class="onebox-body">
+      <a href="https://stackoverflow.com/users/153799/ronal" target="_blank" rel="nofollow noopener">
+    <img alt="Ronal" src="https://forums.getdrafts.com/uploads/default/original/2X/8/850a1f67ceace07c2a294da1ba842fe982d52aef.png" class="thumbnail onebox-avatar" width="128" height="128">
+  </a>
+<h4>
+  <a href="https://stackoverflow.com/questions/1288095/append-to-string-variable" target="_blank" rel="nofollow noopener">Append to string variable</a>
+</h4>
+
+<div class="tags">
+  <strong>javascript, string, variables, append</strong>
+</div>
+
+<div class="date">
+  asked by
+  
+  <a href="https://stackoverflow.com/users/153799/ronal" target="_blank" rel="nofollow noopener">
+    Ronal
+  </a>
+  on <a href="https://stackoverflow.com/questions/1288095/append-to-string-variable" target="_blank" rel="nofollow noopener">01:57PM - 17 Aug 09 UTC</a>
+</div>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/7</link>
+        <pubDate>Sun, 25 Nov 2018 12:50:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-7</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-post="5" data-topic="3199">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v2/letter/l/ed655f/40.png" class="avatar"> luhmann:</div>
+<blockquote>
+<p>How do I append to an existing template tag within the script?</p>
+</blockquote>
+</aside>
+<p>For this scenario, consider using a string variable to keep appending to and then substitute that in for “paste text” when you want to use it.</p>
+<p>If it was pre-existing in some other scenarios, you might use processTemplate() to get the initial value to initialise the variable with.  You could consistently use processTemplate instead of a separate variable, but I personally think it is typically easier (for maintenance and explanation) to work with variables first and then the templates at the end of the process.</p>
+<p>Hope that covers what you’re after.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/6</link>
+        <pubDate>Sun, 25 Nov 2018 11:27:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-6</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[luhmann]]></dc:creator>
+        <description><![CDATA[
+            <p>Currently my script parses each line and sends those it finds directly to 2Do, to modify it in this way I would need to append each found line to “s” (using the example above). How do I append to an existing template tag within the script?</p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/5</link>
+        <pubDate>Sun, 25 Nov 2018 02:25:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-5</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There are couple of ways to create that URL and open it without the need to create a new draft.</p>
+<p>The most straightforward way would be to put the new text you constructed in a custom template tag, then use that tag in a Callback URL action step that follows your script, like:</p>
+<pre><code class="lang-javascript">let s = " ... your constructed text ... ";
+draft.setTemplateTag("paste_text", s);
+</code></pre>
+<p>Then for the URL scheme in a step after this script, use:</p>
+<pre><code class="lang-nohighlight">twodo://x-callback-url/paste?text=[[paste_text]]&amp;forList=Inbox
+</code></pre>
+<p>You could also do it all in script, constructing the full URL in a string, and using a <a href="https://reference.getdrafts.com/objects/CallbackURL.html">CallbackURL</a> object to open that URL.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/4</link>
+        <pubDate>Fri, 23 Nov 2018 14:22:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-4</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[luhmann]]></dc:creator>
+        <description><![CDATA[
+            <p>Seems <a href="https://forums.getdrafts.com/t/automatic-action-upon-draft-creation/668">it is not possible to create a new draft and automatically trigger a second action</a>. So it would be better to find a way to add all the text that would go to that new draft directly to a URL scheme… Not sure how to do that though…</p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/3</link>
+        <pubDate>Fri, 23 Nov 2018 09:10:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-3</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[luhmann]]></dc:creator>
+        <description><![CDATA[
+            <p>So it turns out that it is actually fairly easy to create a project with sub tasks in 2Do using the “paste” URL scheme:</p>
+<p><code>twodo://x-callback-url/paste?text=[[draft]]&amp;forList=Inbox</code></p>
+<p>This works with nested text in a draft:</p>
+<pre><code class="lang-auto">Project Title
+    task 1
+    task 2
+</code></pre>
+<p>So perhaps the best way to accomplish the initial concept would be to take the title and tasks and create a new draft, then run the URL scheme on that draft? Or is there an easier way?</p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/2</link>
+        <pubDate>Fri, 23 Nov 2018 08:58:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-2</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+      <item>
+        <title>Add tasks as project in 2Do</title>
+        <dc:creator><![CDATA[luhmann]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve adapted a few existing actions to <a href="https://forums.getdrafts.com">create a new one</a> that will scan a Draft for all markdown formatted tasks and then create a new task in my 2Do inbox for each item. This seems to be working well. But what I would like to do now is have the action create a new project in 2Do from the document title and then add each of these items as sub-tasks in that project. So, for instance, if I have a document like this:</p>
+<pre><code class="lang-auto"># Title
+- [ ] Item 1
+- [ ] Item 2
+</code></pre>
+<p>I will get a 2Do project named “title” with “item 1” and “item 2” as sub-tasks in that project. I’ve tried a few different ways to do this, but nothing has worked. (Unfortunately my scripting ability is very limited and all I can really do is slightly modify existing scripts, not create new ones from scratch.) Thanks for your help!</p>
+<p>(Note that this action should work even if some of the lines in the document are not tasks. The idea is that I could take notes at a meeting, add some tasks, and then have a new 2Do project for items to followup on after that meeting.)</p>
+          <p><a href="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199/1</link>
+        <pubDate>Wed, 21 Nov 2018 02:47:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3199-1</guid>
+        <source url="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199.rss">Add tasks as project in 2Do</source>
+      </item>
+  </channel>
+</rss>

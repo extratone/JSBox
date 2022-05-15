@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Putting Tags into body</title>
+    <link>https://forums.getdrafts.com/t/putting-tags-into-body/10320</link>
+    <description>Hey all,
+
+I&#39;d like an action that takes tags and turns them into #tags which are then appended to the body of the text. E.g. if the tags in drafts are &quot;snacks&quot; and &quot;skittles&quot; then the text file will look like:
+
+Note about tasty treats [...]
+
+#snacks #skittles
+
+---
+
+Basically I&#39;m exporting drafts to obsidian, and I&#39;d like the tags in drafts to work within the obsidian tags framework.
+
+I&#39;m sure this would be a simple task if I knew how to script but I don&#39;t code. Maybe there is already an action to do this, but I wasn&#39;t able to find one. Anyhow, any help would be greatly appreciated.
+
+Thanks!</description>
+    
+    <lastBuildDate>Sat, 24 Apr 2021 12:55:22 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/putting-tags-into-body/10320.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Putting Tags into body</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I would note that the best way to do this would be to use <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> script snippet above to create a template tag, and use that template tag in your action that exports to your Obsidian vault, rather than actually adding the tags to the text of the draft. So a script step like:</p>
+<pre><code class="lang-javascript">draft.setTemplateTag("hashtags", draft.tags.map(tag =&gt; "#" + tag).join(" "));
+</code></pre>
+<p>Then you have a <code>[[hashtags]]</code> template tag you can insert in your export step (File, Dropbox, whatever you are using) and have the tags added to the exported file without changing the initial draft.</p>
+<p>That seems cleaner to me and would not require any action if you altered the tags and re-exported, or similar.</p>
+          <p><a href="https://forums.getdrafts.com/t/putting-tags-into-body/10320/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/putting-tags-into-body/10320/3</link>
+        <pubDate>Sat, 24 Apr 2021 12:55:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10320-3</guid>
+        <source url="https://forums.getdrafts.com/t/putting-tags-into-body/10320.rss">Putting Tags into body</source>
+      </item>
+      <item>
+        <title>Putting Tags into body</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You can do this with a single line script step.</p>
+<p>This JavaScript code takes each <code>tag</code> in the <code>tags</code> of a draft, and prefixes them with an octothorps then <code>join</code>s then together with spaces between.</p>
+<pre><code class="lang-auto">draft.tags.map(tag =&gt; "#" + tag).join(" ");
+</code></pre>
+<p>To insert at the current cursor position, you could expand the line to set the current text selection in the editor to this string of hash tags.</p>
+<pre><code class="lang-auto">editor.setSelectedText(draft.tags.map(tag =&gt; "#" + tag).join(" "));
+</code></pre>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1lA">Here’s a pre-built action for you</a>.</li>
+</ul>
+<p><em><strong>Bonus:</strong> I also added a line to position the cursor at the end afterwards rather than retaining the selection of the inserted text.</em></p>
+<p>Note if you have no selected text, you actually do. It just has zero length and so rather than replacing some text it is effectively just being inserted.</p>
+<p>To always append the string of hash tags to the end of the draft, you can simply switch out the first part about the editor for an append to the end of the draft.  This will add a newline automatically. Even though it occurs implicitly for a simple script, we force an update of the draft as good practice. The editor will then automatically pick up the update and display it.</p>
+<pre><code class="lang-auto">draft.append(draft.tags.map(tag =&gt; "#" + tag).join(" "));
+draft.update();
+</code></pre>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1lB">Here’s a pre-built action for you</a>.</li>
+</ul>
+<aside class="quote no-group" data-username="Navidad" data-post="1" data-topic="10320">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/navidad/40/5234_2.png" class="avatar"> Navidad:</div>
+<blockquote>
+<p>I’m sure this would be a simple task if I knew how to script but I don’t code.</p>
+</blockquote>
+</aside>
+<p>Welcome to day one of learning to code in Drafts <img src="https://forums.getdrafts.com/images/emoji/apple/nerd_face.png?v=9" title=":nerd_face:" class="emoji" alt=":nerd_face:">. In all seriousness the forum is full of suggestions for learning how to do this stuff, and everyone starts from zero.</p>
+          <p><a href="https://forums.getdrafts.com/t/putting-tags-into-body/10320/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/putting-tags-into-body/10320/2</link>
+        <pubDate>Sat, 24 Apr 2021 08:36:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10320-2</guid>
+        <source url="https://forums.getdrafts.com/t/putting-tags-into-body/10320.rss">Putting Tags into body</source>
+      </item>
+      <item>
+        <title>Putting Tags into body</title>
+        <dc:creator><![CDATA[Navidad]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey all,</p>
+<p>I’d like an action that takes tags and turns them into <a class="hashtag" href="https://forums.getdrafts.com/tag/tags">#<span>tags</span></a> which are then appended to the body of the text. E.g. if the tags in drafts are “snacks” and “skittles” then the text file will look like:</p>
+<p>Note about tasty treats […]</p>
+<p><span class="hashtag">#snacks</span> <span class="hashtag">#skittles</span></p>
+<hr>
+<p>Basically I’m exporting drafts to obsidian, and I’d like the tags in drafts to work within the obsidian tags framework.</p>
+<p>I’m sure this would be a simple task if I knew how to script but I don’t code. Maybe there is already an action to do this, but I wasn’t able to find one. Anyhow, any help would be greatly appreciated.</p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/putting-tags-into-body/10320/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/putting-tags-into-body/10320/1</link>
+        <pubDate>Sat, 24 Apr 2021 05:11:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10320-1</guid>
+        <source url="https://forums.getdrafts.com/t/putting-tags-into-body/10320.rss">Putting Tags into body</source>
+      </item>
+  </channel>
+</rss>

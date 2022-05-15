@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>X-callback in Alfred Workflows?</title>
+    <link>https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920</link>
+    <description>I&#39;ve been trying to figure this out, but I&#39;ve hit a bit of a dead end with my knowledge. I have an Alfred app workflow that takes a variety of input variables and then feeds a JXA script that loads a few templates, does a bunch of processing, and then creates a project in Things 3 and a related Drafts document.
+
+When creating the Drafts document, I&#39;m creating it using the following code:
+
+```javascript
+var draft_x = &#39;drafts5://x-callback-url/create?tag=[MyTag]&amp;tag=&#39; encodeURComponent(&#39;[My Other Tag]&#39;) + &#39;&amp;text=&#39;;
+var xcurl = draft_x + encodeURIComponent(draft_text);
+var noteID = app.openLocation(xcurl);
+```
+The `app` referred to is `var app = Application.currentApplication()` which I believe would be the `osascript` instance Alfred is using to execute the script.
+
+That said, what I&#39;d _like_ to do is throw this at the end:
+
+```javascript
+app.openLocation(&#39;drafts5://x-callback-url/open?uuid=&#39; + noteID.uuid);
+```
+
+But `noteID` doesn&#39;t recieve any parameters back from the x-callback. Is there any way to have it return the UUID to the script running within Alfred so that I can open directly to the note? Ideally this could end up working, then I could embed a link to the draft directly within my Things project.</description>
+    
+    <lastBuildDate>Fri, 13 Mar 2020 20:00:25 +0000</lastBuildDate>
+    <category>Drafts for Mac</category>
+    <atom:link href="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>X-callback in Alfred Workflows?</title>
+        <dc:creator><![CDATA[dfay]]></dc:creator>
+        <description><![CDATA[
+            <p>Awesome - glad it worked easily.</p>
+          <p><a href="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/4</link>
+        <pubDate>Fri, 13 Mar 2020 20:00:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6920-4</guid>
+        <source url="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920.rss">X-callback in Alfred Workflows?</source>
+      </item>
+      <item>
+        <title>X-callback in Alfred Workflows?</title>
+        <dc:creator><![CDATA[buffaloseven]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your suggestion. I was able to get the behaviour I wanted by adjusting my code and using <code>xcall</code>. The changes really were minimal. All I had to do was change:</p>
+<pre><code class="lang-javascript">var noteID = app.openLocation(xcurl);
+</code></pre>
+<p>To:</p>
+<pre><code class="lang-javascript">var noteID = JSON.parse(app.doShellScript('/Applications/xcall.app/Contents/MacOS/xcall -url "' + xcurl + '"'));
+app.openLocation("drafts5://x-callback-url/open?uuid=" + noteID.uuid);
+</code></pre>
+<p>It might be a little overkill for what I’m doing, but I’m glad to have it working. I’ll be able to use this to do some other nice automation work within similar workflows. Thanks for sharing!</p>
+          <p><a href="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/3</link>
+        <pubDate>Fri, 13 Mar 2020 02:28:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6920-3</guid>
+        <source url="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920.rss">X-callback in Alfred Workflows?</source>
+      </item>
+      <item>
+        <title>X-callback in Alfred Workflows?</title>
+        <dc:creator><![CDATA[dfay]]></dc:creator>
+        <description><![CDATA[
+            <p>I use xcall with Alfred in some Ulysses workflows.  I believe the author is one of the Ulysses developers. Rob Walton’s Alfred workflow for Ulysses also uses it.</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicon.ico" class="site-icon" width="32" height="32">
+      <a href="https://github.com/martinfinke/xcall" target="_blank" rel="nofollow noopener">GitHub</a>
+  </header>
+  <article class="onebox-body">
+    <img src="https://forums.getdrafts.com/uploads/default/original/2X/c/c4c6817dbd49584ff9a399d7a56e791012761d33.png" class="thumbnail onebox-avatar" width="32" height="32">
+
+<h3><a href="https://github.com/martinfinke/xcall" target="_blank" rel="nofollow noopener">martinfinke/xcall</a></h3>
+
+<p>Call X-Callback-URLs From the macOS Command Line. Contribute to martinfinke/xcall development by creating an account on GitHub.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>See also this thread</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://content.invisioncic.com/r229491/monthly_2017_07/favicon.ico.25cb7af4f019e1868fe63bd83ed0d40c.ico" class="site-icon" width="32" height="32">
+      <a href="https://www.alfredforum.com/topic/10389-leveraging-x-callback-url-in-workflows/" target="_blank" rel="nofollow noopener">Alfred App Community Forum</a>
+  </header>
+  <article class="onebox-body">
+    <img src="" class="thumbnail" width="" height="">
+
+<h3><a href="https://www.alfredforum.com/topic/10389-leveraging-x-callback-url-in-workflows/" target="_blank" rel="nofollow noopener">Leveraging x-callback-url in workflows</a></h3>
+
+<p>Hello! I started to work on creating my own workflow that would allow me to create and search Bear notes. I quickly ran into some problems that I dont think there are reasonable workarounds for, but I wanted to get some opinions first. My problem is...</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>And here’s a working (at the time) example of xcall in an Alfred script filter (in python):</p>
+<p><a href="https://www.alfredforum.com/topic/9662-ulysses-workflow/?do=findComment&amp;comment=51580" class="onebox" target="_blank" rel="nofollow noopener">https://www.alfredforum.com/topic/9662-ulysses-workflow/?do=findComment&amp;comment=51580</a></p>
+          <p><a href="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/2</link>
+        <pubDate>Thu, 12 Mar 2020 06:48:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6920-2</guid>
+        <source url="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920.rss">X-callback in Alfred Workflows?</source>
+      </item>
+      <item>
+        <title>X-callback in Alfred Workflows?</title>
+        <dc:creator><![CDATA[buffaloseven]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been trying to figure this out, but I’ve hit a bit of a dead end with my knowledge. I have an Alfred app workflow that takes a variety of input variables and then feeds a JXA script that loads a few templates, does a bunch of processing, and then creates a project in Things 3 and a related Drafts document.</p>
+<p>When creating the Drafts document, I’m creating it using the following code:</p>
+<pre><code class="lang-javascript">var draft_x = 'drafts5://x-callback-url/create?tag=[MyTag]&amp;tag=' encodeURComponent('[My Other Tag]') + '&amp;text=';
+var xcurl = draft_x + encodeURIComponent(draft_text);
+var noteID = app.openLocation(xcurl);
+</code></pre>
+<p>The <code>app</code> referred to is <code>var app = Application.currentApplication()</code> which I believe would be the <code>osascript</code> instance Alfred is using to execute the script.</p>
+<p>That said, what I’d <em>like</em> to do is throw this at the end:</p>
+<pre><code class="lang-javascript">app.openLocation('drafts5://x-callback-url/open?uuid=' + noteID.uuid);
+</code></pre>
+<p>But <code>noteID</code> doesn’t recieve any parameters back from the x-callback. Is there any way to have it return the UUID to the script running within Alfred so that I can open directly to the note? Ideally this could end up working, then I could embed a link to the draft directly within my Things project.</p>
+          <p><a href="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920/1</link>
+        <pubDate>Thu, 12 Mar 2020 03:16:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6920-1</guid>
+        <source url="https://forums.getdrafts.com/t/x-callback-in-alfred-workflows/6920.rss">X-callback in Alfred Workflows?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Shortcuts &amp; Evernote - Actions don&#39;t all execute</title>
+    <link>https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063</link>
+    <description>I have a Workspace with a collection of drafts (each draft is a question), and I want - on a scheduled basis - to automatically append each draft to the same note in Evernote.
+
+Currently, I have 16 drafts and when I run the following Action:
+![IMG_5027.PNG|231x500](upload://pgmlhijff4dO0jAqTjoEOhdDokQ.jpeg)
+
+The green banner does display itself 16 times sequentially:
+![IMG_5028.PNG|231x500](upload://nSzPiY4bNWvPIZACW210NJqATBM.jpeg)
+
+However, when I go to my note in Evernote, not all 16 drafts have been appended. Maybe half of that.
+
+I tried adding a &quot;Wait X seconds&quot; to the Shortcut, however this I have found doesn&#39;t even trigger 16 green banners - it may display only 8, but at least those 8 all actually get appended to the note.
+
+I assume the green banner is not a success response? I&#39;m assuming there is some sort of rate limit throttling with the Evernote API, but I have no insight into that. If Evernote did reply with a 429 response, it clearly isn&#39;t being reflected.
+
+Any ideas how I can achieve what I&#39;m looking at? I&#39;m guessing the best path forward would probably to have a script that takes all the drafts in my Workspace, creates a single draft out of them all, then does just a single call to Evernote. If anyone could provide an example of such a script (I imagine it would be better writing the script in Drafts as opposed to creating a Shortcut) which consolidates all drafts of a Workspace, it would be greatly appreciated. Thank you.</description>
+    
+    <lastBuildDate>Sun, 22 Aug 2021 21:01:02 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Shortcuts &amp; Evernote - Actions don&#39;t all execute</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I was pretty sure Evernote updated required the device to be unlocked. Either I was mistaken or that changed. I’ve moved away from regular Evernote use, so it hasn’t been s I me thing I’ve worked with much for a while, but glad it’s worked for you <img src="https://forums.getdrafts.com/images/emoji/apple/sunglasses.png?v=10" title=":sunglasses:" class="emoji" alt=":sunglasses:"></p>
+          <p><a href="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/4</link>
+        <pubDate>Sun, 22 Aug 2021 21:01:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11063-4</guid>
+        <source url="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063.rss">Shortcuts &amp; Evernote - Actions don&#39;t all execute</source>
+      </item>
+      <item>
+        <title>Shortcuts &amp; Evernote - Actions don&#39;t all execute</title>
+        <dc:creator><![CDATA[baldr]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s extremely helpful. Calling Evernote within Shortcuts appears to successfully append each note, as opposed to running an action within Drafts which then makes the Evernote requests.</p>
+<p>In the other thread, you said:</p>
+<blockquote>
+<p>Your device would need to be unlocked to do this. Therefore, I would consider just having a reminder pop-up with a link to run an action within Drafts to do the processing and sending to Evernote.</p>
+</blockquote>
+<p>So this cannot be 100% automated - it still requires some sort of manual intervention? Because Shortcuts must be run with the device unlocked?</p>
+<p>Any recommendations on approaches where it can be 100% automated?</p>
+<p>EDIT: I created an Automation to run the Shortcut at a specific time, kept my phone locked, and it did execute. So I guess no manual intervention required.</p>
+          <p><a href="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/3</link>
+        <pubDate>Sun, 22 Aug 2021 20:03:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11063-3</guid>
+        <source url="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063.rss">Shortcuts &amp; Evernote - Actions don&#39;t all execute</source>
+      </item>
+      <item>
+        <title>Shortcuts &amp; Evernote - Actions don&#39;t all execute</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m going to take a guess that this is related to <a href="https://forums.getdrafts.com/t/pending-automatically-run-action-on-a-workspace-on-a-scheduled-basis/8732/15">your post here</a>.</p>
+<p>If you look at my response to that one, you’ll see I’m using the content of the draft in the append. You are using the draft. That could be one reason. My first recommendation would therefore be to try that.</p>
+<p>Going further on the debugging if that does not work, I would use two quick look actions in the loop.</p>
+<p>One quick look at the start to look at the content of the draft - so that you can see Shortcuts has picked up the draft content.</p>
+<p>One quick look at the end to look at the content of the Evernote note (if you read the append to Evernote action in Shortcuts, you’ll see the result is the Evernote note, and when you add it to quick look, the default valuer as ‘Evernote Note’ is the content of the note).</p>
+<p>Now you know what is being sent to Evernote and what is being stored/returned by Evernote.</p>
+<p>Of course, as you noted, an alternative approach would be to collect all of the content from Drafts first, and then append it in one go to Evernote. That should also eliminate any timing glitches by only having a single access run against Evernote. It is just a reshuffling of what you had above, or in this case, what I posted on your other query, as it saved me some fiddling around, and you get the bonus of what would auto archive the processed drafts.</p>
+<ul>
+<li><a href="https://www.icloud.com/shortcuts/f1b86435a850431c8ea283500200cf91">Alternative one update to Evernote approach</a></li>
+</ul>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/2</link>
+        <pubDate>Sun, 22 Aug 2021 18:06:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11063-2</guid>
+        <source url="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063.rss">Shortcuts &amp; Evernote - Actions don&#39;t all execute</source>
+      </item>
+      <item>
+        <title>Shortcuts &amp; Evernote - Actions don&#39;t all execute</title>
+        <dc:creator><![CDATA[baldr]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a Workspace with a collection of drafts (each draft is a question), and I want - on a scheduled basis - to automatically append each draft to the same note in Evernote.</p>
+<p>Currently, I have 16 drafts and when I run the following Action:<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b10fca5ca80d56fb1732eb7a9546239fea9e6264.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/b10fca5ca80d56fb1732eb7a9546239fea9e6264" title="IMG_5027.PNG"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b10fca5ca80d56fb1732eb7a9546239fea9e6264_2_231x500.jpeg" alt="IMG_5027.PNG" data-base62-sha1="pgmlhijff4dO0jAqTjoEOhdDokQ" width="231" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b10fca5ca80d56fb1732eb7a9546239fea9e6264_2_231x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b10fca5ca80d56fb1732eb7a9546239fea9e6264_2_346x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b10fca5ca80d56fb1732eb7a9546239fea9e6264_2_462x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b10fca5ca80d56fb1732eb7a9546239fea9e6264_2_10x10.png"></a></div><p></p>
+<p>The green banner does display itself 16 times sequentially:<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/a75d642ca162d68803f30bfcb8e070e0c76f0f22.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/a75d642ca162d68803f30bfcb8e070e0c76f0f22" title="IMG_5028.PNG"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a75d642ca162d68803f30bfcb8e070e0c76f0f22_2_231x500.jpeg" alt="IMG_5028.PNG" data-base62-sha1="nSzPiY4bNWvPIZACW210NJqATBM" width="231" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a75d642ca162d68803f30bfcb8e070e0c76f0f22_2_231x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/a/a75d642ca162d68803f30bfcb8e070e0c76f0f22_2_346x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/a/a75d642ca162d68803f30bfcb8e070e0c76f0f22_2_462x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a75d642ca162d68803f30bfcb8e070e0c76f0f22_2_10x10.png"></a></div><p></p>
+<p>However, when I go to my note in Evernote, not all 16 drafts have been appended. Maybe half of that.</p>
+<p>I tried adding a “Wait X seconds” to the Shortcut, however this I have found doesn’t even trigger 16 green banners - it may display only 8, but at least those 8 all actually get appended to the note.</p>
+<p>I assume the green banner is not a success response? I’m assuming there is some sort of rate limit throttling with the Evernote API, but I have no insight into that. If Evernote did reply with a 429 response, it clearly isn’t being reflected.</p>
+<p>Any ideas how I can achieve what I’m looking at? I’m guessing the best path forward would probably to have a script that takes all the drafts in my Workspace, creates a single draft out of them all, then does just a single call to Evernote. If anyone could provide an example of such a script (I imagine it would be better writing the script in Drafts as opposed to creating a Shortcut) which consolidates all drafts of a Workspace, it would be greatly appreciated. Thank you.</p>
+          <p><a href="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063/1</link>
+        <pubDate>Sun, 22 Aug 2021 17:34:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11063-1</guid>
+        <source url="https://forums.getdrafts.com/t/shortcuts-evernote-actions-dont-all-execute/11063.rss">Shortcuts &amp; Evernote - Actions don&#39;t all execute</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Preview: Drafts Release 15 Plans</title>
+    <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413</link>
+    <description>As usual this time of year, the Drafts release schedule is tied to Apple&#39;s release of new versions of the operating system...but I wanted to give you a preview of what&#39;s we have planned along with the release of iOS/iPadOS 13 and macOS 10.15 (Catalina) in the coming months.
+
+Below are draft release notes for the planned releases. Details on the availability of these releases will become more clear when Apple makes specific announcements about the new OS versions shipping.  *Note that features of these releases may require the new OS versions, but the apps themselves will continue to work on previous versions of the OS. The iOS version will drop support for iOS 11, but remain compatible with iOS 12 and the macOS version will continue to support back to macOS 10.13 (High Sierra).*
+
+If you are interested in getting a preview, a few additional TestFlight Beta slots may still be available - [see details for applying for beta access](https://forums.getdrafts.com/t/drafts-beta-program-ios-13-and-more/5092).
+
+**_To keep up with Drafts news and update, create an account on this forum site!_**
+
+-----------
+
+# Drafts R15 (iOS/iPadOS) Release Notes - _DRAFT_
+
+Drafts R15 will be released alongside Apple&#39;s release of iOS/iPadOS 13 this Fall (or as close to that as App Review allows).
+
+### Interface and Functional Improvements
+
+- **Rewritten main user interface and gesture interface**
+	- General improvements to responsive of gestures.
+	- Support for pinning both drafts and actions on larger screens, easier access to pinning, remembering pin states.
+- **Support for multiple windows** _(iPadOS 13 only)_.
+    - Dragging draft from the draft list to a new window, or just opening new Drafts instances dragging the app icon to split views and slide overs. 
+    - Edit actions in separate window.
+    - Live Markdown previews in a separate window.
+- **Automatic dark and light mode switching** _(iOS 13 only)_. Drafts already support dark mode, but now if &quot;automatic&quot; switching it enabled, it will be done based on current system mode.
+- **Contextual menus where appropriate throughout the app** _(iOS 13 only)_
+- **New Quick Capture action extension**. Functions similarly to the existing Drafts share extension, but requires no user interaction - just captures the shared content and returns.
+- **Live Markdown Previews** _(iPadOS 13 only)_. A live preview can be opened in a separate window to allow a draft to be edited and preview viewed simultaneously. This is similar to preview functionality available in the Mac version of Drafts.
+- **Support for new iOS 13 font selection panels**
+- **Dictation interface now has an optional silence timeout**. Useful for those who trigger dictation hands-free via Siri and want the app to automatically save the draft after they stop dictation for a period of time. Can be configured to 10, 30 or 60 seconds.
+- Refreshing of icons and a variety of minor improvements throughout the app.
+
+### Shortcuts
+
+- **Extensive support for new features of Shortcuts in iOS/iPadOS 13**. A full set of shortcuts, with parameter support, allow you to create, update, append and prepend to drafts, query drafts, run actions, and more.
+
+### Workspaces &amp; Draft List
+
+- **&quot;Default&quot; Workspace**. This is a special workspace that stores the preferred default settings for the draft list, and is restored when filters are cleared. This way, if you have workspaces that applies sort or display settings, clearing the list filters will also reset those back to your preferred default settings. The default workspace can be configured like any other workspace in the workspace manager.
+- **&quot;Show date&quot; display option for drafts list and workspaces**. Hide/show the date in the list. Along with other display settings, this allows everything but the draft title to be removed, for the minimalists out there.
+
+### Other Changes and Updates
+
+- **New:** Keyboard shortcut support in the Share extension (cmd-return to save, cmd-T for tag entry, etc.)
+- **Change:** If a selection is present in the editor, the character / word counts now include a selection character count as well.
+- **New:** `HTML.escape(string)` and `HTML.unescape(string)` javascript functions to encode and decode HTML entities in a string.
+- **Change:** Long press on link in link mode will now fall through to options menu.
+- **Change:** Regular expression find will now treat escaped whitespace characters (e.g. \n, \t) in replacement text as those characters, rather than expecting the whitespace itself.  More consistent with how regex replacements are done in other editors. 
+- **Fix:** Markdown syntax definitions did not handle reference link properly.
+- **Fix:** Markdown syntaxes incorrectly identifying indented ordered list items as indented code.
+- **Fix:** Improve markdown header recognition in syntax highlighting definitions to allow # in header text.
+- **Change:** Support for iOS 11 has been removed.
+- **Fix:** Navigating drafts list with keyboard shortcuts should scroll the list if necessary.
+- **Fix:** `editor.load()` method should touch the accessed date of the draft.
+- **Change:** Allow &quot;new draft after&quot; timeout to be set to &quot;Never&quot; to allow it to be disabled separately from focus mode.
+- **New:** Select &gt; Operations &gt; Export now supports text file option, which merges draft contents into one text file.
+- **Change:** Find and replace screen should remember last state of &quot;Show options&quot;.
+
+-----------
+
+# Drafts R15 (macOS) Release Notes - _DRAFT_
+
+Drafts R15 will be released alongside Apple&#39;s release of macOS 10.15 (Catalina) this Fall (or as close to that as App Review allows).
+
+### Workspaces &amp; Draft List
+
+- **&quot;Default&quot; Workspace**. This is a special workspace that stores the preferred default settings for the draft list, and is restored when filters are cleared. This way, if you have workspaces that applies sort or display settings, clearing the list filters will also reset those back to your preferred default settings. The default workspace can be configured like any other workspace in the workspace manager.
+- **&quot;Show date&quot; display option for drafts list and workspaces**. Hide/show the date in the list. Along with other display settings, this allows everything but the draft title to be removed, for the minimalists out there.
+
+### Dictation
+
+- **Custom Dictation interface** _(macOS 10.15 only)_. New custom dictation interface, similar to that available on the iOS version of Drafts, with support for:
+	- Creation of new drafts, or inserting text at the cursor location.
+	- Selection of locale/language from any language supported by Siri dictation.
+	- Optional automatic timeout to commit changes after a period of silence.
+	- `/dictate` URL scheme supported, see docs for details.
+
+### Actions Coming Soon
+
+We are hard at work on a release of Drafts for Mac with full support for the automation actions available on the iOS version of Drafts.  This version is expected to go into beta soon after this release.
+
+### Other
+
+- **New:** Add focus mode toggle button in editor (bottom row)
+- **New:** Add &quot;Launch in focus mode&quot; preference.
+- **Fix:** Markdown syntax definitions did not handle reference link properly.
+- **Change:** Updates to Find window, allowing multiple line texts and treating whitespace escape characters properly (\n, \t) in regular expression mode.
+- **New:** Extensions tab in preferences, to allow configuration of share extension options.
+- **Change:** If a selection is present in the editor, the character / word counts at bottom right now include a selection character count as well.
+- **Fix:** Issue preventing Handoff from working properly from Mac to iOS. Mostly. Still appears Handoff is broken at the OS level on Catalina, or when passing information from Catalina to iOS.
+- **Fix:** Improve markdown header recognition in syntax highlighting definitions to allow # in header text.
+- **Change:** File &gt; Copy and Share menu items now work when draft is open in separate window.
+- **Change:** &quot;Backup Now&quot; in Preferences &gt; Backup now prompts for save location rather than saving to iCloud Drive.
+- **New:** Bulk export options in context menu of draft list to allow export of selected drafts as JSON, CSV or text file.
+- **Change:** Better handling of restore purchase process to help avoid confusion about the fact that you can&#39;t restore iOS purchases on the Mac.</description>
+    
+    <lastBuildDate>Thu, 22 Aug 2019 15:11:17 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[mc1z]]></dc:creator>
+        <description><![CDATA[
+            <p>Found it.  Awesome! Thank you!  — Mark</p>
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/9</link>
+        <pubDate>Thu, 22 Aug 2019 15:11:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-9</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, if you are on the beta, then you have this feature. It appears as a button next to locale/language selection in the <a href="https://getdrafts.com/editor/dictation" rel="nofollow noopener">dictation interface</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/8</link>
+        <pubDate>Thu, 22 Aug 2019 15:00:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-8</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[mc1z]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah, ok, it was an even sillier question than I thought.  I have the 14.5.33 beta version, and was looking for just such a silence timeout (or other way to end dictation without a physical interaction) yesterday - that’s why I was so interested to see the mention of it here…</p>
+<p>Thanks,</p>
+<p>Mark</p>
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/7</link>
+        <pubDate>Thu, 22 Aug 2019 14:57:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-7</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This is preview for a not yet released version of Drafts. These are not shipping features.</p>
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/6</link>
+        <pubDate>Thu, 22 Aug 2019 14:53:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-6</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[mc1z]]></dc:creator>
+        <description><![CDATA[
+            <p>Silly question time:  I can’t seem to find the dictation silence timeout option setting - can someone tell me where it’s located?</p>
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/5</link>
+        <pubDate>Thu, 22 Aug 2019 14:47:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-5</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/4</link>
+        <pubDate>Thu, 22 Aug 2019 14:06:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-4</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/3</link>
+        <pubDate>Thu, 22 Aug 2019 14:06:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-3</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/2</link>
+        <pubDate>Thu, 22 Aug 2019 14:05:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-2</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+      <item>
+        <title>Preview: Drafts Release 15 Plans</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>As usual this time of year, the Drafts release schedule is tied to Apple’s release of new versions of the operating system…but I wanted to give you a preview of what’s we have planned along with the release of iOS/iPadOS 13 and macOS 10.15 (Catalina) in the coming months.</p>
+<p>Below are draft release notes for the planned releases. Details on the availability of these releases will become more clear when Apple makes specific announcements about the new OS versions shipping.  <em>Note that features of these releases may require the new OS versions, but the apps themselves will continue to work on previous versions of the OS. The iOS version will drop support for iOS 11, but remain compatible with iOS 12 and the macOS version will continue to support back to macOS 10.13 (High Sierra).</em></p>
+<p>If you are interested in getting a preview, a few additional TestFlight Beta slots may still be available - <a href="https://forums.getdrafts.com/t/drafts-beta-program-ios-13-and-more/5092">see details for applying for beta access</a>.</p>
+<p><strong><em>To keep up with Drafts news and update, create an account on this forum site!</em></strong></p>
+<hr>
+<h1>Drafts R15 (iOS/iPadOS) Release Notes - <em>DRAFT</em>
+</h1>
+<p>Drafts R15 will be released alongside Apple’s release of iOS/iPadOS 13 this Fall (or as close to that as App Review allows).</p>
+<h3>Interface and Functional Improvements</h3>
+<ul>
+<li>
+<strong>Rewritten main user interface and gesture interface</strong>
+<ul>
+<li>General improvements to responsive of gestures.</li>
+<li>Support for pinning both drafts and actions on larger screens, easier access to pinning, remembering pin states.</li>
+</ul>
+</li>
+<li>
+<strong>Support for multiple windows</strong> <em>(iPadOS 13 only)</em>.
+<ul>
+<li>Dragging draft from the draft list to a new window, or just opening new Drafts instances dragging the app icon to split views and slide overs.</li>
+<li>Edit actions in separate window.</li>
+<li>Live Markdown previews in a separate window.</li>
+</ul>
+</li>
+<li>
+<strong>Automatic dark and light mode switching</strong> <em>(iOS 13 only)</em>. Drafts already support dark mode, but now if “automatic” switching it enabled, it will be done based on current system mode.</li>
+<li>
+<strong>Contextual menus where appropriate throughout the app</strong> <em>(iOS 13 only)</em>
+</li>
+<li>
+<strong>New Quick Capture action extension</strong>. Functions similarly to the existing Drafts share extension, but requires no user interaction - just captures the shared content and returns.</li>
+<li>
+<strong>Live Markdown Previews</strong> <em>(iPadOS 13 only)</em>. A live preview can be opened in a separate window to allow a draft to be edited and preview viewed simultaneously. This is similar to preview functionality available in the Mac version of Drafts.</li>
+<li><strong>Support for new iOS 13 font selection panels</strong></li>
+<li>
+<strong>Dictation interface now has an optional silence timeout</strong>. Useful for those who trigger dictation hands-free via Siri and want the app to automatically save the draft after they stop dictation for a period of time. Can be configured to 10, 30 or 60 seconds.</li>
+<li>Refreshing of icons and a variety of minor improvements throughout the app.</li>
+</ul>
+<h3>Shortcuts</h3>
+<ul>
+<li>
+<strong>Extensive support for new features of Shortcuts in iOS/iPadOS 13</strong>. A full set of shortcuts, with parameter support, allow you to create, update, append and prepend to drafts, query drafts, run actions, and more.</li>
+</ul>
+<h3>Workspaces &amp; Draft List</h3>
+<ul>
+<li>
+<strong>"Default" Workspace</strong>. This is a special workspace that stores the preferred default settings for the draft list, and is restored when filters are cleared. This way, if you have workspaces that applies sort or display settings, clearing the list filters will also reset those back to your preferred default settings. The default workspace can be configured like any other workspace in the workspace manager.</li>
+<li>
+<strong>"Show date" display option for drafts list and workspaces</strong>. Hide/show the date in the list. Along with other display settings, this allows everything but the draft title to be removed, for the minimalists out there.</li>
+</ul>
+<h3>Other Changes and Updates</h3>
+<ul>
+<li>
+<strong>New:</strong> Keyboard shortcut support in the Share extension (cmd-return to save, cmd-T for tag entry, etc.)</li>
+<li>
+<strong>Change:</strong> If a selection is present in the editor, the character / word counts now include a selection character count as well.</li>
+<li>
+<strong>New:</strong> <code>HTML.escape(string)</code> and <code>HTML.unescape(string)</code> javascript functions to encode and decode HTML entities in a string.</li>
+<li>
+<strong>Change:</strong> Long press on link in link mode will now fall through to options menu.</li>
+<li>
+<strong>Change:</strong> Regular expression find will now treat escaped whitespace characters (e.g. \n, \t) in replacement text as those characters, rather than expecting the whitespace itself.  More consistent with how regex replacements are done in other editors.</li>
+<li>
+<strong>Fix:</strong> Markdown syntax definitions did not handle reference link properly.</li>
+<li>
+<strong>Fix:</strong> Markdown syntaxes incorrectly identifying indented ordered list items as indented code.</li>
+<li>
+<strong>Fix:</strong> Improve markdown header recognition in syntax highlighting definitions to allow # in header text.</li>
+<li>
+<strong>Change:</strong> Support for iOS 11 has been removed.</li>
+<li>
+<strong>Fix:</strong> Navigating drafts list with keyboard shortcuts should scroll the list if necessary.</li>
+<li>
+<strong>Fix:</strong> <code>editor.load()</code> method should touch the accessed date of the draft.</li>
+<li>
+<strong>Change:</strong> Allow “new draft after” timeout to be set to “Never” to allow it to be disabled separately from focus mode.</li>
+<li>
+<strong>New:</strong> Select &gt; Operations &gt; Export now supports text file option, which merges draft contents into one text file.</li>
+<li>
+<strong>Change:</strong> Find and replace screen should remember last state of “Show options”.</li>
+</ul>
+<hr>
+<h1>Drafts R15 (macOS) Release Notes - <em>DRAFT</em>
+</h1>
+<p>Drafts R15 will be released alongside Apple’s release of macOS 10.15 (Catalina) this Fall (or as close to that as App Review allows).</p>
+<h3>Workspaces &amp; Draft List</h3>
+<ul>
+<li>
+<strong>"Default" Workspace</strong>. This is a special workspace that stores the preferred default settings for the draft list, and is restored when filters are cleared. This way, if you have workspaces that applies sort or display settings, clearing the list filters will also reset those back to your preferred default settings. The default workspace can be configured like any other workspace in the workspace manager.</li>
+<li>
+<strong>"Show date" display option for drafts list and workspaces</strong>. Hide/show the date in the list. Along with other display settings, this allows everything but the draft title to be removed, for the minimalists out there.</li>
+</ul>
+<h3>Dictation</h3>
+<ul>
+<li>
+<strong>Custom Dictation interface</strong> <em>(macOS 10.15 only)</em>. New custom dictation interface, similar to that available on the iOS version of Drafts, with support for:
+<ul>
+<li>Creation of new drafts, or inserting text at the cursor location.</li>
+<li>Selection of locale/language from any language supported by Siri dictation.</li>
+<li>Optional automatic timeout to commit changes after a period of silence.</li>
+<li>
+<code>/dictate</code> URL scheme supported, see docs for details.</li>
+</ul>
+</li>
+</ul>
+<h3>Actions Coming Soon</h3>
+<p>We are hard at work on a release of Drafts for Mac with full support for the automation actions available on the iOS version of Drafts.  This version is expected to go into beta soon after this release.</p>
+<h3>Other</h3>
+<ul>
+<li>
+<strong>New:</strong> Add focus mode toggle button in editor (bottom row)</li>
+<li>
+<strong>New:</strong> Add “Launch in focus mode” preference.</li>
+<li>
+<strong>Fix:</strong> Markdown syntax definitions did not handle reference link properly.</li>
+<li>
+<strong>Change:</strong> Updates to Find window, allowing multiple line texts and treating whitespace escape characters properly (\n, \t) in regular expression mode.</li>
+<li>
+<strong>New:</strong> Extensions tab in preferences, to allow configuration of share extension options.</li>
+<li>
+<strong>Change:</strong> If a selection is present in the editor, the character / word counts at bottom right now include a selection character count as well.</li>
+<li>
+<strong>Fix:</strong> Issue preventing Handoff from working properly from Mac to iOS. Mostly. Still appears Handoff is broken at the OS level on Catalina, or when passing information from Catalina to iOS.</li>
+<li>
+<strong>Fix:</strong> Improve markdown header recognition in syntax highlighting definitions to allow # in header text.</li>
+<li>
+<strong>Change:</strong> File &gt; Copy and Share menu items now work when draft is open in separate window.</li>
+<li>
+<strong>Change:</strong> “Backup Now” in Preferences &gt; Backup now prompts for save location rather than saving to iCloud Drive.</li>
+<li>
+<strong>New:</strong> Bulk export options in context menu of draft list to allow export of selected drafts as JSON, CSV or text file.</li>
+<li>
+<strong>Change:</strong> Better handling of restore purchase process to help avoid confusion about the fact that you can’t restore iOS purchases on the Mac.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413/1</link>
+        <pubDate>Thu, 22 Aug 2019 14:05:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5413-1</guid>
+        <source url="https://forums.getdrafts.com/t/preview-drafts-release-15-plans/5413.rss">Preview: Drafts Release 15 Plans</source>
+      </item>
+  </channel>
+</rss>

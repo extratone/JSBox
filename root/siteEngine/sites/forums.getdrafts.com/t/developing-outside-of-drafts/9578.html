@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Developing outside of Drafts - Scripting - Drafts Community</title>
+    <meta name="description" content="Is anyone using an IDE outside of Drafts to build action scripts? I use VS Code for all my JavaScript development, and much prefer that interface to work in. The catch is that I can’t test within VS Code, so to use the f&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="9578.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Developing outside of Drafts&#39;" href="https://forums.getdrafts.com/t/developing-outside-of-drafts/9578.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/developing-outside-of-drafts/9578" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/developing-outside-of-drafts/9578" />
+<meta property="og:title" content="Developing outside of Drafts" />
+<meta name="twitter:title" content="Developing outside of Drafts" />
+<meta property="og:description" content="Is anyone using an IDE outside of Drafts to build action scripts? I use VS Code for all my JavaScript development, and much prefer that interface to work in. The catch is that I can’t test within VS Code, so to use the features of my development environment, I have to copy/paste or import/export between Drafts and VS Code, and debugging isn’t possible because I can’t find a way to access the Drafts library.  Is there an npm package or other means to import and connect to Drafts from an IDE?" />
+<meta name="twitter:description" content="Is anyone using an IDE outside of Drafts to build action scripts? I use VS Code for all my JavaScript development, and much prefer that interface to work in. The catch is that I can’t test within VS Code, so to use the features of my development environment, I have to copy/paste or import/export between Drafts and VS Code, and debugging isn’t possible because I can’t find a way to access the Drafts library.  Is there an npm package or other means to import and connect to Drafts from an IDE?" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="12 ❤" />
+<meta property="article:published_time" content="2021-01-10T17:21:42+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="9578.html">Developing outside of Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mikestraw'><span itemprop='name'>mikestraw</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-10T17:21:42Z' class='post-time'>
+                January 10, 2021,  5:21pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-10T17:21:42Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is anyone using an IDE outside of Drafts to build action scripts? I use VS Code for all my JavaScript development, and much prefer that interface to work in. The catch is that I can’t test within VS Code, so to use the features of my development environment, I have to copy/paste or import/export between Drafts and VS Code, and debugging isn’t possible because I can’t find a way to access the Drafts library.</p>
+<p>Is there an npm package or other means to import and connect to Drafts from an IDE?</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/2" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/javascript-functionality-and-speciification/10696/2'>
+                      <span itemprop='name'>JavaScript Functionality and Speciification?</span>
+                    </a>
+                    <meta itemprop='position' content='1'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-10T19:44:05Z' class='post-time'>
+                January 10, 2021,  7:44pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-10T19:44:05Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I create a fair amount of code in VS Code in library files in the Drafts scripts directory. I</p>
+<p>have a  standard test function tied to an action which has a keyboard shortcut. I can immediately try any code In Drafts, but I even use Keyboard Maestro to use the same key code in VS Code to switch me to Drafts and so nd the same key press.</p>
+<p>Debugging all happens in Drafts, though I have creates some enhanced logging to help with that.</p>
+<p>There are also Typescript definition file available for Drafts on Github.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mikestraw'><span itemprop='name'>mikestraw</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-12T11:51:48Z' class='post-time'>
+                January 12, 2021, 11:51am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-12T11:51:48Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>These are actually the things I’ve been trying to work out.</p>
+<blockquote>
+<p>library files in the Drafts scripts directory</p>
+</blockquote>
+<p>Where is that directory?</p>
+<blockquote>
+<p>I have a standard test function tied to an action which has a keyboard shortcut.</p>
+</blockquote>
+<p>Can you share details of this functions?</p>
+<blockquote>
+<p>Debugging all happens in Drafts, though I have creates some enhanced logging to help with that.</p>
+</blockquote>
+<p>Is this just <code>console.log</code> logging or do you have a special logging function just for Drafts?</p>
+<aside class="quote no-group" data-username="sylumer" data-post="2" data-topic="9578">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>There are also Typescript definition file available for Drafts on Github.</p>
+</blockquote>
+</aside>
+<p>OK, <a href="https://github.com/agiletortoise/drafts-script-reference" rel="noopener nofollow ugc">I finally located that</a>. Just being able to include that in my dev dependencies will be helpful.</p>
+<p>If there’s any more specific information about developing for Drafts, I’d appreciate it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-12T12:10:15Z' class='post-time'>
+                January 12, 2021, 12:10pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-12T12:10:15Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="mikestraw" data-post="3" data-topic="9578">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/ecae2f/40.png" class="avatar"> mikestraw:</div>
+<blockquote>
+<p>Where is that directory?</p>
+</blockquote>
+</aside>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <a href="../../../scripting.getdrafts.com/globals.html#require" target="_blank" rel="noopener">scripting.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="9578.html" class="thumbnail" width="" height="">
+
+<h3><a href="../../../scripting.getdrafts.com/globals.html#require" target="_blank" rel="noopener">Drafts Script Reference</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="quote no-group" data-username="mikestraw" data-post="3" data-topic="9578">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/ecae2f/40.png" class="avatar"> mikestraw:</div>
+<blockquote>
+<p>Can you share details of this functions?</p>
+</blockquote>
+</aside>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://www.thoughtasylum.com/assets/favicon/favicon.ico" class="site-icon" width="32" height="32">
+      <a href="https://www.thoughtasylum.com/2020/07/12/drafts-script-development/" target="_blank" rel="noopener" title="12:00AM - 12 July 2020">ThoughtAsylum – 12 Jul 20</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:200/112;"><img src="../../uploads/default/original/2X/2/261a5fec8a2fd26eb5bd462c124dc2e799cec774.png" class="thumbnail" width="200" height="112"></div>
+
+<h3><a href="https://www.thoughtasylum.com/2020/07/12/drafts-script-development/" target="_blank" rel="noopener">Drafts: Script Development</a></h3>
+
+<p>The Drafts application is an amazing tool for capturing and working with text. One of its greatest strengths comes from its extensibility through its actions system. And certainly one of the most powerful action steps is the Script action step which...</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="quote no-group" data-username="mikestraw" data-post="3" data-topic="9578">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/ecae2f/40.png" class="avatar"> mikestraw:</div>
+<blockquote>
+<p>Is this just <code>console.log</code> logging or do you have a special logging function just for Drafts?</p>
+</blockquote>
+</aside>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://www.thoughtasylum.com/assets/favicon/favicon.ico" class="site-icon" width="32" height="32">
+      <a href="https://www.thoughtasylum.com/2020/07/25/drafts-advanced-logging/" target="_blank" rel="noopener" title="12:00AM - 25 July 2020">ThoughtAsylum – 25 Jul 20</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:200/133;"><img src="../../uploads/default/original/2X/1/136336e950d908569832f47cf1b64a79786fd30d.jpeg" class="thumbnail" width="200" height="133"></div>
+
+<h3><a href="https://www.thoughtasylum.com/2020/07/25/drafts-advanced-logging/" target="_blank" rel="noopener">Drafts: Advanced Logging</a></h3>
+
+<p>When developing JavaScript for drafts, logging to the console or using well-placed alerts and other visual indicators can be useful for what is going on, but a more advanced logging solution can make things much easier. The latest update to the...</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="quote no-group" data-username="mikestraw" data-post="3" data-topic="9578">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/m/ecae2f/40.png" class="avatar"> mikestraw:</div>
+<blockquote>
+<p>If there’s any more specific information about developing for Drafts, I’d appreciate it.</p>
+</blockquote>
+</aside>
+<p>Drafts’ scripting documentation is your primary source.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <a href="../../../scripting.getdrafts.com/index.html" target="_blank" rel="noopener">scripting.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="9578.html" class="thumbnail" width="" height="">
+
+<h3><a href="../../../scripting.getdrafts.com/index.html" target="_blank" rel="noopener">Drafts Script Reference</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>If you want more prebuilt functions then I have made a library.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://tadpole.thoughtasylum.com/assets/images/favicon.ico" class="site-icon" width="32" height="32">
+      <a href="https://tadpole.thoughtasylum.com" target="_blank" rel="noopener">tadpole.thoughtasylum.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="9578.html" class="thumbnail" width="" height="">
+
+<h3><a href="https://tadpole.thoughtasylum.com" target="_blank" rel="noopener">ThoughtAsylum Drafts Library</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mikestraw'><span itemprop='name'>mikestraw</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-17T18:20:27Z' class='post-time'>
+                January 17, 2021,  6:20pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-17T18:20:27Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That does, thanks!</p>
+<p>I’ve actually been using the Drafts Script Reference pretty much from the start. It was getting VS Code to recognize those globals for autocomplete and in-IDE tools that I was missing.</p>
+<p>Those libraries should help a lot. Thanks for sharing them.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-18T09:28:15Z' class='post-time'>
+                February 18, 2021,  9:28am
+              </time>
+              <meta itemprop='dateModified' content='2021-02-18T12:25:26Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m currently using Textastic on iPad to edit scripts. I have a file called playground.js in the Drafts/Library/Scripts directory which I edit, and then while developing in Drafts I have a single-line script action there which is just <code>require("playground.js")</code>. I assign that the keyboard shortcut Command + R. Once I’ve finished the script, I hit the import button to “save” the finished script into the action permanently.</p>
+<p>One thing I was trying to figure out recently which I wonder if anyone on this thread could help with. I would love to have code completion in Textastic which knew about the Drafts objects, methods, and properties while I was typing. Textastic on iPad supports importing various code completion package formats, <a href="https://www.textasticapp.com/v9/manual/customization/custom_syntax_themes_templates.html?highlight=code%20completion#adding-custom-templates" rel="noopener nofollow ugc">as you can see here</a>, but I’m not familiar with Sublime Text 3 or TextMate, and I don’t know if there’s any documentation on those formats.</p>
+<p>Is there any way that the Drafts documentation could be turned into a format that Textastic could understand? Perhaps I should post this as a separate thread.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T16:59:37Z' class='post-time'>
+                April 6, 2021,  4:59pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T16:59:37Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m wondering if <a class="mention" href="https://forums.getdrafts.com/u/mikestraw">@mikestraw</a> or <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> can help me. Would you mind going into a bit more detail on how to get VS Code to recognise the Drafts global objects for the purposes of autocomplete etc. Assume little knowledge of VS Code.</p>
+<p>Steps taken so far:</p>
+<ol>
+<li>Install VS Code</li>
+<li>Install Node.js and npm on my Mac</li>
+<li>Download the Drafts scripting reference files from GitHub</li>
+<li>Open this folder and add a file called Test.js (also tried Test.ts)</li>
+<li>Start typing code in this file</li>
+</ol>
+<p>Desired result: when I type things like “editor.” there should be suggestions such as “getText()”. Any ideas on this? I’ve done plenty of scripting in Drafts but have little knowledge of things like Node.js, Typescript etc.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T17:44:55Z' class='post-time'>
+                April 6, 2021,  5:44pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T17:44:55Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s quite a while since I set it up, so I did a quick test set-up, skipping the Node.js nom install, because I did that first time around.</p>
+<p>I added the definition files to a folder, added a JavaScript project configuration file specifying to pull in all the definition files in the folder, and then I started typing in a new example file and it began pulling in the relevant content.</p>
+<details>
+<summary>
+Details of jsconfig.json</summary>
+<pre><code class="lang-auto">{
+    "compilerOptions": {
+      "checkJs": true,
+      "typeRoots": ["./*.d.ts"]
+  }
+}
+</code></pre>
+</details>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11.png" data-download-href="https://forums.getdrafts.com/uploads/default/0f5582e69c8fa8ef21cb63f0755ae7a66367da11" title="2021-04-06-18.40.55"><img src="../../uploads/default/optimized/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11_2_690x464.png" alt="2021-04-06-18.40.55" data-base62-sha1="2bEmTm2KbAjMYyytCdSEMEELJCx" width="690" height="464" srcset="../../uploads/default/optimized/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11_2_690x464.png, ../../uploads/default/optimized/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11_2_1035x696.png 1.5x, ../../uploads/default/original/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/0f5582e69c8fa8ef21cb63f0755ae7a66367da11_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">2021-04-06-18.40.55</span><span class="informations">1082×728 80.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p><em>I’ll also add that I just tinker in JavaScript and have never developed (or had personal need to develop) anything around Node, so that’s black box to me too.</em></p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T18:54:34Z' class='post-time'>
+                April 6, 2021,  6:54pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T18:54:34Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That works wonderfully, thank you! It was the <code>jsconfig.json</code> file that I was missing. Not knowing how it worked, I had assumed I could use the <code>tsconfig.json</code> file that was included in the repository.</p>
+<p>What I did in the end was to create add all of the <code>.d.ts</code> files to <code>iCloud/Drafts/Library/Scripts/definitions/</code>, then added the jsconfig.json file to <code>iCloud/Drafts/Library/Scripts/</code> and changed it to</p>
+<pre><code class="lang-auto">{
+    "compilerOptions": {
+      "checkJs": true,
+      "typeRoots": ["definitions/*.d.ts"]
+  }
+}
+</code></pre>
+<p>Then I added the whole <code>iCloud/Drafts/Library/Scripts/</code> directory to my VS Code workspace, so that I can now edit any of my scripts and they’ll be updated in iCloud.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T18:58:48Z' class='post-time'>
+                April 6, 2021,  6:58pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T18:58:48Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m not sure if this is the <em>right way</em>, but I have a shell script that concatenates all the Typescript declarations in one <code>.js</code> file, and have that .js file in in <code>/iCloud Drive/Drafts/Library/Scripts</code>.</p>
+<p>I just added the concatenation to the build script for the <a href="../../../scripting.getdrafts.com/index.html">Scripting Reference</a>, so that concatenated file will always be available updated with the reference at this URL:</p>
+<p><a href="../../../scripting.getdrafts.com/drafts-definitions.js" class="onebox" target="_blank" rel="noopener">https://scripting.getdrafts.com/drafts-definitions.js</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T19:04:55Z' class='post-time'>
+                April 6, 2021,  7:04pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T19:04:55Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s pretty similar to what I have set-up for my library development stuff.</p>
+<pre><code class="lang-auto">{
+  "compilerOptions":
+  {
+    "target":"es6",
+    "checkJs": true,
+    "typeRoots": ["./definitions/*.d.ts"]
+  },
+  "exclude": ["./docs/assets/library/tad.d.ts", "./*.d.ts"]
+}
+</code></pre>
+<p>For anyone who wants the <a href="https://tadpole.thoughtasylum.com">TADpoLe</a> definitions to go with the Drafts ones, they are available in <a href="https://tadpole.thoughtasylum.com/assets/library/tad-d.ts">a single <code>tad.d.ts</code> file</a> you can <a href="https://tadpole.thoughtasylum.com/#typescript-declaration-file">download from the web site</a>. You can then just drop that in alongside the Drafts ones.</p>
+<hr>
+<p><em>My library build scripts also concatenate my separate <code>.d.ts</code> files into the single one referenced above, and then copy things around so that this file gets published to the site when I push an update.</em></p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T19:08:17Z' class='post-time'>
+                April 6, 2021,  7:08pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T19:08:17Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s even better, thank you. My jsconfig.json file now reads</p>
+<pre><code class="lang-auto">{
+    "compilerOptions": {
+      "checkJs": true,
+      "typeRoots": ["drafts-definitions.js"]
+  }
+}
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-06T19:15:43Z' class='post-time'>
+                April 6, 2021,  7:15pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-06T19:15:43Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>: Perhaps I should put this in the Feature Requests section, but I’d love to have autocomplete suggestions built into Drafts scripting one day. I really like how it works in apps like Scriptable and Swift Playgrounds with the suggestion bar above the keyboard. Useful as a beginner for figuring out what’s possible, and for a more experienced coder to remind yourself of the names of methods etc.</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9578.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-27T21:12:27Z' class='post-time'>
+                June 27, 2021,  9:12pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-27T21:12:27Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Does anyone have Drafts code completion running in an iOS editor?</p>
+        </div>
+
+        <meta itemprop='headline' content='Developing outside of Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

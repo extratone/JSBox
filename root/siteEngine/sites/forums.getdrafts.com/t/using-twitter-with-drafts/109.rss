@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Twitter with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-twitter-with-drafts/109</link>
+    <description>![app-icon|105x105](upload://hh2lc6xvUiOpOrMAf7Y9uxmnuSb.png)
+
+- [**App Store**](https://itunes.apple.com/us/app/id333903271?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory)
+- **URL Scheme**: twitter://
+- **URL Scheme Documentation**: Not officially documented
+
+Twitter is wonderful*, but often you may have something you want to share on Twitter but would prefer to avoid getting sucked into your timeline. More so, you may have an idea for a tweet that is not fully formed. Enter Drafts. Drafts is a great place to jot down and craft those pithy witticisms, and its Twitter integration allows you to post directly from Drafts, without ever launching your Twitter client. This article is a brief review of some of your options for using Drafts with Twitter, including sample actions for more advanced integrations, like the Tweet Storm example action that allows you to craft and post entire threads.
+
+_* Your mileage may vary_
+
+## Direct Posting with the Twitter Action Step
+
+Drafts can post directly to [Twitter](http://twitter.com) using the [Twitter action step](https://docs.getdrafts.com/docs/actions/steps/services#twitter).  Example action:
+
+- [Tweet](http://actions.getdrafts.com/a/1E5)
+
+The first time you run this action, you will be directed to Twitter to log in and allow Drafts permissions to post to your account.
+
+## Configuring Tweet Actions
+
+### Multiple Accounts
+
+Twitter action steps support multiple accounts using the Drafts [Credentials system](https://docs.getdrafts.com/docs/settings/credentials).  You can duplicate the [Tweet](http://actions.getdrafts.com/a/1E5) action above, edit the action, selecting the &quot;Twitter&quot; step, and change the credential identifier to target a different account.
+
+The identifier can be any value, but all Twitter action steps with the same identifier will use the same credentials (e.g. post to the same Twitter account).  In the case of Twitter, I recommend filling in the Twitter handle you want to target.  The first time you use each action with a unique identifier, you will be asked to authenticate again via Safari. Be sure you are logged into the correct account in Safari to complete this process and link the action to the correct Twitter handle.
+
+### Templates
+
+The Twitter action step has a template. By default, the value of this template is the Drafts&#39; `[[draft]]` tag, which will insert the full text of the current draft.  It can also be handy to set up alternate actions for live-tweeting events, and similar, where the template is not only the `[[draft]]` tag, but also contains a hashtag or other content which will automatically be added when used - like `[[draft]] #Oscars`. This technique is demonstrated in the [Tweet #AppleEvent](https://actions.getdrafts.com/a/10h) example action.
+
+### After Success
+
+Twitter actions are great candidates to use the [After Success](https://docs.getdrafts.com/docs/actions/editing-actions#after-success---filing) settings. For example, you might set your Twitter action to archive the draft and assign the tag &quot;tweet&quot; when run, getting the draft tweet out of your inbox, and making it easy to look up all your tweets later using a tag filter.
+
+## URL Actions for Twitter Clients
+
+Many Twitter client apps, including the official Twitter app, support URL schemes to pre-fill their compose window.  If you are a regular user of Twitter, it is handy to also have a URL-based action for your favorite Twitter client installed - this allows you to send text to that app, and complete composing the tweet - for example attaching an image or other media file - before sending.  Example actions for popular clients can be installed from the directory:
+
+- [Tweet with Twitter app](http://actions.getdrafts.com/a/1CV)
+- [Tweet with Twitterrific](http://actions.getdrafts.com/a/1CU)
+- [Tweet with Tweetbot](http://actions.getdrafts.com/a/1CT)
+
+## Tweet Storm: Composing Full Threads
+
+The [Tweet Storm](https://actions.getdrafts.com/a/1Hu) example action is a great tool for composing entire Twitter threads in Drafts.
+
+![tweet-storm-preview|690x391, 75%](upload://hXShu63dKCy6EEcfLrfATchVjhM.jpeg)
+
+The action takes a longer draft, splits it up into paragraphs, and composes a Twitter thread, with a separate tweet for each paragraph. The action adds the `(1/3)`, `(2/3)`, etc. numbering common on Twitter theads, and previews the resulting thread for you to confirm. The preview will validate the content to make sure each paragraph will fit in a tweet, and then if you &quot;Continue&quot; post each resulting tweet in the proper reply structure to be a thread. 
+
+Very handy when you have a lot on your mind.
+
+## Advanced Twitter API Scripting
+
+Drafts exposes the complete Twitter API to scripting via the [Twitter object](https://scripting.getdrafts.com/classes/twitter). The API is too broad to cover here, but you can use it to read information from Twitter, download timelines, etc., as well as post a tweet.  Below are two sample actions demonstrating advanced use of the API:
+
+- **[Tweet Storm](http://actions.getdrafts.com/a/1Hu)**: Breaks a longer draft into paragraphs, shows a preview of how it would be tweeted as a multi-tweet threaded tweet storm - and then posts those tweets if a preview is confirmed.
+- **[Twitter API: Get Likes](http://actions.getdrafts.com/a/1Ht)**: Downloads recent favorite/liked tweets for any user and creates a new draft with their content.
+- **[Import Twitter Search](https://actions.getdrafts.com/a/1MZ)**: Prompts for search text, gets a list of matching tweets, and creates a new draft with a list of tweets in Markdown format.</description>
+    
+    <lastBuildDate>Thu, 13 May 2021 16:28:05 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-twitter-with-drafts/109.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Twitter with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/7912005f343dbae96249be87f40eeb5070af521f.png" alt="app-icon" data-base62-sha1="hh2lc6xvUiOpOrMAf7Y9uxmnuSb" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id333903271?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: twitter://</li>
+<li>
+<strong>URL Scheme Documentation</strong>: Not officially documented</li>
+</ul>
+<p>Twitter is wonderful*, but often you may have something you want to share on Twitter but would prefer to avoid getting sucked into your timeline. More so, you may have an idea for a tweet that is not fully formed. Enter Drafts. Drafts is a great place to jot down and craft those pithy witticisms, and its Twitter integration allows you to post directly from Drafts, without ever launching your Twitter client. This article is a brief review of some of your options for using Drafts with Twitter, including sample actions for more advanced integrations, like the Tweet Storm example action that allows you to craft and post entire threads.</p>
+<p><em>* Your mileage may vary</em></p>
+<h2>
+<a name="direct-posting-with-the-twitter-action-step-1" class="anchor" href="https://forums.getdrafts.com#direct-posting-with-the-twitter-action-step-1"></a>Direct Posting with the Twitter Action Step</h2>
+<p>Drafts can post directly to <a href="http://twitter.com">Twitter</a> using the <a href="https://docs.getdrafts.com/docs/actions/steps/services#twitter">Twitter action step</a>.  Example action:</p>
+<ul>
+<li><a href="http://actions.getdrafts.com/a/1E5">Tweet</a></li>
+</ul>
+<p>The first time you run this action, you will be directed to Twitter to log in and allow Drafts permissions to post to your account.</p>
+<h2>
+<a name="configuring-tweet-actions-2" class="anchor" href="https://forums.getdrafts.com#configuring-tweet-actions-2"></a>Configuring Tweet Actions</h2>
+<h3>
+<a name="multiple-accounts-3" class="anchor" href="https://forums.getdrafts.com#multiple-accounts-3"></a>Multiple Accounts</h3>
+<p>Twitter action steps support multiple accounts using the Drafts <a href="https://docs.getdrafts.com/docs/settings/credentials">Credentials system</a>.  You can duplicate the <a href="http://actions.getdrafts.com/a/1E5">Tweet</a> action above, edit the action, selecting the “Twitter” step, and change the credential identifier to target a different account.</p>
+<p>The identifier can be any value, but all Twitter action steps with the same identifier will use the same credentials (e.g. post to the same Twitter account).  In the case of Twitter, I recommend filling in the Twitter handle you want to target.  The first time you use each action with a unique identifier, you will be asked to authenticate again via Safari. Be sure you are logged into the correct account in Safari to complete this process and link the action to the correct Twitter handle.</p>
+<h3>
+<a name="templates-4" class="anchor" href="https://forums.getdrafts.com#templates-4"></a>Templates</h3>
+<p>The Twitter action step has a template. By default, the value of this template is the Drafts’ <code>[[draft]]</code> tag, which will insert the full text of the current draft.  It can also be handy to set up alternate actions for live-tweeting events, and similar, where the template is not only the <code>[[draft]]</code> tag, but also contains a hashtag or other content which will automatically be added when used - like <code>[[draft]] #Oscars</code>. This technique is demonstrated in the <a href="https://actions.getdrafts.com/a/10h">Tweet #AppleEvent</a> example action.</p>
+<h3>
+<a name="after-success-5" class="anchor" href="https://forums.getdrafts.com#after-success-5"></a>After Success</h3>
+<p>Twitter actions are great candidates to use the <a href="https://docs.getdrafts.com/docs/actions/editing-actions#after-success---filing">After Success</a> settings. For example, you might set your Twitter action to archive the draft and assign the tag “tweet” when run, getting the draft tweet out of your inbox, and making it easy to look up all your tweets later using a tag filter.</p>
+<h2>
+<a name="url-actions-for-twitter-clients-6" class="anchor" href="https://forums.getdrafts.com#url-actions-for-twitter-clients-6"></a>URL Actions for Twitter Clients</h2>
+<p>Many Twitter client apps, including the official Twitter app, support URL schemes to pre-fill their compose window.  If you are a regular user of Twitter, it is handy to also have a URL-based action for your favorite Twitter client installed - this allows you to send text to that app, and complete composing the tweet - for example attaching an image or other media file - before sending.  Example actions for popular clients can be installed from the directory:</p>
+<ul>
+<li><a href="http://actions.getdrafts.com/a/1CV">Tweet with Twitter app</a></li>
+<li><a href="http://actions.getdrafts.com/a/1CU">Tweet with Twitterrific</a></li>
+<li><a href="http://actions.getdrafts.com/a/1CT">Tweet with Tweetbot</a></li>
+</ul>
+<h2>
+<a name="tweet-storm-composing-full-threads-7" class="anchor" href="https://forums.getdrafts.com#tweet-storm-composing-full-threads-7"></a>Tweet Storm: Composing Full Threads</h2>
+<p>The <a href="https://actions.getdrafts.com/a/1Hu">Tweet Storm</a> example action is a great tool for composing entire Twitter threads in Drafts.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/7de9a70b9b32235f6044b356d1e8b01d09455b22" title="tweet-storm-preview"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_517x293.jpeg" alt="tweet-storm-preview" data-base62-sha1="hXShu63dKCy6EEcfLrfATchVjhM" width="517" height="293" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_517x293.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_775x439.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7de9a70b9b32235f6044b356d1e8b01d09455b22_2_10x10.png"></a></div><p></p>
+<p>The action takes a longer draft, splits it up into paragraphs, and composes a Twitter thread, with a separate tweet for each paragraph. The action adds the <code>(1/3)</code>, <code>(2/3)</code>, etc. numbering common on Twitter theads, and previews the resulting thread for you to confirm. The preview will validate the content to make sure each paragraph will fit in a tweet, and then if you “Continue” post each resulting tweet in the proper reply structure to be a thread.</p>
+<p>Very handy when you have a lot on your mind.</p>
+<h2>
+<a name="advanced-twitter-api-scripting-8" class="anchor" href="https://forums.getdrafts.com#advanced-twitter-api-scripting-8"></a>Advanced Twitter API Scripting</h2>
+<p>Drafts exposes the complete Twitter API to scripting via the <a href="https://scripting.getdrafts.com/classes/twitter">Twitter object</a>. The API is too broad to cover here, but you can use it to read information from Twitter, download timelines, etc., as well as post a tweet.  Below are two sample actions demonstrating advanced use of the API:</p>
+<ul>
+<li>
+<strong><a href="http://actions.getdrafts.com/a/1Hu">Tweet Storm</a></strong>: Breaks a longer draft into paragraphs, shows a preview of how it would be tweeted as a multi-tweet threaded tweet storm - and then posts those tweets if a preview is confirmed.</li>
+<li>
+<strong><a href="http://actions.getdrafts.com/a/1Ht">Twitter API: Get Likes</a></strong>: Downloads recent favorite/liked tweets for any user and creates a new draft with their content.</li>
+<li>
+<strong><a href="https://actions.getdrafts.com/a/1MZ">Import Twitter Search</a></strong>: Prompts for search text, gets a list of matching tweets, and creates a new draft with a list of tweets in Markdown format.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/using-twitter-with-drafts/109/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-twitter-with-drafts/109/1</link>
+        <pubDate>Thu, 12 Apr 2018 17:06:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-109-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-twitter-with-drafts/109.rss">Using Twitter with Drafts</source>
+      </item>
+  </channel>
+</rss>

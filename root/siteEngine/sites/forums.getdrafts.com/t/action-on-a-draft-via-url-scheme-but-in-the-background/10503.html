@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Action on a Draft via URl Scheme, but in the background? - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="Given an UUID, I am able to tell Drafts via URL-Scheme to open a Draft and run an action, with something like this (where I have an delete-action that just deletes an action). 
+drafts://open?uuid={query}&amp;amp;action=delete 
+H&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10503.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Action on a Draft via URl Scheme, but in the background?&#39;" href="https://forums.getdrafts.com/t/action-on-a-draft-via-url-scheme-but-in-the-background/10503.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/action-on-a-draft-via-url-scheme-but-in-the-background/10503" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/action-on-a-draft-via-url-scheme-but-in-the-background/10503" />
+<meta property="og:title" content="Action on a Draft via URl Scheme, but in the background?" />
+<meta name="twitter:title" content="Action on a Draft via URl Scheme, but in the background?" />
+<meta property="og:description" content="Given an UUID, I am able to tell Drafts via URL-Scheme to open a Draft and run an action, with something like this (where I have an delete-action that just deletes an action).  drafts://open?uuid={query}&amp;action=delete  However, what I am interested in is to run an action completely in the background. In the case above, Drafts comes into the foreground. Here are some possibilities I thought, but I haven’t really figure it out with any of them.   I could use an x-success parameter as detailed in t..." />
+<meta name="twitter:description" content="Given an UUID, I am able to tell Drafts via URL-Scheme to open a Draft and run an action, with something like this (where I have an delete-action that just deletes an action).  drafts://open?uuid={query}&amp;action=delete  However, what I am interested in is to run an action completely in the background. In the case above, Drafts comes into the foreground. Here are some possibilities I thought, but I haven’t really figure it out with any of them.   I could use an x-success parameter as detailed in t..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="3 ❤" />
+<meta property="article:published_time" content="2021-05-17T12:34:28+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="10503.html">Action on a Draft via URl Scheme, but in the background?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-17T12:34:28Z' class='post-time'>
+                May 17, 2021, 12:34pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-17T12:56:27Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Given an UUID, I am able to tell Drafts via URL-Scheme to open a Draft and run an action, with something like this (where I have an delete-action that just deletes an action).<br>
+<code>drafts://open?uuid={query}&amp;action=delete</code></p>
+<p>However, what I am interested in is to run an action completely in the background. In the case above, Drafts comes into the foreground. Here are some possibilities I thought, but I haven’t really figure it out with any of them.</p>
+<ul>
+<li>I could use an x-success parameter <a href="http://x-callback-url.com/specifications/" rel="noopener nofollow ugc">as detailed in the x-callback-specification</a>, but that only works when the source app has an URL scheme as well. Also when using sth like Alfred, the app I would return to varies.</li>
+<li>with the runaction-URL-Scheme, I can run an action in the background, but haven’t figured out how to pass a specific UUID as a target for the action.</li>
+<li>I could somehow tell drafts app to hide after execution. But in that case I still get a “flickering” where Drafts briefly appears, deletes the Draft, and then goes back into the background. Its something, but not really nice.</li>
+</ul>
+<p>Is there any way to do this properly?</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-17T12:44:28Z' class='post-time'>
+                May 17, 2021, 12:44pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-17T12:44:28Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Perhaps not ideal, but you could use <code>runAction</code> and have the action you run take care of addressing the proper draft. Not sure what your action does in this case, but it could be written to query for the draft you want to use and act directly on it in script, or if you have an exist action you do not want to modify, you could write another stub action that queues the action on a draft and call that action, like:</p>
+<pre><code class="lang-javascript">let a = Action.find("MY-ACTION");
+let d = Draft.find("MY-UUID");
+
+app.queueAction(a, d);
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-17T13:00:49Z' class='post-time'>
+                May 17, 2021,  1:00pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-17T13:00:49Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well, if that does the trick without interruption like flickering, that’s fine by me. I’ll give it a try later, thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:00:18Z' class='post-time'>
+                May 18, 2021,  5:00pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:00:18Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay, I tried to implement this, but I came across another problem specifically for using your proposed solution for my use case.</p>
+<p>In my use case, I have the UUID of a draft as a result of an Alfred action, and want to tell Drafts to delete a certain draft via Alfred. So according to your suggestion, I would run the run-Action URL-Scheme like this:</p>
+<p><code>drafts://runAction?action=delete&amp;text={query}</code></p>
+<p>where Alfred replaces the query-placeholder with the UUID of the draft that is to be deleted.</p>
+<p>The specific problem of my use case is now, that I do not know how to delete a draft via javascript to implement the script in the way you suggested it. The only way to delete a draft via an action seems to be the “after success of the action”-Trigger, e.g. in the <a href="https://actions.getdrafts.com/a/1Ip" rel="noopener nofollow ugc">basic delete action</a>. This method, however, only works on the currently open Draft, and as stated in the beginning, I do not want to open a draft because this produces a short flickering of Drafts.</p>
+<p>I looked through the Draft Script reference and found no method for deleting a draft (or changing the folder for that matter); the only reference I found seems to be Draft.isTrashed which only checks the status of the draft but does not change it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:17:36Z' class='post-time'>
+                May 18, 2021,  5:17pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:17:36Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This should work…<code>isTrashed</code> is a get/set property.</p>
+<pre><code class="lang-javascript">draft.isTrashed = true;
+draft.update();
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:37:20Z' class='post-time'>
+                May 18, 2021,  5:37pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:37:20Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>ah, you can set the property, I see. Got it, thanks! <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:46:59Z' class='post-time'>
+                May 18, 2021,  5:46pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:46:59Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This action:</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1mZ" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, ../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, ../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1mZ" target="_blank" rel="noopener">Drafts Directory: Delete By UUID</a></h3>
+
+<p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Will delete the draft with the UUID passed in as the text in a URL scheme.</p>
+<p>e.g.</p>
+<pre><code class="lang-nohighlight">drafts://x-callback-url/runAction?text=A2D24B20-6205-4111-ACE4-47114A2CC1AA&amp;action=Delete%20By%20UUID
+</code></pre>
+<p>Just swap the desired UUID in for this example one: <code>A2D24B20-6205-4111-ACE4-47114A2CC1AA</code>.</p>
+<p>Use it with caution I guess. Deleting drafts from external triggers means you might miss the impact of accidental deletions. Doing it within the app has its advantages <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<p>But using a URL scheme will switch into the app, so I don’t see a way around the “flickering” effect that you reference. I think we would require deeper AppleScript support to allow for that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:51:11Z' class='post-time'>
+                May 18, 2021,  5:51pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:51:11Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>thanks for the implementation, I was just finished doing it myself though <img src="../../images/emoji/apple/stuck_out_tongue.png@v=9" title=":stuck_out_tongue:" class="emoji" alt=":stuck_out_tongue:"></p>
+<pre><code>let uuid2delete = draft.content;
+let draft2delete = Draft.find(uuid2delete);
+draft2delete.isTrashed = true;
+draft2delete.update();</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:53:31Z' class='post-time'>
+                May 18, 2021,  5:53pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:53:31Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Mine just combined those first two lines as the UUID is only used once.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T17:58:25Z' class='post-time'>
+                May 18, 2021,  5:58pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T17:58:25Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah I noticed. But I think adding that extra line increases the clarity of the code. Using <code>draft.content</code> is quite unintuitive, considering you are not using the content of a (proper) draft to find the draft you want to delete.</p>
+<p>I am pretty certain I’d be itching my head when looking at that code in a year.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T18:00:12Z' class='post-time'>
+                May 18, 2021,  6:00pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T18:00:12Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I would hope it would be obvious from the parameter to the find function being a UUID and the description you would put on the action (or name of the action for me) <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-18T18:04:35Z' class='post-time'>
+                May 18, 2021,  6:04pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-18T18:04:35Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>yeah it comes down to personal preference I guess. I always liked self-explaining variable names, even if others dislike them because of the increased length</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/johan'><span itemprop='name'>johan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-24T09:23:30Z' class='post-time'>
+                January 24, 2022,  9:23am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-24T09:23:30Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi <a class="mention" href="https://forums.getdrafts.com/u/armenotan">@armenotan</a> - did you manage to Run Action on a draft in the background? I run a Siri Shortcut provided by Drafts called “Run Action with Text”. It performs what I want but I end up having Drafts as the active app after running it. My goal is to have it running in the background both on iOS and macOS. Thanks in advance!</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-24T09:41:08Z' class='post-time'>
+                January 24, 2022,  9:41am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-24T09:41:08Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi, so as far as I could tell, <em>calling</em> a URL Scheme always puts an app to the front. The only method I could find for keeping Drafts in the background is <a href="../../../docs.getdrafts.com/docs/automation/applescript.html#using-drafts-from-applescript" rel="noopener nofollow ugc">when using an apple script</a>.</p>
+<p>Haven’t tried with Shortcuts, so can’t tell about that though.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/johan'><span itemprop='name'>johan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-24T10:04:11Z' class='post-time'>
+                January 24, 2022, 10:04am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-24T10:04:11Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks, <a class="mention" href="https://forums.getdrafts.com/u/armenotan">@armenotan</a> - I will investigate if and how it is possible to Run Action using Apple Script.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-24T10:23:27Z' class='post-time'>
+                January 24, 2022, 10:23am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-24T10:23:27Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>AppleScript support for Drafts is very limited right now. If you wanted to trigger an action directly from AppleScript you would currently have to call the URL scheme from AppleScript which leaves you in the same position.</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/johan'><span itemprop='name'>johan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10503.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-24T12:50:22Z' class='post-time'>
+                January 24, 2022, 12:50pm
+              </time>
+              <meta itemprop='dateModified' content='2022-01-24T12:50:22Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> - you saved me the investigation time!</p>
+        </div>
+
+        <meta itemprop='headline' content='Action on a Draft via URl Scheme, but in the background?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

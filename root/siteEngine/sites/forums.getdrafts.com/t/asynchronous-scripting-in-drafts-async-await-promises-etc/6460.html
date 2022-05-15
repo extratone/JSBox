@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Asynchronous Scripting in Drafts (async/await, Promises, etc.) - Scripting - Drafts Community</title>
+    <meta name="description" content="This is an advanced feature, and if you are just writing basic scripts, you probably don’t need to worry about it, but I wanted to draw attention to it’s available for those who are interested. 
+In release 17, the script&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="6460.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Asynchronous Scripting in Drafts (async/await, Promises, etc.)&#39;" href="6460.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460" />
+<meta property="og:title" content="Asynchronous Scripting in Drafts (async/await, Promises, etc.)" />
+<meta name="twitter:title" content="Asynchronous Scripting in Drafts (async/await, Promises, etc.)" />
+<meta property="og:description" content="This is an advanced feature, and if you are just writing basic scripts, you probably don’t need to worry about it, but I wanted to draw attention to it’s available for those who are interested.  In release 17, the script action step added a new option to “allow asynchronous execution”.  By default, this option is off for all script steps, in which case they will behave as they always have, and when the end of the script is reached, Drafts will assume it’s operations are completed and it will mov..." />
+<meta name="twitter:description" content="This is an advanced feature, and if you are just writing basic scripts, you probably don’t need to worry about it, but I wanted to draw attention to it’s available for those who are interested.  In release 17, the script action step added a new option to “allow asynchronous execution”.  By default, this option is off for all script steps, in which case they will behave as they always have, and when the end of the script is reached, Drafts will assume it’s operations are completed and it will mov..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="6 ❤" />
+<meta property="article:published_time" content="2020-01-22T21:47:48+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="6460.html">Asynchronous Scripting in Drafts (async/await, Promises, etc.)</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/scripting.html' class='discourse-tag' rel="tag">scripting</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6460.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-01-22T21:47:48Z' class='post-time'>
+                January 22, 2020,  9:47pm
+              </time>
+              <meta itemprop='dateModified' content='2020-01-23T21:28:30Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><em>This is an advanced feature, and if you are just writing basic scripts, you probably don’t need to worry about it, but I wanted to draw attention to it’s available for those who are interested.</em></p>
+<p>In release 17, the <a href="../../../docs.getdrafts.com/docs/actions/steps/advanced.html#script">script action step</a> added a new option to “allow asynchronous execution”.</p>
+<p>By default, this option is off for all script steps, in which case they will behave as they always have, and when the end of the script is reached, Drafts will assume it’s operations are completed and it will move on to the next action step - or complete the action if no additional steps are defined.</p>
+<p>All Drafts’ own <a href="../../../scripting.getdrafts.com/index.html">script objects</a> (at least at the moment) are designed to work synchronously and return results, but many JavaScript libraries, or people who are comfortable writing more advanced JavaScript might want to utilize asynchronous operations like <a href="https://javascript.info/promise-basics">Promises</a>, <a href="https://javascript.info/async-await">async/await</a>, which may allow execution of the script to continue while completing functions. This option enables those async operations to work in the context of Drafts action steps.</p>
+<p>The key difference being, when relying on asynchronous operations in a script, Drafts does not have an implicit way of knowing when a script is complete, so it becomes the responsibility of the script writer to inform Drafts when it’s complete. It does this by calling the <a href="../../../scripting.getdrafts.com/classes/script.html"><code>script.complete()</code></a> function somewhere in it’s code.</p>
+<p>When a script step with the async option enabled is run, Drafts waits for that <code>script.complete()</code> call to happen before continuing with the action. If you fail to call <code>script.complete()</code>, Drafts might appear to hang and never complete the action. Technically, there is a timeout (currently 60 seconds) where Drafts will assume you forgot to complete the script and it will fail the action, but in practice it is very important you design your script to always result in a <code>script.complete()</code> call.</p>
+<p>Excited to see some of the possibilities this enabled in your scripts in the future!</p>
+        </div>
+
+        <meta itemprop='headline' content='Asynchronous Scripting in Drafts (async/await, Promises, etc.)'>
+          <meta itemprop='keywords' content='scripting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="4" />
+           <span class='post-likes'>4 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../dropbox-api-copy-throws-error-999-run-async/6598.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/dropbox-api-copy-throws-error-999-run-async/6598'>
+                      <span itemprop='name'>(Solved) Dropbox API copy throws error 999 - run async?</span>
+                    </a>
+                    <meta itemprop='position' content='6'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/scripts4drafts'><span itemprop='name'>scripts4drafts</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6460.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-24T17:01:02Z' class='post-time'>
+                April 24, 2020,  5:01pm
+              </time>
+              <meta itemprop='dateModified' content='2020-04-24T20:29:50Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great feature !</p>
+<p>Today, I found a way to integrate it into my actions.</p>
+<p>One of them is completing some iOS reminders and adding some new ones depending on what I wrote in a draft.</p>
+<p>But this action is long to execute and during the execution, I’m stuck and can not write anything in Drafts. I have to wait for the end of the action until all the reminders are marked as completed and new ones are added.</p>
+<p>Thanks to an async function, the action is executed asynchronously and I’m able to continue writing even during its execution.</p>
+<p>Thanks for this !</p>
+        </div>
+
+        <meta itemprop='headline' content='Asynchronous Scripting in Drafts (async/await, Promises, etc.)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/scripts4drafts'><span itemprop='name'>scripts4drafts</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6460.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-24T17:35:00Z' class='post-time'>
+                April 24, 2020,  5:35pm
+              </time>
+              <meta itemprop='dateModified' content='2020-04-24T20:30:25Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Here are the scripts I added into my actions:</p>
+<pre><code>// in the first action, I define this
+var asyncFunctions = [];
+
+// Then, in any action, I can add into asynFunctions any function to be launched asynchronously
+function Test (f) {
+  alert(f.text);
+}
+asyncFunctions.push({name:'Test', f:{text:'Hey great!'}});
+
+// Finally, in the last action (with the option 'allow asynchronous execution), I add this script to execute all asyncFunctions if any
+async function asyncExec(funcs) {
+  let promise = new Promise((resolve) =&gt; {
+    for (let i = 0; i &lt; funcs.length; i++) {
+      if (funcs[i].name &amp;&amp; typeof this[funcs[i].name] === 'function') this[funcs[i].name](funcs[i].f);
+    }
+    resolve('resolved!');
+  });
+  let result = await promise;
+  script.complete();
+}
+asyncExec(asyncFunctions);</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Asynchronous Scripting in Drafts (async/await, Promises, etc.)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

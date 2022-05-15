@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Move checked list items to the end of the list</title>
+    <link>https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987</link>
+    <description>This action moves the checked items of a list to the end of the list, maintaining the structure of the draft. So if you have multiple lists in your document, they are treated each of their own.
+
+Example:
+    - [ ] item 1
+    - [x] item 2
+    - [x] item 3
+    - [ ] item 4
+
+After running the action the list appears as:
+    - [ ] item 1
+    - [ ] item 4
+    - [x] item 2
+    - [x] item 3
+
+[Move Checked to End](https://actions.getdrafts.com/a/1eO)</description>
+    
+    <lastBuildDate>Sun, 01 Nov 2020 18:37:20 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Move checked list items to the end of the list</title>
+        <dc:creator><![CDATA[zisoft]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>: Many thanks for the hints, I have refined my code</p>
+          <p><a href="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/4</link>
+        <pubDate>Sun, 01 Nov 2020 18:37:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8987-4</guid>
+        <source url="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987.rss">Move checked list items to the end of the list</source>
+      </item>
+      <item>
+        <title>Move checked list items to the end of the list</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="zisoft" data-post="1" data-topic="8987">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/zisoft/40/4174_2.png" class="avatar"> zisoft:</div>
+<blockquote>
+<p>So if you have multiple lists in your document, they are treated each of their own.</p>
+</blockquote>
+</aside>
+<p>If I start with a draft like this:</p>
+<pre><code class="lang-auto">Example 1:
+- [ ] item 1
+- [x] item 2
+- [x] item 3
+- [ ] item 4
+
+Example 2:
+- [ ] item A
+- [x] item B
+- [x] item C
+- [ ] item D
+
+Example 3:
+- [ ] item 1
+- [x] item 2
+- [x] item 3
+- [ ] item 4
+</code></pre>
+<p>Then run the action, I get a draft that looks like this:</p>
+<pre><code class="lang-auto">Example 1:
+- [ ] item 1
+- [ ] item 4
+- [x] item 2
+- [x] item 3
+
+Example 2:
+- [ ] item A
+- [ ] item D
+- [x] item B
+- [x] item C
+
+Example 3:
+</code></pre>
+<p>However, if I add a new line character to the end of the final line so that it ends like this:</p>
+<pre><code class="lang-auto">Example 3:
+- [ ] item 1
+- [x] item 2
+- [x] item 3
+- [ ] item 4
+
+</code></pre>
+<p>The result is then more what you would expect.</p>
+<pre><code class="lang-auto">Example 1:
+- [ ] item 1
+- [ ] item 4
+- [x] item 2
+- [x] item 3
+
+Example 2:
+- [ ] item A
+- [ ] item D
+- [x] item B
+- [x] item C
+
+Example 3:
+- [ ] item 1
+- [ ] item 4
+- [x] item 2
+- [x] item 3
+
+</code></pre>
+<p>I think your current logic would benefit from a tweak to account for the case of the last line of a multi-list draft not ending in a non-checklist entry.</p>
+<p>Without rewriting some of your core code to address this edge case, at the start, you could carry out a check on the last line, append a newline if necessary, keep a note if you do, and then remove the newline at the end of the processing if one was added.</p>
+<p>For the following code:</p>
+<pre><code class="lang-auto">if (device.model === "iPhone") {
+    app.hideActionList();
+}
+</code></pre>
+<p>You may also want to check out if <a href="https://scripting.getdrafts.com/classes/editor#activate"><code>editor.activate()</code></a> might give you another option for what you want to do?</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/3</link>
+        <pubDate>Sun, 01 Nov 2020 18:00:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8987-3</guid>
+        <source url="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987.rss">Move checked list items to the end of the list</source>
+      </item>
+      <item>
+        <title>Move checked list items to the end of the list</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <p>Nice.</p>
+<p>My 0,02€ on the code:</p>
+<pre><code class="lang-auto"> for (let item of unchecked) {
+                new_content += item + "\n";
+            }
+</code></pre>
+<p>could be written a bit more concisely as</p>
+<pre><code class="lang-auto">new_content += unchecked.join('\n') + checked.join('\n');
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/2</link>
+        <pubDate>Sun, 01 Nov 2020 17:40:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8987-2</guid>
+        <source url="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987.rss">Move checked list items to the end of the list</source>
+      </item>
+      <item>
+        <title>Move checked list items to the end of the list</title>
+        <dc:creator><![CDATA[zisoft]]></dc:creator>
+        <description><![CDATA[
+            <p>This action moves the checked items of a list to the end of the list, maintaining the structure of the draft. So if you have multiple lists in your document, they are treated each of their own.</p>
+<p>Example:<br>
+- [ ] item 1<br>
+- [x] item 2<br>
+- [x] item 3<br>
+- [ ] item 4</p>
+<p>After running the action the list appears as:<br>
+- [ ] item 1<br>
+- [ ] item 4<br>
+- [x] item 2<br>
+- [x] item 3</p>
+<p><a href="https://actions.getdrafts.com/a/1eO" rel="noopener nofollow ugc">Move Checked to End</a></p>
+          <p><a href="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987/1</link>
+        <pubDate>Sun, 01 Nov 2020 17:09:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8987-1</guid>
+        <source url="https://forums.getdrafts.com/t/move-checked-list-items-to-the-end-of-the-list/8987.rss">Move checked list items to the end of the list</source>
+      </item>
+  </channel>
+</rss>

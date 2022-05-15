@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Fast repeated input using javascript keyboard button leads contents loss or sometimes crash</title>
+    <link>https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648</link>
+    <description>Hi,
+
+I have added a keyboard extension button to insert some characters at cursor position.
+
+When I press the button repeatedly and fast, about 4~5 times a second, text in the editor gets cut off.
+
+I recorded video.
+
+https://d.pr/v/bYndIG
+
+You can see the word count goes up and drops when the issue occurs.
+
+the script I wrote is the following:
+
+---
+const c = &quot;j&quot;;
+
+let sel = editor.getSelectedText();
+let selRange = editor.getSelectedRange();
+
+if (!sel || sel.length == 0) {
+    editor.setSelectedText(c);
+    editor.setSelectedRange(selRange[0] + c.length, 0);
+} else {
+    editor.setSelectedText(c + sel);
+    editor.setSelectedRange(selRange[0] + selRange[1] + c.length, 0);
+}
+
+---
+
+My guess is that this would be related to background syncing.
+
+Any solution or workaround would be very appreciated.
+
+Thanks in advance.</description>
+    
+    <lastBuildDate>Fri, 28 Sep 2018 07:54:17 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Fast repeated input using javascript keyboard button leads contents loss or sometimes crash</title>
+        <dc:creator><![CDATA[HyeonChol_Jang]]></dc:creator>
+        <description><![CDATA[
+            <p>I turn on/off icloud sync from settings menu and I could see that when the sync is off, cut-off does not happen.</p>
+<p>            <video title="ScreenRecording_09-28-2018 16-51-20.MP4" width="" height="" style="max-width:100%" controls="">
+              <source src="https://cdn-std.dprcdn.net/files/acc_497498/5nBxXx">
+            </video>
+</p>
+          <p><a href="https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648/2</link>
+        <pubDate>Fri, 28 Sep 2018 07:54:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2648-2</guid>
+        <source url="https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648.rss">Fast repeated input using javascript keyboard button leads contents loss or sometimes crash</source>
+      </item>
+      <item>
+        <title>Fast repeated input using javascript keyboard button leads contents loss or sometimes crash</title>
+        <dc:creator><![CDATA[HyeonChol_Jang]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>I have added a keyboard extension button to insert some characters at cursor position.</p>
+<p>When I press the button repeatedly and fast, about 4~5 times a second, text in the editor gets cut off.</p>
+<p>I recorded video.</p>
+<p>            <video title="IMG_0432.TRIM.MOV" width="" height="" style="max-width:100%" controls="">
+              <source src="https://cdn-std.dprcdn.net/files/acc_497498/bYndIG">
+            </video>
+</p>
+<p>You can see the word count goes up and drops when the issue occurs.</p>
+<p>the script I wrote is the following:</p>
+<hr>
+<p>const c = “j”;</p>
+<p>let sel = editor.getSelectedText();<br>
+let selRange = editor.getSelectedRange();</p>
+<p>if (!sel || sel.length == 0) {<br>
+editor.setSelectedText©;<br>
+editor.setSelectedRange(selRange[0] + c.length, 0);<br>
+} else {<br>
+editor.setSelectedText(c + sel);<br>
+editor.setSelectedRange(selRange[0] + selRange[1] + c.length, 0);<br>
+}</p>
+<hr>
+<p>My guess is that this would be related to background syncing.</p>
+<p>Any solution or workaround would be very appreciated.</p>
+<p>Thanks in advance.</p>
+          <p><a href="https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648/1</link>
+        <pubDate>Fri, 28 Sep 2018 07:40:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2648-1</guid>
+        <source url="https://forums.getdrafts.com/t/fast-repeated-input-using-javascript-keyboard-button-leads-contents-loss-or-sometimes-crash/2648.rss">Fast repeated input using javascript keyboard button leads contents loss or sometimes crash</source>
+      </item>
+  </channel>
+</rss>

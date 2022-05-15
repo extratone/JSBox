@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Can I add to a .txt file at a specified insertion point? - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="Hi, I have what might be quite a niche use case that I’m hoping some smart person here can help me solve for. Here’s the tl;dr, and after that I’ll go into a few more specifics: 
+
+I want to be able to add the text of a d&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="7637.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Can I add to a .txt file at a specified insertion point?&#39;" href="7637.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637" />
+<meta property="og:title" content="Can I add to a .txt file at a specified insertion point?" />
+<meta name="twitter:title" content="Can I add to a .txt file at a specified insertion point?" />
+<meta property="og:description" content="Hi, I have what might be quite a niche use case that I’m hoping some smart person here can help me solve for. Here’s the tl;dr, and after that I’ll go into a few more specifics:   I want to be able to add the text of a draft to a Dropbox-hosted .txt file at a predetermined point   Phrased another way: I almost want to prepend to an existing file, but I need to leave in place the first four lines of that file.   OK, a bit of context. I use a blogging tool called Blot which operates by mirroring a..." />
+<meta name="twitter:description" content="Hi, I have what might be quite a niche use case that I’m hoping some smart person here can help me solve for. Here’s the tl;dr, and after that I’ll go into a few more specifics:   I want to be able to add the text of a draft to a Dropbox-hosted .txt file at a predetermined point   Phrased another way: I almost want to prepend to an existing file, but I need to leave in place the first four lines of that file.   OK, a bit of context. I use a blogging tool called Blot which operates by mirroring a..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2020-06-09T17:12:39+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="7637.html">Can I add to a .txt file at a specified insertion point?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>, 
+            <a href='../../tag/dropbox.html' class='discourse-tag' rel="tag">dropbox</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/firstandforest'><span itemprop='name'>firstandforest</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-09T17:12:39Z' class='post-time'>
+                June 9, 2020,  5:12pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-09T17:12:39Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi, I have what might be quite a niche use case that I’m hoping some smart person here can help me solve for. Here’s the <strong>tl;dr</strong>, and after that I’ll go into a few more specifics:</p>
+<blockquote>
+<p>I want to be able to add the text of a draft to a Dropbox-hosted .txt file at a predetermined point</p>
+</blockquote>
+<p>Phrased another way: I <em>almost</em> want to prepend to an existing file, but I need to leave in place the first four lines of that file.</p>
+<hr>
+<p>OK, a bit of context. I use a blogging tool called <a href="https://blot.im" rel="nofollow noopener">Blot</a> which operates by mirroring a Dropbox folder, and turning anything in that folder into a blog post or page. (It’s super neat, surprisingly versatile, and I enjoy using it a great deal.) In order to take advantage of some of Blot’s functions, I need to use the first few lines of an uploaded text file for metadata. For example, a typical blog post .txt file will start something like this:</p>
+<pre><code class="lang-auto">Title: Title of Post
+Date: YYYY-mm-dd
+Permalink: permalink
+Tags: tag1, tag2
+</code></pre>
+<p>(Side note: Drafts is <em>fantastic</em> in combination with Blot. I’ve built simple actions that push drafts, posts, and pages to Dropbox (and hence to my site) all with no problem. I basically have a Workspace set up in Drafts that acts as a dedicated writing space for my blog, with one-touch publishing actions.)</p>
+<p>Now I’m trying to work out a way of <em>updating</em> a page on my site, rather than adding one. Let’s say I have a file named Wire.txt and it begins like this:</p>
+<pre><code class="lang-auto">Title: Wire
+Permalink: wire
+Menu: no
+
+1 Jan 2020, 12:00
+Hello World
+</code></pre>
+<p>I’m trying to build a Drafts action that will add the text of a draft <em>before</em> ‘1 Jan 2020, 12:00’, but which will leave the three lines of metadata at the top of the file. What I’m looking for essentially is a command that tells Drafts to go to line 5 of the .txt file and insert:</p>
+<pre><code class="lang-auto">[[date|%d %b %Y, %H:%M:%S]]  
+[[draft]]  
+
+</code></pre>
+<p>It would be easy to append to the file, but I’m looking to keep a reverse-chronological log, so I need it to go at the top. If I choose prepend it pushes the metadata down, and the file stops working as intended at Blot’s end.</p>
+<p>Any and all assistance greatly appreciated. If I’ve not made something clear by all means just ask.</p>
+<hr>
+<p>For additional context:</p>
+<ol>
+<li>
+<p>I was hopeful this might be solvable with the <code>[[line|n]]</code> content tag, but as far as I can see that’s referring to lines in the draft itself, not lines in the file you’re altering.</p>
+</li>
+<li>
+<p>I looked at the <code>/replaceRange</code> parameter to see if I could figure out an x-callback-url implementation, but that requires a defined length for the insertion, and I’m looking for the freedom to add a draft of any given length.</p>
+</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+          <meta itemprop='keywords' content='actions, dropbox'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-09T19:50:12Z' class='post-time'>
+                June 9, 2020,  7:50pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-09T19:50:12Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You would need to:</p>
+<ol>
+<li>Read in the Dropbox file (see <a href="../../../scripting.getdrafts.com/classes/dropbox.html" rel="nofollow noopener">Drafts scripting reference for Dropbox</a>).</li>
+<li>Split the file content by line break.</li>
+<li>Join the first 4 lines of file content with the draft content and the remaining lines of file content (in that order - there are various ways to do this in JavaScript).</li>
+<li>Write that new set of content back to the Dropbox file to overwrite it.</li>
+</ol>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-10T07:37:52Z' class='post-time'>
+                June 10, 2020,  7:37am
+              </time>
+              <meta itemprop='dateModified' content='2020-06-10T07:37:52Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m wondering if a general action that takes the new doc links, including a “file:” or similar reference, and injects the text would be handy.</p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/firstandforest'><span itemprop='name'>firstandforest</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-10T12:34:25Z' class='post-time'>
+                June 10, 2020, 12:34pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-10T12:34:25Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for your considered input, it certainly provides me a path to work on.<br>
+(Look for my follow-up post where I get hopelessly lost!)</p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-10T15:09:20Z' class='post-time'>
+                June 10, 2020,  3:09pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-10T15:09:20Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you do happen to get lost, here’s some more help <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<details>
+<summary>
+Expand for a script that might do it</summary>
+<pre><code class="lang-auto">//Initialise
+const SPLIT_AFTER_LINE = 4;
+let dbx = Dropbox.create();
+let strFilePath = "/test/test.txt";
+
+//Read file and split into an array
+let strContent = dbx.read(strFilePath);
+let astrContent = strContent.split('\n');
+
+//Insert the draft content into the array
+astrContent.splice(SPLIT_AFTER_LINE, 0 , draft.content);
+
+//Recombine the array into text and overwrite the file
+strContent = astrContent.join('\n');
+dbx.write(strFilePath, strContent, "overwrite", false);
+</code></pre>
+</details>
+<p><em>The above I don’t think will quite do everything for you, but if you also lookup <a href="../../../scripting.getdrafts.com/classes/draft.html#processtemplate" rel="nofollow noopener">draft.processTemplate()</a>, and make an amendment or two, I think it might.</em></p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/firstandforest'><span itemprop='name'>firstandforest</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-14T10:50:40Z' class='post-time'>
+                June 14, 2020, 10:50am
+              </time>
+              <meta itemprop='dateModified' content='2020-06-14T10:50:40Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Wow, this is stellar! Thanks so much for your help. To be honest I had got almost nowhere in an hour of trying and had all but given up on the idea.</p>
+<p>I’ll plug this in this afternoon and give it a go!</p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/firstandforest'><span itemprop='name'>firstandforest</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-15T08:54:13Z' class='post-time'>
+                June 15, 2020,  8:54am
+              </time>
+              <meta itemprop='dateModified' content='2020-06-15T08:54:13Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> Thank you so much, with the most minor of tweaks I have it working just as intended. Literally never would have figured it out without your help.</p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/miscellaneplans'><span itemprop='name'>miscellaneplans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7637.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-28T00:12:23Z' class='post-time'>
+                July 28, 2020, 12:12am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-28T00:12:23Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s great news! I’ve just had a look at Blot, thanks for mentioning it, very interesting indeed.</p>
+<p>If it’s not too cheeky to ask, would you mind sharing the action you’ve come up with to prepend below the first 4 lines?</p>
+        </div>
+
+        <meta itemprop='headline' content='Can I add to a .txt file at a specified insertion point?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

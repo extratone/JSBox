@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Things Parser 2.0</title>
+    <link>https://forums.getdrafts.com/t/things-parser-2-0/158</link>
+    <description>Just published version 2.0 of my Things Parser. 
+
+Action Directory link: http://actions.getdrafts.com/a/1DV
+
+More info below:
+
+# Things Parser
+
+## Intro
+
+This script action sends each line of the draft to Things 3. Special characters can be added to each line (after the task name) to create additional metadata about the task.
+
+The syntax is as follows:
+
+* \#Project Name 
+* @Tag Name
+* ==Heading
+* //Task note
+* !Natural Language Deadline String
+* \*Checklist Item
+
+Each of these markup characters should be immediately preceded by a space. The task name must come first in the line. The date and time of the event can be written in natural language anywhere in the line, and does not require a special character. The script also automatically detects whether or not a time has been written. If a date and time are written, it adds a task with that date and a reminder at that time. If only a date is written, it doesn’t add a reminder.
+
+Multiple tags and checklist items can be entered.
+
+Special characters can be used elsewhere in the line, as long as they are not immediately preceded by a space, so for example the following is fine.
+
+//Note containing email address: me@domain.com 
+
+is perfectly fine.
+
+Examples:
+
+	Task name
+*Adds item to Inbox*
+
+	Task name on Wednesday
+*Adds item to Upcoming with Wednesday as date*
+
+	Task name on Wednesday at 6pm
+*Adds item to Upcoming with Wednesday as date and a reminder at 6pm*
+
+	Task name on Wednesday at 6pm !Friday
+*Same as above with a deadline of Friday*
+
+	Task name on Wednesday at 6pm #Project Name ==Heading @Tag 1 @Tag 2 ++Additional Note !Friday *first thing *second thing *third thing
+
+*Adds item to project called `Project Name` under `Heading` with date of Wednesday, reminder at 6pm, two tags `Tag 1` and `Tag 2`, an additional note `Additional Note`, and a checklist with the following three items:*
+
+* `first thing`
+* `second thing`
+* `third thing`
+
+## Block-Based Entry
+
+To save time in entering metadata, if the first line of a block of text contains only metadata, this will be inherited by every other line in that block. So instead of writing:
+
+	task 1 today
+	task 2 today
+	task 3 today
+
+you can simply write:
+
+	Today
+	task 1
+	task 2
+	task 3
+
+This works with all possible metadata:
+
+	today at 5pm !Friday #Project ==Heading @Tag 1 @Tag 2 *checklist item 1 *checklist item 2 //note
+	task 1
+	task 2
+	task 3
+
+If a task has metadata that conflicts with the block heading, the task’s metadata wins, but it will still inherit anything that doesn’t conflict. So things like this are fine:
+
+	#Project !Friday
+	Task 1
+	Task 2 !Monday
+	Task 3
+
+Task 2 will be added to `Project` but will have a different deadline to the other tasks. 
+
+Multiple blocks can be entered within a single draft and should be separated by a blank line.
+
+## New Project Creation
+
+Using the syntax `+Project` you can create a new project and add tasks to it. It works in two different modes: in-line and block-based. 
+
+### In-Line
+
+With the in-line mode you can just add `+Project` to the end of any line and it will create a new project with that task as the only entry. Headings can also be created, and an area can be specified. Any other metadata is assigned to the task:
+
+	task +Project ==Heading #Area today at 5pm !Friday
+
+This creates a project called `Project` in `Area` with a heading and a single task under that heading. The task is assigned to today, has a reminder for 5pm, and has a deadline of Friday.
+
+### Block-Based
+
+Block-based mode works in similar way with a couple of small changes: all metadata on the block heading is inherited by the new project, not the tasks, and multiple headings can be specified. Metadata must be specified for each task individually. If a task is given one of the headings specified in the block heading, it will be put under that heading, otherwise it will be assigned to the project with no heading.
+
+	+Project today at 5pm ==Heading 1 ==Heading 2 #Area @tag
+	Task with no heading
+	Task under heading 1 ==Heading 1
+	Task under heading 2 ==Heading 2
+
+In this case, the date and tag will be added to the project, *not* the tasks.
+
+It is possible to combine the project creation feature with the block-based task metadata inheritance using two blocks, one which creates the new project, and then another which adds tasks under it. So for example, if I wanted to create an important work project due on Friday with three tasks I wanted to work on today, I could do the following:
+
+	+Project #Work !Friday @Important
+	
+	today #Project
+	task 1
+	task 2
+	task 3</description>
+    
+    <lastBuildDate>Mon, 14 Dec 2020 10:13:21 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/things-parser-2-0/158.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>For all the fans of Things Parser, a big update has just come to Things Parser in <a href="https://actions.getdrafts.com/a/1DV" rel="noopener nofollow ugc">version 3</a>. I’ve decided to move from the old custom syntax to TaskPaper to take advantage of the syntax highlighting in Drafts and to aid compatibility with other apps. It also adds variables, including date variables with time offsets. You can read more about the details in <a href="https://polymaths.blog/2020/12/things-parser-3-for-drafts" rel="noopener nofollow ugc">my blog post</a>.</p>
+<p>For die-hard fans of version 2, this will remain available <a href="https://actions.getdrafts.com/a/1fU" rel="noopener nofollow ugc">on the action directory</a> but will no longer be maintained.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/35">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/35</link>
+        <pubDate>Sun, 13 Dec 2020 21:52:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-35</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Asaf]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the excellent parser!<br>
+Is there a way to enter dates in the format dd/mm?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/34">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/34</link>
+        <pubDate>Sun, 27 Sep 2020 19:31:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-34</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[colinmorris]]></dc:creator>
+        <description><![CDATA[
+            <p>Syntax question re: <code>#Project</code> vs. <code>#Area</code>:</p>
+<p>I think I’m being dense because no one else has mentioned this, but don’t your <code>#Project Name</code> and <code>#Area</code> syntaxes conflict? I’ve read the documentation a couple times and only see examples of <code>#Area</code> in the context of creating new projects with <code>+Project</code>. I’ve never seen an example combining <code>#area</code> with <code>#project</code>.</p>
+<p>Definitely wouldn’t rule out user error. Here’s what I’m trying to parse for a test run:</p>
+<pre><code>+Learn to Use Things Parser for Drafts #Home ==Research ==Implementation ==Evaluation
+Read documentation ==Research *Find documentation *Copy to .md file *Create PDF *Store in iCloud Drive/5 Software Documentation !Friday ++I'd like to make better use of Drafts' actions and Things' ability to accept data from 3rd party apps.
+
+Test #Learn to Use Things Parser for Drafts #Home</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/33">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/33</link>
+        <pubDate>Sun, 26 Jul 2020 04:51:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-33</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>OK, thanks for finding this bug. I’m planning to do a new version of this at some point in the next few months, so I’ll try to incorporate your feedback.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/32">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/32</link>
+        <pubDate>Tue, 19 May 2020 08:42:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-32</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[gabrielroth]]></dc:creator>
+        <description><![CDATA[
+            <p>This is a really cool and useful Action, thanks for creating it.</p>
+<p>Feature request: Some kind of comment syntax that would stop the parser from evaluating a given line.</p>
+<p>Also, I think this is a bug. I’m typing this on Thursday 4/30. When I feed the parser this line:</p>
+<blockquote>
+<p>testing !Sunday</p>
+</blockquote>
+<p>it creates a to-do with a deadline on Sunday 5/10—not this coming Sunday, but a week from Sunday, 10 days away.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/31">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/31</link>
+        <pubDate>Thu, 30 Apr 2020 22:21:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-31</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[kyleedenise]]></dc:creator>
+        <description><![CDATA[
+            <p>The tags aren’t being imported for me, but everything else is. Here’s what I’m parsing:</p>
+<p>+New Project ==Head1 ==Head2 <span class="hashtag">#Area</span> <span class="mention">@tag1</span><br>
+Task without heading Feb 6<br>
+Task under heading 1 ==Head1 <span class="mention">@tag2</span> //note<br>
+Task under heading 2 ==Head2 !Tuesday</p>
+<p>What am I doing wrong?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/30">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/30</link>
+        <pubDate>Sat, 01 Feb 2020 18:20:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-30</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>There are a few bugs with the date interpretation at the moment. Dates in the notes section is a problem which I still need to fix. I hope to release an update in the next few months.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/29">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/29</link>
+        <pubDate>Wed, 22 Jan 2020 09:57:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-29</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>Not at the moment, but some kind of date templating is something I am considering for the next version so stay tuned.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/28">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/28</link>
+        <pubDate>Wed, 22 Jan 2020 09:55:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-28</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>This is not what my script does, but I’m sure this is possible within Drafts. Did you want to export <em>all</em> of your drafts to Things? And do you want each one to be a separate to-do?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/27">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/27</link>
+        <pubDate>Wed, 22 Jan 2020 09:55:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-27</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[rab523]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there a way to have Drafts prompt for a text and date based variables and then have the project/tasks adjust their names and dates relative to these variables?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/26">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/26</link>
+        <pubDate>Tue, 21 Jan 2020 15:51:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-26</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[747]]></dc:creator>
+        <description><![CDATA[
+            <p>I put my header on the first line<br>
+And my tasks on separate lines underneat<br>
+However the parser 2.0 script I install makes each it own subject in things instead of using the first line as a subject and the lines below as task?<br>
+How do I fix this and get it to work.</p>
+<p>I am new to drafts 2nd testing</p>
+<p>Thanks in advance for helping and getting me a step closer</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/25</link>
+        <pubDate>Sun, 27 Oct 2019 15:05:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-25</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Marcus_Boswell]]></dc:creator>
+        <description><![CDATA[
+            <p>So, firstly I just wanted to say I think this is great.</p>
+<p>So far a great use I have found for it is problematic for me since I have a document with a number of suggestions about local networking meetups etc. It contains places and times etc.</p>
+<p>What I am hoping to do is to schedule some actions according to the document by breaking it down using the delimiters that you have set up so that I can send the whole text into ‘Things’ and have your action do the heavy lifting.</p>
+<p>So am I right in suggesting that:</p>
+<ul>
+<li>
+<p>Everything for 1 task has to be in the same sentence. i.e. Your action differentiates a new line as a new task?</p>
+</li>
+<li>
+<p>One problem I have run up against is that if I am not mistaken I can’t refer to any Date or Time in the notes as they appear to be removed when I sent them over.</p>
+</li>
+</ul>
+<p>I am assuming the following presents all kinds of problems as it’s not working as I would like.</p>
+<p>e.g.</p>
+<p><span class="hashtag">#Networking</span> ==Networking Events Dalycom Nottingham Business Networking  //Thursdays 8.00am - 10.00am Contact Anita Popat, 01509 410 407 *Ugly Bread Bakery, 21 Market Street  Nottingham NG1 6HX</p>
+<p><span class="hashtag">#Networking</span> ==Networking Events An informal business networking event for Businesses in Nottingham and the surrounding areas //taking place on the 3rd Thursday of every month (starting 18th January 2018) from 8.00am - 10.00am.</p>
+<p>If this were possible, I’d like to see it under Networking (which is one of my Projects) as listed items, and I’d continue to work down the sheet to highlight the others.</p>
+<p>So far when I send this over, I get nothing at all anywhere?! <img src="https://forums.getdrafts.com/images/emoji/apple/worried.png?v=6" title=":worried:" class="emoji" alt=":worried:"></p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a> Can you explain why?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/23</link>
+        <pubDate>Wed, 14 Nov 2018 16:15:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-23</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Kayle]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, Peter. I appreciate it.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/22</link>
+        <pubDate>Wed, 08 Aug 2018 12:46:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-22</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>This is designed to work when adding tasks to an existing project, but not when creating a new project. So for an existing project</p>
+<pre><code class="lang-auto">#Existing Project ==Existing Heading
+Task 1
+Task 2
+Task 3
+</code></pre>
+<p>will add three tasks under the heading. If you wanted to do this with a new project, you would have to create it first and then add the tasks in two separate blocks, e.g.</p>
+<pre><code class="lang-auto">+New Project ==New Heading 1 ==New Heading 2
+
+#New Project ==New Heading 1
+Task 1
+Task 2
+Task 3
+</code></pre>
+<p>The reason for this design is that you can only add headings to a project <em>on creation</em>, so users will have to indicate all the headings they want after the <code>+New Project</code>. Tasks in the same block can’t be added to <em>all</em> of those headings, so if the user’s intention is to add some of them to particular headings, that needs to be specified.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/21</link>
+        <pubDate>Wed, 08 Aug 2018 10:41:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-21</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>No, that’s not possible unfortunately. The script would need to know the ID of the project after it had been created in order to update it, which Things doesn’t allow. The user can manually get this ID from the Things app, but as far as I know you can’t do this programmatically.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/20</link>
+        <pubDate>Wed, 08 Aug 2018 10:30:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-20</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Kayle]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it not possible to add more headers to a project once it’s created?</p>
+<p>If I run this:<br>
++test ==header</p>
+<p>It works as expected. If I then run this;</p>
+<p><span class="hashtag">#test</span> ==header 2</p>
+<p>I get nothing. I tried it with spaces after the ==header and without. With follow up tasks and without. Can’t seem to get it working.</p>
+<p>Thanks again</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/19</link>
+        <pubDate>Wed, 08 Aug 2018 01:25:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-19</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Kayle]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there a way to block enter items under a heading? I tried and it didn’t seem to work, I have to add ==heading after each task.</p>
+<p>Cheers</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/18</link>
+        <pubDate>Tue, 07 Aug 2018 18:03:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-18</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Kayle]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for this <a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a>. This is fantastic and put me over the edge on getting into Things.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/17</link>
+        <pubDate>Tue, 07 Aug 2018 00:59:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-17</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Michael_Cappelli]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks.  I appreciate you looking into.  Could you let me know when you get a chance to update this action so I can download it again?  Thanks again</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/16</link>
+        <pubDate>Tue, 22 May 2018 19:31:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-16</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, I think that’s it. The parser first looks for any dates in the string, and it is picking up your heading as a date. I need to adjust it to ignore dates that have delimiters immediately preceding them. It does currently do that with deadlines, but not the other kinds of fields. I’ll see if I can get that fixed sometime soon.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/15</link>
+        <pubDate>Tue, 22 May 2018 09:36:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-15</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Michael_Cappelli]]></dc:creator>
+        <description><![CDATA[
+            <p>Just tried this again with a different heading name “Current Focus” and the parser worked as expected.  So it doesn’t seem having a space in the header name is the issue.  I wonder if its because there is a time based word in the other header I was using (i.e. This week)?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/14</link>
+        <pubDate>Mon, 21 May 2018 21:01:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-14</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Michael_Cappelli]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi again.  I just tried this again without the spaces before the delimiters.  using “This week” for the heading is still causing issues.  When I change it to “This_week” the issue is resolved. Does the parser stop at the end of a word?  Any options here, such as requiring parser to look for the heading title in quotes?</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/13</link>
+        <pubDate>Mon, 21 May 2018 18:37:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-13</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes that is the default behaviour. You have to specifically use the symbol + to create new projects. See <a href="http://actions.getdrafts.com/a/1DV" rel="nofollow noopener">http://actions.getdrafts.com/a/1DV</a> for complete documentation.</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/12</link>
+        <pubDate>Tue, 08 May 2018 16:01:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-12</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[fnj]]></dc:creator>
+        <description><![CDATA[
+            <p>This is brilliant and I can’t wait to dive in.  Quick question - is there any way to have it had something to an existing project rather than creating a new one?  Many thanks!!!</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/11</link>
+        <pubDate>Mon, 07 May 2018 15:51:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-11</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+      <item>
+        <title>Things Parser 2.0</title>
+        <dc:creator><![CDATA[Michael_Cappelli]]></dc:creator>
+        <description><![CDATA[
+            <p>Great.  I will give it a try. Thank you for the quick response</p>
+          <p><a href="https://forums.getdrafts.com/t/things-parser-2-0/158/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/things-parser-2-0/158/10</link>
+        <pubDate>Mon, 07 May 2018 14:03:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-158-10</guid>
+        <source url="https://forums.getdrafts.com/t/things-parser-2-0/158.rss">Things Parser 2.0</source>
+      </item>
+  </channel>
+</rss>

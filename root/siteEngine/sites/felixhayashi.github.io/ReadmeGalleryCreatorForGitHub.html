@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>README.md Gallery Creator for GitHub</title>
+    <meta name="description" content="Add a gallery to your GitHub repository's markdown README.md file that contains screenshots and images of your project." />
+    <script>
+      window.onload = function() {
+        
+        var input = document.getElementById("input");
+        var adjustor = document.getElementById("adjustor");
+        var adjustorDisplay = document.getElementById("adjustor-display");
+        var spacor = document.getElementById("spacor");
+        var output = document.getElementById("output");
+        
+        
+        var render = function(ev) {
+          
+          var text = "";
+          // we do not base the calculation on 100% with to ensure
+          // images fit despite borders, paddings or added spaces
+          // that reduce the available width…
+          var imagesPerRow = Math.round(90 / parseInt(adjustor.value));
+          var re = /\[[^\]]+\]\(([^)]+)\)/g;
+          while(url = re.exec(input.value)) { // assignement, not comparison!
+            text +=   '<img'
+                    + ' src="' + url[1] + '"'
+                    + ' width="' + imagesPerRow + '%">'
+                    + '</img>'
+                    + (spacor.checked ? " " : "");
+          }
+          
+          // update the preview
+          preview.innerHTML = text;
+          adjustorDisplay.innerHTML = adjustor.value;
+          
+          // update the code for the readme
+          output.value = text; 
+          
+        };
+        
+        input.addEventListener('keyup', render, false);
+        adjustor.addEventListener('input', render, false);
+        spacor.addEventListener('change', render, false);
+        output.addEventListener('click', function() {
+          this.focus();
+          this.select();
+        }, false);
+        
+        // call render once at startup
+        render();
+
+      };
+    </script>
+    <style type="text/css">
+      *, *:before, *:after {
+        box-sizing: border-box;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+        font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+        color: #333;
+        margin-bottom: 30px;
+      }
+      footer {
+        position: fixed;
+        text-align: left;
+        border-top: 1px solid gray;
+        background-color: #7D7D7D;
+        color: white;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        padding-top: 5px;
+      }
+      footer span {
+        vertical-align: super;
+      }
+      footer a {
+        color: white;
+      }
+      body > .page {
+        padding: 5px;
+      }
+      .page {
+        max-width: 790px;
+        margin: auto;
+      }
+      header {
+        text-align: center;
+        background: white;
+      }
+      #intro {
+        text-align: center;
+        background-color: #645555;
+        padding: 20px;
+        color: white;
+        margin: 0;
+        font-size: 1.1em;
+      }
+      #adjustor {
+        width: 90%;
+      }
+      #output {
+        height: 200px;
+      }
+      .step:not(.full-stretch) {
+        float: left;
+        width: 50%;
+      }
+      h3 span {
+        font-size: 1.5em;
+        color: #937373;
+      }
+      .full-stretch {
+        clear: both;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th {
+        background-color: #EBEBEB;
+      }
+      tr > * {
+        border: 1px solid #D8D8D8;
+        padding: 5px;
+      }
+      #adjustor-display {
+        display: inline-block;
+        vertical-align: super; 
+      }
+      #readme {
+        margin: 30px 0;
+        width: 100%;
+      }
+      #readme h3 {
+        background-color: #f5f5f5;
+        margin: 0;
+        border: 1px solid #d8d8d8;
+        border-bottom: 0;
+        padding: 9px 10px 10px;
+        font-size: 14px;
+        line-height: 17px;
+        display: block;
+      }
+      #readme h1 {
+        margin-top: 0;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 16px;
+        padding-bottom: 0.3em;
+      }
+      #readme article {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 30px;
+        word-wrap: break-word;
+      }
+      h1 {
+        font-size: 2.25em;
+        line-height: 1.2;
+        font-weight: bold;
+        line-height: 40px;
+      }
+      h2 {
+        color: red
+      }
+      textarea {
+        width: 100%;
+        height: 4em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>README.md Gallery Creator for GitHub</h1>
+      <p id="intro">Always wanted to prove 'em that you are one of the <u>cool guys</u> at GitHub? Then don't miss the chance! Add a gallery to your project's README.md today. Be a winner.</p>
+    </header>
+    <div class="page">
+      <div class="step">
+        <h3><span>①</span> Create markdown links at GitHub</h3>
+        <ol>
+          <li>Go to your GitHub project repository</li>
+          <li>Open your issue list and click "New Issue"</li>
+          <li>Drag'n'drop your images into the issue's textarea</li>
+          <li>Copy the markdown code from the issue's textarea</li>
+        </ol>
+      </div>
+      <div class="step">
+        <h3><span>②</span> Paste the code into the textarea below</h3>
+        <i>Remove the demo code below, then paste your code…</i>
+        <textarea id="input">
+![2015-09-20 17 02 28](https://cloud.githubusercontent.com/assets/4307137/10105283/251b6868-63ae-11e5-9918-b789d9d682ec.png)
+![2015-09-20 17 16 58](https://cloud.githubusercontent.com/assets/4307137/10105290/2a183f3a-63ae-11e5-9380-50d9f6d8afd6.png)
+![2015-09-20 17 07 53](https://cloud.githubusercontent.com/assets/4307137/10105284/26aa7ad4-63ae-11e5-88b7-bc523a095c9f.png)
+![2015-09-20 17 08 37](https://cloud.githubusercontent.com/assets/4307137/10105288/28698fae-63ae-11e5-8ba7-a62360a8e8a7.png)
+![2015-09-20 17 02 28](https://cloud.githubusercontent.com/assets/4307137/10105283/251b6868-63ae-11e5-9918-b789d9d682ec.png)
+![2015-09-20 17 16 58](https://cloud.githubusercontent.com/assets/4307137/10105290/2a183f3a-63ae-11e5-9380-50d9f6d8afd6.png)
+        </textarea>
+      </div>
+      <div class="step full-stretch">
+        <h3><span>③</span> Adjust your gallery like a boss.</h3>  
+        <table>
+          <tr>
+            <th>Images per Row</th>
+            <th>Spacing</th>
+          </tr>
+          <tr>
+            <td>
+              <input id="adjustor" type="range" min="1" max="20" step="1" value="6" />
+              <span id="adjustor-display"></span>
+            </td>
+            <td>
+              <label>
+                <input id="spacor" type="checkbox" name="spacor" value="1" checked>Add a space between the images
+              </label>
+            </td>
+          </tr>
+        </table>
+        <div id="readme">
+          <h3>README.md</h3>
+          <article>
+            <h1>Your Project</h1>
+            <p id="preview"></p>
+            <p>This is a preview of how the gallery will look in your repo's readme. Of course you can add multiple image galleries and separate them with text. Images that have the same aspect ratio will look better than images with different proportions.</p>
+          </article>
+        </div>
+      </div>
+      <div class="step full-stretch">      
+        <h3><span>④</span>  Now grab yer code and get outta here.</h3>
+        Click into the textarea below to select the code. Then copy'n'paste it into your project's readme.md and you are good!
+        By the way, you can also paste it into issues, that will work too!
+        <textarea id="output"></textarea>
+      </div>
+    </div>
+    <footer>
+      <div class="page">
+        <iframe src="https://ghbtns.com/github-btn.html?user=felixhayashi&repo=ReadmeGalleryCreatorForGitHub&type=star&count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+        <span> 
+          Created by <a href="https://github.com/felixhayashi">@felixhayashi</a>. Free of any charge. Enjoy :)
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>

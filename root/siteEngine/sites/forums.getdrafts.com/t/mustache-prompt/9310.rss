@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Mustache Prompt</title>
+    <link>https://forums.getdrafts.com/t/mustache-prompt/9310</link>
+    <description>[Mustache Prompt](https://actions.getdrafts.com/a/1fT) works with templates written in the [Mustache](http://mustache.github.io/mustache.5.html) template format. It will automatically detect and prompt you for the values of all the variables in your template, and then create a new draft using the data you entered. 
+
+It supports type annotations for dates, booleans, and arrays of strings. Try running the action on a draft containing the example text below to see how it works. For more information, [read my blog post](https://polymaths.blog/2020/12/mustache-prompt-for-drafts) on this action.
+
+&gt; Here is a basic {{text_variable}}.
+&gt; 
+&gt; {{bool:#boolean_variable}}
+&gt; Here is a paragraph that will only display if boolean_variable is true.
+&gt; {{/boolean_variable}}
+&gt; 
+&gt; {{^boolean_variable}}
+&gt; Here is a paragraph that will only display if boolean_variable is false.
+&gt; {{/boolean_variable}}
+&gt; 
+&gt; {{#comma_separated_strings}}
+&gt; Here is a paragraph that is repeated for each item in the array comma_separated_strings. The current item is {{.}}.
+&gt; {{/comma_separated_strings}}
+&gt; 
+&gt; Here is a date: {{date:date_variable}}.
+&gt; Here is the same date three days later: {{date_variable+3d}}
+&gt; Here is the same date one week ago: {{date_variable-1w}}
+&gt; Here is the same date in seven months’ time: {{date_variable+7m}}
+&gt; Here is another date that is offset without the original date being shown: {{date:another_date+3w}}
+
+A little tease as well: I actually built this as part of an update to one of my most popular actions. More on that soon...</description>
+    
+    <lastBuildDate>Fri, 18 Dec 2020 14:37:06 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/mustache-prompt/9310.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>You’ve prompted me to add some better error messages, rather than just silently failing. I’ve pushed this change to the Action Directory if you want to re-install.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1fT" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="" class="thumbnail" width="" height="">
+
+<h3><a href="https://actions.getdrafts.com/a/1fT" target="_blank" rel="noopener nofollow ugc">Mustache Prompt | Drafts Action Directory</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/10</link>
+        <pubDate>Fri, 18 Dec 2020 14:37:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-10</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[Mrkt]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you, I have just copied and pasted again and it is working. For me there was a typo in the first copy.<br>
+This {{^boolean_variable}} was this {{boolean_variable}}.<br>
+Now it’s working</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/9</link>
+        <pubDate>Fri, 18 Dec 2020 14:34:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-9</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s odd, not sure why that would be. I’ve just run it myself by copying and pasting from above and it seemed to work. If nothing happens when you run the action that usually means there is an error in the Mustache tags somewhere, e.g. invalid variable name with spaces etc.</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/8</link>
+        <pubDate>Fri, 18 Dec 2020 14:28:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-8</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[Mrkt]]></dc:creator>
+        <description><![CDATA[
+            <p>First of all this is great. But when I run the example script a new draft is not created. The script looks like it should work, what am I missing?</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/7</link>
+        <pubDate>Fri, 18 Dec 2020 14:18:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-7</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[kwlblt]]></dc:creator>
+        <description><![CDATA[
+            <p>I had also started work on creating this exact idea, but am terrible at JavaScript. Thank you so much!!</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/6</link>
+        <pubDate>Tue, 15 Dec 2020 17:54:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-6</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[zach]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow, this is super cool! <img src="https://forums.getdrafts.com/images/emoji/apple/clap.png?v=9" title=":clap:" class="emoji" alt=":clap:"></p>
+<p>I’d basically been trying to recreate something like this for “template” notes I had saved, but this is a <strong>100x</strong> better than my quick hacks.</p>
+<p>Really, really cool work, <a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a>. I’ll be using this a ton.</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/5</link>
+        <pubDate>Tue, 15 Dec 2020 17:32:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-5</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Can you synopsise what Mustache brings? (Yes I will look it up but drip feed to the Public can’t hurt.)</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/4</link>
+        <pubDate>Tue, 15 Dec 2020 08:15:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-4</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Glad someone found a use for the Mustache features. I admit switching completely to Mustache was a feature I had hoped to build into Drafts when moving to Drafts 5, but it didn’t make the cut (major migration woes).</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/3</link>
+        <pubDate>Mon, 14 Dec 2020 19:31:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-3</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>Feedback welcome. For those of you who know JavaScript, <a href="https://github.com/pdavisonreiber/Public-Drafts-Scripts/blob/master/Mustache%20Prompt/MustachePrompt.js" rel="noopener nofollow ugc">here’s the code</a>. Feel free to make a pull request.</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/2</link>
+        <pubDate>Sun, 13 Dec 2020 14:58:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-2</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+      <item>
+        <title>Mustache Prompt</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://actions.getdrafts.com/a/1fT" rel="noopener nofollow ugc">Mustache Prompt</a> works with templates written in the <a href="http://mustache.github.io/mustache.5.html" rel="noopener nofollow ugc">Mustache</a> template format. It will automatically detect and prompt you for the values of all the variables in your template, and then create a new draft using the data you entered.</p>
+<p>It supports type annotations for dates, booleans, and arrays of strings. Try running the action on a draft containing the example text below to see how it works. For more information, <a href="https://polymaths.blog/2020/12/mustache-prompt-for-drafts" rel="noopener nofollow ugc">read my blog post</a> on this action.</p>
+<blockquote>
+<p>Here is a basic {{text_variable}}.</p>
+<p>{{bool:<span class="hashtag">#boolean_variable</span>}}<br>
+Here is a paragraph that will only display if boolean_variable is true.<br>
+{{/boolean_variable}}</p>
+<p>{{^boolean_variable}}<br>
+Here is a paragraph that will only display if boolean_variable is false.<br>
+{{/boolean_variable}}</p>
+<p>{{<span class="hashtag">#comma_separated_strings</span>}}<br>
+Here is a paragraph that is repeated for each item in the array comma_separated_strings. The current item is {{.}}.<br>
+{{/comma_separated_strings}}</p>
+<p>Here is a date: {{date:date_variable}}.<br>
+Here is the same date three days later: {{date_variable+3d}}<br>
+Here is the same date one week ago: {{date_variable-1w}}<br>
+Here is the same date in seven months’ time: {{date_variable+7m}}<br>
+Here is another date that is offset without the original date being shown: {{date:another_date+3w}}</p>
+</blockquote>
+<p>A little tease as well: I actually built this as part of an update to one of my most popular actions. More on that soon…</p>
+          <p><a href="https://forums.getdrafts.com/t/mustache-prompt/9310/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/mustache-prompt/9310/1</link>
+        <pubDate>Sun, 13 Dec 2020 14:45:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9310-1</guid>
+        <source url="https://forums.getdrafts.com/t/mustache-prompt/9310.rss">Mustache Prompt</source>
+      </item>
+  </channel>
+</rss>

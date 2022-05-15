@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Accessing the Clipboard from Javascript - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I’m using the Insert ESV Text action from the&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12555.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Accessing the Clipboard from Javascript&#39;" href="12555.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/accessing-the-clipboard-from-javascript/12555" />
+<meta property="og:title" content="Accessing the Clipboard from Javascript" />
+<meta name="twitter:title" content="Accessing the Clipboard from Javascript" />
+<meta property="og:description" content="I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I’m using the Insert ESV Text action from the Drafts Directory (here) to obtain a different passage each day; that action is set up, using Javascript, to provide a prompt to the user asking for the relevant passage, which it then submits to the API, ultimately returning the text of the passage.  I’d like to modify the actio..." />
+<meta name="twitter:description" content="I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I’m using the Insert ESV Text action from the Drafts Directory (here) to obtain a different passage each day; that action is set up, using Javascript, to provide a prompt to the user asking for the relevant passage, which it then submits to the API, ultimately returning the text of the passage.  I’d like to modify the actio..." />
+<meta property="article:published_time" content="2022-04-27T00:29:27+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="12555.html">Accessing the Clipboard from Javascript</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/bws950'><span itemprop='name'>bws950</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12555.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-27T00:29:27Z' class='post-time'>
+                April 27, 2022, 12:29am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-27T00:31:50Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have an action set up that lets me create a document that (in relevant part) includes a Bible passage obtained through an online API and pastes it into a broader template.  I’m using the Insert ESV Text action from the Drafts Directory (<a href="../../../actions.getdrafts.com/a/1SM.html" rel="noopener nofollow ugc">here</a>) to obtain a different passage each day; that action is set up, using Javascript, to provide a prompt to the user asking for the relevant passage, which it then submits to the API, ultimately returning the text of the passage.</p>
+<p>I’d like to modify the action so that rather than prompting me for the relevant passage, it instead pulls the passage from the clipboard (i.e., the clipboard would already contain the text that I’d otherwise type into the prompt, and would just run automatically without requiring any interaction from the user).  I’m almost completely Javascript-illiterate, though, and haven’t been able to figure out how to access the clipboard from within the script or to set a variable to the clipboard.  (I’ve pasted the the script below; I <em>think</em> that what I need to do is set the “passage” variable to be the clipboard.)</p>
+<p>Is there a way to accomplish that using javascript?  (I tried defining a Template tag in Drafts and then using that template tag within the Script step of my action, but that did not work.)  Thanks very much in advance for any help!</p>
+<pre><code class="lang-auto">&gt; // Insert Bible Verse into Drafts
+&gt; 
+&gt; // Store ESV API Token in the Drafts Credential Keychain. You will be prompted for your API Token
+&gt; 
+&gt; var credential = Credential.create("ESV", "ESV.org API");
+&gt; 
+&gt; credential.addPasswordField("API_Token", "API Token");
+&gt; 
+&gt; credential.authorize();
+&gt; var token = credential.getValue("API_Token");
+&gt; 
+&gt; // Create search prompt for Bible verses
+&gt; 
+&gt; var p = Prompt.create()
+&gt; p.title = "Bible Search";
+&gt; p.message = "What Passage From The Old Or New Testament Would You Like to Insert?";
+&gt; p.addTextField("query", "Passage", "Mark ")
+&gt; // Currently, the prompt defaults to inserting as a blockquote. If you want to change this default behavior, change the word "true" to "false" in the next line
+&gt; p.addSwitch("blockQuote", "Insert as Markdown Blockquote", false);
+&gt; p.addButton("Done");
+&gt; p.show();
+&gt; // Replace a space between book names and chapter/verse with a plus for URL purposes
+&gt; var passage = p.fieldValues["query"];
+&gt; var query = passage.replace(" ", "+");
+&gt; // Request Data from ESV API
+&gt; var http = HTTP.create();
+&gt; var response = http.request({
+&gt; 	"url": "https://api.esv.org/v3/passage/text/",
+&gt; 	"method": "GET",
+&gt; 	"parameters": {
+&gt; 		"q": query,
+&gt; 		"include-passage-references": "true",
+&gt; 		"include-footnotes": "false",
+&gt; 		"include-footnote-body": "false",
+&gt; 		"indent-poetry": "false",
+&gt; 		"indent-paragraphs": "false",
+&gt; 		"indent-declares": "false",
+&gt; 		"indent-psalm-doxology": "false"
+&gt; 	},
+&gt; 	"headers": {
+&gt; 	"Authorization": "Token " + token
+&gt; 	}
+&gt; });
+&gt; // Function to add Markdown Blockquotes to the beginning of each new line if the blockquote selector switch from the Prompt is toggled on.
+&gt; function addMarkdownQuote(text) {
+&gt; 	var lines = text.split("\n");
+&gt; 	var quoteLines = []
+&gt; 	for (var line of lines) {
+&gt; 		var blockQuote = "&gt; " + line
+&gt; 		quoteLines.push(blockQuote);
+&gt; 	}
+&gt; 	var quote = quoteLines.join("\n");
+&gt; 	return quote
+&gt; }
+&gt; // Processes JSON response from ESV Server and converts to text
+&gt; function processVerses(rawJSON) {
+&gt; var json = JSON.parse(rawJSON);
+&gt; 	var bibleVerses = json.passages[0];
+&gt; 	if (p.fieldValues["blockQuote"] == true) {
+&gt; 		var finalQuote = addMarkdownQuote(bibleVerses);
+&gt; 	}
+&gt; 	else {
+&gt; 		var finalQuote = bibleVerses;
+&gt; 	}
+&gt; 	return finalQuote
+&gt; }
+&gt; // Response Success and Failure Options
+&gt; if (response.success) {
+&gt; 	var passageForInsert = processVerses(response.responseText);
+&gt; 	draft.setTemplateTag("passage", passageForInsert);
+&gt; }
+&gt; else {
+&gt; 	console.log(response.statusCode);
+&gt; 	console.log(response.error);
+&gt; }
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Accessing the Clipboard from Javascript'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12555.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-27T05:27:55Z' class='post-time'>
+                April 27, 2022,  5:27am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-27T12:33:31Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Try commenting out the prompt related lines, but leave <code>var passage = p.fieldValues["query"];</code> uncommented and change it to <code>var passage = app.getClipboard();</code>.</p>
+<p>That should then stop the prompt processing being carried out and read the result it would have provided from the clipboard instead.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing the Clipboard from Javascript'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/bws950'><span itemprop='name'>bws950</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12555.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-27T11:43:37Z' class='post-time'>
+                April 27, 2022, 11:43am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-27T11:43:37Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks very much - that worked perfectly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing the Clipboard from Javascript'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

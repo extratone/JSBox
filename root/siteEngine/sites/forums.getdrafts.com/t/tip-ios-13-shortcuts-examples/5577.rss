@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>TIP: iOS 13 Shortcuts Examples</title>
+    <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577</link>
+    <description>iOS 13 offers some significant upgrades to Apple&#39;s Shortcuts app. You can find out a lot of details about these upgrades in the [MacStories iOS 13 Review Shortcuts section](https://www.macstories.net/stories/ios-and-ipados-13-the-macstories-review/13/#shortcuts). Most importantly for Drafts, third party apps can now create actions that appear in the Shortcuts app which can receive and return data in the form of parameters. This unlocks a lot of possibilities.
+
+Drafts 15 introduces a wide array of Shortcuts actions which support parameters and allow you to work with Drafts data. Shortcuts can create, update, append or prepend to drafts - including abilities to set tags, flagged status, and move drafts between folders - all without ever opening Drafts.
+
+Even better, Shortcuts can get information out of Drafts. Queries can be run which load drafts in a workspace, or just return drafts matching arbitrary searches. A full list of Shortcuts actions is currently available in the [Drafts User Guide automation section](https://docs.getdrafts.com/docs/automation/shortcuts).
+
+To get you started playing with these new powerful capabilities, we are posting a couple of simple examples that might be useful out of the box, or serve as starting points. Important to note that many _Shortcuts integration actions require [Drafts Pro](https://docs.getdrafts.com/draftspro)._
+
+&gt; **Installation Note:** To use these Shortcuts, you must be running iOS 13 or greater, and Drafts 15.0 or greater. To install example Shortcuts from the links below, you must enable &quot;Allow Untrusted Shortcuts&quot; in `iOS Settings &gt; Shortcuts`.
+
+## Example: Open Last Modified Draft
+
+The &quot;Open Last Modified Draft&quot; shortcut opens drafts to the most recently modified draft in your draft list.
+
+&gt; **Install Example Shortcut**: [Open Last Modified Draft](https://www.icloud.com/shortcuts/0d4961a18dc14a3ab3eba7158de09650)
+
+#### How It Works: 
+
+This shortcut consists of three steps, configured as follows:
+
+![IMG_0506|443x499](upload://pIHkRbaMDnCWqzCmvhrgkr8n8W0.jpeg) 
+
+- **Search Drafts**: This action searches your inbox folder, sorted by modified date descending so the most recent drafts are first. It also sets the &quot;Limit&quot; parameter to 1 to tell Drafts to only return the one most recent Draft we are interested it.
+- **Get Item From List**: This step gets the first item from the list of Drafts returned.
+- **Open Draft**: Opens drafts to the selected draft.
+
+## Example: Workspace Summary
+
+A longer example, this action prompts you to select one of the [Workspaces](https://docs.getdrafts.com/docs/drafts/workspaces) you have configured in Drafts, then queries for all the drafts currently in the inbox of that Workspace. It then displays a summary of those drafts, including their title, and character and word counts.
+
+![IMG_0512|690x417,50%](upload://r001Wxi5rgqKTh54bkrgIUygnkp.jpeg) 
+
+&gt; **Install Example Shortcut**: [Workspace Summary](https://www.icloud.com/shortcuts/9f9eb756d0c547dbb1546d45bb1dc5bb)
+
+#### How It Works:
+
+![IMG_0511|194x499](upload://dzJeavX39EsDjoQH1aupPoltxpz.jpeg) 
+
+- **Text** / **Set variable `ContentSummary`**: These steps setup a template text to use to build the Markdown summary.
+- **Get Drafts from Workspace**: Prompt for a Workspace using the &quot;Ask Each Time&quot; option, and get the inbox drafts from this Workspace.
+- **Repeat with each**: Loop over each of the drafts found in the previous action.
+    - **Count Words in Content** / **Set variable**: Counts the words in the `content` property of the current draft and store that in the `WordCount` variable.
+    - **Count Characters in Content** / **Set variable**: Counts the characters in the `content` property of the current draft and store that in the `CharCount` variable.
+    - **Text** / **Add to variable `ContentSummary`**: Create a text combining the title of the draft with the calculated word and character counts created in the previous actions, then add that text to the `ContentSummary` variable created at the beginning of the shortcut.
+- **Count Items in Drafts**: Count the number of drafts returned by the `Get Drafts` action
+- **Text** / **Set variable `Text`: Create a text combining the `ContentSummary` and `Count` values in one template and assign it to the `Text` variable.
+- **Make rich text from `Text`: Convert the `Text` we created in Markdown format to Rich Text.
+- **Show in Quick Look**: Opens a preview window displaying the result.
+
+## Conclusion
+
+We hope you enjoy experimenting with the new Shortcuts integration capabilities of Drafts on iOS 13. Please let us know about additional actions you would like to have in Drafts. Release 15 is just a first pass at this functionality and I&#39;m sure we&#39;ll be adding more actions based on your feedback in updates soon!</description>
+    
+    <lastBuildDate>Thu, 03 Oct 2019 06:21:09 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s in multiple pieces - one in Drafts and one in Shortcuts.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/7</link>
+        <pubDate>Thu, 03 Oct 2019 06:21:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-7</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[Niall_cspace]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh that sounds like an interesting workflow - is that shareable?</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/6</link>
+        <pubDate>Wed, 02 Oct 2019 07:20:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-6</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Does it have to start in Shortcuts?</p>
+<p>I’m starting in Drafts with my “Create Daily Draft” Action. My draft gets tagged and then goes to Shortcuts for my calendar. (It also refreshes my TextExpander snippets.)</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/5</link>
+        <pubDate>Thu, 26 Sep 2019 07:32:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-5</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It should be, but it appears there’s a bug in the <code>Create Draft</code> shortcut action that is not allowing the resulting new draft to be selected in subsequent steps. This will be fixed in the 15.1 update.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/4</link>
+        <pubDate>Wed, 25 Sep 2019 13:14:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-4</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[sotojuan]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it possible to create a shortcut that creates a new Draft with filled in tags and content <em>and then</em> opens that draft in Drafts for editing? I was trying to do this last night but couldn’t get the second part working.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/3</link>
+        <pubDate>Wed, 25 Sep 2019 11:40:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-3</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Very nice. Installed and will promote them to the top of my Today view on iPad OS 13 home page.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/2</link>
+        <pubDate>Wed, 25 Sep 2019 06:30:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-2</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+      <item>
+        <title>TIP: iOS 13 Shortcuts Examples</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>iOS 13 offers some significant upgrades to Apple’s Shortcuts app. You can find out a lot of details about these upgrades in the <a href="https://www.macstories.net/stories/ios-and-ipados-13-the-macstories-review/13/#shortcuts" rel="nofollow noopener">MacStories iOS 13 Review Shortcuts section</a>. Most importantly for Drafts, third party apps can now create actions that appear in the Shortcuts app which can receive and return data in the form of parameters. This unlocks a lot of possibilities.</p>
+<p>Drafts 15 introduces a wide array of Shortcuts actions which support parameters and allow you to work with Drafts data. Shortcuts can create, update, append or prepend to drafts - including abilities to set tags, flagged status, and move drafts between folders - all without ever opening Drafts.</p>
+<p>Even better, Shortcuts can get information out of Drafts. Queries can be run which load drafts in a workspace, or just return drafts matching arbitrary searches. A full list of Shortcuts actions is currently available in the <a href="https://docs.getdrafts.com/docs/automation/shortcuts" rel="nofollow noopener">Drafts User Guide automation section</a>.</p>
+<p>To get you started playing with these new powerful capabilities, we are posting a couple of simple examples that might be useful out of the box, or serve as starting points. Important to note that many <em>Shortcuts integration actions require <a href="https://docs.getdrafts.com/draftspro" rel="nofollow noopener">Drafts Pro</a>.</em></p>
+<blockquote>
+<p><strong>Installation Note:</strong> To use these Shortcuts, you must be running iOS 13 or greater, and Drafts 15.0 or greater. To install example Shortcuts from the links below, you must enable “Allow Untrusted Shortcuts” in <code>iOS Settings &gt; Shortcuts</code>.</p>
+</blockquote>
+<h2>Example: Open Last Modified Draft</h2>
+<p>The “Open Last Modified Draft” shortcut opens drafts to the most recently modified draft in your draft list.</p>
+<blockquote>
+<p><strong>Install Example Shortcut</strong>: <a href="https://www.icloud.com/shortcuts/0d4961a18dc14a3ab3eba7158de09650" rel="nofollow noopener">Open Last Modified Draft</a></p>
+</blockquote>
+<h4>How It Works:</h4>
+<p>This shortcut consists of three steps, configured as follows:</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b443dc70feb037cb8adff3597851b0525513c594.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/b443dc70feb037cb8adff3597851b0525513c594" title="IMG_0506.jpeg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b443dc70feb037cb8adff3597851b0525513c594_2_443x499.jpeg" alt="IMG_0506" data-base62-sha1="pIHkRbaMDnCWqzCmvhrgkr8n8W0" width="443" height="499" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b443dc70feb037cb8adff3597851b0525513c594_2_443x499.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b443dc70feb037cb8adff3597851b0525513c594_2_664x748.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b443dc70feb037cb8adff3597851b0525513c594_2_886x998.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b443dc70feb037cb8adff3597851b0525513c594_2_10x10.png"></a></div><p></p>
+<ul>
+<li>
+<strong>Search Drafts</strong>: This action searches your inbox folder, sorted by modified date descending so the most recent drafts are first. It also sets the “Limit” parameter to 1 to tell Drafts to only return the one most recent Draft we are interested it.</li>
+<li>
+<strong>Get Item From List</strong>: This step gets the first item from the list of Drafts returned.</li>
+<li>
+<strong>Open Draft</strong>: Opens drafts to the selected draft.</li>
+</ul>
+<h2>Example: Workspace Summary</h2>
+<p>A longer example, this action prompts you to select one of the <a href="https://docs.getdrafts.com/docs/drafts/workspaces" rel="nofollow noopener">Workspaces</a> you have configured in Drafts, then queries for all the drafts currently in the inbox of that Workspace. It then displays a summary of those drafts, including their title, and character and word counts.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/bd3ab6383f5b8e98fa2c319443d38975ec928aed.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/bd3ab6383f5b8e98fa2c319443d38975ec928aed" title="IMG_0512.jpeg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd3ab6383f5b8e98fa2c319443d38975ec928aed_2_345x208.jpeg" alt="IMG_0512" data-base62-sha1="r001Wxi5rgqKTh54bkrgIUygnkp" width="345" height="208" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd3ab6383f5b8e98fa2c319443d38975ec928aed_2_345x208.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd3ab6383f5b8e98fa2c319443d38975ec928aed_2_517x312.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd3ab6383f5b8e98fa2c319443d38975ec928aed_2_690x416.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd3ab6383f5b8e98fa2c319443d38975ec928aed_2_10x10.png"></a></div><p></p>
+<blockquote>
+<p><strong>Install Example Shortcut</strong>: <a href="https://www.icloud.com/shortcuts/9f9eb756d0c547dbb1546d45bb1dc5bb" rel="nofollow noopener">Workspace Summary</a></p>
+</blockquote>
+<h4>How It Works:</h4>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/5f2636462612a0beb70c8091ab72282757cd385d.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/5f2636462612a0beb70c8091ab72282757cd385d" title="IMG_0511.jpeg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5f2636462612a0beb70c8091ab72282757cd385d_2_690x500.jpeg" alt="IMG_0511" data-base62-sha1="dzJeavX39EsDjoQH1aupPoltxpz" width="690" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5f2636462612a0beb70c8091ab72282757cd385d_2_690x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/5/5f2636462612a0beb70c8091ab72282757cd385d_2_1035x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/5/5f2636462612a0beb70c8091ab72282757cd385d_2_1380x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5f2636462612a0beb70c8091ab72282757cd385d_2_10x10.png"></a></div><p></p>
+<ul>
+<li>
+<strong>Text</strong> / <strong>Set variable <code>ContentSummary</code></strong>: These steps setup a template text to use to build the Markdown summary.</li>
+<li>
+<strong>Get Drafts from Workspace</strong>: Prompt for a Workspace using the “Ask Each Time” option, and get the inbox drafts from this Workspace.</li>
+<li>
+<strong>Repeat with each</strong>: Loop over each of the drafts found in the previous action.
+<ul>
+<li>
+<strong>Count Words in Content</strong> / <strong>Set variable</strong>: Counts the words in the <code>content</code> property of the current draft and store that in the <code>WordCount</code> variable.</li>
+<li>
+<strong>Count Characters in Content</strong> / <strong>Set variable</strong>: Counts the characters in the <code>content</code> property of the current draft and store that in the <code>CharCount</code> variable.</li>
+<li>
+<strong>Text</strong> / <strong>Add to variable <code>ContentSummary</code></strong>: Create a text combining the title of the draft with the calculated word and character counts created in the previous actions, then add that text to the <code>ContentSummary</code> variable created at the beginning of the shortcut.</li>
+</ul>
+</li>
+<li>
+<strong>Count Items in Drafts</strong>: Count the number of drafts returned by the <code>Get Drafts</code> action</li>
+<li>
+<strong>Text</strong> / **Set variable <code>Text</code>: Create a text combining the <code>ContentSummary</code> and <code>Count</code> values in one template and assign it to the <code>Text</code> variable.</li>
+<li>**Make rich text from <code>Text</code>: Convert the <code>Text</code> we created in Markdown format to Rich Text.</li>
+<li>
+<strong>Show in Quick Look</strong>: Opens a preview window displaying the result.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>We hope you enjoy experimenting with the new Shortcuts integration capabilities of Drafts on iOS 13. Please let us know about additional actions you would like to have in Drafts. Release 15 is just a first pass at this functionality and I’m sure we’ll be adding more actions based on your feedback in updates soon!</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577/1</link>
+        <pubDate>Tue, 24 Sep 2019 13:52:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5577-1</guid>
+        <source url="https://forums.getdrafts.com/t/tip-ios-13-shortcuts-examples/5577.rss">TIP: iOS 13 Shortcuts Examples</source>
+      </item>
+  </channel>
+</rss>

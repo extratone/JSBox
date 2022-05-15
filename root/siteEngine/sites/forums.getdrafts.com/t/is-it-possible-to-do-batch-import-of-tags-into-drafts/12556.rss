@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Is it possible to do batch import of tags into Drafts?</title>
+    <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556</link>
+    <description>I have a large list of tags that I wrote in both Agenda and Upnote apps that I would like to transfer to Drafts. Is it possible to do a batch import of tags? If yes, can you point me the way?
+
+I was able to copy them into a draft with the hashtags. However, what I want to do is to be able to just copy and paste them into “tags” so that I have all the tags available in Drafts without having to reenter them one at a time.
+
+Thanks for your tips!</description>
+    
+    <lastBuildDate>Thu, 28 Apr 2022 06:49:43 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>You don’t need to type the hashtag in there (as the hashtag is not included in the tags you added to your note so typing just „71“ should be sufficent to make related tags pop up</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/9</link>
+        <pubDate>Thu, 28 Apr 2022 06:49:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-9</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Drafts366" data-post="6" data-topic="12556">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/d/6bbea6/40.png" class="avatar"> Drafts366:</div>
+<blockquote>
+<p>Is it that the action doesn’t recognize the “-” sign? How can I change the action to allow for this to be fully read?</p>
+</blockquote>
+</aside>
+<p>In the action, the first line of the script defines a regular expression to be used for matching hash tags.</p>
+<pre><code class="lang-auto">var re = /#[\w\d]+/g;
+</code></pre>
+<p>The section in square brackets denotes a set of things that will be matched. The <code>\w</code> is word character (equivalent to <code>[a-zA-Z0-9_]</code>), and the <code>\d</code> any digit. You should just need to add a hyphen in to this like so.</p>
+<pre><code class="lang-auto">var re = /#[\w\d-]+/g;
+</code></pre>
+<aside class="quote no-group" data-username="Drafts366" data-post="6" data-topic="12556">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/d/6bbea6/40.png" class="avatar"> Drafts366:</div>
+<blockquote>
+<p>So, I was able to run the action on my Mac. For whatever reason, it wouldn’t run on my iPad.</p>
+</blockquote>
+</aside>
+<p>There is no reason the action should not run on your iPad. Did you modify the action? What was shown in the log after you attempted to run it?</p>
+<aside class="quote no-group" data-username="Drafts366" data-post="6" data-topic="12556">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/d/6bbea6/40.png" class="avatar"> Drafts366:</div>
+<blockquote>
+<p>Another issue: when I write a new Draft, if I go to tags, they don’t appear automatically. Any idea why that isn’t happening?</p>
+</blockquote>
+</aside>
+<p>Based on your subsequent post, what <em>exactly</em> are you expecting to happen?</p>
+<p>Are you expecting a new draft to automatically populate the tags area as you type in a hash tag? If so, that isn’t how tags work - they are tags, not hash tags, hence the action to run to add tags to the draft based on hash tags in its contents.</p>
+<p>If it is when you select to add a tag, I think it should start by displaying the most recently used tags, and then as you type it should filter from the entire set of tags or create a new one where there is no match.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/8</link>
+        <pubDate>Thu, 28 Apr 2022 05:40:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-8</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[Drafts366]]></dc:creator>
+        <description><![CDATA[
+            <p>And here’s an example when I write a new draft note. Nothing appears.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/72cd20ea01433678f02f3d4e0499d8591be9cdb1.png" data-download-href="https://forums.getdrafts.com/uploads/default/72cd20ea01433678f02f3d4e0499d8591be9cdb1" title="CleanShot 2022-04-27 at 20.17.26@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/72cd20ea01433678f02f3d4e0499d8591be9cdb1_2_690x208.png" alt="CleanShot 2022-04-27 at 20.17.26@2x" data-base62-sha1="gnzUT7Szvy3ldoJ1FJ0VNsK9YRj" width="690" height="208" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/72cd20ea01433678f02f3d4e0499d8591be9cdb1_2_690x208.png, https://forums.getdrafts.com/uploads/default/original/2X/7/72cd20ea01433678f02f3d4e0499d8591be9cdb1.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/72cd20ea01433678f02f3d4e0499d8591be9cdb1.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/72cd20ea01433678f02f3d4e0499d8591be9cdb1_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/7</link>
+        <pubDate>Thu, 28 Apr 2022 00:18:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-7</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[Drafts366]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks. So, I was able to run the action on my Mac. For whatever reason, it wouldn’t run on my iPad.</p>
+<p>Anyway, I ran the action and it did create the tags. however, they were truncated. For example, one tag is:</p>
+<p><span class="hashtag">#79_05-Evaluations</span></p>
+<p>However, the tag came out as 79_05. I’ve attached a screenshot with how they look on top.</p>
+<p>That happened with all the tags.</p>
+<p>Is it that the action doesn’t recognize the “-” sign? How can I change the action to allow for this to be fully read?</p>
+<p>Another issue: when I write a new Draft, if I go to tags, they don’t appear automatically. Any idea why that isn’t happening?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/775482de5a7bca743693f22bcc303e0a816f9663.png" data-download-href="https://forums.getdrafts.com/uploads/default/775482de5a7bca743693f22bcc303e0a816f9663" title="CleanShot 2022-04-27 at 20.13.40@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/775482de5a7bca743693f22bcc303e0a816f9663_2_690x368.png" alt="CleanShot 2022-04-27 at 20.13.40@2x" data-base62-sha1="h1DSLOlkAuZT6cU37K3d876AgCf" width="690" height="368" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/775482de5a7bca743693f22bcc303e0a816f9663_2_690x368.png, https://forums.getdrafts.com/uploads/default/original/2X/7/775482de5a7bca743693f22bcc303e0a816f9663.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/775482de5a7bca743693f22bcc303e0a816f9663.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/775482de5a7bca743693f22bcc303e0a816f9663_2_10x10.png"></a></div><p></p>
+<p>I’m new to Drafts actions, so forgive me for the very newbie question. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=12" title=":slight_smile:" class="emoji" alt=":slight_smile:" loading="lazy" width="20" height="20"></p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/6</link>
+        <pubDate>Thu, 28 Apr 2022 00:09:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-6</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>No you can run actions on any platform <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=12" title=":slight_smile:" class="emoji" alt=":slight_smile:" loading="lazy" width="20" height="20"></p>
+<p>If your tags are single words the shared action from <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> will work perfectly.<br>
+If you have tags with whitespaces the action will not work as expected</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/5</link>
+        <pubDate>Wed, 27 Apr 2022 18:42:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-5</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[Drafts366]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks. I presume I can only run these when I’m on a Mac, right?</p>
+<p>And yes, you are correct. I already have all the hashtags in a draft. All I would like is for them to be converted to tags.</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/4</link>
+        <pubDate>Wed, 27 Apr 2022 18:13:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-4</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I think you are saying you have hashtags in the text of your drafts that you would like converted to be assigned as native tags.  This example action from the directory does that, maybe helpful…</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://directory.getdrafts.com/a/1ME">
+  <header class="source">
+      <img src="https://directory.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="https://directory.getdrafts.com/a/1ME" target="_blank" rel="noopener">directory.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://directory.getdrafts.com/a/1ME" target="_blank" rel="noopener">Drafts Directory: Add Hashtags from Inside of Draft</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/3</link>
+        <pubDate>Wed, 27 Apr 2022 15:11:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-3</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <blockquote>
+<p>When all drafts with that tag (including ones in the Trash) are gone, the tag will automatically be deleted from any visible filtering lists.</p>
+</blockquote>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://docs.getdrafts.com/docs/drafts/tagging#deleting-tags">
+  <header class="source">
+      <img src="https://docs.getdrafts.com/favicon.ico" class="site-icon" width="" height="">
+
+      <a href="https://docs.getdrafts.com/docs/drafts/tagging#deleting-tags" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://docs.getdrafts.com/images/og-image.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/drafts/tagging#deleting-tags" target="_blank" rel="noopener">Flags &amp; Tagging</a></h3>
+
+  <p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>What you can do as a workaround:</p>
+<ul>
+<li>create a draft and assign all tags you usually use to that draft</li>
+<li>the downside is that this “dummy draft” will be shown for every tag you filter for as long as you don’t delete it <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=12" title=":wink:" class="emoji" alt=":wink:" loading="lazy" width="20" height="20">
+</li>
+<li>to automate this you can use the list of tags you already have and write a script to assign all the tags to a draft.
+<ul>
+<li>I can help you with that if you provide some details about how the “list with the hashtags” looks like</li>
+</ul>
+</li>
+</ul>
+<p>e.g. does your exported list of tags look like this:</p>
+<pre><code class="lang-auto">#tag1 #tag2 #tag-3 #tag 4
+</code></pre>
+<p>Another solution would be to built a custom “add tag” action for your list of tags - the useability depends on how many tags you use (e.g. you could display all possible tags in a prompt where you can then select all the tags which should be applied to the draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/2</link>
+        <pubDate>Wed, 27 Apr 2022 15:04:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-2</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+      <item>
+        <title>Is it possible to do batch import of tags into Drafts?</title>
+        <dc:creator><![CDATA[Drafts366]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a large list of tags that I wrote in both Agenda and Upnote apps that I would like to transfer to Drafts. Is it possible to do a batch import of tags? If yes, can you point me the way?</p>
+<p>I was able to copy them into a draft with the hashtags. However, what I want to do is to be able to just copy and paste them into “tags” so that I have all the tags available in Drafts without having to reenter them one at a time.</p>
+<p>Thanks for your tips!</p>
+          <p><a href="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556/1</link>
+        <pubDate>Wed, 27 Apr 2022 14:20:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12556-1</guid>
+        <source url="https://forums.getdrafts.com/t/is-it-possible-to-do-batch-import-of-tags-into-drafts/12556.rss">Is it possible to do batch import of tags into Drafts?</source>
+      </item>
+  </channel>
+</rss>

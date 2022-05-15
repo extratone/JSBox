@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>How to remove multiple lines with varying content?</title>
+    <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056</link>
+    <description>I use Drafts to create Anki cards for vocabulary learning using x-url-callback. When I read books in iBooks, I copy phrases into Drafts, later add the translation for the desired word and send it to Anki. Unfortunately, when I copy from iBooks, quotation marks are automatically put around the phrase and a copyright notice is added:
+
+&gt; „asked me a seemingly innocuous question“
+&gt; 
+&gt; **Auszug aus**
+&gt; *How to Change*
+&gt; *Katy Milkman*
+&gt; **Dieses Material ist möglicherweise urheberrechtlich geschützt.**
+
+I just want to have
+
+&gt; asked me a seemingly innocuous question
+
+I guess the unwanted content could be replaced with a Drafts action. I can do a simple search and replace using *draft.content.replace*. But how can I replace the variable part between *Auszug aus* and *Dieses Material ist möglicherweise urheberrechtlich geschützt.*? (the content in bold is static, the content in italic varies). Thanks for guidance.
+
+CM!</description>
+    
+    <lastBuildDate>Tue, 08 Feb 2022 10:16:14 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>Not an expert here, but check this action <a href="https://actions.getdrafts.com/a/10w" class="inline-onebox" rel="noopener nofollow ugc">Anti-fy selection | Drafts Directory</a> and then this forum post, see if it helps</p>
+<aside class="quote quote-modified" data-post="1" data-topic="7816">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/crownandbridge/40/5936_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/can-this-be-done-with-drafts-5/7816">Can this be done with Drafts 5?</a> 
+  </div>
+  <blockquote>
+    Hello people excited to be on this forum. I hope to learn a lot tips and best practices. 
+I’m looking for a solution to this: 
+I’m in a note, any note, and I select text, it can be a word or multiple words, and I copy it via the Norma copy paste menu or if Drafts 5 has its own. 
+Then paste it on the same note, just further down for example, a few return keys presses, but now the text has the following format: 
+{{c1::Myocardial Infarction}} 
+So my original text was: Myocardial Infarction 
+I selec…
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/9</link>
+        <pubDate>Tue, 08 Feb 2022 10:16:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-9</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s my take based on the answers you provided to my clarification questions.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://directory.getdrafts.com/a/1uq">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://directory.getdrafts.com/a/1uq" target="_blank" rel="noopener">directory.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://directory.getdrafts.com/a/1uq" target="_blank" rel="noopener">Drafts Directory: Clean for Anki</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>It’s one script step of a couple of lines. One line to change the content and one line to explicitly update the draft.</p>
+<pre><code class="lang-auto">draft.content = draft.lines.splice(0, draft.lines.length - 5).join("\n").substring(1).slice(0, -1);
+draft.update();
+</code></pre>
+<p>The action is position-based and work by removing the last five lines and the first and last characters of what remains after that.</p>
+<p>This aproach should then deal with the quotes within quotes, as well as being agnostic of the content containing any of the content in the final lines. Should you ever wish to quote multi-line entries, this approach it would also accommodate that. The only time there could be issues is if the copyright somehow varied from the standard number of lines.</p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/8</link>
+        <pubDate>Mon, 07 Feb 2022 12:52:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-8</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[CMx3]]></dc:creator>
+        <description><![CDATA[
+            <p>This is no problem, thanks. I will learn how to limit it to the beginning/end of a line, if necessary.</p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/7</link>
+        <pubDate>Mon, 07 Feb 2022 12:23:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-7</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Since I red your response above - the Regen will not work when you have a quote inside of the quoted text <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=12" title=":wink:" class="emoji" alt=":wink:"></p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/6</link>
+        <pubDate>Mon, 07 Feb 2022 12:06:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-6</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[CMx3]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, this works great (and should do so for 99% of my drafts.). I tried to identify all the rest and remove it, while you filtered what I need.</p>
+<p>No worries about my <em>academic paperwork</em> and proper citing, I just use copying from iBooks for lifelong learning with Anki <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=12" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/5</link>
+        <pubDate>Mon, 07 Feb 2022 11:31:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-5</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[CMx3]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your response.</p>
+<ol>
+<li>I only copy short fragments for context, so is only one line</li>
+<li>Yes, but not at the beginning and end of the line.</li>
+<li>Yes.</li>
+<li>Yes</li>
+<li>Yes, unlikely</li>
+<li>Once it is in the draft</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/4</link>
+        <pubDate>Mon, 07 Feb 2022 11:12:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-4</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>I think this should do what you want:</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://directory.getdrafts.com/a/1up">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://directory.getdrafts.com/a/1up" target="_blank" rel="noopener">directory.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://directory.getdrafts.com/a/1up" target="_blank" rel="noopener">Drafts Directory: AnkiCard from iBooks Highlight</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>It replaces the content of the current draft if a string between two quotation marks like in your example was found with just the text between the two quotation marks.</p>
+<p>If you have further use cases with text replacement / matching I recommend to checkout <a href="http://regex101.com">regex101.com</a> to test regex matching for string.<br>
+If you’re not familiar with regex its worth checking it out. There was a podcast episode of “The Automators” a while ago explaining the basics</p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/3</link>
+        <pubDate>Mon, 07 Feb 2022 07:12:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-3</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>One example leaves quite a few questions about the structure and how to determine what the copyright consists of, so here’s a few questions to help narrow that down and to determine when is best for you to remove the copyright notice.</p>
+<ol>
+<li>Can the text to keep be on multiple lines, or is it always just a single line as per your example?</li>
+<li>Can the quoted text contain quoted text?</li>
+<li>In your example, there is a blank line between the quoted text and the additional copyright notice. Is that the only place a blank line can occur?</li>
+<li>Is it always an exactly four line copyright notice?</li>
+<li>Does ithe copyright notice always begin with “Auszug aus” (excerpt from), and could this technically occur in the excerpt too?</li>
+<li>Do you want to remove the copyright notice from the draft once the text is in the draft, or when pasted from the clipboard into the draft?</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/2</link>
+        <pubDate>Mon, 07 Feb 2022 07:05:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-2</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+      <item>
+        <title>How to remove multiple lines with varying content?</title>
+        <dc:creator><![CDATA[CMx3]]></dc:creator>
+        <description><![CDATA[
+            <p>I use Drafts to create Anki cards for vocabulary learning using x-url-callback. When I read books in iBooks, I copy phrases into Drafts, later add the translation for the desired word and send it to Anki. Unfortunately, when I copy from iBooks, quotation marks are automatically put around the phrase and a copyright notice is added:</p>
+<blockquote>
+<p>„asked me a seemingly innocuous question“</p>
+<p><strong>Auszug aus</strong><br>
+<em>How to Change</em><br>
+<em>Katy Milkman</em><br>
+<strong>Dieses Material ist möglicherweise urheberrechtlich geschützt.</strong></p>
+</blockquote>
+<p>I just want to have</p>
+<blockquote>
+<p>asked me a seemingly innocuous question</p>
+</blockquote>
+<p>I guess the unwanted content could be replaced with a Drafts action. I can do a simple search and replace using <em>draft.content.replace</em>. But how can I replace the variable part between <em>Auszug aus</em> and <em>Dieses Material ist möglicherweise urheberrechtlich geschützt.</em>? (the content in bold is static, the content in italic varies). Thanks for guidance.</p>
+<p>CM!</p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056/1</link>
+        <pubDate>Sun, 06 Feb 2022 22:45:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12056-1</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-remove-multiple-lines-with-varying-content/12056.rss">How to remove multiple lines with varying content?</source>
+      </item>
+  </channel>
+</rss>

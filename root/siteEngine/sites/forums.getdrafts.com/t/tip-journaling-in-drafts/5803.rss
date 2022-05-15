@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>TIP: Journaling in Drafts</title>
+    <link>https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803</link>
+    <description>Drafts comes with a number of example actions to journal by appending to files in [Dropbox](https://actions.getdrafts.com/a/1EV), [iCloud Drive](https://actions.getdrafts.com/a/1EY) and other locations. This tip is about how to journal to other drafts with Drafts.
+
+All of these examples are based on the idea you want to launch Drafts, type a quick journal entry, and tap an action to append that entry to a running journal for the month, and have the action automatically roll over and create new journals for each month as you go. These examples are starting points and can be customize if you prefer to have daily journals, or weekly journals. See customization notes later in this tip.
+
+## Try the Monthly Journal Action
+
+Hop over to the action directory and install the [Monthly Journal](https://actions.getdrafts.com/a/1Zk) example action.
+
+- Open drafts and &quot;This is my journal entry&quot; in a new draft.
+- Run the &quot;Monthly Journal&quot; action.
+
+A few things will happen when you do this:
+
+- A new draft will be created for the current month, with a title like &quot;# 2019-11: Monthly Journal&quot;, assigned the tag &quot;journal&quot;.
+- The text of your current draft, along with a timestamp, will be appended the the end of that new draft.
+- Your current draft will be moved to the archive (using the [after success](https://docs.getdrafts.com/docs/actions/editing-actions.html#after-success---filing) option).
+
+Go look in the inbox and you will find a new draft with the text (with different dates and times, of course):
+
+```markdown
+# 2019-11: Monthly Journal
+
+#### 01 November 2019 03:13 PM
+
+This is my journal entry
+
+```
+
+Now, create another new draft, and type &quot;Another journal entry&quot; and run the action. The second time you run it, the action will find the existing monthly journal entry, and append the text. So if you go look at that entry again, it will now have the text:
+
+```markdown
+# 2019-11: Monthly Journal
+
+#### 01 November 2019 03:13 PM
+
+This is my journal entry
+
+#### 01 November 2019 03:35 PM
+
+Another journal entry
+
+```
+
+Each time you use the action in the same month, it will append to the journal. When a new month comes around, it will create a new entry for that month.
+
+## Create a Journal Workspace
+
+If you plan to journal in drafts with this action, or a modified version it, it is very useful to setup a [Workspace](https://docs.getdrafts.com/docs/drafts/workspaces.html) that will allow you to easily filter the drafts list to show only your journal entries.
+
+The docs show options and configuration, but since this action assigns the tag &quot;journal&quot; automatically to each journal it creates, the workspace needs only have a tag filter of `journal`.
+
+## Customizing the Action
+
+This examples is configured as described, but can be altered easily to meet your needs.  There are two script steps in the action. The first contains only a set of configuration variable which control the naming conventions for the title of the journal drafts, how the content is appended, the tag that is assigned to journals, etc.  There are comments explaining the usage in the script step.  The content variables are run through the Drafts template engine, so alterations can be made to the template tags to alter date formats, etc. If you are just getting started with templates, [this Using Templates article](https://forums.getdrafts.com/t/using-drafts-templates/3728) is a great introduction.</description>
+    
+    <lastBuildDate>Wed, 18 Dec 2019 20:02:32 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>TIP: Journaling in Drafts</title>
+        <dc:creator><![CDATA[jwithy]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, gotcha! I just saw that you said that was built into the script:</p>
+<aside class="quote no-group" data-post="1" data-topic="5803">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>Your current draft will be moved to the archive (using the <a href="https://docs.getdrafts.com/docs/actions/editing-actions.html#after-success---filing" rel="nofollow noopener">after success </a> option).</p>
+</blockquote>
+</aside>
+<p>…so I didn’t realize I needed to edit.</p>
+<p>Thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/5</link>
+        <pubDate>Wed, 18 Dec 2019 20:02:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5803-5</guid>
+        <source url="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803.rss">TIP: Journaling in Drafts</source>
+      </item>
+      <item>
+        <title>TIP: Journaling in Drafts</title>
+        <dc:creator><![CDATA[phantastes]]></dc:creator>
+        <description><![CDATA[
+            <p>I love this. Thank you. I was using a Drobox journal through Drafts but prefer this one. However I would like the option to prepend rather than append the entries. Can this be easily done with this set up?<br>
+-rg</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/4</link>
+        <pubDate>Wed, 11 Dec 2019 16:03:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5803-4</guid>
+        <source url="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803.rss">TIP: Journaling in Drafts</source>
+      </item>
+      <item>
+        <title>TIP: Journaling in Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>If you want the original action to archive the entry after running, you would only need to set the “After Success” setting for the action to “Archive”, not make any changes to the script.</p>
+<p>Without seeing your script changes, I would assume you altered the <code>d</code> variable, which refers to the draft that contains the full journal.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/3</link>
+        <pubDate>Tue, 10 Dec 2019 21:12:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5803-3</guid>
+        <source url="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803.rss">TIP: Journaling in Drafts</source>
+      </item>
+      <item>
+        <title>TIP: Journaling in Drafts</title>
+        <dc:creator><![CDATA[jwithy]]></dc:creator>
+        <description><![CDATA[
+            <p>This is so cool! I did have a question:</p>
+<p>It seems that the archiving afterwards isn’t quite working. I tried switching the flag in the script to <code>true</code>, and that archived the full journal, not the individual journal entry.</p>
+<p>Am I misunderstanding?</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/2</link>
+        <pubDate>Tue, 10 Dec 2019 20:54:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5803-2</guid>
+        <source url="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803.rss">TIP: Journaling in Drafts</source>
+      </item>
+      <item>
+        <title>TIP: Journaling in Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts comes with a number of example actions to journal by appending to files in <a href="https://actions.getdrafts.com/a/1EV" rel="nofollow noopener">Dropbox</a>, <a href="https://actions.getdrafts.com/a/1EY" rel="nofollow noopener">iCloud Drive</a> and other locations. This tip is about how to journal to other drafts with Drafts.</p>
+<p>All of these examples are based on the idea you want to launch Drafts, type a quick journal entry, and tap an action to append that entry to a running journal for the month, and have the action automatically roll over and create new journals for each month as you go. These examples are starting points and can be customize if you prefer to have daily journals, or weekly journals. See customization notes later in this tip.</p>
+<h2>Try the Monthly Journal Action</h2>
+<p>Hop over to the action directory and install the <a href="https://actions.getdrafts.com/a/1Zk" rel="nofollow noopener">Monthly Journal</a> example action.</p>
+<ul>
+<li>Open drafts and “This is my journal entry” in a new draft.</li>
+<li>Run the “Monthly Journal” action.</li>
+</ul>
+<p>A few things will happen when you do this:</p>
+<ul>
+<li>A new draft will be created for the current month, with a title like “# 2019-11: Monthly Journal”, assigned the tag “journal”.</li>
+<li>The text of your current draft, along with a timestamp, will be appended the the end of that new draft.</li>
+<li>Your current draft will be moved to the archive (using the <a href="https://docs.getdrafts.com/docs/actions/editing-actions.html#after-success---filing" rel="nofollow noopener">after success</a> option).</li>
+</ul>
+<p>Go look in the inbox and you will find a new draft with the text (with different dates and times, of course):</p>
+<pre><code class="lang-markdown"># 2019-11: Monthly Journal
+
+#### 01 November 2019 03:13 PM
+
+This is my journal entry
+
+</code></pre>
+<p>Now, create another new draft, and type “Another journal entry” and run the action. The second time you run it, the action will find the existing monthly journal entry, and append the text. So if you go look at that entry again, it will now have the text:</p>
+<pre><code class="lang-markdown"># 2019-11: Monthly Journal
+
+#### 01 November 2019 03:13 PM
+
+This is my journal entry
+
+#### 01 November 2019 03:35 PM
+
+Another journal entry
+
+</code></pre>
+<p>Each time you use the action in the same month, it will append to the journal. When a new month comes around, it will create a new entry for that month.</p>
+<h2>Create a Journal Workspace</h2>
+<p>If you plan to journal in drafts with this action, or a modified version it, it is very useful to setup a <a href="https://docs.getdrafts.com/docs/drafts/workspaces.html" rel="nofollow noopener">Workspace</a> that will allow you to easily filter the drafts list to show only your journal entries.</p>
+<p>The docs show options and configuration, but since this action assigns the tag “journal” automatically to each journal it creates, the workspace needs only have a tag filter of <code>journal</code>.</p>
+<h2>Customizing the Action</h2>
+<p>This examples is configured as described, but can be altered easily to meet your needs.  There are two script steps in the action. The first contains only a set of configuration variable which control the naming conventions for the title of the journal drafts, how the content is appended, the tag that is assigned to journals, etc.  There are comments explaining the usage in the script step.  The content variables are run through the Drafts template engine, so alterations can be made to the template tags to alter date formats, etc. If you are just getting started with templates, <a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">this Using Templates article</a> is a great introduction.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803/1</link>
+        <pubDate>Fri, 01 Nov 2019 20:52:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5803-1</guid>
+        <source url="https://forums.getdrafts.com/t/tip-journaling-in-drafts/5803.rss">TIP: Journaling in Drafts</source>
+      </item>
+  </channel>
+</rss>

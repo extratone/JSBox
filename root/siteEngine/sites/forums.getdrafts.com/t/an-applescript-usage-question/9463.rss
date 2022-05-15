@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>An AppleScript Usage Question</title>
+    <link>https://forums.getdrafts.com/t/an-applescript-usage-question/9463</link>
+    <description>Hey!
+
+New member here.  I&#39;ve poked around a bit and can&#39;t seem to anything directly on point.
+
+I&#39;m trying to run a query from another Mac app.  What I want is the &#39;name&#39; and the &#39;permalink&#39; of the current draft (the draft which has the &#39;focus&#39;)
+Something like:
+tell application &quot;Drafts&quot;
+set thisDraft to draft 1
+set theResult to {|url|:permalink of thisDraft, title:name of thisDraft}
+end tell
+return (theResult as record)
+
+Can someone steer me in the right direction?
+Thank-You.
+Steve</description>
+    
+    <lastBuildDate>Fri, 01 Jan 2021 13:10:26 +0000</lastBuildDate>
+    <category>Drafts for Mac</category>
+    <atom:link href="https://forums.getdrafts.com/t/an-applescript-usage-question/9463.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>An AppleScript Usage Question</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You could drop to calling a shell script from AppleScript to get you the answer via the <a href="https://github.com/martinfinke/xcall">xcall</a> command line app and using that to call Drafts’ <code>/getCurrentDraft</code> URL Scheme action.  Then you parse the results.</p>
+<p>Here’s a crude example, but you could try using something like <a href="https://stedolan.github.io/jq/"><code>jq</code></a> for something that’s probably more robust (it’s available via <a href="https://brew.sh">homebrew</a>).</p>
+<pre><code class="lang-auto">#!/bin/zsh
+
+# Get the JSON for the current draft from Drafts
+JSON=$(/Applications/xcall.app/Contents/MacOS/xcall -url "drafts://x-callback-url/getCurrentDraft" -activateApp NO)
+
+# Grab the line about the title and then strip out the extraneous JSON
+TITLE=$(echo $JSON | grep '"title" : "')
+TITLE=${TITLE//  \"title\" : \"/}
+TITLE=${TITLE//\"/}
+TITLE=${TITLE//,/}
+
+# Output the title
+echo $TITLE
+
+# Grab the line about the permalink and then strip out the extraneous JSON
+URL=$(echo $JSON | grep '"url" : "')
+URL=${URL//  \"url\" : \"/}
+URL=${URL//\"/}
+URL=${URL//,/}
+
+# Unescape the URL
+URL=${URL//\\/}
+
+# Output the URL
+echo $URL
+</code></pre>
+<p>The output of the script is the title on line 1 and the permalink on line 2.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/an-applescript-usage-question/9463/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/an-applescript-usage-question/9463/4</link>
+        <pubDate>Fri, 01 Jan 2021 13:10:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9463-4</guid>
+        <source url="https://forums.getdrafts.com/t/an-applescript-usage-question/9463.rss">An AppleScript Usage Question</source>
+      </item>
+      <item>
+        <title>An AppleScript Usage Question</title>
+        <dc:creator><![CDATA[Steve_Cronin]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the prompt reply!</p>
+<p>Whatever encouragement I can supply - please consider it offered.<br>
+Obviously I’d like you to consider implementing what I have described…<br>
+From this end it seems relatively straightforward - you already have a ‘make new’ operation as well as a ‘draft’ type ‘item’… It seems like my request can be reduced to implementing a special instance of this ‘draft’ item which would be ‘current draft’… Everything I need is already implemented as a ‘property’ of the ‘draft’ item…</p>
+<p>Thanks Again - Keep up the Good Work<br>
+Steve</p>
+          <p><a href="https://forums.getdrafts.com/t/an-applescript-usage-question/9463/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/an-applescript-usage-question/9463/3</link>
+        <pubDate>Tue, 29 Dec 2020 21:19:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9463-3</guid>
+        <source url="https://forums.getdrafts.com/t/an-applescript-usage-question/9463.rss">An AppleScript Usage Question</source>
+      </item>
+      <item>
+        <title>An AppleScript Usage Question</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>AppleScript support is very limited right now. Only creation of new drafts is supported. We plan to expand that support, but can’t promise a timeframe.</p>
+<p>Details in <a href="https://docs.getdrafts.com/docs/automation/applescript#using-drafts-from-applescript">documentation</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/an-applescript-usage-question/9463/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/an-applescript-usage-question/9463/2</link>
+        <pubDate>Tue, 29 Dec 2020 16:31:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9463-2</guid>
+        <source url="https://forums.getdrafts.com/t/an-applescript-usage-question/9463.rss">An AppleScript Usage Question</source>
+      </item>
+      <item>
+        <title>An AppleScript Usage Question</title>
+        <dc:creator><![CDATA[Steve_Cronin]]></dc:creator>
+        <description><![CDATA[
+            <p>Hey!</p>
+<p>New member here.  I’ve poked around a bit and can’t seem to anything directly on point.</p>
+<p>I’m trying to run a query from another Mac app.  What I want is the ‘name’ and the ‘permalink’ of the current draft (the draft which has the ‘focus’)<br>
+Something like:<br>
+tell application “Drafts”<br>
+set thisDraft to draft 1<br>
+set theResult to {|url|:permalink of thisDraft, title:name of thisDraft}<br>
+end tell<br>
+return (theResult as record)</p>
+<p>Can someone steer me in the right direction?<br>
+Thank-You.<br>
+Steve</p>
+          <p><a href="https://forums.getdrafts.com/t/an-applescript-usage-question/9463/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/an-applescript-usage-question/9463/1</link>
+        <pubDate>Tue, 29 Dec 2020 15:56:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9463-1</guid>
+        <source url="https://forums.getdrafts.com/t/an-applescript-usage-question/9463.rss">An AppleScript Usage Question</source>
+      </item>
+  </channel>
+</rss>

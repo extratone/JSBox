@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>How to: add code highlighting to markup preview</title>
+    <link>https://forums.getdrafts.com/t/how-to-add-code-highlighting-to-markup-preview/8870</link>
+    <description>That&#39;s what you can get in HTML:
+
+![Bildschirmfoto 2020-10-23 um 13.00.42|631x500](upload://7GgKMfrzEi9W7TxpGnnzjPcVhj2.png) 
+
+The following builds on input from @sylumer, @agiletortoise and @Andreas_Haberle.   
+To highlight code blocks in the markdown preview, one needs
+
+- the files `prism.js` and `prism.css` available [here](https://prismjs.com/download.html). Before you download, you have to decide which languages you want to highlight. It doesn&#39;t matter if you use the minimized or the full version of the files, but of course the minimized versions are smaller – which might come in handy (see below).
+- a preview template. Any of the existing ones is fine, just export it into Drafts&#39; Template directory in iCloud from one of the predefined preview actions. Let&#39;s call it &quot;highlight&quot;.
+- (optionally): A webserver to serve the Prism files _or_ a Gist ([as described here](https://dev.to/msicc/how-to-host-a-code-file-on-github-as-gist-to-use-in-your-application-2n0l)). See below for an alternative.
+
+Assuming that the files are available at http://example.com/Prism, add these lines to the `&lt;head&gt;` section of your template, just before `&lt;/head&gt;`
+```
+&lt;link href=&quot;https://example.com/Prism/prism.css&quot; rel=&quot;stylesheet&quot;/&gt;
+&lt;script src=&quot;https://example.com/Prism/prism.js&quot;&gt;&lt;/script&gt;
+```
+Now create a new action &quot;My Highlight&quot; (or whatever you want to call it) with &quot;HTML preview&quot; as its first step. Use the &quot;Import&quot; button to replace the predefined template with the new one (&quot;highlight&quot;).
+
+In order to get highlighted code blocks, you need to tell Prism about the language. That&#39;s done like
+this:
+```
+```language-xxx
+```
+at the beginning of the block. xxx is &quot;javascript&quot; or &quot;js&quot; for JavaScript, and you&#39;ll find all supported names on the Prism website. They support pretty much any language in use today.
+
+If you _can not_ serve the prism files from a website (either your own or a Gist), you can still highlight code blocks. In this case, you have to include prism.js and prism.css into your template like so:
+```
+&lt;style&gt;
+... complete content of prism.css
+&lt;/style&gt;
+&lt;script&gt;
+... complete content of prism.js 
+&lt;/script&gt;
+```
+That bloats the template somewhat, but should work fine otherwise. In that case, the minimized versions of the files come in handy.</description>
+    
+    <lastBuildDate>Fri, 23 Oct 2020 11:14:38 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/how-to-add-code-highlighting-to-markup-preview/8870.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>How to: add code highlighting to markup preview</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s what you can get in HTML:</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/3/35d67230a5ef27e195253966636811623cc00fb8.png" data-download-href="https://forums.getdrafts.com/uploads/default/35d67230a5ef27e195253966636811623cc00fb8" title="Bildschirmfoto 2020-10-23 um 13.00.42"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/3/35d67230a5ef27e195253966636811623cc00fb8_2_631x500.png" alt="Bildschirmfoto 2020-10-23 um 13.00.42" data-base62-sha1="7GgKMfrzEi9W7TxpGnnzjPcVhj2" width="631" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/3/35d67230a5ef27e195253966636811623cc00fb8_2_631x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/3/35d67230a5ef27e195253966636811623cc00fb8_2_946x750.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/3/35d67230a5ef27e195253966636811623cc00fb8_2_1262x1000.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/3/35d67230a5ef27e195253966636811623cc00fb8_2_10x10.png"></a></div><p></p>
+<p>The following builds on input from <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>, <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> and <a class="mention" href="https://forums.getdrafts.com/u/andreas_haberle">@Andreas_Haberle</a>.<br>
+To highlight code blocks in the markdown preview, one needs</p>
+<ul>
+<li>the files <code>prism.js</code> and <code>prism.css</code> available <a href="https://prismjs.com/download.html" rel="noopener nofollow ugc">here</a>. Before you download, you have to decide which languages you want to highlight. It doesn’t matter if you use the minimized or the full version of the files, but of course the minimized versions are smaller – which might come in handy (see below).</li>
+<li>a preview template. Any of the existing ones is fine, just export it into Drafts’ Template directory in iCloud from one of the predefined preview actions. Let’s call it “highlight”.</li>
+<li>(optionally): A webserver to serve the Prism files <em>or</em> a Gist (<a href="https://dev.to/msicc/how-to-host-a-code-file-on-github-as-gist-to-use-in-your-application-2n0l" rel="noopener nofollow ugc">as described here</a>). See below for an alternative.</li>
+</ul>
+<p>Assuming that the files are available at <a href="http://example.com/Prism" rel="noopener nofollow ugc">http://example.com/Prism</a>, add these lines to the <code>&lt;head&gt;</code> section of your template, just before <code>&lt;/head&gt;</code></p>
+<pre><code class="lang-auto">&lt;link href="https://example.com/Prism/prism.css" rel="stylesheet"/&gt;
+&lt;script src="https://example.com/Prism/prism.js"&gt;&lt;/script&gt;
+</code></pre>
+<p>Now create a new action “My Highlight” (or whatever you want to call it) with “HTML preview” as its first step. Use the “Import” button to replace the predefined template with the new one (“highlight”).</p>
+<p>In order to get highlighted code blocks, you need to tell Prism about the language. That’s done like<br>
+this:</p>
+<pre><code class="lang-auto">```language-xxx
+</code></pre>
+<p>at the beginning of the block. xxx is “javascript” or “js” for JavaScript, and you’ll find all supported names on the Prism website. They support pretty much any language in use today.</p>
+<p>If you <em>can not</em> serve the prism files from a website (either your own or a Gist), you can still highlight code blocks. In this case, you have to include prism.js and prism.css into your template like so:</p>
+<pre><code class="lang-auto">&lt;style&gt;
+... complete content of prism.css
+&lt;/style&gt;
+&lt;script&gt;
+... complete content of prism.js 
+&lt;/script&gt;
+</code></pre>
+<p>That bloats the template somewhat, but should work fine otherwise. In that case, the minimized versions of the files come in handy.</p>
+          <p><a href="https://forums.getdrafts.com/t/how-to-add-code-highlighting-to-markup-preview/8870/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/how-to-add-code-highlighting-to-markup-preview/8870/1</link>
+        <pubDate>Fri, 23 Oct 2020 11:14:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8870-1</guid>
+        <source url="https://forums.getdrafts.com/t/how-to-add-code-highlighting-to-markup-preview/8870.rss">How to: add code highlighting to markup preview</source>
+      </item>
+  </channel>
+</rss>

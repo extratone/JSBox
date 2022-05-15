@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Specifying Notebook in New Note in Evernote</title>
+    <link>https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349</link>
+    <description>Have been making heavy use of New Note in Evernote Action. Would like to be able to specify the notebook in which the new note is stored. Is this possible? If so, how?</description>
+    
+    <lastBuildDate>Mon, 10 Dec 2018 21:37:12 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Specifying Notebook in New Note in Evernote</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The <a href="https://actions.getdrafts.com/a/1C1" rel="nofollow noopener">New Note in Evernote action</a> uses a URL scheme call to pass Drafts data to the Evernote app.</p>
+<pre><code class="lang-auto">evernote://x-callback-url/new-note?type=text&amp;title=[[title]]&amp;text=[[body]]&amp;latitude=[[created_latitude]]&amp;longitude=[[created_longitude]]
+</code></pre>
+<p>If you look at the <a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21">Using Evernote with Drafts Integration Guide</a>, there’s a reference to the source information for the URL scheme - <a href="https://github.com/evernote/evernote-ios-x-callback-url" rel="nofollow noopener">x-callback-url support for Evernote iOS app (GitHub)</a>.  There’s no option there for specifying a notebook (it just uses your account’s default), and a quick search on the Evernote forums seems to confirm that.</p>
+<p>That means that to specify the notebook you would need to use the Evernote API.  There’s no native support for that in Drafts  right now, so unless you want to roll your own, you would need to look farther afield.</p>
+<p>Apple’s Shortcuts app does have Evernote API integration, and Drafts does have Shortcuts integration, so that’s an easier route.</p>
+<p>Here’s a Drafts action and a Shortcuts custom shortcut that work together to take a draft and put it into a note in a particular Evernote notebook.</p>
+<ul>
+<li>Drafts Action: <a href="https://actions.getdrafts.com/a/1RU" rel="nofollow noopener">New Evernote Note</a>.</li>
+<li>Shortcuts Custom Shortcut: <a href="https://www.icloud.com/shortcuts/d10779254b60465594a00471932f25dc" rel="nofollow noopener">Create Evernote Note from Drafts</a>.</li>
+</ul>
+<p>It takes the first line of the Draft as the note title, and the body of the draft as the note content.  It also takes any Drafts tags on the draft and adds those as tags in the Evernote note.  To specify the notebook to place the draft in, you simply set it in the final <em>Create New Note</em> Notebook parameter.  You could modify the action and shortcut to actually pass it through dynamically, but I figured this was close enough to the original Drafts action to get you set.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349/2</link>
+        <pubDate>Mon, 10 Dec 2018 21:37:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3349-2</guid>
+        <source url="https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349.rss">Specifying Notebook in New Note in Evernote</source>
+      </item>
+      <item>
+        <title>Specifying Notebook in New Note in Evernote</title>
+        <dc:creator><![CDATA[jlmjapan]]></dc:creator>
+        <description><![CDATA[
+            <p>Have been making heavy use of New Note in Evernote Action. Would like to be able to specify the notebook in which the new note is stored. Is this possible? If so, how?</p>
+          <p><a href="https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349/1</link>
+        <pubDate>Mon, 10 Dec 2018 20:31:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3349-1</guid>
+        <source url="https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349.rss">Specifying Notebook in New Note in Evernote</source>
+      </item>
+  </channel>
+</rss>

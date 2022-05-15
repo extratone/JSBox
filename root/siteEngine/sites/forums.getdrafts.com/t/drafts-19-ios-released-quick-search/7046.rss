@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 19 (iOS) Released - Quick Search</title>
+    <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046</link>
+    <description>Drafts 19 (iOS) has been released [in the App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site), details below.
+
+**See Also**: [macOS Release Notes](https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045)
+
+![r17-iOS|641x396, 75%](upload://7k0BKoShAgxdCNpyBjnemkhI86W.png) 
+
+### What&#39;s New
+
+- **Quick Search**: Global quick search feature to query for drafts, actions, workspaces and common commands in one place. 
+  - Accessed via search button at bottom of editor, by pulling down past the top of any draft in the editor, or with the shift-command-F keyboard shortcut.
+  - `/quickSearch?query=` URL action to open directly to quick search.
+  - `app.showQuickSearch(initialQuery)` scripting function.
+  - Related change: Searches (in quick search and in draft list) now support tag matches in additional to full text searching, in addition to their support for [`&quot;exact phrase&quot;` with quotes and `-omission` with hyphen](https://docs.getdrafts.com/docs/drafts/filtering#searching-drafts)
+  - _Quick Search feature requires iOS 13.1 or greater._
+  - [Documentation](https://docs.getdrafts.com/docs/drafts/quick-search)
+- **Better mouse/trackpad hover state support for iPadOS 13.4 and up**.
+- `FileManager` script object additions:
+  - `baseURL` and `basePath` properties return full `file:///` URL or POSIX path to the base directory used by the FileManager instance. This can be useful in cases where the full location of files is needed.
+  - `writeJSON(path, obj)` and `readJSON(path)` convenience functions for saving and restoring JavaScript objects in files.
+  - [`FileManager` docs](https://scripting.getdrafts.com/classes/filemanager.html)
+- `app.showDraftInfo(draft?)` function to display details of a draft. [Docs](https://scripting.getdrafts.com/classes/app#showdraftinfo)
+- Additional `Workspace` script object properties:
+    - `loadActionListGroup` (ActionGroup)
+    - `loadActionBarGroup` (ActionGroup)
+    - `loadFolder` (&quot;inbox&quot;, &quot;archive&quot;, &quot;trash&quot;, &quot;flagged&quot;)
+    - [Docs](https://scripting.getdrafts.com/classes/workspace.html)
+
+### Other Changes
+
+- **Fix:** Display issue in workspaces widget for unsubscribed users.
+- **Change:** Better visibility of empty states
+- **Fix:** &quot;After success&quot; filing options on actions could cause the next draft to be selected in other windows than the one triggering the action on iPad.
+- **Fix:** Bug affected restoring tag filter &quot;all/any&quot; status in workspaces saved in state restoration sessions.
+- **Change:** Improve identification of HTML tags in Markdown syntax.
+- Misc. other reliability and performance improvements.
+
+For a complete history of updates, visit the [changelog](https://docs.getdrafts.com/docs/misc/changelog-ios)</description>
+    
+    <lastBuildDate>Mon, 13 Apr 2020 11:51:36 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p><code>loadActionListGroup()</code> is a workspace function as Greg noted above, not an app function as you were asking for above.</p>
+<p><a href="https://scripting.getdrafts.com/classes/workspace#loadactionlistgroup" class="onebox" target="_blank" rel="nofollow noopener">https://scripting.getdrafts.com/classes/workspace#loadactionlistgroup</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/10</link>
+        <pubDate>Mon, 13 Apr 2020 11:51:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-10</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[phywand]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you. Apparent stupidity here cause in part by cobbling, based on the AgileTortoise example above, having started from trying to set these for a workspace, as here(<a href="https://scripting.getdrafts.com/classes/workspace#loadactionlistgroup" rel="nofollow noopener">https://scripting.getdrafts.com/classes/workspace#loadactionlistgroup</a>) which I could not get to work, nor the loadactionbargroup…then when one worked for app.xxx and the other did not, my pattern -recognition systems fused. If none of that is helpful, please ignore.</p>
+<p>And I cannot reply, because Im new around here. So here is part of my original script:</p>
+<blockquote>
+<p>let ws = Workspace.create();<br>
+ws.name = thisview[0].view;<br>
+ws.tagFilter = thisview[0].tags;<br>
+ws.queryString = thisview[0].query;<br>
+ws.setInboxSort(“modified”, true);<br>
+const bargroup = ActionGroup.find(thisview[0].actionbar);<br>
+ws.loadActionBarGroup(bargroup);<br>
+const listgroup = ActionGroup.find(thisview[0]. actionlist);<br>
+ws.loadActionListGroup(listgroup);</p>
+</blockquote>
+<p>ws.name, ws.tagFilter,ws.queryString, ws.setInboxSort work here. ws.loadActionBarGroup, ws.loadActionListGroup throw errors, claiming they’re not functions (even if I feed a string directly into the argument). Which is how I ended up here, trying to clone a pattern from the entry above, failing, then switching to app.loadActionBarGroup &amp; app.loadActionListGroup &amp; failing again.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/9</link>
+        <pubDate>Mon, 13 Apr 2020 11:23:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-9</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Try <code>loadActionGroup()</code> rather than <code>loadActionListGroup()</code> - that’s what’s listed in the docs.</p>
+<p><a href="https://scripting.getdrafts.com/classes/app#loadactiongroup" class="onebox" target="_blank" rel="nofollow noopener">https://scripting.getdrafts.com/classes/app#loadactiongroup</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/8</link>
+        <pubDate>Mon, 13 Apr 2020 11:14:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-8</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[phywand]]></dc:creator>
+        <description><![CDATA[
+            <p>I am having a bit of strife. The first air of Iines here work, the second two don’t, reporting that app.loadActionListGroup  is not a function…</p>
+<blockquote>
+<p>const bargroup = ActionGroup.find(“MarkdownPlus”);<br>
+app.loadActionBarGroup(bargroup);<br>
+const listgroup = ActionGroup.find(“WrangleDraft”);<br>
+app.loadActionListGroup(listgroup);</p>
+</blockquote>
+<p>I did try reading the Docs…</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/7</link>
+        <pubDate>Mon, 13 Apr 2020 11:11:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-7</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[suderman]]></dc:creator>
+        <description><![CDATA[
+            <p>Quick Search is <strong>AWESOME</strong>.</p>
+<p>Perfect on iPhone and Draft’s custom keyboard shortcuts make it a dream on iPad too. I created a simple Action to Quick Search the current selection:</p>
+<p><code>app.showQuickSearch(editor.getSelectedText());</code></p>
+<p>…and assigned that to <code>⌘/</code> and now I’m flying through my drafts like it has its very own Spotlight.</p>
+<p>Well done! <img src="https://forums.getdrafts.com/images/emoji/apple/+1.png?v=9" title=":+1:" class="emoji" alt=":+1:"> <img src="https://forums.getdrafts.com/images/emoji/apple/+1.png?v=9" title=":+1:" class="emoji" alt=":+1:"></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/6</link>
+        <pubDate>Thu, 02 Apr 2020 15:45:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-6</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[shawnyeager]]></dc:creator>
+        <description><![CDATA[
+            <p>Quick search is <img src="https://forums.getdrafts.com/images/emoji/apple/fire.png?v=9" title=":fire:" class="emoji" alt=":fire:">. Love it.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/5</link>
+        <pubDate>Thu, 02 Apr 2020 14:56:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-5</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[evantravers]]></dc:creator>
+        <description><![CDATA[
+            <p>Just going to say… actual physical fist pump when I saw the change log. Thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/4</link>
+        <pubDate>Thu, 02 Apr 2020 14:45:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Only creating drafts is supported at this time. Fetching properties/drafts is not yet supported…but some of the objects had to be stubbed. It will get cleaned up when support gets deeper.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/3</link>
+        <pubDate>Thu, 02 Apr 2020 14:21:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The AppleScript dictionary entry for <code>draft</code> is showing <code>name</code> for a property that is accessed as <code>title</code>.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/3/3d452c7407fe30c5e4aeadcb6155934bcb1749ba.png" data-download-href="https://forums.getdrafts.com/uploads/default/3d452c7407fe30c5e4aeadcb6155934bcb1749ba" title="2020-04-02-14.59.51_screenshot"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3d452c7407fe30c5e4aeadcb6155934bcb1749ba_2_690x300.png" alt="2020-04-02-14.59.51_screenshot" data-base62-sha1="8K1kqMQ339cuLKuRQxNbNIMVSH0" width="690" height="300" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3d452c7407fe30c5e4aeadcb6155934bcb1749ba_2_690x300.png, https://forums.getdrafts.com/uploads/default/optimized/2X/3/3d452c7407fe30c5e4aeadcb6155934bcb1749ba_2_1035x450.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/3/3d452c7407fe30c5e4aeadcb6155934bcb1749ba_2_1380x600.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3d452c7407fe30c5e4aeadcb6155934bcb1749ba_2_10x10.png"></a></div><p></p>
+<p><em>I flagged this a couple of times on the Slack group, but didn’t get a confirmation on if it was an issue.</em></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/2</link>
+        <pubDate>Thu, 02 Apr 2020 14:07:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+      <item>
+        <title>Drafts 19 (iOS) Released - Quick Search</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts 19 (iOS) has been released <a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">in the App Store</a>, details below.</p>
+<p><strong>See Also</strong>: <a href="https://forums.getdrafts.com/t/drafts-19-macos-released-quick-search-applescript/7045">macOS Release Notes</a></p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/3/3352448b98d405aeb3dbed5a2b79732ee11aa67e.png" alt="r17-iOS" data-base62-sha1="7k0BKoShAgxdCNpyBjnemkhI86W" width="480" height="297"></p>
+<h3>What’s New</h3>
+<ul>
+<li>
+<strong>Quick Search</strong>: Global quick search feature to query for drafts, actions, workspaces and common commands in one place.
+<ul>
+<li>Accessed via search button at bottom of editor, by pulling down past the top of any draft in the editor, or with the shift-command-F keyboard shortcut.</li>
+<li>
+<code>/quickSearch?query=</code> URL action to open directly to quick search.</li>
+<li>
+<code>app.showQuickSearch(initialQuery)</code> scripting function.</li>
+<li>Related change: Searches (in quick search and in draft list) now support tag matches in additional to full text searching, in addition to their support for <a href="https://docs.getdrafts.com/docs/drafts/filtering#searching-drafts"><code>"exact phrase"</code> with quotes and <code>-omission</code> with hyphen</a>
+</li>
+<li><em>Quick Search feature requires iOS 13.1 or greater.</em></li>
+<li><a href="https://docs.getdrafts.com/docs/drafts/quick-search">Documentation</a></li>
+</ul>
+</li>
+<li>
+<strong>Better mouse/trackpad hover state support for iPadOS 13.4 and up</strong>.</li>
+<li>
+<code>FileManager</code> script object additions:
+<ul>
+<li>
+<code>baseURL</code> and <code>basePath</code> properties return full <code>file:///</code> URL or POSIX path to the base directory used by the FileManager instance. This can be useful in cases where the full location of files is needed.</li>
+<li>
+<code>writeJSON(path, obj)</code> and <code>readJSON(path)</code> convenience functions for saving and restoring JavaScript objects in files.</li>
+<li><a href="https://scripting.getdrafts.com/classes/filemanager.html"><code>FileManager</code> docs</a></li>
+</ul>
+</li>
+<li>
+<code>app.showDraftInfo(draft?)</code> function to display details of a draft. <a href="https://scripting.getdrafts.com/classes/app#showdraftinfo">Docs</a>
+</li>
+<li>Additional <code>Workspace</code> script object properties:
+<ul>
+<li>
+<code>loadActionListGroup</code> (ActionGroup)</li>
+<li>
+<code>loadActionBarGroup</code> (ActionGroup)</li>
+<li>
+<code>loadFolder</code> (“inbox”, “archive”, “trash”, “flagged”)</li>
+<li><a href="https://scripting.getdrafts.com/classes/workspace.html">Docs</a></li>
+</ul>
+</li>
+</ul>
+<h3>Other Changes</h3>
+<ul>
+<li>
+<strong>Fix:</strong> Display issue in workspaces widget for unsubscribed users.</li>
+<li>
+<strong>Change:</strong> Better visibility of empty states</li>
+<li>
+<strong>Fix:</strong> “After success” filing options on actions could cause the next draft to be selected in other windows than the one triggering the action on iPad.</li>
+<li>
+<strong>Fix:</strong> Bug affected restoring tag filter “all/any” status in workspaces saved in state restoration sessions.</li>
+<li>
+<strong>Change:</strong> Improve identification of HTML tags in Markdown syntax.</li>
+<li>Misc. other reliability and performance improvements.</li>
+</ul>
+<p>For a complete history of updates, visit the <a href="https://docs.getdrafts.com/docs/misc/changelog-ios">changelog</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046/1</link>
+        <pubDate>Thu, 02 Apr 2020 13:49:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7046-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-19-ios-released-quick-search/7046.rss">Drafts 19 (iOS) Released - Quick Search</source>
+      </item>
+  </channel>
+</rss>

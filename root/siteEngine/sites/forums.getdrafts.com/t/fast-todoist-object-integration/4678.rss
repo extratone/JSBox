@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>(fast) todoist object integration</title>
+    <link>https://forums.getdrafts.com/t/fast-todoist-object-integration/4678</link>
+    <description>Hi guys,
+
+I wanted to share a (at least for me) new method to integrate the todoist objects or better said a much faster use of it in scripts.
+Earlier I used the methods of [this](https://actions.getdrafts.com/g/1L3) todoist example action group to push tasks to todoist. E.g. create a prompt with all projects/labels to select it, maybe pick a due date and publish the task(s).
+What annoyed me all the time was how long it takes to retrieve all the information everytime I want to create a task (especially when the internet connection is not that fast.
+Another thing was that I always needed to copy paste the code into other scripts to make project names and so on available to the new action.
+Thats when I started with developing my own method.
+First I created a script which retrieves all the information and stores it in variables which can be used later in other scripts. The script stored all the project names and corresponding IDs (and the same for the labels).
+Personally I no longer store scripts directly in the actions but in script drafts and use the ```eval() ``` function in the drafts action to run the code.
+So at this stage I was able to just put the line ```eval(Draft.find(&quot;UUID&quot;)```.content to the beginning of each todoist action and then use all the variabls in the action I&#39;m building up. To clarify this a little bit, like in the linked action group - I save these variables:
+- projectNames includes the names of all projects in todoist as array of stings
+- labelNames includes the names of all labels in todoist as array of stings
+- projectLookup can be used to retrieve the todoist internal ID of a project:
+   usage: ```projectLookup[validProjectName(in projectNames)]```
+- labelLookup can be used to retrieve the todoist internal ID of a label:
+usage: ```labelLookup[validLabelName(in labelNames)]```
+
+Now I was able to get rid of all the duplicated code, but I still had the &quot;issue&quot; with long execution times because the data always was fetched from todoist and so on.
+Then I thought about how often I create a project in todoist and came to the conclusion that this really does not happen very often (once a week at the most). So why do I need to retrieve all the information everytime I execute the action? Actually I don&#39;t. Thats why I started to create an action which stores all the project/label names and IDs in the iCloud Drive folder of drafts with a script in a JSON parseable string. I created an action which also stores the milliseconds timestamp at the beginning of the projectIDs file, based on this timestamp, a script can distinguish if its needed to reload the data from todoist or if its ok to use the data from the file. 
+The start of my script is the following:
+```
+if (checkUpdateNecessary() || forceUpdate) {
+retrieveTodoistInformation();
+writeSettingsToFile();
+} 
+```
+The ```checkUpdateNecessary()``` function calculates the time difference between now (the time of execution) and the timestamp in the projectIDs file. If it returns true or the forceUpdate flag is set to true, the APIs getProjects() and getLabels() documented [here](https://reference.getdrafts.com/objects/Todoist.html) are called and all the informations are stored in the file with the ```writeSettingsToFile()``` function by using the fileManager object in drafts. It was a little bit faster then retrieving the information everytime from todoist but I was a little bit dissapointed. Then I experienced a massive speed increase when I switched from storing the file in iCloud Drive to storing it locally on the device  [Literally while I&#39;m writing this I thought about why I didn&#39;t just store this in a draft....]. The execution time of getting all the todoist informationdecreased by more than a second (on 4G LTE) to nearlly zero. The bottleneck of speed is now just the publishing of the tasks but I can live with that. 
+I think I&#39;ll try to move from the local file to a draft (mainly because this is easier to maintain and explain to others) but I was impressed on how quick it is just now.
+The code and usage is not very easy but I thought it could be useful for some of you guys, too.
+
+Here is the code - its really not quite finished, but I wanted to share it and see if someone else finds this useful - I can poste sample codes for the creation of tasks, too and I&#39;ll update here if I found better solutions or created an action group in the end:
+
+```
+// get all todoist projects&amp;labels from local file and update if necessary
+
+//eval(Draft.find(&quot;this-drafts-uuid&quot;).content); - this line is just there to easily copy the evaluation of this script to any other draft
+
+let forceUpdate = false;
+const folderName = &quot;todoistSettings&quot;;
+const projectIDsFileName = &quot;allProjectIDs&quot;
+const labelIDsFileName = &quot;allLabelsIDs&quot;
+
+// init projectIDs and labelIDs arrays
+var projectIDs = [];
+var labelIDs = [];
+
+//input time
+let now = Date.now();
+
+let maxTimeDiff = 168 //once a week - the difference is calcualted in hours
+
+//create File Manager Local
+var fm = FileManager.createLocal();
+
+var projectIDsString, labelIDsString;
+var checkUpdateNecessary = () =&gt; {
+if (!getSettingsIfAvailable()) {
+return true;
+} else {
+
+let fileContent = fm.readString(&quot;/todoistSettings/&quot; + projectIDsFileName + &quot;.txt&quot;);
+var fileContentLines = fileContent.split(&quot;\n&quot;);
+let creationTime = fileContentLines[0];
+projectIDsString = fileContentLines[1];
+let timeDiff = now - creationTime;
+let timeDiffHours = timeDiff / 3600000;
+labelIDsString = fm.readString(&quot;/todoistSettings/&quot; + labelIDsFileName + &quot;.txt&quot;);
+if (timeDiffHours &gt; maxTimeDiff) {
+return true;
+} else {
+return false;
+}
+}
+}
+
+var getSettingsIfAvailable = () =&gt; {
+// check if directory exists
+if (fm.listContents(&quot;/&quot;).toString().includes(folderName)) {
+//dir exists, nothing to be done
+return true;
+} else {
+// directory doesn&#39;t exist, create it
+fm.createDirectory(folderName, &quot;/&quot;);
+return false;
+}
+}
+
+// utility function
+let mapIds = (arr, key, valKey) =&gt; {
+let result = {};
+arr.forEach(o =&gt; {
+result[o[key]] = o[valKey];
+})
+return result;
+}
+let retrieveTodoistInformation = () =&gt; {
+
+// create Todoist object and load project and label lists - I included another draft with eval() here, thats why the projectLookup... variables are at the bottom again.
+var todoist = Todoist.create();
+let projects = todoist.getProjects();
+let labels = todoist.getLabels();
+
+if (!projects || !labels) {
+console.fail(&quot;Unable to retreive data from Todoist.&quot;);
+}
+let projectLookup = mapIds(projects, &quot;name&quot;, &quot;id&quot;);
+let labelLookup = mapIds(labels, &quot;name&quot;, &quot;id&quot;);
+let projectNames = Object.keys(projectLookup);
+let labelNames = Object.keys(labelLookup);
+let labelIdLookup = mapIds(labels, &quot;id&quot;, &quot;name&quot;);
+let projectIdLookup = mapIds(projects, &quot;id&quot;, &quot;name&quot;);
+
+if (!projectLookup || !labelLookup) {
+console.log(&quot;Unable to retreive data from Todoist.&quot;);
+return false;
+}
+for (name of projectNames) {
+projectIDs.push([name, projectLookup[name]]);
+}
+for (name of labelNames) {
+labelIDs.push([name, labelLookup[name]]);
+}
+}
+
+var writeSettingsToFile = () =&gt; {
+fm.writeString(&quot;/todoistSettings/&quot; + projectIDsFileName + &quot;.txt&quot;, now + &quot;\n&quot; + JSON.stringify(projectIDs));
+fm.writeString(&quot;/todoistSettings/&quot; + labelIDsFileName + &quot;.txt&quot;, JSON.stringify(labelIDs));
+}
+
+
+if (checkUpdateNecessary() || forceUpdate) {
+retrieveTodoistInformation();
+writeSettingsToFile();
+} else {
+
+}
+
+var todoist = Todoist.create();
+projectIDs = &quot;[&quot;;
+labelIDs = &quot;[&quot;;
+let parsedProjectString = JSON.parse(projectIDsString);
+let parsedLabelString = JSON.parse(labelIDsString);
+
+for (let [prjName, prjID] of parsedProjectString) {
+projectIDs = projectIDs + &quot;{\&quot;name\&quot;:\&quot;&quot; + prjName + &quot;\&quot;,\&quot;id\&quot;:\&quot;&quot; + prjID + &quot;\&quot;},&quot;;
+}
+
+for (let [labelName, labelID] of parsedLabelString) {
+labelIDs = labelIDs + &quot;{\&quot;name\&quot;:\&quot;&quot; + labelName + &quot;\&quot;,\&quot;id\&quot;:\&quot;&quot; + labelID + &quot;\&quot;},&quot;;
+}
+
+projectIDs = projectIDs.substr(0, projectIDs.length - 1);
+projectIDs = projectIDs + &quot;]&quot;;
+let parsedProjectIDs = JSON.parse(projectIDs);
+labelIDs = labelIDs.substr(0, labelIDs.length - 1);
+labelIDs = labelIDs + &quot;]&quot;;
+let parsedLabelIDs = JSON.parse(labelIDs);
+
+let mapIds = (arr, key, valKey) =&gt; {
+let result = {};
+arr.forEach(o =&gt; {
+result[o[key]] = o[valKey];
+})
+return result;
+}
+
+var projectLookup = mapIds(parsedProjectIDs, &quot;name&quot;, &quot;id&quot;);
+var projectIdLookup = mapIds(parsedProjectIDs, &quot;id&quot;, &quot;name&quot;);
+var projectNames = Object.keys(projectLookup);
+var labelLookup = mapIds(parsedLabelIDs, &quot;name&quot;, &quot;id&quot;);
+var labelIdLookup = mapIds(parsedLabelIDs, &quot;id&quot;, &quot;name&quot;);
+var labelNames = Object.keys(labelLookup);
+```</description>
+    
+    <lastBuildDate>Mon, 13 May 2019 10:17:38 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/fast-todoist-object-integration/4678.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>(fast) todoist object integration</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi guys,</p>
+<p>I wanted to share a (at least for me) new method to integrate the todoist objects or better said a much faster use of it in scripts.<br>
+Earlier I used the methods of <a href="https://actions.getdrafts.com/g/1L3" rel="nofollow noopener">this</a> todoist example action group to push tasks to todoist. E.g. create a prompt with all projects/labels to select it, maybe pick a due date and publish the task(s).<br>
+What annoyed me all the time was how long it takes to retrieve all the information everytime I want to create a task (especially when the internet connection is not that fast.<br>
+Another thing was that I always needed to copy paste the code into other scripts to make project names and so on available to the new action.<br>
+Thats when I started with developing my own method.<br>
+First I created a script which retrieves all the information and stores it in variables which can be used later in other scripts. The script stored all the project names and corresponding IDs (and the same for the labels).<br>
+Personally I no longer store scripts directly in the actions but in script drafts and use the <code>eval()</code> function in the drafts action to run the code.<br>
+So at this stage I was able to just put the line <code>eval(Draft.find("UUID")</code>.content to the beginning of each todoist action and then use all the variabls in the action I’m building up. To clarify this a little bit, like in the linked action group - I save these variables:</p>
+<ul>
+<li>projectNames includes the names of all projects in todoist as array of stings</li>
+<li>labelNames includes the names of all labels in todoist as array of stings</li>
+<li>projectLookup can be used to retrieve the todoist internal ID of a project:<br>
+usage: <code>projectLookup[validProjectName(in projectNames)]</code>
+</li>
+<li>labelLookup can be used to retrieve the todoist internal ID of a label:<br>
+usage: <code>labelLookup[validLabelName(in labelNames)]</code>
+</li>
+</ul>
+<p>Now I was able to get rid of all the duplicated code, but I still had the “issue” with long execution times because the data always was fetched from todoist and so on.<br>
+Then I thought about how often I create a project in todoist and came to the conclusion that this really does not happen very often (once a week at the most). So why do I need to retrieve all the information everytime I execute the action? Actually I don’t. Thats why I started to create an action which stores all the project/label names and IDs in the iCloud Drive folder of drafts with a script in a JSON parseable string. I created an action which also stores the milliseconds timestamp at the beginning of the projectIDs file, based on this timestamp, a script can distinguish if its needed to reload the data from todoist or if its ok to use the data from the file.<br>
+The start of my script is the following:</p>
+<pre><code class="lang-auto">if (checkUpdateNecessary() || forceUpdate) {
+retrieveTodoistInformation();
+writeSettingsToFile();
+} 
+</code></pre>
+<p>The <code>checkUpdateNecessary()</code> function calculates the time difference between now (the time of execution) and the timestamp in the projectIDs file. If it returns true or the forceUpdate flag is set to true, the APIs getProjects() and getLabels() documented <a href="https://reference.getdrafts.com/objects/Todoist.html" rel="nofollow noopener">here</a> are called and all the informations are stored in the file with the <code>writeSettingsToFile()</code> function by using the fileManager object in drafts. It was a little bit faster then retrieving the information everytime from todoist but I was a little bit dissapointed. Then I experienced a massive speed increase when I switched from storing the file in iCloud Drive to storing it locally on the device  [Literally while I’m writing this I thought about why I didn’t just store this in a draft…]. The execution time of getting all the todoist informationdecreased by more than a second (on 4G LTE) to nearlly zero. The bottleneck of speed is now just the publishing of the tasks but I can live with that.<br>
+I think I’ll try to move from the local file to a draft (mainly because this is easier to maintain and explain to others) but I was impressed on how quick it is just now.<br>
+The code and usage is not very easy but I thought it could be useful for some of you guys, too.</p>
+<p>Here is the code - its really not quite finished, but I wanted to share it and see if someone else finds this useful - I can poste sample codes for the creation of tasks, too and I’ll update here if I found better solutions or created an action group in the end:</p>
+<pre><code class="lang-auto">// get all todoist projects&amp;labels from local file and update if necessary
+
+//eval(Draft.find("this-drafts-uuid").content); - this line is just there to easily copy the evaluation of this script to any other draft
+
+let forceUpdate = false;
+const folderName = "todoistSettings";
+const projectIDsFileName = "allProjectIDs"
+const labelIDsFileName = "allLabelsIDs"
+
+// init projectIDs and labelIDs arrays
+var projectIDs = [];
+var labelIDs = [];
+
+//input time
+let now = Date.now();
+
+let maxTimeDiff = 168 //once a week - the difference is calcualted in hours
+
+//create File Manager Local
+var fm = FileManager.createLocal();
+
+var projectIDsString, labelIDsString;
+var checkUpdateNecessary = () =&gt; {
+if (!getSettingsIfAvailable()) {
+return true;
+} else {
+
+let fileContent = fm.readString("/todoistSettings/" + projectIDsFileName + ".txt");
+var fileContentLines = fileContent.split("\n");
+let creationTime = fileContentLines[0];
+projectIDsString = fileContentLines[1];
+let timeDiff = now - creationTime;
+let timeDiffHours = timeDiff / 3600000;
+labelIDsString = fm.readString("/todoistSettings/" + labelIDsFileName + ".txt");
+if (timeDiffHours &gt; maxTimeDiff) {
+return true;
+} else {
+return false;
+}
+}
+}
+
+var getSettingsIfAvailable = () =&gt; {
+// check if directory exists
+if (fm.listContents("/").toString().includes(folderName)) {
+//dir exists, nothing to be done
+return true;
+} else {
+// directory doesn't exist, create it
+fm.createDirectory(folderName, "/");
+return false;
+}
+}
+
+// utility function
+let mapIds = (arr, key, valKey) =&gt; {
+let result = {};
+arr.forEach(o =&gt; {
+result[o[key]] = o[valKey];
+})
+return result;
+}
+let retrieveTodoistInformation = () =&gt; {
+
+// create Todoist object and load project and label lists - I included another draft with eval() here, thats why the projectLookup... variables are at the bottom again.
+var todoist = Todoist.create();
+let projects = todoist.getProjects();
+let labels = todoist.getLabels();
+
+if (!projects || !labels) {
+console.fail("Unable to retreive data from Todoist.");
+}
+let projectLookup = mapIds(projects, "name", "id");
+let labelLookup = mapIds(labels, "name", "id");
+let projectNames = Object.keys(projectLookup);
+let labelNames = Object.keys(labelLookup);
+let labelIdLookup = mapIds(labels, "id", "name");
+let projectIdLookup = mapIds(projects, "id", "name");
+
+if (!projectLookup || !labelLookup) {
+console.log("Unable to retreive data from Todoist.");
+return false;
+}
+for (name of projectNames) {
+projectIDs.push([name, projectLookup[name]]);
+}
+for (name of labelNames) {
+labelIDs.push([name, labelLookup[name]]);
+}
+}
+
+var writeSettingsToFile = () =&gt; {
+fm.writeString("/todoistSettings/" + projectIDsFileName + ".txt", now + "\n" + JSON.stringify(projectIDs));
+fm.writeString("/todoistSettings/" + labelIDsFileName + ".txt", JSON.stringify(labelIDs));
+}
+
+
+if (checkUpdateNecessary() || forceUpdate) {
+retrieveTodoistInformation();
+writeSettingsToFile();
+} else {
+
+}
+
+var todoist = Todoist.create();
+projectIDs = "[";
+labelIDs = "[";
+let parsedProjectString = JSON.parse(projectIDsString);
+let parsedLabelString = JSON.parse(labelIDsString);
+
+for (let [prjName, prjID] of parsedProjectString) {
+projectIDs = projectIDs + "{\"name\":\"" + prjName + "\",\"id\":\"" + prjID + "\"},";
+}
+
+for (let [labelName, labelID] of parsedLabelString) {
+labelIDs = labelIDs + "{\"name\":\"" + labelName + "\",\"id\":\"" + labelID + "\"},";
+}
+
+projectIDs = projectIDs.substr(0, projectIDs.length - 1);
+projectIDs = projectIDs + "]";
+let parsedProjectIDs = JSON.parse(projectIDs);
+labelIDs = labelIDs.substr(0, labelIDs.length - 1);
+labelIDs = labelIDs + "]";
+let parsedLabelIDs = JSON.parse(labelIDs);
+
+let mapIds = (arr, key, valKey) =&gt; {
+let result = {};
+arr.forEach(o =&gt; {
+result[o[key]] = o[valKey];
+})
+return result;
+}
+
+var projectLookup = mapIds(parsedProjectIDs, "name", "id");
+var projectIdLookup = mapIds(parsedProjectIDs, "id", "name");
+var projectNames = Object.keys(projectLookup);
+var labelLookup = mapIds(parsedLabelIDs, "name", "id");
+var labelIdLookup = mapIds(parsedLabelIDs, "id", "name");
+var labelNames = Object.keys(labelLookup);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/fast-todoist-object-integration/4678/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fast-todoist-object-integration/4678/1</link>
+        <pubDate>Mon, 13 May 2019 09:43:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4678-1</guid>
+        <source url="https://forums.getdrafts.com/t/fast-todoist-object-integration/4678.rss">(fast) todoist object integration</source>
+      </item>
+  </channel>
+</rss>

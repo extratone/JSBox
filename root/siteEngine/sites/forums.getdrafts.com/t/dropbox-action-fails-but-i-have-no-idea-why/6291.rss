@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Dropbox action fails, but I have no idea why</title>
+    <link>https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291</link>
+    <description>I am playing with the default [Save To Dropbox](https://actions.getdrafts.com/a/1EU) action (&quot;Save to timestamped file in Dropbox.&quot;).
+
+I was able to authorize against Dropbox, and then Drafts created the file as expected, but now a day later when I run the action it always returns non-success (i.e. it shows the exclamation mark).
+
+I have already tried to delete the authorization and re-authorize against Dropbox, but with the same result: Just a red exclamation mark next to the *Save To Dropbox* name, but nothing else. I have no idea why. 
+
+What&#39;s going wrong? How can i debug this?</description>
+    
+    <lastBuildDate>Tue, 07 Jan 2020 08:46:16 +0000</lastBuildDate>
+    <category>Issues</category>
+    <atom:link href="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Dropbox action fails, but I have no idea why</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Retry on a solid data connection to confirm your suspicion.</p>
+<p>As far as I know, there isn’t a way to display the action log to the user, but if the action fails you can set the notification to be displayed (if it isn’t already). That should be a prompt for the user to check the log.</p>
+<p>If you want more control over that aspect, you could switch to using the [Dropbox object in scripting](<a href="https://scripting.getdrafts.com/classes/Dropbox" rel="nofollow noopener">https://scripting.getdrafts.com/classes/Dropbox</a> . html) and then process and display any errors that occur.</p>
+          <p><a href="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/5</link>
+        <pubDate>Tue, 07 Jan 2020 08:46:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6291-5</guid>
+        <source url="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291.rss">Dropbox action fails, but I have no idea why</source>
+      </item>
+      <item>
+        <title>Dropbox action fails, but I have no idea why</title>
+        <dc:creator><![CDATA[halloleo]]></dc:creator>
+        <description><![CDATA[
+            <p>I get errors like this:</p>
+<pre><code class="lang-auto">Dropbox Error: 53 The operation couldn’t be completed. Software caused connection abort
+
+Dropbox Error: 53 The operation couldn’t be completed. Software caused connection abort
+
+Dropbox Error: -1001 The request timed out.
+
+Dropbox Error: -1001 The request timed out.
+
+Dropbox Error: 53 The operation couldn’t be completed. Software caused connection abort
+
+Dropbox Error: 53 The operation couldn’t be completed. Software caused connection abort
+</code></pre>
+<p>Maybe my internet connection was flaky. - Is there a way to get this log info in JavaScript (after <code>Dropbox.create()</code>) in order to show it in an alert directly to the user?</p>
+          <p><a href="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/4</link>
+        <pubDate>Tue, 07 Jan 2020 07:51:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6291-4</guid>
+        <source url="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291.rss">Dropbox action fails, but I have no idea why</source>
+      </item>
+      <item>
+        <title>Dropbox action fails, but I have no idea why</title>
+        <dc:creator><![CDATA[halloleo]]></dc:creator>
+        <description><![CDATA[
+            <p>Cool. Will have a look tomorrow when I’m back at the Mac. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/3</link>
+        <pubDate>Mon, 06 Jan 2020 12:41:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6291-3</guid>
+        <source url="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291.rss">Dropbox action fails, but I have no idea why</source>
+      </item>
+      <item>
+        <title>Dropbox action fails, but I have no idea why</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Do you have anything of note in the Action log?</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/5c0cc117a6b9d3a4f004daf59096c7a1a2c40e73.png" class="site-icon" width="32" height="32">
+      <a href="https://docs.getdrafts.com/docs/actions/action-log.html" target="_blank" rel="nofollow noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/2/2410e3d73e91597863e0ea00626db2a387ce5047_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/2/2410e3d73e91597863e0ea00626db2a387ce5047_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/2/2410e3d73e91597863e0ea00626db2a387ce5047_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/2/2410e3d73e91597863e0ea00626db2a387ce5047.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/2410e3d73e91597863e0ea00626db2a387ce5047_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/actions/action-log.html" target="_blank" rel="nofollow noopener">Action Log</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/2</link>
+        <pubDate>Mon, 06 Jan 2020 07:31:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6291-2</guid>
+        <source url="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291.rss">Dropbox action fails, but I have no idea why</source>
+      </item>
+      <item>
+        <title>Dropbox action fails, but I have no idea why</title>
+        <dc:creator><![CDATA[halloleo]]></dc:creator>
+        <description><![CDATA[
+            <p>I am playing with the default <a href="https://actions.getdrafts.com/a/1EU" rel="nofollow noopener">Save To Dropbox</a> action (“Save to timestamped file in Dropbox.”).</p>
+<p>I was able to authorize against Dropbox, and then Drafts created the file as expected, but now a day later when I run the action it always returns non-success (i.e. it shows the exclamation mark).</p>
+<p>I have already tried to delete the authorization and re-authorize against Dropbox, but with the same result: Just a red exclamation mark next to the <em>Save To Dropbox</em> name, but nothing else. I have no idea why.</p>
+<p>What’s going wrong? How can i debug this?</p>
+          <p><a href="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291/1</link>
+        <pubDate>Mon, 06 Jan 2020 05:02:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6291-1</guid>
+        <source url="https://forums.getdrafts.com/t/dropbox-action-fails-but-i-have-no-idea-why/6291.rss">Dropbox action fails, but I have no idea why</source>
+      </item>
+  </channel>
+</rss>

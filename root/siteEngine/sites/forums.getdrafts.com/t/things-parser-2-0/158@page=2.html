@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Things Parser 2.0 - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="Just published version 2.0 of my Things Parser. 
+Action Directory link: http://actions.getdrafts.com/a/1DV 
+More info below: 
+Things Parser
+Intro
+This script action sends each line of the draft to Things 3. Special chara&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="158@page=2.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Things Parser 2.0&#39;" href="158.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/things-parser-2-0/158?page=2" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/things-parser-2-0/158?page=2" />
+<meta property="og:title" content="Things Parser 2.0" />
+<meta name="twitter:title" content="Things Parser 2.0" />
+<meta property="og:description" content="This is designed to work when adding tasks to an existing project, but not when creating a new project. So for an existing project  #Existing Project ==Existing Heading Task 1 Task 2 Task 3  will add three tasks under the heading. If you wanted to do this with a new project, you would have to create it first and then add the tasks in two separate blocks, e.g.  +New Project ==New Heading 1 ==New Heading 2  #New Project ==New Heading 1 Task 1 Task 2 Task 3  The reason for this design is that you c..." />
+<meta name="twitter:description" content="This is designed to work when adding tasks to an existing project, but not when creating a new project. So for an existing project  #Existing Project ==Existing Heading Task 1 Task 2 Task 3  will add three tasks under the heading. If you wanted to do this with a new project, you would have to create it first and then add the tasks in two separate blocks, e.g.  +New Project ==New Heading 1 ==New Heading 2  #New Project ==New Heading 1 Task 1 Task 2 Task 3  The reason for this design is that you c..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="5 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="17 ❤" />
+<meta property="article:published_time" content="2018-08-08T10:41:45+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="prev" href="158.html">
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="158.html">Things Parser 2.0</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_21' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-08-08T10:41:45Z' class='post-time'>
+                August 8, 2018, 10:41am
+              </time>
+              <meta itemprop='dateModified' content='2018-08-08T10:41:45Z'>
+          <span itemprop='position'>#21</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is designed to work when adding tasks to an existing project, but not when creating a new project. So for an existing project</p>
+<pre><code class="lang-auto">#Existing Project ==Existing Heading
+Task 1
+Task 2
+Task 3
+</code></pre>
+<p>will add three tasks under the heading. If you wanted to do this with a new project, you would have to create it first and then add the tasks in two separate blocks, e.g.</p>
+<pre><code class="lang-auto">+New Project ==New Heading 1 ==New Heading 2
+
+#New Project ==New Heading 1
+Task 1
+Task 2
+Task 3
+</code></pre>
+<p>The reason for this design is that you can only add headings to a project <em>on creation</em>, so users will have to indicate all the headings they want after the <code>+New Project</code>. Tasks in the same block can’t be added to <em>all</em> of those headings, so if the user’s intention is to add some of them to particular headings, that needs to be specified.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_22' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Kayle'><span itemprop='name'>Kayle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-08-08T12:46:08Z' class='post-time'>
+                August 8, 2018, 12:46pm
+              </time>
+              <meta itemprop='dateModified' content='2018-08-08T12:46:08Z'>
+          <span itemprop='position'>#22</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks, Peter. I appreciate it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_23' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Marcus_Boswell'><span itemprop='name'>Marcus_Boswell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-14T16:15:52Z' class='post-time'>
+                November 14, 2018,  4:15pm
+              </time>
+              <meta itemprop='dateModified' content='2018-11-14T16:15:52Z'>
+          <span itemprop='position'>#23</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So, firstly I just wanted to say I think this is great.</p>
+<p>So far a great use I have found for it is problematic for me since I have a document with a number of suggestions about local networking meetups etc. It contains places and times etc.</p>
+<p>What I am hoping to do is to schedule some actions according to the document by breaking it down using the delimiters that you have set up so that I can send the whole text into ‘Things’ and have your action do the heavy lifting.</p>
+<p>So am I right in suggesting that:</p>
+<ul>
+<li>
+<p>Everything for 1 task has to be in the same sentence. i.e. Your action differentiates a new line as a new task?</p>
+</li>
+<li>
+<p>One problem I have run up against is that if I am not mistaken I can’t refer to any Date or Time in the notes as they appear to be removed when I sent them over.</p>
+</li>
+</ul>
+<p>I am assuming the following presents all kinds of problems as it’s not working as I would like.</p>
+<p>e.g.</p>
+<p><span class="hashtag">#Networking</span> ==Networking Events Dalycom Nottingham Business Networking  //Thursdays 8.00am - 10.00am Contact Anita Popat, 01509 410 407 *Ugly Bread Bakery, 21 Market Street  Nottingham NG1 6HX</p>
+<p><span class="hashtag">#Networking</span> ==Networking Events An informal business networking event for Businesses in Nottingham and the surrounding areas //taking place on the 3rd Thursday of every month (starting 18th January 2018) from 8.00am - 10.00am.</p>
+<p>If this were possible, I’d like to see it under Networking (which is one of my Projects) as listed items, and I’d continue to work down the sheet to highlight the others.</p>
+<p>So far when I send this over, I get nothing at all anywhere?! <img src="../../images/emoji/apple/worried.png@v=6" title=":worried:" class="emoji" alt=":worried:"></p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a> Can you explain why?</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_25' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/747'><span itemprop='name'>747</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-10-27T15:05:55Z' class='post-time'>
+                October 27, 2019,  3:05pm
+              </time>
+              <meta itemprop='dateModified' content='2019-10-27T15:05:55Z'>
+          <span itemprop='position'>#25</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I put my header on the first line<br>
+And my tasks on separate lines underneat<br>
+However the parser 2.0 script I install makes each it own subject in things instead of using the first line as a subject and the lines below as task?<br>
+How do I fix this and get it to work.</p>
+<p>I am new to drafts 2nd testing</p>
+<p>Thanks in advance for helping and getting me a step closer</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_26' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/rab523'><span itemprop='name'>rab523</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-01-21T15:51:42Z' class='post-time'>
+                January 21, 2020,  3:51pm
+              </time>
+              <meta itemprop='dateModified' content='2020-01-21T15:51:42Z'>
+          <span itemprop='position'>#26</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is there a way to have Drafts prompt for a text and date based variables and then have the project/tasks adjust their names and dates relative to these variables?</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_27' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-01-22T09:55:06Z' class='post-time'>
+                January 22, 2020,  9:55am
+              </time>
+              <meta itemprop='dateModified' content='2020-01-22T09:55:06Z'>
+          <span itemprop='position'>#27</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is not what my script does, but I’m sure this is possible within Drafts. Did you want to export <em>all</em> of your drafts to Things? And do you want each one to be a separate to-do?</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_28' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-01-22T09:55:41Z' class='post-time'>
+                January 22, 2020,  9:55am
+              </time>
+              <meta itemprop='dateModified' content='2020-01-22T09:55:41Z'>
+          <span itemprop='position'>#28</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Not at the moment, but some kind of date templating is something I am considering for the next version so stay tuned.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_29' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-01-22T09:57:24Z' class='post-time'>
+                January 22, 2020,  9:57am
+              </time>
+              <meta itemprop='dateModified' content='2020-01-22T09:57:24Z'>
+          <span itemprop='position'>#29</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There are a few bugs with the date interpretation at the moment. Dates in the notes section is a problem which I still need to fix. I hope to release an update in the next few months.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_30' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/kyleedenise'><span itemprop='name'>kyleedenise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-01T18:20:44Z' class='post-time'>
+                February 1, 2020,  6:20pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-01T18:20:44Z'>
+          <span itemprop='position'>#30</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The tags aren’t being imported for me, but everything else is. Here’s what I’m parsing:</p>
+<p>+New Project ==Head1 ==Head2 <span class="hashtag">#Area</span> <span class="mention">@tag1</span><br>
+Task without heading Feb 6<br>
+Task under heading 1 ==Head1 <span class="mention">@tag2</span> //note<br>
+Task under heading 2 ==Head2 !Tuesday</p>
+<p>What am I doing wrong?</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_31' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/gabrielroth'><span itemprop='name'>gabrielroth</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-30T22:21:44Z' class='post-time'>
+                April 30, 2020, 10:21pm
+              </time>
+              <meta itemprop='dateModified' content='2020-04-30T22:28:59Z'>
+          <span itemprop='position'>#31</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is a really cool and useful Action, thanks for creating it.</p>
+<p>Feature request: Some kind of comment syntax that would stop the parser from evaluating a given line.</p>
+<p>Also, I think this is a bug. I’m typing this on Thursday 4/30. When I feed the parser this line:</p>
+<blockquote>
+<p>testing !Sunday</p>
+</blockquote>
+<p>it creates a to-do with a deadline on Sunday 5/10—not this coming Sunday, but a week from Sunday, 10 days away.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_32' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-05-19T08:42:52Z' class='post-time'>
+                May 19, 2020,  8:42am
+              </time>
+              <meta itemprop='dateModified' content='2020-05-19T08:42:52Z'>
+          <span itemprop='position'>#32</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>OK, thanks for finding this bug. I’m planning to do a new version of this at some point in the next few months, so I’ll try to incorporate your feedback.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_33' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/colinmorris'><span itemprop='name'>colinmorris</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-26T04:51:10Z' class='post-time'>
+                July 26, 2020,  4:51am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-26T04:51:10Z'>
+          <span itemprop='position'>#33</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Syntax question re: <code>#Project</code> vs. <code>#Area</code>:</p>
+<p>I think I’m being dense because no one else has mentioned this, but don’t your <code>#Project Name</code> and <code>#Area</code> syntaxes conflict? I’ve read the documentation a couple times and only see examples of <code>#Area</code> in the context of creating new projects with <code>+Project</code>. I’ve never seen an example combining <code>#area</code> with <code>#project</code>.</p>
+<p>Definitely wouldn’t rule out user error. Here’s what I’m trying to parse for a test run:</p>
+<pre><code>+Learn to Use Things Parser for Drafts #Home ==Research ==Implementation ==Evaluation
+Read documentation ==Research *Find documentation *Copy to .md file *Create PDF *Store in iCloud Drive/5 Software Documentation !Friday ++I'd like to make better use of Drafts' actions and Things' ability to accept data from 3rd party apps.
+
+Test #Learn to Use Things Parser for Drafts #Home</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_34' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Asaf'><span itemprop='name'>Asaf</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-27T19:31:36Z' class='post-time'>
+                September 27, 2020,  7:31pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-27T19:31:36Z'>
+          <span itemprop='position'>#34</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the excellent parser!<br>
+Is there a way to enter dates in the format dd/mm?</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_35' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/pdavisonreiber'><span itemprop='name'>pdavisonreiber</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="158.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-13T21:52:23Z' class='post-time'>
+                December 13, 2020,  9:52pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-14T10:13:21Z'>
+          <span itemprop='position'>#35</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For all the fans of Things Parser, a big update has just come to Things Parser in <a href="../../../actions.getdrafts.com/a/1DV.html" rel="noopener nofollow ugc">version 3</a>. I’ve decided to move from the old custom syntax to TaskPaper to take advantage of the syntax highlighting in Drafts and to aid compatibility with other apps. It also adds variables, including date variables with time offsets. You can read more about the details in <a href="https://polymaths.blog/2020/12/things-parser-3-for-drafts" rel="noopener nofollow ugc">my blog post</a>.</p>
+<p>For die-hard fans of version 2, this will remain available <a href="../../../actions.getdrafts.com/a/1fU.html" rel="noopener nofollow ugc">on the action directory</a> but will no longer be maintained.</p>
+        </div>
+
+        <meta itemprop='headline' content='Things Parser 2.0'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><a rel="prev" itemprop="url" href="158.html">← previous page</a></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using TextExpander with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030</link>
+    <description>![iu|300x300,50%](upload://rfs2PsGybT1XdXXFQPHoOCnanS7.jpeg) 
+
+Smile Software&#39;s [TextExpander](https://shareasale.com/r.cfm?b=1244193&amp;u=2085159&amp;m=81274&amp;urllink=&amp;afftrack=) is a text expansion utility that allows quick conversion of short, easy to type abbreviations into larger snippets or blocks of text. It is a powerful and convenient tool to boost your productivity.
+
+TextExpander is available on many platforms. On Mac it works everywhere because of the system level integration available on the platform. On iOS, Smile provides an [integration SDK](https://smilesoftware.com/textexpander-ios/sdk). Drafts supports this integration, but it requires a couple of extra steps to get setup and running.
+
+TextExpander on iOS also provides a [custom keyboard](https://textexpander.com/entry/how-to-textexpander-custom-keyboard/) which can be used in any app. This article is specifically about direct integration with Drafts, which allows TextExpander snippets to be expanded when using other keyboards.
+
+## TextExpander with Drafts on Mac
+
+No special steps are needed to use TextExpander with the Mac version of Drafts. TextExpander works system on macOS. Note that expansion in actions as described below is also an iOS-only feature.
+
+## Enabling TextExpander (iOS only)
+
+![text-expander|674x500](upload://51eUKOyyqk88sdiNu48W6gSXU8K.png) 
+
+To enable TextExpander support in Drafts on iOS:
+
+- Make sure TextExpander is installed on your system and you have run it at least once to configure your TextExpander account, if necessary.
+- Open Settings (Gear icon in lower right).
+- Scroll down to the &quot;Extensions&quot; section and tap &quot;TextExpander&quot;.
+- Turn on &quot;Enable Expansion&quot;. If enabled, TextExpander will attempt to expand your abbreviations while typing in Drafts&#39; editor.
+- Optionally, turn on &quot;Expand in Action Templates&quot;. If enabled, when running actions, TextExpander snippets in action step templates wrapped in `&lt;&lt; &gt;&gt;` will be expanded (see details below).
+- Tap &quot;Refresh Snippets&quot;. This will trigger TextExpander to launch, and return to Drafts, updating your current snippet library for use in Drafts.
+
+That&#39;s it, you are ready to go! Return to you the Drafts editor, and type one of your snippet abbreviations and it will be quickly expanded.
+
+## Refreshing Snippets (iOS only)
+
+Due to the way apps are sandboxed for security in iOS, it is not possible automatically receive updates to your snippets from TextExpander. When you make changes to your snippet library in TextExpander, you will need to &quot;refresh snippets&quot; in Drafts to pick up these changes.
+
+This can be done by visiting the settings screen shown above, and tapping &quot;Refresh Snippets&quot;.  A refresh can also be triggered by a URL in Drafts. We provide an example [Refresh TextExpander Snippets](https://actions.getdrafts.com/a/1X1) Drafts action which can be installed to more easily access this refresh, or you can configure your favorite launcher app or Shortcuts to open the below URL to trigger a refresh:
+
+```plain
+drafts://refresh_text_expander
+```
+
+## Expanding Snippets in Action Templates (iOS only)
+
+&gt; **Note:** _&quot;fill-in&quot; snippets are _not_ supported in action expansion, and this expansion is not available when processing templates in script._
+
+As mentioned above, TextExpander snippets can be dynamically evaluated in action templates by including one of your abbreviations, wrapped in `&lt;&lt; &gt;&gt;`. For example, if you have an abbreviations `..e` in TextExpander which expands to your email address, in an action template you can include `My email is &lt;&lt;..e&gt;&gt;` and when the action is run the snippet will be expanded.
+
+This is most useful for insertion of time-sensitive snippets - for example dates - that you want to be evaluated when an action is run, not when you are typing the draft. For more details about using action templates, see our [introductory article on using templates](https://forums.getdrafts.com/t/using-drafts-templates/3728).
+
+Be sure you have turned on &quot;Expand in Action Templates&quot; in the TextExpander settings page to enable this feature.</description>
+    
+    <lastBuildDate>Wed, 18 Sep 2019 20:36:14 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>In case it is of any use, here’s an example of the workaround I use and it’s been pretty solid for me in the couple of cases I’ve used it.</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1Yw" rel="nofollow noopener">Example - TextExpander Fill-In</a>.</li>
+</ul>
+<p>The example uses a fill-in based snippet with a abbreviation of <code>fillinexample</code>.  For this example it looks like this.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/bfe3089923a0ad3723b17afb2d647598ff9b2a23.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/bfe3089923a0ad3723b17afb2d647598ff9b2a23" title="01BDBBA2-4E81-4378-9C11-B9642C5F489E.jpg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bfe3089923a0ad3723b17afb2d647598ff9b2a23_2_281x500.jpeg" alt="image" data-base62-sha1="rnvC4uxUWb9ej3h7ekOENilh5Kz" width="281" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bfe3089923a0ad3723b17afb2d647598ff9b2a23_2_281x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/bfe3089923a0ad3723b17afb2d647598ff9b2a23_2_421x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/bfe3089923a0ad3723b17afb2d647598ff9b2a23_2_562x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bfe3089923a0ad3723b17afb2d647598ff9b2a23_2_10x10.png"></a></div><p></p>
+<p>In the first step of the Drafts action, a URL call is made to TextExpander using the abbreviation.  This populates the callback result which I then use the template tag for in the text insertion.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/6/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5.png" data-download-href="https://forums.getdrafts.com/uploads/default/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5" title="24876F07-6E41-47A7-87E0-8DC3FE2D3469.png"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5_2_567x500.png" alt="image" data-base62-sha1="esME75zqTfB9NqCpJgOFzIozAxv" width="567" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5_2_567x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5_2_850x750.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/6/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5_2_1134x1000.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/655f69db6c2fcd1af63ca6a1a5e78bb07c804ad5_2_10x10.png"></a></div><p></p>
+<p>When the action is run, you get pushed out to TextExpander, enter text in the fill-in field, tap done, get returned to Drafts, and the text is then inserted.</p>
+<p>E.g. Entering <code>foo</code> in the field resulted in this output in Drafts.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/3/33f677f7093d6b8754b008ac0272199ab3044289.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/33f677f7093d6b8754b008ac0272199ab3044289" title="1E48F9C0-E878-4407-AB55-FBB65D4A7B03.jpg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/3/33f677f7093d6b8754b008ac0272199ab3044289_2_281x500.jpeg" alt="image" data-base62-sha1="7pGpgFhzoyxBj3ILyhqqBQNrKsh" width="281" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/3/33f677f7093d6b8754b008ac0272199ab3044289_2_281x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/3/33f677f7093d6b8754b008ac0272199ab3044289_2_421x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/3/33f677f7093d6b8754b008ac0272199ab3044289_2_562x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/3/33f677f7093d6b8754b008ac0272199ab3044289_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/10</link>
+        <pubDate>Wed, 18 Sep 2019 20:36:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-10</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It is unlikely fill-in snippets could ever work well with the programatic expansion of snippets on iOS, for a lot of technical reasons…I wouldn’t expect any changes there.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/9</link>
+        <pubDate>Wed, 18 Sep 2019 20:26:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-9</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[dahan]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s a pity. I just read that and I was hoping that it is possible now. I haven’t tried to use fill-in snippets in actions. Maybe it will be supported by TextExpander in the future because it would make their snippet engine more powerful in my opinion.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/8</link>
+        <pubDate>Wed, 18 Sep 2019 20:24:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-8</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, that’s a typo. That should read “not supported”.  Just fixed the text, sorry for the confusion.  It’s a limitation of the TextExpander SDK and integration.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/7</link>
+        <pubDate>Wed, 18 Sep 2019 20:14:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-7</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[dahan]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-post="1" data-topic="5030">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p><strong>Note:</strong> <em>“fill-in” snippets are supported in action expansion.</em></p>
+</blockquote>
+</aside>
+<p>I am only able to use fill-in snippets in Drafts if I type the via the keyboard. If I trigger them via expansion in action (keyboard or normal) action than fill-in snippets won’t launch TextExpander to fill-in the fill-ins. Is that the expacted behaviour?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/6</link>
+        <pubDate>Wed, 18 Sep 2019 20:04:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[NDRS]]></dc:creator>
+        <description><![CDATA[
+            <p>I have been using the iOS built-in keyboard shortcuts for a while and have a whole bunch of the text shortcuts set up. I also purchased TextExpander a long time ago, and while I see that it is indeed more powerful, I haven’t ever been able to get myself to really sit down and just set the darn thing up.<br>
+I write about Symbology, Linguistics, and Psychology, and am working on a massive project showing how language affects thinking (Sapir-Whorf Hypothesis / Linguistic Relativity etc.) One of the things I like about the iOS text replacement is the ability to use it across symbol sets so I can stay in the ENG-US keyboard, type a few characters and have the replacement work without having to switch keyboards. I didn’t realize Drafts had support for Text Expander that didn’t require use of their keyboard.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/5</link>
+        <pubDate>Fri, 05 Jul 2019 04:44:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-5</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[zheard]]></dc:creator>
+        <description><![CDATA[
+            <p>I see. It’s changed <em>a lot</em> since I used it a few years ago. But the price is high and I wouldn’t use all the features. Thanks for the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/4</link>
+        <pubDate>Wed, 19 Jun 2019 18:37:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>From <a href="https://www.imore.com/how-text-replacement-typing-things-easier" rel="nofollow noopener">this iMore article</a>:</p>
+<blockquote>
+<p>TextExpander by Smile Software is what I use. It’s far more powerful than the built-in tool. TextExpander can expand far more than just text. As you will see in some of my examples, it can insert the contents of your clipboard, run AppleScript (on the Mac), use form data and more. It can be used on Windows 7 or higher, unlike Apple’s solution. Additionally, TextExpander snippets can be used on iOS. It comes with its own third-party keyboard, but many text editing apps like Editorial, Drafts and 1Writer offer native support for your TextExpander library without the need to use Smile’s keyboard.</p>
+</blockquote>
+<p>If you just have a look at any review article or video, you’ll very quickly get a feel for what advantages it offer.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/3</link>
+        <pubDate>Wed, 19 Jun 2019 13:42:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[zheard]]></dc:creator>
+        <description><![CDATA[
+            <p>I use iOS’s built-in text replacement. What advantage does TextExpander offer?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/2</link>
+        <pubDate>Wed, 19 Jun 2019 13:34:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+      <item>
+        <title>Using TextExpander with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/2X/b/bef9dc99823a91d7fb5f52894f1e73806a06be57.jpeg" alt="iu" data-base62-sha1="rfs2PsGybT1XdXXFQPHoOCnanS7" width="150" height="150"></p>
+<p>Smile Software’s <a href="https://shareasale.com/r.cfm?b=1244193&amp;u=2085159&amp;m=81274&amp;urllink=&amp;afftrack=">TextExpander</a> is a text expansion utility that allows quick conversion of short, easy to type abbreviations into larger snippets or blocks of text. It is a powerful and convenient tool to boost your productivity.</p>
+<p>TextExpander is available on many platforms. On Mac it works everywhere because of the system level integration available on the platform. On iOS, Smile provides an <a href="https://smilesoftware.com/textexpander-ios/sdk">integration SDK</a>. Drafts supports this integration, but it requires a couple of extra steps to get setup and running.</p>
+<p>TextExpander on iOS also provides a <a href="https://textexpander.com/entry/how-to-textexpander-custom-keyboard/">custom keyboard</a> which can be used in any app. This article is specifically about direct integration with Drafts, which allows TextExpander snippets to be expanded when using other keyboards.</p>
+<h2>
+<a name="textexpander-with-drafts-on-mac-1" class="anchor" href="https://forums.getdrafts.com#textexpander-with-drafts-on-mac-1"></a>TextExpander with Drafts on Mac</h2>
+<p>No special steps are needed to use TextExpander with the Mac version of Drafts. TextExpander works system on macOS. Note that expansion in actions as described below is also an iOS-only feature.</p>
+<h2>
+<a name="enabling-textexpander-ios-only-2" class="anchor" href="https://forums.getdrafts.com#enabling-textexpander-ios-only-2"></a>Enabling TextExpander (iOS only)</h2>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006.png" data-download-href="https://forums.getdrafts.com/uploads/default/232ec514cfa6edbc8dd551248a7b86de4f5c0006" title="text-expander"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006_2_674x500.png" alt="text-expander" data-base62-sha1="51eUKOyyqk88sdiNu48W6gSXU8K" width="674" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006_2_674x500.png, https://forums.getdrafts.com/uploads/default/original/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/232ec514cfa6edbc8dd551248a7b86de4f5c0006_2_10x10.png"></a></div><p></p>
+<p>To enable TextExpander support in Drafts on iOS:</p>
+<ul>
+<li>Make sure TextExpander is installed on your system and you have run it at least once to configure your TextExpander account, if necessary.</li>
+<li>Open Settings (Gear icon in lower right).</li>
+<li>Scroll down to the “Extensions” section and tap “TextExpander”.</li>
+<li>Turn on “Enable Expansion”. If enabled, TextExpander will attempt to expand your abbreviations while typing in Drafts’ editor.</li>
+<li>Optionally, turn on “Expand in Action Templates”. If enabled, when running actions, TextExpander snippets in action step templates wrapped in <code>&lt;&lt; &gt;&gt;</code> will be expanded (see details below).</li>
+<li>Tap “Refresh Snippets”. This will trigger TextExpander to launch, and return to Drafts, updating your current snippet library for use in Drafts.</li>
+</ul>
+<p>That’s it, you are ready to go! Return to you the Drafts editor, and type one of your snippet abbreviations and it will be quickly expanded.</p>
+<h2>
+<a name="refreshing-snippets-ios-only-3" class="anchor" href="https://forums.getdrafts.com#refreshing-snippets-ios-only-3"></a>Refreshing Snippets (iOS only)</h2>
+<p>Due to the way apps are sandboxed for security in iOS, it is not possible automatically receive updates to your snippets from TextExpander. When you make changes to your snippet library in TextExpander, you will need to “refresh snippets” in Drafts to pick up these changes.</p>
+<p>This can be done by visiting the settings screen shown above, and tapping “Refresh Snippets”.  A refresh can also be triggered by a URL in Drafts. We provide an example <a href="https://actions.getdrafts.com/a/1X1">Refresh TextExpander Snippets</a> Drafts action which can be installed to more easily access this refresh, or you can configure your favorite launcher app or Shortcuts to open the below URL to trigger a refresh:</p>
+<pre><code class="lang-nohighlight">drafts://refresh_text_expander
+</code></pre>
+<h2>
+<a name="expanding-snippets-in-action-templates-ios-only-4" class="anchor" href="https://forums.getdrafts.com#expanding-snippets-in-action-templates-ios-only-4"></a>Expanding Snippets in Action Templates (iOS only)</h2>
+<blockquote>
+<p><strong>Note:</strong> <em>“fill-in” snippets are <em>not</em> supported in action expansion, and this expansion is not available when processing templates in script.</em></p>
+</blockquote>
+<p>As mentioned above, TextExpander snippets can be dynamically evaluated in action templates by including one of your abbreviations, wrapped in <code>&lt;&lt; &gt;&gt;</code>. For example, if you have an abbreviations <code>..e</code> in TextExpander which expands to your email address, in an action template you can include <code>My email is &lt;&lt;..e&gt;&gt;</code> and when the action is run the snippet will be expanded.</p>
+<p>This is most useful for insertion of time-sensitive snippets - for example dates - that you want to be evaluated when an action is run, not when you are typing the draft. For more details about using action templates, see our <a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">introductory article on using templates</a>.</p>
+<p>Be sure you have turned on “Expand in Action Templates” in the TextExpander settings page to enable this feature.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030/1</link>
+        <pubDate>Wed, 19 Jun 2019 12:39:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5030-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030.rss">Using TextExpander with Drafts</source>
+      </item>
+  </channel>
+</rss>

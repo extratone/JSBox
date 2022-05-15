@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Asynchronous Scripting in Drafts (async/await, Promises, etc.)</title>
+    <link>https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460</link>
+    <description>*This is an advanced feature, and if you are just writing basic scripts, you probably don&#39;t need to worry about it, but I wanted to draw attention to it&#39;s available for those who are interested.*
+
+In release 17, the [script action step](https://docs.getdrafts.com/docs/actions/steps/advanced.html#script) added a new option to &quot;allow asynchronous execution&quot;. 
+
+By default, this option is off for all script steps, in which case they will behave as they always have, and when the end of the script is reached, Drafts will assume it&#39;s operations are completed and it will move on to the next action step - or complete the action if no additional steps are defined.
+
+All Drafts&#39; own [script objects](https://scripting.getdrafts.com) (at least at the moment) are designed to work synchronously and return results, but many JavaScript libraries, or people who are comfortable writing more advanced JavaScript might want to utilize asynchronous operations like [Promises](https://javascript.info/promise-basics), [async/await](https://javascript.info/async-await), which may allow execution of the script to continue while completing functions. This option enables those async operations to work in the context of Drafts action steps.
+
+The key difference being, when relying on asynchronous operations in a script, Drafts does not have an implicit way of knowing when a script is complete, so it becomes the responsibility of the script writer to inform Drafts when it&#39;s complete. It does this by calling the [`script.complete()`](https://scripting.getdrafts.com/classes/script.html) function somewhere in it&#39;s code.
+
+When a script step with the async option enabled is run, Drafts waits for that `script.complete()` call to happen before continuing with the action. If you fail to call `script.complete()`, Drafts might appear to hang and never complete the action. Technically, there is a timeout (currently 60 seconds) where Drafts will assume you forgot to complete the script and it will fail the action, but in practice it is very important you design your script to always result in a `script.complete()` call.
+
+Excited to see some of the possibilities this enabled in your scripts in the future!</description>
+    
+    <lastBuildDate>Fri, 24 Apr 2020 20:30:25 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Asynchronous Scripting in Drafts (async/await, Promises, etc.)</title>
+        <dc:creator><![CDATA[scripts4drafts]]></dc:creator>
+        <description><![CDATA[
+            <p>Here are the scripts I added into my actions:</p>
+<pre><code>// in the first action, I define this
+var asyncFunctions = [];
+
+// Then, in any action, I can add into asynFunctions any function to be launched asynchronously
+function Test (f) {
+  alert(f.text);
+}
+asyncFunctions.push({name:'Test', f:{text:'Hey great!'}});
+
+// Finally, in the last action (with the option 'allow asynchronous execution), I add this script to execute all asyncFunctions if any
+async function asyncExec(funcs) {
+  let promise = new Promise((resolve) =&gt; {
+    for (let i = 0; i &lt; funcs.length; i++) {
+      if (funcs[i].name &amp;&amp; typeof this[funcs[i].name] === 'function') this[funcs[i].name](funcs[i].f);
+    }
+    resolve('resolved!');
+  });
+  let result = await promise;
+  script.complete();
+}
+asyncExec(asyncFunctions);</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460/3</link>
+        <pubDate>Fri, 24 Apr 2020 17:35:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6460-3</guid>
+        <source url="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460.rss">Asynchronous Scripting in Drafts (async/await, Promises, etc.)</source>
+      </item>
+      <item>
+        <title>Asynchronous Scripting in Drafts (async/await, Promises, etc.)</title>
+        <dc:creator><![CDATA[scripts4drafts]]></dc:creator>
+        <description><![CDATA[
+            <p>Great feature !</p>
+<p>Today, I found a way to integrate it into my actions.</p>
+<p>One of them is completing some iOS reminders and adding some new ones depending on what I wrote in a draft.</p>
+<p>But this action is long to execute and during the execution, I’m stuck and can not write anything in Drafts. I have to wait for the end of the action until all the reminders are marked as completed and new ones are added.</p>
+<p>Thanks to an async function, the action is executed asynchronously and I’m able to continue writing even during its execution.</p>
+<p>Thanks for this !</p>
+          <p><a href="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460/2</link>
+        <pubDate>Fri, 24 Apr 2020 17:01:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6460-2</guid>
+        <source url="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460.rss">Asynchronous Scripting in Drafts (async/await, Promises, etc.)</source>
+      </item>
+      <item>
+        <title>Asynchronous Scripting in Drafts (async/await, Promises, etc.)</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><em>This is an advanced feature, and if you are just writing basic scripts, you probably don’t need to worry about it, but I wanted to draw attention to it’s available for those who are interested.</em></p>
+<p>In release 17, the <a href="https://docs.getdrafts.com/docs/actions/steps/advanced.html#script">script action step</a> added a new option to “allow asynchronous execution”.</p>
+<p>By default, this option is off for all script steps, in which case they will behave as they always have, and when the end of the script is reached, Drafts will assume it’s operations are completed and it will move on to the next action step - or complete the action if no additional steps are defined.</p>
+<p>All Drafts’ own <a href="https://scripting.getdrafts.com">script objects</a> (at least at the moment) are designed to work synchronously and return results, but many JavaScript libraries, or people who are comfortable writing more advanced JavaScript might want to utilize asynchronous operations like <a href="https://javascript.info/promise-basics">Promises</a>, <a href="https://javascript.info/async-await">async/await</a>, which may allow execution of the script to continue while completing functions. This option enables those async operations to work in the context of Drafts action steps.</p>
+<p>The key difference being, when relying on asynchronous operations in a script, Drafts does not have an implicit way of knowing when a script is complete, so it becomes the responsibility of the script writer to inform Drafts when it’s complete. It does this by calling the <a href="https://scripting.getdrafts.com/classes/script.html"><code>script.complete()</code></a> function somewhere in it’s code.</p>
+<p>When a script step with the async option enabled is run, Drafts waits for that <code>script.complete()</code> call to happen before continuing with the action. If you fail to call <code>script.complete()</code>, Drafts might appear to hang and never complete the action. Technically, there is a timeout (currently 60 seconds) where Drafts will assume you forgot to complete the script and it will fail the action, but in practice it is very important you design your script to always result in a <code>script.complete()</code> call.</p>
+<p>Excited to see some of the possibilities this enabled in your scripts in the future!</p>
+          <p><a href="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460/1</link>
+        <pubDate>Wed, 22 Jan 2020 21:47:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6460-1</guid>
+        <source url="https://forums.getdrafts.com/t/asynchronous-scripting-in-drafts-async-await-promises-etc/6460.rss">Asynchronous Scripting in Drafts (async/await, Promises, etc.)</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Using WordPress with Drafts - Integration Guides - Drafts Community</title>
+    <meta name="description" content="Drafts (v5.4 or greater) can be used with the WordPress blogging and content management system via integration with the WordPress XML-RPC API. 
+The XML-RPC API is available, and enabled by default, in WordPress version&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="../using-drafts-with-wordpress/2492.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Using WordPress with Drafts&#39;" href="2492.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/1X/f0aade27d7c9cfdb6e3b263f51e26ce69c627b55.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/1X/f0aade27d7c9cfdb6e3b263f51e26ce69c627b55.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492" />
+<meta property="og:title" content="Using WordPress with Drafts" />
+<meta name="twitter:title" content="Using WordPress with Drafts" />
+<meta property="og:description" content="Drafts (v5.4 or greater) can be used with the WordPress blogging and content management system via integration with the WordPress XML-RPC API.  The XML-RPC API is available, and enabled by default, in WordPress version 3.5 or greater, but its availability, and limits on its use, may vary by where your WordPress site is hosted. It is highly recommend you use secure connections (https) to connect to your site using XML-RPC.  Posting to WordPress Drafts provides a WordPress action step which allo..." />
+<meta name="twitter:description" content="Drafts (v5.4 or greater) can be used with the WordPress blogging and content management system via integration with the WordPress XML-RPC API.  The XML-RPC API is available, and enabled by default, in WordPress version 3.5 or greater, but its availability, and limits on its use, may vary by where your WordPress site is hosted. It is highly recommend you use secure connections (https) to connect to your site using XML-RPC.  Posting to WordPress Drafts provides a WordPress action step which allo..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2018-09-14T13:25:02+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="../using-drafts-with-wordpress/2492.html">Using WordPress with Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/integration-guides.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Integration Guides</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/wordpress.html' class='discourse-tag' rel="tag">wordpress</a>, 
+            <a href='../../tag/guide.html' class='discourse-tag' rel="tag">guide</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+            <link itemprop="image" href="../../uploads/default/original/1X/f0aade27d7c9cfdb6e3b263f51e26ce69c627b55.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-09-14T13:25:02Z' class='post-time'>
+                September 14, 2018,  1:25pm
+              </time>
+              <meta itemprop='dateModified' content='2018-09-20T14:54:50Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../uploads/default/original/1X/f0aade27d7c9cfdb6e3b263f51e26ce69c627b55.png" alt="wordpress-logo" width="306" height="165"></p>
+<p>Drafts (v5.4 or greater) can be used with the <a href="https://wordpress.org" rel="nofollow noopener">WordPress</a> blogging and content management system via integration with the <a href="https://codex.wordpress.org/XML-RPC_Support" rel="nofollow noopener">WordPress XML-RPC API</a>.</p>
+<p>The XML-RPC API is available, and enabled by default, in WordPress version 3.5 or greater, but its availability, and limits on its use, may vary by where your WordPress site is hosted. It is highly recommend you use secure connections (https) to connect to your site using XML-RPC.</p>
+<h2>Posting to WordPress</h2>
+<p>Drafts provides a <a href="../../../getdrafts.com/actions/steps/wordpress.html" rel="nofollow noopener">WordPress action step</a> which allows creation and publishing of posts on a WordPress site. Example action:</p>
+<ul>
+<li><a href="../../../actions.getdrafts.com/a/1Os.html" rel="nofollow noopener">Post to WordPress</a></li>
+</ul>
+<p>This example posts to a WordPress blog in “Draft” status (to be published in the web interface later), using the first line of the title as the title of the post, and remaining text as the content.</p>
+<p>This basic example can be modified to control post status, automatically assign categories, tags and even custom fields. The details of available options can be found in the <a href="../../../getdrafts.com/actions/steps/wordpress.html" rel="nofollow noopener">action step documentation</a>.</p>
+<h2>WordPress Credentials and Sites</h2>
+<p>The first time you run an action using a WordPress action step, you will be asked for details required to connect to your site. These include the host name of the home page of the WordPress site, and your username and password.  These will be stored for future use with the action.</p>
+<p>Be sure to enter the full URL to the home page of the WordPress site when prompted. This includes the “http://” or “https://” the host name and partial path if the site is hosted in a sub-directory, like: “<a href="https://mysite.com/blog/" rel="nofollow noopener">https://mysite.com/blog/</a>”.</p>
+<p>If you only post to one WordPress site, no additional configuration is needed. If you wish to have actions which post to different WordPress sites, configure a unique value in the “Credential Identifier” field of the WordPress action step.  All WordPress action steps with the same “Credential Identifier” will share the same login.  This value can be anything, but using something like the host name of the site for easy identification is recommended.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png" data-download-href="https://forums.getdrafts.com/uploads/default/d134f3fe894a10b55e915877ddb09295b7aefa68" title="wordpress-credentials.png"><img src="../../uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_690x386.png" alt="wordpress-credentials" width="690" height="386" srcset="../../uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_690x386.png, ../../uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png 1.5x, ../../uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">wordpress-credentials.png</span><span class="informations">815×457 73.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>To reset credentials and login again, visit Settings &gt; Credentials and “Forget” the WordPress credentials. <a href="../../../getdrafts.com/settings/credentials.html" rel="nofollow noopener">Read more about Credentials</a>.</p>
+<h2>Using the WordPress app share extension</h2>
+<p>WordPress also offers their own <a href="https://apps.wordpress.com/mobile/" rel="nofollow noopener">WordPress iOS app</a> which can be used to post to <a href="http://WordPress.com" rel="nofollow noopener">WordPress.com</a> of self-hosted WordPress blogs. The app offers a share extension, so if it is installed an configured on your device, it can be used via the Drafts “Share” action and the system share sheet.  This approach is less automated, but is often a good choice if you want to make some selections of categories, tags, published status, etc., on the fly when you publish.</p>
+<h2>Scripting and the XML-RPC API</h2>
+<p>Drafts provides a <a href="../../../reference.getdrafts.com/objects/WordPress.html" rel="nofollow noopener"><code>WordPress</code> scripting object</a> which can be used to make direct requests to any methods available in the <a href="https://codex.wordpress.org/XML-RPC_WordPress_API" rel="nofollow noopener">WordPress XML-RPC API</a>. The object provides several convenience methods to fetch taxonomy information, etc., and also a <code>runMethod</code> function to call any method available in the API.</p>
+<p>Using scripting, WordPress posts and taxonomy information can be queried, downloaded, updated, existing posts can be imports and more.</p>
+<p>This wrapper handles the XML part of XML-RPC, making it easy to work with the WordPress API in Javascript, but is an advanced topic. For details, visit the <a href="../../../reference.getdrafts.com/objects/WordPress.html" rel="nofollow noopener">scripting reference</a>.</p>
+<p>Example Scripted Actions:</p>
+<ul>
+<li>
+<a href="../../../actions.getdrafts.com/a/1OC.html" rel="nofollow noopener">WordPress - Get Recent Posts</a>
+<ul>
+<li>Retrieves recents posts from the WordPress site and creates a new draft with a summary of the posts.</li>
+</ul>
+</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1OB.html" rel="nofollow noopener">WordPress - New Post</a>
+<ul>
+<li>Demonstrates creating a new post via script.</li>
+</ul>
+</li>
+</ul>
+<h4>Troubleshooting</h4>
+<p>If you have trouble posting to your WordPress blog, try the following:</p>
+<ul>
+<li>If posting has never worked, ensure the site host, username and password are all correct and entered properly. You can forget the credentials in settings and re-run the action to re-enter them.</li>
+<li>Check the action log after running a failed action for details on what error occurred.</li>
+<li>Check with your hosting provider to be sure that the WordPress XML-RPC interface is allowed and enabled on WordPress installations on their service.</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+          <meta itemprop='keywords' content='wordpress, guide'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../drafts-5-4-released-ios-12-ready-siri-shortcuts-wordpress-and-more/2493.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/drafts-5-4-released-ios-12-ready-siri-shortcuts-wordpress-and-more/2493'>
+                      <span itemprop='name'>Drafts 5.4 Released - iOS 12 Ready, Siri Shortcuts, WordPress and more</span>
+                    </a>
+                    <meta itemprop='position' content='14'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Frank_McPherson'><span itemprop='name'>Frank_McPherson</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-09-18T15:11:47Z' class='post-time'>
+                September 18, 2018,  3:11pm
+              </time>
+              <meta itemprop='dateModified' content='2018-09-18T15:11:47Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am having no luck trying to get this to work. I do have multiple blogs associated to my Wordpress account, each has its own URL. I’ve created a new user id and password specific to the blog I want to post to from Drafts and provided that as credentials and that doesn’t work either.</p>
+<p>Basically, in Drafts the action indicates that it posted successfully but the item never appears in any of the Drafts sections of any of the blogs. The Drafts action log does not show an error. I’ve forgot and retried credentials several times.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-09-18T16:10:40Z' class='post-time'>
+                September 18, 2018,  4:10pm
+              </time>
+              <meta itemprop='dateModified' content='2018-09-18T16:10:40Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Possible a couple of things are going on…most likely getting an error from your host. There is a bug that can report success on certain types of error using the step in 5.4 (fixed for 5.4.1).  Try <a href="../../../actions.getdrafts.com/a/1OB.html">this scripted version</a> and see what you are getting in the action log. It’s got more debugging info.  Please open a ticket with the results (<a href="mailto:support@agiletortoise.com">support@agiletortoise.com</a>), we can better troubleshoot there.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/ndntaylor'><span itemprop='name'>ndntaylor</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-01-18T09:53:14Z' class='post-time'>
+                January 18, 2019,  9:53am
+              </time>
+              <meta itemprop='dateModified' content='2019-01-18T09:53:14Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Since wordpress updated to 5.0 and the new blocks editor this action still posts a draft but the markdown isn’t converted.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-01-18T13:42:09Z' class='post-time'>
+                January 18, 2019,  1:42pm
+              </time>
+              <meta itemprop='dateModified' content='2019-01-18T13:42:09Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The default “Post to Wordpress” example above does not do Markdown conversion, it just sends the content of the draft. If the Markdown was converting for you in publishing before, it was likely being done at Wordpress’s end.</p>
+<p>Honestly have not looked into changes in WP 5 to know how that affects input, but there’s likely someway to enable Markdown posts on the WP end still.  Maybe someone else here is a Markdown user and will have more of an idea.</p>
+<p>You can have Drafts convert the Markdown to HTML before sending it if you edit the action and change the template to <code>%%[[body]]%%</code>…but WordPress will be getting and storing HTML, not the raw Markdown.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/ndntaylor'><span itemprop='name'>ndntaylor</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-01-18T15:12:14Z' class='post-time'>
+                January 18, 2019,  3:12pm
+              </time>
+              <meta itemprop='dateModified' content='2019-01-18T15:12:14Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Perfect. That works. WordPress converts the HTML automatically.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Elislav_Atanasov'><span itemprop='name'>Elislav_Atanasov</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-03-16T15:31:26Z' class='post-time'>
+                March 16, 2019,  3:31pm
+              </time>
+              <meta itemprop='dateModified' content='2019-03-16T15:31:26Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>,</p>
+<p>Thanks for this answer. I have tried it and the automation works, but for some reason wordpress does not recognize the html tags and now I have just a single block of text with all the html tags. As far as I understand it should work, because the block, which wordpress uses is “own html”. Am I the only one experiencing this issue?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/scott'><span itemprop='name'>scott</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-03-19T11:21:45Z' class='post-time'>
+                March 19, 2019, 11:21am
+              </time>
+              <meta itemprop='dateModified' content='2019-03-19T14:34:11Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, I’ve seen it too. My posts are wrapped in html.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Sebastien'><span itemprop='name'>Sebastien</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-10-20T07:52:30Z' class='post-time'>
+                October 20, 2019,  7:52am
+              </time>
+              <meta itemprop='dateModified' content='2019-10-20T07:52:30Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>At the Moment I can‘t log in from Drafts to my WordPress Account. Do you know any WordPress Plugins That might Could block the Login?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-10-20T18:31:33Z' class='post-time'>
+                October 20, 2019,  6:31pm
+              </time>
+              <meta itemprop='dateModified' content='2019-10-20T18:31:33Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There are a lot of things that could block login. There’s a few troubleshooting steps above in the post. Most commonly your host simply disallows XML-RPC access by default. What error are you getting in the log (action history button at top of action list) after attempting the action?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/JohnP2'><span itemprop='name'>JohnP2</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-12-20T22:30:06Z' class='post-time'>
+                December 20, 2019, 10:30pm
+              </time>
+              <meta itemprop='dateModified' content='2019-12-20T22:30:06Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Unsure if you take contributing “Integration Guides” but I’d like to submit one for integrating with 1Writer.<br>
+This would be an excerpt from an artifact I am currently writing, that is much akin to what <a href="https://www.macstories.net/tutorials/guide-url-scheme-ios-drafts/#thedraftsurlscheme" rel="nofollow noopener">Alex Guyot</a> wrote years ago. Kind of an updated version, if you will. Thx</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/desparoz'><span itemprop='name'>desparoz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-12T02:26:43Z' class='post-time'>
+                April 12, 2020,  2:26am
+              </time>
+              <meta itemprop='dateModified' content='2020-04-12T02:26:43Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello, I am trying to run an action that starts with a prompt to collect a category.</p>
+<p>I set up a key called [[dp_cats]] and then include that in the Categories field in the ‘WordPress’ step.</p>
+<p>When arriving at my site, all I get is the actual text in the field. Is there no way to have a variable loaded into the categories field (or tag field)??</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/blfarris'><span itemprop='name'>blfarris</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-27T19:49:33Z' class='post-time'>
+                July 27, 2020,  7:49pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-27T19:49:33Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m also experiencing this.</p>
+<p>I get a nicely spaced post with HTML tags in it.</p>
+<p>I can fix it by selecting the text, cut, then move to the “Text” tab and pasting the HTML in there, but I’d love to skip that step.</p>
+<p>Any ideas?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sgclark'><span itemprop='name'>sgclark</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-wordpress/2492.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-08T19:18:44Z' class='post-time'>
+                April 8, 2022,  7:18pm
+              </time>
+              <meta itemprop='dateModified' content='2022-04-08T19:18:44Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Been trying to use the Wordpress actions:</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1OG">
+  <header class="source">
+      <img src="../../../actions.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="../../../actions.getdrafts.com/a/1OG.html" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../../actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="../../../actions.getdrafts.com/a/1OG.html" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Post to WordPress</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1OB">
+  <header class="source">
+      <img src="../../../actions.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="../../../actions.getdrafts.com/a/1OB.html" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../../actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="../../../actions.getdrafts.com/a/1OB.html" target="_blank" rel="noopener nofollow ugc">Drafts Directory: WordPress - New Post</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>However when I test them out, the posts do not show up on the Wordpress side.  Within Drafts, they seem to say it goes through.  This was an error that I saw in the Drafts logs:</p>
+<code>
+Response: undefined
+Error: undefined
+Script Error: TypeError: undefined is not an object (evaluating 'response.params[0]')
+Line number: 26, Column 60
+</code>
+<p>Could all the changes happening on the Wordpress side regarding block publishing be causing issues with these Drafts Actions?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using WordPress with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

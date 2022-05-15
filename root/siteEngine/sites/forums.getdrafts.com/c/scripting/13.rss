@@ -1,0 +1,1027 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Scripting - Drafts Community</title>
+    <link>https://forums.getdrafts.com/c/scripting/13</link>
+    <description>Topics in the &#39;Scripting&#39; category Discussions about Javascript techniques, and Drafts scripting in general</description>
+    
+      <lastBuildDate>Thu, 12 May 2022 20:39:12 +0000</lastBuildDate>
+      <atom:link href="https://forums.getdrafts.com/c/scripting/13.rss" rel="self" type="application/rss+xml" />
+        <item>
+          <title>Modify Script to Include Event Organiser and Attendees</title>
+          <dc:creator><![CDATA[Rhydon_Me]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Hi</p>
+<p>I would like to add the event organiser and event attendees to this script.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://scripting.getdrafts.com/classes/event#attendees">
+  <header class="source">
+
+      <a href="https://scripting.getdrafts.com/classes/event#attendees" target="_blank" rel="noopener nofollow ugc">scripting.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    
+
+<h3><a href="https://scripting.getdrafts.com/classes/event#attendees" target="_blank" rel="noopener nofollow ugc">Event | Drafts Script Reference</a></h3>
+
+  <p>Documentation for Drafts Script Reference</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>Can anyone help?</p>
+<p>// Create meeting minutes<br>
+var calendars = [“Kalender”, “Ralf”];<br>
+var today = new Date();<br>
+var yesterday = new Date(today.getTime() - 1000<em>60</em>60*24);<br>
+var print_event = (e) =&gt; <code>${strftime(e.startDate, "%R")} - ${e.title}</code>;<br>
+var events = calendars<br>
+.reduce((e, c) =&gt; e.concat(Calendar.find(c).events(yesterday, today)), [])<br>
+.sort((a, b) =&gt; a.startDate - b.startDate)<br>
+.reverse()<br>
+.filter(e =&gt; !e.isAllDay)<br>
+var event_template =<br>
+MustacheTemplate.createWithTemplate(Draft.find(“74554985-BE84–4C11-A7AE-07883A9A5C19”).content);<br>
+var p = Prompt.create();<br>
+p.title = “Meeting Note”;<br>
+p.message = “Choose an event. the current draft will be appended to the template and tagged <code>meeting</code>.”;<br>
+if (events) {<br>
+p.addSelect(“event”, “Events”, events.map(e =&gt; print_event(e)), [], false);<br>
+p.addButton(“Create Meeting Note”);<br>
+prompt = p.show();<br>
+if (p.buttonPressed == “Create Meeting Note”) {<br>
+// process the event<br>
+event = events.find(e =&gt; print_event(e) == p.fieldValues[“event”])</p>
+<p>var data = {<br>
+“title”: event.title,<br>
+“startDate”: strftime(event.startDate, “%Y-%m-%d-%H%M”),<br>
+“notes”: event.notes,<br>
+“content”: increaseMDLevel(draft)<br>
+};<br>
+result = event_template.render(data);<br>
+draft.addTag(“meeting”);<br>
+draft.content = result;<br>
+draft.update();<br>
+}<br>
+}</p>
+            <p><small>5 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654</link>
+          <pubDate>Thu, 12 May 2022 20:39:12 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12654</guid>
+          <source url="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654.rss">Modify Script to Include Event Organiser and Attendees</source>
+        </item>
+        <item>
+          <title>List files in a bookmark to populate a prompt</title>
+          <dc:creator><![CDATA[nucingen]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Hello Drafts collective brain,</p>
+<p>Would anyone know how to list all the files in a bookmarked folder and feed those file names into a popup prompt ? The idea is that I would like to select to which of those existing files I append my [draft] through a prompt.</p>
+<p>Thank you !</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/list-files-in-a-bookmark-to-populate-a-prompt/12603">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/list-files-in-a-bookmark-to-populate-a-prompt/12603</link>
+          <pubDate>Thu, 05 May 2022 15:05:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12603</guid>
+          <source url="https://forums.getdrafts.com/t/list-files-in-a-bookmark-to-populate-a-prompt/12603.rss">List files in a bookmark to populate a prompt</source>
+        </item>
+        <item>
+          <title>Modifying Monthly Journal Action - consolidating entries</title>
+          <dc:creator><![CDATA[djs71a]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Hello, I am using the Monthly Journal action found <a href="https://directory.getdrafts.com/a/1Zk" rel="noopener nofollow ugc">here</a>. I would like to modify it so the output looks like this. One draft per month. In each draft, it would show the below. I am having trouble conceptualizing what needs to be changed. Are there any pointers you can think of?</p>
+<h1>
+<a name="h-2022-04-monthly-journal-1" class="anchor" href="https://forums.getdrafts.com#h-2022-04-monthly-journal-1"></a>2022-04: Monthly Journal</h1>
+<h4>
+<a name="monday-25-april-2022-2" class="anchor" href="https://forums.getdrafts.com#monday-25-april-2022-2"></a>Monday 25 April 2022</h4>
+<p>– 10:38 AM - Here is a test<br>
+– 11:27 AM - some more text<br>
+– 3:56 PM - yet more text</p>
+<h4>
+<a name="tuesday-26-april-2022-3" class="anchor" href="https://forums.getdrafts.com#tuesday-26-april-2022-3"></a>Tuesday 26 April 2022</h4>
+<p>– 9:21 AM - Here is a test again<br>
+– 11:30 AM - some more text again</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/modifying-monthly-journal-action-consolidating-entries/12551">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/modifying-monthly-journal-action-consolidating-entries/12551</link>
+          <pubDate>Tue, 26 Apr 2022 12:55:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12551</guid>
+          <source url="https://forums.getdrafts.com/t/modifying-monthly-journal-action-consolidating-entries/12551.rss">Modifying Monthly Journal Action - consolidating entries</source>
+        </item>
+        <item>
+          <title>HTTP Post data in raw?</title>
+          <dc:creator><![CDATA[dofine]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>As far as I known the <a href="https://scripting.getdrafts.com/classes/http" rel="noopener nofollow ugc">HTTP | Drafts Script Reference (getdrafts.com)</a> request only accepts <code>json</code> or <code>form</code> for <code>data</code>.</p>
+<p>In my case the server needs <code>raw</code>. (I’m playing with Zotero web api).  Similar question seems to be there but no answers. <a href="https://forums.getdrafts.com/t/can-i-post-raw-data-to-a-web-api/8180">Can I ‘POST’ Raw Data to a Web API? - Scripting - Drafts Community (getdrafts.com)</a></p>
+            <p><small>5 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424</link>
+          <pubDate>Fri, 08 Apr 2022 14:15:36 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12424</guid>
+          <source url="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss">HTTP Post data in raw?</source>
+        </item>
+        <item>
+          <title>Stuck with passing data to Dayone</title>
+          <dc:creator><![CDATA[varun]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Heads Up: This is ithe first time trying out drafts scripting reference.</p>
+<p>I’m trying to create the draft as a dayone entry followed by pushing data into OmniFocus but after running callback URL for dayone the control doesn’t;t seem to return back. Not sure what I’m missing</p>
+<p>Here is the code snippet</p>
+<pre><code class="lang-auto">var editorText = editor.getText();
+console.log(editorText);
+var matches = [...editorText.matchAll(/- \[ \] (.+)/g)]
+if (matches.length === 0) {
+    context.cancel("No intentions specified");
+}
+
+
+
+function createOfTasks() {
+    const baseURL = "omnifocus://x-callback-url/paste";
+    var cb = CallbackURL.create();
+    cb.waitForResponse = true;
+    cb.baseURL = baseURL;
+
+    matches = matches.map(entry =&gt; `${entry} @tags(A - Goal)`)
+
+    cb.addParameter("content", matches.join("\n"));
+    var success = cb.open();
+    if (success) {
+        console.log("Event created");
+    } else { // something went wrong or was cancelled
+        console.log(cb.status);
+        if (cb.status == "cancelled") {
+            context.cancel();
+        } else {
+            context.fail();
+        }
+    }
+}
+
+function createDayone() {
+    var cb = CallbackURL.create();
+    cb.baseURL = "dayone2:///post";
+    cb.waitForResponse = true;
+    cb.addParameter("entry", editorText);
+    cb.addParameter("journal", "Evaluation/Review");
+
+    var success = cb.open();
+    if (success) {
+        console.log("Journal created");
+        // createOfTasks();
+    } else { // something went wrong or was cancelled
+        console.log(cb.status);
+        if (cb.status == "cancelled") {
+            context.cancel();
+        } else {
+            context.fail();
+        }
+    }
+}
+
+createDayone()
+</code></pre>
+<p>It opens day one on mac and gets stuck like this before the timeout kicks in</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/e/eb27c1aeeddb2b6862795922d8d47e41dd8836e8.png" alt="image" data-base62-sha1="xyhnMEIR2li6hOywxSge19o2516" width="644" height="208"></p>
+<p>Any help will be appreciated.</p>
+            <p><small>10 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/stuck-with-passing-data-to-dayone/12372">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/stuck-with-passing-data-to-dayone/12372</link>
+          <pubDate>Mon, 28 Mar 2022 16:09:17 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12372</guid>
+          <source url="https://forums.getdrafts.com/t/stuck-with-passing-data-to-dayone/12372.rss">Stuck with passing data to Dayone</source>
+        </item>
+        <item>
+          <title>Help debugging this Send to OmniFocus script</title>
+          <dc:creator><![CDATA[jochi]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I’m trying to update my Send Tasks to OmniFocus action to insert the permalink into the note of any wiki-linked lines.</p>
+<p>This is my Frankenstein script that I cobbled together from pieces of my original script, Rosemary’s send to OmniFocus, and Greg’s “insert draft in place of wiki-links” script… It was working in an earlier version but now is failing at line 10…</p>
+<p>I’ve tried everything I can think of but I can’t figure out why. Any ideas?</p>
+<pre><code class="lang-auto">const note_re = /\|/;
+const wiki_re = /\[\[(.+?)\]\]\s/gm;
+
+let findLinkedDraft = (title) =&gt; {
+	let found = Draft.queryByTitle(title);
+	if (found.length == 0) {
+		return null;
+	}
+	return " → " +  title + "|" + found[1].permalink + "\n"; // seemed like found[0] matches the current draft
+}
+
+let permalinked_lines = (d) =&gt; {
+	let content = draft.processTemplate("[[selection]]");
+	content = content.replace(wiki_re, (match, title) =&gt; {
+		let d = findLinkedDraft(title);
+		if (d) {
+			return d;
+		}
+		else { // not found, leave as-is
+			return match;
+		}
+	});
+	return content;
+}
+
+let lines = permalinked_lines(draft);
+
+let taskpaper = '';
+lines.split("\n").forEach(function(line) {
+	if (line.startsWith('- [ ]')) {
+		if (line.match(note_re)) {	
+			let l = line.split(note_re);
+			line = l[0] + "\n" + l[1];
+		}
+		taskpaper += line.replace('[ ]', '') + "\n";
+	}
+});
+
+const baseURL = "omnifocus://x-callback-url/paste";
+let cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter("content", taskpaper.trim());
+cb.open();
+
+</code></pre>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/help-debugging-this-send-to-omnifocus-script/12344">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/help-debugging-this-send-to-omnifocus-script/12344</link>
+          <pubDate>Wed, 23 Mar 2022 22:20:46 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12344</guid>
+          <source url="https://forums.getdrafts.com/t/help-debugging-this-send-to-omnifocus-script/12344.rss">Help debugging this Send to OmniFocus script</source>
+        </item>
+        <item>
+          <title>Find markdown header for a given location in a draft</title>
+          <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Anyone— what’s the most efficient way to return the closest preceding header for any given location within a draft?</p>
+<p>I’ve tried experimenting with regex lookarounds, but haven’t been successful thus far…</p>
+            <p><small>11 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/find-markdown-header-for-a-given-location-in-a-draft/12340">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/find-markdown-header-for-a-given-location-in-a-draft/12340</link>
+          <pubDate>Wed, 23 Mar 2022 17:24:45 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12340</guid>
+          <source url="https://forums.getdrafts.com/t/find-markdown-header-for-a-given-location-in-a-draft/12340.rss">Find markdown header for a given location in a draft</source>
+        </item>
+        <item>
+          <title>Open Drafts again after callback-url action</title>
+          <dc:creator><![CDATA[tomtjes]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I have created an action with a callback-url that opens a podcast app and plays the current episode. <code>Wait for response</code> is off, but the phone doesn’t automatically return to Drafts.</p>
+<p>So I added another callback-url step with <code>drafts://x-callback-url/open?uuid=[[uuid]]</code>, but nothing happens. Any idea what I could do to make the phone open drafts after switching to the podcast app?</p>
+            <p><small>5 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/open-drafts-again-after-callback-url-action/12311">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/open-drafts-again-after-callback-url-action/12311</link>
+          <pubDate>Fri, 18 Mar 2022 16:57:06 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12311</guid>
+          <source url="https://forums.getdrafts.com/t/open-drafts-again-after-callback-url-action/12311.rss">Open Drafts again after callback-url action</source>
+        </item>
+        <item>
+          <title>Prepend Timestamp to Multiple Drafts and Merge</title>
+          <dc:creator><![CDATA[Denrael]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I am using the shortcut action “Create Draft with Dictation” to create multiple drafts during the day detailing what I just accomplished and what is next on the plate.</p>
+<p>At the end of the day, I have a workspace which contains all these drafts, each generally just a few lines in length. My goal is to create an action which processes these drafts, prepending the timestamp on each one, then merging all the drafts in the workspace into one.</p>
+<p>For Example:</p>
+<p>Draft 1 (Created 08:03)<br>
+Got Coffee and triaged mail while waiting for coffee to cool.</p>
+<p>Draft 2 (Created 08:37)<br>
+Call with key partner, just put entire day into shredder. Rest of day will be updating redlines on proposal.</p>
+<p>The goal is to turn that into a single draft looking like:</p>
+<ul>
+<li>08:03: Got Coffee and triaged mail while waiting for coffee to cool.</li>
+<li>08:37: Call with key partner, just put entire day into shredder. Rest of day will be updating redlines on proposal.</li>
+</ul>
+<p>I’ve done some script modifications within an editor space but never across multiple drafts. Can anyone point me to any good examples to start from?</p>
+            <p><small>4 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298</link>
+          <pubDate>Tue, 15 Mar 2022 01:50:54 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12298</guid>
+          <source url="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298.rss">Prepend Timestamp to Multiple Drafts and Merge</source>
+        </item>
+        <item>
+          <title>Script Error: SyntaxError: JSON Parse error: Unexpected identifier &quot;drafts&quot; Line number: 53, Column 35</title>
+          <dc:creator><![CDATA[dkerprich]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Hi,<br>
+getting following error with TADpoLe Library for all actions:</p>
+<p>Script step completed.<br>
+Script step completed.<br>
+Script step completed.<br>
+Script step completed.<br>
+Script Error: SyntaxError: JSON Parse error: Unexpected identifier “drafts”<br>
+Line number: 53, Column 35</p>
+<p>Drafts Version 31.0.1 (iOS and macOS) and new imported TADpoLe Actions.</p>
+<p>Regards,<br>
+Dietmar</p>
+            <p><small>13 posts - 6 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/script-error-syntaxerror-json-parse-error-unexpected-identifier-drafts-line-number-53-column-35/12187">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/script-error-syntaxerror-json-parse-error-unexpected-identifier-drafts-line-number-53-column-35/12187</link>
+          <pubDate>Sun, 27 Feb 2022 16:19:19 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12187</guid>
+          <source url="https://forums.getdrafts.com/t/script-error-syntaxerror-json-parse-error-unexpected-identifier-drafts-line-number-53-column-35/12187.rss">Script Error: SyntaxError: JSON Parse error: Unexpected identifier &quot;drafts&quot; Line number: 53, Column 35</source>
+        </item>
+        <item>
+          <title>Different behavior on Mac vs. iPhone/iPad</title>
+          <dc:creator><![CDATA[eddiemoto]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I’m using the action “Process Journal Items” from the <a href="https://actions.getdrafts.com/g/1Sd" rel="noopener nofollow ugc">Quick Journaling</a> action group.</p>
+<p>I made some modifications in order for it to support TickTick. When run from the Mac, it processes all the lines that are considered actions and uses the callback to add them to TickTick.</p>
+<p><strong>However</strong>, on the IOS devices it only processes the first one?</p>
+<p>I suspect the issue is with my <strong><em>sendToTicktick</em></strong> function, but I’m confused why it would work on the Mac and not the IOS devices.</p>
+<pre><code class="lang-auto">const lines = draft.content.split("\n");
+const dayoneURL = "dayone2://post"
+const fantasticalURL = "fantastical2://x-callback-url/parse";
+const goodtaskURL = "goodtask3://x-callback-url/add";
+const omnifocusURL = "omnifocus://x-callback-url/add";
+const thingsURL = "things:///add";
+const todoistURL = "todoist://addtask";
+
+// EZ - These constants are added for my purposes
+const tags = draft.tags;
+const title = draft.displayTitle;
+const uuid = draft.uuid;
+const ticktickURL = "ticktick://x-callback-url/v1/add_task?";
+
+var dayOneLines = [];
+
+// Actions for sending journal entries to various apps
+
+function collectForDayOne(entry) {
+    dayOneLines.push(entry);
+}
+
+function sendToFantastical(entry) {
+    var cb = CallbackURL.create();
+    cb.baseURL = fantasticalURL;
+    cb.addParameter("sentence", entry);
+    cb.open();
+}
+
+function sendToGoodTask(entry) {
+    var cb = CallbackURL.create();
+    cb.baseURL = goodtaskURL;
+    cb.addParameter("title", entry);
+    cb.open();
+}
+
+function sendToOmniFocus(entry) {
+    var cb = CallbackURL.create();
+    cb.baseURL = omnifocusURL;
+    cb.addParameter("name", entry);
+    cb.open();
+}
+
+function sendToReminders(entry) {
+    var list = ReminderList.findOrCreate("Journal");
+    var reminder = list.createReminder();
+    reminder.title = entry;
+    reminder.update();
+}
+
+function sendToThings(entry) {
+    var cb = CallbackURL.create();
+    cb.baseURL = thingsURL;
+    cb.addParameter("title", entry);
+    cb.open();
+}
+
+function sendToTodoist(entry) {
+    var cb = CallbackURL.create();
+    cb.baseURL = todoistURL;
+    cb.addParameter("content", entry);
+    cb.open();
+}
+
+// EZ - This function is meant to take only task list items and send them to TickTick via a callback URL
+function sendToTicktick(entry) {
+	var cb = CallbackURL.create();
+
+	// EZ - Search for "- [x]" and replace it with a "X". I don't see that you can actually send TickTick a completed item.  Hopefully that will change or I find a way.
+	if (entry.startsWith("[x]"||"[x] ") ) {
+		cb.addParameter("title", entry.replace(/\[x\]\s+/, 'X - ') );
+	}
+
+	// EZ - Search for "- [ ]" and clear it out. We don't need a checkbox in TickTick
+	else if (entry.startsWith("[ ]"||"[ ] ") ) {
+		cb.addParameter("title", entry.replace(/\[ \]\s+/, '') );
+	}
+
+    cb.baseURL = ticktickURL;
+    cb.addParameter("tags", tags);
+    cb.addParameter("content", "Generated from: " + "[" + title + "](drafts://x-callback-url/open?uuid=" + uuid + ")");
+    cb.waitForResponse = false;
+    cb.open();
+}
+
+// Resolve actions defined in the settings file to the actual
+// functions to call.
+
+var actionMap = {
+    "Day One": collectForDayOne,
+    "Fantastical": sendToFantastical,
+    "GoodTask": sendToGoodTask,
+    "OmniFocus": sendToOmniFocus,
+    "Reminders": sendToReminders,
+    "Things": sendToThings,
+    "Todoist": sendToTodoist,
+    "TickTick": sendToTicktick,
+}
+
+var actions = {}
+for (var key in lineProcessors) {
+    var actionName = lineProcessors[key];
+    actions[key] = actionMap[actionName];
+}
+
+// Process all the lines.
+
+for (var line of lines) {
+    line = line.trim();
+    if (line.length == 0) { continue; }
+
+    first = line[0];
+    rest = line.substr(1).trim();
+    if (rest.length == 0) { continue; }
+
+    action = actions[first];
+    if (action === undefined) { continue; }
+
+    action(rest);
+}
+
+// Some actions are processed in a batch after all their entries
+// are collected. This is where that happens.
+
+if (dayOneLines.length) {
+    var body = dayOneLines.join("\n\n");
+    var cb = CallbackURL.create();
+    cb.baseURL = dayoneURL;
+    cb.addParameter("entry", body);
+    cb.waitForResponse = false;
+    cb.open();
+}
+</code></pre>
+            <p><small>8 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/different-behavior-on-mac-vs-iphone-ipad/12112">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/different-behavior-on-mac-vs-iphone-ipad/12112</link>
+          <pubDate>Wed, 16 Feb 2022 23:39:06 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12112</guid>
+          <source url="https://forums.getdrafts.com/t/different-behavior-on-mac-vs-iphone-ipad/12112.rss">Different behavior on Mac vs. iPhone/iPad</source>
+        </item>
+        <item>
+          <title>Dark mode on web view on Mac</title>
+          <dc:creator><![CDATA[derekvan]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I have the following code for a web view, which produces a dark mode version on iOS but not on Mac (even when Drafts main interface is dark):</p>
+<pre><code class="lang-auto">@media (prefers-color-scheme: dark)
+		{
+			body, textarea, input {
+				color: rgb(242,242,242);
+				background: #121212;
+			}
+		}
+</code></pre>
+<p>Any hints for something better or maybe a bug?</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/dark-mode-on-web-view-on-mac/12099">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/dark-mode-on-web-view-on-mac/12099</link>
+          <pubDate>Tue, 15 Feb 2022 02:23:51 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12099</guid>
+          <source url="https://forums.getdrafts.com/t/dark-mode-on-web-view-on-mac/12099.rss">Dark mode on web view on Mac</source>
+        </item>
+        <item>
+          <title>&quot;Delete&quot; and &quot;Backspace&quot; keys action with Javascript</title>
+          <dc:creator><![CDATA[kurol]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Often writing with Scribble / Apple Pencil makes some quick buttons useful.<br>
+Scripts below are working with or without a selection. Is this the right way to code them ?</p>
+<pre><code class="lang-auto">// Delete key script 
+
+let [st, len] = editor.getSelectedRange();
+// select one char if nothing is selected
+if (len == 0) {
+ len++;
+}
+// replace selection with ""
+editor.setTextInRange(st, len, "");
+// unselect 
+editor.setSelectedRange(st, 0);
+editor.activate();
+
+
+// Backspace key script 
+
+let [st, len] = editor.getSelectedRange();
+// select previous char if nothing is selected
+if (len == 0) {
+ 	len++;
+ 	st--;
+}
+// replace selection with ""
+editor.setTextInRange(st, len, "");
+// unselect 
+editor.setSelectedRange(st, 0);
+editor.activate();
+</code></pre>
+            <p><small>1 post - 1 participant</small></p>
+            <p><a href="https://forums.getdrafts.com/t/delete-and-backspace-keys-action-with-javascript/12098">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/delete-and-backspace-keys-action-with-javascript/12098</link>
+          <pubDate>Mon, 14 Feb 2022 15:48:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12098</guid>
+          <source url="https://forums.getdrafts.com/t/delete-and-backspace-keys-action-with-javascript/12098.rss">&quot;Delete&quot; and &quot;Backspace&quot; keys action with Javascript</source>
+        </item>
+        <item>
+          <title>Add current date/time to existing draft</title>
+          <dc:creator><![CDATA[Craiglea]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I have an action that I use to send the current date and time [[date|%A %d-%m-%y - %R]] prepended to note in Bear and a file in Dropbox. I use this to log my working times.</p>
+<p>To end my reliance on any third party app I though I would switch to prepending the data to an existing draft and that probably needs scripting. Something based off the action below.</p>
+<pre><code class="lang-auto">let d = Draft.find("ENTER YOUR UUID BETWEEN THESE QUOTATION MARKS")
+
+// append current draft
+d.content = d.content + "\n" + draft.content
+d.update()
+</code></pre>
+<p><em>that’s obviously an append script</em></p>
+<p>Two questions:</p>
+<ol>
+<li>
+<p>How do I get the date/time information into “draft.content” or similar?</p>
+</li>
+<li>
+<p>Would it be possible to prepend this data <strong>after</strong> the title line in the target draft?</p>
+</li>
+</ol>
+            <p><small>12 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/add-current-date-time-to-existing-draft/12027">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/add-current-date-time-to-existing-draft/12027</link>
+          <pubDate>Wed, 02 Feb 2022 13:43:25 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-12027</guid>
+          <source url="https://forums.getdrafts.com/t/add-current-date-time-to-existing-draft/12027.rss">Add current date/time to existing draft</source>
+        </item>
+        <item>
+          <title>Javascript: don&#39;t send value to API if blank?</title>
+          <dc:creator><![CDATA[derekvan]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I need a bit of help with a script I use to send highlights to Readwise. Basically, I create a prompt in drafts, fill out the details, then it send to Readwise. However, not every highlight needs all the fields. Yet, if I try to send a blank field to the Readwise API, it fails. How can I detect a blank field and not send that to the API?</p>
+<pre><code class="lang-auto">// readwise
+
+
+let t = draft.processTemplate("[[display_title]]");
+let h = draft.processTemplate("[[line|3..]]");
+
+
+var p = Prompt.create();
+p.title="Parse draft for readwise";
+p.addTextField("pTitle","Title",t);
+p.addTextField("pAuthor","Author","");
+p.addTextView("pText","Highlight",h,{"height":150});
+p.addTextField("pLoc","Location","");
+p.addTextField("pURL","URL","");
+p.addTextField("pNote","Note","");
+p.addSelect("pType","Type",["book","article","podcast"],[""],false);
+p.addButton("OK");
+
+
+
+//p.fieldValues["pNote"],p.fieldValues["pType"],
+if(p.show()){
+    
+        let pT = p.fieldValues["pType"].toString();
+        postToReadwise(p.fieldValues["pTitle"],p.fieldValues["pAuthor"],p.fieldValues["pText"],p.fieldValues["pLoc"],p.fieldValues["pURL"],p.fieldValues["pNote"],pT,draft.createdAt.toISOString());
+
+    
+}
+else
+{
+    context.cancel();
+}
+
+function postToReadwise(pTitle,pAuthor,pText,pLoc,pURL,pNote,pType,pDate)
+{
+	const BASEURL = "https://readwise.io/api/v2/highlights/";
+	
+	let credReadwise = Credential.create("Readwise", "Highlight surfacing service.");
+	credReadwise.addPasswordField("token", "API Token");
+	credReadwise.authorize();
+
+	let httpMain = HTTP.create();
+	let respMain = httpMain.request(
+	{
+		"url" : BASEURL,
+		"method" : "POST",
+		"data": 
+		{
+			"highlights" : [{
+                "text" : pText,
+                "title": pTitle,
+                "author":pAuthor,
+                "location":pLoc,
+				"source_url":pURL,
+                "note":pNote,
+                "source_type":pType,
+                "highlighted_at":pDate
+            }]
+		},
+		"headers" :
+		{
+			"Authorization" : `Token ${credReadwise.getValue("token")}`
+		}
+	});
+
+    if (respMain.success) {
+        console.log("yep");
+        return true;
+    }
+	else
+	{
+        alert(`[${respMain.statusCode}] ${respMain.error}`);
+        console.log(`[${respMain.statusCode}] ${respMain.error}`);
+		return false;
+	}
+}
+</code></pre>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/javascript-dont-send-value-to-api-if-blank/11990">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/javascript-dont-send-value-to-api-if-blank/11990</link>
+          <pubDate>Mon, 24 Jan 2022 15:29:42 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11990</guid>
+          <source url="https://forums.getdrafts.com/t/javascript-dont-send-value-to-api-if-blank/11990.rss">Javascript: don&#39;t send value to API if blank?</source>
+        </item>
+        <item>
+          <title>Query on both title and tag</title>
+          <dc:creator><![CDATA[jstavers1]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I am trying to write a script that locates a draft with a specific title and tag.</p>
+<p>Draft.queryByTitle returns an array of all drafts with the correct title, but doesn’t give me an option to limit by tag. Draft.query allows for tag searches, but doesn’t have a search by title option (I don’t think?).</p>
+<p>I think using the javascript filter() method on the Draft.queryByTitle array could work, but I can’t figure out a way to filter on tags (I have only the most basic understanding of javascript). And that seems like perhaps it is overkill for what seems like a pretty simple query?</p>
+<p>The use case for all this is to append something to a Daily Note which has the day’s date as its title and the tag “daily”. I have other drafts with the date in the title, so I need to filter by the “daily” tag to select the correct draft.</p>
+            <p><small>5 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/query-on-both-title-and-tag/11946">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/query-on-both-title-and-tag/11946</link>
+          <pubDate>Sun, 16 Jan 2022 16:16:24 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11946</guid>
+          <source url="https://forums.getdrafts.com/t/query-on-both-title-and-tag/11946.rss">Query on both title and tag</source>
+        </item>
+        <item>
+          <title>Script behavior - new draft overrides earlier append</title>
+          <dc:creator><![CDATA[jstavers1]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I am trying to append text to the active draft, then create a new draft. The portion of the script that appends works fine on its own, but when I add the subsequent lines to the script creating the new draft, the append action is not executed.</p>
+<p>This is the problem portion of the script (variables today and subject are previously defined in the script):</p>
+<blockquote>
+<p>// append new draft link</p>
+<p>let mn = (today + " " + subject);<br>
+draft.append ("[[" + mn + “]]”);</p>
+<p>// create new draft</p>
+<p>mnd = new Draft();<br>
+mnd.isArchived = true;<br>
+mnd.content = (mn + “\n” + “\n”);<br>
+mnd.addTag(“meeting_notes”);<br>
+editor.load(mnd)</p>
+</blockquote>
+<p>When run, the new draft is created, but the append command does not run. If I delete everything after “// create new draft” the append command runs perfectly.</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/script-behavior-new-draft-overrides-earlier-append/11943">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/script-behavior-new-draft-overrides-earlier-append/11943</link>
+          <pubDate>Sun, 16 Jan 2022 05:06:47 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11943</guid>
+          <source url="https://forums.getdrafts.com/t/script-behavior-new-draft-overrides-earlier-append/11943.rss">Script behavior - new draft overrides earlier append</source>
+        </item>
+        <item>
+          <title>Changing the format for addDatePicker</title>
+          <dc:creator><![CDATA[gmakstutis]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I’ve got a datePicker prompt setup and working, but I’d like to be able to change the order of the actual picker component, as:</p>
+<pre><code class="lang-auto">var c = Prompt.create()
+
+c.title = "Due Date";
+c.message = "Select date";
+
+c.addDatePicker("dueDate","Due Date", new Date(), {
+	"mode": "date"
+	});
+
+c.addButton("OK");
+
+if (c.show()){
+	draft.setTemplateTag("dDate",c.fieldValues["dueDate"])
+	}
+</code></pre>
+<p>In the UK we define dates by Day-Month-Year, but the picker uses Month-Day-Year.</p>
+<p>Is there a way to change this?</p>
+<p>I know I can reformat after the selection, but it is confusing to have to select dates in a format not familiar.</p>
+<p>Thanks</p>
+            <p><small>9 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/changing-the-format-for-adddatepicker/11909">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/changing-the-format-for-adddatepicker/11909</link>
+          <pubDate>Mon, 10 Jan 2022 17:05:40 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11909</guid>
+          <source url="https://forums.getdrafts.com/t/changing-the-format-for-adddatepicker/11909.rss">Changing the format for addDatePicker</source>
+        </item>
+        <item>
+          <title>Get the selected value from a list prompt</title>
+          <dc:creator><![CDATA[gmakstutis]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I’m sort of new to scripting here, and have found some useful starting points. However, I’ve run into a block (although I’m sure it’s blindingly obvious with a little bit of knowledge)…</p>
+<p>I have a list of projects stored in an archived draft. I am reading this list in to create a select list prompt using the “Script” action. My script is:</p>
+<pre><code class="lang-auto">// get the real UUID value from (i) info for your draft with the list
+let d = Draft.find("FCEAA5F4-0B02-48F5-AB57-136505A8BDA5");
+// split the draft into an array of lines...
+ let list = d.content.split("\n");
+ var selections = []
+// now you can loop over the lines to add to your prompt...
+ for (let item of list) {
+    selections.push(item)
+}
+ var p = Prompt.create();
+ p.title = "Project";
+ p.message = "Select a project"
+ p.addSelect("project", "Project", selections, [], false)
+ p.addButton("OK");
+ var selection = p.show()
+draft.setTemplateTag("project",selection)
+ draft.update()
+</code></pre>
+<p>My problem is that I cannot seem to get the value that the user selects from the list. At present my <code>draft.setTemplateTag("project",selection)</code> returns TRUE (since something was selected). But, for the life of me, I cannot seem to access the value of what was selected.</p>
+<p>Can anyone point me to where I can get the value so I can create the templateTag?</p>
+<p>Many thanks</p>
+            <p><small>2 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/get-the-selected-value-from-a-list-prompt/11905">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/get-the-selected-value-from-a-list-prompt/11905</link>
+          <pubDate>Mon, 10 Jan 2022 12:26:05 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11905</guid>
+          <source url="https://forums.getdrafts.com/t/get-the-selected-value-from-a-list-prompt/11905.rss">Get the selected value from a list prompt</source>
+        </item>
+        <item>
+          <title>Struggling with a regex…</title>
+          <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Banging my head against a bit of javascript I was hoping to finish before the year was out…</p>
+<pre><code class="lang-auto">
+var ignoreResultsTaggedWith = "filter output"
+var searchScope = "inbox"
+var modOrCreated = "created"
+
+var searchStr = "@commit("
+var searchReg = /@commit\([^)]*\)/g
+var queries = ""
+
+	let drafts = Draft.query(searchStr, searchScope,[],[ignoreResultsTaggedWith],modOrCreated,true)
+	while(drafts[i]){
+
+    		hits = drafts[i].lines.filter(element =&gt; searchReg.test(element) )
+    		alert(hits.length)
+        // …
+        }
+</code></pre>
+<p>This <em>kind of</em> does what I want, but fails in a way I can’t yet make sense of.</p>
+<p>For a draft containing two lines that each contain “<span class="mention">@commit</span>(something)”, hits.length returns as 1— the second line is ignored. If I insert an empty line between them, the second line is picked up— hits.length is returned as 2 (i.e. the result I expect).</p>
+<p>Testing the regex in regex101 shows that it works as expected, but I can’t see where else the problem might be…</p>
+            <p><small>4 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/struggling-with-a-regex/11859">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/struggling-with-a-regex/11859</link>
+          <pubDate>Fri, 31 Dec 2021 18:42:19 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11859</guid>
+          <source url="https://forums.getdrafts.com/t/struggling-with-a-regex/11859.rss">Struggling with a regex…</source>
+        </item>
+        <item>
+          <title>Check for existing file with same name and create new name?</title>
+          <dc:creator><![CDATA[derekvan]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I’m trying to export a bunch of drafts, some of which may have the same. Does anyone have any existing code that checks whether a file with that name has been created, and if so, adds an integer or something to the draft title before writing to a new file?</p>
+            <p><small>3 posts - 2 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/check-for-existing-file-with-same-name-and-create-new-name/11819">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/check-for-existing-file-with-same-name-and-create-new-name/11819</link>
+          <pubDate>Thu, 23 Dec 2021 02:24:40 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11819</guid>
+          <source url="https://forums.getdrafts.com/t/check-for-existing-file-with-same-name-and-create-new-name/11819.rss">Check for existing file with same name and create new name?</source>
+        </item>
+        <item>
+          <title>Path encoding on callback URL?</title>
+          <dc:creator><![CDATA[derekvan]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>I’m creating an action to send text to Obsidian via the URL scheme. I have everything working fine except the parameter in the URL scheme that takes the “path” for the file.</p>
+<p>The proper coding looks like:</p>
+<p><code>path%2Fto%2Fthe%2Ffile%2Ftitle</code></p>
+<p>However, when I try to put that in the <code>addParameter</code> field, it doesn’t encode the slashes properly. It leaves them as slashes. For whatever reason, this causes the note to be created in Obsidian, but not in the specified folder.</p>
+<p>I have tried many ways to send the correct information to Obsidian, but if I use the %2F encoding, Drafts re-encodes the percent sign, and if I type slashes in the path value, Drafts doesn’t encode them. Any way around this?</p>
+            <p><small>8 posts - 4 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/path-encoding-on-callback-url/11817">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/path-encoding-on-callback-url/11817</link>
+          <pubDate>Wed, 22 Dec 2021 17:38:00 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11817</guid>
+          <source url="https://forums.getdrafts.com/t/path-encoding-on-callback-url/11817.rss">Path encoding on callback URL?</source>
+        </item>
+        <item>
+          <title>Escaping Regex is not working</title>
+          <dc:creator><![CDATA[damienp199]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Hi everyone,</p>
+<p>I am trying to create a regex on Drafts. The Regex is working on Regex101, but it seems that the escaping \ is not working properly on Drafts.</p>
+<p>I need to get all the images with this formatting :  ![[path/to/image]]</p>
+<p>Here my script :</p>
+<p><code>const regexp = RegExp('\!\[\[','gmi'); const images = regexp.exec(draft.content);</code></p>
+<p>If i try a Regex without the escaping \ it’s working perfectly.</p>
+<p>Thanks for your help,<br>
+Damien</p>
+<p><em><strong>EDIT: I don’t know why but with the RegExp you need to double escape \. But the same regex doesn’t work with draft.content.replace(‘Regex’, “”);</strong></em></p>
+<p><em><strong>I really don’t understand the logic… I need to use the replace function too but the escaping seems different. Who could help me with this ?</strong></em></p>
+<p><em><strong>Thanks</strong></em></p>
+            <p><small>3 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/escaping-regex-is-not-working/11722">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/escaping-regex-is-not-working/11722</link>
+          <pubDate>Fri, 10 Dec 2021 04:45:56 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11722</guid>
+          <source url="https://forums.getdrafts.com/t/escaping-regex-is-not-working/11722.rss">Escaping Regex is not working</source>
+        </item>
+        <item>
+          <title>Create Script / Action for Markdown Equivalent of HTML5&#39;s &lt;details&gt;</title>
+          <dc:creator><![CDATA[ToniWonKanobi]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Not sure if this belongs in Scripting or Actions, but here’s what I’m wondering about:</p>
+<p>HTML5 has had a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details" rel="noopener nofollow ugc"><code>&lt;details&gt;</code></a> tag for some time.</p>
+<p>You’ve probably seen it on a website where the author may want to hide/obfuscate some information that isn’t pertinent to every visitor:</p>
+Details "Heading" <a href="https://forums.getdrafts.com/t/create-script-action-for-markdown-equivalent-of-html5s-details/11707/1">(click for more details)</a>
+<hr>
+<p>I know none of the current Markdown flavors support some kind of shorthand for this, but do any of you smart people out there think it would be double to add a function as a shorthand for the <code>&lt;details&gt;</code> section?</p>
+<p>And when I want to add a shortcut for <code>&lt;details&gt;</code>, I can insert the following:</p>
+<pre><code class="lang-auto">&lt;&gt;
+</code></pre>
+<p>… which could auto expand to injecting all the <code>&lt;details&gt;</code> stuff</p>
+<pre><code class="lang-auto">&lt;details&gt;
+    &lt;summary&gt;_Cursor goes here_&lt;/summary&gt;
+
+_Or here_
+
+&lt;/details&gt;
+</code></pre>
+<p>It seems like a weird suggestion/request, but I have a super long Drafts document with a bunch of Todos that have already been completed, and it would be nice to not have to scroll past all of that stuff when looking for the still-to-be-completed items <img src="https://forums.getdrafts.com/images/emoji/apple/sweat_smile.png?v=10" title=":sweat_smile:" class="emoji" alt=":sweat_smile:"></p>
+            <p><small>4 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/create-script-action-for-markdown-equivalent-of-html5s-details/11707">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/create-script-action-for-markdown-equivalent-of-html5s-details/11707</link>
+          <pubDate>Tue, 07 Dec 2021 18:29:27 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11707</guid>
+          <source url="https://forums.getdrafts.com/t/create-script-action-for-markdown-equivalent-of-html5s-details/11707.rss">Create Script / Action for Markdown Equivalent of HTML5&#39;s &lt;details&gt;</source>
+        </item>
+        <item>
+          <title>Modifying Web Capture bookmarklet</title>
+          <dc:creator><![CDATA[JCDichant]]></dc:creator>
+          <category>Scripting</category>
+          <description><![CDATA[
+            <p>Hi there</p>
+<p>I would like to use a web capture bookmarklet derivated from the one provided on the Drafts site (poup version) : <a href="https://docs.getdrafts.com/docs/extensions/web-capture" class="inline-onebox" rel="noopener nofollow ugc">Drafts Web Capture - Drafts User Guide</a></p>
+<p>In order to get this display :</p>
+<p>Title of the web page<br>
+blank line<br>
+URL without ( )<br>
+blank line<br>
+Selected text without &gt;</p>
+<p>I was able to remove the &gt; and [] from title and () from URL but not to split title and url on 2 différent lines.</p>
+<p>Any help would be appreciated.</p>
+<p>Thanks<br>
+JC</p>
+            <p><small>6 posts - 3 participants</small></p>
+            <p><a href="https://forums.getdrafts.com/t/modifying-web-capture-bookmarklet/11668">Read full topic</a></p>
+          ]]></description>
+          <link>https://forums.getdrafts.com/t/modifying-web-capture-bookmarklet/11668</link>
+          <pubDate>Tue, 30 Nov 2021 14:14:47 +0000</pubDate>
+          <discourse:topicPinned>No</discourse:topicPinned>
+          <discourse:topicClosed>No</discourse:topicClosed>
+          <discourse:topicArchived>No</discourse:topicArchived>
+          <guid isPermaLink="false">forums.getdrafts.com-topic-11668</guid>
+          <source url="https://forums.getdrafts.com/t/modifying-web-capture-bookmarklet/11668.rss">Modifying Web Capture bookmarklet</source>
+        </item>
+  </channel>
+</rss>

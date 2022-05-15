@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Add Attendees and Organizer to the Event Object</title>
+    <link>https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676</link>
+    <description>I leverage the Event object to create drafts for upcoming meetings. It would be very helpful to be able to retrieve the event organizer and attendees properties as well. That would save me a lot of typing when the meeting starts.</description>
+    
+    <lastBuildDate>Thu, 12 May 2022 20:40:15 +0000</lastBuildDate>
+    <category>Feature Requests</category>
+    <atom:link href="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Add Attendees and Organizer to the Event Object</title>
+        <dc:creator><![CDATA[Rhydon_Me]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, added it here</p>
+<aside class="quote quote-modified" data-post="1" data-topic="12654">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/rhydon_me/40/6680_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/modify-script-to-include-event-organiser-and-attendees/12654">Modify Script to Include Event Organiser and Attendees</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/scripting/13"><span class="badge-category-bg" style="background-color: #AB9364;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Discussions about Javascript techniques, and Drafts scripting in general">Scripting</span></a>
+  </div>
+  <blockquote>
+    Hi 
+I would like to add the event organiser and event attendees to this script. 
+
+
+Can anyone help? 
+// Create meeting minutes 
+var calendars = [“Kalender”, “Ralf”]; 
+var today = new Date(); 
+var yesterday = new Date(today.getTime() - 10006060*24); 
+var print_event = (e) =&gt; ${strftime(e.startDate, "%R")} - ${e.title}; 
+var events = calendars 
+.reduce((e, c) =&gt; e.concat(Calendar.find(c).events(yesterday, today)), []) 
+.sort((a, b) =&gt; a.startDate - b.startDate) 
+.reverse() 
+.filter(e =&gt; !e.isAllDa…
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/4</link>
+        <pubDate>Thu, 12 May 2022 20:40:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7676-4</guid>
+        <source url="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676.rss">Add Attendees and Organizer to the Event Object</source>
+      </item>
+      <item>
+        <title>Add Attendees and Organizer to the Event Object</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You might be better referencing the documentation page for that rather than the Github page. It is a bit easier to make sense of.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://scripting.getdrafts.com/classes/event#attendees">
+  <header class="source">
+
+      <a href="https://scripting.getdrafts.com/classes/event#attendees" target="_blank" rel="noopener">scripting.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    
+
+<h3><a href="https://scripting.getdrafts.com/classes/event#attendees" target="_blank" rel="noopener">Event | Drafts Script Reference</a></h3>
+
+  <p>Documentation for Drafts Script Reference</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>The feature was added in version 27 (May 2021); the original post dates back to almost a year before that.</p>
+<p>If you have a specific need, you can either look at learning from scratch, adapting an existing action (there are some actions in the directory where you can import calendar events into a draft), or calling upon the community to help build it with you. But to do that you would probably want to start a topic for what you want to do with as much detail in as possible about what you want to put in and what you want to get out.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/3</link>
+        <pubDate>Thu, 12 May 2022 20:34:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7676-3</guid>
+        <source url="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676.rss">Add Attendees and Organizer to the Event Object</source>
+      </item>
+      <item>
+        <title>Add Attendees and Organizer to the Event Object</title>
+        <dc:creator><![CDATA[Rhydon_Me]]></dc:creator>
+        <description><![CDATA[
+            <aside class="onebox githubblob" data-onebox-src="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Event.d.ts#L75">
+  <header class="source">
+
+      <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Event.d.ts#L75" target="_blank" rel="noopener nofollow ugc">github.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <h4><a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Event.d.ts#L75" target="_blank" rel="noopener nofollow ugc">agiletortoise/drafts-script-reference/blob/bb281e8/src/Event.d.ts#L75</a></h4>
+
+
+
+    <pre class="onebox">      <code class="lang-ts">
+        <ol class="start lines" start="65" style="counter-reset: li-counter 64 ;">
+            <li> * ```</li>
+            <li> * {</li>
+            <li> *    "isCurrentUser": false,</li>
+            <li> *    "name": "John Appleseed",</li>
+            <li> *    "status": "accepted",</li>
+            <li> *    "type": "person",</li>
+            <li> *    "role": "required"</li>
+            <li> * }</li>
+            <li> * ```</li>
+            <li> */</li>
+            <li class="selected">readonly attendees: Object[]</li>
+            <li>
+            </li>
+<li>/**</li>
+            <li> * Availability for scheduling. Not supported by all Calendar servers.</li>
+            <li> */</li>
+            <li>availability: 'busy'</li>
+            <li>    | 'free'</li>
+            <li>    | 'tentative'</li>
+            <li>    | 'unavailable'</li>
+            <li>    | 'notSupported'</li>
+            <li>
+        </li>
+</ol>
+      </code>
+    </pre>
+
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>is this what you are looking for?? I am looking for the same, but cannot code <img src="https://forums.getdrafts.com/images/emoji/apple/frowning.png?v=12" title=":frowning:" class="emoji" alt=":frowning:" loading="lazy" width="20" height="20"></p>
+          <p><a href="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/2</link>
+        <pubDate>Thu, 12 May 2022 19:37:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7676-2</guid>
+        <source url="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676.rss">Add Attendees and Organizer to the Event Object</source>
+      </item>
+      <item>
+        <title>Add Attendees and Organizer to the Event Object</title>
+        <dc:creator><![CDATA[elmnoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I leverage the Event object to create drafts for upcoming meetings. It would be very helpful to be able to retrieve the event organizer and attendees properties as well. That would save me a lot of typing when the meeting starts.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676/1</link>
+        <pubDate>Sun, 14 Jun 2020 02:30:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7676-1</guid>
+        <source url="https://forums.getdrafts.com/t/add-attendees-and-organizer-to-the-event-object/7676.rss">Add Attendees and Organizer to the Event Object</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico" type="image/x-icon" />
+    
+    <!-- Map CSS -->
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" />
+    
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="../assets/css/libs.bundle.css" />
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="../assets/css/theme.bundle.css" />
+    
+    <!-- CUSTOM -->
+    <meta name="apple-itunes-app" content="app-id=1236254471, affiliate-data=at=11l4Cf&amp;ct=web_banner">
+    <meta name="description" content="Drafts, Where Text Starts">
+    <meta name="author" content="">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Drafts, Where Text Starts">
+    <meta name="twitter:description" content="Drafts quick-capture app for iPhone, iPad, Mac and Apple Watch">
+    <meta name="twitter:creator" content="draftsapp">
+    <meta name="twitter:image" content="https://getdrafts.com/assets/img/custom/og-image.png" />
+    
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Drafts, Where Text Starts">
+    <meta property="og:description" content="Drafts quick-capture app for iPhone, iPad, Mac and Apple Watch">
+    <meta property="og:image" content="https://getdrafts.com/assets/img/custom/og-image.png" />
+    
+    <link rel="apple-touch-icon" sizes="57x57"
+        href="../assets/img/custom/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+        href="../assets/img/custom/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+        href="../assets/img/custom/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+        href="../assets/img/custom/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+        href="../assets/img/custom/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+        href="../assets/img/custom/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+        href="../assets/img/custom/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+        href="../assets/img/custom/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="../assets/img/custom/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="../assets/img/custom/favicons/favicon-32x32.png"
+        sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/img/custom/favicons/favicon-194x194.png.html"
+        sizes="194x194">
+    <link rel="icon" type="image/png" href="../assets/img/custom/favicons/favicon-96x96.png.html"
+        sizes="96x96">
+    <link rel="icon" type="image/png" href="../assets/img/custom/favicons/android-chrome-192x192.png"
+        sizes="192x192">
+    <link rel="icon" type="image/png" href="../assets/img/custom/favicons/favicon-16x16.png"
+        sizes="16x16">
+    <link rel="manifest" href="../assets/img/custom/favicons/manifest.json">
+    <link rel="shortcut icon" href="../assets/img/custom/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="msapplication-TileImage" content="https://getdrafts.com/assets/img/custom/favicons/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+    <script async defer data-domain="getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+    <!-- END CUSTOM -->
+    
+    <title>Drafts | Where Text Starts</title>
+    
+
+</head>
+
+<body>
+
+    <!-- MODALS -->
+    <!-- Example -->
+    <div class="modal fade" id="modalExample" tabindex="-1" role="dialog" aria-labelledby="modalExampleTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+    
+            <!-- Close -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+            <!-- Image -->
+            <div class="text-center">
+              <img src="../assets/img/illustrations/illustration-1.png" alt="..." class="img-fluid mb-3" style="width: 200px;">
+            </div>
+    
+            <!-- Heading -->
+            <h2 class="fw-bold text-center mb-1" id="modalExampleTitle">
+              Schedule a demo with us
+            </h2>
+    
+            <!-- Text -->
+            <p class="fs-lg text-center text-muted mb-6 mb-md-8">
+              We can help you solve company communication.
+            </p>
+    
+            <!-- Form -->
+            <form>
+              <div class="row">
+                <div class="col-12 col-md-6">
+    
+                  <!-- First name -->
+                  <div class="form-floating">
+                    <input type="text" class="form-control form-control-flush" id="registrationFirstNameModal" placeholder="First name">
+                    <label for="registrationFirstNameModal">First name</label>
+                  </div>
+    
+                </div>
+                <div class="col-12 col-md-6">
+    
+                  <!-- Last name -->
+                  <div class="form-floating">
+                    <input type="text" class="form-control form-control-flush" id="registrationLastNameModal" placeholder="Last name">
+                    <label for="registrationLastNameModal">Last name</label>
+                  </div>
+    
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-6">
+    
+                  <!-- Email -->
+                  <div class="form-floating">
+                    <input type="email" class="form-control form-control-flush" id="registrationEmailModal" placeholder="Email">
+                    <label for="registrationEmailModal">Email</label>
+                  </div>
+    
+                </div>
+                <div class="col-12 col-md-6">
+    
+                  <!-- Password -->
+                  <div class="form-floating">
+                    <input type="password" class="form-control form-control-flush" id="registrationPasswordModal" placeholder="Password">
+                    <label for="registrationPasswordModal">Password</label>
+                  </div>
+    
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+    
+                  <!-- Submit -->
+                  <button class="btn w-100 btn-primary mt-3 lift">
+                    Request a demo
+                  </button>
+    
+                </div>
+              </div>
+            </form>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Signup: Horizontal  -->
+    <div class="modal fade" id="modalSignupHorizontal" tabindex="-1" role="dialog" aria-labelledby="modalSignupHorizontalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="card card-row">
+            <div class="row gx-0">
+              <div class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url(../assets/img/photos/photo-8.jpg);">
+    
+                <!-- Image (placeholder) -->
+                <img src="../assets/img/photos/photo-8.jpg" alt="..." class="img-fluid d-md-none invisible">
+    
+                <!-- Shape -->
+                <div class="shape shape-end shape-fluid-y text-white d-none d-md-block">
+                  <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M116 0H51v172C76 384 0 517 0 517v173h116V0z" fill="currentColor"/></svg>            </div>
+    
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="card-body">
+    
+                  <!-- Close -->
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+                  <!-- Heading -->
+                  <h2 class="mb-0 fw-bold text-center" id="modalSignupHorizontalTitle">
+                    Sign Up
+                  </h2>
+    
+                  <!-- Text -->
+                  <p class="mb-6 text-center text-muted">
+                    Simplify your workflow in minutes.
+                  </p>
+    
+                  <!-- Form -->
+                  <form class="mb-6">
+    
+                    <!-- Email -->
+                    <div class="form-group">
+                      <label class="visually-hidden" for="modalSignupHorizontalEmail">
+                        Your email
+                      </label>
+                      <input type="email" class="form-control" id="modalSignupHorizontalEmail" placeholder="Your email">
+                    </div>
+    
+                    <!-- Password -->
+                    <div class="form-group mb-5">
+                      <label class="visually-hidden" for="modalSignupHorizontalPassword">
+                        Create a password
+                      </label>
+                      <input type="password" class="form-control" id="modalSignupHorizontalPassword" placeholder="Create a password">
+                    </div>
+    
+                    <!-- Submit -->
+                    <button class="btn w-100 btn-primary" type="submit">
+                      Sign up
+                    </button>
+    
+                  </form>
+    
+                  <!-- Text -->
+                  <p class="mb-0 fs-sm text-center text-muted">
+                    Already have an account? <a href="../signin-illustration.html">Log in</a>.
+                  </p>
+    
+                </div>
+              </div>
+    
+            </div> <!-- / .row -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Signup: Vertical  -->
+    <div class="modal fade" id="modalSignupVertical" tabindex="-1" role="dialog" aria-labelledby="modalSignupVerticalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="card">
+    
+            <!-- Close -->
+            <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+            <!-- Image -->
+            <img src="../assets/img/photos/photo-7.jpg" alt="..." class="card-img-top">
+    
+            <!-- Shape -->
+            <div class="position-relative">
+              <div class="shape shape-bottom shape-fluid-x text-white">
+                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>          </div>
+            </div>
+    
+            <!-- Body -->
+            <div class="card-body">
+    
+              <!-- Heading -->
+              <h2 class="mb-0 fw-bold text-center" id="modalSignupVerticalTitle">
+                Sign Up
+              </h2>
+    
+              <!-- Text -->
+              <p class="mb-6 text-center text-muted">
+                Simplify your workflow in minutes.
+              </p>
+    
+              <!-- Form -->
+              <form class="mb-6">
+    
+                <!-- Email -->
+                <div class="form-group">
+                  <label class="visually-hidden" for="modalSignupVerticalEmail">
+                    Your email
+                  </label>
+                  <input type="email" class="form-control" id="modalSignupVerticalEmail" placeholder="Your email">
+                </div>
+    
+                <!-- Password -->
+                <div class="form-group mb-5">
+                  <label class="visually-hidden" for="modalSignupVerticalPassword">
+                    Create a password
+                  </label>
+                  <input type="password" class="form-control" id="modalSignupVerticalPassword" placeholder="Create a password">
+                </div>
+    
+                <!-- Submit -->
+                <button class="btn w-100 btn-primary" type="submit">
+                  Sign up
+                </button>
+    
+              </form>
+    
+              <!-- Text -->
+              <p class="mb-0 fs-sm text-center text-muted">
+                Already have an account? <a href="../signin-illustration.html">Log in</a>.
+              </p>
+    
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Signin: Horizontal  -->
+    <div class="modal fade" id="modalSigninHorizontal" tabindex="-1" role="dialog" aria-labelledby="modalSigninHorizontalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="card card-row">
+            <div class="row gx-0">
+              <div class="col-12 col-md-6 bg-cover card-img-start" style="background-image: url(../assets/img/photos/photo-1.jpg);">
+    
+                <!-- Image (placeholder) -->
+                <img src="../assets/img/photos/photo-1.jpg" alt="..." class="img-fluid d-md-none invisible">
+    
+                <!-- Shape -->
+                <div class="shape shape-end shape-fluid-y text-white d-none d-md-block">
+                  <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M116 0H51v172C76 384 0 517 0 517v173h116V0z" fill="currentColor"/></svg>            </div>
+    
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="card-body">
+    
+                  <!-- Close -->
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+                  <!-- Heading -->
+                  <h2 class="mb-0 fw-bold text-center" id="modalSigninHorizontalTitle">
+                    Sign In
+                  </h2>
+    
+                  <!-- Text -->
+                  <p class="mb-6 text-center text-muted">
+                    Simplify your workflow in minutes.
+                  </p>
+    
+                  <!-- Form -->
+                  <form class="mb-6">
+    
+                    <!-- Email -->
+                    <div class="form-group">
+                      <label class="visually-hidden" for="modalSigninHorizontalEmail">
+                        Your email
+                      </label>
+                      <input type="email" class="form-control" id="modalSigninHorizontalEmail" placeholder="Your email">
+                    </div>
+    
+                    <!-- Password -->
+                    <div class="form-group mb-5">
+                      <label class="visually-hidden" for="modalSigninHorizontalPassword">
+                        Enter your password
+                      </label>
+                      <input type="password" class="form-control" id="modalSigninHorizontalPassword" placeholder="Enter your password">
+                    </div>
+    
+                    <!-- Submit -->
+                    <button class="btn w-100 btn-primary" type="submit">
+                      Sign in
+                    </button>
+    
+                  </form>
+    
+                  <!-- Text -->
+                  <p class="mb-0 fs-sm text-center text-muted">
+                    Don't have an account yet? <a href="../signin-illustration.html">Sign up</a>.
+                  </p>
+    
+                </div>
+              </div>
+    
+            </div> <!-- / .row -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Signin: Vertical  -->
+    <div class="modal fade" id="modalSigninVertical" tabindex="-1" role="dialog" aria-labelledby="modalSigninVerticalTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="card">
+    
+            <!-- Close -->
+            <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+            <!-- Image -->
+            <img src="../assets/img/photos/photo-21.jpg" alt="..." class="card-img-top">
+    
+            <!-- Shape -->
+            <div class="position-relative">
+              <div class="shape shape-bottom shape-fluid-x text-white">
+                <svg viewBox="0 0 2880 480" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2160 0C1440 240 720 240 720 240H0v240h2880V0h-720z" fill="currentColor"/></svg>          </div>
+            </div>
+    
+            <!-- Body -->
+            <div class="card-body">
+    
+              <!-- Heading -->
+              <h2 class="mb-0 fw-bold text-center" id="modalSigninVerticalTitle">
+                Sign In
+              </h2>
+    
+              <!-- Text -->
+              <p class="mb-6 text-center text-muted">
+                Simplify your workflow in minutes.
+              </p>
+    
+              <!-- Form -->
+              <form class="mb-6">
+    
+                <!-- Email -->
+                <div class="form-group">
+                  <label class="visually-hidden" for="modalSigninVerticalEmail">
+                    Your email
+                  </label>
+                  <input type="email" class="form-control" id="modalSigninVerticalEmail" placeholder="Your email">
+                </div>
+    
+                <!-- Password -->
+                <div class="form-group mb-5">
+                  <label class="visually-hidden" for="modalSigninVerticalPassword">
+                    Enter your password
+                  </label>
+                  <input type="password" class="form-control" id="modalSigninVerticalPassword" placeholder="Enter your password">
+                </div>
+    
+                <!-- Submit -->
+                <button class="btn w-100 btn-primary" type="submit">
+                  Sign in
+                </button>
+    
+              </form>
+    
+              <!-- Text -->
+              <p class="mb-0 fs-sm text-center text-muted">
+                Don't have an account yet? <a href="../signin-illustration.html">Sign up</a>.
+              </p>
+    
+            </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Payment -->
+    <div class="modal fade" id="modalPayment" tabindex="-1" role="dialog" aria-labelledby="modalPaymentTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+    
+            <!-- Close -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    
+            <!-- Heading -->
+            <h2 class="fw-bold text-center mb-1" id="modalPaymentTitle">
+              Add Payment
+            </h2>
+    
+            <!-- Text -->
+            <p class="fs-lg text-center text-muted mb-6 mb-md-8">
+              Simplify your workflow in minutes.
+            </p>
+    
+            <!-- Form -->
+            <form>
+    
+              <!-- Name -->
+              <div class="form-group">
+                <label class="form-label" for="modalPaymentName">Name on card</label>
+                <input class="form-control" id="modalPaymentName" type="text" placeholder="First Last">
+              </div>
+    
+              <!-- Name -->
+              <div class="form-group">
+                <label class="form-label" for="modalPaymentNumbber">Card number</label>
+                <input class="form-control" id="modalPaymentNumbber" type="number" placeholder="4242 4242 4242 4242">
+              </div>
+    
+              <!-- Name -->
+              <div class="form-group">
+                <label class="form-label" for="modalPaymentDate">Exp. Date</label>
+                <input class="form-control" id="modalPaymentDate" type="text" placeholder="03/2023">
+              </div>
+    
+              <!-- Submit -->
+              <button class="btn w-100 btn-primary mt-3 lift">
+                Add Payment Method
+              </button>
+    
+            </form>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-clear">
+      <div class="container">
+    
+        <!-- Brand -->
+        <a class="navbar-brand" href="https://getdrafts.com/index.html">
+          <img src="../assets/img/brand.svg" class="navbar-brand-img" alt="...">
+        </a>
+    
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+    
+          <!-- Toggler -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fe fe-x"></i>
+          </button>
+    
+          <!-- Navigation -->
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDocumentation" data-toggle="dropdown" href="terms.html#" aria-haspopup="true"
+                aria-expanded="false">
+                Resources&nbsp;&nbsp;
+              </a>
+              <div class="dropdown-menu dropdown-menu-md" aria-labelledby="navbarDocumentation">
+                <div class="list-group list-group-flush">
+                  <a class="list-group-item" href="../../docs.getdrafts.com/index.html">
+            
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><circle fill="#335EEA" opacity=".3" cx="12" cy="12" r="10"/><rect fill="#335EEA" x="11" y="10" width="2" height="7" rx="1"/><rect fill="#335EEA" x="11" y="7" width="2" height="2" rx="1"/></g></svg>                </div>
+            
+                    <!-- Content -->
+                    <div class="ms-4">
+            
+                      <!-- Heading -->
+                      <h6 class="fw-bold text-uppercase text-primary mb-0">
+                        User Guide
+                      </h6>
+            
+                      <!-- Text -->
+                      <p class="fs-sm text-gray-700 mb-0">
+                        Learn about features and settings
+                      </p>
+            
+                    </div>
+            
+                  </a>
+                  <a class="list-group-item" href="https://forums.getdrafts.com/">
+            
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M22 15.01l.025-.01v4.586a1 1 0 01-1.707.707L18.025 18H5a3 3 0 01-3-3V6a3 3 0 013-3h14a3 3 0 013 3v9.01zM6.168 10.555C7.678 12.819 9.646 14 12 14c2.354 0 4.322-1.18 5.832-3.445a1 1 0 10-1.664-1.11C15.01 11.181 13.646 12 12 12c-1.646 0-3.01-.82-4.168-2.555a1 1 0 00-1.664 1.11z" fill="#335EEA"/></g></svg>                </div>
+            
+                    <!-- Content -->
+                    <div class="ms-4">
+            
+                      <!-- Heading -->
+                      <h6 class="fw-bold text-uppercase text-primary mb-0">
+                        Community
+                      </h6>
+            
+                      <!-- Text -->
+                      <p class="fs-sm text-gray-700 mb-0">
+                        User forums, tips and integration guides
+                      </p>
+            
+                    </div>
+            
+                  </a>
+                  <a class="list-group-item" href="../../actions.getdrafts.com/index.html">
+            
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><rect fill="#335EEA" x="4" y="4" width="7" height="7" rx="1.5"/><path d="M5.5 13h4a1.5 1.5 0 011.5 1.5v4A1.5 1.5 0 019.5 20h-4A1.5 1.5 0 014 18.5v-4A1.5 1.5 0 015.5 13zm9-9h4A1.5 1.5 0 0120 5.5v4a1.5 1.5 0 01-1.5 1.5h-4A1.5 1.5 0 0113 9.5v-4A1.5 1.5 0 0114.5 4zm0 9h4a1.5 1.5 0 011.5 1.5v4a1.5 1.5 0 01-1.5 1.5h-4a1.5 1.5 0 01-1.5-1.5v-4a1.5 1.5 0 011.5-1.5z" fill="#335EEA" opacity=".3"/></g></svg>                </div>
+            
+                    <!-- Content -->
+                    <div class="ms-4">
+            
+                      <!-- Heading -->
+                      <h6 class="fw-bold text-uppercase text-primary mb-0">
+                        Directory
+                      </h6>
+            
+                      <!-- Text -->
+                      <p class="fs-sm text-gray-700 mb-0">
+                        Extend Drafts with ready-to-use actions, workspaces, and more
+                      </p>
+            
+                    </div>
+            
+                  </a>
+                  <a class="list-group-item" href="../../scripting.getdrafts.com/index.html">
+            
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M17.272 8.685a1 1 0 111.456-1.37l4 4.25a1 1 0 010 1.37l-4 4.25a1 1 0 01-1.456-1.37l3.355-3.565-3.355-3.565zm-10.544 0L3.373 12.25l3.355 3.565a1 1 0 01-1.456 1.37l-4-4.25a1 1 0 010-1.37l4-4.25a1 1 0 011.456 1.37z" fill="#335EEA"/><rect fill="#335EEA" opacity=".3" transform="rotate(15 12 12)" x="11" y="4" width="2" height="16" rx="1"/></g></svg>                </div>
+            
+                    <!-- Content -->
+                    <div class="ms-4">
+            
+                      <!-- Heading -->
+                      <h6 class="fw-bold text-uppercase text-primary mb-0">
+                        Script Reference
+                      </h6>
+            
+                      <!-- Text -->
+                      <p class="fs-sm text-gray-700 mb-0">
+                        Reference documentation for Drafts JavaScript library
+                      </p>
+            
+                    </div>
+            
+                  </a>
+                  <a class="list-group-item" href="../../docs.getdrafts.com/changelog.html">
+            
+                    <!-- Icon -->
+                    <div class="icon icon-sm text-primary">
+                      <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M0 0h24v24H0z"/><path d="M5.857 2h7.88a1.5 1.5 0 01.968.355l4.764 4.029A1.5 1.5 0 0120 7.529v12.554c0 1.79-.02 1.917-1.857 1.917H5.857C4.02 22 4 21.874 4 20.083V3.917C4 2.127 4.02 2 5.857 2z" fill="#335EEA" opacity=".3"/><rect fill="#335EEA" x="6" y="11" width="9" height="2" rx="1"/><rect fill="#335EEA" x="6" y="15" width="5" height="2" rx="1"/></g></svg>                </div>
+            
+                    <!-- Content -->
+                    <div class="ms-4">
+            
+                      <!-- Heading -->
+                      <h6 class="fw-bold text-uppercase text-primary mb-0">
+                        What's New
+                      </h6>
+            
+                      <!-- Text -->
+                      <p class="fs-sm text-gray-700 mb-0">
+                        Details about recent features and fixes
+                      </p>
+            
+                    </div>
+            
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+    
+        </div>
+    
+      </div>
+    </nav>
+
+    <!-- IMAGE
+    ================================================== -->
+    <section data-jarallax data-speed=".8" class="py-12 py-md-15 bg-cover jarallax"
+        style="background-image: url(../assets/img/custom/cover.jpg); margin-top: -87px;"></section>
+
+        <!-- HEADER
+            ================================================== -->
+        <section class="pt-8 pt-md-11">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-10 col-lg-9 col-xl-8">
+        
+                        <!-- Heading -->
+                        <h1 class="display-3 text-center">
+                            Terms of Service
+                        </h1>
+        
+                    </div>
+                </div> <!-- / .row -->
+            </div> <!-- / .container -->
+        </section>
+        
+        <!-- CATEGORIES
+            ================================================== -->
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <div style="font-size: 1.2em;line-height: 1.2em; padding: 0 2em;max-width: 700px;margin: auto;">
+                        
+                            <p>Last Updated: March 28, 2013</p>
+                        
+                            <p>These terms of service (&#8220;Terms&#8221;) apply to your access and use of all Agile Tortoise, Inc. apps and
+                                services, including iOS apps and web services (the &#8220;Service&#8221;). Please read them carefully.</p>
+                        
+                            <h2 id="acceptingtheseterms">Accepting these Terms</h2>
+                        
+                            <p>If you access or use the Service, it means you agree to be bound by all of the terms below. So, before you use
+                                the Service, please read all of the terms. If you don&#8217;t agree to all of the terms below, please do not use
+                                the Service. Also, if a term does not make sense to you, please let us know by e-mailing info@agiletortoise.com.
+                            </p>
+                        
+                            <h2 id="changestotheseterms">Changes to these Terms</h2>
+                        
+                            <p>We reserve the right to modify these Terms at any time. For instance, we may need to change these Terms if we
+                                come out with a new feature or for some other reason.</p>
+                        
+                            <p>Whenever we make changes to these Terms, the changes are effective immediately after we post such revised Terms
+                                (indicated by revising the date at the top of these Terms) or upon your acceptance if we provide a mechanism for
+                                your immediate acceptance of the revised Terms (such as a
+                                https://itunes.apple.com/app/drafts/id502385074?mt=8&uo=4&at=11l4Cf&ct=website-through confirmation or
+                                acceptance button). It is your responsibility to check Agile Tortoise, Inc. for changes to these Terms.</p>
+                        
+                            <p>If you continue to use the Service after the revised Terms go into effect, then you have accepted the changes to
+                                these Terms.</p>
+                        
+                            <h2 id="privacypolicy">Privacy Policy</h2>
+                        
+                            <p>For information about how we collect and use information about users of the Service, please check out our privacy
+                                policy available at: https://getdrafts.com/privacy-policy</p>
+                        
+                            <h2 id="third-partyservices">Third-Party Services</h2>
+                        
+                            <p>From time to time, we may provide you with links to third party websites or services that we do not own or
+                                control. Your use of the Service may also include the use of applications that are developed or owned by a third
+                                party. Your use of such third party applications, websites, and services is governed by that party&#8217;s own
+                                terms of service or privacy policies. We encourage you to read the terms and conditions and privacy policy of
+                                any third party application, website or service that you visit or use.</p>
+                        
+                            <h2 id="creatingaccounts">Creating Accounts</h2>
+                        
+                            <p>When you create an account or use another service to log in to the Service, you agree to maintain the security of
+                                your password and accept all risks of unauthorized access to any data or other information you provide to the
+                                Service.</p>
+                        
+                            <p>If you discover or suspect any Service security breaches, please let us know as soon as possible.</p>
+                        
+                            <h2 id="yourcontentconduct">Your Content &amp; Conduct</h2>
+                        
+                            <p>Our Service allows you and other users to post, link and otherwise make available content. You are responsible
+                                for the content that you make available to the Service, including its legality, reliability, and
+                                appropriateness.</p>
+                        
+                            <p>When you post, link or otherwise make available content to the Service, you grant us the right and license to
+                                use, reproduce, modify, publicly perform, publicly display and distribute your content on or through the
+                                Service. We may format your content for display throughout the Service, but we will not edit or revise the
+                                substance of your content itself.</p>
+                        
+                            <p>Aside from our limited right to your content, you retain all of your rights to the content you post, link and
+                                otherwise make available on or through the Service.</p>
+                        
+                            <p>You can remove the content that you posted by deleting it. Once you delete your content, it will not appear on
+                                the Service, but copies of your deleted content may remain in our system or backups for some period of time. We
+                                will retain web server access logs for a maximum of one year and then delete them.</p>
+                        
+                            <p>You may not post, link and otherwise make available on or through the Service any of the following:</p>
+                        
+                            <ul>
+                                <li>Content that is libelous, defamatory, bigoted, fraudulent or deceptive;</li>
+                                <li>Content that is illegal or unlawful, that would otherwise create liability;</li>
+                                <li>Content that may infringe or violate any patent, trademark, trade secret, copyright, right of privacy, right
+                                    of publicity or other intellectual or other right of any party;</li>
+                                <li>Mass or repeated promotions, political campaigning or commercial messages directed at users who do not
+                                    follow you (SPAM);</li>
+                                <li>Private information of any third party (e.g., addresses, phone numbers, email addresses, Social Security
+                                    numbers and credit card numbers); and</li>
+                                <li>Viruses, corrupted data or other harmful, disruptive or destructive files or code.</li>
+                            </ul>
+                        
+                            <p>Also, you agree that you will not do any of the following in connection with the Service or other users:</p>
+                        
+                            <ul>
+                                <li>Use the Service in any manner that could interfere with, disrupt, negatively affect or inhibit other users
+                                    from fully enjoying the Service or that could damage, disable, overburden or impair the functioning of the
+                                    Service;</li>
+                                <li>Impersonate or post on behalf of any person or entity or otherwise misrepresent your affiliation with a
+                                    person or entity;</li>
+                                <li>Collect any personal information about other users, or intimidate, threaten, stalk or otherwise harass other
+                                    users of the Service;</li>
+                                <li>Create an account or post any content if you are not over 13 years of age years of age; and</li>
+                                <li>Circumvent or attempt to circumvent any filtering, security measures, rate limits or other features designed
+                                    to protect the Service, users of the Service, or third parties.</li>
+                            </ul>
+                        
+                            <h2 id="agiletortoiseinc.materials">Agile Tortoise, Inc. Materials</h2>
+                        
+                            <p>We put a lot of effort into creating the Service including, the logo and all designs, text, graphics, pictures,
+                                information and other content (excluding your content). This property is owned by us or our licensors and it is
+                                protected by U.S. and international copyright laws. We grant you the right to use it.</p>
+                        
+                            <p>However, unless we expressly state otherwise, your rights do not include: (i) publicly performing or publicly
+                                displaying the Service; (ii) modifying or otherwise making any derivative uses of the Service or any portion
+                                thereof; (iii) using any data mining, robots or similar data gathering or extraction methods; (iv) downloading
+                                (other than page caching) of any portion of the Service or any information contained therein; (v) reverse
+                                engineering or accessing the Service in order to build a competitive product or service; or (vi) using the
+                                Service other than for its intended purposes. If you do any of this stuff, we may terminate your use of the
+                                Service.</p>
+                        
+                            <h2 id="hyperlinksandthirdpartycontent">Hyperlinks and Third Party Content</h2>
+                        
+                            <p>You may create a hyperlink to the Service. But, you may not use, frame or utilize framing techniques to enclose
+                                any of our trademarks, logos or other proprietary information without our express written consent.</p>
+                        
+                            <p>Agile Tortoise, Inc. makes no claim or representation regarding, and accepts no responsibility for third party
+                                websites accessible by hyperlink from the Service or websites linking to the Service. When you leave the
+                                Service, you should be aware that these Terms and our policies no longer govern.</p>
+                        
+                            <p>If there is any content on the Service from you and others, we don&#8217;t review, verify or authenticate it, and
+                                it may include inaccuracies or false information. We make no representations, warranties, or guarantees relating
+                                to the quality, suitability, truth, accuracy or completeness of any content contained in the Service. You
+                                acknowledge sole responsibility for and assume all risk arising from your use of or reliance on any content.</p>
+                        
+                            <h2 id="unavoidablelegalstuff">Unavoidable Legal Stuff</h2>
+                        
+                            <p>THE SERVICE AND ANY OTHER SERVICE AND CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE
+                                ARE PROVIDED TO YOU ON AN AS IS OR AS AVAILABLE BASIS WITHOUT ANY REPRESENTATIONS OR WARRANTIES OF ANY KIND. WE
+                                DISCLAIM ANY AND ALL WARRANTIES AND REPRESENTATIONS (EXPRESS OR IMPLIED, ORAL OR WRITTEN) WITH RESPECT TO THE
+                                SERVICE AND CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE WHETHER ALLEGED TO ARISE
+                                BY OPERATION OF LAW, BY REASON OF CUSTOM OR USAGE IN THE TRADE, BY COURSE OF DEALING OR OTHERWISE.</p>
+                        
+                            <p>IN NO EVENT WILL Agile Tortoise, Inc. BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY SPECIAL, INDIRECT, INCIDENTAL,
+                                EXEMPLARY OR CONSEQUENTIAL DAMAGES OF ANY KIND ARISING OUT OF OR IN CONNECTION WITH THE SERVICE OR ANY OTHER
+                                SERVICE AND/OR CONTENT INCLUDED ON OR OTHERWISE MADE AVAILABLE TO YOU THROUGH THE SERVICE, REGARDLESS OF THE
+                                FORM OF ACTION, WHETHER IN CONTRACT, TORT, STRICT LIABILITY OR OTHERWISE, EVEN IF WE HAVE BEEN ADVISED OF THE
+                                POSSIBILITY OF SUCH DAMAGES OR ARE AWARE OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL LIABILITY FOR ALL CAUSES
+                                OF ACTION AND UNDER ALL THEORIES OF LIABILITY WILL BE LIMITED TO THE AMOUNT YOU PAID TO Agile Tortoise, Inc..
+                                THIS SECTION WILL BE GIVEN FULL EFFECT EVEN IF ANY REMEDY SPECIFIED IN THIS AGREEMENT IS DEEMED TO HAVE FAILED
+                                OF ITS ESSENTIAL PURPOSE.</p>
+                        
+                            <p>You agree to defend, indemnify and hold us harmless from and against any and all costs, damages, liabilities, and
+                                expenses (including attorneys&#8217; fees, costs, penalties, interest and disbursements) we incur in relation
+                                to, arising from, or for the purpose of avoiding, any claim or demand from a third party relating to your use of
+                                the Service or the use of the Service by any person using your account, including any claim that your use of the
+                                Service violates any applicable law or regulation, or the rights of any third party, and/or your violation of
+                                these Terms.</p>
+                        
+                            <h2 id="copyrightcomplaints">Copyright Complaints</h2>
+                        
+                            <p>We take intellectual property rights seriously. In accordance with the Digital Millennium Copyright Act
+                                (&#8220;DMCA&#8221;) and other applicable law, we have adopted a policy of terminating, in appropriate
+                                circumstances and, at our sole discretion, access to the service for users who are deemed to be repeat
+                                infringers. <strong>[LINK TO FULL COPYRIGHT POLICY IF APPLICABLE.]</strong></p>
+                        
+                            <h2 id="governinglaw">Governing Law</h2>
+                        
+                            <p>The validity of these Terms and the rights, obligations, and relations of the parties under these Terms will be
+                                construed and determined under and in accordance with the laws of the Texas, without regard to conflicts of law
+                                principles.</p>
+                        
+                            <h2 id="jurisdiction">Jurisdiction</h2>
+                        
+                            <p>You expressly agree that exclusive jurisdiction for any dispute with the Service or relating to your use of it,
+                                resides in the courts of the Texas and you further agree and expressly consent to the exercise of personal
+                                jurisdiction in the courts of the Texas located in North Richland Hills in connection with any such dispute
+                                including any claim involving Service. You further agree that you and Service will not commence against the
+                                other a class action, class arbitration or other representative action or proceeding.</p>
+                        
+                            <h2 id="termination">Termination</h2>
+                        
+                            <p>If you breach any of these Terms, we have the right to suspend or disable your access to or use of the Service.
+                            </p>
+                        
+                            <h2 id="entireagreement">Entire Agreement</h2>
+                        
+                            <p>These Terms constitute the entire agreement between you and Agile Tortoise, Inc. regarding the use of the
+                                Service, superseding any prior agreements between you and Agile Tortoise, Inc. relating to your use of the
+                                Service.</p>
+                        
+                            <h2 id="feedback">Feedback</h2>
+                        
+                            <p>Please let us know what you think of the Service, these Terms and, in general, Agile Tortoise, Inc. Apps and
+                                Services. When you provide us with any feedback, comments or suggestions about the Service, these Terms and, in
+                                general, Agile Tortoise, Inc. Apps and Services, you irrevocably assign to us all of your right, title and
+                                interest in and to your feedback, comments and suggestions.</p>
+                        
+                            <h2 id="questionscontactinformation">Questions &amp; Contact Information</h2>
+                        
+                            <p>Questions or comments about the Service may be directed to us at the email address info@agiletortoise.com.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section>
+        <div>
+            <br><br><br><br>
+        </div>
+    </section>
+
+    <!-- SHAPE -->
+    <div class="position-relative">
+        <div class="shape shape-bottom shape-fluid-x text-dark">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 48h2880V0h-720C1442.5 52 720 0 720 0H0v48z" fill="currentColor"/></svg>        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="py-8 py-md-11 bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-4 col-lg-3">
+    
+            <!-- Brand -->
+            <img src="../assets/img/custom/brand-only.svg" alt="Drafts" class="footer-brand mb-2" style="height: 30px;">
+            
+            <!-- Text -->
+            <p class="text-gray-700 mb-2">
+              Where Text Starts
+            </p>
+            
+            </div>
+            
+            <div class="col-6 col-md-4 col-lg-2">
+            
+              <!-- Heading -->
+              <h6 class="font-weight-bold text-uppercase text-gray-700">
+                Get Drafts
+              </h6>
+            
+              <!-- List -->
+              <ul class="list-unstyled text-white mb-6 mb-md-8 mb-lg-0">
+                <li class="mb-2">
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site" class="text-reset">
+                    iOS App Store
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site" class="text-reset">
+                    Mac App Store
+                  </a>
+                </li>
+            
+              </ul>
+            
+            </div>
+            
+            <div class="col-6 col-md-4 col-lg-2">
+            
+              <!-- Heading -->
+              <h6 class="font-weight-bold text-uppercase text-gray-700">
+                Resources
+              </h6>
+            
+              <!-- List -->
+              <ul class="list-unstyled text-white mb-6 mb-md-8 mb-lg-0">
+                <li class="mb-2">
+                  <a href="../../docs.getdrafts.com/index.html" class="text-reset">
+                    User Guide
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="https://forums.getdrafts.com/" class="text-reset">
+                    Community
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="../../actions.getdrafts.com/index.html" class="text-reset">
+                    Drafts Directory
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="../../scripting.getdrafts.com/index.html" class="text-reset">
+                    Script Reference
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href="../../docs.getdrafts.com/changelog.html" class="text-reset">
+                    What's New
+                  </a>
+                </li>
+              </ul>
+            
+            </div>
+            
+            <div class="col-6 col-md-4 offset-md-4 col-lg-2 offset-lg-0">
+            
+              <!-- Heading -->
+              <h6 class="font-weight-bold text-uppercase text-gray-700">
+                Support
+              </h6>
+            
+              <!-- List -->
+              <ul class="list-unstyled text-white mb-0">
+                <li class="mb-2">
+                  <a href="index.html" class="text-reset">
+                    Get Help
+                  </a>
+                </li>
+            
+              </ul>
+            
+              <!-- Social -->
+              <ul class="list-unstyled list-inline mb-0 text-white">
+            
+                <li class="list-inline-item list-social-item mr-3">
+                  <a href="https://www.facebook.com/draftsapp" class="text-decoration-none">
+                    <img src="../assets/img/icons/social/facebook.svg" class="list-social-icon" alt="...">
+                  </a>
+                </li>
+                <li class="list-inline-item list-social-item mr-3">
+                  <a href="https://twitter.com/draftsapp" class="text-decoration-none">
+                    <img src="../assets/img/icons/social/twitter.svg" class="list-social-icon" alt="...">
+                  </a>
+                </li>
+            
+              </ul>
+            
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+            
+              <!-- Heading -->
+              <h6 class="font-weight-bold text-uppercase text-gray-700">
+                Legal
+              </h6>
+            
+              <!-- List -->
+              <ul class="list-unstyled text-muted mb-0">
+                <li class="mb-2">
+                  <a href="terms.html" class="text-reset">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="privacy.html" class="text-reset">
+                    Privacy Policy
+                  </a>
+                </li>
+              </ul>
+            
+            </div>
+        </div> <!-- / .row -->
+      </div> <!-- / .container -->
+    </footer>
+    
+    <!-- JAVASCRIPT -->
+    <!-- Map JS -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    
+    <!-- Vendor JS -->
+    <script src="../assets/js/vendor.bundle.js"></script>
+    
+    <!-- Theme JS -->
+    <script src="../assets/js/theme.bundle.js"></script>
+
+</body>
+
+</html>

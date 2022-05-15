@@ -1,0 +1,449 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CallbackURL | Drafts Script Reference</title>
+	<meta name="description" content="Documentation for Drafts Script Reference">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="https://scripting.getdrafts.com/index.html" class="title">Drafts Script Reference</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="callbackurl.html#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="callbackurl.html#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="callbackurl.html">CallbackURL</a>
+				</li>
+			</ul>
+			<h1>Class CallbackURL</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="callbackurl.html#callbackurl" id="callbackurl" style="color: inherit; text-decoration: none;">
+							<h1>CallbackURL</h1>
+						</a>
+					</div>
+					<p>CallbackURL objects can be used to open x-callback-url requests and wait for a response from the target app.</p>
+					<p><strong>NOTE</strong>: If you want to open a URL in Safari or another app and do not need a response or x-callback-url support, use the <code>app.openURL(url)</code> method on the App object.</p>
+					<a href="callbackurl.html#example" id="example" style="color: inherit; text-decoration: none;">
+						<h3>Example</h3>
+					</a>
+					<pre><code class="language-javascript"><span class="hljs-comment">// Open callback URL for each line in a draft</span>
+<span class="hljs-comment">// Setup base Fantastical URL, with no parameters</span>
+<span class="hljs-keyword">const</span> baseURL = <span class="hljs-string">&quot;fantastical2://x-callback-url/parse/&quot;</span>;
+
+<span class="hljs-comment">// split draft and loop over lines</span>
+<span class="hljs-keyword">var</span> lines = draft.content.split(<span class="hljs-string">&quot;\n&quot;</span>);
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> line <span class="hljs-keyword">of</span> lines) {
+    <span class="hljs-comment">// create and configure callback object</span>
+    <span class="hljs-keyword">var</span> cb = CallbackURL.create();
+    cb.baseURL = baseURL;
+    cb.addParameter(<span class="hljs-string">&quot;sentence&quot;</span>, line);
+    <span class="hljs-comment">// open and wait for result</span>
+    <span class="hljs-keyword">var</span> success = cb.open();
+    <span class="hljs-keyword">if</span> (success) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Event created&quot;</span>);
+    }
+    <span class="hljs-keyword">else</span> { <span class="hljs-comment">// something went wrong or was cancelled</span>
+          <span class="hljs-built_in">console</span>.log(cb.status);
+          <span class="hljs-keyword">if</span> (cb.status == <span class="hljs-string">&quot;cancelled&quot;</span>) {
+            context.cancel();
+        }
+        <span class="hljs-keyword">else</span> {
+            context.fail();
+        }
+    }
+}
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">CallbackURL</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="callbackurl.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="callbackurl.html#baseurl" class="tsd-kind-icon">baseURL</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="callbackurl.html#callbackresponse" class="tsd-kind-icon">callback<wbr>Response</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="callbackurl.html#parameters" class="tsd-kind-icon">parameters</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="callbackurl.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="callbackurl.html#url" class="tsd-kind-icon">url</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="callbackurl.html#waitforresponse" class="tsd-kind-icon">wait<wbr>For<wbr>Response</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="callbackurl.html#addparameter" class="tsd-kind-icon">add<wbr>Parameter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="callbackurl.html#open" class="tsd-kind-icon">open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="callbackurl.html#create" class="tsd-kind-icon">create</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>CallbackURL<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="callbackurl.html" class="tsd-signature-type">CallbackURL</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L90">CallbackURL.d.ts:90</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create new instance.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="callbackurl.html" class="tsd-signature-type">CallbackURL</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="baseurl" class="tsd-anchor"></a>
+					<h3>baseURL</h3>
+					<div class="tsd-signature tsd-kind-icon">baseURL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L43">CallbackURL.d.ts:43</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The baseURL of the request. This should include the x-callback-url base URL and action, typically something like <code>app-scheme://x-callback-url/actionName</code></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="callbackresponse" class="tsd-anchor"></a>
+					<h3>callback<wbr>Response</h3>
+					<div class="tsd-signature tsd-kind-icon">callback<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L74">CallbackURL.d.ts:74</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>An object contain and URL query parameters returned by the target app along with it’s callback response. For example, if the target app called x-success with the query parameters <code>result=MyTestText</code>, callbackResponse would contain <code>{&quot;result&quot;: &quot;MyTestText&quot;}</code>.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="parameters" class="tsd-anchor"></a>
+					<h3>parameters</h3>
+					<div class="tsd-signature tsd-kind-icon">parameters<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L58">CallbackURL.d.ts:58</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Object containing string keys and values to be appended to the base url as query parameters. Values should not be pre-encoded, but will be encoded and added to the base URL automatically. Do not include x-callback parameters (<code>x-success</code>, <code>x-error</code>, <code>x-cancel</code>) as these will be generated by Drafts.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"created"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"success"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cancelled"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"error"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"timeout"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"invalid"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L69">CallbackURL.d.ts:69</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current status of the callback. Used to check outcome after open is called. Possible values:</p>
+							<ul>
+								<li>created: open has not yet been called.</li>
+								<li>success: x-success callback was received from target app.</li>
+								<li>cancelled: x-cancel callback was received from target app.</li>
+								<li>error: x-error callback was received from target app.</li>
+								<li>timeout: Waiting for the response timed out without receiving a callback URL from the target app.</li>
+								<li>invalid: The URL was invalid and could not be opened.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="url" class="tsd-anchor"></a>
+					<h3>url</h3>
+					<div class="tsd-signature tsd-kind-icon">url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L48">CallbackURL.d.ts:48</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current URL. This is provided as a debugging property, and will output the URL including the baseURL property with any configured parameters added. This property will differ from the actual URL opened when calling <code>open()</code> in that it will not contain the <code>x-success</code>, <code>x-error</code> and <code>x-cancel</code> parameters which are added dynamically at the time <code>open()</code> is called.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="waitforresponse" class="tsd-anchor"></a>
+					<h3>wait<wbr>For<wbr>Response</h3>
+					<div class="tsd-signature tsd-kind-icon">wait<wbr>For<wbr>Response<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L53">CallbackURL.d.ts:53</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If true, the script will pause and wait for the <code>x-success</code>, <code>x-error</code> or <code>x-cancel</code> response from the app being targeted by the URL. If false, execution of the script/action will continue immediately and no response/results will be available.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addparameter" class="tsd-anchor"></a>
+					<h3>add<wbr>Parameter</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Parameter<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L85">CallbackURL.d.ts:85</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add a query parameter for the outgoing URL.
+									FIXME: can the value be anything?</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="open" class="tsd-anchor"></a>
+					<h3>open</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">open<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L79">CallbackURL.d.ts:79</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Opens the URL with associated parameters, and waits for a callback response. Returns true if an x-success response was received from the target app, otherwise false. If false, use the &quot;status&quot; property to determine the type of failure.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="create" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="callbackurl.html" class="tsd-signature-type">CallbackURL</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/CallbackURL.d.ts#L90">CallbackURL.d.ts:90</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new CallbackURL object.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="callbackurl.html" class="tsd-signature-type">CallbackURL</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="callbackurl.html" class="tsd-kind-icon">CallbackURL</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="callbackurl.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="callbackurl.html#baseurl" class="tsd-kind-icon">baseURL</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="callbackurl.html#callbackresponse" class="tsd-kind-icon">callback<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="callbackurl.html#parameters" class="tsd-kind-icon">parameters</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="callbackurl.html#status" class="tsd-kind-icon">status</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="callbackurl.html#url" class="tsd-kind-icon">url</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="callbackurl.html#waitforresponse" class="tsd-kind-icon">wait<wbr>For<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="callbackurl.html#addparameter" class="tsd-kind-icon">add<wbr>Parameter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="callbackurl.html#open" class="tsd-kind-icon">open</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="callbackurl.html#create" class="tsd-kind-icon">create</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="https://scripting.getdrafts.com/assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

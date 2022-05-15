@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Append text file without newline? - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I’m trying to set up a custom action to log mileage to a text file (on Dropbox) which will then be imported to Numbers for a spreadsheet table. 
+I have the first action set up so it prompts and appends all the relevant i&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="3278.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Append text file without newline?&#39;" href="https://forums.getdrafts.com/t/append-text-file-without-newline/3278.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/append-text-file-without-newline/3278" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/append-text-file-without-newline/3278" />
+<meta property="og:title" content="Append text file without newline?" />
+<meta name="twitter:title" content="Append text file without newline?" />
+<meta property="og:description" content="I’m trying to set up a custom action to log mileage to a text file (on Dropbox) which will then be imported to Numbers for a spreadsheet table.  I have the first action set up so it prompts and appends all the relevant info, comma-delisted as desired/required. Works great.  But when I use my “end” mileage action, the ending mileage gets appended to the text file on a new line.  Is there a way to suppress that newline addition when appending?" />
+<meta name="twitter:description" content="I’m trying to set up a custom action to log mileage to a text file (on Dropbox) which will then be imported to Numbers for a spreadsheet table.  I have the first action set up so it prompts and appends all the relevant info, comma-delisted as desired/required. Works great.  But when I use my “end” mileage action, the ending mileage gets appended to the text file on a new line.  Is there a way to suppress that newline addition when appending?" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2018-12-01T23:00:37+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="3278.html">Append text file without newline?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/georgec'><span itemprop='name'>georgec</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-01T23:00:37Z' class='post-time'>
+                December 1, 2018, 11:00pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-01T23:00:37Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m trying to set up a custom action to log mileage to a text file (on Dropbox) which will then be imported to Numbers for a spreadsheet table.</p>
+<p>I have the first action set up so it prompts and appends all the relevant info, comma-delisted as desired/required. Works great.</p>
+<p>But when I use my “end” mileage action, the ending mileage gets appended to the text file on a new line.</p>
+<p>Is there a way to suppress that newline addition when appending?</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/TDK_SA90'><span itemprop='name'>TDK_SA90</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-02T07:57:57Z' class='post-time'>
+                December 2, 2018,  7:57am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-02T07:57:57Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Appreciate this is a Drafts forum, but have you ever thought of a Google Sheets/Forms setup for mileage data capture? Yes, I know it’s Google, but if you can get over that bit, then for consistent capture/data analysis, a form linked to a sheet is an extremely simple workflow.</p>
+<p>As the form has a distinct URL you can add it to a task manager for repeat running etc. Including array formulas in the sheet’s header rows will mean you can get calculations performed (if required) even when new rows are added via the form.</p>
+<p>As I say, I love Drafts, but sometimes there are easier alternatives out there for certain use cases, provided you are OK with the company involved. Just a thought.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-02T10:28:22Z' class='post-time'>
+                December 2, 2018, 10:28am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-02T10:28:22Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I agree with <a class="mention" href="https://forums.getdrafts.com/u/tdk_sa90">@TDK_SA90</a> that for something like this you might well be better off looking at how to simplify the interaction and get it directly into somewhere you might use it; thus addressing the need to import, though that could potentially be automated depending upon your avalable resources.</p>
+<p>That being said, it could be that there’s something we’re unaware of that means a text file is the best approach.  There are also other scenarios where appending in the way described is always the best approach.  To that end, here’s a couple of JavaScript functions you can include via a Script step that will append the draft content to the end of the specified file.  They do this by reading in any existing file content and writing back the same content with the current draft content appended <em>directly</em> to the end.</p>
+<p>Here’s one for use with Dropbox as per your scenario.</p>
+<pre><code class="lang-auto">appendDraftToFileDropbox("/Append Example.txt");
+
+function appendDraftToFileDropbox(p_strFilePath)
+{
+	let fmDropbox = Dropbox.create();
+	let strFileContent = fmDropbox.read(p_strFilePath);
+	//If the file does not exist write the draft content, otherwise combine and overwrite
+	if (strFileContent === undefined)
+	{
+		fmDropbox.write(p_strFilePath, draft.content, "add", false);
+	}
+	else
+	{
+		fmDropbox.write(p_strFilePath, strFileContent + draft.content, "overwrite", false);
+	}
+}
+</code></pre>
+<p>Here’s another one for use with iCloud.</p>
+<pre><code class="lang-auto">appendDraftToFile("/Append Example.txt");
+
+function appendDraftToFile(p_strFilePath)
+{
+	let fmCloud = FileManager.createCloud();
+	fmCloud.write(p_strFilePath, fmCloud.read(p_strFilePath) + draft.content);
+}
+</code></pre>
+<p>You can adopt similar approaches for other cloud storage providers compatible with Drafts.</p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/georgec'><span itemprop='name'>georgec</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-03T03:37:46Z' class='post-time'>
+                December 3, 2018,  3:37am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-03T03:37:46Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I actually started out trying to do this with Apple Numbers forms on iOS (I use both the iOS and macOS versions for my spreadsheet stuff). But the iOS forms input doesn’t work with pop-up menus I’ve built (for common drives and destinations) which turned me down the Drafts route.</p>
+<p>I also have an extensive plain-text personal database system set up, so I kinda like to develop workflows that are the least reliant on specific apps as possible.</p>
+<p>That said, not against using Google Sheets, maybe their forms do what I need.</p>
+<p>The drafts solution I’ve cobbled together mostly does the trick, but when it inserts a newline it creates a situation where I’d have to go back and edit each ending mileage entry. However, with some regex and Atom, this is not all that big of a deal in the long run. But obviously most ideal to avoid all that if possible.</p>
+<p>I’ll look at Google Sheets, I have the app installed already but haven’t used it much at all.</p>
+<p>Thank you.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/georgec'><span itemprop='name'>georgec</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-03T03:46:42Z' class='post-time'>
+                December 3, 2018,  3:46am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-03T03:46:42Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you! I am surprised such a convoluted workaround is necessary to avoid newlines being inserted. I come from the approach of “please do not insert any characters not explicitly requested”. Drafts is usually on that same page.</p>
+<p>Part of my plain-text approach is because if I need to edit the file for any reason, it’s far easier to open up 1Writer and do the edits there, than it is to open up a spreadsheet app, find the mileage file, go to the cell, etc etc.</p>
+<p>In this very specific use, I am only looking to capture the data. I have a master spreadsheet I’ll be dropping the data into (in Apple Numbers).</p>
+<p>While I agree the direct approach can often be faster, I specifically have found manipulating text files in my already-optimized and regularly accessed plain-text personal database setup in 1Writer (and nvALT/Atom on macOS) is the fastest way to edit and browse text/data.</p>
+<p>Drafts is more of my capture solution. And spreadsheets are great for complex number crunching, but less so for quick open/edit/capture of data on the fly.</p>
+<p>Thank you for those scripts! I think I saw another Action using scripts that prompted with the number pad, will see if I can figure out how to meld with yours <img src="../../images/emoji/apple/slight_smile.png@v=6" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/TDK_SA90'><span itemprop='name'>TDK_SA90</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-03T06:28:24Z' class='post-time'>
+                December 3, 2018,  6:28am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-03T06:28:24Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just to add that Google Forms work fine on mobile.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/georgec'><span itemprop='name'>georgec</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-03T14:26:34Z' class='post-time'>
+                December 3, 2018,  2:26pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-03T14:26:34Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To clarify, in Apple Numbers on iOS, “forms” are a feature of the actual spreadsheet document that allow for quick data entry on smaller screens.</p>
+<p>From what I gather regarding Google Forms, I would need to set up an internet-dependent form on the Google Forms web app, which would then populate a sheet in Google Sheets after entering the data from a URL where the form resided.</p>
+<p>If so, that’s definitely moving away from the simplicity and app-independence I am aiming for.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/TDK_SA90'><span itemprop='name'>TDK_SA90</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-03T18:50:38Z' class='post-time'>
+                December 3, 2018,  6:50pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-03T18:50:38Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It’s quite a simple set up. Sounds like connectivity-dependence is the thing not to your liking which is fair enough.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/georgec'><span itemprop='name'>georgec</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-03T19:52:39Z' class='post-time'>
+                December 3, 2018,  7:52pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-03T19:52:39Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah I’ve used Google Forms before and collected data into a spreadsheet.</p>
+<p>But I want to accomplish this more simply. Thanks for the suggestion.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/SanityBox'><span itemprop='name'>SanityBox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-11-03T22:27:55Z' class='post-time'>
+                November 3, 2019, 10:27pm
+              </time>
+              <meta itemprop='dateModified' content='2019-11-03T22:27:55Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/tdk_sa90">@TDK_SA90</a> Did you find a solution? I’m working on a very similar project, capturing mileage using an iOS Shortcuts automation that runs when my phone connects and then disconnects from Airplay. It’s the disconnecting that’s the issue, because I can’t append without the new line entering, meaning at some point I have to go back and clear out the line breaks before I export the CSV file.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-11-04T02:56:20Z' class='post-time'>
+                November 4, 2019,  2:56am
+              </time>
+              <meta itemprop='dateModified' content='2019-11-04T02:56:20Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Appending will always add a line break. If you are doing this with the new shortcut actions, you could do a “Get Draft”, create append the text in Shortcuts and do an “Update Draft” which replaces contents without adding the line break.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/SanityBox'><span itemprop='name'>SanityBox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-11-04T15:41:30Z' class='post-time'>
+                November 4, 2019,  3:41pm
+              </time>
+              <meta itemprop='dateModified' content='2019-11-04T15:41:30Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Awesome. And finally a good reason for me to upgrade for Pro features. Being able to log my mileage easily is more than worth the yearly subscription. Thanks!!</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/TDK_SA90'><span itemprop='name'>TDK_SA90</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-11-10T10:18:58Z' class='post-time'>
+                November 10, 2019, 10:18am
+              </time>
+              <meta itemprop='dateModified' content='2019-11-11T08:59:33Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I saw this pop up again recently. Just thought I’d flag that if planning on putting data into a CSV file format using Drafts/Shortcuts etc., it’s possible to automatically summarise/analyse the data in that file in Google Sheets. This means that you don’t need an internet connection at the point of recording the mileage; just have an action that sends ‘created date’, ‘mileage’ to, say, a Dropbox CSV, whenever it’s convenient.</p>
+<p>The thing that facilitates this is the IMPORTDATA function in Google Sheets. I’ve actually written this up in an example Sheet which explains in full how this works. May be of use to someone. Here’s the link.</p>
+<aside class="onebox googledocs">
+  <header class="source">
+      <a href="https://docs.google.com/spreadsheets/d/10FiE_V-wKMxTZn3DWf6_vzuhfX3sxq5HKi1KuCUFHjI/edit?usp=sharing" target="_blank" rel="nofollow noopener">docs.google.com</a>
+  </header>
+  <article class="onebox-body">
+    <a href="https://docs.google.com/spreadsheets/d/10FiE_V-wKMxTZn3DWf6_vzuhfX3sxq5HKi1KuCUFHjI/edit?usp=sharing" target="_blank" rel="nofollow noopener"><span class="googledocs-onebox-logo g-sheets-logo"></span></a>
+
+<h3><a href="https://docs.google.com/spreadsheets/d/10FiE_V-wKMxTZn3DWf6_vzuhfX3sxq5HKi1KuCUFHjI/edit?usp=sharing" target="_blank" rel="nofollow noopener">IMPORTDATA txt csv handy uses</a></h3>
+
+<p>Imports
+
+How to use IMPORTDATA with .txt and .csv files
+Example 1: Import from a .txt file maintained on Dropbox for 'one version of the truth'
+Below, you'll see how easy it is to maintain consistent data across any number of sheets, simply by...</p>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>With some additional Apps Script (don’t ask me:-)), you could even get the mileage summary automatically emailed on a periodic basis or upon sheet update.</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/warr'><span itemprop='name'>warr</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-03T20:15:29Z' class='post-time'>
+                June 3, 2021,  8:15pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-03T20:15:29Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think you missed the piece were OP said that editing in a spreadsheet app is more <em>painful</em> than editing in a plain text document. Simple? Sure. And a whole of taps to get into the cell to edit. And if you want to change a few characters, good luck trying to get the cursor to the correct spot. That’s not easy even in plain text.</p>
+<p>I’m not sure how many columns this file will be for OP, but I can say that I really do not enjoy editing spreadsheets on iOS, but i tend to have big csvs.  ¯_(ツ)_/¯</p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/MorrisAbbott'><span itemprop='name'>MorrisAbbott</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3278.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-27T11:39:59Z' class='post-time'>
+                October 27, 2021, 11:39am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-29T02:54:49Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You can refer to how to prevent newline addition at <a href="https://modsuper.com" rel="noopener nofollow ugc">modsuper.com</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Append text file without newline?'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

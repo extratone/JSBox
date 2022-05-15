@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Using Obsidian with Drafts - Integration Guides - Drafts Community</title>
+    <meta name="description" content="Obsidian Website
+
+URL Scheme: obsidian://
+
+URL Scheme Documentation
+
+
+Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to exp&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="../using-drafts-with-obsidian/11221.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Using Obsidian with Drafts&#39;" href="11221.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4.jpeg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4.jpeg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221" />
+<meta property="og:title" content="Using Obsidian with Drafts" />
+<meta name="twitter:title" content="Using Obsidian with Drafts" />
+<meta property="og:description" content="Obsidian Website  URL Scheme: obsidian://  URL Scheme Documentation   Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to expand on these ideas, or let us know if we’ve missed something important.   Obsidian is a popular personal knowledge management application that focuses on organizing and cross-linking Markdown files.  Drafts works nicely as a capture front-end for Obsidian. This article covers met..." />
+<meta name="twitter:description" content="Obsidian Website  URL Scheme: obsidian://  URL Scheme Documentation   Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to expand on these ideas, or let us know if we’ve missed something important.   Obsidian is a popular personal knowledge management application that focuses on organizing and cross-linking Markdown files.  Drafts works nicely as a capture front-end for Obsidian. This article covers met..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="13 ❤" />
+<meta property="article:published_time" content="2021-09-21T20:34:49+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="../using-drafts-with-obsidian/11221.html">Using Obsidian with Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/integration-guides.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Integration Guides</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/obsidian.html' class='discourse-tag' rel="tag">obsidian</a>, 
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>, 
+            <a href='../../tag/guide.html' class='discourse-tag' rel="tag">guide</a>, 
+            <a href='../../tag/bookmarks.html' class='discourse-tag' rel="tag">bookmarks</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-obsidian/11221.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-21T20:34:49Z' class='post-time'>
+                September 21, 2021,  8:34pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-21T11:48:22Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/7dabfb5511d212b7b8358016f48fb1081909b4b4" title="image"><img src="../../uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_250x250.jpeg" alt="image" data-base62-sha1="hVK9uiem912r4Uzuuq2ENlHAkde" width="250" height="250" srcset="../../uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_250x250.jpeg, ../../uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_375x375.jpeg 1.5x, ../../uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_500x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">2048×2048 114 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<ul>
+<li><a href="https://obsidian.md"><strong>Obsidian Website</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: <code>obsidian://</code>
+</li>
+<li><a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<blockquote>
+<p>Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to expand on these ideas, or let us know if we’ve missed something important.</p>
+</blockquote>
+<p><a href="https://obsidian.md">Obsidian</a> is a popular personal knowledge management application that focuses on organizing and cross-linking Markdown files.</p>
+<p>Drafts works nicely as a capture front-end for Obsidian. This article covers methods available to send items you have captured in Drafts to your Obsidian vaults. The actions provide here are all cross-platform and will work on both iOS and Mac.</p>
+<p>Not all ways to work with Obsidian are covered here, just some basics to get you started.</p>
+<h2>
+<a name="url-based-actions-1" class="anchor" href="../using-drafts-with-obsidian/11221.html#url-based-actions-1"></a>URL-Based Actions</h2>
+<p><a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI">Obsidian’s URL scheme support</a> allows Drafts to create new files in Obsidian, passing details to control which vault, file name, and content to include.</p>
+<p>Below are example actions with variations of what is possible with URLs, see “Modifying URL Action Examples” below for details on adapting these to your needs:</p>
+<ul>
+<li>
+<a href="../../../actions.getdrafts.com/a/1qB.html"><strong>Send to Obsidian</strong></a>
+<ul>
+<li>This action creates a new file with the content of the current draft in the active Obsidian vault, using the first line of the draft as a file name. It also appends any tags assigned in Drafts as <span class="hashtag">#hashtags</span> at the end of the file. The file will be stored in the default location for new files, as specified in Obsidian settings.</li>
+</ul>
+</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1qm.html"><strong>Send to Obsidian Vault</strong></a>
+<ul>
+<li>A modified version of the above action, this action also specifies which vault to use. If you have multiple Obsidian vaults, you might create multiple duplicates of this action, specifying a different target vault in each. See the “Modifying…” section below for details on changing the vault name.</li>
+</ul>
+</li>
+</ul>
+<p>For advanced use cases, see the <a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI">Obsidian URL documentation</a> for details on available parameters. It is possible to use different parameter combinations to target specific paths, etc.</p>
+<h4>
+<a name="modifying-url-action-examples-2" class="anchor" href="../using-drafts-with-obsidian/11221.html#modifying-url-action-examples-2"></a>Modifying URL Action Examples</h4>
+<p>Each of the example actions above defines the parameters used to construct the Obsidian URL in a series of “Define Template Tag” action steps. To modify these parameters, you can edit the templates of each of these steps.</p>
+<p>For the “Send to Obsidian Vault” example to be useful, you will have to edit the action and change the template value “MY-VAULT” in the first step of the action to match the name of a vault in your Obsidian installation.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png" data-download-href="https://forums.getdrafts.com/uploads/default/d6a7b2f47d998be446eec4ee86b61cb6092646cf" title="obsidian-url"><img src="../../uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_690x386.png" alt="obsidian-url" data-base62-sha1="uCVthd02cpGSEVQfzEk9QCrC4PB" width="690" height="386" srcset="../../uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_690x386.png, ../../uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png 1.5x, ../../uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">obsidian-url</span><span class="informations">815×457 82.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<h4>
+<a name="url-pros-cons-3" class="anchor" href="../using-drafts-with-obsidian/11221.html#url-pros-cons-3"></a>URL Pros &amp; Cons</h4>
+<ul>
+<li>
+<strong>PROS</strong>:
+<ul>
+<li>Not important where you store your vaults.</li>
+<li>Works with encrypted vaults.</li>
+<li>After completion, you are left in Obsidian editing the newly created file, if you need to make any additional tweaks.</li>
+</ul>
+</li>
+<li>
+<strong>CONS</strong>:
+<ul>
+<li>Obsidian app must opened to complete the action.</li>
+<li>Obsidian does not support callback URLs, so this method cannot return results to Drafts, or be combined with other action steps as effectively.</li>
+<li>Cannot update existing files, only create new ones.</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a name="file-based-actions-4" class="anchor" href="../using-drafts-with-obsidian/11221.html#file-based-actions-4"></a>File-Based Actions</h2>
+<p>Obsidian vaults are a set of text files in a folder. Drafts can read-write-update files. Therefore, as long as your Obsidian vault is stored in a location accessible to Drafts actions, Drafts can also add to files in your vault directly, without the need to launch Obsidian.</p>
+<blockquote>
+<p>Both of the below example actions rely on <a href="../../../docs.getdrafts.com/docs/settings/bookmarks.html">Folder Bookmarks</a>, a new feature introduced in Draft v28. Make sure you are up-to-date before using these actions.</p>
+</blockquote>
+<p>Below are file action examples:</p>
+<ul>
+<li>
+<a href="../../../actions.getdrafts.com/a/1qn.html"><strong>Save to Obsidian Vault</strong></a>
+<ul>
+<li>Save current draft to the root folder associated with the bookmark named “Obsidian Vault”, using the first line as the file name.</li>
+</ul>
+</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1qo.html"><strong>Append to Obsidian Journal</strong></a>
+<ul>
+<li>Appends text of current draft to daily journal file named like <code>Daily-YYYY-MM-DD</code> in the folder <code>Journal</code>. If the file does not exist, it will be created.</li>
+</ul>
+</li>
+</ul>
+<h4>
+<a name="about-bookmarks-5" class="anchor" href="../using-drafts-with-obsidian/11221.html#about-bookmarks-5"></a>About Bookmarks</h4>
+<p>Both of these examples rely on <a href="../../../docs.getdrafts.com/docs/settings/bookmarks.html">Folder Bookmarks</a>. The first time you run each of these examples on a device, you will be prompted to select your Obsidian Vault folder to grant Drafts permission to create files in that folder. More details on how bookmarks operate in the docs, but your vault must reside in a location which can be accessed by bookmarks. On Mac, this is any folder you have permissions to modify, but it is more limited on iOS, as many file provider apps (like Dropbox, Google Drive) do not support bookmarking. The most reliable place to store a vault to be able to use file-based actions on iOS is in your iCloud Drive folder.</p>
+<h4>
+<a name="modifying-file-actions-6" class="anchor" href="../using-drafts-with-obsidian/11221.html#modifying-file-actions-6"></a>Modifying File Actions</h4>
+<p>Each of the above examples uses a single <a href="../../../docs.getdrafts.com/docs/actions/steps/services.html#file">File action step</a>. File action steps have extensive options for configuring the path, file name, and content of the file. See <a href="../../../docs.getdrafts.com/docs/actions/steps/services.html#file">docs</a> for details on configuring these options.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png" data-download-href="https://forums.getdrafts.com/uploads/default/5d64a0ed7b26bd7c246eea87ead747b03deb94d6" title="obsidian-file"><img src="../../uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_690x386.png" alt="obsidian-file" data-base62-sha1="dkc02f6qxYiYrD0mVVsF3ibFZXM" width="690" height="386" srcset="../../uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_690x386.png, ../../uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png 1.5x, ../../uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">obsidian-file</span><span class="informations">815×457 78.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<h4>
+<a name="file-pros-cons-7" class="anchor" href="../using-drafts-with-obsidian/11221.html#file-pros-cons-7"></a>File Pros &amp; Cons</h4>
+<ul>
+<li>
+<strong>PROS</strong>:
+<ul>
+<li>No need to launch Obsidian to add content to a vault.</li>
+<li>Actions can also append-prepend-update files, not just create new ones.</li>
+</ul>
+</li>
+<li>
+<strong>CONS</strong>:
+<ul>
+<li>Vault must be store in a location accessible to Drafts.</li>
+</ul>
+</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Using Obsidian with Drafts'>
+          <meta itemprop='keywords' content='obsidian, actions, guide, bookmarks'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="9" />
+           <span class='post-likes'>9 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../drafts-and-obsidian-why/10968/20.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/drafts-and-obsidian-why/10968/20'>
+                      <span itemprop='name'>Drafts and Obsidian - why?</span>
+                    </a>
+                    <meta itemprop='position' content='12'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-obsidian/11221.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-21T21:37:06Z' class='post-time'>
+                September 21, 2021,  9:37pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-21T21:37:06Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just wanted to share something regarding using URL schemes to append/prepend to existing files. It is possible to do this but for now at least, you need to use a plugin such as the <a href="https://github.com/Vinzent03/obsidian-advanced-uri">Advanced Obsidian URI</a> plugin. It will require you to use a different syntax and obviously isn’t supported by the main development team but something for people to consider.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Obsidian with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mikecufc'><span itemprop='name'>mikecufc</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-obsidian/11221.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-21T23:16:59Z' class='post-time'>
+                September 21, 2021, 11:16pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-21T23:16:59Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you so much!!!</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Obsidian with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/miscellaneplans'><span itemprop='name'>miscellaneplans</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-obsidian/11221.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-27T00:41:17Z' class='post-time'>
+                September 27, 2021, 12:41am
+              </time>
+              <meta itemprop='dateModified' content='2021-09-29T00:21:49Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes! The Advanced Obsidian URI plugin works well. <a href="https://mattedwards.com.au/" rel="noopener nofollow ugc">Matt Edwards</a> helped me figure out how to append to my daily note in Obsidian, as well as how to create new files anywhere in Obsidian—all from Drafts.<br>
+Here are the two actions he made:</p><aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1q8">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="../../../actions.getdrafts.com/a/1q8.html" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, ../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, ../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="../../../actions.getdrafts.com/a/1q8.html" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Append to Obsidian Daily Note</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1qe">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="../../../actions.getdrafts.com/a/1qe.html" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, ../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, ../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="../../../actions.getdrafts.com/a/1qe.html" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Send to Obsidian Folder</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>I wrote about how I use these actions in my Obsidian productivity system, <a href="https://medium.com/produclivity/a-step-by-step-guide-for-creating-your-own-delicious-slice-of-text-based-productivity-8ad4a7d8a7b5" rel="noopener nofollow ugc">here</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Obsidian with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/alehandrof'><span itemprop='name'>alehandrof</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-obsidian/11221.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-06T06:32:58Z' class='post-time'>
+                October 6, 2021,  6:32am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-06T06:32:58Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you for this guide! I had used the build-in and Advanced Obsidian URI plugins, but found them flimsy, especially on mobile. The app would need to open and often the text would get lost somewhere along the way.</p>
+<p>The “File-Based Actions” workflow is much more reliable for me.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Obsidian with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/BillPetro'><span itemprop='name'>BillPetro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../using-drafts-with-obsidian/11221.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-04T21:31:34Z' class='post-time'>
+                February 4, 2022,  9:31pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-04T21:31:34Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I love these plugins, but I’m still having difficulty defining my valutName.</p>
+<p>My vault is in my iCloud Drive &gt; Obsidian &gt; BillPetro</p>
+<p>However, even using Advanced Obsidian URI, I’m still getting an error:</p>
+<p>What am I doing wrong?</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/850c82dc2798303b07de3b7ee6de955c107e3eb9" title="Drafts"><img src="../../uploads/default/optimized/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9_2_318x500.jpeg" alt="Drafts" data-base62-sha1="iZ0j8nzefvpFZNVtMfaxUzkxpJn" width="318" height="500" srcset="../../uploads/default/optimized/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9_2_318x500.jpeg, ../../uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg 1.5x, ../../uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">Drafts</span><span class="informations">472×742 76.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Obsidian with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using WordPress with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492</link>
+    <description>![wordpress-logo|306x165](upload://yl2FSvH6VtT0sEht22XJzr9T32l.png) 
+
+Drafts (v5.4 or greater) can be used with the [WordPress](https://wordpress.org) blogging and content management system via integration with the [WordPress XML-RPC API](https://codex.wordpress.org/XML-RPC_Support).
+
+The XML-RPC API is available, and enabled by default, in WordPress version 3.5 or greater, but its availability, and limits on its use, may vary by where your WordPress site is hosted. It is highly recommend you use secure connections (https) to connect to your site using XML-RPC.
+
+## Posting to WordPress
+
+Drafts provides a [WordPress action step](https://getdrafts.com/actions/steps/wordpress) which allows creation and publishing of posts on a WordPress site. Example action:
+
+- [Post to WordPress](https://actions.getdrafts.com/a/1Os)
+
+This example posts to a WordPress blog in &quot;Draft&quot; status (to be published in the web interface later), using the first line of the title as the title of the post, and remaining text as the content.
+
+This basic example can be modified to control post status, automatically assign categories, tags and even custom fields. The details of available options can be found in the [action step documentation](https://getdrafts.com/actions/steps/wordpress).
+
+## WordPress Credentials and Sites
+
+The first time you run an action using a WordPress action step, you will be asked for details required to connect to your site. These include the host name of the home page of the WordPress site, and your username and password.  These will be stored for future use with the action.
+
+Be sure to enter the full URL to the home page of the WordPress site when prompted. This includes the &quot;http://&quot; or &quot;https://&quot; the host name and partial path if the site is hosted in a sub-directory, like: &quot;https://mysite.com/blog/&quot;.
+
+If you only post to one WordPress site, no additional configuration is needed. If you wish to have actions which post to different WordPress sites, configure a unique value in the &quot;Credential Identifier&quot; field of the WordPress action step.  All WordPress action steps with the same &quot;Credential Identifier&quot; will share the same login.  This value can be anything, but using something like the host name of the site for easy identification is recommended.
+
+![wordpress-credentials|690x386](upload://tQJf3pxq7W0KBL3uuOESwiGMo8U.png) 
+
+To reset credentials and login again, visit Settings &gt; Credentials and &quot;Forget&quot; the WordPress credentials. [Read more about Credentials](https://getdrafts.com/settings/credentials).
+
+## Using the WordPress app share extension
+
+WordPress also offers their own [WordPress iOS app](https://apps.wordpress.com/mobile/) which can be used to post to WordPress.com of self-hosted WordPress blogs. The app offers a share extension, so if it is installed an configured on your device, it can be used via the Drafts &quot;Share&quot; action and the system share sheet.  This approach is less automated, but is often a good choice if you want to make some selections of categories, tags, published status, etc., on the fly when you publish.
+
+## Scripting and the XML-RPC API
+
+Drafts provides a [`WordPress` scripting object](https://reference.getdrafts.com/objects/WordPress.html) which can be used to make direct requests to any methods available in the [WordPress XML-RPC API](https://codex.wordpress.org/XML-RPC_WordPress_API). The object provides several convenience methods to fetch taxonomy information, etc., and also a `runMethod` function to call any method available in the API.
+
+Using scripting, WordPress posts and taxonomy information can be queried, downloaded, updated, existing posts can be imports and more. 
+
+This wrapper handles the XML part of XML-RPC, making it easy to work with the WordPress API in Javascript, but is an advanced topic. For details, visit the [scripting reference](https://reference.getdrafts.com/objects/WordPress.html).
+
+Example Scripted Actions:
+
+- [WordPress - Get Recent Posts](https://actions.getdrafts.com/a/1OC)
+	- Retrieves recents posts from the WordPress site and creates a new draft with a summary of the posts.
+- [WordPress - New Post](https://actions.getdrafts.com/a/1OB)
+	- Demonstrates creating a new post via script.
+
+#### Troubleshooting
+
+If you have trouble posting to your WordPress blog, try the following:
+
+- If posting has never worked, ensure the site host, username and password are all correct and entered properly. You can forget the credentials in settings and re-run the action to re-enter them.
+- Check the action log after running a failed action for details on what error occurred.
+- Check with your hosting provider to be sure that the WordPress XML-RPC interface is allowed and enabled on WordPress installations on their service.</description>
+    
+    <lastBuildDate>Fri, 08 Apr 2022 19:18:44 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[sgclark]]></dc:creator>
+        <description><![CDATA[
+            <p>Been trying to use the Wordpress actions:</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1OG">
+  <header class="source">
+      <img src="https://actions.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1OG" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1OG" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Post to WordPress</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1OB">
+  <header class="source">
+      <img src="https://actions.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1OB" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1OB" target="_blank" rel="noopener nofollow ugc">Drafts Directory: WordPress - New Post</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>However when I test them out, the posts do not show up on the Wordpress side.  Within Drafts, they seem to say it goes through.  This was an error that I saw in the Drafts logs:</p>
+<code>
+Response: undefined
+Error: undefined
+Script Error: TypeError: undefined is not an object (evaluating 'response.params[0]')
+Line number: 26, Column 60
+</code>
+<p>Could all the changes happening on the Wordpress side regarding block publishing be causing issues with these Drafts Actions?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/14</link>
+        <pubDate>Fri, 08 Apr 2022 19:18:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-14</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[blfarris]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m also experiencing this.</p>
+<p>I get a nicely spaced post with HTML tags in it.</p>
+<p>I can fix it by selecting the text, cut, then move to the “Text” tab and pasting the HTML in there, but I’d love to skip that step.</p>
+<p>Any ideas?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/13</link>
+        <pubDate>Mon, 27 Jul 2020 19:49:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-13</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[desparoz]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, I am trying to run an action that starts with a prompt to collect a category.</p>
+<p>I set up a key called [[dp_cats]] and then include that in the Categories field in the ‘WordPress’ step.</p>
+<p>When arriving at my site, all I get is the actual text in the field. Is there no way to have a variable loaded into the categories field (or tag field)??</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/12</link>
+        <pubDate>Sun, 12 Apr 2020 02:26:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-12</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[JohnP2]]></dc:creator>
+        <description><![CDATA[
+            <p>Unsure if you take contributing “Integration Guides” but I’d like to submit one for integrating with 1Writer.<br>
+This would be an excerpt from an artifact I am currently writing, that is much akin to what <a href="https://www.macstories.net/tutorials/guide-url-scheme-ios-drafts/#thedraftsurlscheme" rel="nofollow noopener">Alex Guyot</a> wrote years ago. Kind of an updated version, if you will. Thx</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/11</link>
+        <pubDate>Fri, 20 Dec 2019 22:30:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-11</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There are a lot of things that could block login. There’s a few troubleshooting steps above in the post. Most commonly your host simply disallows XML-RPC access by default. What error are you getting in the log (action history button at top of action list) after attempting the action?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/10</link>
+        <pubDate>Sun, 20 Oct 2019 18:31:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-10</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[Sebastien]]></dc:creator>
+        <description><![CDATA[
+            <p>At the Moment I can‘t log in from Drafts to my WordPress Account. Do you know any WordPress Plugins That might Could block the Login?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/9</link>
+        <pubDate>Sun, 20 Oct 2019 07:52:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-9</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[scott]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, I’ve seen it too. My posts are wrapped in html.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/8</link>
+        <pubDate>Tue, 19 Mar 2019 11:21:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-8</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[Elislav_Atanasov]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>,</p>
+<p>Thanks for this answer. I have tried it and the automation works, but for some reason wordpress does not recognize the html tags and now I have just a single block of text with all the html tags. As far as I understand it should work, because the block, which wordpress uses is “own html”. Am I the only one experiencing this issue?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/7</link>
+        <pubDate>Sat, 16 Mar 2019 15:31:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-7</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[ndntaylor]]></dc:creator>
+        <description><![CDATA[
+            <p>Perfect. That works. WordPress converts the HTML automatically.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/6</link>
+        <pubDate>Fri, 18 Jan 2019 15:12:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The default “Post to Wordpress” example above does not do Markdown conversion, it just sends the content of the draft. If the Markdown was converting for you in publishing before, it was likely being done at Wordpress’s end.</p>
+<p>Honestly have not looked into changes in WP 5 to know how that affects input, but there’s likely someway to enable Markdown posts on the WP end still.  Maybe someone else here is a Markdown user and will have more of an idea.</p>
+<p>You can have Drafts convert the Markdown to HTML before sending it if you edit the action and change the template to <code>%%[[body]]%%</code>…but WordPress will be getting and storing HTML, not the raw Markdown.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/5</link>
+        <pubDate>Fri, 18 Jan 2019 13:42:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-5</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[ndntaylor]]></dc:creator>
+        <description><![CDATA[
+            <p>Since wordpress updated to 5.0 and the new blocks editor this action still posts a draft but the markdown isn’t converted.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/4</link>
+        <pubDate>Fri, 18 Jan 2019 09:53:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Possible a couple of things are going on…most likely getting an error from your host. There is a bug that can report success on certain types of error using the step in 5.4 (fixed for 5.4.1).  Try <a href="https://actions.getdrafts.com/a/1OB">this scripted version</a> and see what you are getting in the action log. It’s got more debugging info.  Please open a ticket with the results (<a href="mailto:support@agiletortoise.com">support@agiletortoise.com</a>), we can better troubleshoot there.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/3</link>
+        <pubDate>Tue, 18 Sep 2018 16:10:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[Frank_McPherson]]></dc:creator>
+        <description><![CDATA[
+            <p>I am having no luck trying to get this to work. I do have multiple blogs associated to my Wordpress account, each has its own URL. I’ve created a new user id and password specific to the blog I want to post to from Drafts and provided that as credentials and that doesn’t work either.</p>
+<p>Basically, in Drafts the action indicates that it posted successfully but the item never appears in any of the Drafts sections of any of the blogs. The Drafts action log does not show an error. I’ve forgot and retried credentials several times.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/2</link>
+        <pubDate>Tue, 18 Sep 2018 15:11:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+      <item>
+        <title>Using WordPress with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/f0aade27d7c9cfdb6e3b263f51e26ce69c627b55.png" alt="wordpress-logo" width="306" height="165"></p>
+<p>Drafts (v5.4 or greater) can be used with the <a href="https://wordpress.org" rel="nofollow noopener">WordPress</a> blogging and content management system via integration with the <a href="https://codex.wordpress.org/XML-RPC_Support" rel="nofollow noopener">WordPress XML-RPC API</a>.</p>
+<p>The XML-RPC API is available, and enabled by default, in WordPress version 3.5 or greater, but its availability, and limits on its use, may vary by where your WordPress site is hosted. It is highly recommend you use secure connections (https) to connect to your site using XML-RPC.</p>
+<h2>Posting to WordPress</h2>
+<p>Drafts provides a <a href="https://getdrafts.com/actions/steps/wordpress" rel="nofollow noopener">WordPress action step</a> which allows creation and publishing of posts on a WordPress site. Example action:</p>
+<ul>
+<li><a href="https://actions.getdrafts.com/a/1Os" rel="nofollow noopener">Post to WordPress</a></li>
+</ul>
+<p>This example posts to a WordPress blog in “Draft” status (to be published in the web interface later), using the first line of the title as the title of the post, and remaining text as the content.</p>
+<p>This basic example can be modified to control post status, automatically assign categories, tags and even custom fields. The details of available options can be found in the <a href="https://getdrafts.com/actions/steps/wordpress" rel="nofollow noopener">action step documentation</a>.</p>
+<h2>WordPress Credentials and Sites</h2>
+<p>The first time you run an action using a WordPress action step, you will be asked for details required to connect to your site. These include the host name of the home page of the WordPress site, and your username and password.  These will be stored for future use with the action.</p>
+<p>Be sure to enter the full URL to the home page of the WordPress site when prompted. This includes the “http://” or “https://” the host name and partial path if the site is hosted in a sub-directory, like: “<a href="https://mysite.com/blog/" rel="nofollow noopener">https://mysite.com/blog/</a>”.</p>
+<p>If you only post to one WordPress site, no additional configuration is needed. If you wish to have actions which post to different WordPress sites, configure a unique value in the “Credential Identifier” field of the WordPress action step.  All WordPress action steps with the same “Credential Identifier” will share the same login.  This value can be anything, but using something like the host name of the site for easy identification is recommended.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png" data-download-href="https://forums.getdrafts.com/uploads/default/d134f3fe894a10b55e915877ddb09295b7aefa68" title="wordpress-credentials.png"><img src="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_690x386.png" alt="wordpress-credentials" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png 1.5x, https://forums.getdrafts.com/uploads/default/original/1X/d134f3fe894a10b55e915877ddb09295b7aefa68.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/d134f3fe894a10b55e915877ddb09295b7aefa68_2_10x10.png"></a></div><p></p>
+<p>To reset credentials and login again, visit Settings &gt; Credentials and “Forget” the WordPress credentials. <a href="https://getdrafts.com/settings/credentials" rel="nofollow noopener">Read more about Credentials</a>.</p>
+<h2>Using the WordPress app share extension</h2>
+<p>WordPress also offers their own <a href="https://apps.wordpress.com/mobile/" rel="nofollow noopener">WordPress iOS app</a> which can be used to post to <a href="http://WordPress.com" rel="nofollow noopener">WordPress.com</a> of self-hosted WordPress blogs. The app offers a share extension, so if it is installed an configured on your device, it can be used via the Drafts “Share” action and the system share sheet.  This approach is less automated, but is often a good choice if you want to make some selections of categories, tags, published status, etc., on the fly when you publish.</p>
+<h2>Scripting and the XML-RPC API</h2>
+<p>Drafts provides a <a href="https://reference.getdrafts.com/objects/WordPress.html" rel="nofollow noopener"><code>WordPress</code> scripting object</a> which can be used to make direct requests to any methods available in the <a href="https://codex.wordpress.org/XML-RPC_WordPress_API" rel="nofollow noopener">WordPress XML-RPC API</a>. The object provides several convenience methods to fetch taxonomy information, etc., and also a <code>runMethod</code> function to call any method available in the API.</p>
+<p>Using scripting, WordPress posts and taxonomy information can be queried, downloaded, updated, existing posts can be imports and more.</p>
+<p>This wrapper handles the XML part of XML-RPC, making it easy to work with the WordPress API in Javascript, but is an advanced topic. For details, visit the <a href="https://reference.getdrafts.com/objects/WordPress.html" rel="nofollow noopener">scripting reference</a>.</p>
+<p>Example Scripted Actions:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1OC" rel="nofollow noopener">WordPress - Get Recent Posts</a>
+<ul>
+<li>Retrieves recents posts from the WordPress site and creates a new draft with a summary of the posts.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1OB" rel="nofollow noopener">WordPress - New Post</a>
+<ul>
+<li>Demonstrates creating a new post via script.</li>
+</ul>
+</li>
+</ul>
+<h4>Troubleshooting</h4>
+<p>If you have trouble posting to your WordPress blog, try the following:</p>
+<ul>
+<li>If posting has never worked, ensure the site host, username and password are all correct and entered properly. You can forget the credentials in settings and re-run the action to re-enter them.</li>
+<li>Check the action log after running a failed action for details on what error occurred.</li>
+<li>Check with your hosting provider to be sure that the WordPress XML-RPC interface is allowed and enabled on WordPress installations on their service.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492/1</link>
+        <pubDate>Fri, 14 Sep 2018 13:25:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2492-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-wordpress-with-drafts/2492.rss">Using WordPress with Drafts</source>
+      </item>
+  </channel>
+</rss>

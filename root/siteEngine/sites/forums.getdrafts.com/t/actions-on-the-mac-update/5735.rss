@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Actions on the Mac Update</title>
+    <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735</link>
+    <description>This is just a quick note to update folks on the status of actions on the Mac. They are coming along nicely. An early beta version has been distributed to a small group of testers, and I will posting a public beta to the next week or two. Details will be posted here to the forums when it&#39;s ready.  I hope to have a final release ready before the end of 2019, barring any major unexpected hurdles.
+
+![52%20PM|690x448](upload://r2a2MjZ6cKzgF1MwCNLS6hdRUlc.jpeg) 
+
+To set some expectations, first off, most things just work. Action sync across platforms, and the vast majority of the action step types and scripting interfaces work on the Mac just as they do on iOS. 
+
+There are a few exceptions, and a few caveats...these are the most notable ones:
+
+- **URL and x-callback-url actions**: URL-based actions work on the Mac, but there is some variation due to which apps are even available on both platforms, and whether they have implemented support for the same URLs in their apps.  Many of these actions for popular apps work fine on both platforms. I have tested OmniFocus, Things, Day One and a number of others which seems to be fully compatible.  Others, such as Fantastical and Evernote, while offering Mac apps, do not at this time implement the same URL schemes on both platforms, so there may be a few hurdles and incompatibilities to iron out.
+
+- **No Evernote support on Mac**: Drafts [Evernote action step](https://docs.getdrafts.com/docs/actions/steps/services.html#evernote) is not available on the Mac. This is purely for technical reasons. As it stands, Evernote does not offer an industry standard REST API which can be easily used cross-platform. As a result, Evernote integration on iOS uses an SDK offered by Evernote to support integration. Evernote does not offer a similar SDK for Mac (they had one in the past, but abandoned it&#39;s development years ago).
+
+- **Mail action step does not support HTML**: Still researching options here, but as it stands it is not possible to send HTML mail on the Mac version. Apple&#39;s Mail app removed support it once had for directly setting HTML content in messages via AppleScript/Apple Events, and there is no API available similar the one used on iOS to create HTML messages. Hopefully some other methods will come to light, but for now mail steps on Mac use `mailto:` URLs to open messages. They can be still be configured with recipients, subjects and custom templated message bodies, just only using plain text.
+
+More details to follow with the beta release.  Look forward to getting this into more people&#39;s hands for testing!</description>
+    
+    <lastBuildDate>Wed, 22 Jan 2020 13:10:07 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Actions on the Mac Update</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            
+          <p><a href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/6</link>
+        <pubDate>Tue, 28 Jan 2020 14:56:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5735-6</guid>
+        <source url="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss">Actions on the Mac Update</source>
+      </item>
+      <item>
+        <title>Actions on the Mac Update</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Ability to run AppleScripts is something we hope to add. It’s very convoluted to implement due to Sandboxing restrictions.</p>
+          <p><a href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/5</link>
+        <pubDate>Wed, 22 Jan 2020 13:10:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5735-5</guid>
+        <source url="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss">Actions on the Mac Update</source>
+      </item>
+      <item>
+        <title>Actions on the Mac Update</title>
+        <dc:creator><![CDATA[rummers]]></dc:creator>
+        <description><![CDATA[
+            <p>Could the Evernote action step be implemented locally on the Mac with AppleScript instead of hitting their API? Or alternatively, any plans for an action step to execute an AppleScript so that a user could implement this? <img src="https://forums.getdrafts.com/images/emoji/apple/slightly_smiling_face.png?v=9" title=":slightly_smiling_face:" class="emoji" alt=":slightly_smiling_face:"></p>
+          <p><a href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/4</link>
+        <pubDate>Wed, 22 Jan 2020 06:30:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5735-4</guid>
+        <source url="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss">Actions on the Mac Update</source>
+      </item>
+      <item>
+        <title>Actions on the Mac Update</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There are platform and model properties on the <a href="http://scripting.getdrafts.com/classes/device.html#model" rel="nofollow noopener">device object</a></p>
+          <p><a href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/3</link>
+        <pubDate>Thu, 24 Oct 2019 13:08:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5735-3</guid>
+        <source url="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss">Actions on the Mac Update</source>
+      </item>
+      <item>
+        <title>Actions on the Mac Update</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>If I were writing an action in javascript that had some sensitivity to the differences - for example in URL schemes - how would my code tell whether it was running on Mac OS or iOS?</p>
+<p>Branching code might well help here.</p>
+          <p><a href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/2</link>
+        <pubDate>Thu, 24 Oct 2019 06:08:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5735-2</guid>
+        <source url="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss">Actions on the Mac Update</source>
+      </item>
+      <item>
+        <title>Actions on the Mac Update</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This is just a quick note to update folks on the status of actions on the Mac. They are coming along nicely. An early beta version has been distributed to a small group of testers, and I will posting a public beta to the next week or two. Details will be posted here to the forums when it’s ready.  I hope to have a final release ready before the end of 2019, barring any major unexpected hurdles.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/bd79431ae9944b1e75ebf9d61e4d924cd548a18a.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/bd79431ae9944b1e75ebf9d61e4d924cd548a18a" title="Screen Shot 2019-10-23 at 2.24.52 PM.jpg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd79431ae9944b1e75ebf9d61e4d924cd548a18a_2_690x448.jpeg" alt="52%20PM" data-base62-sha1="r2a2MjZ6cKzgF1MwCNLS6hdRUlc" width="690" height="448" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd79431ae9944b1e75ebf9d61e4d924cd548a18a_2_690x448.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd79431ae9944b1e75ebf9d61e4d924cd548a18a_2_1035x672.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd79431ae9944b1e75ebf9d61e4d924cd548a18a_2_1380x896.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/bd79431ae9944b1e75ebf9d61e4d924cd548a18a_2_10x10.png"></a></div><p></p>
+<p>To set some expectations, first off, most things just work. Action sync across platforms, and the vast majority of the action step types and scripting interfaces work on the Mac just as they do on iOS.</p>
+<p>There are a few exceptions, and a few caveats…these are the most notable ones:</p>
+<ul>
+<li>
+<p><strong>URL and x-callback-url actions</strong>: URL-based actions work on the Mac, but there is some variation due to which apps are even available on both platforms, and whether they have implemented support for the same URLs in their apps.  Many of these actions for popular apps work fine on both platforms. I have tested OmniFocus, Things, Day One and a number of others which seems to be fully compatible.  Others, such as Fantastical and Evernote, while offering Mac apps, do not at this time implement the same URL schemes on both platforms, so there may be a few hurdles and incompatibilities to iron out.</p>
+</li>
+<li>
+<p><strong>No Evernote support on Mac</strong>: Drafts <a href="https://docs.getdrafts.com/docs/actions/steps/services.html#evernote" rel="nofollow noopener">Evernote action step</a> is not available on the Mac. This is purely for technical reasons. As it stands, Evernote does not offer an industry standard REST API which can be easily used cross-platform. As a result, Evernote integration on iOS uses an SDK offered by Evernote to support integration. Evernote does not offer a similar SDK for Mac (they had one in the past, but abandoned it’s development years ago).</p>
+</li>
+<li>
+<p><strong>Mail action step does not support HTML</strong>: Still researching options here, but as it stands it is not possible to send HTML mail on the Mac version. Apple’s Mail app removed support it once had for directly setting HTML content in messages via AppleScript/Apple Events, and there is no API available similar the one used on iOS to create HTML messages. Hopefully some other methods will come to light, but for now mail steps on Mac use <code>mailto:</code> URLs to open messages. They can be still be configured with recipients, subjects and custom templated message bodies, just only using plain text.</p>
+</li>
+</ul>
+<p>More details to follow with the beta release.  Look forward to getting this into more people’s hands for testing!</p>
+          <p><a href="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/actions-on-the-mac-update/5735/1</link>
+        <pubDate>Wed, 23 Oct 2019 20:13:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5735-1</guid>
+        <source url="https://forums.getdrafts.com/t/actions-on-the-mac-update/5735.rss">Actions on the Mac Update</source>
+      </item>
+  </channel>
+</rss>

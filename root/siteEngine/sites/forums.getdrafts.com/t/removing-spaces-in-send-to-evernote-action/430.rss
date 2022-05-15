@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Removing Spaces in Send to Evernote Action</title>
+    <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430</link>
+    <description>I created a new action to send to Evernote.  (see below)
+
+With [[draft]] as the Note, after exporting to Evernote all of the spaces in the title are removed.  
+
+Is there syntax to have the complete first line of the [[draft]] be the Note title?
+
+![IMG_1541|666x500](upload://20MABH61UGSlUa0QLSK6zwfz1WG.jpg)</description>
+    
+    <lastBuildDate>Wed, 05 Dec 2018 19:34:33 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[jayelevy]]></dc:creator>
+        <description><![CDATA[
+            <p>Brandon, the good news is my script has continued to work (and I use it frequently). I couldn’t remember how I last left it, so I just checked.</p>
+<p>Two Steps:<br>
+Script<br>
+Evernote</p>
+<p>The Evernote step uses<br>
+<strong>Note</strong> - Meeting: [[title]]<br>
+<strong>Template</strong> - [[body]]</p>
+<p>The end of the script includes the following logic:</p>
+<pre><code class="lang-auto">// the following is a kludge to workaround malformed title line
+
+// added the first line to be the properly formed title line (text followed immediately by \n)
+
+// the Evernote action uses the [[body]] tag so the first line of the draft is skipped
+
+//
+
+begin = draft.title + "\n" + begin.slice(0,-1);
+
+end = end.slice(0,-1);
+
+draft.content = (begin + " \n" + end);
+
+draft.update();
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/20</link>
+        <pubDate>Wed, 05 Dec 2018 19:34:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-20</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[Brandon_Toner]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Jay,</p>
+<p>did you just add this as a “script” as a second step in your draft action?</p>
+<p>Thanks,<br>
+Brandon</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/19</link>
+        <pubDate>Wed, 05 Dec 2018 19:00:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-19</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[Brandon_Toner]]></dc:creator>
+        <description><![CDATA[
+            <p>I can confirm the same issue - drafts to Evernote removing spaces in the title</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/18</link>
+        <pubDate>Wed, 05 Dec 2018 18:51:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-18</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s just weird. Still very hard me to troubleshoot since I’ve never been able to reproduce it and it only seems to be happening for a few lucky users.</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/17</link>
+        <pubDate>Tue, 21 Aug 2018 21:50:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-17</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[jayelevy]]></dc:creator>
+        <description><![CDATA[
+            <p>While ugly (and l imagine there is a better way to do this)… I “resolved” this by adding the following to the end of my script. The action has been working fine since I added this back in May. — jay</p>
+<pre><code>// the following is a kludge to workaround malformed title line
+// added the first line to be the properly formed title line (text followed immediately by \n)
+// the Evernote action uses the [[body]] tag so the first line of the draft is skipped
+// 
+begin = draft.title + "\n" + begin.slice(0,-1);
+end = end.slice(0,-1);
+draft.content = (begin + "  \n" + end);
+draft.update();</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/16</link>
+        <pubDate>Tue, 21 Aug 2018 15:04:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-16</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[careyb]]></dc:creator>
+        <description><![CDATA[
+            <p><strong>More information:</strong> I have created a Workflow to simulate the Drafts action for passing a Markdown note to Evernote.  The entire workflow is comprised of the ‘Make Rich Text from Markdown’ action passed into the ‘Create New Note’ from Evernote action, and it works perfectly.</p>
+<p>My initial thought had to do with the Markdown engine Evernote uses vs that which Drafts uses, which may be correct, but I don’t think that’s what’s going on.  In the Workflow action from Evernote to create a new note, entering a title is optional.  In Evernote I have the option turned on which titles the note from the first line of the text passed to it.  If the Drafts action could have that ‘Title’ field made optional, we might get this to work.</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/15</link>
+        <pubDate>Fri, 17 Aug 2018 11:40:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-15</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[careyb]]></dc:creator>
+        <description><![CDATA[
+            <p>I get the same problem.  Is there any real answer to this one?</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/14</link>
+        <pubDate>Mon, 13 Aug 2018 13:05:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-14</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[jayelevy]]></dc:creator>
+        <description><![CDATA[
+            <p>Quick update… in fact, it does seem to relate to how I’m reconstructing the draft. I tested a version where I modified the final draft.content statement by adding in the original draft.title.</p>
+<code>
+draft.content = (draft.title + "\n" + begin + "  \n" + end);
+</code>
+<p>This version works (though, of course, now the first line is duplicated). I’ll keep hacking on this… I need to figure out how I’m mangling the first line of the modified draft</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/13</link>
+        <pubDate>Tue, 22 May 2018 15:58:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-13</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[jayelevy]]></dc:creator>
+        <description><![CDATA[
+            <p>Normal account (not business)</p>
+<p>Your questions prompted me to try different combinations.</p>
+<ul>
+<li>Hardcoded titles work as expected</li>
+<li>Changing notebooks makes no difference</li>
+<li>A simple note with no manipulation of draft content works as expected &lt;&lt; hmmmm… maybe something with how I’ve reformatted draft text is causing the problem??</li>
+</ul>
+<p>With that revelation, I stripped all of the formatting of the draft text (this is part of a meeting notes action) to the bare minimum. Could the reconstruction of the draft change a character in the first line of the draft which in turn impacts the [[title]]?</p>
+<p>N.b. This script is stripped of most logic for simplicity of debugging, thus the begin/end concepts seen below don’t make sense. However, even in this simple form, the problem persists.</p>
+<p><a href="https://actions.getdrafts.com/a/1JP" rel="nofollow noopener">Here is the example Action</a></p>
+<p>Script logic:</p>
+<code>
+const lines = draft.content.split("\n");
+let begin = '';
+let end = '';
+<p>for (var line of lines) {<br>
+begin += line + "  \n";<br>
+}</p>
+<p>begin = begin.slice(0,-1);<br>
+end = end.slice(0,-1);<br>
+alert(begin);<br>
+draft.content = (begin + "  \n" + end);<br>
+draft.update();<br>
+</p></code>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/12</link>
+        <pubDate>Tue, 22 May 2018 00:01:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-12</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Anything unique about your Evernote account? (Business account?) or any affect if you target different notebooks, or had code note names?</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/11</link>
+        <pubDate>Mon, 21 May 2018 18:52:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-11</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[jayelevy]]></dc:creator>
+        <description><![CDATA[
+            <p>Unfortunately, that didn’t help. Tried it twice, including re-boot in between (for good measure!). No luck… StillMashingTheTitleTogether…</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/10</link>
+        <pubDate>Mon, 21 May 2018 17:58:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-10</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Try to forget your Evernote sign-in in Settings &gt; Credentials. I’m starting to suspect this is sometimes related to a particular auth-token. Doesn’t make much sense, but worth a try.</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/9</link>
+        <pubDate>Mon, 21 May 2018 15:16:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-9</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[jayelevy]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> let me know if you need other examples or additional test cases. My uploads to Evernote all exhibit this issue (stripped spaces in note title). Glad to help troubleshoot this.</p>
+<p>Becoming more of a problem for me thanks to ever increasing use of Drafts as input path to Evernote! —jay</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/8</link>
+        <pubDate>Mon, 21 May 2018 13:39:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-8</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Been working through this with a few other users in private support…and have found many related posts (which have nothing to do with Drafts) on Evernote’s forums. None of them very conclusive, but it seems to be an intermittent issue with Evernote.  Hopefully just a temporary one that will not recur for you.</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/7</link>
+        <pubDate>Mon, 23 Apr 2018 20:43:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-7</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[techntools]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, so today this is working.  I didn’t make any changes versus my testing last week.  There was an iOS update so maybe this issue benefitted from a reboot…?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/1X/a050a3ec30ffd903763f93b554cfc7b4db7bec17.jpg" data-download-href="https://forums.getdrafts.com/uploads/default/a050a3ec30ffd903763f93b554cfc7b4db7bec17" title="IMG_1543.jpg"><img src="https://forums.getdrafts.com/uploads/default/optimized/1X/a050a3ec30ffd903763f93b554cfc7b4db7bec17_2_666x500.jpg" alt="IMG_1543" width="666" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/1X/a050a3ec30ffd903763f93b554cfc7b4db7bec17_2_666x500.jpg, https://forums.getdrafts.com/uploads/default/optimized/1X/a050a3ec30ffd903763f93b554cfc7b4db7bec17_2_999x750.jpg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/1X/a050a3ec30ffd903763f93b554cfc7b4db7bec17_2_1332x1000.jpg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/a050a3ec30ffd903763f93b554cfc7b4db7bec17_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/6</link>
+        <pubDate>Mon, 23 Apr 2018 19:05:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-6</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I think you might be running into <a href="https://discussion.evernote.com/topic/101706-evernote-automatically-removes-spaces-between-words-while-typing/">this long running Evernote issue</a>.  I’m working with someone else seeing this issue in support, but it’s not widespread and I’m pretty sure Drafts is sending the right information because it works for most every one.</p>
+<p>It may be a bug in the SDK code, or something else, but I’m not sure what is different for the people seeing the issue. Is your Evernote account a business account, or is it affected by writing to different notebooks or with different content in the draft?</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/5</link>
+        <pubDate>Sat, 21 Apr 2018 13:28:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-5</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe try the ENML option instead of Text</p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/4</link>
+        <pubDate>Sat, 21 Apr 2018 07:13:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-4</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[techntools]]></dc:creator>
+        <description><![CDATA[
+            <p>I know I wish it were that easy!  Whatever the text is in the body, all the spaces are removed.  <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=5" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/3</link>
+        <pubDate>Fri, 20 Apr 2018 21:59:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-3</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Just try [[title]] in the Field for Note title <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=5" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/2</link>
+        <pubDate>Fri, 20 Apr 2018 21:57:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-2</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+      <item>
+        <title>Removing Spaces in Send to Evernote Action</title>
+        <dc:creator><![CDATA[techntools]]></dc:creator>
+        <description><![CDATA[
+            <p>I created a new action to send to Evernote.  (see below)</p>
+<p>With [[draft]] as the Note, after exporting to Evernote all of the spaces in the title are removed.</p>
+<p>Is there syntax to have the complete first line of the [[draft]] be the Note title?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/1X/0e1b07017936615f2bf2bf1d35174133d8849dd2.jpg" data-download-href="https://forums.getdrafts.com/uploads/default/0e1b07017936615f2bf2bf1d35174133d8849dd2" title="IMG_1541.jpg"><img src="https://forums.getdrafts.com/uploads/default/optimized/1X/0e1b07017936615f2bf2bf1d35174133d8849dd2_2_666x500.jpg" alt="IMG_1541" width="666" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/1X/0e1b07017936615f2bf2bf1d35174133d8849dd2_2_666x500.jpg, https://forums.getdrafts.com/uploads/default/optimized/1X/0e1b07017936615f2bf2bf1d35174133d8849dd2_2_999x750.jpg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/1X/0e1b07017936615f2bf2bf1d35174133d8849dd2_2_1332x1000.jpg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/0e1b07017936615f2bf2bf1d35174133d8849dd2_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430/1</link>
+        <pubDate>Fri, 20 Apr 2018 21:52:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-430-1</guid>
+        <source url="https://forums.getdrafts.com/t/removing-spaces-in-send-to-evernote-action/430.rss">Removing Spaces in Send to Evernote Action</source>
+      </item>
+  </channel>
+</rss>

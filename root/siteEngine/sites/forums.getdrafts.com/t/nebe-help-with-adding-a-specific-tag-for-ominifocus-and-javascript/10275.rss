@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+    <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275</link>
+    <description>I am sure this is simple for everyone. I am not a programmer but I have been trying to create a getting things done style app by piecing things together. 
+
+The following script will take the &quot;!@&quot; that I put in front of a text and then add it to Omnifocus as a task. this all works. What I can&#39;t get to work is I want to add a tag to the task. the tag will always be the same and in this case, I want it to be &quot;Idea&quot;.
+
+I would be extremely grateful for any help on this. 
+
+Here is the script:
+
+```javascript
+// Start every line with a @ to denote it as an idea
+
+const IdeaPrefix = &quot;!@ &quot;;
+
+// Function for removing the task prefix
+function removeIdeaPrefix(s) {
+  var f       = (IdeaPrefix),
+      r       = &quot;💡 &quot;,
+      re      = new RegExp(f,&quot;g&quot;),
+      matches = s.match(re);
+
+  if (matches) {
+    return s.replace(re,r);
+  }
+}
+
+// Function to perform the callback url
+function doCallbackURL(url, params) {
+  var cb = CallbackURL.create();
+  cb.baseURL = url;
+
+  for(var key in params) {
+   cb.addParameter(key, params[key]);
+  }
+
+  var success = cb.open();
+  if (success) {
+    console.log(&quot;Event created&quot;);
+  } else {
+    console.log(cb.status);
+    if (cb.status == &quot;cancel&quot;) {
+      context.cancel();
+    } else {
+      context.fail();
+    }
+  }
+}
+
+// Scan for the task prefix in the draft
+var lines = draft.content.split(&quot;\n&quot;);
+
+for (var line of lines) {
+  // If the line includes the task prefix, 
+  // we remove exclude it from the final notes
+  if (line.startsWith(IdeaPrefix)) {
+
+    // Remove the trigger from the line
+    var idea = removeIdeaPrefix(line);
+    var addTag = idea
+    var alink = draft.permalink;
+    console.log(idea);
+    console.log(greg);
+    console.log(alink);
+    
+    // OmniFocus URL Action
+    doCallbackURL(&quot;omnifocus:///add&quot;, {&quot;name&quot;: idea, &quot;addTag&quot;: idea,  &quot;note&quot;: alink, &quot;autosave&quot;: true});
+ }
+}
+```</description>
+    
+    <lastBuildDate>Wed, 21 Apr 2021 19:20:37 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[Gregory_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>I forgot the “icing on the cake”…<br>
+When I am finished with the cycle drafts (per meeting draft, meeting draft and follow-up draft) I want to add them all into a group (named the same as the Project) in Devonthink.</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/9</link>
+        <pubDate>Wed, 21 Apr 2021 19:20:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-9</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[Gregory_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>No worries, I am open to all and any suggestions. In this case, I agree with Sylumer that TaskPaper has some limitations. I wish I could find an out of the box solution but haven’t so I am trying to create my own.</p>
+<p>What I want to do is:</p>
+<ol>
+<li>Have a Draft note open during a meeting and freely take notes using markup. I have created pre-defined text strings that if I start a line with them an Action will process it into Focus.</li>
+</ol>
+<p>For example (Draft note simulation):</p>
+<h2>
+<a name="title-of-meeting-is-date-and-project-name-from-focus-1" class="anchor" href="https://forums.getdrafts.com#title-of-meeting-is-date-and-project-name-from-focus-1"></a>Title of Meeting is date and Project name from Focus</h2>
+<p>In today’s meeting we talked about a lot of things.</p>
+<p>@ Need to remember to thank everyone for helping on this.</p>
+<p>A topic came up that I need to research.</p>
+<p>!!! research topic and get back to them</p>
+<p>Next time I need to talk about something</p>
+<p>@@ Service contract renewal</p>
+<hr>
+<p>I have the following defined as task labels in OFocus<br>
+@ = Urgent<br>
+!!! = Research<br>
+@@@ = Agenda</p>
+<p>I want to create the proper actions to take my text strings in Drafts and create new task in Focus. I have been able (with a lot of help) get the task into Focus and have the correct “tag” assigned to it. This is a big advance in my development.</p>
+<p>What I want to be able to do now is write an Action that will put all of these new tasks into the correct project folder in OFOcus. In almost all cases, I will have. project folder already setup for the meeting therefore I can name the Draft with the Project name.</p>
+<p>With all of this I have iOS scripts that automatically create the following Draft notes for me:</p>
+<ol>
+<li>
+<p>Pre-meeting worksheet<br>
+This is what I use to prepare for meetings. It loads all of my actions, by tags, from Focus so I have a snap shot for the meeting.<br>
+Once I am finished preparing on this sheet I run the next iOS script to create the the Meeting Sheet</p>
+</li>
+<li>
+<p>Meeting Sheet<br>
+This sheet uses the iOS script and assembles all of the information in the order that I want it based on the OFocus tabs.<br>
+I have a section where I take notes during the meeting.<br>
+After the meeting I run another iOS script that assembles the data and sends a follow up email to everyone</p>
+</li>
+<li>
+<p>Meeting Follow-up<br>
+Currently I still have a Draft note created because I don’t trust just sending the email from my meeting notes.<br>
+This is the cool part because I can re assemble all of my task and notes to only display what I want in the follow up email.</p>
+</li>
+</ol>
+<h2>
+<a name="once-it-is-finished-it-will-be-pretty-slick-below-is-an-example-of-the-premeeting-daft-markup-created-by-ios-short-cut-the-sections-show-the-tags-i-am-using-and-those-are-the-areas-that-get-filled-in-when-i-process-the-short-cut-and-actions-2" class="anchor" href="https://forums.getdrafts.com#once-it-is-finished-it-will-be-pretty-slick-below-is-an-example-of-the-premeeting-daft-markup-created-by-ios-short-cut-the-sections-show-the-tags-i-am-using-and-those-are-the-areas-that-get-filled-in-when-i-process-the-short-cut-and-actions-2"></a>Once it is finished it will be pretty slick. Below is an example of the PreMeeting Daft markup created by iOS short cut. The sections show the tags I am using and those are the areas that get filled in when I process the short cut and actions:</h2>
+<h2>
+<a name="preflight-worksheet-for-test-project-per-42121-3" class="anchor" href="https://forums.getdrafts.com#preflight-worksheet-for-test-project-per-42121-3"></a>Preflight worksheet for Test Project per 4/21/21</h2>
+<p><strong>Project: Test Project, link to OmniFocus <em><a href="https://forums.getdrafts.com">link</a></em></strong></p>
+<p>No meetings found (yet) for Test Project</p>
+<hr>
+<ul>
+<li>
+<p>Number of goals: 2</p>
+</li>
+<li>
+<p>Number of results: 3</p>
+</li>
+<li>
+<p>Number of items:  22 of which waiting for others 3 (Delegation ratio: 14%)</p>
+</li>
+<li>
+<p>Number of items which are overdue: 22 (On time ratio: 0%)</p>
+</li>
+<li>
+<p>Number of next available actions: 4 with an estimated time of  hours</p>
+</li>
+</ul>
+<h4>
+<a name="added-agenda-topics-4" class="anchor" href="https://forums.getdrafts.com#added-agenda-topics-4"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Added Agenda Topics</h4>
+<ol>
+<li>
+<a href="https://forums.getdrafts.com">11 Apr 2021</a>: The one new action item for day</li>
+<li>
+<a href="https://forums.getdrafts.com">14 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/calendar.png?v=9" title=":calendar:" class="emoji" alt=":calendar:"> Agenda item unchedked</li>
+</ol>
+<h4>
+<a name="available-resources-5" class="anchor" href="https://forums.getdrafts.com#available-resources-5"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Available Resources</h4>
+<ol>
+<li>
+<a href="https://forums.getdrafts.com">08 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/computer.png?v=9" title=":computer:" class="emoji" alt=":computer:"> Resource</li>
+<li>
+<a href="https://forums.getdrafts.com">10 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/computer.png?v=9" title=":computer:" class="emoji" alt=":computer:"> Resource</li>
+</ol>
+<h4>
+<a name="open-notes-6" class="anchor" href="https://forums.getdrafts.com#open-notes-6"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Open Notes</h4>
+<p>No Open Notes found for this meeting.</p>
+<h4>
+<a name="top-priorities-7" class="anchor" href="https://forums.getdrafts.com#top-priorities-7"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Top Priorities</h4>
+<ol>
+<li>
+<a href="https://forums.getdrafts.com">13 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:"> Priority 1</li>
+<li>
+<a href="https://forums.getdrafts.com">13 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:"> Priority 2</li>
+<li>
+<a href="https://forums.getdrafts.com">13 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:"> Priority 1 2</li>
+<li>
+<a href="https://forums.getdrafts.com">13 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/mantelpiece_clock.png?v=9" title=":mantelpiece_clock:" class="emoji" alt=":mantelpiece_clock:"> Priority</li>
+<li>
+<a href="https://forums.getdrafts.com">13 Apr 2021</a>: <img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:"> Priority</li>
+</ol>
+<h4>
+<a name="waiting-for-8" class="anchor" href="https://forums.getdrafts.com#waiting-for-8"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Waiting for…</h4>
+<ol>
+<li>
+<img src="https://forums.getdrafts.com/images/emoji/apple/coffee.png?v=9" title=":coffee:" class="emoji" alt=":coffee:"> Waiting for: 4/8/21 - <img src="https://forums.getdrafts.com/images/emoji/apple/coffee.png?v=9" title=":coffee:" class="emoji" alt=":coffee:"> Waiting for  with due date 4/13/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;</li>
+<li>
+<img src="https://forums.getdrafts.com/images/emoji/apple/coffee.png?v=9" title=":coffee:" class="emoji" alt=":coffee:"> Waiting for: 4/10/21 - <img src="https://forums.getdrafts.com/images/emoji/apple/coffee.png?v=9" title=":coffee:" class="emoji" alt=":coffee:"> Waiting for with due date 4/13/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;</li>
+<li>
+<img src="https://forums.getdrafts.com/images/emoji/apple/coffee.png?v=9" title=":coffee:" class="emoji" alt=":coffee:"> Waiting for: 4/13/21 - <img src="https://forums.getdrafts.com/images/emoji/apple/coffee.png?v=9" title=":coffee:" class="emoji" alt=":coffee:"> Waiting for  with due date 4/13/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;</li>
+</ol>
+<h4>
+<a name="parked-items-9" class="anchor" href="https://forums.getdrafts.com#parked-items-9"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Parked Items</h4>
+<ol>
+<li>
+<a href="https://forums.getdrafts.com"> 08-Apr-2021 </a>: <img src="https://forums.getdrafts.com/images/emoji/apple/mantelpiece_clock.png?v=9" title=":mantelpiece_clock:" class="emoji" alt=":mantelpiece_clock:"> Check-back</li>
+<li>
+<a href="https://forums.getdrafts.com"> 10-Apr-2021 </a>: <img src="https://forums.getdrafts.com/images/emoji/apple/mantelpiece_clock.png?v=9" title=":mantelpiece_clock:" class="emoji" alt=":mantelpiece_clock:"> Check-back</li>
+<li>
+<a href="https://forums.getdrafts.com"> 13-Apr-2021 </a>: <img src="https://forums.getdrafts.com/images/emoji/apple/mantelpiece_clock.png?v=9" title=":mantelpiece_clock:" class="emoji" alt=":mantelpiece_clock:"> Check back on</li>
+</ol>
+<h4>
+<a name="remaining-action-items-10" class="anchor" href="https://forums.getdrafts.com#remaining-action-items-10"></a><img src="https://forums.getdrafts.com/images/emoji/apple/round_pushpin.png?v=9" title=":round_pushpin:" class="emoji" alt=":round_pushpin:">Remaining Action Items</h4>
+<h2>
+<a name="4821-no-label-with-due-date-4821-_linkomnifocustaskksnidwijfuh_-4821-action-with-due-date-41321-_linkomnifocustaskc4rfyztgfgh_-41021-action-item-with-due-date-41321-_linkomnifocustaskdv6velcmkac_-41321-action-item-with-due-date-41321-_linkomnifocustaskpiucnlrhhqk_-11" class="anchor" href="https://forums.getdrafts.com#4821-no-label-with-due-date-4821-_linkomnifocustaskksnidwijfuh_-4821-action-with-due-date-41321-_linkomnifocustaskc4rfyztgfgh_-41021-action-item-with-due-date-41321-_linkomnifocustaskdv6velcmkac_-41321-action-item-with-due-date-41321-_linkomnifocustaskpiucnlrhhqk_-11"></a><img src="https://forums.getdrafts.com/images/emoji/apple/black_square_button.png?v=9" title=":black_square_button:" class="emoji" alt=":black_square_button:"> 4/8/21 - no label with due date 4/8/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;<br>
+<img src="https://forums.getdrafts.com/images/emoji/apple/black_square_button.png?v=9" title=":black_square_button:" class="emoji" alt=":black_square_button:"> 4/8/21 - <img src="https://forums.getdrafts.com/images/emoji/apple/dart.png?v=9" title=":dart:" class="emoji" alt=":dart:">Action with due date 4/13/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;<br>
+<img src="https://forums.getdrafts.com/images/emoji/apple/black_square_button.png?v=9" title=":black_square_button:" class="emoji" alt=":black_square_button:"> 4/10/21 - <img src="https://forums.getdrafts.com/images/emoji/apple/dart.png?v=9" title=":dart:" class="emoji" alt=":dart:">Action Item with due date 4/13/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;<br>
+<img src="https://forums.getdrafts.com/images/emoji/apple/black_square_button.png?v=9" title=":black_square_button:" class="emoji" alt=":black_square_button:"> 4/13/21 - <img src="https://forums.getdrafts.com/images/emoji/apple/dart.png?v=9" title=":dart:" class="emoji" alt=":dart:">Action Item with due date 4/13/21 - <em><a href="https://forums.getdrafts.com">link</a></em>;</h2>
+<h4>
+<a name="decisions-previously-made-12" class="anchor" href="https://forums.getdrafts.com#decisions-previously-made-12"></a>Decisions Previously Made</h4>
+<p><img src="https://forums.getdrafts.com/images/emoji/apple/handshake.png?v=9" title=":handshake:" class="emoji" alt=":handshake:"> No decisions yet</p>
+<h5>
+<a name="closed-notes-13" class="anchor" href="https://forums.getdrafts.com#closed-notes-13"></a>Closed notes</h5>
+<ol>
+<li>Notes <img src="https://forums.getdrafts.com/images/emoji/apple/spiral_notepad.png?v=9" title=":spiral_notepad:" class="emoji" alt=":spiral_notepad:">  - closed on Notes <img src="https://forums.getdrafts.com/images/emoji/apple/spiral_notepad.png?v=9" title=":spiral_notepad:" class="emoji" alt=":spiral_notepad:">
+</li>
+<li>Notes closed example  - closed on Notes closed example</li>
+<li>
+<img src="https://forums.getdrafts.com/images/emoji/apple/memo.png?v=9" title=":memo:" class="emoji" alt=":memo:"> These are the meeting notes and will be longer in most cases.  - closed on <img src="https://forums.getdrafts.com/images/emoji/apple/memo.png?v=9" title=":memo:" class="emoji" alt=":memo:"> These are the meeting notes and will be longer in most cases.</li>
+<li>
+<img src="https://forums.getdrafts.com/images/emoji/apple/memo.png?v=9" title=":memo:" class="emoji" alt=":memo:"> Meeting notes checked - closed on <img src="https://forums.getdrafts.com/images/emoji/apple/memo.png?v=9" title=":memo:" class="emoji" alt=":memo:"> Meeting notes checked</li>
+</ol>
+<h5>
+<a name="previous-drafts-14" class="anchor" href="https://forums.getdrafts.com#previous-drafts-14"></a>Previous Drafts</h5>
+<p><img src="https://forums.getdrafts.com/images/emoji/apple/memo.png?v=9" title=":memo:" class="emoji" alt=":memo:"> 13-Apr-2021 | Pre-Work for Test Project <em><a href="https://forums.getdrafts.com">Link</a></em><br>
+<img src="https://forums.getdrafts.com/images/emoji/apple/memo.png?v=9" title=":memo:" class="emoji" alt=":memo:"> 13-Apr-2021 | Pre-Work for Test Project _[Link](drafts5://open?uuid=DF256FA2-3D08-4DDA-B</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/8</link>
+        <pubDate>Wed, 21 Apr 2021 15:57:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-8</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[Gregory_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>Sylumer, again this is very helpful. I agree with the “title” vs. “Tags” in drafts. I will try using the displayTitle because that is really what I am looking for. I will report back if it works!</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/7</link>
+        <pubDate>Wed, 21 Apr 2021 15:38:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-7</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>A fair point. (Not to make this about md2pptx but I’ll observe that - as it supports Taskpaper <strong>and</strong> Markdown - I recommend only using asterisks for bullet points.)</p>
+<p>And, I agree, Taskpaper might not be familiar to many people. But it does have the nice advantage of being supported by OmniFocus directly. The one issue there is whether tasks are collected at the bottom of the draft, or scattered throughout. (I would think the latter is more common than the former, and naturally so.)</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/6</link>
+        <pubDate>Wed, 21 Apr 2021 09:53:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-6</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="martinpacker" data-post="4" data-topic="10275">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<p>I’m wondering why you’re using these <strong>custom</strong> markers and not the quite widespread Taskpaper format, wherein tasks begin with a dash and have nice things like <code>@due()</code>.</p>
+</blockquote>
+</aside>
+<p>Other than perhaps not being familiar with Taskpaper, the usual reason for activities like this is that the syntax overlaps.</p>
+<p>E.g. a hyphen in Taskpaper is a task, but in Markdown it is a list item; so if you are attempting to process tasks out of something (e.g. meeting notes) that isn’t <em>purely</em> a list of Taskpaper tasks, then this can cause interpretation/extraction ambiguity and require a custom marker to allow fora unique identification.</p>
+<aside class="quote no-group" data-username="Gregory_Shambo" data-post="3" data-topic="10275">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/gregory_shambo/40/5205_2.png" class="avatar"> Gregory_Shambo:</div>
+<blockquote>
+<p>If I may, as I am extending the scope a bit, ask another question. Is it possible to build off of your script to take the label of the DRAFT note and put it into the “Project” field in the new task created? For example, if the label for my DRAFT note is “Project_01”, and in the body of the note I have a line with “!@ this is an idea.” a new OMINIFOCUS task is created with the “Project_01” entered into the “Project” field.</p>
+</blockquote>
+</aside>
+<p>Drafts don’t have labels. By label I can’t tell if you mean a tag, a title, or something else, so I’ll try and cover a few options below. The <a href="https://inside.omnifocus.com/url-schemes">OmniFocus URL scheme documentation</a> indicates that projects can be added using the <code>project</code> parameter.</p>
+<p>To add the title as the project name, I would use this code alongside the other <code>addParameter()</code> lines.</p>
+<pre><code class="lang-auto">cb.addParameter("project", draft.displayTitle);
+</code></pre>
+<p>By using <code>displayTitle</code> rather than <code>title</code>, this would deal with things like Markdown headers.</p>
+<p>Drafts tags are more complicated. If you always have exactly one tag, then you could use this:</p>
+<pre><code class="lang-auto">cb.addParameter("project", draft.tags[0]);
+</code></pre>
+<p>However, each draft can have 0 or more tags, and OmniFocus tasks similarly. You could add in a check and optionally add a tag only if there is one tag to add like this:</p>
+<pre><code class="lang-auto">if(draft.tags.length == 1) cb.addParameter("project", draft.tags[0]);
+</code></pre>
+<p>The <code>add</code> URL scheme is based on the old <em>context</em> approach and I don’t think supports multiple tags. The Taskpaper format <a class="mention" href="https://forums.getdrafts.com/u/martinpacker">@martinpacker</a> references can be applied using the <code>paste</code> URL, and does support multiple tags. If you want the potential to use multiple tags, then either switching to Taskpaper notation, or building a Taskpaper structure on the fly from your own notation, would be what I would suggest as a way forward.</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/5</link>
+        <pubDate>Wed, 21 Apr 2021 09:36:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-5</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>My reply might put you off using boards like this… <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>I’m wondering why you’re using these <strong>custom</strong> markers and not the quite widespread Taskpaper format, wherein tasks begin with a dash and have nice things like <code>@due()</code>.</p>
+<p>And, since you mentioned OmniFocus, it also supports pasting in Taskpaper (from Drafts).</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/4</link>
+        <pubDate>Wed, 21 Apr 2021 07:16:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-4</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[Gregory_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi Sylumer,<br>
+I am very grateful that you replied and that it worked! I didn’t know what to expect because I don’t normally reply to boards like this. It paid off. It works and I am able to use it for different tags. I am trying to create a DRAFT page where I can type notes freely using markup language and then run a script to pull out task with tags. In the current case anywhere in the note that I start a line with !@ it now creates a new task in OMNIFOCUS with the idea tag.</p>
+<p>If I may, as I am extending the scope a bit, ask another question. Is it possible to build off of your script to take the label of the DRAFT note and put it into the “Project” field in the new task created?  For example, if the label for my DRAFT note is “Project_01”, and in the body of the note I have a line with “!@ this is an idea.” a new OMINIFOCUS task is created with the “Project_01” entered into the “Project” field.</p>
+<p>Really appreciate this help!</p>
+<p>Greg</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/3</link>
+        <pubDate>Tue, 20 Apr 2021 22:27:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-3</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve tried to simplify it a little, but I think this should work and also allow you to process a draft for things other than ideas too if you would like to.</p>
+<p>Hopefully, you can follow the code (it is mostly built from a cut down version of the code you had), but if there’s anything you can’t figure out, just call it out and I or someone else on the forum should be able to help.</p>
+<pre><code class="lang-auto">function processDraft(p_strIdentifier, p_strNewPrefix = "")
+{
+	// Check each line of the current draft
+	for (let strLine of draft.lines)
+	{
+		// If the line starts with the task prefix, process it
+		if (strLine.startsWith(p_strIdentifier))
+		{
+
+			// Build and call the URL
+			let cb = CallbackURL.create();
+			cb.baseURL = "omnifocus:///add";
+			cb.addParameter("name", p_strNewPrefix + strLine.substring(p_strIdentifier.length));
+			cb.addParameter("note", draft.permalink);
+			cb.addParameter("context", "idea");
+			cb.addParameter("autosave", "true");
+			cb.open();
+		}
+	}
+	return;
+}
+
+//Call the function to process the draft with the identifier and the optional prefix to use in OmniFocus.
+processDraft("!@", "💡");
+</code></pre>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/2</link>
+        <pubDate>Tue, 20 Apr 2021 20:57:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-2</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+      <item>
+        <title>NEBE - Help with adding a specific tag for Ominifocus and javascript</title>
+        <dc:creator><![CDATA[Gregory_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>I am sure this is simple for everyone. I am not a programmer but I have been trying to create a getting things done style app by piecing things together.</p>
+<p>The following script will take the “!@” that I put in front of a text and then add it to Omnifocus as a task. this all works. What I can’t get to work is I want to add a tag to the task. the tag will always be the same and in this case, I want it to be “Idea”.</p>
+<p>I would be extremely grateful for any help on this.</p>
+<p>Here is the script:</p>
+<pre><code class="lang-javascript">// Start every line with a @ to denote it as an idea
+
+const IdeaPrefix = "!@ ";
+
+// Function for removing the task prefix
+function removeIdeaPrefix(s) {
+  var f       = (IdeaPrefix),
+      r       = "💡 ",
+      re      = new RegExp(f,"g"),
+      matches = s.match(re);
+
+  if (matches) {
+    return s.replace(re,r);
+  }
+}
+
+// Function to perform the callback url
+function doCallbackURL(url, params) {
+  var cb = CallbackURL.create();
+  cb.baseURL = url;
+
+  for(var key in params) {
+   cb.addParameter(key, params[key]);
+  }
+
+  var success = cb.open();
+  if (success) {
+    console.log("Event created");
+  } else {
+    console.log(cb.status);
+    if (cb.status == "cancel") {
+      context.cancel();
+    } else {
+      context.fail();
+    }
+  }
+}
+
+// Scan for the task prefix in the draft
+var lines = draft.content.split("\n");
+
+for (var line of lines) {
+  // If the line includes the task prefix, 
+  // we remove exclude it from the final notes
+  if (line.startsWith(IdeaPrefix)) {
+
+    // Remove the trigger from the line
+    var idea = removeIdeaPrefix(line);
+    var addTag = idea
+    var alink = draft.permalink;
+    console.log(idea);
+    console.log(greg);
+    console.log(alink);
+    
+    // OmniFocus URL Action
+    doCallbackURL("omnifocus:///add", {"name": idea, "addTag": idea,  "note": alink, "autosave": true});
+ }
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275/1</link>
+        <pubDate>Tue, 20 Apr 2021 01:03:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10275-1</guid>
+        <source url="https://forums.getdrafts.com/t/nebe-help-with-adding-a-specific-tag-for-ominifocus-and-javascript/10275.rss">NEBE - Help with adding a specific tag for Ominifocus and javascript</source>
+      </item>
+  </channel>
+</rss>

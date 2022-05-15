@@ -1,0 +1,2934 @@
+
+    
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" dir=ltr>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title lang="en">What’s an API? - Apple Support</title>
+	<link rel="dns-prefetch" href="https://www.apple.com/" />
+	<link rel="preconnect" href="https://www.apple.com/" crossorigin />
+	<link rel="canonical" href="https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/ios" />
+	
+	
+		<meta name="description" content="By making an API requests in Shortcuts, you can go beyond the data that is locally available on your device and make shortcuts that interact with any web service that has a public API." />
+		<meta property="og:url" content="https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/2.2/ios/12.0" />
+		<meta property="og:title" content="What’s an API?" />
+		<meta property="og:description" content="By making an API requests in Shortcuts, you can go beyond the data that is locally available on your device and make shortcuts that interact with any web service that has a public API." />
+		<meta property="og:site_name" content="Apple Support" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta name="ac-gn-search-field[locale]" content="en_US" />
+	
+
+	
+		   
+				<meta name="robots" content="none" />
+			
+	
+	
+	
+	
+
+	
+		<link rel="stylesheet" href="https://support.apple.com/clientside/build/apd-sasskit.built.css" type="text/css" />
+	
+		<link rel="stylesheet" href="https://support.apple.com/clientside/build/app-apd.css" type="text/css" />
+	
+		<link rel="stylesheet" href="https://www.apple.com/ac/globalfooter/3/en_US/styles/ac-globalfooter.built.css" type="text/css" />
+	
+		<link rel="stylesheet" href="//www.apple.com/wss/fonts?families&#x3D;SF+Pro,v1:200,300,400,500,600|SF+Pro+Icons,v1" type="text/css" />
+	
+
+	<script>
+ 
+    var _applemd = {
+        page: {
+            site_section: "kb",
+            content_type: "bk",
+            info_type: "",
+            topics: "",
+            in_house: "",
+            locale: "en-us",
+            
+                content_template: "topic",
+            
+            friendly_content: {
+                title: `Shortcuts User Guide`,
+                publish_date: "03262019",
+                
+                    topic_id:   "APD2E30C9D45",
+                    article_id        :   "BK_85296984303E17D58DDC11B9A9648C3B_APD2E30C9D45",
+                    product_version   :   "shortcuts, 2.2",
+                    os_version        :   "2.2 , 12.0",
+                    article_version   :   "1"
+                
+            },
+            
+            
+        },
+        
+            product: "shortcuts"
+        
+    }
+
+</script>
+
+	
+	<script>
+		var data = {	
+			showHelpFulfeedBack: true,
+			id: "BK_85296984303E17D58DDC11B9A9648C3B_APD2E30C9D45",
+			locale: "en_US",
+			podCookie: "us~en",
+			source : "",
+			isBlack: false,
+			dtmPageSource: "topic",
+			domain: "support.apple.com",
+			isNeighborJsEnabled: true,
+            dtmPageName: "acs.pageload"
+		}
+		window.appState = JSON.stringify(data);
+	</script>
+	 
+		<script src="/clientside/build/nn.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    
+     var neighborInitData = {
+        appDataSchemaVersion: '1.0.0',
+        webVitalDataThrottlingPercentage: 100,
+        reportThrottledWebVitalDataTypes: ['system:dom-content-loaded', 'system:load', 'system:unfocus', 'system:focus', 'system:unload', 'system:page-hide', 'system:visibility-change-visible', 'system:visibility-change-hidden', 'system:event', 'app:load', 'app:unload', 'app:event'],
+        endpoint: 'https://supportmetrics.apple.com/content/services/stats'
+    }
+
+</script>
+	
+</head>
+
+
+	<body dir="ltr" data-istaskopen="true" lang="en" class="ac-gn-current-support no-js AppleTopic apd-topic" data-designversion="2" itemscope
+		itemtype="https://schema.org/TechArticle">
+
+    
+	
+
+
+
+
+
+        <meta name="ac-gn-store-key" content="S2A49YFKJF2JAT22K" /><meta name="ac-gn-search-action" content="https://support.apple.com/kb/index" /><meta name="ac-gn-search-input" content="q" /><meta name="ac-gn-search-field[src]" content="globalnav_support" /><meta name="ac-gn-search-field[type]" content="organic" /><meta name="ac-gn-search-field[page]" content="search" /><meta name="ac-gn-search-field[locale]" content="en_US" /><link rel="stylesheet" type="text/css" href="https://www.apple.com/ac/globalnav/7/en_US/styles/ac-globalnav.built.css"><aside id="ac-gn-segmentbar" class="ac-gn-segmentbar" lang="en-US" dir="ltr" data-strings="{ 'exit': 'Exit', 'view': '{%STOREFRONT%} Store Home', 'segments': { 'smb': 'Business Store Home', 'eduInd': 'Education Store Home', 'other': 'Store Home' } }"></aside><input type="checkbox" id="ac-gn-menustate" class="ac-gn-menustate" /><nav id="ac-globalnav" class="no-js" role="navigation" aria-label="Global" data-hires="false" data-analytics-region="global nav" lang="en-US" dir="ltr" data-www-domain="www.apple.com" data-store-locale="us" data-store-root-path="/us" data-store-api="https://www.apple.com/[storefront]/shop/bag/status" data-search-locale="en_US" data-search-locale="en_US" data-search-suggestions-api="https://www.apple.com/search-services/suggestions/" data-search-defaultlinks-api="https://www.apple.com/search-services/suggestions/defaultlinks/"><div class="ac-gn-content"><ul class="ac-gn-header"><li class="ac-gn-item ac-gn-menuicon"><a href="#ac-gn-menustate" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-open" id="ac-gn-menuanchor-open"><span class="ac-gn-menuanchor-label">Global Nav Open Menu</span></a><a href="#" role="button" class="ac-gn-menuanchor ac-gn-menuanchor-close" id="ac-gn-menuanchor-close"><span class="ac-gn-menuanchor-label">Global Nav Close Menu</span></a><label class="ac-gn-menuicon-label" for="ac-gn-menustate" aria-hidden="true"><span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-top"><span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-top"></span></span><span class="ac-gn-menuicon-bread ac-gn-menuicon-bread-bottom"><span class="ac-gn-menuicon-bread-crust ac-gn-menuicon-bread-crust-bottom"></span></span></label></li><li class="ac-gn-item ac-gn-apple"><a class="ac-gn-link ac-gn-link-apple" href="https://www.apple.com/" data-analytics-title="apple home" id="ac-gn-firstfocus-small"><span class="ac-gn-link-text">Apple</span></a></li><li class="ac-gn-item ac-gn-bag ac-gn-bag-small" id="ac-gn-bag-small"><div class="ac-gn-bag-wrapper"><a class="ac-gn-link ac-gn-link-bag" href="https://www.apple.com/us/shop/goto/bag" data-analytics-title="bag" data-analytics-click="bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count :"><span class="ac-gn-link-text">Shopping Bag</span></a><span class="ac-gn-bag-badge" aria-hidden="true" data-analytics-title="bag" data-analytics-click="bag"><span class="ac-gn-bag-badge-separator"></span><span class="ac-gn-bag-badge-number"></span><span class="ac-gn-bag-badge-unit">+</span></span></div><span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span></li></ul><div class="ac-gn-search-placeholder-container" role="search"><div class="ac-gn-search ac-gn-search-small"><a id="ac-gn-link-search-small" class="ac-gn-link" href="https://support.apple.com/kb/index?page=search&locale=en_US" data-analytics-title="search" data-analytics-intrapage-link aria-label="Search Support"><div class="ac-gn-search-placeholder-bar"><div class="ac-gn-search-placeholder-input"><div class="ac-gn-search-placeholder-input-text" aria-hidden="true"><div class="ac-gn-link-search ac-gn-search-placeholder-input-icon"></div><span class="ac-gn-search-placeholder">Search Support</span></div></div><div class="ac-gn-searchview-close ac-gn-searchview-close-small ac-gn-search-placeholder-searchview-close"><span class="ac-gn-searchview-close-cancel" aria-hidden="true">Cancel</span></div></div></a></div></div><ul class="ac-gn-list"><li class="ac-gn-item ac-gn-apple"><a class="ac-gn-link ac-gn-link-apple" href="https://www.apple.com/" data-analytics-title="apple home" id="ac-gn-firstfocus"><span class="ac-gn-link-text">Apple</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-store"><a class="ac-gn-link ac-gn-link-store" href="https://www.apple.com/us/shop/goto/store" data-analytics-title="store"><span class="ac-gn-link-text">Store</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-mac"><a class="ac-gn-link ac-gn-link-mac" href="https://www.apple.com/mac/" data-analytics-title="mac"><span class="ac-gn-link-text">Mac</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-ipad"><a class="ac-gn-link ac-gn-link-ipad" href="https://www.apple.com/ipad/" data-analytics-title="ipad"><span class="ac-gn-link-text">iPad</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-iphone"><a class="ac-gn-link ac-gn-link-iphone" href="https://www.apple.com/iphone/" data-analytics-title="iphone"><span class="ac-gn-link-text">iPhone</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-watch"><a class="ac-gn-link ac-gn-link-watch" href="https://www.apple.com/watch/" data-analytics-title="watch"><span class="ac-gn-link-text">Watch</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-airpods"><a class="ac-gn-link ac-gn-link-airpods" href="https://www.apple.com/airpods/" data-analytics-title="airpods"><span class="ac-gn-link-text">AirPods</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-tvhome"><a class="ac-gn-link ac-gn-link-tvhome" href="https://www.apple.com/tv-home/" data-analytics-title="tv and home"><span class="ac-gn-link-text">TV &amp; Home</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-onlyonapple"><a class="ac-gn-link ac-gn-link-onlyonapple" href="https://www.apple.com/services/" data-analytics-title="only on apple"><span class="ac-gn-link-text">Only on Apple</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-accessories"><a class="ac-gn-link ac-gn-link-accessories" href="https://www.apple.com/us/shop/goto/buy_accessories" data-analytics-title="accessories"><span class="ac-gn-link-text">Accessories</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-support"><a class="ac-gn-link ac-gn-link-support" href="https://support.apple.com" data-analytics-title="support"><span class="ac-gn-link-text">Support</span></a></li><li class="ac-gn-item ac-gn-item-menu ac-gn-search" role="search"><a id="ac-gn-link-search" class="ac-gn-link ac-gn-link-search" href="https://support.apple.com/kb/index?page=search&locale=en_US" data-analytics-title="search" data-analytics-intrapage-link aria-label="Search Support"></a></li><li class="ac-gn-item ac-gn-bag" id="ac-gn-bag"><div class="ac-gn-bag-wrapper"><a class="ac-gn-link ac-gn-link-bag" href="https://www.apple.com/us/shop/goto/bag" data-analytics-title="bag" data-analytics-click="bag" aria-label="Shopping Bag" data-string-badge="Shopping Bag with item count : {%BAGITEMCOUNT%}"><span class="ac-gn-link-text">Shopping Bag</span></a><span class="ac-gn-bag-badge" aria-hidden="true" data-analytics-title="bag" data-analytics-click="bag"><span class="ac-gn-bag-badge-separator"></span><span class="ac-gn-bag-badge-number"></span><span class="ac-gn-bag-badge-unit">+</span></span></div><span class="ac-gn-bagview-caret ac-gn-bagview-caret-large"></span></li></ul><aside id="ac-gn-searchview" class="ac-gn-searchview" role="search" data-analytics-region="search"><div class="ac-gn-searchview-content"><div class="ac-gn-searchview-bar"><div class="ac-gn-searchview-bar-wrapper"><form id="ac-gn-searchform" class="ac-gn-searchform" action="https://www.apple.com/us/search" method="get"><div class="ac-gn-searchform-wrapper"><input id="ac-gn-searchform-input" class="ac-gn-searchform-input" type="text" aria-label="Search Support" placeholder="Search Support" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="true" aria-owns="quicklinks suggestions" /><input id="ac-gn-searchform-src" type="hidden" name="src" value="globalnav" /><button id="ac-gn-searchform-submit" class="ac-gn-searchform-submit" type="submit" disabled aria-label="Submit Search"> </button><button id="ac-gn-searchform-reset" class="ac-gn-searchform-reset" type="reset" disabled aria-label="Clear Search"><span class="ac-gn-searchform-reset-background"></span></button></div></form><button id="ac-gn-searchview-close-small" class="ac-gn-searchview-close ac-gn-searchview-close-small" aria-label="Cancel Search"><span class="ac-gn-searchview-close-cancel" aria-hidden="true">Cancel</span></button></div></div><aside id="ac-gn-searchresults" class="ac-gn-searchresults" data-string-quicklinks="Quick Links" data-string-suggestions="Suggested Searches" data-string-noresults=""></aside></div><button id="ac-gn-searchview-close" class="ac-gn-searchview-close" aria-label="Cancel Search"><span class="ac-gn-searchview-close-wrapper"><span class="ac-gn-searchview-close-left"></span><span class="ac-gn-searchview-close-right"></span></span></button></aside><aside class="ac-gn-bagview" data-analytics-region="bag"><div class="ac-gn-bagview-scrim"><span class="ac-gn-bagview-caret ac-gn-bagview-caret-small"></span></div><div class="ac-gn-bagview-content" id="ac-gn-bagview-content"></div></aside></div></nav><div class="ac-gn-blur"></div><div id="ac-gn-curtain" class="ac-gn-curtain"></div><div id="ac-gn-placeholder" class="ac-nav-placeholder"></div><script type="text/javascript" src="https://www.apple.com/ac/globalnav/7/en_US/scripts/ac-globalnav.built.js"></script>
+    
+		
+		<div id="arabic-localnav">
+  <input type='checkbox' id='localnav-menustate' class='localnav-menustate' />
+    <nav
+      id='localnav-pattern'
+      class='localnav'
+      data-sticky
+      aria-label='Local Navigation'
+    >
+      <div class='localnav-wrapper' role='presentation'>
+        <div class='localnav-background'></div>
+        <div class='localnav-content' role='presentation'>
+            <span class='localnav-title'>
+            <a
+              href='https://support.apple.com/guide/shortcuts/welcome/2.2/ios'
+              data-ss-analytics-link-component_name='support'
+              data-ss-analytics-link-component_type='local nav'
+              data-ss-analytics-link-text='Shortcuts User Guide'
+              data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/welcome/2.2/ios'
+              data-ss-analytics-event='acs.link_click'
+            >Shortcuts User Guide</a>
+          </span>
+          
+          <div class='localnav-menu' role='presentation'>
+            <a 
+              href="#localnav-menustate" role="button"
+              class='localnav-menucta-anchor localnav-menucta-anchor-open'
+              id='localnav-menustate-open'
+            >
+              <span class='localnav-menucta-anchor-label'>
+              Open Menu
+              </span>
+            </a>
+            <a 
+              href='#localnav-menustate' role="button"
+              class='localnav-menucta-anchor localnav-menucta-anchor-close'
+              id='localnav-menustate-close'
+            >
+              <span class='localnav-menucta-anchor-label'>
+              Close Menu
+              </span>
+            </a>
+            <div class='localnav-menu-tray' role='presentation'>
+              <ul class='localnav-menu-items'>
+                <li class='localnav-menu-item'>
+                  <a
+                    href='https://discussions.apple.com/welcome'
+                    class='localnav-menu-link'
+                    data-ss-analytics-link-component_name='support'
+                    data-ss-analytics-link-component_type='local nav'
+                    data-ss-analytics-link-text='Communities'
+                    data-ss-analytics-link-url='https://discussions.apple.com/welcome'
+                    data-ss-analytics-event='acs.link_click'
+                  > Communities</a>
+                </li>
+                <li class='localnav-menu-item'>
+                  <a
+                    href='https://support.apple.com/contact'
+                    class='localnav-menu-link'
+                    data-ss-analytics-link-component_name='support'
+                    data-ss-analytics-link-component_type='local nav'
+                    data-ss-analytics-link-text='Contact Support'
+                    data-ss-analytics-link-url='https://support.apple.com/contact'
+                    data-ss-analytics-event='acs.link_click'
+                  >Contact Support</a>
+                </li>
+              </ul>
+            </div>
+            <div class='localnav-actions'>
+              <div class='localnav-action localnav-action-menucta' aria-hidden='true'>
+                <label for='localnav-menustate' class='localnav-menucta'>
+                  <span class='localnav-menucta-chevron' ></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <label id='localnav-curtain' class='localnav-curtain' htmlFor='localnav-menustate' ></label>
+  </div>
+
+	
+		<div class='main' role='main' dir=ltr id="arabic">
+			
+				
+					<section class='book topic-search'>
+						
+<div id='book-version' class='book-version-name'>
+	<section class='nojs-version-name' id='nojs-version-name'>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/5.0/ios/15.0'> iOS 15 </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/4.0/ios/14.0'> iOS 14 </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.5/ios/13.5'> 3.5 </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.2/ios/13.2'> 3.2 </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.1/ios/13.1'> 3.1 </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.0/ios/13.0'> 3.0 </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.2/ios/12.0'> 2.2  </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.1/ios/12.0'> 2.1  </a>
+		</div>
+		
+		<div class='nojs-version-name-links'>
+				<a href='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.0/ios/12.0'> Shortcuts 2.0 </a>
+		</div>
+		
+	</section>
+
+	<section class='book book-version'>
+      <label class='form-block-label' for='version-dropdown'>
+		  Select version:
+      </label>
+
+      <div class='form-element'>
+        <select
+          class='form-dropdown'
+          id='version-dropdown'
+          aria-describedby='helpText'
+          data-ignore-tracking='true'>
+          	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="iOS 15"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/5.0/ios/15.0'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/5.0/ios/15.0'
+				>
+					iOS 15
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="iOS 14"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/4.0/ios/14.0'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/4.0/ios/14.0'
+				>
+					iOS 14
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="3.5"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.5/ios/13.5'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.5/ios/13.5'
+				>
+					3.5
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="3.2"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.2/ios/13.2'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.2/ios/13.2'
+				>
+					3.2
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="3.1"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.1/ios/13.1'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.1/ios/13.1'
+				>
+					3.1
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="3.0"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.0/ios/13.0'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/3.0/ios/13.0'
+				>
+					3.0
+				</option>
+		  	
+			  <option
+					selected
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="2.2 "
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.2/ios/12.0'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.2/ios/12.0'
+				>
+					2.2 
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="2.1 "
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.1/ios/12.0'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.1/ios/12.0'
+				>
+					2.1 
+				</option>
+		  	
+			  <option
+					
+					data-ss-analytics-link-component_name='version'
+					data-ss-analytics-link-component_type='select'
+					data-ss-analytics-event="acs.link_click"
+					data-ss-analytics-link-text="Shortcuts 2.0"
+					data-direct-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.0/ios/12.0'
+					data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/apd2e30c9d45/2.0/ios/12.0'
+				>
+					Shortcuts 2.0
+				</option>
+		  	
+        </select>
+        <span class='form-icon icon icon-chevrondown' aria-hidden='true' ></span>
+      </div>
+      <div id='helpText' class='none'>Modifying this control will update this page automatically</div>
+    </section>
+
+</div>
+
+
+						<div id='searchBar-container'>
+							<section class="as-search">
+  <div class="as-search-content">
+    <div class="row">
+      
+      <form
+        action="/kb/index"
+        method="get"
+        id="as-search-form"
+        aria-label="Shortcuts User Guide"
+        class="as-search-form"
+        data-suggestions-endpoint="https://www.apple.com/search-services/suggestions/"
+        data-no-results-hint-text="Hit enter to search"
+        data-quick-links-heading="Quick Links"
+        data-suggested-results-heading="Suggested Searches"
+        onsubmit="return false;"
+      >
+      
+        <input type="hidden" name="page" value="search" />
+        <input type="hidden" name="src" id="src" value="support_book_topic" />
+        <input
+          type="hidden"
+          name="locale"
+          id="as-search-locale"
+          value="en_US"
+        />
+        
+        
+          <input type="hidden" name="bookid" value="85296984303e17d58ddc11b9a9648c3b" />
+          <input type="hidden" name="rurl" value="https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/2.2/ios/12.0" />
+          <input type="hidden" name="title" value="Shortcuts User Guide" />
+        
+        <label for="as-search-input" class="hidden">
+          Search this guide
+        </label>
+        <input
+                autocomplete="off"
+                class="as-search-form-input"
+                id="as-search-input"
+                placeholder="Search this guide"
+                name="query"
+                spellcheck="false"
+                type="text"
+                value=""
+        />
+        <button
+          class="as-search-form-submit"
+          type="submit"
+          aria-label="Submit Search"
+        >
+        </button>
+        <button id="as-search-close" class="as-search-form-reset" type="reset">
+          <span class="hidden">
+              Clear Search
+          </span>
+        </button>
+        
+        </form>
+      
+    </div>
+
+    <div class="row">
+					<div class="as-search-suggestions " id="as-search-suggestions-wrapper" aria-expanded="false">
+						<span role="status" class="hidden" aria-live="polite"></span>
+						<section class="as-search-results-section as-search-results-section-quicklinks">
+						<!-- handlebar template goes here-->
+						</section>
+						<section class="as-search-results-section-divider-space">
+						<!-- handlebar template goes here-->
+						</section>
+						<section class=" as-search-results-section as-search-results-section-suggestions">
+						<!-- handlebar template goes here-->
+						</section>
+						<section class="as-search-results-section-no-results">
+						<!-- handlebar template goes here-->
+						</section>
+					</div>
+				</div>
+  </div>
+</section>
+
+						</div>
+					</section>
+				
+			
+			<div id="toc-section-wrapper">
+				
+
+
+<div id="toc-container" class="toc-container">
+  
+    <div class="book book-toc">
+      <a
+        href="https://support.apple.com/guide/shortcuts/toc/2.2"
+        id="toc-link"
+        class="icon icon-after icon-pluscircle toggle-toc"
+        role="button"
+        data-ss-analytics-link-component_name="table of contents"
+        data-ss-analytics-link-component_type="toc"
+        data-ss-analytics-link-text="launch=table of contents"
+        data-ss-analytics-event="acs.link_click"
+      >
+        <span class="toc-link-text">Table of Contents</span>
+      </a>
+    </div>
+  
+</div>
+
+ 
+			</div>
+			
+			<div id='toc-hidden-content'>
+				
+<div id="modal-toc-container" class="modal-content">
+    <h2 id='modal-heading' class="modal-heading">Shortcuts User Guide</h2>
+    <ul class='toc hasIcons'>
+		    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Welcome'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/welcome/ios'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/welcome/ios'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/welcome/ios'
+            id='toc-item-APDA2B83D0E0'
+            data-tocid='APDA2B83D0E0'
+            
+        >
+            <span class='name'>Welcome</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Shortcuts basics'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD7DE8FC8F8'
+        onClick=''
+        >
+            <span class='name'>Shortcuts basics</span>
+        </button>
+        <ul id='node-children-APD7DE8FC8F8' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Shortcuts at a glance'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/shortcuts-at-a-glance-apdf22b0444c/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/shortcuts-at-a-glance-apdf22b0444c/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/shortcuts-at-a-glance-apdf22b0444c/2.2/ios/12.0'
+            id='toc-item-APDF22B0444C'
+            data-tocid='APDF22B0444C'
+            
+        >
+            <span class='name'>Shortcuts at a glance</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Discover shortcuts in the Gallery'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/discover-shortcuts-in-the-gallery-apdd018638ca/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/discover-shortcuts-in-the-gallery-apdd018638ca/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/discover-shortcuts-in-the-gallery-apdd018638ca/2.2/ios/12.0'
+            id='toc-item-APDD018638CA'
+            data-tocid='APDD018638CA'
+            
+        >
+            <span class='name'>Discover shortcuts in the Gallery</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Run a shortcut'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/run-a-shortcut-apd5ba077760/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/run-a-shortcut-apd5ba077760/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/run-a-shortcut-apd5ba077760/2.2/ios/12.0'
+            id='toc-item-APD5BA077760'
+            data-tocid='APD5BA077760'
+            
+        >
+            <span class='name'>Run a shortcut</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='How shortcuts work'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDEA0D80C5A'
+        onClick=''
+        >
+            <span class='name'>How shortcuts work</span>
+        </button>
+        <ul id='node-children-APDEA0D80C5A' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='How shortcuts work'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/how-shortcuts-work-apd1d10ec518/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/how-shortcuts-work-apd1d10ec518/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/how-shortcuts-work-apd1d10ec518/2.2/ios/12.0'
+            id='toc-item-APD1D10EC518'
+            data-tocid='APD1D10EC518'
+            
+        >
+            <span class='name'>How shortcuts work</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='The flow of content'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/the-flow-of-content-apde9022dd5b/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/the-flow-of-content-apde9022dd5b/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/the-flow-of-content-apde9022dd5b/2.2/ios/12.0'
+            id='toc-item-APDE9022DD5B'
+            data-tocid='APDE9022DD5B'
+            
+        >
+            <span class='name'>The flow of content</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Action connections'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/action-connections-apdd882cf653/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/action-connections-apdd882cf653/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/action-connections-apdd882cf653/2.2/ios/12.0'
+            id='toc-item-APDD882CF653'
+            data-tocid='APDD882CF653'
+            
+        >
+            <span class='name'>Action connections</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Control the flow of actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/control-the-flow-of-actions-apd47913ad71/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/control-the-flow-of-actions-apd47913ad71/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/control-the-flow-of-actions-apd47913ad71/2.2/ios/12.0'
+            id='toc-item-APD47913AD71'
+            data-tocid='APD47913AD71'
+            
+        >
+            <span class='name'>Control the flow of actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='The Content Graph engine'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/the-content-graph-engine-apda4856024a/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/the-content-graph-engine-apda4856024a/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/the-content-graph-engine-apda4856024a/2.2/ios/12.0'
+            id='toc-item-APDA4856024A'
+            data-tocid='APDA4856024A'
+            
+        >
+            <span class='name'>The Content Graph engine</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Completing a shortcut run'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/completing-a-shortcut-run-apd2d07e340d/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/completing-a-shortcut-run-apd2d07e340d/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/completing-a-shortcut-run-apd2d07e340d/2.2/ios/12.0'
+            id='toc-item-APD2D07E340D'
+            data-tocid='APD2D07E340D'
+            
+        >
+            <span class='name'>Completing a shortcut run</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Identify opportunities for automation'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/identify-opportunities-for-automation-apdb272b27ec/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/identify-opportunities-for-automation-apdb272b27ec/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/identify-opportunities-for-automation-apdb272b27ec/2.2/ios/12.0'
+            id='toc-item-APDB272B27EC'
+            data-tocid='APDB272B27EC'
+            
+        >
+            <span class='name'>Identify opportunities for automation</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Create and use shortcuts'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD6FD6F4BDA'
+        onClick=''
+        >
+            <span class='name'>Create and use shortcuts</span>
+        </button>
+        <ul id='node-children-APD6FD6F4BDA' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Create a new shortcut'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/create-a-new-shortcut-apd84c576f8c/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/create-a-new-shortcut-apd84c576f8c/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/create-a-new-shortcut-apd84c576f8c/2.2/ios/12.0'
+            id='toc-item-APD84C576F8C'
+            data-tocid='APD84C576F8C'
+            
+        >
+            <span class='name'>Create a new shortcut</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Customize a shortcut'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/customize-a-shortcut-apd5ad5a2128/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/customize-a-shortcut-apd5ad5a2128/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/customize-a-shortcut-apd5ad5a2128/2.2/ios/12.0'
+            id='toc-item-APD5AD5A2128'
+            data-tocid='APD5AD5A2128'
+            
+        >
+            <span class='name'>Customize a shortcut</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Work with actions in Shortcuts'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD5A08A9C46'
+        onClick=''
+        >
+            <span class='name'>Work with actions in Shortcuts</span>
+        </button>
+        <ul id='node-children-APD5A08A9C46' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Navigate the action list'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/navigate-the-action-list-apdc33e4f4da/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/navigate-the-action-list-apdc33e4f4da/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/navigate-the-action-list-apdc33e4f4da/2.2/ios/12.0'
+            id='toc-item-APDC33E4F4DA'
+            data-tocid='APDC33E4F4DA'
+            
+        >
+            <span class='name'>Navigate the action list</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='About shortcut actions'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD30D550436'
+        onClick=''
+        >
+            <span class='name'>About shortcut actions</span>
+        </button>
+        <ul id='node-children-APD30D550436' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Order of actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/order-of-actions-apde53ab0903/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/order-of-actions-apde53ab0903/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/order-of-actions-apde53ab0903/2.2/ios/12.0'
+            id='toc-item-APDE53AB0903'
+            data-tocid='APDE53AB0903'
+            
+        >
+            <span class='name'>Order of actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Get actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/get-actions-apd5c2bd430f/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/get-actions-apd5c2bd430f/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/get-actions-apd5c2bd430f/2.2/ios/12.0'
+            id='toc-item-APD5C2BD430F'
+            data-tocid='APD5C2BD430F'
+            
+        >
+            <span class='name'>Get actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Transform actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/transform-actions-apd1d9413cfb/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/transform-actions-apd1d9413cfb/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/transform-actions-apd1d9413cfb/2.2/ios/12.0'
+            id='toc-item-APD1D9413CFB'
+            data-tocid='APD1D9413CFB'
+            
+        >
+            <span class='name'>Transform actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Share actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/share-actions-apdaf74d75a5/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/share-actions-apdaf74d75a5/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/share-actions-apdaf74d75a5/2.2/ios/12.0'
+            id='toc-item-APDAF74D75A5'
+            data-tocid='APDAF74D75A5'
+            
+        >
+            <span class='name'>Share actions</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Test your actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/test-your-actions-apda75604f37/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/test-your-actions-apda75604f37/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/test-your-actions-apda75604f37/2.2/ios/12.0'
+            id='toc-item-APDA75604F37'
+            data-tocid='APDA75604F37'
+            
+        >
+            <span class='name'>Test your actions</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Use shortcuts with Siri'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD1C31D77BB'
+        onClick=''
+        >
+            <span class='name'>Use shortcuts with Siri</span>
+        </button>
+        <ul id='node-children-APD1C31D77BB' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About Siri and shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-siri-and-shortcuts-apdd253ab600/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-siri-and-shortcuts-apdd253ab600/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-siri-and-shortcuts-apdd253ab600/2.2/ios/12.0'
+            id='toc-item-APDD253AB600'
+            data-tocid='APDD253AB600'
+            
+        >
+            <span class='name'>About Siri and shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Run shortcuts with Siri'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/run-shortcuts-with-siri-apd07c25bb38/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/run-shortcuts-with-siri-apd07c25bb38/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/run-shortcuts-with-siri-apd07c25bb38/2.2/ios/12.0'
+            id='toc-item-APD07C25BB38'
+            data-tocid='APD07C25BB38'
+            
+        >
+            <span class='name'>Run shortcuts with Siri</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use suggested shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-suggested-shortcuts-apde986cdd3c/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-suggested-shortcuts-apde986cdd3c/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-suggested-shortcuts-apde986cdd3c/2.2/ios/12.0'
+            id='toc-item-APDE986CDD3C'
+            data-tocid='APDE986CDD3C'
+            
+        >
+            <span class='name'>Use suggested shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Manage shortcuts added to Siri'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/manage-shortcuts-added-to-siri-apd422c974b0/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/manage-shortcuts-added-to-siri-apd422c974b0/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/manage-shortcuts-added-to-siri-apd422c974b0/2.2/ios/12.0'
+            id='toc-item-APD422C974B0'
+            data-tocid='APD422C974B0'
+            
+        >
+            <span class='name'>Manage shortcuts added to Siri</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Run shortcuts in iOS Today View'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD2D10CAEA8'
+        onClick=''
+        >
+            <span class='name'>Run shortcuts in iOS Today View</span>
+        </button>
+        <ul id='node-children-APD2D10CAEA8' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Set up and run shortcuts in Today View'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/set-up-and-run-shortcuts-in-today-view-apda11a05448/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/set-up-and-run-shortcuts-in-today-view-apda11a05448/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/set-up-and-run-shortcuts-in-today-view-apda11a05448/2.2/ios/12.0'
+            id='toc-item-APDA11A05448'
+            data-tocid='APDA11A05448'
+            
+        >
+            <span class='name'>Set up and run shortcuts in Today View</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Actions that work well in Today View'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/actions-that-work-well-in-today-view-apd081d9d61f/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/actions-that-work-well-in-today-view-apd081d9d61f/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/actions-that-work-well-in-today-view-apd081d9d61f/2.2/ios/12.0'
+            id='toc-item-APD081D9D61F'
+            data-tocid='APD081D9D61F'
+            
+        >
+            <span class='name'>Actions that work well in Today View</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Actions that open the Shortcuts app'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/actions-that-open-the-shortcuts-app-apd845256ba9/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/actions-that-open-the-shortcuts-app-apd845256ba9/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/actions-that-open-the-shortcuts-app-apd845256ba9/2.2/ios/12.0'
+            id='toc-item-APD845256BA9'
+            data-tocid='APD845256BA9'
+            
+        >
+            <span class='name'>Actions that open the Shortcuts app</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Run shortcuts from iOS Search'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/run-shortcuts-from-ios-search-apd8a8ffb4ac/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/run-shortcuts-from-ios-search-apd8a8ffb4ac/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/run-shortcuts-from-ios-search-apd8a8ffb4ac/2.2/ios/12.0'
+            id='toc-item-APD8A8FFB4AC'
+            data-tocid='APD8A8FFB4AC'
+            
+        >
+            <span class='name'>Run shortcuts from iOS Search</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Run shortcuts from other apps'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDA065432B7'
+        onClick=''
+        >
+            <span class='name'>Run shortcuts from other apps</span>
+        </button>
+        <ul id='node-children-APDA065432B7' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Set up and run shortcuts from another app'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/set-up-and-run-shortcuts-from-another-app-apd163eb9f95/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/set-up-and-run-shortcuts-from-another-app-apd163eb9f95/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/set-up-and-run-shortcuts-from-another-app-apd163eb9f95/2.2/ios/12.0'
+            id='toc-item-APD163EB9F95'
+            data-tocid='APD163EB9F95'
+            
+        >
+            <span class='name'>Set up and run shortcuts from another app</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About input types'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-input-types-apd367de00f4/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-input-types-apd367de00f4/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-input-types-apd367de00f4/2.2/ios/12.0'
+            id='toc-item-APD367DE00F4'
+            data-tocid='APD367DE00F4'
+            
+        >
+            <span class='name'>About input types</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Run shortcuts from the iOS Home screen'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/run-shortcuts-from-the-ios-home-screen-apd735880972/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/run-shortcuts-from-the-ios-home-screen-apd735880972/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/run-shortcuts-from-the-ios-home-screen-apd735880972/2.2/ios/12.0'
+            id='toc-item-APD735880972'
+            data-tocid='APD735880972'
+            
+        >
+            <span class='name'>Run shortcuts from the iOS Home screen</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Manage shortcuts'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDB430DDC37'
+        onClick=''
+        >
+            <span class='name'>Manage shortcuts</span>
+        </button>
+        <ul id='node-children-APDB430DDC37' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Overview'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/overview-apd5b1537ca0/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/overview-apd5b1537ca0/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/overview-apd5b1537ca0/2.2/ios/12.0'
+            id='toc-item-APD5B1537CA0'
+            data-tocid='APD5B1537CA0'
+            
+        >
+            <span class='name'>Overview</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Organize shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/organize-shortcuts-apd052072d68/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/organize-shortcuts-apd052072d68/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/organize-shortcuts-apd052072d68/2.2/ios/12.0'
+            id='toc-item-APD052072D68'
+            data-tocid='APD052072D68'
+            
+        >
+            <span class='name'>Organize shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Rename shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/rename-shortcuts-apdd57094696/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/rename-shortcuts-apdd57094696/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/rename-shortcuts-apdd57094696/2.2/ios/12.0'
+            id='toc-item-APDD57094696'
+            data-tocid='APDD57094696'
+            
+        >
+            <span class='name'>Rename shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Duplicate shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/duplicate-shortcuts-apd6b467942c/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/duplicate-shortcuts-apd6b467942c/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/duplicate-shortcuts-apd6b467942c/2.2/ios/12.0'
+            id='toc-item-APD6B467942C'
+            data-tocid='APD6B467942C'
+            
+        >
+            <span class='name'>Duplicate shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Delete shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/delete-shortcuts-apd096cd65c6/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/delete-shortcuts-apd096cd65c6/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/delete-shortcuts-apd096cd65c6/2.2/ios/12.0'
+            id='toc-item-APD096CD65C6'
+            data-tocid='APD096CD65C6'
+            
+        >
+            <span class='name'>Delete shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Sync shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/sync-shortcuts-apdb3a4240b0/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/sync-shortcuts-apdb3a4240b0/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/sync-shortcuts-apdb3a4240b0/2.2/ios/12.0'
+            id='toc-item-APDB3A4240B0'
+            data-tocid='APDB3A4240B0'
+            
+        >
+            <span class='name'>Sync shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Share shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/share-shortcuts-apdf01f8c054/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/share-shortcuts-apdf01f8c054/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/share-shortcuts-apdf01f8c054/2.2/ios/12.0'
+            id='toc-item-APDF01F8C054'
+            data-tocid='APDF01F8C054'
+            
+        >
+            <span class='name'>Share shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Add import questions before sharing'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/add-import-questions-before-sharing-apdf330fd3a0/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/add-import-questions-before-sharing-apdf330fd3a0/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/add-import-questions-before-sharing-apdf330fd3a0/2.2/ios/12.0'
+            id='toc-item-APDF330FD3A0'
+            data-tocid='APDF330FD3A0'
+            
+        >
+            <span class='name'>Add import questions before sharing</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Add a shortcut to Reminders using Siri'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/add-a-shortcut-to-reminders-using-siri-apdacfdf1802/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/add-a-shortcut-to-reminders-using-siri-apdacfdf1802/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/add-a-shortcut-to-reminders-using-siri-apdacfdf1802/2.2/ios/12.0'
+            id='toc-item-APDACFDF1802'
+            data-tocid='APDACFDF1802'
+            
+        >
+            <span class='name'>Add a shortcut to Reminders using Siri</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Advanced shortcuts'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD5D42984D9'
+        onClick=''
+        >
+            <span class='name'>Advanced shortcuts</span>
+        </button>
+        <ul id='node-children-APD5D42984D9' class='non-leaf-node-children'>
+			    
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Use variables'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD2C51A204E'
+        onClick=''
+        >
+            <span class='name'>Use variables</span>
+        </button>
+        <ul id='node-children-APD2C51A204E' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Variables overview'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/variables-overview-apdb5506f698/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/variables-overview-apdb5506f698/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/variables-overview-apdb5506f698/2.2/ios/12.0'
+            id='toc-item-APDB5506F698'
+            data-tocid='APDB5506F698'
+            
+        >
+            <span class='name'>Variables overview</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Variable types'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/variable-types-apdd2b316022/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/variable-types-apdd2b316022/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/variable-types-apdd2b316022/2.2/ios/12.0'
+            id='toc-item-APDD2B316022'
+            data-tocid='APDD2B316022'
+            
+        >
+            <span class='name'>Variable types</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use variables'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-variables-apdd02c2780c/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-variables-apdd02c2780c/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-variables-apdd02c2780c/2.2/ios/12.0'
+            id='toc-item-APDD02C2780C'
+            data-tocid='APDD02C2780C'
+            
+        >
+            <span class='name'>Use variables</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Adjust variables'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/adjust-variables-apda36b9018b/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/adjust-variables-apda36b9018b/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/adjust-variables-apda36b9018b/2.2/ios/12.0'
+            id='toc-item-APDA36B9018B'
+            data-tocid='APDA36B9018B'
+            
+        >
+            <span class='name'>Adjust variables</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use list actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-list-actions-apd4dcacc115/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-list-actions-apd4dcacc115/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-list-actions-apd4dcacc115/2.2/ios/12.0'
+            id='toc-item-APD4DCACC115'
+            data-tocid='APD4DCACC115'
+            
+        >
+            <span class='name'>Use list actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use the Choose from Menu action'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-the-choose-from-menu-action-apdd7bf369da/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-the-choose-from-menu-action-apdd7bf369da/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-the-choose-from-menu-action-apdd7bf369da/2.2/ios/12.0'
+            id='toc-item-APDD7BF369DA'
+            data-tocid='APDD7BF369DA'
+            
+        >
+            <span class='name'>Use the Choose from Menu action</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use If actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-if-actions-apd83dcd1b51/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-if-actions-apd83dcd1b51/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-if-actions-apd83dcd1b51/2.2/ios/12.0'
+            id='toc-item-APD83DCD1B51'
+            data-tocid='APD83DCD1B51'
+            
+        >
+            <span class='name'>Use If actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use Repeat actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-repeat-actions-apdc11deb2c1/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-repeat-actions-apdc11deb2c1/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-repeat-actions-apdc11deb2c1/2.2/ios/12.0'
+            id='toc-item-APDC11DEB2C1'
+            data-tocid='APDC11DEB2C1'
+            
+        >
+            <span class='name'>Use Repeat actions</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Use Find and Filter actions'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDD986CDF57'
+        onClick=''
+        >
+            <span class='name'>Use Find and Filter actions</span>
+        </button>
+        <ul id='node-children-APDD986CDF57' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About Find and Filter actions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-find-and-filter-actions-apd3c845e881/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-find-and-filter-actions-apd3c845e881/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-find-and-filter-actions-apd3c845e881/2.2/ios/12.0'
+            id='toc-item-APD3C845E881'
+            data-tocid='APD3C845E881'
+            
+        >
+            <span class='name'>About Find and Filter actions</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Add filter parameters'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/add-filter-parameters-apdbdab3433f/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/add-filter-parameters-apdbdab3433f/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/add-filter-parameters-apdbdab3433f/2.2/ios/12.0'
+            id='toc-item-APDBDAB3433F'
+            data-tocid='APDBDAB3433F'
+            
+        >
+            <span class='name'>Add filter parameters</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Show prompts in a shortcut '
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD12B228C35'
+        onClick=''
+        >
+            <span class='name'>Show prompts in a shortcut </span>
+        </button>
+        <ul id='node-children-APD12B228C35' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About using prompts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-using-prompts-apd8efa49a70/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-using-prompts-apd8efa49a70/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-using-prompts-apd8efa49a70/2.2/ios/12.0'
+            id='toc-item-APD8EFA49A70'
+            data-tocid='APD8EFA49A70'
+            
+        >
+            <span class='name'>About using prompts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use the Ask for Input action'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-the-ask-for-input-action-apd68b5c9161/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-the-ask-for-input-action-apd68b5c9161/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-the-ask-for-input-action-apd68b5c9161/2.2/ios/12.0'
+            id='toc-item-APD68B5C9161'
+            data-tocid='APD68B5C9161'
+            
+        >
+            <span class='name'>Use the Ask for Input action</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use the Ask When Run variable'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-the-ask-when-run-variable-apd8b28e2166/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-the-ask-when-run-variable-apd8b28e2166/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-the-ask-when-run-variable-apd8b28e2166/2.2/ios/12.0'
+            id='toc-item-APD8B28E2166'
+            data-tocid='APD8B28E2166'
+            
+        >
+            <span class='name'>Use the Ask When Run variable</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use the Show Alert action '
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-the-show-alert-action--apdb9661c761/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-the-show-alert-action--apdb9661c761/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-the-show-alert-action--apdb9661c761/2.2/ios/12.0'
+            id='toc-item-APDB9661C761'
+            data-tocid='APDB9661C761'
+            
+        >
+            <span class='name'>Use the Show Alert action </span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use the Show Notification action'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-the-show-notification-action-apd2175adcab/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-the-show-notification-action-apd2175adcab/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-the-show-notification-action-apd2175adcab/2.2/ios/12.0'
+            id='toc-item-APD2175ADCAB'
+            data-tocid='APD2175ADCAB'
+            
+        >
+            <span class='name'>Use the Show Notification action</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Action Extension input types'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/action-extension-input-types-apd7644168e1/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/action-extension-input-types-apd7644168e1/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/action-extension-input-types-apd7644168e1/2.2/ios/12.0'
+            id='toc-item-APD7644168E1'
+            data-tocid='APD7644168E1'
+            
+        >
+            <span class='name'>Action Extension input types</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Run JavaScript on a webpage'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD1391B4F03'
+        onClick=''
+        >
+            <span class='name'>Run JavaScript on a webpage</span>
+        </button>
+        <ul id='node-children-APD1391B4F03' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About the Run JavaScript on Webpage action'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-the-run-javascript-on-webpage-action-apd218e2187d/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-the-run-javascript-on-webpage-action-apd218e2187d/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-the-run-javascript-on-webpage-action-apd218e2187d/2.2/ios/12.0'
+            id='toc-item-APD218E2187D'
+            data-tocid='APD218E2187D'
+            
+        >
+            <span class='name'>About the Run JavaScript on Webpage action</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use the Run JavaScript on Webpage action'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-the-run-javascript-on-webpage-action-apdb71a01d93/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-the-run-javascript-on-webpage-action-apdb71a01d93/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-the-run-javascript-on-webpage-action-apdb71a01d93/2.2/ios/12.0'
+            id='toc-item-APDB71A01D93'
+            data-tocid='APDB71A01D93'
+            
+        >
+            <span class='name'>Use the Run JavaScript on Webpage action</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Use URL schemes'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDA413AE846'
+        onClick=''
+        >
+            <span class='name'>Use URL schemes</span>
+        </button>
+        <ul id='node-children-APDA413AE846' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About URL schemes '
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-url-schemes--apd621a1ad7a/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-url-schemes--apd621a1ad7a/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-url-schemes--apd621a1ad7a/2.2/ios/12.0'
+            id='toc-item-APD621A1AD7A'
+            data-tocid='APD621A1AD7A'
+            
+        >
+            <span class='name'>About URL schemes </span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Open, create, and run a shortcut'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/open-create-and-run-a-shortcut-apda283236d7/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/open-create-and-run-a-shortcut-apda283236d7/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/open-create-and-run-a-shortcut-apda283236d7/2.2/ios/12.0'
+            id='toc-item-APDA283236D7'
+            data-tocid='APDA283236D7'
+            
+        >
+            <span class='name'>Open, create, and run a shortcut</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Run a shortcut from a URL'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/run-a-shortcut-from-a-url-apd624386f42/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/run-a-shortcut-from-a-url-apd624386f42/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/run-a-shortcut-from-a-url-apd624386f42/2.2/ios/12.0'
+            id='toc-item-APD624386F42'
+            data-tocid='APD624386F42'
+            
+        >
+            <span class='name'>Run a shortcut from a URL</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Import a shortcut from a URL'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/import-a-shortcut-from-a-url-apd77a47304b/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/import-a-shortcut-from-a-url-apd77a47304b/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/import-a-shortcut-from-a-url-apd77a47304b/2.2/ios/12.0'
+            id='toc-item-APD77A47304B'
+            data-tocid='APD77A47304B'
+            
+        >
+            <span class='name'>Import a shortcut from a URL</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Open or search the Gallery from a URL'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/open-or-search-the-gallery-from-a-url-apd9c112ca23/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/open-or-search-the-gallery-from-a-url-apd9c112ca23/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/open-or-search-the-gallery-from-a-url-apd9c112ca23/2.2/ios/12.0'
+            id='toc-item-APD9C112CA23'
+            data-tocid='APD9C112CA23'
+            
+        >
+            <span class='name'>Open or search the Gallery from a URL</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use x-callback-url'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-x-callback-url-apdcd7f20a6f/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-x-callback-url-apdcd7f20a6f/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-x-callback-url-apdcd7f20a6f/2.2/ios/12.0'
+            id='toc-item-APDCD7F20A6F'
+            data-tocid='APDCD7F20A6F'
+            
+        >
+            <span class='name'>Use x-callback-url</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Use another app’s URL scheme'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/use-another-apps-url-scheme-apd68802640c/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/use-another-apps-url-scheme-apd68802640c/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/use-another-apps-url-scheme-apd68802640c/2.2/ios/12.0'
+            id='toc-item-APD68802640C'
+            data-tocid='APD68802640C'
+            
+        >
+            <span class='name'>Use another app’s URL scheme</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Use web APIs in Shortcuts'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDC3A6F6EDF'
+        onClick=''
+        >
+            <span class='name'>Use web APIs in Shortcuts</span>
+        </button>
+        <ul id='node-children-APDC3A6F6EDF' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About web APIs'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-web-apis-apd2d448b2de/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-web-apis-apd2d448b2de/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-web-apis-apd2d448b2de/2.2/ios/12.0'
+            id='toc-item-APD2D448B2DE'
+            data-tocid='APD2D448B2DE'
+            
+        >
+            <span class='name'>About web APIs</span>
+        </a>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Get started with web APIs'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDD571A93E4'
+        onClick=''
+        >
+            <span class='name'>Get started with web APIs</span>
+        </button>
+        <ul id='node-children-APDD571A93E4' class='non-leaf-node-children'>
+			    
+
+     <li class="selected">
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='What’s an API?'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/2.2/ios/12.0'
+            id='toc-item-APD2E30C9D45'
+            data-tocid='APD2E30C9D45'
+            
+                aria-current='page'
+            
+        >
+            <span class='name'>What’s an API?</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Sign up for an API'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/sign-up-for-an-api-apdab3bb9a7e/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/sign-up-for-an-api-apdab3bb9a7e/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/sign-up-for-an-api-apdab3bb9a7e/2.2/ios/12.0'
+            id='toc-item-APDAB3BB9A7E'
+            data-tocid='APDAB3BB9A7E'
+            
+        >
+            <span class='name'>Sign up for an API</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Request your first API'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/request-your-first-api-apd58d46713f/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/request-your-first-api-apd58d46713f/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/request-your-first-api-apd58d46713f/2.2/ios/12.0'
+            id='toc-item-APD58D46713F'
+            data-tocid='APD58D46713F'
+            
+        >
+            <span class='name'>Request your first API</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Work with JSON'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APDB2D497928'
+        onClick=''
+        >
+            <span class='name'>Work with JSON</span>
+        </button>
+        <ul id='node-children-APDB2D497928' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About using JSON'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-using-json-apd0f2e057df/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-using-json-apd0f2e057df/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-using-json-apd0f2e057df/2.2/ios/12.0'
+            id='toc-item-APD0F2E057DF'
+            data-tocid='APD0F2E057DF'
+            
+        >
+            <span class='name'>About using JSON</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Parsing JSON'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/parsing-json-apdde2dfe749/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/parsing-json-apdde2dfe749/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/parsing-json-apdde2dfe749/2.2/ios/12.0'
+            id='toc-item-APDDE2DFE749'
+            data-tocid='APDDE2DFE749'
+            
+        >
+            <span class='name'>Parsing JSON</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Get Dictionary Value action'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/get-dictionary-value-action-apdf01294032/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/get-dictionary-value-action-apdf01294032/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/get-dictionary-value-action-apdf01294032/2.2/ios/12.0'
+            id='toc-item-APDF01294032'
+            data-tocid='APDF01294032'
+            
+        >
+            <span class='name'>Get Dictionary Value action</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Handling lists'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/handling-lists-apd9ba41d21b/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/handling-lists-apd9ba41d21b/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/handling-lists-apd9ba41d21b/2.2/ios/12.0'
+            id='toc-item-APD9BA41D21B'
+            data-tocid='APD9BA41D21B'
+            
+        >
+            <span class='name'>Handling lists</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Show data as an alert'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/show-data-as-an-alert-apd9cf19a736/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/show-data-as-an-alert-apd9cf19a736/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/show-data-as-an-alert-apd9cf19a736/2.2/ios/12.0'
+            id='toc-item-APD9CF19A736'
+            data-tocid='APD9CF19A736'
+            
+        >
+            <span class='name'>Show data as an alert</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Further exploration with APIs'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD375AC2B0A'
+        onClick=''
+        >
+            <span class='name'>Further exploration with APIs</span>
+        </button>
+        <ul id='node-children-APD375AC2B0A' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Challenge yourself in Shortcuts'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/challenge-yourself-in-shortcuts-apdaefa31a6b/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/challenge-yourself-in-shortcuts-apdaefa31a6b/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/challenge-yourself-in-shortcuts-apdaefa31a6b/2.2/ios/12.0'
+            id='toc-item-APDAEFA31A6B'
+            data-tocid='APDAEFA31A6B'
+            
+        >
+            <span class='name'>Challenge yourself in Shortcuts</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='API limitations'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/api-limitations-apd891a6c84e/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/api-limitations-apd891a6c84e/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/api-limitations-apd891a6c84e/2.2/ios/12.0'
+            id='toc-item-APD891A6C84E'
+            data-tocid='APD891A6C84E'
+            
+        >
+            <span class='name'>API limitations</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Format Date timestamps'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/format-date-timestamps-apdfb33b0e17/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/format-date-timestamps-apdfb33b0e17/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/format-date-timestamps-apdfb33b0e17/2.2/ios/12.0'
+            id='toc-item-APDFB33B0E17'
+            data-tocid='APDFB33B0E17'
+            
+        >
+            <span class='name'>Format Date timestamps</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Dictionaries'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/dictionaries-apd43b69f337/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/dictionaries-apd43b69f337/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/dictionaries-apd43b69f337/2.2/ios/12.0'
+            id='toc-item-APD43B69F337'
+            data-tocid='APD43B69F337'
+            
+        >
+            <span class='name'>Dictionaries</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>        
+        <button
+        class='section'
+        data-ss-analytics-link-component_name='Shortcuts User Guide'
+        data-ss-analytics-link-component_type='toc list'
+        data-ss-analytics-link-text='Date and time formatting'
+        data-ss-analytics-event="acs.link_click"
+        
+        aria-expanded='false'
+        
+        aria-controls='node-children-APD5DB2E31C6'
+        onClick=''
+        >
+            <span class='name'>Date and time formatting</span>
+        </button>
+        <ul id='node-children-APD5DB2E31C6' class='non-leaf-node-children'>
+			    
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='About date and time formatting '
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-date-and-time-formatting--apd71b0ac246/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-date-and-time-formatting--apd71b0ac246/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/about-date-and-time-formatting--apd71b0ac246/2.2/ios/12.0'
+            id='toc-item-APD71B0AC246'
+            data-tocid='APD71B0AC246'
+            
+        >
+            <span class='name'>About date and time formatting </span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Date and time formats'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/date-and-time-formats-apdfbad418ca/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/date-and-time-formats-apdfbad418ca/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/date-and-time-formats-apdfbad418ca/2.2/ios/12.0'
+            id='toc-item-APDFBAD418CA'
+            data-tocid='APDFBAD418CA'
+            
+        >
+            <span class='name'>Date and time formats</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Dates as written language'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/dates-as-written-language-apdc6348bca9/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/dates-as-written-language-apdc6348bca9/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/dates-as-written-language-apdc6348bca9/2.2/ios/12.0'
+            id='toc-item-APDC6348BCA9'
+            data-tocid='APDC6348BCA9'
+            
+        >
+            <span class='name'>Dates as written language</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Technical standards'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/technical-standards-apdfd459e13d/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/technical-standards-apdfd459e13d/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/technical-standards-apdfd459e13d/2.2/ios/12.0'
+            id='toc-item-APDFD459E13D'
+            data-tocid='APDFD459E13D'
+            
+        >
+            <span class='name'>Technical standards</span>
+        </a>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Custom date formats'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/custom-date-formats-apd8d9b19184/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/custom-date-formats-apd8d9b19184/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/custom-date-formats-apd8d9b19184/2.2/ios/12.0'
+            id='toc-item-APD8D9B19184'
+            data-tocid='APD8D9B19184'
+            
+        >
+            <span class='name'>Custom date formats</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+
+
+
+
+        </ul>
+    </li>
+
+
+
+    <li>
+        <a
+            data-ss-analytics-link-component_name='Shortcuts User Guide'
+            data-ss-analytics-link-component_type='toc list'
+            data-ss-analytics-link-text='Frequently asked questions'
+            class='toc-item'
+            data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/frequently-asked-questions-apd36004586e/2.2/ios/12.0'
+            data-ajax-endpoint='https://support.apple.com/guide/shortcuts/frequently-asked-questions-apd36004586e/2.2/ios/12.0'
+            data-ss-analytics-event="acs.link_click"
+            href='https://support.apple.com/guide/shortcuts/frequently-asked-questions-apd36004586e/2.2/ios/12.0'
+            id='toc-item-APD36004586E'
+            data-tocid='APD36004586E'
+            
+        >
+            <span class='name'>Frequently asked questions</span>
+        </a>
+    </li>
+
+
+
+
+
+
+
+    </ul>
+</div>
+
+
+			</div>
+			
+			<div id='article-section-wrapper'>
+	<div id='article-section' role='presentation'>
+		<div class='AppleTopic apd-topic book book-content'>
+			<div><body dir="ltr" id="apd2e30c9d45" class="AppleTopic apd-topic" data-istaskopen="true" data-designversion="2" lang="en"><a name="apd2e30c9d45"></a><figure class="topicIcon"><img src="https://help.apple.com/assets/5BD750C1094622A9114E3435/5BD750CA094622A9114E3445/en_US/c10e8a839dc838a25d0feb0e9e428a0a.png" alt="" height="30" width="30" originalImageName="GlobalArt/AppIconDefault_Shortcuts.png"></figure><h1>What’s an API?</h1><p>An <em>API</em>, or <em>application programming interface</em>, is used to pass data back and forth between software apps in a formalized way. Many services offer public APIs that allow anyone to send and receive content from the service. APIs that work over the Internet using <em>http://</em> URLs are referred to as <em>web APIs</em>. On the web, you send a <em>request</em> to an API to get and post information.</p><p>All of your favorite apps that connect to the Internet are powered by APIs. For example, social media apps use APIs to let you view and publish posts from their mobile apps. When you refresh the feed, the app makes an API request to fetch all of the posts. When you “like” a post, the app makes an API request to post that data.</p><p>With the ability to make API requests in Shortcuts, you can go beyond the data that’s locally available on your device and make shortcuts that interact with any web service that has a public API. You can build custom shortcuts to gather a large amount of data and display it however you want, or even send data back into the API and update the web service—if it’s possible in an API, it’s possible in the Shortcuts app.</p></body></div>
+		</div>
+	</div>
+</div>
+
+			<div id='aside-hidden-content'>
+				<div class="main">
+				</div>
+			</div>
+
+			
+			<div id='helpful-rating-wrapper'>
+				
+<div id='helpful' class='ratings okapi-enabled'>
+    <div id='question-state' class='show'>
+        <fieldset>
+            <legend>
+                <span id="okapi-a">Helpful?</span>
+                
+            </legend>
+            <div class='helpful-btn-grp'>
+                <button class='button button-secondary' id='yes-button' 
+                    data-ss-analytics-link-component_name='helpful'
+                    data-ss-analytics-link-component_type='helpful'
+                    data-ss-analytics-link-text='yes'
+                    data-ss-analytics-event=acs.link_click
+                    title='Solved my problem'>
+                    Yes
+                </button>
+                <button class='button button-secondary' id='no-button'
+                    data-ss-analytics-link-component_name='helpful'
+                    data-ss-analytics-link-component_type='helpful'
+                    data-ss-analytics-link-text='no'
+                    data-ss-analytics-event=acs.link_click
+                    title='Not helpful'>
+                    No
+                </button>
+            </div>
+        </fieldset>
+    </div>
+
+    <div id='feedback-state' class="form-element form-textbox-labelbelow hide">
+        <form autocomplete="off">
+            <input type='hidden' id='form-counter-error-message' 
+                value="Maximum character limit is 250."
+            />
+            <label id='feedback-label'
+                data-no-label="Thanks for letting us know."
+                data-yes-label="We’re glad this article helped."
+            ></label>
+            <div class='form-element form-textbox-labelbelow' id='feedback'>
+                <div class="textarea-wrapper">
+                    
+                        <span class='form-label' id='optional_label' aria-hidden='true'></span>
+                        
+                    <div>
+                    <textarea
+                    class='form-textbox form-textbox-textarea form-counter-textarea form-textbox-entered'
+                    data-no-placeholder="How can we make this article more helpful? (Optional)"
+                    data-yes-placeholder="Anything else you’d like us to know? (Optional)"
+                    data-max-length='250'
+                    aria-labelledby='optional_label'
+                    aria-describedby='char_limit_counter'
+                    ></textarea>
+                    <div class='form-textbox-counter' id='char_limit_counter'>
+                            <span class='visuallyhidden' id="char-limit-message">Character limit:</span>
+                            <span class='form-counter'>250</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <label htmlFor='feedback-note'>Please don’t include any personal information in your comment.</label>
+                <div class='form-message-wrapper'>
+                    <span class='form-message'>Maximum character limit is 250.</span>
+                </div>
+                <button type='submit' class='button' id="submit-feedback"
+                   data-ss-analytics-link-component_type='helpful'
+                    data-ss-analytics-link-text='submit'>
+                    Submit
+                </button>
+
+            </div>
+        </form>
+    </div>
+
+    <div id='rating-done' class="hide">
+        Thanks for your feedback.
+    </div>
+
+    <div id='results-helpful' class='show'>
+    
+    </div>
+</div>
+
+
+			</div>
+			
+			
+			
+<div id='article-pagination-wrapper'>
+	<nav
+		class='book-pagination'
+		aria-label='pagination'>
+		<div
+			class='book-pagination-links'
+			role='presentation'>
+			
+			
+			<a
+				data-ss-analytics-link-component_type='next-prev'
+				data-ss-analytics-link-text='prev'
+				data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/about-web-apis-apd2d448b2de/2.2/ios/12.0'
+				data-ajax-endpoint='https://support.apple.com/guide/shortcuts/about-web-apis-apd2d448b2de/2.2/ios/12.0'
+				data-ss-analytics-event="acs.link_click"
+				onClick=''
+				href='https://support.apple.com/guide/shortcuts/about-web-apis-apd2d448b2de/2.2/ios/12.0'
+				class='previous-link'> 
+				<span class='link-eyebrow'>Previous</span>
+				<span class='link-page-title'>About web APIs</span>
+			</a>
+			 
+			
+			
+			<a
+				data-ss-analytics-link-component_type='next-prev'
+				data-ss-analytics-link-text='next'
+				data-ss-analytics-link-url='https://support.apple.com/guide/shortcuts/sign-up-for-an-api-apdab3bb9a7e/2.2/ios/12.0'
+				data-ajax-endpoint='https://support.apple.com/guide/shortcuts/sign-up-for-an-api-apdab3bb9a7e/2.2/ios/12.0'
+				onClick=''
+				href='https://support.apple.com/guide/shortcuts/sign-up-for-an-api-apdab3bb9a7e/2.2/ios/12.0'
+				data-ss-analytics-event="acs.link_click"
+				class='next-link'> 
+				
+				<span class='link-eyebrow'>Next</span> 
+				<span class='link-page-title'>Sign up for an API</span>
+			</a>
+			 
+		</div>
+	</nav>
+</div>
+
+
+		
+		</div>
+
+        
+    
+        <div class="footer-wrapper">
+            <footer
+                    id="ac-globalfooter"
+                    lang="en-us"
+                    dir="ltr"
+                    class="js no-touch svg no-ie7 no-ie8 footer-global"
+                    data-analytics-region="global footer"
+                    role="contentinfo"
+                    aria-labelledby="ac-gf-label">
+                <div class="ac-gf-content">
+                    <h2 class="ac-gf-label" id="ac-gf-label">Apple Footer</h2>
+                    <nav class="ac-gf-breadcrumbs" aria-label="Breadcrumbs" role="navigation">
+                        <a href="https://www.apple.com" class="home ac-gf-breadcrumbs-home">
+                            <span class="ac-gf-breadcrumbs-home-icon" aria-hidden="true"></span>
+                            <span class="ac-gf-breadcrumbs-home-label">Apple</span>
+                            <span class="ac-gf-breadcrumbs-home-chevron"></span>
+                            <span class="ac-gf-breadcrumbs-home-mask"></span>
+                        </a>
+                        <div class="ac-gf-breadcrumbs-path">
+                            <ol class="ac-gf-breadcrumbs-list" vocab="http://schema.org/" typeof="BreadcrumbList">
+                                <li class="ac-gf-breadcrumbs-item" property="itemListElement" typeof="ListItem">
+                                    <span property="name">
+                                        <a href="https://support.apple.com">Support</a>
+                                    </span>
+                                    <meta property="position" content="1"/>
+                                </li>
+
+                                
+                                    <li class="ac-gf-breadcrumbs-item" property="itemListElement" typeof="ListItem">
+                                    <span property="name">
+                                        <a href="https://support.apple.com/guide/shortcuts/welcome/2.2/ios">Shortcuts User Guide</a>
+                                    </span>
+                                    <meta property="position" content="1"/>
+                                </li>
+                                
+
+                                
+                                    <li class="ac-gf-breadcrumbs-item" property="itemListElement" typeof="ListItem">
+                                        <span property="name">What’s an API?</span>
+                                        <meta property="position" content="2" />
+                                    </li>
+                                
+
+                            </ol>
+                        </div>
+                    </nav>
+                    <section class="ac-gf-footer" vocab="https://schema.org/" typeof="Organization">             <div class="ac-gf-footer-shop" x-ms-format-detection="none"></div>             <div class="ac-gf-footer-locale">                 <a class="ac-gf-footer-locale-link" href="https://support.apple.com/guide/shortcuts/whats-an-api-apd2e30c9d45/2.2/ios/12.0/localeselector" title="Choose your country or region" aria-label="United States. Choose your country or region">United States</a>             </div>             <div class="ac-gf-footer-legal">                 <div class="ac-gf-footer-legal-copyright">Copyright © 2022 Apple Inc. All rights reserved.</div>                 <div class="ac-gf-footer-legal-links"> <a class="ac-gf-footer-legal-link analytics-exitlink" href="https://www.apple.com/legal/privacy/en-ww/">Privacy Policy</a> <a class="ac-gf-footer-legal-link analytics-exitlink" href="https://www.apple.com/legal/internet-services/terms/site.html">Terms of Use</a> <a class="ac-gf-footer-legal-link analytics-exitlink" href="https://www.apple.com/shop/goto/help/sales_refunds">Sales and Refunds</a> <a class="ac-gf-footer-legal-link" href="https://www.apple.com/sitemap/">Site Map</a></div>             </div>             <meta content="Apple" property="name">             <meta content="1-800-692-7753" property="telephone">         </section>
+                </div>
+            </footer>
+        </div>
+    
+
+
+
+    
+        <script src="https://support.apple.com/clientside/build/FujiStitchPath.js"></script>
+    
+        <script src="https://support.apple.com/clientside/build/apd-sasskit.built.js"></script>
+    
+        <script src="https://support.apple.com/clientside/build/app-apd-route.js"></script>
+    
+        <script src="https://support.apple.com/clientside/build/app-launch-route.js"></script>
+    
+        <script src="/etc/designs/support/publish/JS/pattern/accsoffer.js"></script>
+    
+        <script src="https://km.support.apple.com/clientside/build/launch.js"></script>
+    
+
+    <div id="apd-aria-live-region" aria-live="polite" role="status" class="a11y"></div>
+
+	</body>
+</html>
+
+

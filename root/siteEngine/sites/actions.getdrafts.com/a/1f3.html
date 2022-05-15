@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recon | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="xU15IvxVFiXyTjqwZkz/s3O87LlrlGWcq8j7q3Puq6a2Ul+omD6xwH0egeAyD6St1B8yQpVELzqGuanSWhY1VA==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Recon" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1f3" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Recon" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1f3" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/crystal-ball.png" class="action-icon" />Recon</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by sylumer,
+    Last update
+    9 months ago
+</div>
+
+    <div class='update_notes'>
+      <h3>UPDATES</h3>
+      <div id="firstUpdateNote">
+      <h4>9 months ago</h4>
+      <h1>RECON-07:</h1>
+
+<ul>
+<li>Added folder listing checks for Syntaxes and Themes.</li>
+<li>Added explicit external library check for TADpoLe.</li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class='description'>
+        <p>This action has been created to help get information about a user’s set-up in Drafts when they are having issues, but can be used by anyone who is simply curious about their set-up.</p>
+
+<p>The action queries the Drafts app for information. You select what sets of information to query for, and the output can be previewed as well as copied to the clipboard in various formats.</p>
+
+<p>Please note file access for Drafts can be very slow. If you have a complex file structure within any of your Drafts folders, please be aware that it can take quite a while to run on iOS and iPadOS.  A mitigation utilising shell scripting and the system clipboard has been used to improve the performance of these listings on macOS.</p>
+
+    </div>
+
+<div class="certification">
+  
+  <a class='trusted' href='1f3.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="../assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /> Trusted member</a>
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1f3&amp;data=%7B%22uuid%22:%220EF3739B-36AB-4A8B-BD92-D695670675E1%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22const%20RVER%20=%20%60RECON-07%60;%5Cn%5Cnlet%20g_strHTMLCSS%20=%20%60%20%20%5Cu003cstyle%5Cu003e%5Cn@charset%20%5C%22UTF-8%5C%22;%5Cn%5Cn:root%20%7B%5Cn%5Ct--main-bg-color:%20white;%5Cn%5Ct--main-color:%20black;%5Cn%5Ct--alternate-bg-color:%20%23efefef;%5Cn%5Ct--alternate-color:%20%23222222;%5Cn%5Ct--main-border-color:%20%23BBBBBB;%5Cn%5Ct%20%20--link-color:%20%23627EC9;%5Cn%20%20%7D%5Cn%5Cn%20%20@media%20(prefers-color-scheme:%20dark)%20%7B%5Cn%5Ct:root%20%7B%5Cn%5Ct%20%20--main-bg-color:%20%23222222;%5Cn%5Ct%20%20--main-color:%20%2353C8D6;%5Cn%5Ct%20%20--alternate-bg-color:%20%23444444;%5Cn%5Ct%20%20--alternate-color:%20%23cccccc;%5Cn%5Ct%20%20--main-border-color:%20%23AAAAAA;%5Cn%5Ct%5Ct--link-color:%20%23627EC9;%5Cn%5Ct%7D%5Cn%20%20%7D%5Cn%5Cnhtml%20%7B%5Cn%20%20font-size:%20100%25;%5Cn%20%20font-family:%20-apple-system,%20BlinkMacSystemFont,%20%5C%22Noto%20Color%20Emoji%5C%22,%20%5C%22Apple%20Color%20Emoji%5C%22,%20%5C%22Segoe%20UI%20Emoji%5C%22,%20%5C%22helvetica%20neue%5C%22,%20helvetica,%20roboto,%20noto,%20%5C%22segoe%20ui%5C%22,%20arial,%20sans-serif;%5Cn%20%20line-height:%201.4;%5Cn%7D%5Cn%5Cnbody%20%7B%5Cn%20%20margin:%200;%5Cn%20%20padding:%201em;%5Cn%20%20background-color:%20var(--main-bg-color);%5Cn%20%20color:%20var(--main-color);%5Cn%7D%5Cn%5Cn@media%20(max-device-width:%20700px)%20%7B%7D%5Cn%5Cn@media%20(min-device-width:%20701px)%20%7B%5Cn%20%20body%20%7B%5Cn%5Ctmargin:%20auto;%5Cn%5Ctmax-width:%20600px;%5Cn%20%20%7D%5Cn%7D%5Cn%5Cnblockquote%20%7B%5Cn%20%20font-style:%20italic;%5Cn%20%20margin:%201.5em%202em;%5Cn%20%20padding:%201em;%5Cn%20%20background-color:%20var(--alternate-bg-color);%5Cn%20%20color:%20var(--alternate-color);%5Cn%7D%5Cn%5Cna%20%7B%5Cn%20%20color:%20var(--link-color);%5Cn%7D%5Cnpre%20%7B%5Cn%20%20width:%20100%25;%5Cn%20%20background-color:%20var(--alternate-bg-color);%5Cn%20%20margin:%201em%200;%5Cn%20%20white-space:%20pre-wrap;%5Cn%7D%5Cn%5Cncode%20%7B%5Cn%20%20background-color:%20var(--alternate-bg-color);%5Cn%20%20color:%20var(--alternate-color);%5Cn%20%20font-family:%20Menlo,%20Courier,%20sans-serif;%5Cn%20%20padding:%202px%203px;%5Cn%20%20white-space:%20pre-wrap;%5Cn%7D%5Cn%5Cnstrong%20%7B%5Cn%5Ctcolor:%20white;%5Cn%20%20%7D%5Cn%5Cn%20%20h1%20%7B%5Cn%5Ctcolor:%20orange;%5Cn%20%20%7D%5Cn%5Cntable%20%7B%5Cn%20%20margin:%201.5em%200;%5Cn%20%20border:%201px%20solid%20var(--main-border-color);%5Cn%20%20border-collapse:%20collapse;%5Cn%7D%5Cn%5Cnth%20%7B%5Cn%20%20padding:%20.25em%20.5em;%5Cn%20%20background:%20var(--alternate-bg-color);%5Cn%20%20border:%201px%20solid%20var(--main-border-color);%5Cn%7D%5Cn%5Cntd%20%7B%5Cn%20%20padding:%20.25em%20.5em;%5Cn%20%20border:%201px%20solid%20var(--main-border-color);%5Cn%7D%5Cn%5Cnimg%20%7B%5Cn%20%20max-width:%2090%25;%5Cn%7D%5Cn%5Cnform%20%7B%5Cn%20%20%20padding:%201em;%5Cn%7D%5Cn%5Cn.verticalLine%20%7B%5Cn%5Ctborder-left:%202px%20solid%20orange;%5Cn%5Ctpadding-left:%205px;%5Cn%5Ctmargin-bottom:%205px;%5Cn%5Ctfont-style:%20italic;%5Cn%20%20%7D%5Cn%5Cu003c/style%5Cu003e%5Cn%60%5Cn%5Cnlet%20%20g_strSelectHTML%20=%20%60%5Cu003c!DOCTYPE%20html%5Cu003e%5Cn%5Cu003chtml%20dir=%5C%22auto%5C%22%5Cu003e%5Cn%5Cn%5Cu003chead%5Cu003e%5Cn%20%20%5Cu003ctitle%5Cu003eRecon%20Select%20Options%5Cu003c/title%5Cu003e%5Cn%20%20%5Cu003cmeta%20charset=%5C%22UTF-8%5C%22%5Cu003e%5Cn%20%20%5Cu003cmeta%20name=%5C%22viewport%5C%22%20content=%5C%22width=device-width,%20initial-scale=1%5C%22%5Cu003e%5Cn$%7Bg_strHTMLCSS%7D%5Cn%5Cu003c/head%5Cu003e%5Cn%5Cu003cbody%5Cu003e%5Cn%5Ct%5Cu003cform%20id=%5C%22frmSelection%5C%22%20autocomplete=%5C%22off%5C%22%20autocorrect=%5C%22off%5C%22%5Cu003e%5Cn%5Ct%5Cn%5Ct%5Cu003cstrong%5Cu003eDrafts%20Set-up%5Cu003c/strong%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbDrafts%5C%22%5Cu003e%20Drafts%20Info%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbEditor%5C%22%5Cu003e%20Editor%20Info%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbWorkspaces%5C%22%5Cu003e%20Workspace%20Info%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbCurrentWorkspace%5C%22%5Cu003e%20Current%20Workspace%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cbr%5Cu003e%5Cu003cstrong%5Cu003eDevice%5Cu003c/strong%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbDevice%5C%22%5Cu003e%20Device%20Info%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cbr%5Cu003e%5Cu003cstrong%5Cu003eFile%20System%5Cu003c/strong%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cdiv%20class=%5C%22verticalLine%5C%22%5Cu003ePlease%20note%20that%20file%20system%20queries%20on%20the%20Mac%20make%20use%20of%20the%20clipboard%20to%20speed%20up%20retrieval%20of%20directory%20listings%20for%20large%20and%20complex%20folder%20structures.%5Cu003c/div%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbPreviewListing%5C%22%5Cu003e%20Directory%20Listing%20for%20Previews%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbScriptsListing%5C%22%5Cu003e%20Directory%20Listing%20for%20Scripts%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbSyntaxesListing%5C%22%5Cu003e%20Directory%20Listing%20for%20Syntaxes%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbTemplatesListing%5C%22%5Cu003e%20Directory%20Listing%20for%20Templates%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbThemesListing%5C%22%5Cu003e%20Directory%20Listing%20for%20Themes%5Cu003cbr%5Cu003e%5Cn%5Ct---%5Ct%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbListingIncludeDotted%5C%22%5Cu003e%20%5Cu003cspan%20style=%5C%22color:lightgray;%20font-style:%20italic;%5C%22%5Cu003eInclude%20Files%20Beginning%20with%20a%20Period%20in%20Directory%20Listings?%5Cu003c/span%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cbr%5Cu003e%5Cu003cstrong%5Cu003eActions%5Cu003c/strong%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbActionGroupListing%5C%22%5Cu003e%20Action%20Group%20Listing%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbActionListing%5C%22%5Cu003e%20Action%20Listing%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbActionKeyboardShortcutsListing%5C%22%5Cu003e%20Action%20Keyboard%20Shortcuts%20Listing%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cbr%5Cu003e%5Cu003cstrong%5Cu003eCurrent%20Draft%5Cu003c/strong%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbCurrentInfo%5C%22%5Cu003e%20Current%20Draft%20Info%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbCurrentVersions%5C%22%5Cu003e%20Current%20Draft&#39;s%20Versions%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbCurrentExample%5C%22%5Cu003e%20Current%20Draft%20Content%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cbr%5Cu003e%5Cu003cstrong%5Cu003eExternal%20Libraries%5Cu003c/strong%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbTADpoLe%5C%22%5Cu003e%20TADpoLe%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003chr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cinput%20type=%5C%22checkbox%5C%22%20id=%5C%22cbPreview%5C%22%20checked%5Cu003e%20Preview%20Results%5Cu003cbr%5Cu003e%5Cn%5Cn%5Ct%5Cu003cp%5Cu003eCopy%20Results?%5Cn%5Ct%5Cu003cselect%20id=%5C%22selClipboard%5C%22%5Cu003e%5Cn%5Ct%5Ct%5Cu003coption%20value=%5C%22no%5C%22%20selected=%5C%22selected%5C%22%5Cu003eNo%5Cu003c/option%5Cu003e%5Cn%5Ct%5Ct%5Cu003coption%20value=%5C%22mmd%5C%22%5Cu003eAs%20MultiMarkdown%5Cu003c/option%5Cu003e%5Cn%5Ct%5Ct%5Cu003coption%20value=%5C%22hidden%5C%22%5Cu003eAs%20MultiMarkdown%20in%20a%20Hidden%20Details%20Section%5Cu003c/option%5Cu003e%5Cn%5Ct%5Ct%5Cu003coption%20value=%5C%22html%5C%22%5Cu003eAs%20HTML%5Cu003c/option%5Cu003e%5Cn%5Ct%5Ct%5Cu003coption%20value=%5C%22rich%5C%22%5Cu003eAs%20Rich%20Text%5Cu003c/option%5Cu003e%5Cn%5Ct%5Cu003c/select%5Cu003e%5Cn%5Ct%5Cu003c/p%5Cu003e%5Cn%5Cn%5Cn%5Ct%5Ct%5Cu003cdiv%20style=%5C%22margin:%201em%200%203em%200;%5C%22%5Cu003e%5Cn%5Ct%5Ct%5Ct%5Cu003cbutton%20id=%5C%22sub%5C%22%20onclick=%5C%22submitFormById(&#39;frmSelection&#39;);%20return%20false;%5C%22%5Cu003eSubmit%5Cu003c/button%5Cu003e%5Cn%5Ct%5Ct%5Ct%5Cu003cbutton%20id%20=%5C%22cancel%5C%22%20onclick=%5C%22Drafts.cancel();%20return%20false;%5C%22%5Cu003eCancel%5Cu003c/button%5Cu003e%5Cn%5Ct%5Ct%5Cu003c/div%5Cu003e%5Cn%5Ct%5Cu003c/form%5Cu003e%5Cn%5Cu003c/body%5Cu003e%5Cn%5Cu003cscript%5Cu003e%5Cnfunction%20serialiseForm(p_objForm)%5Cn%7B%5Cn%5Ct//Initialise%5Cn%5Ctlet%20objData%20=%20%7B%7D;%5Cn%5Cn%5Ct//Add%20returnable%20items%20to%20the%20data%20object%5Cn%5Ctfor(let%20element%20of%20p_objForm.elements)%5Cn%5Ct%7B%5Cn%5Ct%5Ctif%20(element.type%20%5Cu0026%5Cu0026%20element.type%20===%20&#39;checkbox&#39;)%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5CtobjData[element.id]%20=%20element.checked;%5Cn%5Ct%5Ct%7D%5Cn%5Ct%5Ctelse%20if%20(element.type%20==%20&#39;submit&#39;)%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5Ct//Ignore%5Cn%5Ct%5Ct%7D%5Cn%5Ct%5Ctelse%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5CtobjData[element.id]%20=%20element.value;%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%5Cn%5Ct//Return%20the%20data%20object%5Cn%5Ctreturn%20objData;%5Cn%7D;%5Cn%5Cnfunction%20submitFormById(p_strFormID)%5Cn%7B%5Cn%5Ct//Get%20the%20form%5Cn%5Ctlet%20objForm%20=%20document.getElementById(p_strFormID);%5Cn%5Cn%5Ct//Transform%20all%20of%20the%20returnable%20form%20elements%20into%20an%20object%5Cn%5Ctlet%20objData%20=%20serialiseForm(objForm);%5Cn%5Cn%5Ct//Send%20the%20object%20to%20Drafts%20and%20return%20a%20continue%20code%5Cn%5CtDrafts.send(%5C%22formValues%5C%22,%20objData);%5Cn%5CtDrafts.continue();%5Cn%5Ctreturn;%5Cn%7D%5Cn%5Cn%5Cnfunction%20checkKeyPress(p_objKey)%5Cn%7B%5Cn%5Ctif%20(p_objKey.keyCode%20==%20&#39;13&#39;)%20submitFormById(&#39;frmSelection&#39;);%5Cn%5Ctreturn%20false;%5Cn%7D%5Cn%5Cn%5Cu003c/script%5Cu003e%5Cn%5Cn%5Cu003c/html%5Cu003e%60%5Cn%5Cnfunction%20b2s(p_bBoolean)%5Cn%7B%5Cn%5Ctif%20(p_bBoolean)%20return%20%5C%22true%5C%22;%5Cn%5Ctelse%20return%20%5C%22false%5C%22;%5Cn%7D%5Cn%5Cn//Show%20the%20HTML%20prompt%20to%20select%20what%20to%20output%5Cnfunction%20selectOptions(p_strHTML)%5Cn%7B%5Cn%5Ctlet%20hp%20=%20new%20HTMLPreview;%5Cn%5Cthp.hideInterface%20=%20true;%5Cn%5Ctif%20(hp.show(p_strHTML))%20return%20context.previewValues[%5C%22formValues%5C%22];%5Cn%5Ctelse%20return%20false;%5Cn%7D%5Cn%5Cnfunction%20detailsTADpoLe()%5Cn%7B%5Cn%5Ctlet%20fmCloud%20=%20FileManager.createCloud();%20//%20iCloud%5Cn%5Ctlet%20strCode%20=%20fmCloud.readString(%5C%22/Library/Scripts/tad.js%5C%22)%5Cn%5Ctif%20(strCode%20!=%20undefined)%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20strVersion%20=%20strCode.match(/%20%5C%5C*%20@version.*/)[0];%5Cn%5Ct%5Ctreturn%20%5C%22**TADpoLe:**%20Version%20%5C%22%20+%20strVersion.substring(11)%20+%20%5C%22%20installed.%5C%22;%5Cn%5Ct%7D%5Cn%5Ctelse%20return%20%5C%22**TADpoLe:**%20Not%20Installed.%5C%22%5Cn%7D%5Cn%5Cnfunction%20detailsDevice()%5Cn%7B%5Cn%5Ctreturn%20%60%23%20Device%20Information%5Cn-%20**Model:**%20$%7Bdevice.model%7D%5Cn-%20**OS%20Version:**%20$%7Bdevice.systemVersion%7D%5Cn-%20**System%20Name:**%20$%7Bdevice.systemName%7D%5Cn-%20**Battery%20Level:**%20$%7Bdevice.batteryLevel%7D%5Cn%60%5Cn%7D%5Cn%5Cnfunction%20detailsDrafts()%5Cn%7B%5Cn%5Ctreturn%20%60%23%20Drafts%20Information%5Cn-%20**Version:**%20$%7Bapp.version%7D%5Cn-%20**Pro%20Subscription%20Enabled:**%20$%7Bb2s(app.isPro)%7D%5Cn-%20**Idle%20Disabled:**%20$%7Bb2s(app.isIdleDisabled)%7D%5Cn-%20**Draft%20List%20Visible:**%20$%7Bb2s(app.isDraftListVisible)%7D%5Cn-%20**Action%20List%20Visible:**%20$%7Bb2s(app.isActionListVisible)%7D%5Cn-%20**Theme:**%20$%7Bapp.currentThemeMode%7D%5Cn-%20**Drafts%20in%20Inbox:**%20$%7BDraft.query(%5C%22%5C%22,%20%5C%22inbox%5C%22,%20[],%20[],%20%5C%22created%5C%22).length%7D%5Cn-%20**Drafts%20in%20Archive:**%20$%7BDraft.query(%5C%22%5C%22,%20%5C%22archive%5C%22,%20[],%20[],%20%5C%22created%5C%22).length%7D%5Cn-%20**Drafts%20in%20Flagged:**%20$%7BDraft.query(%5C%22%5C%22,%20%5C%22flagged%5C%22,%20[],%20[],%20%5C%22created%5C%22).length%7D%5Cn-%20**Drafts%20in%20Trash:**%20$%7BDraft.query(%5C%22%5C%22,%20%5C%22trash%5C%22,%20[],%20[],%20%5C%22created%5C%22).length%7D%5Cn%60%5Cn%7D%5Cn%5Cnfunction%20detailsExternalLibraries(p_astrSelection)%5Cn%7B%5Cn%5Ctlet%20astrOutput%20=%20[%60%23%20External%20Libraries%60]%5Cn%5Ctif%20(p_astrSelection.cbTADpoLe)%20astrOutput.push(detailsTADpoLe());%5Cn%5Ctreturn%20astrOutput.join(%5C%22%5C%5Cn%5C%22);%5Cn%7D%5Cn%5Cnfunction%20detailsCurrentWorkspace()%5Cn%7B%5Cn%5Ctreturn%20%20%60%23%20Current%20Workspace%5C%5Cn%60%20+%20detailsWorkspace(app.currentWorkspace,%20true);%5Cn%7D%5Cn%5Cnfunction%20detailsWorkspaces()%5Cn%7B%5Cn%5CtstrOutput%20=%20%5C%22%23%20Workspaces%5C%5Cn%5C%22;%5Cn%5CtWorkspace.getAll().forEach(function(wsCurrent)%5Cn%5Ct%7B%5Cn%5Ct%5CtstrOutput%20+=%20%5C%22%5C%5Cn%23%23%20%5C%22%20+%20wsCurrent.name;%5Cn%5Ct%5CtstrOutput%20+=%20detailsWorkspace(wsCurrent,%20false)%20+%20%5C%22%5C%5Cn%5C%22;%5Cn%5Ct%7D);%5Cn%5Ctreturn%20strOutput;%5Cn%7D%5Cn%5Cnfunction%20detailsWorkspace(p_wsToCheck,%20p_bIncludeName)%5Cn%7B%5Cn%5Ctlet%20strWorkspace%20=%20%5C%22%5C%22;%5Cn%5Ctif%20(p_bIncludeName)%20if%20(p_wsToCheck.name%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Name:**%20$%7Bp_wsToCheck.name%7D%60%5Cn%5Ctif(p_wsToCheck.queryString%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Query%20String:**%20$%7Bp_wsToCheck.queryString%7D%60%5Cn%5Ctif(p_wsToCheck.tagFilter%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Tag%20Filter:**%20$%7Bp_wsToCheck.tagFilter%7D%60%5Cn%5Ctif(p_wsToCheck.tagFilterRequireAll%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Require%20All%20Tags:**%20$%7Bb2s(p_wsToCheck.tagFilterRequireAll)%7D%60%5Cn%5Ctif(p_wsToCheck.startDate%20!=%20undefined)%5Cn%5Ct%7B%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**Start%20Date%20Field:**%20$%7Bp_wsToCheck.startDate.field%7D%60%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**Start%20Date%20Type:**%20$%7Bp_wsToCheck.startDate.type%7D%60%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**Start%20Date%20Date%20(%5Cu003e=):**%20$%7Bp_wsToCheck.startDate.date%7D%60%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**Start%20Date%20Days%20(%5Cu003e=):**%20$%7Bp_wsToCheck.startDate.days%7D%60%5Cn%5Ct%7D%5Cn%5Ctif(p_wsToCheck.endDate%20!=%20undefined)%5Cn%5Ct%7B%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**End%20Date%20Field:**%20$%7Bp_wsToCheck.endDate.field%7D%60%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**End%20Date%20Type:**%20$%7Bp_wsToCheck.endDate.type%7D%60%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**End%20Date%20Date%20(%5Cu003c=):**%20$%7Bp_wsToCheck.endDate.date%7D%60%5Cn%5Ct%5CtstrWorkspace%20+=%20%60%5C%5Cn-%20**End%20Date%20Days%20(%5Cu003c=):**%20$%7Bp_wsToCheck.endDate.days%7D%60%5Cn%5Ct%7D%5Cn%5Ctif(p_wsToCheck.inboxIncludesFlagged%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Inbox%20Includes%20Flagged:**%20$%7Bb2s(p_wsToCheck.inboxIncludesFlagged)%7D%60%5Cn%5Ctif(p_wsToCheck.archiveIncludesFlagged%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Archive%20Includes%20Flagged:**%20$%7Bb2s(p_wsToCheck.archiveIncludesFlagged)%7D%60%5Cn%5Ctif(p_wsToCheck.loadFolder%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Load%20Folder:**%20$%7Bp_wsToCheck.loadFolder%7D%60%5Cn%5Ctif(p_wsToCheck.loadActionBarGroup%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Load%20Action%20Bar%20Group:**%20$%7Bp_wsToCheck.loadActionBarGroup.name%7D%20($%7Bp_wsToCheck.loadActionBarGroup.uuid%7D)%60%5Cn%5Ctif(p_wsToCheck.loadActionListGroup%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Load%20Action%20List%20Group:**%20$%7Bp_wsToCheck.loadActionListGroup.name%7D%20%20($%7Bp_wsToCheck.loadActionListGroup.uuid%7D)%60%5Cn%5Ctif(p_wsToCheck.showLastAction%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Show%20Last%20Action%20for%20Draft%20in%20List:**%20$%7Bb2s(p_wsToCheck.showLastAction)%7D%60%5Cn%5Ctif(p_wsToCheck.showPreview%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Show%20Body%20Prfeview%20for%20Draft%20in%20List:**%20$%7Bb2s(p_wsToCheck.showPreview)%7D%60%5Cn%5Ctif(p_wsToCheck.showTags%20!=%20undefined)%20strWorkspace%20+=%20%60%5C%5Cn-%20**Show%20Tags%20for%20Draft%20in%20List:**%20$%7Bb2s(p_wsToCheck.showTags)%7D%60%5Cn%5Ctreturn%20strWorkspace;%5Cn%7D%5Cn%5Cn//%20Get%20all%20actions.%5CnActionGroup.getAllActions%20=%20function()%5Cn%7B%5Cn%5Ctlet%20aactAll%20=%20[];%5Cn%5CtActionGroup.getAll().forEach(function(actgrpCurrent)%7BaactAll%20=%20aactAll.concat(actgrpCurrent.actions);%7D);%5Cn%5Ctreturn%20aactAll;%5Cn%7D%5Cn%5Cn//%20Populate%20an%20action%20object%20with%20a%20keyboard%20shortcut%20property%5CnAction.prototype.populateKeyboardShortcut%20=%20function()%5Cn%7B%5Cn%5Ct//Get%20the%20installation%20data%20for%20an%20action%20from%20its%20install%20URL%5Cn%20%20%20%20let%20jsonActionData%20=%20JSON.parse(decodeURIComponent(this.installURL.replace(%5C%22drafts5://action?data=%5C%22,%5C%22%5C%22)));%5Cn%5Cn%20%20%20%20//Keyboard%20shortcut%5Cn%20%20%20%20if%20(jsonActionData.hasOwnProperty(%5C%22keyCommand%5C%22))%5Cn%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20this._keyShift%20=%20jsonActionData.keyCommand.shiftKey;%5Cn%20%20%20%20%20%20%20%20this._keyControl%20=%20jsonActionData.keyCommand.controlKey;%5Cn%20%20%20%20%20%20%20%20this._keyOption%20=%20jsonActionData.keyCommand.optionKey;%5Cn%20%20%20%20%20%20%20%20this._keyCommand%20=%20jsonActionData.keyCommand.commandKey;%5Cn%20%20%20%20%20%20%20%20if(jsonActionData.keyCommand.input.length%20%5Cu003e%200)%5Cn%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//Deal%20with%20the%20encoding%20for%20the%20special%20keys%20that%20are%20available%5Cn%20%20%20%20%20%20%20%20%20%20%20%20switch%20(jsonActionData.keyCommand.input)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20case%20%5C%22%23LEFT%5C%22:%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5Cu0026leftarrow;%20%5C%22;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20case%20%5C%22%23RIGHT%5C%22:%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5Cu0026rightarrow;%20%5C%22;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20case%20%5C%22%23UP%5C%22:%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5Cu0026uparrow;%20%5C%22;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20case%20%5C%22%23DOWN%5C%22:%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5Cu0026downarrow;%20%5C%22;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20case%20%5C%22%23TAB%5C%22:%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5Cu0026%2311134;%5C%22;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20break;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default:%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20jsonActionData.keyCommand.input;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20%20%20this._keyHas%20=%20true;%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20else%5Cn%20%20%20%20%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5C%22;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20this._keyHas%20=%20false;%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%5Cn%20%20%20%20%20%20%20%20//Build%20the%20shortcuts%20key%5Cn%20%20%20%20%20%20%20%20let%20astrKeyShortcut%20=%20[];%5Cn%20%20%20%20%20%20%20%20if%20(this._keyShift)%20astrKeyShortcut.push(%5C%22%5Cu0026%238679;%5C%22);%5Cn%20%20%20%20%20%20%20%20if%20(this._keyControl)%20astrKeyShortcut.push(%5C%22%5E%5C%22);%5Cn%20%20%20%20%20%20%20%20if%20(this._keyOption)%20astrKeyShortcut.push(%5C%22%5Cu0026%238997;%5C%22);%5Cn%20%20%20%20%20%20%20%20if%20(this._keyCommand)%20astrKeyShortcut.push(%5C%22%5Cu0026%238984;%5C%22);%5Cn%20%20%20%20%20%20%20%20if%20(this._keyInput.length%20%5Cu003e%200)%20astrKeyShortcut.push(this._keyInput);%5Cn%20%20%20%20%20%20%20%20this._keyShortcut%20=%20astrKeyShortcut.join(%5C%22%5C%22);%5Cn%20%20%20%20%7D%5Cn%20%20%20%20else%5Cn%20%20%20%20%7B%5Cn%20%20%20%20%20%20%20%20this._keyShortcut%20=%20%5C%22%5C%22;%5Cn%20%20%20%20%20%20%20%20this._keyShift%20=%20false;%5Cn%20%20%20%20%20%20%20%20this._keyControl%20=%20false;%5Cn%20%20%20%20%20%20%20%20this._keyOption%20=%20false;%5Cn%20%20%20%20%20%20%20%20this._keyCommand%20=%20false;%5Cn%20%20%20%20%20%20%20%20this._keyInput%20=%20%5C%22%5C%22;%5Cn%20%20%20%20%7D%5Cn%20%20%20%20return;%5Cn%7D%5Cn%5Cnfunction%20detailsActionShortcuts()%5Cn%7B%5Cn%5Ctlet%20astrOutput%20=%20[];%5Cn%5CtActionGroup.getAllActions().forEach(function(acCurrent)%5Cn%5Ct%7B%5Cn%5Ct%5CtacCurrent.populateKeyboardShortcut();%5Cn%5Ct%5Ctif%20(acCurrent._keyShortcut%20!=%20%5C%22%5C%22)%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5Ctlet%20strKeys%20=%20acCurrent._keyShortcut;%5Cn%5Ct%5Ct%5Ctlet%20intLen%20=%201;%5Cn%5Ct%5Ct%5Ctif%20(acCurrent._keyShift)%20intLen++;%5Cn%5Ct%5Ct%5Ctif%20(acCurrent._keyControl)%20intLen++;%5Cn%5Ct%5Ct%5Ctif%20(acCurrent._keyOption)%20intLen++;%5Cn%5Ct%5Ct%5Ctif%20(acCurrent._keyCommand)%20intLen++;%5Cn%5Ct%5Ct%5Ctlet%20intSpaces%20=%206%20-%20intLen;%5Cn%5Ct%5Ct%5Ctfor%20(let%20intCounter%20=%200;%20intCounter%20%5Cu003c%20intSpaces;%20intCounter++)%5Cn%5Ct%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5Ct%5CtstrKeys%20=%20strKeys%20+%20%5C%22%5Cu0026nbsp;%5C%22;%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%5CtstrKeys%20=%20strKeys.replaceAll(%5C%22%C2%A7%5C%22,%20%5C%22%5Cu0026sect;%5C%22)%5Cn%5Ct%5Ct%5CtastrOutput.push(%60$%7BstrKeys%7D$%7BacCurrent.name%7D%60);%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D);%5Cn%5Ctreturn%20%5C%22%23%20Actions%20with%20Keyboard%20Shortcuts%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20astrOutput.join(%5C%22%5C%5Cn%5C%22)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%7D%5Cn%5Cnfunction%20checkFolder(p_strFolder,%20p_bIncludeDotted%20=%20false)%5Cn%7B%5Cn%5Ctlet%20astrOutput%20=%20[];%5Cn%5Ctapp.displayWarningMessage(%60Checking%20content%20of%20%5C%22$%7Bp_strFolder%7D...%60)%5Cn%5Ctlet%20fmCloud%20=%20FileManager.createCloud();%5Cn%5Ctlet%20astrListing%20=%20fmCloud.listContents(p_strFolder)%5Cn%5CtastrListing.forEach(function%20(strItemPath)%5Cn%5Ct%7B%5Cn%5Ct%5Ctif%20(!p_bIncludeDotted%20%5Cu0026%5Cu0026%20!strItemPath.includes(%5C%22/.%5C%22))%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5CtastrOutput.push(strItemPath);%5Cn%5Ct%5Ct%5Ctif%20(strItemPath.endsWith(%5C%22/%5C%22))%20astrOutput%20=%20astrOutput.concat(checkFolder(strItemPath));%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D);%5Cn%5Ctreturn%20astrOutput;%5Cn%7D%5Cn%5Cnfunction%20checkFolderMac(p_strFolder,%20p_bIncludeDotted%20=%20false)%5Cn%7B%5Cn%5Ctlet%20strLSparams%20=%20%5C%22-R1%20%5C%22;%5Cn%5Ctif%20(p_bIncludeDotted)%20strLSparams%20=%20%5C%22-Ra1%20%5C%22;%5Cn%5Ctlet%20strScript%20=%20%60%23!/bin/zsh%5Cnecho%20$HOME/Library/Mobile%20Documents/iCloud~com~agiletortoise~Drafts5/Documents$%7Bp_strFolder%7D%5Cnls%20$%7BstrLSparams%7D%5C%22$HOME/Library/Mobile%20Documents/iCloud~com~agiletortoise~Drafts5/Documents$%7Bp_strFolder%7D%5C%22%20%7C%20pbcopy%5Cn%60;%5Cn%5Ctlet%20shMain%20=%20ShellScript.create(strScript);%5Cn%5Cn%5Ctif%20(shMain.execute())%20return%20app.getClipboard();%5Cn%5Ctelse%20return%20shMain.standardError;%5Cn%7D%5Cn%5Cnfunction%20detailsPreviewsListing(p_bListingIncludeDotted)%5Cn%7B%5Cn%5Ct%5Cn%5Ctif(device.systemName%20==%20&#39;macOS&#39;)%5Cn%5Ct%7B%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Previews%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20checkFolderMac(%5C%22/Library/Previews%5C%22,%20p_bListingIncludeDotted)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%5Ctelse%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20astrListing%20=%20checkFolder(%5C%22/Library/Previews%5C%22,%20p_bListingIncludeDotted);%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Previews%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20astrListing.join(%5C%22%5C%5Cn%5C%22)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cnfunction%20detailsScriptsListing(p_bListingIncludeDotted)%5Cn%7B%5Cn%5Ctif(device.systemName%20==%20&#39;macOS&#39;)%5Cn%5Ct%7B%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Scripts%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20checkFolderMac(%5C%22/Library/Scripts%5C%22,%20p_bListingIncludeDotted)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%5Ctelse%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20astrListing%20=%20checkFolder(%5C%22/Library/Scripts%5C%22,%20p_bListingIncludeDotted);%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Scripts%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20astrListing.join(%5C%22%5C%5Cn%5C%22)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cnfunction%20detailsTemplatesListing(p_bListingIncludeDotted)%5Cn%7B%5Cn%5Ctif(device.systemName%20==%20&#39;macOS&#39;)%5Cn%5Ct%7B%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Templates%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20checkFolderMac(%5C%22/Library/Templates%5C%22,%20p_bListingIncludeDotted)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%5Ctelse%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20astrListing%20=%20checkFolder(%5C%22/Library/Templates%5C%22,%20p_bListingIncludeDotted);%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Templates%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20astrListing.join(%5C%22%5C%5Cn%5C%22)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cnfunction%20detailsSyntaxesListing(p_bListingIncludeDotted)%5Cn%7B%5Cn%5Ctif(device.systemName%20==%20&#39;macOS&#39;)%5Cn%5Ct%7B%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Syntaxes%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20checkFolderMac(%5C%22/Library/Syntaxes%5C%22,%20p_bListingIncludeDotted)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%5Ctelse%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20astrListing%20=%20checkFolder(%5C%22/Library/Syntaxes%5C%22,%20p_bListingIncludeDotted);%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Syntaxes%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20astrListing.join(%5C%22%5C%5Cn%5C%22)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cnfunction%20detailsThemesListing(p_bListingIncludeDotted)%5Cn%7B%5Cn%5Ctif(device.systemName%20==%20&#39;macOS&#39;)%5Cn%5Ct%7B%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Themes%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20checkFolderMac(%5C%22/Library/Themes%5C%22,%20p_bListingIncludeDotted)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%5Ctelse%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20astrListing%20=%20checkFolder(%5C%22/Library/Themes%5C%22,%20p_bListingIncludeDotted);%5Cn%5Ct%5Ctreturn%20%5C%22%23%20Themes%20Listing%5C%5Cn%5Cu003cpre%5Cu003e%5C%22%20+%20astrListing.join(%5C%22%5C%5Cn%5C%22)%20+%20%5C%22%5Cu003c/pre%5Cu003e%5C%22;%5Cn%5Ct%7D%5Cn%7D%5Cn%5CnString.prototype.deMarkdown%20=%20function()%5Cn%7B%5Cn%5Ctlet%20strTemp%20=%20this;%5Cn%5CtstrTemp%20=%20strTemp.replaceAll(%5C%22%5C%5C%5C%5C%5C%22,%20%5C%22%5C%5C%5C%5C%5C%5C%5C%5C%60%5C%22);%5Cn%5CtstrTemp%20=%20strTemp.replaceAll(%5C%22-%5C%22,%20%5C%22%5C%5C%5C%5C-%5C%22);%5Cn%5CtstrTemp%20=%20strTemp.replaceAll(%5C%22_%5C%22,%20%5C%22%5C%5C%5C%5C_%5C%22);%5Cn%5CtstrTemp%20=%20strTemp.replaceAll(%5C%22*%5C%22,%20%5C%22%5C%5C%5C%5C*%5C%22);%5Cn%5CtstrTemp%20=%20strTemp.replaceAll(%5C%22%60%5C%22,%20%5C%22%5Cu0026%2396;%5C%22);%5Cn%5Cn%5Ctreturn%20strTemp;%5Cn%7D%5Cn%5Cnfunction%20detailsActionListing()%5Cn%7B%5Cn%5Ctlet%20strOutput%20=%20[];%5Cn%5CtActionGroup.getAll().forEach(function(agCurrent)%5Cn%5Ct%7B%5Cn%5Ct%5CtstrOutput.push(%5C%22%5C%5Cn%23%23%20%5C%22%20+%20agCurrent.name.deMarkdown());%5Cn%5Ct%5CtagCurrent.actions.forEach(function%20(acCurrent)%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5Ctif%20(acCurrent.isSeparator)%20strOutput.push(%5C%22-%20**%5C%22%20+%20acCurrent.name.deMarkdown()%20+%20%5C%22:**%5C%22);%5Cn%5Ct%5Ct%5Ctelse%20strOutput.push(%5C%22-%20%5C%22%20+%20acCurrent.name.deMarkdown());%5Cn%5Ct%5Ct%7D);%5Cn%5Ct%7D);%5Cn%5Ctreturn%20%5C%22%23%20Actions%5C%5Cn%5C%22%20+%20strOutput.join(%5C%22%5C%5Cn%5C%22);%5Cn%7D%5Cn%5Cnfunction%20detailsActionGroupListing()%5Cn%7B%5Cn%5Ctlet%20strOutput%20=%20[];%5Cn%5Ctlet%20intAGCounter%20=%200;%5Cn%5Ctlet%20intACCounter%20=%200;%5Cn%5CtActionGroup.getAll().forEach(function(agCurrent)%5Cn%5Ct%7B%5Cn%5Ct%5Ctlet%20intCounter%20=%200;%5Cn%5Ct%5CtagCurrent.actions.forEach(function%20(acCurrent)%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5Ctif%20(!acCurrent.isSeparator)%20intCounter++;%5Cn%5Ct%5Ct%7D);%5Cn%5Ct%5CtintAGCounter++;%5Cn%5Ct%5CtintACCounter%20=%20intACCounter%20+%20intCounter;%5Cn%5Ct%5CtstrOutput.push(%60-%20$%7BagCurrent.name.deMarkdown()%7D%20($%7BintCounter%7D%20actions)%60);%5Cn%5Ct%7D);%5Cn%5CtstrOutput.push(%60%5C%5Cn%5C%5Cn$%7BintAGCounter%7D%20Action%20Groups%20Containing%20$%7BintACCounter%7D%20Actions.%60)%5Cn%5Cn%5Ctreturn%20%5C%22%23%20Action%20Groups%5C%5Cn%5C%22%20+%20strOutput.join(%5C%22%5C%5Cn%5C%22);%5Cn%7D%5Cn%5Cnfunction%20detailsEditor()%5Cn%7B%5Cn%5CtstrOutput%20=%20%5C%22%23%20Editor%5C%5Cn%5C%22;%5Cn%5CtstrOutput%20+=%20%60-%20**Focus%20Mode%20Enabled:**%20$%7Bb2s(editor.focusModeEnabled)%7D%5C%5Cn%60;%5Cn%5CtstrOutput%20+=%20%60-%20**Link%20Mode%20Enabled:**%20$%7Bb2s(editor.linkModeEnabled)%7D%5C%5Cn%60;%5Cn%5CtstrOutput%20+=%20%60-%20**Typewriter%20Scrolling%20Enabled:**%20$%7Bb2s(editor.typewriterScrollingEnabled)%7D%5C%5Cn%60;%5Cn%5CtstrOutput%20+=%20%5C%22-%20**Editor%20Preferred%20Tab%20String%20(Text):**%20%60%5C%5C%5C%22%5C%22%20+%20editor.preferredTabString%20+%20%5C%22%5C%5C%5C%22%60%5C%5Cn%5C%22;%5Cn%5CtstrOutput%20+=%20%5C%22-%20**Editor%20Preferred%20Tab%20String%20(URL%20Encoded):**%20%5C%22%20+%20encodeURIComponent(editor.preferredTabString)%20+%20%5C%22%5C%5Cn%5C%22;%5Cn%5Ctreturn%20strOutput;%5Cn%7D%5Cn%5Cnfunction%20detailsCurrentInfo()%5Cn%7B%5Cn%5Cn%5Ctlet%20astrMarkers%20=%20[];%5Cn%5Ctif%20(editor.navigationMarkers.length%20%5Cu003e%200)%5Cn%5Ct%7B%5Cn%5Ct%5Cteditor.navigationMarkers.forEach(function(nmMain)%5Cn%5Ct%5Ct%7B%5Cn%5Ct%5Ct%5CtastrMarkers.push(%60%5Ct-%20[$%7BnmMain.level%7D]%20$%7BnmMain.prefix%7D%20:%20$%7BnmMain.label%7D%60);%5Cn%5Ct%5Ct%7D)%5Cn%5Ct%7D%5Cn%5Cn%5Ctreturn%20%60%23%20Current%20Draft%20Information%5Cn-%20**UUID:**%20$%7Bdraft.uuid%7D%5Cn-%20**Title:**%20$%7Bdraft.title%7D%5Cn-%20**Syntax:**%20$%7Bdraft.languageGrammar%7D%5Cn-%20**Flagged:**%20$%7Bb2s(draft.isFlagged)%7D%5Cn-%20**Archived:**%20$%7Bb2s(draft.isArchived)%7D%5Cn-%20**Trashed:**%20$%7Bb2s(draft.isTrashed)%7D%5Cn-%20**Line%20Count:**%20$%7Bdraft.lines.length%7D%5Cn-%20**Character%20Count:**%20$%7Bdraft.content.length%7D%5Cn-%20**Created:**%20$%7Bdraft.createdAt%7D%5Cn-%20**Modified:**%20$%7Bdraft.modifiedAt%7D%5Cn-%20**Versions:**%20$%7Bdraft.versions.length%7D%5Cn-%20**Tags:**%20$%7Bdraft.tags.join(%5C%22%20%7C%20%5C%22)%7D%5Cn-%20**Navigation%20Markers:**%5C%5Cn$%7BastrMarkers.join(%5C%22%5C%5Cn%5C%22)%7D%5Cn%60;%5Cn%7D%5Cn%5Cnfunction%20detailsCurrentVersions()%5Cn%7B%5Cn%5Ctlet%20strOutput%20=%20[%60%23%20Current%20Draft&#39;s%20Versions%5C%5Cn%60];%5Cn%5Ctdraft.versions.forEach(function%20(verDraft)%5Cn%5Ct%7B%5Cn%5Ct%5CtstrOutput.push(%60-%20**$%7BverDraft.createdAt%7D:**%20$%7BverDraft.content.length%7D%20characters%20in%20$%7BverDraft.content.split(&#39;%5C%5Cn&#39;).length%7D%20lines%20-%20($%7BverDraft.uuid%7D)%60);%5Cn%5Ct%7D);%5Cn%5Ctreturn%20strOutput.join(%5C%22%5C%5Cn%5C%22);%5Cn%7D%5Cn%5Cnfunction%20detailsCurrentExample()%5Cn%7B%5Cn%5Ct//We&#39;ll%20use%20lots%20of%20backticks%20to%20mark%20our%20code%20block%20in%20case%20the%20content%20of%20the%20draft%20contains%20a%20code%20block%20defined%20by%20backticks%5Cn%5Ctreturn%20%60%23%20Current%20Draft%20Content%5Cn%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60plaintext%5Cn$%7Bdraft.content%7D%5Cn%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5C%5C%60%5Cn%60;%5Cn%7D%5Cn%5Cn//Display%20Results%5Cnfunction%20displayResults(p_strHTML)%5Cn%7B%5Cn%5Ctlet%20hp%20=%20new%20HTMLPreview;%5Cn%5Cthp.hideInterface%20=%20false;%5Cn%5Cthp.show(p_strHTML);%5Cn%5Ctreturn;%5Cn%7D%5Cn%5Cnfunction%20recon()%5Cn%7B%5Cn%5Ct//Choose%20what%20to%20output%5Cn%5Ctlet%20astrSelection%20=%20selectOptions(g_strSelectHTML);%5Cn%5Ct//alert(JSON.stringify(astrSelection));%5Cn%5Cn%5Ctif%20(astrSelection%20!=%20false)%5Cn%5Ct%7B%5Cn%5Ct%5Ct//Build%20the%20output%20as%20MMD%5Cn%5Ct%5Ctlet%20astrOutput%20=%20[];%5Cn%5Ct%5Ct//Drafts%5Cn%5Ct%5Ctif%20(astrSelection.cbDrafts)%20astrOutput.push(detailsDrafts());%5Cn%5Ct%5Ctif%20(astrSelection.cbEditor)%20astrOutput.push(detailsEditor());%5Cn%5Ct%5Ctif%20(astrSelection.cbWorkspaces)%20astrOutput.push(detailsWorkspaces());%5Cn%5Ct%5Ctif%20(astrSelection.cbCurrentWorkspace)%20astrOutput.push(detailsCurrentWorkspace());%5Cn%5Ct%5Ct//Device%5Cn%5Ct%5Ctif%20(astrSelection.cbDevice)%20astrOutput.push(detailsDevice());%5Cn%5Ct%5Ct//File%20System%5Cn%5Ct%5Ctif%20(astrSelection.cbPreviewListing)%20astrOutput.push(detailsPreviewsListing(astrSelection.cbListingIncludeDotted));%5Cn%5Ct%5Ctif%20(astrSelection.cbScriptsListing)%20astrOutput.push(detailsScriptsListing(astrSelection.cbListingIncludeDotted));%5Cn%5Ct%5Ctif%20(astrSelection.cbSyntaxesListing)%20astrOutput.push(detailsSyntaxesListing(astrSelection.cbListingIncludeDotted));%5Cn%5Ct%5Ctif%20(astrSelection.cbTemplatesListing)%20astrOutput.push(detailsTemplatesListing(astrSelection.cbListingIncludeDotted));%5Cn%5Ct%5Ctif%20(astrSelection.cbThemesListing)%20astrOutput.push(detailsThemesListing(astrSelection.cbListingIncludeDotted));%5Cn%5Ct%5Ct//Actions%5Cn%5Ct%5Ctif%20(astrSelection.cbActionGroupListing)%20astrOutput.push(detailsActionGroupListing());%5Cn%5Ct%5Ctif%20(astrSelection.cbActionListing)%20astrOutput.push(detailsActionListing());%5Cn%5Ct%5Ctif%20(astrSelection.cbActionKeyboardShortcutsListing)%20astrOutput.push(detailsActionShortcuts());%5Cn%5Ct%5Ct//Current%20Draft%5Cn%5Ct%5Ctif%20(astrSelection.cbCurrentInfo)%20astrOutput.push(detailsCurrentInfo());%5Cn%5Ct%5Ctif%20(astrSelection.cbCurrentVersions)%20astrOutput.push(detailsCurrentVersions());%5Cn%5Ct%5Ctif%20(astrSelection.cbCurrentExample)%20astrOutput.push(detailsCurrentExample());%5Cn%5Ct%5Ct//External%20Libraries%5Cn%5Ct%5Ctif%20(astrSelection.cbTADpoLe)%20astrOutput.push(detailsExternalLibraries(astrSelection));%5Cn%5Cn%5Ct%5Ct//Add%20a%20generation%20footer%5Cn%5Ct%5CtastrOutput.push(%60%5Cu003cstrong%5Cu003eGenerated%20at:%5Cu003c/strong%5Cu003e%20%5Cu003cspan%20style=%5C%22font-family:courier%5C%22%5Cu003e$%7Bnew%20Date()%7D%5Cu003c/span%5Cu003e%5Cu003cbr%5Cu003e%5Cn%5Ct%5Ct%5Cu003cstrong%5Cu003eGenerated%20by:%5Cu003c/strong%5Cu003e%20%5Cu003cspan%20style=%5C%22font-family:courier%5C%22%5Cu003e$%7BRVER%7D%5Cu003c/span%5Cu003e%60);%5Cn%5Cn%5Ct%5Ct//Combine%20the%20MMD%20for%20output%5Cn%5Ct%5Ctlet%20strMMD%20=%20astrOutput.join(%5C%22%5C%5Cn%5C%5Cn---%5C%5Cn%5C%5Cn%5C%22)%5Cn%5Cn%5Ct%5Ct//Convert%20MMD%20output%20to%20HTML%20for%20display%20and%20copying%5Cn%5Ct%5Ctlet%20mmd%20=%20MultiMarkdown.create();%5Cn%5Ct%5Ctmmd.format%20=%20%5C%22html%5C%22;%5Cn%5Ct%5Ctmmd.completeDocument%20=%20%5C%22false%5C%22;%5Cn%5Ct%5Ctlet%20strHTML%20=%20%60%5Cu003chtml%5Cu003e%5Cu003chead%5Cu003e%5C%5Cn%5Cu003cmeta%20charset=%5C%22UTF-8%5C%22%5Cu003e%5C%5Cn$%7Bg_strHTMLCSS%7D%5C%5Cn%5Cu003c/head%5Cu003e%5Cu003cbody%5Cu003e%60%20+%20mmd.render(strMMD)%20+%20%60%5C%5Cn%5Cu003c/body%5Cu003e%5Cu003c/html%5Cu003e%60;%5Cn%5Cn%5Ct%5Ct//If%20the%20option%20to%20preview%20was%20set,%20display%20it%5Cn%5Ct%5Ctif%20(astrSelection.cbPreview)%20displayResults(strHTML);%5Cn%5Cn%5Ct%5Ct//Populate%20the%20clipboard%20if%20necessary%5Cn%5Ct%5Ctswitch(astrSelection.selClipboard)%20%7B%5Cn%5Ct%5Ct%5Ctcase%20%5C%22mmd%5C%22:%5Cn%5Ct%5Ct%5Ct%5Ctapp.setClipboard(strMMD);%5Cn%5Ct%5Ct%5Ct%5Ctbreak;%5Cn%5Ct%5Ct%5Ct%5Cn%5Ct%5Ct%5Ctcase%20%5C%22hidden%5C%22:%5Cn%5Ct%5Ct%5Ct%5Ctapp.setClipboard(%60[details=%5C%22Recon%20Results%5C%22]%5C%5Cn$%7BstrMMD%7D%5C%5Cn[/details]%60);%5Cn%5Ct%5Ct%5Ct%5Ctbreak;%5Cn%5Ct%5Ct%5Ct%5Cn%5Ct%5Ct%5Ctcase%20%5C%22html%5C%22:%5Cn%5Ct%5Ct%5Ct%5Ctapp.setClipboard(strHTML);%5Cn%5Ct%5Ct%5Ct%5Ctbreak;%5Cn%5Cn%5Ct%5Ct%5Ctcase%20%5C%22rich%5C%22:%5Cn%5Ct%5Ct%5Ct%5Ctapp.htmlToClipboard(strHTML);%5Cn%5Ct%5Ct%5Ct%5Ctbreak;%5Cn%5Ct%5Ct%5Ct%5Cn%5Ct%5Ct%5Ctdefault:%5Cn%5Ct%5Ct%5Ct//%20Default%20is%20to%20leave%20the%20clipboard%20untouched%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%5Cn%5Ctreturn;%5Cn%7D%5Cn%5Cnrecon();%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%2211BFA29A-BCBA-48FC-99A8-9F92D2F4E779%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22/*%5CnVERSION%20INFO%5Cn============%5CnRECON-07:%5Cn-%20Added%20folder%20listing%20checks%20for%20Syntaxes%20and%20Themes.%5Cn-%20Added%20explicit%20external%20library%20check%20for%20TADpoLe.%5Cn%5CnRECON-06:%5Cn-%20Added%20inbox/archive/flagged/trash%20counts%20to%20the%20Drafts%20information%20section.%5Cn%5CnRECON-05:%5Cn-%20Added%20current%20draft%20information,%20including%20content%20dump%20and%20version%20information.%5Cn-%20De-Markdown%20action/separator%20and%20action%20group%20names%20so%20they%20are%20not%20interpreted%20on%20output.%5Cn-%20Added%20wrapping%20to%20code%20sections.%5Cn%5CnRECON-04:%20%5Cn-%20Added%20higher%20performance%20file/directory%20listings%20for%20macOS%20(only).%5Cn-%20Removed%20unnecessary%20element%20spacing%20in%20action%20group%20listing.%5Cn%5CnRECON-03:%5Cn-%20Fixed%20an%20action%20name%20containing%20emoji%20display%20bug%20on%20macOS.%5Cn%5CnRECON-02:%5Cn-%20Added%20several%20additional%20data%20gathering%20sections%20for%20app%20and%20action%20information.%5Cn%5CnRECON-01:%5Cn-%20Initial%20release.%5Cn*/%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%224B5BDF3A-6685-4D48-B46E-3C5D63192E6E%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Recon%22,%22shiftKey%22:false%7D,%22logLevel%22:1,%22groupDisposition%22:0,%22notificationType%22:1,%22tintColor%22:%22orange%22,%22actionDescription%22:%22This%20action%20has%20been%20created%20to%20help%20get%20information%20about%20a%20user%E2%80%99s%20set-up%20in%20Drafts%20when%20they%20are%20having%20issues,%20but%20can%20be%20used%20by%20anyone%20who%20is%20simply%20curious%20about%20their%20set-up.%5Cn%5CnThe%20action%20queries%20the%20Drafts%20app%20for%20information.%20You%20select%20what%20sets%20of%20information%20to%20query%20for,%20and%20the%20output%20can%20be%20previewed%20as%20well%20as%20copied%20to%20the%20clipboard%20in%20various%20formats.%5Cn%5CnPlease%20note%20file%20access%20for%20Drafts%20can%20be%20very%20slow.%20If%20you%20have%20a%20complex%20file%20structure%20within%20any%20of%20your%20Drafts%20folders,%20please%20be%20aware%20that%20it%20can%20take%20a%20while%20to%20run.%22,%22keyUseIcon%22:true,%22icon%22:%22crystal-ball%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22EA57EE3C-5A65-42F3-8F9E-D492E8126E17%22,%22assignTags%22:[],%22name%22:%22Recon%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>const RVER = `RECON-07`;
+
+let g_strHTMLCSS = `  &lt;style&gt;
+@charset &quot;UTF-8&quot;;
+
+:root {
+	--main-bg-color: white;
+	--main-color: black;
+	--alternate-bg-color: #efefef;
+	--alternate-color: #222222;
+	--main-border-color: #BBBBBB;
+	  --link-color: #627EC9;
+  }
+
+  @media (prefers-color-scheme: dark) {
+	:root {
+	  --main-bg-color: #222222;
+	  --main-color: #53C8D6;
+	  --alternate-bg-color: #444444;
+	  --alternate-color: #cccccc;
+	  --main-border-color: #AAAAAA;
+		--link-color: #627EC9;
+	}
+  }
+
+html {
+  font-size: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, &quot;Noto Color Emoji&quot;, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;helvetica neue&quot;, helvetica, roboto, noto, &quot;segoe ui&quot;, arial, sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  margin: 0;
+  padding: 1em;
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+}
+
+@media (max-device-width: 700px) {}
+
+@media (min-device-width: 701px) {
+  body {
+	margin: auto;
+	max-width: 600px;
+  }
+}
+
+blockquote {
+  font-style: italic;
+  margin: 1.5em 2em;
+  padding: 1em;
+  background-color: var(--alternate-bg-color);
+  color: var(--alternate-color);
+}
+
+a {
+  color: var(--link-color);
+}
+pre {
+  width: 100%;
+  background-color: var(--alternate-bg-color);
+  margin: 1em 0;
+  white-space: pre-wrap;
+}
+
+code {
+  background-color: var(--alternate-bg-color);
+  color: var(--alternate-color);
+  font-family: Menlo, Courier, sans-serif;
+  padding: 2px 3px;
+  white-space: pre-wrap;
+}
+
+strong {
+	color: white;
+  }
+
+  h1 {
+	color: orange;
+  }
+
+table {
+  margin: 1.5em 0;
+  border: 1px solid var(--main-border-color);
+  border-collapse: collapse;
+}
+
+th {
+  padding: .25em .5em;
+  background: var(--alternate-bg-color);
+  border: 1px solid var(--main-border-color);
+}
+
+td {
+  padding: .25em .5em;
+  border: 1px solid var(--main-border-color);
+}
+
+img {
+  max-width: 90%;
+}
+
+form {
+   padding: 1em;
+}
+
+.verticalLine {
+	border-left: 2px solid orange;
+	padding-left: 5px;
+	margin-bottom: 5px;
+	font-style: italic;
+  }
+&lt;/style&gt;
+`
+
+let  g_strSelectHTML = `&lt;!DOCTYPE html&gt;
+&lt;html dir=&quot;auto&quot;&gt;
+
+&lt;head&gt;
+  &lt;title&gt;Recon Select Options&lt;/title&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+${g_strHTMLCSS}
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;form id=&quot;frmSelection&quot; autocomplete=&quot;off&quot; autocorrect=&quot;off&quot;&gt;
+	
+	&lt;strong&gt;Drafts Set-up&lt;/strong&gt;&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbDrafts&quot;&gt; Drafts Info&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbEditor&quot;&gt; Editor Info&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbWorkspaces&quot;&gt; Workspace Info&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbCurrentWorkspace&quot;&gt; Current Workspace&lt;br&gt;
+
+	&lt;br&gt;&lt;strong&gt;Device&lt;/strong&gt;&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbDevice&quot;&gt; Device Info&lt;br&gt;
+
+	&lt;br&gt;&lt;strong&gt;File System&lt;/strong&gt;&lt;br&gt;
+	&lt;div class=&quot;verticalLine&quot;&gt;Please note that file system queries on the Mac make use of the clipboard to speed up retrieval of directory listings for large and complex folder structures.&lt;/div&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbPreviewListing&quot;&gt; Directory Listing for Previews&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbScriptsListing&quot;&gt; Directory Listing for Scripts&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbSyntaxesListing&quot;&gt; Directory Listing for Syntaxes&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbTemplatesListing&quot;&gt; Directory Listing for Templates&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbThemesListing&quot;&gt; Directory Listing for Themes&lt;br&gt;
+	---	&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbListingIncludeDotted&quot;&gt; &lt;span style=&quot;color:lightgray; font-style: italic;&quot;&gt;Include Files Beginning with a Period in Directory Listings?&lt;/span&gt;&lt;br&gt;
+
+	&lt;br&gt;&lt;strong&gt;Actions&lt;/strong&gt;&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbActionGroupListing&quot;&gt; Action Group Listing&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbActionListing&quot;&gt; Action Listing&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbActionKeyboardShortcutsListing&quot;&gt; Action Keyboard Shortcuts Listing&lt;br&gt;
+
+	&lt;br&gt;&lt;strong&gt;Current Draft&lt;/strong&gt;&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbCurrentInfo&quot;&gt; Current Draft Info&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbCurrentVersions&quot;&gt; Current Draft&#39;s Versions&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbCurrentExample&quot;&gt; Current Draft Content&lt;br&gt;
+
+	&lt;br&gt;&lt;strong&gt;External Libraries&lt;/strong&gt;&lt;br&gt;
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbTADpoLe&quot;&gt; TADpoLe&lt;br&gt;
+
+	&lt;hr&gt;
+
+	&lt;input type=&quot;checkbox&quot; id=&quot;cbPreview&quot; checked&gt; Preview Results&lt;br&gt;
+
+	&lt;p&gt;Copy Results?
+	&lt;select id=&quot;selClipboard&quot;&gt;
+		&lt;option value=&quot;no&quot; selected=&quot;selected&quot;&gt;No&lt;/option&gt;
+		&lt;option value=&quot;mmd&quot;&gt;As MultiMarkdown&lt;/option&gt;
+		&lt;option value=&quot;hidden&quot;&gt;As MultiMarkdown in a Hidden Details Section&lt;/option&gt;
+		&lt;option value=&quot;html&quot;&gt;As HTML&lt;/option&gt;
+		&lt;option value=&quot;rich&quot;&gt;As Rich Text&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;/p&gt;
+
+
+		&lt;div style=&quot;margin: 1em 0 3em 0;&quot;&gt;
+			&lt;button id=&quot;sub&quot; onclick=&quot;submitFormById(&#39;frmSelection&#39;); return false;&quot;&gt;Submit&lt;/button&gt;
+			&lt;button id =&quot;cancel&quot; onclick=&quot;Drafts.cancel(); return false;&quot;&gt;Cancel&lt;/button&gt;
+		&lt;/div&gt;
+	&lt;/form&gt;
+&lt;/body&gt;
+&lt;script&gt;
+function serialiseForm(p_objForm)
+{
+	//Initialise
+	let objData = {};
+
+	//Add returnable items to the data object
+	for(let element of p_objForm.elements)
+	{
+		if (element.type &amp;&amp; element.type === &#39;checkbox&#39;)
+		{
+			objData[element.id] = element.checked;
+		}
+		else if (element.type == &#39;submit&#39;)
+		{
+			//Ignore
+		}
+		else
+		{
+			objData[element.id] = element.value;
+		}
+	}
+
+	//Return the data object
+	return objData;
+};
+
+function submitFormById(p_strFormID)
+{
+	//Get the form
+	let objForm = document.getElementById(p_strFormID);
+
+	//Transform all of the returnable form elements into an object
+	let objData = serialiseForm(objForm);
+
+	//Send the object to Drafts and return a continue code
+	Drafts.send(&quot;formValues&quot;, objData);
+	Drafts.continue();
+	return;
+}
+
+
+function checkKeyPress(p_objKey)
+{
+	if (p_objKey.keyCode == &#39;13&#39;) submitFormById(&#39;frmSelection&#39;);
+	return false;
+}
+
+&lt;/script&gt;
+
+&lt;/html&gt;`
+
+function b2s(p_bBoolean)
+{
+	if (p_bBoolean) return &quot;true&quot;;
+	else return &quot;false&quot;;
+}
+
+//Show the HTML prompt to select what to output
+function selectOptions(p_strHTML)
+{
+	let hp = new HTMLPreview;
+	hp.hideInterface = true;
+	if (hp.show(p_strHTML)) return context.previewValues[&quot;formValues&quot;];
+	else return false;
+}
+
+function detailsTADpoLe()
+{
+	let fmCloud = FileManager.createCloud(); // iCloud
+	let strCode = fmCloud.readString(&quot;/Library/Scripts/tad.js&quot;)
+	if (strCode != undefined)
+	{
+		let strVersion = strCode.match(/ \* @version.*/)[0];
+		return &quot;**TADpoLe:** Version &quot; + strVersion.substring(11) + &quot; installed.&quot;;
+	}
+	else return &quot;**TADpoLe:** Not Installed.&quot;
+}
+
+function detailsDevice()
+{
+	return `# Device Information
+- **Model:** ${device.model}
+- **OS Version:** ${device.systemVersion}
+- **System Name:** ${device.systemName}
+- **Battery Level:** ${device.batteryLevel}
+`
+}
+
+function detailsDrafts()
+{
+	return `# Drafts Information
+- **Version:** ${app.version}
+- **Pro Subscription Enabled:** ${b2s(app.isPro)}
+- **Idle Disabled:** ${b2s(app.isIdleDisabled)}
+- **Draft List Visible:** ${b2s(app.isDraftListVisible)}
+- **Action List Visible:** ${b2s(app.isActionListVisible)}
+- **Theme:** ${app.currentThemeMode}
+- **Drafts in Inbox:** ${Draft.query(&quot;&quot;, &quot;inbox&quot;, [], [], &quot;created&quot;).length}
+- **Drafts in Archive:** ${Draft.query(&quot;&quot;, &quot;archive&quot;, [], [], &quot;created&quot;).length}
+- **Drafts in Flagged:** ${Draft.query(&quot;&quot;, &quot;flagged&quot;, [], [], &quot;created&quot;).length}
+- **Drafts in Trash:** ${Draft.query(&quot;&quot;, &quot;trash&quot;, [], [], &quot;created&quot;).length}
+`
+}
+
+function detailsExternalLibraries(p_astrSelection)
+{
+	let astrOutput = [`# External Libraries`]
+	if (p_astrSelection.cbTADpoLe) astrOutput.push(detailsTADpoLe());
+	return astrOutput.join(&quot;\n&quot;);
+}
+
+function detailsCurrentWorkspace()
+{
+	return  `# Current Workspace\n` + detailsWorkspace(app.currentWorkspace, true);
+}
+
+function detailsWorkspaces()
+{
+	strOutput = &quot;# Workspaces\n&quot;;
+	Workspace.getAll().forEach(function(wsCurrent)
+	{
+		strOutput += &quot;\n## &quot; + wsCurrent.name;
+		strOutput += detailsWorkspace(wsCurrent, false) + &quot;\n&quot;;
+	});
+	return strOutput;
+}
+
+function detailsWorkspace(p_wsToCheck, p_bIncludeName)
+{
+	let strWorkspace = &quot;&quot;;
+	if (p_bIncludeName) if (p_wsToCheck.name != undefined) strWorkspace += `\n- **Name:** ${p_wsToCheck.name}`
+	if(p_wsToCheck.queryString != undefined) strWorkspace += `\n- **Query String:** ${p_wsToCheck.queryString}`
+	if(p_wsToCheck.tagFilter != undefined) strWorkspace += `\n- **Tag Filter:** ${p_wsToCheck.tagFilter}`
+	if(p_wsToCheck.tagFilterRequireAll != undefined) strWorkspace += `\n- **Require All Tags:** ${b2s(p_wsToCheck.tagFilterRequireAll)}`
+	if(p_wsToCheck.startDate != undefined)
+	{
+		strWorkspace += `\n- **Start Date Field:** ${p_wsToCheck.startDate.field}`
+		strWorkspace += `\n- **Start Date Type:** ${p_wsToCheck.startDate.type}`
+		strWorkspace += `\n- **Start Date Date (&gt;=):** ${p_wsToCheck.startDate.date}`
+		strWorkspace += `\n- **Start Date Days (&gt;=):** ${p_wsToCheck.startDate.days}`
+	}
+	if(p_wsToCheck.endDate != undefined)
+	{
+		strWorkspace += `\n- **End Date Field:** ${p_wsToCheck.endDate.field}`
+		strWorkspace += `\n- **End Date Type:** ${p_wsToCheck.endDate.type}`
+		strWorkspace += `\n- **End Date Date (&lt;=):** ${p_wsToCheck.endDate.date}`
+		strWorkspace += `\n- **End Date Days (&lt;=):** ${p_wsToCheck.endDate.days}`
+	}
+	if(p_wsToCheck.inboxIncludesFlagged != undefined) strWorkspace += `\n- **Inbox Includes Flagged:** ${b2s(p_wsToCheck.inboxIncludesFlagged)}`
+	if(p_wsToCheck.archiveIncludesFlagged != undefined) strWorkspace += `\n- **Archive Includes Flagged:** ${b2s(p_wsToCheck.archiveIncludesFlagged)}`
+	if(p_wsToCheck.loadFolder != undefined) strWorkspace += `\n- **Load Folder:** ${p_wsToCheck.loadFolder}`
+	if(p_wsToCheck.loadActionBarGroup != undefined) strWorkspace += `\n- **Load Action Bar Group:** ${p_wsToCheck.loadActionBarGroup.name} (${p_wsToCheck.loadActionBarGroup.uuid})`
+	if(p_wsToCheck.loadActionListGroup != undefined) strWorkspace += `\n- **Load Action List Group:** ${p_wsToCheck.loadActionListGroup.name}  (${p_wsToCheck.loadActionListGroup.uuid})`
+	if(p_wsToCheck.showLastAction != undefined) strWorkspace += `\n- **Show Last Action for Draft in List:** ${b2s(p_wsToCheck.showLastAction)}`
+	if(p_wsToCheck.showPreview != undefined) strWorkspace += `\n- **Show Body Prfeview for Draft in List:** ${b2s(p_wsToCheck.showPreview)}`
+	if(p_wsToCheck.showTags != undefined) strWorkspace += `\n- **Show Tags for Draft in List:** ${b2s(p_wsToCheck.showTags)}`
+	return strWorkspace;
+}
+
+// Get all actions.
+ActionGroup.getAllActions = function()
+{
+	let aactAll = [];
+	ActionGroup.getAll().forEach(function(actgrpCurrent){aactAll = aactAll.concat(actgrpCurrent.actions);});
+	return aactAll;
+}
+
+// Populate an action object with a keyboard shortcut property
+Action.prototype.populateKeyboardShortcut = function()
+{
+	//Get the installation data for an action from its install URL
+    let jsonActionData = JSON.parse(decodeURIComponent(this.installURL.replace(&quot;drafts5://action?data=&quot;,&quot;&quot;)));
+
+    //Keyboard shortcut
+    if (jsonActionData.hasOwnProperty(&quot;keyCommand&quot;))
+    {
+        this._keyShift = jsonActionData.keyCommand.shiftKey;
+        this._keyControl = jsonActionData.keyCommand.controlKey;
+        this._keyOption = jsonActionData.keyCommand.optionKey;
+        this._keyCommand = jsonActionData.keyCommand.commandKey;
+        if(jsonActionData.keyCommand.input.length &gt; 0)
+        {
+            //Deal with the encoding for the special keys that are available
+            switch (jsonActionData.keyCommand.input)
+            {
+                case &quot;#LEFT&quot;:
+                    this._keyInput = &quot;&amp;leftarrow; &quot;;
+                    break;
+                case &quot;#RIGHT&quot;:
+                    this._keyInput = &quot;&amp;rightarrow; &quot;;
+                    break;
+                case &quot;#UP&quot;:
+                    this._keyInput = &quot;&amp;uparrow; &quot;;
+                    break;
+                case &quot;#DOWN&quot;:
+                    this._keyInput = &quot;&amp;downarrow; &quot;;
+                    break;
+                case &quot;#TAB&quot;:
+                    this._keyInput = &quot;&amp;#11134;&quot;;
+                    break;
+                default:
+                    this._keyInput = jsonActionData.keyCommand.input;
+            }
+            this._keyHas = true;
+        }
+        else
+        {
+            this._keyInput = &quot;&quot;;
+            this._keyHas = false;
+        }
+
+        //Build the shortcuts key
+        let astrKeyShortcut = [];
+        if (this._keyShift) astrKeyShortcut.push(&quot;&amp;#8679;&quot;);
+        if (this._keyControl) astrKeyShortcut.push(&quot;^&quot;);
+        if (this._keyOption) astrKeyShortcut.push(&quot;&amp;#8997;&quot;);
+        if (this._keyCommand) astrKeyShortcut.push(&quot;&amp;#8984;&quot;);
+        if (this._keyInput.length &gt; 0) astrKeyShortcut.push(this._keyInput);
+        this._keyShortcut = astrKeyShortcut.join(&quot;&quot;);
+    }
+    else
+    {
+        this._keyShortcut = &quot;&quot;;
+        this._keyShift = false;
+        this._keyControl = false;
+        this._keyOption = false;
+        this._keyCommand = false;
+        this._keyInput = &quot;&quot;;
+    }
+    return;
+}
+
+function detailsActionShortcuts()
+{
+	let astrOutput = [];
+	ActionGroup.getAllActions().forEach(function(acCurrent)
+	{
+		acCurrent.populateKeyboardShortcut();
+		if (acCurrent._keyShortcut != &quot;&quot;)
+		{
+			let strKeys = acCurrent._keyShortcut;
+			let intLen = 1;
+			if (acCurrent._keyShift) intLen++;
+			if (acCurrent._keyControl) intLen++;
+			if (acCurrent._keyOption) intLen++;
+			if (acCurrent._keyCommand) intLen++;
+			let intSpaces = 6 - intLen;
+			for (let intCounter = 0; intCounter &lt; intSpaces; intCounter++)
+			{
+				strKeys = strKeys + &quot;&amp;nbsp;&quot;;
+			}
+			strKeys = strKeys.replaceAll(&quot;§&quot;, &quot;&amp;sect;&quot;)
+			astrOutput.push(`${strKeys}${acCurrent.name}`);
+		}
+	});
+	return &quot;# Actions with Keyboard Shortcuts\n&lt;pre&gt;&quot; + astrOutput.join(&quot;\n&quot;) + &quot;&lt;/pre&gt;&quot;;
+}
+
+function checkFolder(p_strFolder, p_bIncludeDotted = false)
+{
+	let astrOutput = [];
+	app.displayWarningMessage(`Checking content of &quot;${p_strFolder}...`)
+	let fmCloud = FileManager.createCloud();
+	let astrListing = fmCloud.listContents(p_strFolder)
+	astrListing.forEach(function (strItemPath)
+	{
+		if (!p_bIncludeDotted &amp;&amp; !strItemPath.includes(&quot;/.&quot;))
+		{
+			astrOutput.push(strItemPath);
+			if (strItemPath.endsWith(&quot;/&quot;)) astrOutput = astrOutput.concat(checkFolder(strItemPath));
+		}
+	});
+	return astrOutput;
+}
+
+function checkFolderMac(p_strFolder, p_bIncludeDotted = false)
+{
+	let strLSparams = &quot;-R1 &quot;;
+	if (p_bIncludeDotted) strLSparams = &quot;-Ra1 &quot;;
+	let strScript = `#!/bin/zsh
+echo $HOME/Library/Mobile Documents/iCloud~com~agiletortoise~Drafts5/Documents${p_strFolder}
+ls ${strLSparams}&quot;$HOME/Library/Mobile Documents/iCloud~com~agiletortoise~Drafts5/Documents${p_strFolder}&quot; | pbcopy
+`;
+	let shMain = ShellScript.create(strScript);
+
+	if (shMain.execute()) return app.getClipboard();
+	else return shMain.standardError;
+}
+
+function detailsPreviewsListing(p_bListingIncludeDotted)
+{
+	
+	if(device.systemName == &#39;macOS&#39;)
+	{
+		return &quot;# Previews Listing\n&lt;pre&gt;&quot; + checkFolderMac(&quot;/Library/Previews&quot;, p_bListingIncludeDotted) + &quot;&lt;/pre&gt;&quot;;
+	}
+	else
+	{
+		let astrListing = checkFolder(&quot;/Library/Previews&quot;, p_bListingIncludeDotted);
+		return &quot;# Previews Listing\n&lt;pre&gt;&quot; + astrListing.join(&quot;\n&quot;) + &quot;&lt;/pre&gt;&quot;;
+	}
+}
+
+function detailsScriptsListing(p_bListingIncludeDotted)
+{
+	if(device.systemName == &#39;macOS&#39;)
+	{
+		return &quot;# Scripts Listing\n&lt;pre&gt;&quot; + checkFolderMac(&quot;/Library/Scripts&quot;, p_bListingIncludeDotted) + &quot;&lt;/pre&gt;&quot;;
+	}
+	else
+	{
+		let astrListing = checkFolder(&quot;/Library/Scripts&quot;, p_bListingIncludeDotted);
+		return &quot;# Scripts Listing\n&lt;pre&gt;&quot; + astrListing.join(&quot;\n&quot;) + &quot;&lt;/pre&gt;&quot;;
+	}
+}
+
+function detailsTemplatesListing(p_bListingIncludeDotted)
+{
+	if(device.systemName == &#39;macOS&#39;)
+	{
+		return &quot;# Templates Listing\n&lt;pre&gt;&quot; + checkFolderMac(&quot;/Library/Templates&quot;, p_bListingIncludeDotted) + &quot;&lt;/pre&gt;&quot;;
+	}
+	else
+	{
+		let astrListing = checkFolder(&quot;/Library/Templates&quot;, p_bListingIncludeDotted);
+		return &quot;# Templates Listing\n&lt;pre&gt;&quot; + astrListing.join(&quot;\n&quot;) + &quot;&lt;/pre&gt;&quot;;
+	}
+}
+
+function detailsSyntaxesListing(p_bListingIncludeDotted)
+{
+	if(device.systemName == &#39;macOS&#39;)
+	{
+		return &quot;# Syntaxes Listing\n&lt;pre&gt;&quot; + checkFolderMac(&quot;/Library/Syntaxes&quot;, p_bListingIncludeDotted) + &quot;&lt;/pre&gt;&quot;;
+	}
+	else
+	{
+		let astrListing = checkFolder(&quot;/Library/Syntaxes&quot;, p_bListingIncludeDotted);
+		return &quot;# Syntaxes Listing\n&lt;pre&gt;&quot; + astrListing.join(&quot;\n&quot;) + &quot;&lt;/pre&gt;&quot;;
+	}
+}
+
+function detailsThemesListing(p_bListingIncludeDotted)
+{
+	if(device.systemName == &#39;macOS&#39;)
+	{
+		return &quot;# Themes Listing\n&lt;pre&gt;&quot; + checkFolderMac(&quot;/Library/Themes&quot;, p_bListingIncludeDotted) + &quot;&lt;/pre&gt;&quot;;
+	}
+	else
+	{
+		let astrListing = checkFolder(&quot;/Library/Themes&quot;, p_bListingIncludeDotted);
+		return &quot;# Themes Listing\n&lt;pre&gt;&quot; + astrListing.join(&quot;\n&quot;) + &quot;&lt;/pre&gt;&quot;;
+	}
+}
+
+String.prototype.deMarkdown = function()
+{
+	let strTemp = this;
+	strTemp = strTemp.replaceAll(&quot;\\&quot;, &quot;\\\\`&quot;);
+	strTemp = strTemp.replaceAll(&quot;-&quot;, &quot;\\-&quot;);
+	strTemp = strTemp.replaceAll(&quot;_&quot;, &quot;\\_&quot;);
+	strTemp = strTemp.replaceAll(&quot;*&quot;, &quot;\\*&quot;);
+	strTemp = strTemp.replaceAll(&quot;`&quot;, &quot;&amp;#96;&quot;);
+
+	return strTemp;
+}
+
+function detailsActionListing()
+{
+	let strOutput = [];
+	ActionGroup.getAll().forEach(function(agCurrent)
+	{
+		strOutput.push(&quot;\n## &quot; + agCurrent.name.deMarkdown());
+		agCurrent.actions.forEach(function (acCurrent)
+		{
+			if (acCurrent.isSeparator) strOutput.push(&quot;- **&quot; + acCurrent.name.deMarkdown() + &quot;:**&quot;);
+			else strOutput.push(&quot;- &quot; + acCurrent.name.deMarkdown());
+		});
+	});
+	return &quot;# Actions\n&quot; + strOutput.join(&quot;\n&quot;);
+}
+
+function detailsActionGroupListing()
+{
+	let strOutput = [];
+	let intAGCounter = 0;
+	let intACCounter = 0;
+	ActionGroup.getAll().forEach(function(agCurrent)
+	{
+		let intCounter = 0;
+		agCurrent.actions.forEach(function (acCurrent)
+		{
+			if (!acCurrent.isSeparator) intCounter++;
+		});
+		intAGCounter++;
+		intACCounter = intACCounter + intCounter;
+		strOutput.push(`- ${agCurrent.name.deMarkdown()} (${intCounter} actions)`);
+	});
+	strOutput.push(`\n\n${intAGCounter} Action Groups Containing ${intACCounter} Actions.`)
+
+	return &quot;# Action Groups\n&quot; + strOutput.join(&quot;\n&quot;);
+}
+
+function detailsEditor()
+{
+	strOutput = &quot;# Editor\n&quot;;
+	strOutput += `- **Focus Mode Enabled:** ${b2s(editor.focusModeEnabled)}\n`;
+	strOutput += `- **Link Mode Enabled:** ${b2s(editor.linkModeEnabled)}\n`;
+	strOutput += `- **Typewriter Scrolling Enabled:** ${b2s(editor.typewriterScrollingEnabled)}\n`;
+	strOutput += &quot;- **Editor Preferred Tab String (Text):** `\&quot;&quot; + editor.preferredTabString + &quot;\&quot;`\n&quot;;
+	strOutput += &quot;- **Editor Preferred Tab String (URL Encoded):** &quot; + encodeURIComponent(editor.preferredTabString) + &quot;\n&quot;;
+	return strOutput;
+}
+
+function detailsCurrentInfo()
+{
+
+	let astrMarkers = [];
+	if (editor.navigationMarkers.length &gt; 0)
+	{
+		editor.navigationMarkers.forEach(function(nmMain)
+		{
+			astrMarkers.push(`	- [${nmMain.level}] ${nmMain.prefix} : ${nmMain.label}`);
+		})
+	}
+
+	return `# Current Draft Information
+- **UUID:** ${draft.uuid}
+- **Title:** ${draft.title}
+- **Syntax:** ${draft.languageGrammar}
+- **Flagged:** ${b2s(draft.isFlagged)}
+- **Archived:** ${b2s(draft.isArchived)}
+- **Trashed:** ${b2s(draft.isTrashed)}
+- **Line Count:** ${draft.lines.length}
+- **Character Count:** ${draft.content.length}
+- **Created:** ${draft.createdAt}
+- **Modified:** ${draft.modifiedAt}
+- **Versions:** ${draft.versions.length}
+- **Tags:** ${draft.tags.join(&quot; | &quot;)}
+- **Navigation Markers:**\n${astrMarkers.join(&quot;\n&quot;)}
+`;
+}
+
+function detailsCurrentVersions()
+{
+	let strOutput = [`# Current Draft&#39;s Versions\n`];
+	draft.versions.forEach(function (verDraft)
+	{
+		strOutput.push(`- **${verDraft.createdAt}:** ${verDraft.content.length} characters in ${verDraft.content.split(&#39;\n&#39;).length} lines - (${verDraft.uuid})`);
+	});
+	return strOutput.join(&quot;\n&quot;);
+}
+
+function detailsCurrentExample()
+{
+	//We&#39;ll use lots of backticks to mark our code block in case the content of the draft contains a code block defined by backticks
+	return `# Current Draft Content
+\`\`\`\`\`\`\`\`\`plaintext
+${draft.content}
+\`\`\`\`\`\`\`\`\`
+`;
+}
+
+//Display Results
+function displayResults(p_strHTML)
+{
+	let hp = new HTMLPreview;
+	hp.hideInterface = false;
+	hp.show(p_strHTML);
+	return;
+}
+
+function recon()
+{
+	//Choose what to output
+	let astrSelection = selectOptions(g_strSelectHTML);
+	//alert(JSON.stringify(astrSelection));
+
+	if (astrSelection != false)
+	{
+		//Build the output as MMD
+		let astrOutput = [];
+		//Drafts
+		if (astrSelection.cbDrafts) astrOutput.push(detailsDrafts());
+		if (astrSelection.cbEditor) astrOutput.push(detailsEditor());
+		if (astrSelection.cbWorkspaces) astrOutput.push(detailsWorkspaces());
+		if (astrSelection.cbCurrentWorkspace) astrOutput.push(detailsCurrentWorkspace());
+		//Device
+		if (astrSelection.cbDevice) astrOutput.push(detailsDevice());
+		//File System
+		if (astrSelection.cbPreviewListing) astrOutput.push(detailsPreviewsListing(astrSelection.cbListingIncludeDotted));
+		if (astrSelection.cbScriptsListing) astrOutput.push(detailsScriptsListing(astrSelection.cbListingIncludeDotted));
+		if (astrSelection.cbSyntaxesListing) astrOutput.push(detailsSyntaxesListing(astrSelection.cbListingIncludeDotted));
+		if (astrSelection.cbTemplatesListing) astrOutput.push(detailsTemplatesListing(astrSelection.cbListingIncludeDotted));
+		if (astrSelection.cbThemesListing) astrOutput.push(detailsThemesListing(astrSelection.cbListingIncludeDotted));
+		//Actions
+		if (astrSelection.cbActionGroupListing) astrOutput.push(detailsActionGroupListing());
+		if (astrSelection.cbActionListing) astrOutput.push(detailsActionListing());
+		if (astrSelection.cbActionKeyboardShortcutsListing) astrOutput.push(detailsActionShortcuts());
+		//Current Draft
+		if (astrSelection.cbCurrentInfo) astrOutput.push(detailsCurrentInfo());
+		if (astrSelection.cbCurrentVersions) astrOutput.push(detailsCurrentVersions());
+		if (astrSelection.cbCurrentExample) astrOutput.push(detailsCurrentExample());
+		//External Libraries
+		if (astrSelection.cbTADpoLe) astrOutput.push(detailsExternalLibraries(astrSelection));
+
+		//Add a generation footer
+		astrOutput.push(`&lt;strong&gt;Generated at:&lt;/strong&gt; &lt;span style=&quot;font-family:courier&quot;&gt;${new Date()}&lt;/span&gt;&lt;br&gt;
+		&lt;strong&gt;Generated by:&lt;/strong&gt; &lt;span style=&quot;font-family:courier&quot;&gt;${RVER}&lt;/span&gt;`);
+
+		//Combine the MMD for output
+		let strMMD = astrOutput.join(&quot;\n\n---\n\n&quot;)
+
+		//Convert MMD output to HTML for display and copying
+		let mmd = MultiMarkdown.create();
+		mmd.format = &quot;html&quot;;
+		mmd.completeDocument = &quot;false&quot;;
+		let strHTML = `&lt;html&gt;&lt;head&gt;\n&lt;meta charset=&quot;UTF-8&quot;&gt;\n${g_strHTMLCSS}\n&lt;/head&gt;&lt;body&gt;` + mmd.render(strMMD) + `\n&lt;/body&gt;&lt;/html&gt;`;
+
+		//If the option to preview was set, display it
+		if (astrSelection.cbPreview) displayResults(strHTML);
+
+		//Populate the clipboard if necessary
+		switch(astrSelection.selClipboard) {
+			case &quot;mmd&quot;:
+				app.setClipboard(strMMD);
+				break;
+			
+			case &quot;hidden&quot;:
+				app.setClipboard(`[details=&quot;Recon Results&quot;]\n${strMMD}\n[/details]`);
+				break;
+			
+			case &quot;html&quot;:
+				app.setClipboard(strHTML);
+				break;
+
+			case &quot;rich&quot;:
+				app.htmlToClipboard(strHTML);
+				break;
+			
+			default:
+			// Default is to leave the clipboard untouched
+		}
+	}
+
+	return;
+}
+
+recon();</code></pre></div>
+  </li>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>/*
+VERSION INFO
+============
+RECON-07:
+- Added folder listing checks for Syntaxes and Themes.
+- Added explicit external library check for TADpoLe.
+
+RECON-06:
+- Added inbox/archive/flagged/trash counts to the Drafts information section.
+
+RECON-05:
+- Added current draft information, including content dump and version information.
+- De-Markdown action/separator and action group names so they are not interpreted on output.
+- Added wrapping to code sections.
+
+RECON-04: 
+- Added higher performance file/directory listings for macOS (only).
+- Removed unnecessary element spacing in action group listing.
+
+RECON-03:
+- Fixed an action name containing emoji display bug on macOS.
+
+RECON-02:
+- Added several additional data gathering sections for app and action information.
+
+RECON-01:
+- Initial release.
+*/</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Default
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Error</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Error</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

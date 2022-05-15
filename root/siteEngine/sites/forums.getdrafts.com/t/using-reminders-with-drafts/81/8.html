@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Using Reminders with Drafts - #8 by agiletortoise - Integration Guides - Drafts Community</title>
+    <meta name="description" content="Importing From Reminders
+Drafts can import reminders from a list in the iOS Reminders app. If you enable this feature, when drafts is launched, it will look for a list in the Reminders app, and create drafts using the&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="../81.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Using Reminders with Drafts&#39;" href="../81.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/1X/95576316ab537ccdade67e9302b4ceaa6c43c8a1.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/1X/95576316ab537ccdade67e9302b4ceaa6c43c8a1.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/using-reminders-with-drafts/81/8" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/using-reminders-with-drafts/81/8" />
+<meta property="og:title" content="Using Reminders with Drafts" />
+<meta name="twitter:title" content="Using Reminders with Drafts" />
+<meta property="og:description" content="The default “List in Reminders” action step does not support dates. You might take a look at the Fantastically Good Reminder Parser action that parses natural language dates." />
+<meta name="twitter:description" content="The default “List in Reminders” action step does not support dates. You might take a look at the Fantastically Good Reminder Parser action that parses natural language dates." />
+<meta property="article:published_time" content="2021-09-14T11:30:47+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="../81.html">Using Reminders with Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../../c/integration-guides.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Integration Guides</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../../tag/reminders.html' class='discourse-tag' rel="tag">reminders</a>, 
+            <a href='../../../tag/guide.html' class='discourse-tag' rel="tag">guide</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+            <link itemprop="image" href="../../../uploads/default/original/1X/95576316ab537ccdade67e9302b4ceaa6c43c8a1.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-06T19:58:44Z' class='post-time'>
+                April 6, 2018,  7:58pm
+              </time>
+              <meta itemprop='dateModified' content='2021-08-13T12:32:43Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../../uploads/default/original/1X/95576316ab537ccdade67e9302b4ceaa6c43c8a1.png" alt="image" data-base62-sha1="lj8mSvFteiNX1kl9MUM3CgJN49r" width="110" height="110"></p>
+<h2>
+<a name="importing-from-reminders-1" class="anchor" href="8.html#importing-from-reminders-1"></a>Importing From Reminders</h2>
+<p>Drafts can import reminders from a list in the iOS Reminders app. If you enable this feature, when drafts is launched, it will look for a list in the Reminders app, and create drafts using the title and note content of any incomplete tasks in that list. After successful import, it will mark those tasks as complete to prevent duplicate imports.</p>
+<p>The default list to import from is “Drafts”, but the list name you wish to import from can be changed in settings.</p>
+<p>If you are using iCloud sync for Reminders, you can add to the “Drafts” reminder list in the Reminders app on OS X.  The reminders will sync to your iOS devices, then be imported into Drafts the next time it launches on your iPhone or iPad if you have enabled the “Import reminders” feature.</p>
+<h2>
+<a name="creating-reminders-2" class="anchor" href="8.html#creating-reminders-2"></a>Creating Reminders</h2>
+<p>Drafts has two action steps that can also create individual reminders, or full lists of reminders in very flexible ways. For information on export to reminders read about the <a href="../../../../docs.getdrafts.com/docs/actions/steps/system.html#reminder">Reminders</a> and <a href="../../../../docs.getdrafts.com/docs/actions/steps/system.html#list-in-reminders">List in Reminders</a> action steps.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d.png" data-download-href="https://forums.getdrafts.com/uploads/default/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d" title="list-in-reminders"><img src="../../../uploads/default/optimized/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d_2_690x311.png" alt="list-in-reminders" data-base62-sha1="zfT1JcpSY2iO7NKJKqd7FhnH3yd" width="690" height="311" srcset="../../../uploads/default/optimized/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d_2_690x311.png, ../../../uploads/default/original/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d.png 1.5x, ../../../uploads/default/original/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f717d8eb2a7f1afbb8fd0f0dc9a63e0be2c4400d_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">list-in-reminders</span><span class="informations">816×368 81.4 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<h4>
+<a name="example-actions-3" class="anchor" href="8.html#example-actions-3"></a>Example actions:</h4>
+<ul>
+<li>
+<a href="../../../../actions.getdrafts.com/a/1E8.html"><strong>Reminder</strong></a>: Creates a single reminder task using the first line of the draft as the title and remain text as a note.</li>
+<li>
+<a href="../../../../actions.getdrafts.com/a/1E7.html"><strong>List in Reminders</strong></a>: Adds each line of the draft as a separate reminder task. This action can be modified to point to a specific list, or the first line of the draft can specify a list dynamically by started with a # character.</li>
+<li>
+<a href="../../../../actions.getdrafts.com/a/1Rr.html"><strong>Reminder with options</strong></a>: Prompts to create a reminder with a number of options for setting due date, priority and selecting target list.</li>
+</ul>
+<h2>
+<a name="scripting-reminders-4" class="anchor" href="8.html#scripting-reminders-4"></a>Scripting Reminders</h2>
+<p>For more advanced integrations, Drafts can script reading and writing of Reminders and Reminder lists. Visit the <a href="../../../../reference.getdrafts.com/objects/Reminder.html">Reminder</a> and <a href="../../../../reference.getdrafts.com/objects/ReminderList.html">ReminderList</a> scripting documentation for details.</p>
+<h4>
+<a name="reminder-and-privacy-settings-5" class="anchor" href="8.html#reminder-and-privacy-settings-5"></a>Reminder and Privacy Settings</h4>
+<p>For any of Drafts reminders integration features to work, you must allow Drafts access to Reminders.</p>
+<p>The first time you attempt to use any Reminders-related features in Drafts, you will be asked for permission.  If you “Don’t Allow” and later want to enable access, visit the iOS Settings app, under Privacy to enable Drafts access.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+          <meta itemprop='keywords' content='reminders, guide'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="8" />
+           <span class='post-likes'>8 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/armenotan'><span itemprop='name'>armenotan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-05T10:47:04Z' class='post-time'>
+                October 5, 2020, 10:47am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-05T11:08:54Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is it possible to only import items of a list inside a specific date range?</p>
+<p>In my case, I would like to import only reminders that are due today.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-05T11:55:53Z' class='post-time'>
+                October 5, 2020, 11:55am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-05T11:55:53Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, you just have to parse the due date on every potential item and check that it is in your specific permitted range before adding or ignoring accordingly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dchar'><span itemprop='name'>dchar</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-28T13:39:24Z' class='post-time'>
+                July 28, 2021,  1:39pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-28T13:39:24Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is there a way to open a reminders list in the reminders app after creating it?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-28T14:01:35Z' class='post-time'>
+                July 28, 2021,  2:01pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-28T14:01:35Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I don’t think so. Reminders has an undocumented URL scheme, but I don’t believe it works for lists. Shortcuts has a “Show Reminder List” shortcut that might be helpful, to use via a “Run Shortcut” action step, but you’d need to know what list you wanted to open, or let it ask you each time - I don’t think you can dynamically locate a list you just created.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dchar'><span itemprop='name'>dchar</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-28T14:51:41Z' class='post-time'>
+                July 28, 2021,  2:51pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-28T14:51:41Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks. Maybe iOS 16. <img src="../../../images/emoji/apple/frowning.png@v=10" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/shiiko'><span itemprop='name'>shiiko</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-14T05:11:12Z' class='post-time'>
+                September 14, 2021,  5:11am
+              </time>
+              <meta itemprop='dateModified' content='2021-09-14T05:11:12Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Starting to use the “List In Reminders”. Thank you.  Any way to add the date of the reminder as “Today” or “Tomorrow” or a specific date?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-14T11:30:47Z' class='post-time'>
+                September 14, 2021, 11:30am
+              </time>
+              <meta itemprop='dateModified' content='2021-09-14T11:30:47Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The default “List in Reminders” action step does not support dates. You might take a look at the <a href="../../fantastically-good-reminder-parser/1884.html">Fantastically Good Reminder Parser</a> action that parses natural language dates.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/shiiko'><span itemprop='name'>shiiko</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-09-14T12:20:41Z' class='post-time'>
+                September 14, 2021, 12:20pm
+              </time>
+              <meta itemprop='dateModified' content='2021-09-14T12:20:41Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Kristine'><span itemprop='name'>Kristine</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-24T00:11:52Z' class='post-time'>
+                February 24, 2022, 12:11am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-24T00:11:52Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you search for a post here I. The community someone found a way to extract and open a link. Sorry I don’t have a link for you I’m down a different rabbit hole but search for reminders and look for a post about 9 months ago or so</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Kristine'><span itemprop='name'>Kristine</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-24T00:14:30Z' class='post-time'>
+                February 24, 2022, 12:14am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-24T00:14:30Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Reminders with options could use the ability to apply a tag (one recognised by reminders app).</p>
+<p>So far no matter what I try, it parses just text with a # in front that doesn’t behave as a tag.</p>
+<p>For context I have smart lists with workflows and automatic assignees and would like to be able to add reminders in bulk with due dates and tags</p>
+<p>Suggestions?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../tip-using-shortcuts-to-route-tagged-drafts/5639/6.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/tip-using-shortcuts-to-route-tagged-drafts/5639/6'>
+                      <span itemprop='name'>TIP: Using Shortcuts to Route Tagged Drafts</span>
+                    </a>
+                    <meta itemprop='position' content='1'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-24T04:40:53Z' class='post-time'>
+                February 24, 2022,  4:40am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-24T04:40:53Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Unfortunately, in the implementation Apple shipped, there is no way to set tags on reminders from outside the Reminders app. Same is true for tagging in Notes.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Kristine'><span itemprop='name'>Kristine</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../81.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-24T07:09:25Z' class='post-time'>
+                February 24, 2022,  7:09am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-24T07:09:25Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ugh yuk. Ok well, here’s hoping ios16 might bring something.</p>
+<p>Thank you <img src="../../../images/emoji/apple/pray/2.png@v=12" title=":pray:t2:" class="emoji" alt=":pray:t2:" loading="lazy" width="20" height="20"></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Reminders with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

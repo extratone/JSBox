@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Insert Date with a Prompt</title>
+    <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850</link>
+    <description>I created my first scripting action today! It was also the first time I&#39;ve ever tried to learn/use javascript, and I&#39;m far more proud of it than is warranted.
+
+My goal was to create a prompt that would allow me to choose from several formats to insert the current date into my current draft. I started with the Prompt action, but couldn’t understand how to take the output of the prompt and change it into anything useful. All I could get out of the prompt was the text that made up the button I pressed.
+
+So…I went down the (admittedly) much harder route and tried to figure out how to use a script to display a prompt and do what I wanted. It took a while, and with much referencing the example actions in the Directory, the Draft Script Reference, and this very forum.
+
+Here’s the result: [Insert Date (Prompt)](https://actions.getdrafts.com/a/1o3). And [here’s a screencast](https://dsh.re/8d64e) of it working using a keyboard command.
+
+And here’s the script. It’s my first one, so I have a lot to learn. If anyone has suggestions on how to streamline the code, I’d love to learn. As Dani Rojas says in Ted Lasso, “Roast me, amigo!”
+
+```
+
+// # Insert a formatted date in Drafts.app using a prompt.
+
+// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = &quot;Insert Formatted Date&quot;;
+
+// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the &#39;Return&#39; key when prompted.
+p.addButton(&quot;yyyy-mm-dd&quot;);
+p.addButton(&quot;Month d, yyyy&quot;);
+p.addButton(&quot;mm/dd/yyyy&quot;);
+p.addButton(&quot;mm-dd-yyyy&quot;);
+p.addButton(&quot;mm/d/yy&quot;);
+p.addButton(&quot;mm-d-yy&quot;);
+
+// Show prompt
+p.show();
+
+var b = (p.buttonPressed)
+
+var ymd = draft.processTemplate(&quot;2021-07-18&quot;)
+var mdy = draft.processTemplate(&quot;[[date|%B %e, %Y]]&quot;)
+
+// Process dates based on button selection and set variable for the processed date (pd).
+if (b == &quot;yyyy-mm-dd&quot;) {
+	var pd = draft.processTemplate(&quot;2021-07-18&quot;)
+	}
+if (b == &quot;Month d, yyyy&quot;) {
+	var pd = draft.processTemplate(&quot;[[date|%B %e, %Y]]&quot;)
+	}
+if (b == &quot;mm/dd/yyyy&quot;) {
+	var pd = draft.processTemplate(&quot;[[date|%m/%d/%Y]]&quot;)
+	}
+if (b == &quot;mm-dd-yyyy&quot;) {
+	var pd = draft.processTemplate(&quot;[[date|%m-%d-%Y]]&quot;)
+	}
+if (b == &quot;mm/d/yy&quot;) {
+	var pd = draft.processTemplate(&quot;[[date|%m/%e/%y]]&quot;)
+	}
+if (b == &quot;mm-d-yy&quot;) {
+	var pd = draft.processTemplate(&quot;[[date|%m-%e-%y]]&quot;)
+	}
+
+// Take action
+if (pd != undefined) {
+	// Insert processed date template into the draft at the selected range or point
+	editor.setTextInRange(st, len, pd);
+	// Reactivate the editor with the insertion point at the end of the newly added date
+	editor.setSelectedRange(st + pd.length, 0);
+}
+
+editor.activate();
+
+```</description>
+    
+    <lastBuildDate>Sun, 25 Jul 2021 09:12:33 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You can pick out any elements you want to make use of, but it was intended just to show you some alternative approaches. You don’t have to change anything about your original one. It was functional as it was.</p>
+<p><em>The version I created is on the directory, but it is unlisted meaning that unless someone enters the address or uses the link above, they will not discover it.</em></p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/13</link>
+        <pubDate>Sun, 25 Jul 2021 09:12:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-13</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah, I see now. That makes a lot of sense. I’ll update the action in the directory with your suggestions. Thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/12</link>
+        <pubDate>Sun, 25 Jul 2021 01:20:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-12</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>This might help.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/b/bb672a4e0dd22701ecfddd8c5eced17d86b0fde2.png" class="site-icon" width="48" height="48">
+
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">developer.mozilla.org</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/388;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_690x388.png" class="thumbnail" width="690" height="388" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_690x388.png, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_1035x582.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_1380x776.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_10x10.png"></div>
+
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">Array.prototype.map() - JavaScript | MDN</a></h3>
+
+  <p>The map() method creates
+a new array populated with the results of calling a provided function on
+  every element in the calling array.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<ul>
+<li>
+<code>strDateOption</code> is the placeholder for the current line being processed. Each is an option for which date format to used and is expressed as a string, therefore the variable name. I like to try and use the names to tell me not only what a variable is/if for, but also what type it is.</li>
+<li>
+<code>=&gt;</code> is what defines it as a “<em>fat arrow function</em>”, and here it is just a compact way of writing an anonymous function like <code>function (strDateOption){promptDate.addButton(strDateOption)}</code>
+</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/11</link>
+        <pubDate>Sat, 24 Jul 2021 19:21:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-11</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow! Good stuff! I think I understand everything except for the last bit of this line:</p>
+<aside class="quote no-group" data-username="sylumer" data-post="9" data-topic="10850">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/sylumer/40/2731_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p><code>draft.getTemplateTag("OPTIONS").split("\n").map(strDateOption =&gt; promptDate.addButton(strDateOption))</code></p>
+</blockquote>
+</aside>
+<p>I see that it get the tag defined in the first step, splits it by new lines, and maps it to a new array in order to make the buttons. This may be obvious, but what is the <code>strDateOption =&gt;...</code>? I don’t see it defined before it gets called there.</p>
+<p>Thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/10</link>
+        <pubDate>Sat, 24 Jul 2021 19:05:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-10</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Just to add another alternative take to the mix, take a peek at this version. It uses an even simpler option for users to maintain the list in the action (no array, no object definition, just plain text), deals with the user cancelling, and technically accounts for any options where the insertion date string cannot be defined (pops up an app level error message).</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1ok">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1ok" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1ok" target="_blank" rel="noopener">Drafts Directory: Insert Date (Prompt)</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+
+Step 1 - Tag Definition <a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/9">(click for more details)</a>
+
+Step 2 - Script Definition <a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/9">(click for more details)</a>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/9</link>
+        <pubDate>Sat, 24 Jul 2021 18:26:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-9</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <h1>
+<a name="aha-1" class="anchor" href="https://forums.getdrafts.com#aha-1"></a>Aha!</h1>
+<p>Based on the excellent suggestions here, I think I’ve arrived at my ultimate vision for this action: a prompt that is easily configurable (and, therefore, necessarily understandable) for anyone who downloads it.</p>
+<p>I ended up using both <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>’s tip for separating out the options (but used an array instead of a dictionary), and <a class="mention" href="https://forums.getdrafts.com/u/jsamlarose">@jsamlarose</a>’s advice to implement Date.js so that the selected button text itself could be used when processing the date’s format.</p>
+<p>Anyone can reference Date.js to add their preferred date and time format to the options array, and the syntax for those <a href="https://github.com/datejs/Datejs#standard-date-and-time-format-specifiers" rel="noopener nofollow ugc">date and time format specifiers</a> are pretty human-readable so they work fine as buttons.</p>
+<h2>
+<a name="heres-the-result-2" class="anchor" href="https://forums.getdrafts.com#heres-the-result-2"></a>Here’s the result</h2>
+<p>Step 1:</p>
+<pre><code class="lang-auto">// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the 'Return' key when prompted.
+
+const options = [
+  "yyyy-MM-dd",
+  "MMMM d, yyyy",
+  "MM/dd/yyyy",
+  "MM-dd-yyyy",
+  "MM/d/yy",
+  "MM-d-yy"
+]
+// Additional date formats can be configured by referencing the Datejs documentation on GitHub (https://github.com/datejs/Datejs)
+</code></pre>
+<p>Step 2:</p>
+<pre><code class="lang-auto">// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = "Insert Formatted Date";
+
+// Build buttons using the array elements from the previous script
+for (let i = 0; i &lt; options.length; i++) {
+  p.addButton(options[i]);
+} // First statement executes once before running the for loop (in this case, sets the initial variable i for the first element in the array), Second statement defines the condition for executing the code block (ITC, keep running as long as i is less than the number of elements in the options array), Third statement executes every time after the code block has been executed (ITC, increases the value of i by 1)
+
+// Show prompt
+p.show();
+
+// Process dates based on button selection (b) and set variable for the processed date (pd) using Date.js
+let b = (p.buttonPressed)
+let pd = new Date().toString(b);
+
+// Take action
+if (pd != undefined) {
+	editor.setTextInRange(st, len, pd);	// Inserts processed date template into the draft at the selected range or point
+	editor.setSelectedRange(st + pd.length, 0);	// Reactivates the editor with the insertion point at the end of the newly added date
+}
+
+editor.activate();
+</code></pre>
+<p>I’ve updated the <a href="https://actions.getdrafts.com/a/1o3" rel="noopener nofollow ugc">action in the directory</a>. Thanks for helping me through this first creation!</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/8</link>
+        <pubDate>Sat, 24 Jul 2021 17:28:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-8</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/images/emoji/apple/+1.png?v=9" title=":+1:" class="emoji" alt=":+1:"> Good to know! I’ll play around with that next.</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/7</link>
+        <pubDate>Thu, 22 Jul 2021 19:54:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-7</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you, Greg! I had wanted to separate out those options so that they could easily be edited by myself or others. I just wasn’t sure if they would work across different steps.</p>
+<p>I appreciate you providing the example, and I updated the action with it. <img src="https://forums.getdrafts.com/images/emoji/apple/slightly_smiling_face.png?v=9" title=":slightly_smiling_face:" class="emoji" alt=":slightly_smiling_face:"></p>
+<aside class="quote no-group" data-username="agiletortoise" data-post="3" data-topic="10850">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>(except the hard-coded <code>"2021-07-18"</code>, oops!)</p>
+</blockquote>
+</aside>
+<p>Whoops! Luckily that part didn’t make it into the action I shared to the directory.</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/6</link>
+        <pubDate>Thu, 22 Jul 2021 19:53:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-6</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="_heyjarrod" data-post="4" data-topic="10850">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/_heyjarrod/40/5518_2.png" class="avatar"> _heyjarrod:</div>
+<blockquote>
+<p>How would I got about including Date.js? Would I add another action and copy the code from GitHub into it?</p>
+</blockquote>
+</aside>
+<p>It is actually built in. No additional steps required to include it.</p>
+<aside class="quote quote-modified" data-post="4" data-topic="5440">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/strptime-equivalent/5440/4">Strptime() equivalent?</a> 
+  </div>
+  <blockquote>
+    Just for the record here, Drafts includes the <a href="https://github.com/datejs/Datejs" rel="nofollow noopener">Date.js</a> library in it’s Javascript runtime automatically, so Date.parse is dramatically enhanced over the standard Javascript version. 
+A few examples: 
+Date.parse("t")                 // Returns today's date.
+Date.parse("today")             // Returns today's date.
+Date.parse("tomorrow")          // Returns tomorrow's date.
+Date.parse("yesterday")         // Returns yesterday's date.
+
+Date.parse("next friday")       // Returns the date of the next F…
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/5</link>
+        <pubDate>Thu, 22 Jul 2021 19:25:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-5</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you! I like the idea of being able to just write the format that I want without necessarily needing to know the conversion. Then if other people download it, they can easily add their preferred formats, too.</p>
+<p>How would I got about including Date.js? Would I add another action and copy the code from GitHub into it?</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/4</link>
+        <pubDate>Thu, 22 Jul 2021 19:10:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-4</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This is great as-is (except the hard-coded <code>"2021-07-18"</code>, oops!), but if you simply asking for way to make minor improvements, I would suggest abstracting the options into an object to make it a little easier to manage if you wanted to add/remove options in the future…something like:</p>
+<pre><code class="lang-javascript">let options = {
+  "yyyy-mm-dd": "[[date|%Y-%m-%d]]",
+  "Month d, yyyy": "[[date|%B %e, %Y]]",
+  "mm/dd/yyyy": "[[date|%m/%d/%Y]]",
+  "mm-dd-yyyy": "[[date|%m-%d-%Y]]",
+  "mm/d/yy": "[[date|%m/%e/%y]]",
+  "mm-d-yy": "[[date|%m-%e-%y]]"
+}
+</code></pre>
+<p>This object has each button option as a key, and each format associated with that format as it’s value.  You can then create the buttons like:</p>
+<pre><code class="lang-javascript">for (let key of Object.keys(options)) {
+  p.addButton(k);
+}
+</code></pre>
+<p>And, after the prompt is displayed, lookup the format to use from the object, like:</p>
+<pre><code class="lang-javascript">let b = (p.buttonPressed)
+let format = options[b];
+let pd = draft.processTemplate(format);
+</code></pre>
+<p>None of this enhances the functionality of your script, but to edit options, you need only update the options object at the top of the script.</p>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/3</link>
+        <pubDate>Mon, 19 Jul 2021 12:19:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-3</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>Congratulations for your first action! Gotta love that feeling of having learned/achieved something. <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<p>I’m no JavaScript pro, but what about this?</p>
+<pre><code class="lang-auto">// # Insert a formatted date in Drafts.app using a prompt.
+
+// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = "Insert Formatted Date";
+
+// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the 'Return' key when prompted.
+p.addButton("yyyy-MM-dd");
+p.addButton("MMMM d, yyyy");
+p.addButton("MM/dd/yyyy");
+p.addButton("MM-dd-yyyy");
+p.addButton("MM/d/yy");
+p.addButton("MM-d-yy");
+
+// Show prompt
+p.show();
+
+var b = (p.buttonPressed)
+
+// are these two leftover from something?
+
+var ymd = draft.processTemplate("2021-07-18") 
+var mdy = draft.processTemplate("[[date|%B %e, %Y]]")
+
+// if you use Date.js, you can use the prompt to as a variable for the date template (you've already done the work up there...)
+var pd = new Date().toString(b)
+
+// Take action
+if (pd != undefined) {
+	// Insert processed date template into the draft at the selected range or point
+	editor.setTextInRange(st, len, pd);
+	// Reactivate the editor with the insertion point at the end of the newly added date
+	editor.setSelectedRange(st + pd.length, 0);
+}
+
+editor.activate();
+</code></pre>
+<p>Basically, if you use Date.js to parse the date string, you can use the output of the prompt as a variable to supply the template, which you’ve pretty much already defined in the prompt’s options (though note the difference between m and M for Date.js— specifying minutes vs months…). Saves a few lines of code and the need to write out those conditional statements…</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://github.com/datejs/Datejs">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+
+      <a href="https://github.com/datejs/Datejs" target="_blank" rel="noopener">GitHub</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/345;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_690x345.png" class="thumbnail" width="690" height="345" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_690x345.png, https://forums.getdrafts.com/uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_1035x517.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_10x10.png"></div>
+
+<h3><a href="https://github.com/datejs/Datejs" target="_blank" rel="noopener">datejs/Datejs</a></h3>
+
+  <p>A JavaScript Date and Time Library. Contribute to datejs/Datejs development by creating an account on GitHub.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/2</link>
+        <pubDate>Mon, 19 Jul 2021 11:46:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-2</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+      <item>
+        <title>Insert Date with a Prompt</title>
+        <dc:creator><![CDATA[_heyjarrod]]></dc:creator>
+        <description><![CDATA[
+            <p>I created my first scripting action today! It was also the first time I’ve ever tried to learn/use javascript, and I’m far more proud of it than is warranted.</p>
+<p>My goal was to create a prompt that would allow me to choose from several formats to insert the current date into my current draft. I started with the Prompt action, but couldn’t understand how to take the output of the prompt and change it into anything useful. All I could get out of the prompt was the text that made up the button I pressed.</p>
+<p>So…I went down the (admittedly) much harder route and tried to figure out how to use a script to display a prompt and do what I wanted. It took a while, and with much referencing the example actions in the Directory, the Draft Script Reference, and this very forum.</p>
+<p>Here’s the result: <a href="https://actions.getdrafts.com/a/1o3" rel="noopener nofollow ugc">Insert Date (Prompt)</a>. And <a href="https://dsh.re/8d64e" rel="noopener nofollow ugc">here’s a screencast</a> of it working using a keyboard command.</p>
+<p>And here’s the script. It’s my first one, so I have a lot to learn. If anyone has suggestions on how to streamline the code, I’d love to learn. As Dani Rojas says in Ted Lasso, “Roast me, amigo!”</p>
+<pre><code class="lang-auto">
+// # Insert a formatted date in Drafts.app using a prompt.
+
+// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = "Insert Formatted Date";
+
+// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the 'Return' key when prompted.
+p.addButton("yyyy-mm-dd");
+p.addButton("Month d, yyyy");
+p.addButton("mm/dd/yyyy");
+p.addButton("mm-dd-yyyy");
+p.addButton("mm/d/yy");
+p.addButton("mm-d-yy");
+
+// Show prompt
+p.show();
+
+var b = (p.buttonPressed)
+
+var ymd = draft.processTemplate("2021-07-18")
+var mdy = draft.processTemplate("[[date|%B %e, %Y]]")
+
+// Process dates based on button selection and set variable for the processed date (pd).
+if (b == "yyyy-mm-dd") {
+	var pd = draft.processTemplate("2021-07-18")
+	}
+if (b == "Month d, yyyy") {
+	var pd = draft.processTemplate("[[date|%B %e, %Y]]")
+	}
+if (b == "mm/dd/yyyy") {
+	var pd = draft.processTemplate("[[date|%m/%d/%Y]]")
+	}
+if (b == "mm-dd-yyyy") {
+	var pd = draft.processTemplate("[[date|%m-%d-%Y]]")
+	}
+if (b == "mm/d/yy") {
+	var pd = draft.processTemplate("[[date|%m/%e/%y]]")
+	}
+if (b == "mm-d-yy") {
+	var pd = draft.processTemplate("[[date|%m-%e-%y]]")
+	}
+
+// Take action
+if (pd != undefined) {
+	// Insert processed date template into the draft at the selected range or point
+	editor.setTextInRange(st, len, pd);
+	// Reactivate the editor with the insertion point at the end of the newly added date
+	editor.setSelectedRange(st + pd.length, 0);
+}
+
+editor.activate();
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850/1</link>
+        <pubDate>Mon, 19 Jul 2021 00:30:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10850-1</guid>
+        <source url="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850.rss">Insert Date with a Prompt</source>
+      </item>
+  </channel>
+</rss>

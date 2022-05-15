@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Syncing Drafts with Obsidian - #2 by sylumer - Drafts Community</title>
+    <meta name="description" content="Hi all, 
+How can I have my drafts automatically synced with Obsidian? Meaning when I write a note on Drafts it automatically goes on Obsidian rather than me copying it. 
+Thank you!">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="../9671.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Syncing Drafts with Obsidian&#39;" href="../9671.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/syncing-drafts-with-obsidian/9671/2" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/syncing-drafts-with-obsidian/9671/2" />
+<meta property="og:title" content="Syncing Drafts with Obsidian" />
+<meta name="twitter:title" content="Syncing Drafts with Obsidian" />
+<meta property="og:description" content="Drafts does not store content in files whereas Obsidian does, so you cannot sync drafts automatically.  You can, however, have an action that exports a drafts into an Obsidian vault. When you have completed your draft, you would select the action to trigger the export. Drafts doesn’t auto trigger any actions so this would have to be manually triggered; though I guess it is possible to schedule actions to run externally to Drafts, but this wouldn’t be able to assess the “state” of a draft.  There..." />
+<meta name="twitter:description" content="Drafts does not store content in files whereas Obsidian does, so you cannot sync drafts automatically.  You can, however, have an action that exports a drafts into an Obsidian vault. When you have completed your draft, you would select the action to trigger the export. Drafts doesn’t auto trigger any actions so this would have to be manually triggered; though I guess it is possible to schedule actions to run externally to Drafts, but this wouldn’t be able to assess the “state” of a draft.  There..." />
+<meta property="article:published_time" content="2021-01-25T18:23:09+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="../9671.html">Syncing Drafts with Obsidian</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Alrady_Hamedaldean'><span itemprop='name'>Alrady_Hamedaldean</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-25T16:23:13Z' class='post-time'>
+                January 25, 2021,  4:23pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-25T16:23:13Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi all,</p>
+<p>How can I have my drafts automatically synced with Obsidian? Meaning when I write a note on Drafts it automatically goes on Obsidian rather than me copying it.</p>
+<p>Thank you!</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-25T18:23:09Z' class='post-time'>
+                January 25, 2021,  6:23pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-25T18:23:09Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Drafts does not store content in files whereas Obsidian does, so you cannot sync drafts automatically.</p>
+<p>You can, however, have an action that exports a drafts into an Obsidian vault. When you have completed your draft, you would select the action to trigger the export. Drafts doesn’t auto trigger any actions so this would have to be manually triggered; though I guess it is possible to schedule actions to run externally to Drafts, but this wouldn’t be able to assess the “state” of a draft.</p>
+<p>There are a number of posts already that cover how you could use actions to export to Obsidian.</p>
+<p><em>This thread:</em></p><aside class="quote" data-post="1" data-topic="8787">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../letter_avatar_proxy/v4/letter/f/eb9ed0/40.png" class="avatar">
+    <a href="../../copy-notes-to-obsidian-folder/8787.html">Copy notes to Obsidian folder</a> 
+  </div>
+  <blockquote>
+    How can I copy a draft into an Obsidian folder (residing in iCloud) in markdown/.md extension? Is there an action for this? 
+As workaround I use Ulysses with external file access, but for quick notes it is a bit clunky. 
+THX
+  </blockquote>
+</aside>
+
+<p><em>Second part of this response:</em></p><aside class="quote quote-modified" data-post="20" data-topic="9637">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar">
+    <a href="../../bullet-journaling-with-drafts/9637/20.html">Bullet Journaling with Drafts</a> <a class="badge-wrapper  bullet" href="../../../c/actions-sharing.html"><span class="badge-category-bg" style="background-color: #9EB83B;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Made a cool action, or discovered a new way to use Drafts? Share it here.">Actions - Share What You've Made</span></a>
+  </div>
+  <blockquote>
+    Okay, let’s see if there’s anything I can add to this that’s of use 🤷🏻 
+Bullet Journalling Script in Drafts
+
+Let’s try a slightly reworked version with a few tweaks in some of the logic, messages, and title matching. 
+// This is the same as "Go to Today's Journal", but I don't know how to define them in one place and share that information
+let bjTitle = draft.processTemplate("# Journal for [[date|%A, %e %B %Y]]");
+const tagsJournal = ["journal"];
+const tags = draft.tags;
+let draftJournal;
+
+// If…
+  </blockquote>
+</aside>
+
+<p><em>This thread:</em></p><aside class="quote" data-post="1" data-topic="8221">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/mikecufc/40/3899_2.png" class="avatar">
+    <a href="../../exporting-to-obsidian/8221.html">Exporting to Obsidian</a> 
+  </div>
+  <blockquote>
+    Is anyone using Obsidian? Just started to give it a whirl however struggling to find the best action to export from Drafts into it. Anyone got any tips? 
+Many thanks
+  </blockquote>
+</aside>
+
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Alrady_Hamedaldean'><span itemprop='name'>Alrady_Hamedaldean</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-25T20:17:26Z' class='post-time'>
+                January 25, 2021,  8:17pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-25T20:17:26Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes it does thanks! Haven’t worked out all the kinks but thanks for the guidance.</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cvanhenten'><span itemprop='name'>cvanhenten</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-28T07:23:29Z' class='post-time'>
+                January 28, 2021,  7:23am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-28T07:23:29Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m very interested by this topic.<br>
+Yesterday I discovered that Drafts cannot save (export) a drafts note into a folder outside its container (in iCloud). It is not due to Drafts but to IOS.<br>
+My intention was to save drafts notes with an action into the obsidian folder/vault.<br>
+At least it is not possible outside Drafts folder, at least in IOS.<br>
+So  I made up my mind: whatever I write with Drafts for Obsidian, is considered as a draft or an inbox item.<br>
+And I think it is a good concept.<br>
+So we add an integration step 1) write in Drafts 2) export in, a folder (could be in dropbox) 3) copy in a folder within obsidian vault 4) evaluate and adapt each note to integrate into obsidian.<br>
+I already placed my vault into a 1Writer folder but Drafts is better to create notes in IOS, I don’t see the advantage of 1writer</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-28T07:55:18Z' class='post-time'>
+                January 28, 2021,  7:55am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-29T18:12:22Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="cvanhenten" data-post="4" data-topic="9671">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/cvanhenten/40/4265_2.png" class="avatar"> cvanhenten:</div>
+<blockquote>
+<p>Yesterday I discovered that Drafts cannot save (export) a drafts note into a folder outside its container (in iCloud). It is not due to Drafts but to IOS.</p>
+</blockquote>
+</aside>
+<p>If you really needed to do this there are apps such as Toolbox Pro (for Shortcuts) and Scriptable that support folder bookmarking. This feature allows you to work around the limitation imposed by the sandboxing.</p>
+<p>Drafts technically can save outside is own folders, but this involves manually selecting a destination each time.</p>
+<aside class="quote no-group" data-username="cvanhenten" data-post="4" data-topic="9671">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/cvanhenten/40/4265_2.png" class="avatar"> cvanhenten:</div>
+<blockquote>
+<p>I already placed my vault into a 1Writer folder but Drafts is better to create notes in IOS, I don’t see the advantage of 1writer</p>
+</blockquote>
+</aside>
+<p>The advantages are that 1writer works directly with the file system such that it is therefore easier to view and edit files in the vault. Drafts can do it, but it is a little bit of extra effort. Round tripping modifications via import/export  in Drafts is certainly not as easy as just saving in 1writer; though custom actions can help Drafts achieve easier round tripping.</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Mike_Burke'><span itemprop='name'>Mike_Burke</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-29T16:39:38Z' class='post-time'>
+                January 29, 2021,  4:39pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-29T16:39:38Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have a few folders in Draft’s iCloud Drive folder which are watched by <a href="https://www.noodlesoft.com" rel="noopener nofollow ugc">Hazel</a>. Hazel then either triggers an AppleScript or moves the text file to a different location (usually Google Drive).</p>
+<p>Perhaps Hazel might be of use to you?</p>
+<p>I use the same method with files created by Shortcuts. In all cases, it works very well.</p>
+<p>That being said, I do have an always on Mac Mini running to keep this active at all times.</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/evantravers'><span itemprop='name'>evantravers</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="../9671.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-02-02T15:42:38Z' class='post-time'>
+                February 2, 2021,  3:42pm
+              </time>
+              <meta itemprop='dateModified' content='2021-02-02T15:42:38Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My obsidian wiki is in a free Dropbox account. I just have actions that save to Dropbox, with a particular tag and then I have a process at the end of the day to go and process new Orphans in Obsidian with that tag.</p>
+        </div>
+
+        <meta itemprop='headline' content='Syncing Drafts with Obsidian'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

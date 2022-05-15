@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Fantastically Good Reminder Parser</title>
+    <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884</link>
+    <description>A companion action to my previous [Fantastically Good Event Parser](https://polymaths.blog/2018/06/fantastically-good-event-parser-for-drafts-5), this time for adding reminders to the Reminders app. Supports natural language date and time entry and other Fantastical-style functionality. 
+
+More details [on my blog](https://polymaths.blog/2018/07/fantastically-good-reminder-parser-for-drafts-5).
+
+Here’s a [direct link](https://actions.getdrafts.com/a/1MR) to the Action Directory.</description>
+    
+    <lastBuildDate>Sun, 15 Mar 2020 17:06:42 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[Dave_Spathaky]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to consider a version of what you made that would parse a page from a journal in drafts and add events and tasks to fantastical by finding a character and then using that line to add either a event or a task.</p>
+<pre><code>* Bullet points / asterisk for a todo
+[ ] for a task (defaulting to now today)
+- something longer 
+Http://someurl.com
+</code></pre>
+<p>Ideally if</p>
+<p>‘- something longer’<br>
+Could be added as a note in an event I would be delighted<br>
+Like wise urls and all the other good things like /calendar and /repeats etc too.</p>
+<p>Is this feasible with the above hack or am I barking in vain in the wrong forest?</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/8</link>
+        <pubDate>Sun, 15 Mar 2020 17:06:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-8</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, this is actually quite simple to achieve. The only bit of the script you need to edit is the for loop right at the end. You just need to add a condition to check whether the line contains a certain string, and then only apply the function when it doesn’t. Something like this perhaps:</p>
+<pre><code class="lang-auto">for (let line of lines) {
+	if (!string.includes("#")) {
+		makeReminder(line);
+	}
+} 
+</code></pre>
+<p>This would force the script to ignore all lines containing a <code>#</code> character. You could customise this as you like.</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/7</link>
+        <pubDate>Mon, 06 Aug 2018 13:25:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-7</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>Not at the moment unfortunately.</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/6</link>
+        <pubDate>Mon, 06 Aug 2018 13:17:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-6</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[KathrynRhind]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there any way to parse a location reminder? I can’t figure that out. Thanks. Looks great.</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/5</link>
+        <pubDate>Sat, 04 Aug 2018 17:04:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-5</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[iago]]></dc:creator>
+        <description><![CDATA[
+            <p>I was checking the code trying to figure this out but it’s too complicated for me. Do you think it’s possible to add an ignore-line tag to the action?</p>
+<p>The iteration I’m thinking: a list with pending tasks and then, when I decide to do next one, delete the list hook, add a date, and launch the action.</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/4</link>
+        <pubDate>Wed, 25 Jul 2018 08:47:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-4</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>If you already downloaded this, I just fixed a bug where alarms were not working properly. Now updated in the action directory.</p>
+<p><a href="https://actions.getdrafts.com/a/1MR" class="onebox" target="_blank" rel="nofollow noopener">https://actions.getdrafts.com/a/1MR</a></p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/3</link>
+        <pubDate>Thu, 12 Jul 2018 22:06:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-3</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[nahumck]]></dc:creator>
+        <description><![CDATA[
+            <p>Again, this is awesome and perfect for what I need. Thanks <a class="mention" href="https://forums.getdrafts.com/u/pdavisonreiber">@pdavisonreiber</a>!!</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/2</link>
+        <pubDate>Wed, 11 Jul 2018 22:41:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-2</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+      <item>
+        <title>Fantastically Good Reminder Parser</title>
+        <dc:creator><![CDATA[pdavisonreiber]]></dc:creator>
+        <description><![CDATA[
+            <p>A companion action to my previous <a href="https://polymaths.blog/2018/06/fantastically-good-event-parser-for-drafts-5" rel="nofollow noopener">Fantastically Good Event Parser</a>, this time for adding reminders to the Reminders app. Supports natural language date and time entry and other Fantastical-style functionality.</p>
+<p>More details <a href="https://polymaths.blog/2018/07/fantastically-good-reminder-parser-for-drafts-5" rel="nofollow noopener">on my blog</a>.</p>
+<p>Here’s a <a href="https://actions.getdrafts.com/a/1MR" rel="nofollow noopener">direct link</a> to the Action Directory.</p>
+          <p><a href="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884/1</link>
+        <pubDate>Wed, 11 Jul 2018 16:57:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-1884-1</guid>
+        <source url="https://forums.getdrafts.com/t/fantastically-good-reminder-parser/1884.rss">Fantastically Good Reminder Parser</source>
+      </item>
+  </channel>
+</rss>

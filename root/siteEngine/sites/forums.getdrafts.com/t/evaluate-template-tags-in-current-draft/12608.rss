@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Evaluate Template Tags in Current Draft</title>
+    <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608</link>
+    <description>I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, managed to modify some existing scripts to meet my needs, but I seem to be completely stuck on the fundamentals here.
+
+Basically, I want to grab anything in the current Draft that uses the template tags like `[[date]]` or `&lt;&lt;TextExpander_snippet&gt;&gt;` and replace that placeholder with appropriate information. I’m okay with either just grabbing the current line or evaluating the draft as a whole. I thought it would be simpler to process the Draft as a whole instead of trying to get tricky with selectors, but I’m not even having luck there.
+
+Based on my extremely limited understanding of scripting syntax I thought something like this would work: `let updated_text = processTemplate(draft.content);`
+
+Edit:
+This works for tags like `[[date]]`
+
+`draft.content = draft.processTemplate(&quot;[[draft]]”);`
+`draft.update();`
+
+but TextExpander shortcuts like `&lt;&lt;ldate&gt;&gt;` do not work even though typing the abbreviation `ldate` into Drafts manually *does* expand as expected.</description>
+    
+    <lastBuildDate>Wed, 11 May 2022 00:01:17 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Evaluate Template Tags in Current Draft</title>
+        <dc:creator><![CDATA[Isshin]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the caveat about TextExpander use and suggestions for alternative approaches. No wonder I wasn’t able to get it working; it simply wasn’t possible.</p>
+<p>For this, looks like my best bet is the JSON via Data Jar workflow that I’ve already got in place. I’ve used the text file approach for logging other bits of data in the past but sometimes it’s iffy because the Files app doesn’t necessarily update immediately, so I’ve come to use data in text files mostly for outgoing info, rolling logs, etc.</p>
+<p>Edited to add:</p>
+<p>I’m used to using this exclusively on iOS since I first started automating things like this with Drafts before the Drafts app or Shortcuts on macOS existed, so getting it to work Mac-side is not even really a consideration.</p>
+          <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/6</link>
+        <pubDate>Tue, 10 May 2022 23:55:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12608-6</guid>
+        <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+      </item>
+      <item>
+        <title>Evaluate Template Tags in Current Draft</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Seems like you have made good progress. I would suggest TextExpander is not a good option here for your data source, obvious because you cannot programmatically expand snippets, but also because programmatic expansion does not work at all on the Mac and because any change you make in TextExpander would not make it into Drafts on iOS until you “refresh snippets” to update the TextExpander snippet library.</p>
+<p>I’m not sure what other places you want to be able to use this information. It could be stored in a draft and inserted programmatically. It could be stored in a plain text file somewhere and read and inserted - either by Drafts or Shortcuts. Those both represent additional steps to use elsewhere.</p>
+          <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/5</link>
+        <pubDate>Tue, 10 May 2022 12:23:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12608-5</guid>
+        <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+      </item>
+      <item>
+        <title>Evaluate Template Tags in Current Draft</title>
+        <dc:creator><![CDATA[Isshin]]></dc:creator>
+        <description><![CDATA[
+            <p>I have a set of class notes that differ depending on the day. I automated their creation by using Shortcuts to pull info from a JSON dictionary so that when a new term/year starts I don’t have to update a whole set of templates, I just update the information in one place and use Shortcuts to create that day’s set of notes. I did it this way to generate a new Draft dynamically instead of using a static source template because there are various tags and headings I need to enter that differ from class to class.</p>
+<p>For each class, I also have a student name list formatted as a checklist. I made those TextExpander snippets because I have to be able to enter those name lists in different places besides this template. I have been just typing the TextExpander snippet when I open the note, but the whole idea of automation is to take care of that kind of repetitive routine task.</p>
+<p>Ideally, I should be able to just update any info in TextExpander and have it work in any of the various places I need it. I thought that in-app scripting would be better than trying to do it another way since there wouldn’t be any other dependencies. Plus, as I pointed out earlier, I have almost no experience in scripting so this would be an excuse to learn a bit more.</p>
+<p>(Side topic: anyone know of a resource with a clear explanation of syntax and how to combine terms, with lots of examples of code? I’ve been feeling my way through this since most “tutorials” I’ve found jump from <em>this is a variable</em> level to <em>of course it’s a trivial exercise from this point to create your own Turing machine</em> with seemingly nothing in between. My problem is usually not to figure out <strong>what</strong> to do since I’m pretty good at breaking down problems into steps; but I often can’t find clear information on <strong>how</strong> to implement something.)</p>
+<p>I suppose I can just add a key to the JSON dictionary I’ve already set up for the classes themselves and add that step to the Shortcuts workflow. I’ll have to update the information manually there too, if I have to update anything during the term, but at least it will accomplish what I’m trying to do. I think.</p>
+          <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/4</link>
+        <pubDate>Tue, 10 May 2022 01:16:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12608-4</guid>
+        <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+      </item>
+      <item>
+        <title>Evaluate Template Tags in Current Draft</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Mentioned in the <a href="https://forums.getdrafts.com/t/using-textexpander-with-drafts/5030">TextExpander guide</a>, but, yes, those snippets are not supported in script for boring technical reasons.</p>
+<p>Could you explain what your use case is for this solution? It is a big at-odds with how template tags are meant to be used…perhaps there is a better solution.</p>
+          <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/3</link>
+        <pubDate>Mon, 09 May 2022 12:01:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12608-3</guid>
+        <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+      </item>
+      <item>
+        <title>Evaluate Template Tags in Current Draft</title>
+        <dc:creator><![CDATA[Isshin]]></dc:creator>
+        <description><![CDATA[
+            <p>After looking at some scripts to see how people write code that does something similar, this is what I’ve got at present:</p>
+<pre><code class="lang-auto">var text = editor.getSelectedText();
+let replacement = draft.processTemplate(text);
+editor.setSelectedText(replacement);
+draft.update();
+</code></pre>
+<p>I can select a tag, expand it, and the expansion replaces the selected text. This works with all Drafts square-bracket tags like <code>[[permalink]]</code>, but TextExpander tags with double-less/greater-than symbols like <code>&lt;&lt;TextExpander_abbreviation&gt;&gt;</code> do not seem to get processed. Am I asking for something that isn’t supported? According to the <a href="https://docs.getdrafts.com/docs/actions/templates/drafts-templates" rel="noopener nofollow ugc">Drafts Templates</a> page TextExpander snippets in templates <em>should</em> expand when run through the parser, but it doesn’t work for me.</p>
+<p>Typing the abbreviation works; I use TextExpander snippets all the time, so I’ve had them enabled for forever. I’ve also checked to make sure that the option at <code>Settings &gt; TextExpander &gt; Expand in Action Templates</code> is enabled. I’ve also checked that the snippets I want to use exist and that snippets were refreshed.</p>
+<p>Does anybody have any idea why TextExpander snippets aren’t getting processed?</p>
+          <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/2</link>
+        <pubDate>Mon, 09 May 2022 06:53:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12608-2</guid>
+        <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+      </item>
+      <item>
+        <title>Evaluate Template Tags in Current Draft</title>
+        <dc:creator><![CDATA[Isshin]]></dc:creator>
+        <description><![CDATA[
+            <p>I would like to evaluate placeholder template tags in an already existing Draft and update the draft in-place, without having to create a new document from a template. I’m basically code illiterate. I have, in the past, managed to modify some existing scripts to meet my needs, but I seem to be completely stuck on the fundamentals here.</p>
+<p>Basically, I want to grab anything in the current Draft that uses the template tags like <code>[[date]]</code> or <code>&lt;&lt;TextExpander_snippet&gt;&gt;</code> and replace that placeholder with appropriate information. I’m okay with either just grabbing the current line or evaluating the draft as a whole. I thought it would be simpler to process the Draft as a whole instead of trying to get tricky with selectors, but I’m not even having luck there.</p>
+<p>Based on my extremely limited understanding of scripting syntax I thought something like this would work: <code>let updated_text = processTemplate(draft.content);</code></p>
+<p>Edit:<br>
+This works for tags like <code>[[date]]</code></p>
+<p><code>draft.content = draft.processTemplate("[[draft]]”);</code><br>
+<code>draft.update();</code></p>
+<p>but TextExpander shortcuts like <code>&lt;&lt;ldate&gt;&gt;</code> do not work even though typing the abbreviation <code>ldate</code> into Drafts manually <em>does</em> expand as expected.</p>
+          <p><a href="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608/1</link>
+        <pubDate>Fri, 06 May 2022 06:00:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12608-1</guid>
+        <source url="https://forums.getdrafts.com/t/evaluate-template-tags-in-current-draft/12608.rss">Evaluate Template Tags in Current Draft</source>
+      </item>
+  </channel>
+</rss>

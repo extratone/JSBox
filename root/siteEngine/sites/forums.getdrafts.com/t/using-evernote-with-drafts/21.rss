@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Evernote with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21</link>
+    <description>![app-icon|105x105](upload://zqFOEGFMgEzzOhEYnhqru3KGdWx.png)
+
+- [**App Store**](https://itunes.apple.com/us/app/id281796108?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory)
+- **URL Scheme:** en:// 
+- [**URL Scheme Documentation**](https://github.com/evernote/evernote-ios-x-callback-url)
+
+&gt; **Warning**: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), several of the key methods of integration with new app updates (AppleScript, URL schemes), and _no longer supports_ their integration SDKs. Although some of these methods do still work, we are not sure how long they will continue to work.
+
+[Evernote](http://evernote.com) is a popular note platform. Drafts can capture text to Evernote in a number of ways.
+
+## Evernote Action step (iOS Only)
+
+&gt; **Note**: The Evernote action step relies on the [Evernote SDK](https://github.com/evernote/evernote-cloud-sdk-ios), which Evernote no longer supports. We are maintaining our own version of this SDK to keep it working for now, but are not sure about the future of these features, and there are a few &quot;gotchas&quot;, including the fact that if you login to Evernote using a Google account, you cannot use these features. This is not something we can fix or workaround, it would require a fix from Evernote.
+
+Drafts offers native integration with Evernote using the [Evernote action step](http://getdrafts.com/actions/steps/evernote). Actions using this step can create, replace, append or prepend to notes in any notebook, assign tags, etc...even convert Markdown to Evernote rich text. Some ready to use samples from the directory:
+
+- [Save to Evernote](http://actions.getdrafts.com/a/1E9): Saves draft to Evernote in a timestamped note, converting Markdown to Evernote&#39;s native ENML rich-text format.
+- [Append to Evernote Journal](http://actions.getdrafts.com/a/1E0): Append draft to rolling monthly journal notes in Evernote.
+- [Evernote with Todos](http://actions.getdrafts.com/a/1Ea): Saves to Evernote converting Drafts&#39; [ ] task marks to Evernote checkboxes.
+- [Save to Evernote (Text)](https://actions.getdrafts.com/a/1Ll): Same as save action above, but treats text as plain text converting line breaks, but not applying any Markdown formatting.
+
+**Formatting**: _see the formatting footnote below to better understand how text is converted to Evernote_.
+
+**Mac Note**: Evernote does not provide a standard REST API, so these actions rely on a custom SDK from Evernote. Evernote does not offer a similar SDK for Mac at this time, so these features are not enabled.
+
+## Share Extension (iOS Only)
+
+Evernote offers an iOS Share extension for creating tasks which can be used with the Drafts&#39; Share action. This requires no special setup or configuration, just that both apps be installed on the device. Just tap the &quot;Share&quot; action, and use select Evernote.  The share extension offers great flexibility in assigning Evernote tags and destination notebooks.
+
+**Mac Note**: Note that Evernote does have a share extension in their Mac application, but it does not accept text for some reason, so does not appear as an option when sharing from Drafts. This is something Evernote would have to change at their end to function with Drafts.
+
+## URL-Based Actions (iOS Only) DEPRECATED!!!
+
+&gt; **As of September, 2020, the Evernote iOS app was updated and no longer supports the URL schemes it has in the past. This method is no longer available!**
+
+Evernote supports [URL schemes](https://github.com/evernote/evernote-ios-x-callback-url), including x-callback-url. 
+
+- [New Note in Evernote](https://actions.getdrafts.com/a/1C1): Sends the current draft to Evernote as a new note, with the first line of the draft as the title and remaining text as the content of the note.
+
+**Mac Note**: Evernote&#39;s Mac app does not implement support for the same URL schemes as their iOS app. They do register the same `Evernote:` URL scheme, but the action do not work, so generally if you run a URL-based Evernote action on the Mac, the Evernote app will launch, but nothing will happen.
+
+## Emailing into Evernote
+
+Evernote offers the ability to email notes. Details about how to email to Evernote are available in [their documentation](https://help.evernote.com/hc/en-us/articles/209005347-How-to-save-email-into-Evernote).  Once you determine your unique Evernote email address, you can configure a Drafts&#39; [Mail action step](http://getdrafts.com/actions/steps/mail) with that &quot;To&quot; email address and &quot;Send in Background&quot; enabled for a quick, single tap method to send a note to Evernote.
+
+This is generally the best option for integrating with Evernote on the Mac.
+
+## AppleScript (macOS Only) DEPRECATED!!!
+
+&gt; **As of October, 2020, the Evernote Mac app was updated and no longer supports the AppleScript. This method is no longer available!**
+
+It is also possible to do advanced creation and modification of notes in Evernote via AppleScript integration. We have [posted a sample action](https://forums.getdrafts.com/t/evernote-example-with-cross-platform-support-via-applescript/7058) demonstrating how to create cross-platform Evernote actions with AppleScript.
+
+## Formatting Text for Evernote
+
+Evernote stores notes using it&#39;s own [ENML](https://dev.evernote.com/doc/articles/enml.php) markup, which is very much like HTML. When displayed in Evernote&#39;s apps, the ENML is rendered much like HTML is in a web-browser to appear as rich-text...but, ultimately, under the hood, it is stored in this HTML-like markup.
+
+Drafts edits plain text notes. When sending text from Drafts to Evernote using their APIs, the text has to be converted to ENML. Drafts offers several strategies to do this, as controlled by the template output format of the [Evernote action step](https://docs.getdrafts.com/docs/actions/steps/services.html#evernote). The two common options are:
+
+- **Text:** Using this option, Drafts assumes you want your output treated as plain text. It will encode HTML entities, add line break tags where you have them, etc., when sending to Evernote. It will _not_, however, result in any rich-text formatting in Evernote. If you do not use Markdown, this is probably the option you want.
+- **Markdown::** Using this option, Draft will run the output through your preferred Markdown parser to convert it to HTML before sending to Evernote. Since ENML is very close to HTML, this generally works to get nice rich-text formatting of bold, italics, lists, links and other common markup in the resulting Evernote document.</description>
+    
+    <lastBuildDate>Tue, 13 Jul 2021 06:23:31 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[evansthompson]]></dc:creator>
+        <description><![CDATA[
+            <p>Perfect! Thanks! Stack Overflow and other examples have allowed me to hobble along thus far.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/17</link>
+        <pubDate>Tue, 13 Jul 2021 06:23:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-17</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>To get you started, you could check out this action.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1Uu">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1Uu" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1Uu" target="_blank" rel="noopener">Drafts Directory: Tags to Hashtags</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/16</link>
+        <pubDate>Tue, 13 Jul 2021 06:18:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-16</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[evansthompson]]></dc:creator>
+        <description><![CDATA[
+            <p>I was thinking of that. In all my years of working in the computer industry, I’ve never really learned to code.  I guess this is as good a time as any to start. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/15</link>
+        <pubDate>Tue, 13 Jul 2021 06:15:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-15</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You could use JavaScript to build the title. Process each tag separately and append to the title.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/14</link>
+        <pubDate>Tue, 13 Jul 2021 06:12:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-14</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[evansthompson]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m sure this is a relatively simple scripting thing, but it’s beyond me. I’d like to take the Drafts tags and convert them into Evernote tags for the email subject.</p>
+<p>As I understand it, <code>[[tags]]</code> returns <code>tag1,tag2,tag2</code> whereas Evernote is expecting <code>#tag1 #tag2 #tag3</code></p>
+<p>Can someone point me in the direction of how to do this?</p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/13</link>
+        <pubDate>Tue, 13 Jul 2021 05:27:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-13</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay, I guess that is on Mac not iOS/iPadOS which those particular actions are for (Mac action was further down and I think would now require the Evernote legacy app). Is that correct?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/12</link>
+        <pubDate>Sat, 30 Jan 2021 22:08:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-12</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[Rob_Muise]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the suggestions and have tried all of them and get this error</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png" data-download-href="https://forums.getdrafts.com/uploads/default/892cdc334706a3382da2875a8bf473fc52e05a5f" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f_2_690x288.png" alt="image" data-base62-sha1="jzvwBxDngjj7QY2pe54EuMiKCYf" width="690" height="288" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f_2_690x288.png, https://forums.getdrafts.com/uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/11</link>
+        <pubDate>Sat, 30 Jan 2021 20:22:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-11</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Can I check that you have tried to use one of the actions Greg posted at the start of this thread?</p>
+<aside class="quote no-group" data-username="agiletortoise" data-post="1" data-topic="21">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1E9">Save to Evernote </a>: Saves draft to Evernote in a timestamped note, converting Markdown to Evernote’s native ENML rich-text format.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1E0">Append to Evernote Journal </a>: Append draft to rolling monthly journal notes in Evernote.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1Ea">Evernote with Todos </a>: Saves to Evernote converting Drafts’ [ ] task marks to Evernote checkboxes.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1Ll">Save to Evernote (Text) </a>: Same as save action above, but treats text as plain text converting line breaks, but not applying any Markdown formatting.</li>
+</ul>
+</blockquote>
+</aside>
+<p>If you have, can you share what happens? e.g. nothing, an error message.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/10</link>
+        <pubDate>Sat, 30 Jan 2021 17:15:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-10</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[Rob_Muise]]></dc:creator>
+        <description><![CDATA[
+            <p>I feel like I am way over my head with Drafts, but here goes.  I can not seem to be able to figure out how to send my Drafts, from either iOS or macOS to Evernote.  All I am looking to do is create a new note in Evernote from a draft.</p>
+<p>Thanks</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/9</link>
+        <pubDate>Sat, 30 Jan 2021 17:10:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-9</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I do not believe there is anyway to generate any kind of checkboxes through their Email interface, I’m afraid.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/8</link>
+        <pubDate>Mon, 11 Jan 2021 00:55:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-8</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[RochelleB-S]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m changing my MacOS Evernote shortcuts to email a note into Evernote. This is very reliable. I write in Drafts using Markdown. Is there any way to use a script to convert Drafts/Markdown checkboxes of [ ] to an Evernote checkbox? I’m using HTML output.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/7</link>
+        <pubDate>Mon, 11 Jan 2021 00:02:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-7</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, it mentions this in the original post above.</p>
+<p>Assuming that you are now referring to <a href="https://actions.getdrafts.com/a/16n" rel="nofollow noopener">this action</a>, you would change the <code>noteTitle</code> definition from <code>[[time]]</code> to <code>[[title]]</code>.</p>
+<p>You can find documentation for these points as follow:</p>
+<ul>
+<li>
+<a href="https://docs.getdrafts.com/docs/actions/steps/utility#define-template-tag" rel="nofollow noopener">Define Template Tag action step</a>.</li>
+<li>
+<a href="https://docs.getdrafts.com/docs/actions/templates#tags" rel="nofollow noopener">Template Tags</a>.</li>
+</ul>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/6</link>
+        <pubDate>Sun, 19 Apr 2020 07:53:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[jimw]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry to resurrect this old thread, but I was wondering whether it is possible to change the Evernote note title from the date/time as it is now to the first line/heading 1 of the Draft?</p>
+<p>Thanks</p>
+<p>Jim</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/5</link>
+        <pubDate>Sat, 18 Apr 2020 21:33:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-5</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[lucas222]]></dc:creator>
+        <description><![CDATA[
+            <p>Like most users, I have many (in my case 300 + notebooks) in evernote.<br>
+Perhaps useful to mention that only new note in evernote allows the user to choose in which notebook the note is inserted, whereas save to evernote just sends the newly created note to the all purpose ‚non classified‘ dumpster, forcing the user to open evernote the move the move into the appropriate note sometime in the future, a laborious task.<br>
+For this reason, IMO using New Note is a no brainer.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/4</link>
+        <pubDate>Sun, 23 Jun 2019 06:03:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[BillPetro]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-post="1" data-topic="21">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/33_1.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>Append to Evernote Journal</p>
+</blockquote>
+</aside>
+<p>Is it possible to modify “Append to Evernote Journal” so that it converts Markdown into proper format for Evernote, like “Markdown to Evernote” action?<br>
+…<br>
+Never mind, I figured out how to Edit the action and change it from Text to Markdown.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/3</link>
+        <pubDate>Mon, 27 Aug 2018 17:44:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[Gadgetbox]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it possible to add a list of pros and cons for each method to aid in choosing one? Thanks! <img src="https://forums.getdrafts.com/images/emoji/apple/doughnut.png?v=5" title=":doughnut:" class="emoji" alt=":doughnut:"></p>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/2</link>
+        <pubDate>Wed, 04 Jul 2018 06:41:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+      <item>
+        <title>Using Evernote with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><img src="https://forums.getdrafts.com/uploads/default/original/1X/f850009db41e32e6c34669b1f112fdea4fa69a91.png" alt="app-icon" data-base62-sha1="zqFOEGFMgEzzOhEYnhqru3KGdWx" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id281796108?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme:</strong> en://</li>
+<li><a href="https://github.com/evernote/evernote-ios-x-callback-url"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<blockquote>
+<p><strong>Warning</strong>: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), several of the key methods of integration with new app updates (AppleScript, URL schemes), and <em>no longer supports</em> their integration SDKs. Although some of these methods do still work, we are not sure how long they will continue to work.</p>
+</blockquote>
+<p><a href="http://evernote.com">Evernote</a> is a popular note platform. Drafts can capture text to Evernote in a number of ways.</p>
+<h2>Evernote Action step (iOS Only)</h2>
+<blockquote>
+<p><strong>Note</strong>: The Evernote action step relies on the <a href="https://github.com/evernote/evernote-cloud-sdk-ios">Evernote SDK</a>, which Evernote no longer supports. We are maintaining our own version of this SDK to keep it working for now, but are not sure about the future of these features, and there are a few “gotchas”, including the fact that if you login to Evernote using a Google account, you cannot use these features. This is not something we can fix or workaround, it would require a fix from Evernote.</p>
+</blockquote>
+<p>Drafts offers native integration with Evernote using the <a href="http://getdrafts.com/actions/steps/evernote">Evernote action step</a>. Actions using this step can create, replace, append or prepend to notes in any notebook, assign tags, etc…even convert Markdown to Evernote rich text. Some ready to use samples from the directory:</p>
+<ul>
+<li>
+<a href="http://actions.getdrafts.com/a/1E9">Save to Evernote</a>: Saves draft to Evernote in a timestamped note, converting Markdown to Evernote’s native ENML rich-text format.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1E0">Append to Evernote Journal</a>: Append draft to rolling monthly journal notes in Evernote.</li>
+<li>
+<a href="http://actions.getdrafts.com/a/1Ea">Evernote with Todos</a>: Saves to Evernote converting Drafts’ [ ] task marks to Evernote checkboxes.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1Ll">Save to Evernote (Text)</a>: Same as save action above, but treats text as plain text converting line breaks, but not applying any Markdown formatting.</li>
+</ul>
+<p><strong>Formatting</strong>: <em>see the formatting footnote below to better understand how text is converted to Evernote</em>.</p>
+<p><strong>Mac Note</strong>: Evernote does not provide a standard REST API, so these actions rely on a custom SDK from Evernote. Evernote does not offer a similar SDK for Mac at this time, so these features are not enabled.</p>
+<h2>Share Extension (iOS Only)</h2>
+<p>Evernote offers an iOS Share extension for creating tasks which can be used with the Drafts’ Share action. This requires no special setup or configuration, just that both apps be installed on the device. Just tap the “Share” action, and use select Evernote.  The share extension offers great flexibility in assigning Evernote tags and destination notebooks.</p>
+<p><strong>Mac Note</strong>: Note that Evernote does have a share extension in their Mac application, but it does not accept text for some reason, so does not appear as an option when sharing from Drafts. This is something Evernote would have to change at their end to function with Drafts.</p>
+<h2>URL-Based Actions (iOS Only) DEPRECATED!!!</h2>
+<blockquote>
+<p><strong>As of September, 2020, the Evernote iOS app was updated and no longer supports the URL schemes it has in the past. This method is no longer available!</strong></p>
+</blockquote>
+<p>Evernote supports <a href="https://github.com/evernote/evernote-ios-x-callback-url">URL schemes</a>, including x-callback-url.</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1C1">New Note in Evernote</a>: Sends the current draft to Evernote as a new note, with the first line of the draft as the title and remaining text as the content of the note.</li>
+</ul>
+<p><strong>Mac Note</strong>: Evernote’s Mac app does not implement support for the same URL schemes as their iOS app. They do register the same <code>Evernote:</code> URL scheme, but the action do not work, so generally if you run a URL-based Evernote action on the Mac, the Evernote app will launch, but nothing will happen.</p>
+<h2>Emailing into Evernote</h2>
+<p>Evernote offers the ability to email notes. Details about how to email to Evernote are available in <a href="https://help.evernote.com/hc/en-us/articles/209005347-How-to-save-email-into-Evernote">their documentation</a>.  Once you determine your unique Evernote email address, you can configure a Drafts’ <a href="http://getdrafts.com/actions/steps/mail">Mail action step</a> with that “To” email address and “Send in Background” enabled for a quick, single tap method to send a note to Evernote.</p>
+<p>This is generally the best option for integrating with Evernote on the Mac.</p>
+<h2>AppleScript (macOS Only) DEPRECATED!!!</h2>
+<blockquote>
+<p><strong>As of October, 2020, the Evernote Mac app was updated and no longer supports the AppleScript. This method is no longer available!</strong></p>
+</blockquote>
+<p>It is also possible to do advanced creation and modification of notes in Evernote via AppleScript integration. We have <a href="https://forums.getdrafts.com/t/evernote-example-with-cross-platform-support-via-applescript/7058">posted a sample action</a> demonstrating how to create cross-platform Evernote actions with AppleScript.</p>
+<h2>Formatting Text for Evernote</h2>
+<p>Evernote stores notes using it’s own <a href="https://dev.evernote.com/doc/articles/enml.php">ENML</a> markup, which is very much like HTML. When displayed in Evernote’s apps, the ENML is rendered much like HTML is in a web-browser to appear as rich-text…but, ultimately, under the hood, it is stored in this HTML-like markup.</p>
+<p>Drafts edits plain text notes. When sending text from Drafts to Evernote using their APIs, the text has to be converted to ENML. Drafts offers several strategies to do this, as controlled by the template output format of the <a href="https://docs.getdrafts.com/docs/actions/steps/services.html#evernote">Evernote action step</a>. The two common options are:</p>
+<ul>
+<li>
+<strong>Text:</strong> Using this option, Drafts assumes you want your output treated as plain text. It will encode HTML entities, add line break tags where you have them, etc., when sending to Evernote. It will <em>not</em>, however, result in any rich-text formatting in Evernote. If you do not use Markdown, this is probably the option you want.</li>
+<li>
+<strong>Markdown::</strong> Using this option, Draft will run the output through your preferred Markdown parser to convert it to HTML before sending to Evernote. Since ENML is very close to HTML, this generally works to get nice rich-text formatting of bold, italics, lists, links and other common markup in the resulting Evernote document.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/using-evernote-with-drafts/21/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-evernote-with-drafts/21/1</link>
+        <pubDate>Wed, 04 Apr 2018 16:41:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-21-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-evernote-with-drafts/21.rss">Using Evernote with Drafts</source>
+      </item>
+  </channel>
+</rss>

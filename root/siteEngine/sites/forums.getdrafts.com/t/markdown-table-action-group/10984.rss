@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Markdown Table Action Group</title>
+    <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984</link>
+    <description>Trying to see if there&#39;s any interest? Take a look at the GIF below but effectively, I&#39;m making Markdown tables easier to read while editing. I have more table functions coming as well (such as tab to next cell).
+
+I&#39;m still sorting out a couple of edge cases so it&#39;s not quite ready to share. Happy to get feedback!
+
+**Note**: this works best if the syntax you&#39;re using makes table render in monospace
+
+![mdtable|690x230](upload://qbTWgNppxnKu81xW2s1nX5ku5P0.gif)</description>
+    
+    <lastBuildDate>Thu, 26 Aug 2021 12:00:35 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>I think for V1 at least, I’m going to pass. I want to make sure that the files are readable by any generic parser including (and I shudder at saying this) excel. But the syntax you put could be interesting to include as prompt questions on import or maybe something else. Definitely gives me something to think about.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/21</link>
+        <pubDate>Thu, 26 Aug 2021 12:00:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-21</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes on CSV import.</p>
+<p>mdpre, my companion to md2pptx, does this but it doesn’t run in the Drafts environment. On import you might like to borrow mdpre’s syntax. e.g.</p>
+<pre><code class="lang-auto">=colwidth 1 3 2
+=colalign l r c
+=csv
+A,123,Y
+B,456,"Hello World"
+=endcsv 
+</code></pre>
+<p>The first two obviously control the display. The <code>=csv</code>  / <code>=endcsv</code> pair bracket the actual CSV data to be converted.</p>
+<p>Just a thought - and no offence taken if you don’t adopt it.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/20</link>
+        <pubDate>Thu, 26 Aug 2021 07:43:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-20</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve added this to the default MultiMarkdown syntax:</p>
+<pre><code class="lang-json">    {
+    	"match": "^(\\|.*\\|)$",
+    	"exclusive": true,
+    	"comment": "Tables in monospace for better alignment",
+    	"captures": {
+    		"1": {
+    			"scope": "code.block"
+    		}
+    	}
+    	
+    },
+</code></pre>
+<p>I made it exclusive because if you start allowing <strong>bolds</strong> (or other styling) because then you of course wouldn’t be able to guarantee perfect alignment.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/19</link>
+        <pubDate>Thu, 26 Aug 2021 01:42:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-19</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>When I used the action recently, not much seemed to happen. I think this is because my (custom) syntax is not monospace. Is there something I should do to make tables appear in a monospace font?</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/18</link>
+        <pubDate>Wed, 25 Aug 2021 23:16:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-18</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>I kept it in an action to avoid iCloud Library file unloading (not sure it that would actually happen).</p>
+<p>I also made the <code>MD Table Library</code> “action” hidden because it’s not really an action. Double clicking it doesn’t do anything so in my mind, it should show up in the action bar/list. I’m very open to feedback.</p>
+<p>Here’s the <a href="https://github.com/motopascyyy/PTDrafts" rel="noopener nofollow ugc">Github repo</a> as well.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/17</link>
+        <pubDate>Wed, 25 Aug 2021 17:25:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-17</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>Yep, thanks - I was looking for a file instead of a (hidden) action. Found it.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/16</link>
+        <pubDate>Wed, 25 Aug 2021 16:49:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-16</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Look in the <code>MD Table Library</code> action. It is included by the other actions.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/15</link>
+        <pubDate>Wed, 25 Aug 2021 16:39:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-15</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>Where is the java script file hidden that is used in your cool actions?</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/14</link>
+        <pubDate>Wed, 25 Aug 2021 16:37:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-14</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>I’d be quite interested in CSV tools. I store a lot of data in csv for reference purposes, and it would be neat to be able to bring some of that into Drafts for review, for example, without having to fire up a spreadsheet, database manager or script.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/13</link>
+        <pubDate>Wed, 25 Aug 2021 13:56:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-13</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/andreas_haberle">@Andreas_Haberle</a>, glad you like it.</p>
+<p>To everyone else interested, check out the latest updated <a href="https://actions.getdrafts.com/g/1pf" rel="noopener nofollow ugc">action group</a>:</p>
+<p><strong>New Feature</strong>: Insert Column<br>
+<strong>Improvement</strong>: Complete re-write of table detection logic to leverage regex. Results in much more accurate table detection and improved formatting<br>
+<strong>Cleanup</strong>: Cleaned up some bad code based on advice from SonarLint suggestions and my own eyeballs. Makes it easier to work with/read.</p>
+<p>I’m contemplating writing CSV import/export. Any appetite here?</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/12</link>
+        <pubDate>Wed, 25 Aug 2021 12:23:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-12</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s a great script. Thank You.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/11</link>
+        <pubDate>Sun, 22 Aug 2021 06:19:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-11</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p><strong>Feature</strong> : Support for right and centre alignment<br>
+<strong>Feature</strong>: <code>Insert Row</code> action added<br>
+<strong>Fix</strong> : Detection of end of tables was sometimes adding extra <code>|</code> on new lines.<br>
+<strong>Code refactor</strong> : Starting to make the code in the library easier to modify and work with</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/10</link>
+        <pubDate>Sat, 21 Aug 2021 12:51:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-10</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>The number of dashes for a given column is equal to the longest string trimmed string in that given column - 1 (to include the ‘:’). So if you want increase the width, you can manually add more dashes. If you want to decrease, it won’t work because as far as I know, MD tables can’t do multi-line rows so you can’t compress that down.</p>
+<p>You’re also right that I’m not rendering the table, I’m replacing the text with non-destructive edits.  Hope it’s still of use!</p>
+<p>You’re giving me a quick idea for a new action to “resize” column widths though with a simple dialog.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/9</link>
+        <pubDate>Mon, 16 Aug 2021 11:34:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-9</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Nice! How do you know how many dashes to add? My conception is YOU tell IT - and it uses the number you specify to decide how to divide up the horizontal space.</p>
+<p>But I now notice you’re not rendering but replacing the source text.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/8</link>
+        <pubDate>Mon, 16 Aug 2021 07:06:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-8</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>First version has been posted to the <a href="https://actions.getdrafts.com/g/1pf" rel="noopener nofollow ugc">Directory</a>. Feedback and testing absolutely welcomed. Note, it’s deployed as an Action Group instead of different actions because I combine the core logic inside a library action for easier maintenance and less duplication.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/martinpacker">@martinpacker</a>, I’ve changed the padding logic to put in extra dashes when separating the header row from the rest of the table. Take a look at the updated demo GIF below.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/4/4d36bc8b2144ed01dc45a42e6b9a65fcb287aca7.gif" alt="FormatMDTable" data-base62-sha1="b142kEqfoh2L6PP337YNsi6S4DR" width="690" height="230" class="animated"></p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/7</link>
+        <pubDate>Sun, 15 Aug 2021 21:19:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-7</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Let me repeat/clarify a couple of things:</p>
+<ul>
+<li>Alignments - which you’re about to do - is standard for any reasonable Markdown that supports tables.</li>
+<li>Relative widths - measured by number of dashes - isn’t standard but I find it incredibly helpful when composing tables on slides. In general, you’re supposed to let eg HTML decide the widths (based on content) but I find that painful. If I could find a better but as compact way of specifying widths - in md2pptx - I would.</li>
+</ul>
+<p>But I’m really glad you’re continuing to evolve this. Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/6</link>
+        <pubDate>Wed, 11 Aug 2021 07:13:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-6</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>I actually don’t support right alignment yet, but that’s something I’ll add for sure. Maybe not in the first drop but soon after! Thanks for the feedback!</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/5</link>
+        <pubDate>Tue, 10 Aug 2021 12:33:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-5</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>You’ve definitely got <strong>my</strong> interest…</p>
+<p>… In my md2pptx Markdown to PowerPoint converter I support tables. But rendering them in Drafts has been tricky. So I have to <strong>imagine</strong> what they’d look like in a slide.</p>
+<p>So this would be very helpful.</p>
+<p>There is an extra thing as do - which isn’t part of the Markdown Tables spec - that you might consider…</p>
+<p>While the spec supports alignment it doesn’t support width specifications. So, in md2pptx, I count the number of spaces in a column’s header and use that as a proportion. Example:</p>
+<pre><code class="lang-auto">|:-|--:|
+</code></pre>
+<p>would yield a table where the first column is left aligned and single width. The second column is right aligned - which you support - and double width.</p>
+<p>It’s something to consider. Of course the width specifications are thrown away by REAL Markdown renderers but no harm done.</p>
+<p>(In reality in my mdpre Markdown preprocessor I can convert CSV to Markdown tables and use the <code>=colalign</code> and <code>=colwidth</code> commands to denote alignments and widths. I’m not suggesting you adopt these, though.)</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/4</link>
+        <pubDate>Tue, 10 Aug 2021 06:45:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-4</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>Great, expect an Action Group loaded which includes this feature by the end of the week!</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/3</link>
+        <pubDate>Tue, 10 Aug 2021 01:38:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-3</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Sweet. I’d use it! I use multimarkdown extensively, often want to use tables for simple organization, but hate having to fiddle with the spacing, go out to TableFlip, use a preview mode, etc.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/2</link>
+        <pubDate>Mon, 09 Aug 2021 22:48:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-2</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+      <item>
+        <title>Markdown Table Action Group</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>Trying to see if there’s any interest? Take a look at the GIF below but effectively, I’m making Markdown tables easier to read while editing. I have more table functions coming as well (such as tab to next cell).</p>
+<p>I’m still sorting out a couple of edge cases so it’s not quite ready to share. Happy to get feedback!</p>
+<p><strong>Note</strong>: this works best if the syntax you’re using makes table render in monospace</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/b/b790f440f31d3e33606cd0415bf92bf1e51d295e.gif" alt="mdtable" data-base62-sha1="qbTWgNppxnKu81xW2s1nX5ku5P0" width="690" height="230" class="animated"></p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-table-action-group/10984/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-table-action-group/10984/1</link>
+        <pubDate>Mon, 09 Aug 2021 19:02:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10984-1</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-table-action-group/10984.rss">Markdown Table Action Group</source>
+      </item>
+  </channel>
+</rss>

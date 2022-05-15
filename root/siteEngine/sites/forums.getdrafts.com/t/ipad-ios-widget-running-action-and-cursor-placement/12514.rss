@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>iPad iOS Widget - Running Action and Cursor Placement</title>
+    <link>https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514</link>
+    <description>Hi
+
+I have created a simple “insert text” action to create a template dated note. Essentially as follows:
+
+# Title 
+
+## Created: “[[date]]”
+
+Body text
+
+
+When running the action within drafts, the cursor appears where I need it to - before the word “Body” in the example above. That allows me to immediately create the content of my note.
+
+When running the action from the iOS widget, however, the cursor doesn’t appear until I press on the screen. Is there a fix for that, or am I doing something wrong? 
+
+Many thanks in advance for your help
+
+Alex</description>
+    
+    <lastBuildDate>Tue, 19 Apr 2022 03:41:08 +0000</lastBuildDate>
+    <category>Issues</category>
+    <atom:link href="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>iPad iOS Widget - Running Action and Cursor Placement</title>
+        <dc:creator><![CDATA[Abjerybfsk]]></dc:creator>
+        <description><![CDATA[
+            <p>I think I figured it out.</p>
+<p>I used this thread to work out which parts to edit from the “New Draft from Template” action - <a href="https://forums.getdrafts.com/t/using-prompt-results-in-new-draft-with-template/11481" class="inline-onebox">Using prompt results in New Draft with Template</a></p>
+<p>After looking at that, I commented (added “//“ before each like) out the code to be disabled like that person suggested. The script now looks like the below. I’m sure this looks terrible to anyone with experience, but I’m pleased it’s working! I guess I can now delete all the commented code.</p>
+<p><strong>Here’s the script:</strong></p>
+<p>//modified from New Draft with Template Action</p>
+<p>// defaults<br>
+let omitFirstLineDefault = false;</p>
+<p>// select from a list of drafts tagged “template” and create new draft based on selection.</p>
+<p>let f = () =&gt; {<br>
+// create temp workspace to query drafts<br>
+//	let workspace = Workspace.create();<br>
+//	if (!workspace) {<br>
+//		return false;<br>
+//	}<br>
+//	workspace.tagFilter = “template”;<br>
+//	workspace.setAllSort(“name”, false, true);<br>
+// get list of drafts in workspace<br>
+//	let drafts = workspace.query(“all”);</p>
+<pre><code>// check if we found any valid templates
+</code></pre>
+<p>//	if (drafts.length == 0) {<br>
+//		alert(“No templates found. To make templates available to this action, create a draft with the template content and assign it the tag “template”.”);<br>
+//		return false;<br>
+//	}</p>
+<pre><code>// prompt to select
+</code></pre>
+<p>//	let p = Prompt.create();<br>
+//	p.title = “New Draft with Template”;<br>
+//	p.message = “Select a template. A new draft will be created based the template selected.”;</p>
+<p>//	p.addSwitch(“omitTitle”, “Omit First Line in New Draft”, omitFirstLineDefault);</p>
+<p>//	let ix = 0<br>
+//	for (let d of drafts) {<br>
+//		p.addButton(d.displayTitle, ix);<br>
+//		ix++;<br>
+//	}</p>
+<p>//	if (!p.show()) {<br>
+//		return false;<br>
+//	}</p>
+<pre><code>// get the selected template draft
+</code></pre>
+<p>//	let selectedIndex = p.buttonPressed;<br>
+// Add the UUID of the Draft to the brackets after Drafts.find</p>
+<pre><code>let template = Draft.find('Inserted the UUID here');
+let content = template.content;
+</code></pre>
+<p>//	let omitTitle = omitFirstLineDefault;</p>
+<p>//	if (omitTitle) {<br>
+//		let lines = content.split(’\n’);<br>
+//		if (lines.length &gt; 0) {<br>
+//			lines.shift();<br>
+//			content = lines.join(’\n’).replace(/^\s+/,"");<br>
+//		}<br>
+//	}</p>
+<pre><code>// create new draft and assign content/tags/syntax
+let d = Draft.create();
+for (let tag of template.tags) {
+	if (tag != "template") {
+		d.addTag(tag);
+	}
+}
+d.languageGrammar = template.languageGrammar;
+d.content = d.processTemplate(content);
+d.update();
+// load new draft
+editor.load(d);
+editor.activate();
+
+// look for &lt;|&gt; to set cursor location
+let loc = d.content.search("&lt;|&gt;");
+</code></pre>
+<p>//	if (p != -1) {<br>
+editor.setText(editor.getText().replace("&lt;|&gt;", “”));<br>
+editor.setSelectedRange(loc, 0);<br>
+//	}</p>
+<pre><code>return true;
+</code></pre>
+<p>}</p>
+<p>if (app.isPro) {<br>
+if (!f()) {<br>
+context.cancel();<br>
+}<br>
+}<br>
+else {<br>
+alert(“Drafts Pro features required to use this action.”)<br>
+}</p>
+          <p><a href="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/4</link>
+        <pubDate>Tue, 19 Apr 2022 03:41:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12514-4</guid>
+        <source url="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514.rss">iPad iOS Widget - Running Action and Cursor Placement</source>
+      </item>
+      <item>
+        <title>iPad iOS Widget - Running Action and Cursor Placement</title>
+        <dc:creator><![CDATA[Abjerybfsk]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for your response.</p>
+<p>I have since noticed it appears as though the ipad isn’t ready to type - it’s if the keyboard isn’t active when I run the action. When pressing the “+” for new draft, it works every time. Are there any tips for ipad keyboard settings when using drafts?</p>
+<p>Regarding the “New Draft with Template” action - I love the action, but I’m trying to get to “one press and type” for these notes. Is there a way to use the action within only one template, and bypass the selection menu?</p>
+<p>Thank you for all your do with this app. It is incredible.</p>
+          <p><a href="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/3</link>
+        <pubDate>Tue, 19 Apr 2022 01:20:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12514-3</guid>
+        <source url="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514.rss">iPad iOS Widget - Running Action and Cursor Placement</source>
+      </item>
+      <item>
+        <title>iPad iOS Widget - Running Action and Cursor Placement</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Not all actions are well suited for use from Widgets (<a href="https://docs.getdrafts.com/docs/extensions/widgets#using-actions-with-widgets">related docs</a>).</p>
+<p>For the particular use you describe, you might be better off using the “New Draft with Template” action with template drafts (which also support templates specifying initial cursor position). See:</p>
+<aside class="quote quote-modified" data-post="1" data-topic="4253">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/tip-creating-new-drafts-with-templates/4253">TIP: Creating New Drafts with Templates</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/tips/11"><span class="badge-category-bg" style="background-color: #12A89D;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Quick Drafts tips on a variety of topics. Free free to post your own.">Tips &amp; Tricks</span></a>
+  </div>
+  <blockquote>
+    UPDATE - 2021/09/01 Updated action to support a “Omit First Line in New Draft” option, that allows you to use a friendly name for the template in the first line, like “Meeting Notes Template” that is help for selecting templates in the prompt, but will no be included in the output. 
+
+
+UPDATE - 2020/11/01 The current version of this action has been updated with new features, such as cursor placement, as of Nov. 1, 2020. You may need to reinstall the <a href="https://actions.getdrafts.com/a/1VL">action from the directory</a> if you have a previo…
+  </blockquote>
+</aside>
+
+<p>Just having an action that uses “Insert Text” might have unpredictable results - like inserting in another draft loaded in the editor when executing the action.</p>
+          <p><a href="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/2</link>
+        <pubDate>Tue, 19 Apr 2022 01:15:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12514-2</guid>
+        <source url="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514.rss">iPad iOS Widget - Running Action and Cursor Placement</source>
+      </item>
+      <item>
+        <title>iPad iOS Widget - Running Action and Cursor Placement</title>
+        <dc:creator><![CDATA[Abjerybfsk]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi</p>
+<p>I have created a simple “insert text” action to create a template dated note. Essentially as follows:</p>
+<h1>
+<a name="title-1" class="anchor" href="https://forums.getdrafts.com#title-1"></a>Title</h1>
+<h2>
+<a name="created-date-2" class="anchor" href="https://forums.getdrafts.com#created-date-2"></a>Created: “[[date]]”</h2>
+<p>Body text</p>
+<p>When running the action within drafts, the cursor appears where I need it to - before the word “Body” in the example above. That allows me to immediately create the content of my note.</p>
+<p>When running the action from the iOS widget, however, the cursor doesn’t appear until I press on the screen. Is there a fix for that, or am I doing something wrong?</p>
+<p>Many thanks in advance for your help</p>
+<p>Alex</p>
+          <p><a href="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514/1</link>
+        <pubDate>Tue, 19 Apr 2022 00:52:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12514-1</guid>
+        <source url="https://forums.getdrafts.com/t/ipad-ios-widget-running-action-and-cursor-placement/12514.rss">iPad iOS Widget - Running Action and Cursor Placement</source>
+      </item>
+  </channel>
+</rss>

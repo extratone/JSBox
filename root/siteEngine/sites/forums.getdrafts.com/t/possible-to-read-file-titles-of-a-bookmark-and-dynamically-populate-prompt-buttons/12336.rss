@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Possible to read file titles of a bookmark and dynamically populate prompt buttons?</title>
+    <link>https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336</link>
+    <description>I’m relatively new to creating custom actions and had a question: 
+
+I’m thinking of putting together an action that would read a folder in my Obsidian directory and populate a Prompt with a button for every file in that Obsidian directory. 
+
+My goal is to extend my existing action that allows me to pick which note in my `/Lists` directory I want to append the Draft to. The problem with my existing action is that every time I add a new file to that directory, I have to update my action to include it as an option.
+
+Would reading through file titles and dynamically creating a prompt that lets me pick a file be possible? I’m having a bit of trouble figuring out if the Bookmark object would work for this.</description>
+    
+    <lastBuildDate>Wed, 23 Mar 2022 19:12:30 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Possible to read file titles of a bookmark and dynamically populate prompt buttons?</title>
+        <dc:creator><![CDATA[gavmn]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the tips! This was actually quite easy with the bookmarks feature once I knew to look for the FileManager.</p>
+<pre><code class="lang-auto">let bookmark = Bookmark.findOrCreate("Lists");
+let fm = FileManager.createForBookmark(bookmark);
+let contents = fm.listContents("/");
+
+let p = Prompt.create();
+p.title = "Choose a list";
+
+contents.forEach(listFile =&gt; {
+	p.addButton(listFile.replace(".md","").replace("/",""));
+})
+
+var didSelect = p.show();
+
+if (didSelect) {
+	draft.setTemplateTag("file",p.buttonPressed);
+} else {
+	context.cancel();
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336/3</link>
+        <pubDate>Wed, 23 Mar 2022 19:12:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12336-3</guid>
+        <source url="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336.rss">Possible to read file titles of a bookmark and dynamically populate prompt buttons?</source>
+      </item>
+      <item>
+        <title>Possible to read file titles of a bookmark and dynamically populate prompt buttons?</title>
+        <dc:creator><![CDATA[RosemaryOrchard]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, you can create a <a href="https://scripting.getdrafts.com/classes/filemanager" rel="noopener nofollow ugc">FileManager</a> for your bookmark with a script:</p>
+<pre><code class="lang-auto">// create file manager using a Bookmark
+let bookmark = Bookmark.findOrCreate("My-Folder");
+let fm = FileManager.createForBookmark(bookmark);
+</code></pre>
+<p>I did something similar with Dropbox, here’s the script I used, which I hope you can use as a basis and modify.</p>
+<pre data-code-wrap="js"><code class="lang-nohighlight">() =&gt; {
+	let path = "/Obsidian/RosemaryOrchard/Lists/";
+	let content = draft.content;
+	let replacementWords = ['watch', 'read'];
+	replacementWords.forEach(function (word) {
+		content = content.replace(new RegExp(word, "gmi"), "");
+	});
+	draft.content = content.trim();
+	draft.update();
+
+	// create Dropbox object and vars
+	let db = Dropbox.create();
+	let endpoint = "https://api.dropboxapi.com/2/files/list_folder";
+	let args = {
+		"path": path,
+		"recursive": false,
+		"include_media_info": false,
+		"include_deleted": false,
+		"include_has_explicit_shared_members": false,
+		"include_mounted_folders": true
+	};
+
+	// make API request
+	let response = db.rpcRequest({
+		"url": endpoint,
+		"method": "POST",
+		"data": args
+	});
+	if (response.statusCode != 200) {
+		console.log("Dropbox Error: " + response.statusCode + ", " + response.error + ' ' + db.lastError);
+		context.fail();
+	} else {
+		let p = Prompt.create();
+		p.title = "Pick a file";
+		let fileList = response.responseData.entries;
+		Object.keys(fileList).forEach(function(key) {
+			if (fileList[key].name.endsWith('.md')) {
+				p.addButton(fileList[key].name.replace(".md", ""), fileList[key].name);
+			}
+		});
+		let didSelect = p.show();
+		if (didSelect) {
+			draft.setTemplateTag("append_path", path)
+			draft.setTemplateTag("append_file",p.buttonPressed);
+		} else {
+			context.cancel();
+		}
+	}
+}();
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336/2</link>
+        <pubDate>Wed, 23 Mar 2022 10:46:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12336-2</guid>
+        <source url="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336.rss">Possible to read file titles of a bookmark and dynamically populate prompt buttons?</source>
+      </item>
+      <item>
+        <title>Possible to read file titles of a bookmark and dynamically populate prompt buttons?</title>
+        <dc:creator><![CDATA[gavmn]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m relatively new to creating custom actions and had a question:</p>
+<p>I’m thinking of putting together an action that would read a folder in my Obsidian directory and populate a Prompt with a button for every file in that Obsidian directory.</p>
+<p>My goal is to extend my existing action that allows me to pick which note in my <code>/Lists</code> directory I want to append the Draft to. The problem with my existing action is that every time I add a new file to that directory, I have to update my action to include it as an option.</p>
+<p>Would reading through file titles and dynamically creating a prompt that lets me pick a file be possible? I’m having a bit of trouble figuring out if the Bookmark object would work for this.</p>
+          <p><a href="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336/1</link>
+        <pubDate>Wed, 23 Mar 2022 10:15:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12336-1</guid>
+        <source url="https://forums.getdrafts.com/t/possible-to-read-file-titles-of-a-bookmark-and-dynamically-populate-prompt-buttons/12336.rss">Possible to read file titles of a bookmark and dynamically populate prompt buttons?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 11.0 (iOS) Released</title>
+    <link>https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498</link>
+    <description>Drafts release 11.0 (iOS) is now available [in the App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site), details below.
+
+**New Version Numbering**: *Moving forward, each feature release of Drafts will get a major version number. Minor version numbers will still be used for bug fix and minor releases. If you look back, it&#39;s the same thing we&#39;ve been doing, but we&#39;re dropping the &quot;5&quot;.*
+
+### Gmail, Outlook integration
+
+This release brings support for sending email directly with Gmail and Outlook.com based email accounts via new action steps and scripting interfaces. These new integrations allow single-tap actions which send mail in the background through your email accounts on these services – useful for quick send actions to recipients and groups you send to often, and also for integration with services that allow you to email text into the service, but require those email come &quot;From&quot; a known address (like [Asana](https://tryshift.com/blog/tips-tricks/create-asana-task-email/), [OneNote](https://www.onenote.com/EmailToOneNote)). Because of the direct integration, messages will come &quot;From&quot; your own address and be in your &quot;Sent&quot; folder on these services.
+
+_For more general information about using email with Drafts, see our [Sending Mail with Drafts guide](https://forums.getdrafts.com/t/sending-mail-with-drafts/3597)_
+
+- **New:** [Gmail Action Step](https://getdrafts.com/actions/steps/gmail)
+    - Send mail using Gmail accounts (via Gmail API)
+    - Sends in background, so must be fully configured with recipients, etc.
+    - Uses OAuth to authenticate to Google accounts. Use credential identifier for multiple accounts.
+- **New:** `GmailMessage` script object
+    - Send email using Gmail accounts (via Gmail API) in script
+    - Enables things like looping over addresses to send emails individually to separate &quot;To&quot; recipients, etc.
+    - [GmailMessage reference](https://reference.getdrafts.com/objects/GmailMessage.html)
+- **New:** [Outlook Action Step](https://getdrafts.com/actions/steps/outlook)
+    - Send mail using Outlook.com accounts (via Microsoft Graph API)
+    - Sends in background, so must be fully configured with recipients, etc.
+    - Enables things like looping over addresses to send emails individually to separate &quot;To&quot; recipients, etc.
+    - Uses OAuth to authenticate to Microsoft accounts. Should work with Personal/Work-School accounts, as long as they are Outlook.com integrated. Use credential identifier for multiple accounts.
+- **New:** `OutlookMessage` script object
+    - Send email using Outlook accounts (via Microsoft Graph API) in script
+    - [OutlookMessage reference](https://reference.getdrafts.com/objects/OutlookMessage.html)
+
+#### Other Additions, Changes and Fixes
+
+- **New:** `MustacheTemplate` script object.
+    - Process mustache style templates in script.
+    - Can take template string or be created pointing to directory of `.mustache` template files in iCloud Drive
+    - You also must contruct and pass the data object to use for values.
+    - Not all scriptable objects are exposed to templates, but `Draft` objects are.
+    - Docs: https://reference.getdrafts.com/objects/MustacheTemplate.html
+- **Fix:** Case where a URL-based action which leaves Drafts could result in &quot;after success&quot; archive/trash happening but not getting properly synced to other devices.
+- **Change:** Add error messages alerts for invalid states in a number of action steps. There are for invalid states that prevent a step from executing. Throwing an alert error help save a trip to the action log in these configuration error cases - like a script that will not compile.
+- **Change:** If HTML passed to HTML Prevew has a `title` element, use that title as the window title.
+- **Fix:** Better focus on text field returning to app after the new draft creation timeout is passed.
+- **Change:** Add warning trying to use URL actions for multiple selected drafts via Select &gt; Operations in the draft list.
+- **Fix:** Filter button over draft list not properly themed when automatic theme switching occured while draft list was visible.
+- **Fix:** `FileManager.moveItem(src, dest, overwrite)` would not successfully overwrite an existing item even if `overwrite` was true. 
+- **Fix:** Oops, the fix in the last release for appending to Dropbox did not fix it for prepending. Fixed now.
+
+For a complete history of updates, visit the [changelog](https://getdrafts.com/changelog)</description>
+    
+    <lastBuildDate>Thu, 25 Apr 2019 12:14:40 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 11.0 (iOS) Released</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, fixed the broken link</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/3</link>
+        <pubDate>Thu, 25 Apr 2019 12:14:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4498-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498.rss">Drafts 11.0 (iOS) Released</source>
+      </item>
+      <item>
+        <title>Drafts 11.0 (iOS) Released</title>
+        <dc:creator><![CDATA[jonaz]]></dc:creator>
+        <description><![CDATA[
+            <p>The link to ”Sending Mail with Drafts guide” has a trailing dot in the URL that throws a 404, so the correct URL should be:<br>
+</p><aside class="quote quote-modified" data-post="1" data-topic="3597">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/agiletortoise/40/33_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597">Sending Mail with Drafts</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/integration-guides"><span class="badge-category-bg" style="background-color: #3AB54A;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Integration guides are short articles covering ways Drafts can integrate with different Apps and Services.  Looking for an app integration not covered here, visit the Action Directory">Integration Guides</span></a>
+  </div>
+  <blockquote>
+    Sending Mail with Drafts
+Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within the app - or by integrating with third party Mail clients. Even write in Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts. 
+Mail Action Step
+Drafts ships with a default <a href="https://actions.getdrafts.com/a/1BC" rel="nofollow noopener">Mail</a> action, in the “Basic” action group.  This action is…
+  </blockquote>
+</aside>
+<p></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/2</link>
+        <pubDate>Thu, 25 Apr 2019 07:27:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4498-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498.rss">Drafts 11.0 (iOS) Released</source>
+      </item>
+      <item>
+        <title>Drafts 11.0 (iOS) Released</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts release 11.0 (iOS) is now available <a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site" rel="nofollow noopener">in the App Store</a>, details below.</p>
+<p><strong>New Version Numbering</strong>: <em>Moving forward, each feature release of Drafts will get a major version number. Minor version numbers will still be used for bug fix and minor releases. If you look back, it’s the same thing we’ve been doing, but we’re dropping the “5”.</em></p>
+<h3>Gmail, Outlook integration</h3>
+<p>This release brings support for sending email directly with Gmail and <a href="http://Outlook.com" rel="nofollow noopener">Outlook.com</a> based email accounts via new action steps and scripting interfaces. These new integrations allow single-tap actions which send mail in the background through your email accounts on these services – useful for quick send actions to recipients and groups you send to often, and also for integration with services that allow you to email text into the service, but require those email come “From” a known address (like <a href="https://tryshift.com/blog/tips-tricks/create-asana-task-email/" rel="nofollow noopener">Asana</a>, <a href="https://www.onenote.com/EmailToOneNote" rel="nofollow noopener">OneNote</a>). Because of the direct integration, messages will come “From” your own address and be in your “Sent” folder on these services.</p>
+<p><em>For more general information about using email with Drafts, see our <a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597">Sending Mail with Drafts guide</a></em></p>
+<ul>
+<li>
+<strong>New:</strong> <a href="https://getdrafts.com/actions/steps/gmail" rel="nofollow noopener">Gmail Action Step</a>
+<ul>
+<li>Send mail using Gmail accounts (via Gmail API)</li>
+<li>Sends in background, so must be fully configured with recipients, etc.</li>
+<li>Uses OAuth to authenticate to Google accounts. Use credential identifier for multiple accounts.</li>
+</ul>
+</li>
+<li>
+<strong>New:</strong> <code>GmailMessage</code> script object
+<ul>
+<li>Send email using Gmail accounts (via Gmail API) in script</li>
+<li>Enables things like looping over addresses to send emails individually to separate “To” recipients, etc.</li>
+<li><a href="https://reference.getdrafts.com/objects/GmailMessage.html" rel="nofollow noopener">GmailMessage reference</a></li>
+</ul>
+</li>
+<li>
+<strong>New:</strong> <a href="https://getdrafts.com/actions/steps/outlook" rel="nofollow noopener">Outlook Action Step</a>
+<ul>
+<li>Send mail using <a href="http://Outlook.com" rel="nofollow noopener">Outlook.com</a> accounts (via Microsoft Graph API)</li>
+<li>Sends in background, so must be fully configured with recipients, etc.</li>
+<li>Enables things like looping over addresses to send emails individually to separate “To” recipients, etc.</li>
+<li>Uses OAuth to authenticate to Microsoft accounts. Should work with Personal/Work-School accounts, as long as they are <a href="http://Outlook.com" rel="nofollow noopener">Outlook.com</a> integrated. Use credential identifier for multiple accounts.</li>
+</ul>
+</li>
+<li>
+<strong>New:</strong> <code>OutlookMessage</code> script object
+<ul>
+<li>Send email using Outlook accounts (via Microsoft Graph API) in script</li>
+<li><a href="https://reference.getdrafts.com/objects/OutlookMessage.html" rel="nofollow noopener">OutlookMessage reference</a></li>
+</ul>
+</li>
+</ul>
+<h4>Other Additions, Changes and Fixes</h4>
+<ul>
+<li>
+<strong>New:</strong> <code>MustacheTemplate</code> script object.
+<ul>
+<li>Process mustache style templates in script.</li>
+<li>Can take template string or be created pointing to directory of <code>.mustache</code> template files in iCloud Drive</li>
+<li>You also must contruct and pass the data object to use for values.</li>
+<li>Not all scriptable objects are exposed to templates, but <code>Draft</code> objects are.</li>
+<li>Docs: <a href="https://reference.getdrafts.com/objects/MustacheTemplate.html" rel="nofollow noopener">https://reference.getdrafts.com/objects/MustacheTemplate.html</a>
+</li>
+</ul>
+</li>
+<li>
+<strong>Fix:</strong> Case where a URL-based action which leaves Drafts could result in “after success” archive/trash happening but not getting properly synced to other devices.</li>
+<li>
+<strong>Change:</strong> Add error messages alerts for invalid states in a number of action steps. There are for invalid states that prevent a step from executing. Throwing an alert error help save a trip to the action log in these configuration error cases - like a script that will not compile.</li>
+<li>
+<strong>Change:</strong> If HTML passed to HTML Prevew has a <code>title</code> element, use that title as the window title.</li>
+<li>
+<strong>Fix:</strong> Better focus on text field returning to app after the new draft creation timeout is passed.</li>
+<li>
+<strong>Change:</strong> Add warning trying to use URL actions for multiple selected drafts via Select &gt; Operations in the draft list.</li>
+<li>
+<strong>Fix:</strong> Filter button over draft list not properly themed when automatic theme switching occured while draft list was visible.</li>
+<li>
+<strong>Fix:</strong> <code>FileManager.moveItem(src, dest, overwrite)</code> would not successfully overwrite an existing item even if <code>overwrite</code> was true.</li>
+<li>
+<strong>Fix:</strong> Oops, the fix in the last release for appending to Dropbox did not fix it for prepending. Fixed now.</li>
+</ul>
+<p>For a complete history of updates, visit the <a href="https://getdrafts.com/changelog" rel="nofollow noopener">changelog</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/1</link>
+        <pubDate>Tue, 23 Apr 2019 15:55:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-4498-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498.rss">Drafts 11.0 (iOS) Released</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Newline in evernote callback urls</title>
+    <link>https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463</link>
+    <description>So I slowly become crazy...
+I&#39;m using the drafts x-callback url mechanics to create a note in evernote. 
+Note: I don&#39;t want to use the Evernote Action direclty, beause this takes way longer and is not possible when I&#39;m offline (even for a short amount of time). 
+I want to create a note in evernote from a draft.
+the note title should be the title of the draft and the content of the evernote note should be the drafts body.
+The &quot;problem&quot; now is, that I want to be able to just have a note like this:
+
+&gt; Example Note title
+&gt; first line of the drafts body.
+&gt; the second line.
+&gt; some
+&gt; other 
+&gt; lines
+&gt; 
+&gt; with a gap in between....
+
+My first script looked like this:
+
+```
+const baseURL = &quot;evernote://x-callback-url/new-note&quot;;
+let nTitle = draft.title;
+let parsedBody = draft.processTemplate(&quot;[[body]]&quot;);
+
+var cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter(&quot;type&quot;,&quot;text&quot;);
+cb.addParameter(&quot;title&quot;,nTitle);
+cb.addParameter(&quot;text&quot;,parsedBody);
+
+var success = cb.open();
+// maybe success will be used later
+```
+
+
+
+When i just use the the drafts title as value for the title parameter as and then process the drafts content with the [[body]] template and use it as value for the text parameter (with type &quot;text&quot;) i will recieve a note in evernote which looks more or less like this:
+
+&gt; Example Note title {as title of the note in evernote}
+&gt; first line of the drafts body. the second line. some other  lines with a gap in between....
+
+so all my newlines are gone.
+
+so then I started experimenting with other types and my current solution is to use the type &quot;html&quot; and also solit the draft into every line and insert another newline after each linebreak to ensure that the html will parse it corectly to evernote.
+My script now looks like this:
+
+```
+const baseURL = &quot;evernote://x-callback-url/new-note&quot;;
+
+let nTitle = draft.title;
+let nBody = draft.content;
+let lines = nBody.split(&#39;\n&#39;);
+
+var newBody = &quot;&quot;;
+
+for (line of lines) {
+newBody = newBody + line + &#39;\n\n&#39;;
+}
+
+draft.content = newBody;
+
+let parsedBody = draft.processTemplate(&quot;%%[[body]]%%&quot;);
+
+alert(parsedBody);
+var cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter(&quot;type&quot;,&quot;html&quot;);
+cb.addParameter(&quot;title&quot;,nTitle);
+cb.addParameter(&quot;text&quot;,parsedBody);
+
+var success = cb.open();
+// maybe success will be used later
+```
+when I run this action with the example content above I receive a note which looks like this:
+
+&gt; Example Note title {as title of the note in evernote}
+&gt; first line of the drafts body.
+&gt; 
+&gt; the second line.
+&gt; 
+&gt; some
+&gt; 
+&gt; other 
+&gt; 
+&gt; lines
+&gt; 
+&gt; with a gap in between....
+
+so i have a bigger space between all the lines and double linebreaks are ignored from the parser..
+The problem is, that I can&#39;t change the space between the lines in evernote and its really annoying with this bigger spaces.
+I really just wanted to have the text with the exact formatting in evernote..
+Later I wanted to use  maybe some markdown features like bold styles - thats why I wont be able to use pure text, two.
+But can you help me figure out what could be the solution here!?
+Thanks!</description>
+    
+    <lastBuildDate>Wed, 04 Sep 2019 13:58:08 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Newline in evernote callback urls</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>Trank you so much!<br>
+Works as expected!</p>
+<p>For later reference here is my Updates script, just adding two Spaces and a linebreak to each new line!</p>
+<pre><code class="lang-auto">
+const baseURL = "evernote://x-callback-url/new-note";
+
+let nTitle = draft.title;
+let nBody = draft.content;
+let lines = nBody.split('\n');
+
+var newBody = "";
+
+for (line of lines) {
+	newBody = newBody + line + '  \n';
+}
+
+draft.content = newBody;
+
+let parsedBody = draft.processTemplate("%%[[body]]%%");
+
+draft.content = nBody;
+draft.update();
+
+alert(parsedBody);
+
+var cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter("type", "html");
+cb.addParameter("title", nTitle);
+cb.addParameter("text", parsedBody);
+//cb.waitForResponse = true;
+//cb.addParameter("",);
+
+
+var success = cb.open();
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463/3</link>
+        <pubDate>Wed, 04 Sep 2019 13:58:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5463-3</guid>
+        <source url="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463.rss">Newline in evernote callback urls</source>
+      </item>
+      <item>
+        <title>Newline in evernote callback urls</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>It is to do with your original text needing to be Markdown.</p>
+<p>Hopefully this will work here, but you need to add two spaces at the end of a line to indicate a new line rather than a line wrap.</p>
+<pre><code class="lang-auto">Example Note title  
+first line of the drafts body  
+the second line  
+some  
+other  
+lines  
+
+with a gap in between…
+</code></pre>
+<p>From the spec. at <a href="https://daringfireball.net/projects/markdown/syntax" rel="nofollow noopener">Daring Fireball</a>.</p>
+<blockquote>
+<p>When you do want to insert a <code>&lt;br /&gt;</code> break tag using Markdown, you end a line with two or more spaces, then type return.</p>
+<p>Yes, this takes a tad more effort to create a <code>&lt;br /&gt;</code>, but a simplistic “every line break is a <code>&lt;br /&gt;</code>” rule wouldn’t work for Markdown. Markdown’s email-style blockquoting and multi-paragraph list items work best — and look better — when you format them with hard breaks.</p>
+</blockquote>
+<p>The end result for me in the HTML then looked to be much more like what I imagine you expected to be passing to Evernote.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/d78ec341b37a6b1f64422c9f4024a7130c2c787d.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/d78ec341b37a6b1f64422c9f4024a7130c2c787d" title="F35E518C-33B9-4086-B0F7-E6EA4BC594A6.jpg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d78ec341b37a6b1f64422c9f4024a7130c2c787d_2_281x500.jpeg" alt="image" data-base62-sha1="uKUwtJZgjbEtzn3x66Ge83mMGT3" width="281" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d78ec341b37a6b1f64422c9f4024a7130c2c787d_2_281x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/d/d78ec341b37a6b1f64422c9f4024a7130c2c787d_2_421x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/d/d78ec341b37a6b1f64422c9f4024a7130c2c787d_2_562x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d78ec341b37a6b1f64422c9f4024a7130c2c787d_2_10x10.png"></a></div><p></p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463/2</link>
+        <pubDate>Wed, 04 Sep 2019 11:09:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5463-2</guid>
+        <source url="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463.rss">Newline in evernote callback urls</source>
+      </item>
+      <item>
+        <title>Newline in evernote callback urls</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>So I slowly become crazy…<br>
+I’m using the drafts x-callback url mechanics to create a note in evernote.<br>
+Note: I don’t want to use the Evernote Action direclty, beause this takes way longer and is not possible when I’m offline (even for a short amount of time).<br>
+I want to create a note in evernote from a draft.<br>
+the note title should be the title of the draft and the content of the evernote note should be the drafts body.<br>
+The “problem” now is, that I want to be able to just have a note like this:</p>
+<blockquote>
+<p>Example Note title<br>
+first line of the drafts body.<br>
+the second line.<br>
+some<br>
+other<br>
+lines</p>
+<p>with a gap in between…</p>
+</blockquote>
+<p>My first script looked like this:</p>
+<pre><code class="lang-auto">const baseURL = "evernote://x-callback-url/new-note";
+let nTitle = draft.title;
+let parsedBody = draft.processTemplate("[[body]]");
+
+var cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter("type","text");
+cb.addParameter("title",nTitle);
+cb.addParameter("text",parsedBody);
+
+var success = cb.open();
+// maybe success will be used later
+</code></pre>
+<p>When i just use the the drafts title as value for the title parameter as and then process the drafts content with the [[body]] template and use it as value for the text parameter (with type “text”) i will recieve a note in evernote which looks more or less like this:</p>
+<blockquote>
+<p>Example Note title {as title of the note in evernote}<br>
+first line of the drafts body. the second line. some other  lines with a gap in between…</p>
+</blockquote>
+<p>so all my newlines are gone.</p>
+<p>so then I started experimenting with other types and my current solution is to use the type “html” and also solit the draft into every line and insert another newline after each linebreak to ensure that the html will parse it corectly to evernote.<br>
+My script now looks like this:</p>
+<pre><code class="lang-auto">const baseURL = "evernote://x-callback-url/new-note";
+
+let nTitle = draft.title;
+let nBody = draft.content;
+let lines = nBody.split('\n');
+
+var newBody = "";
+
+for (line of lines) {
+newBody = newBody + line + '\n\n';
+}
+
+draft.content = newBody;
+
+let parsedBody = draft.processTemplate("%%[[body]]%%");
+
+alert(parsedBody);
+var cb = CallbackURL.create();
+cb.baseURL = baseURL;
+cb.addParameter("type","html");
+cb.addParameter("title",nTitle);
+cb.addParameter("text",parsedBody);
+
+var success = cb.open();
+// maybe success will be used later
+</code></pre>
+<p>when I run this action with the example content above I receive a note which looks like this:</p>
+<blockquote>
+<p>Example Note title {as title of the note in evernote}<br>
+first line of the drafts body.</p>
+<p>the second line.</p>
+<p>some</p>
+<p>other</p>
+<p>lines</p>
+<p>with a gap in between…</p>
+</blockquote>
+<p>so i have a bigger space between all the lines and double linebreaks are ignored from the parser…<br>
+The problem is, that I can’t change the space between the lines in evernote and its really annoying with this bigger spaces.<br>
+I really just wanted to have the text with the exact formatting in evernote…<br>
+Later I wanted to use  maybe some markdown features like bold styles - thats why I wont be able to use pure text, two.<br>
+But can you help me figure out what could be the solution here!?<br>
+Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463/1</link>
+        <pubDate>Wed, 04 Sep 2019 08:01:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5463-1</guid>
+        <source url="https://forums.getdrafts.com/t/newline-in-evernote-callback-urls/5463.rss">Newline in evernote callback urls</source>
+      </item>
+  </channel>
+</rss>

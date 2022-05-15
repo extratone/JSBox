@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Java Scripts in Drafts (or elsewhere)</title>
+    <link>https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967</link>
+    <description>I am actively developing some scripts and actions in Drafts that use the HTML Preview Action.
+
+The underling topic - how to set it up and a good HTML document should be created and a great reply by @chrillek  - brought me to the following article:
+
+[EventTarget.addEventListener() - Web API Referenz | MDN](https://developer.mozilla.org/de/docs/Web/API/EventTarget/addEventListener)
+
+I had to read with some astonishment that the practice of many tutorials to put Java Script inside the body of the HTML document is really bad practice and might even be the reason for some of the things I hate so much in web-apps or on webpages.
+
+As noted in my article 
+
+https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/7
+
+I am looking for a good and compact way to facilitate HTML Preview with my different ideas. The goal would be two fold:
+
+1. Generate good and nice HTML documents (with much Java Script)
+2. Have simple and compact templates in the Draft action (with template tags)
+
+&gt; Take away
+
+As I read the article about the `EventListener` the practice of Java Script in the body could be **completely abandoned** by using the `load` event.
+
+During generation the HTML Preview is not very talkative if a parse/specific error occurs. The `EventListener` `error` event might be a nice way to give the developer more details on the reason of the script.</description>
+    
+    <lastBuildDate>Sat, 31 Oct 2020 17:05:16 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Java Scripts in Drafts (or elsewhere)</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="3" data-topic="8967">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>JQuery days there where no references to that event listener.</p>
+</blockquote>
+</aside>
+<p>JQuery was bloatware and considered a bad example by many JS aficionados.</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="3" data-topic="8967">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>Am I wrong that this is bad HTML code?</p>
+</blockquote>
+</aside>
+<p>It is a performance bottleneck, especially with mobile devices. Not necessarily bad code. In the context of Drafts, it might not be an issue at all, since JS is probably only used to get a nice printout. As in your example about nomnoml and mine about code highlighting.</p>
+          <p><a href="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/5</link>
+        <pubDate>Sat, 31 Oct 2020 14:32:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8967-5</guid>
+        <source url="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967.rss">Java Scripts in Drafts (or elsewhere)</source>
+      </item>
+      <item>
+        <title>Java Scripts in Drafts (or elsewhere)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>For example:</p>
+<aside class="quote quote-modified" data-post="1" data-topic="8830">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/zach/40/4264_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/active-preview-for-nomnoml-code/8830">[Active] Preview for nomnoml code</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/actions-sharing/9"><span class="badge-category-bg" style="background-color: #9EB83B;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Made a cool action, or discovered a new way to use Drafts? Share it here.">Actions - Share What You've Made</span></a>
+  </div>
+  <blockquote>
+    Hey everyone, 
+Just a heads up: I made a quick plugin for viewing <a href="https://nomnoml.com" rel="noopener nofollow ugc">nomnoml</a> code in a HTML preview: <a href="https://actions.getdrafts.com/a/1dn" rel="noopener nofollow ugc">https://actions.getdrafts.com/a/1dn</a> 
+ <a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/af55d396a89404b8d894589f925e1c554614102c.png" data-download-href="https://forums.getdrafts.com/uploads/default/af55d396a89404b8d894589f925e1c554614102c" title="Screenshot 2020-10-20 at 12.48.38">[Screenshot 2020-10-20 at 12.48.38]</a> 
+Any code in a nomnoml fenced block gets transformed. Hopefully you guys find it useful!
+  </blockquote>
+</aside>
+
+<p>Or even to please the VIM users with vim.js <img src="https://forums.getdrafts.com/images/emoji/apple/cold_face.png?v=9" title=":cold_face:" class="emoji" alt=":cold_face:"></p>
+          <p><a href="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/4</link>
+        <pubDate>Sat, 31 Oct 2020 14:18:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8967-4</guid>
+        <source url="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967.rss">Java Scripts in Drafts (or elsewhere)</source>
+      </item>
+      <item>
+        <title>Java Scripts in Drafts (or elsewhere)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>I do not want to <strong>abandon Java script</strong> I want to abandon it inside the <strong>body</strong> element.</p>
+<p>The idea would be to add it in the head and register the onload event listener.</p>
+<p>In my JQuery days there where no references to that event listener. Everything was achived by putting the Java Script behind the document in the body.</p>
+<p>Am I wrong that this is bad HTML code?</p>
+          <p><a href="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/3</link>
+        <pubDate>Sat, 31 Oct 2020 14:10:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8967-3</guid>
+        <source url="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967.rss">Java Scripts in Drafts (or elsewhere)</source>
+      </item>
+      <item>
+        <title>Java Scripts in Drafts (or elsewhere)</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8967">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>Generate good and nice HTML documents (with much Java Script)</p>
+</blockquote>
+</aside>
+<p>Why do they have to have “much JavaScript”? Not that I’m against JS, but I think it should be <em>necessary</em> for a certain purpose. So not necessarily “much” but “the JS required for this document”. Eg, prism.js for code highlighting – but jQuery?</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8967">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>Java Script in the body could be <strong>completely abandoned</strong> by using the <code>load</code> event.</p>
+</blockquote>
+</aside>
+<p>It would be difficult to add an <code>onload</code> listener without also adding JavaScript, me thinks. Though I don’t want to curb you enthusiasm, any JS manipulating the DOM is using this event and a listener for it since ages <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"><br>
+Again: I suggest to talk about the effect(s) you want to achieve with JS.</p>
+          <p><a href="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/2</link>
+        <pubDate>Sat, 31 Oct 2020 14:03:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8967-2</guid>
+        <source url="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967.rss">Java Scripts in Drafts (or elsewhere)</source>
+      </item>
+      <item>
+        <title>Java Scripts in Drafts (or elsewhere)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>I am actively developing some scripts and actions in Drafts that use the HTML Preview Action.</p>
+<p>The underling topic - how to set it up and a good HTML document should be created and a great reply by <a class="mention" href="https://forums.getdrafts.com/u/chrillek">@chrillek</a>  - brought me to the following article:</p>
+<p><a href="https://developer.mozilla.org/de/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener() - Web API Referenz | MDN</a></p>
+<p>I had to read with some astonishment that the practice of many tutorials to put Java Script inside the body of the HTML document is really bad practice and might even be the reason for some of the things I hate so much in web-apps or on webpages.</p>
+<p>As noted in my article</p>
+<aside class="quote" data-post="7" data-topic="8961">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/7">[Tip] Templated HTML generation (with scripts and preview)</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/scripting/13"><span class="badge-category-bg" style="background-color: #AB9364;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Discussions about Javascript techniques, and Drafts scripting in general">Scripting</span></a>
+  </div>
+  <blockquote>
+    I tried to write about it here …
+  </blockquote>
+</aside>
+
+<p>I am looking for a good and compact way to facilitate HTML Preview with my different ideas. The goal would be two fold:</p>
+<ol>
+<li>Generate good and nice HTML documents (with much Java Script)</li>
+<li>Have simple and compact templates in the Draft action (with template tags)</li>
+</ol>
+<blockquote>
+<p>Take away</p>
+</blockquote>
+<p>As I read the article about the <code>EventListener</code> the practice of Java Script in the body could be <strong>completely abandoned</strong> by using the <code>load</code> event.</p>
+<p>During generation the HTML Preview is not very talkative if a parse/specific error occurs. The <code>EventListener</code> <code>error</code> event might be a nice way to give the developer more details on the reason of the script.</p>
+          <p><a href="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967/1</link>
+        <pubDate>Sat, 31 Oct 2020 13:48:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8967-1</guid>
+        <source url="https://forums.getdrafts.com/t/java-scripts-in-drafts-or-elsewhere/8967.rss">Java Scripts in Drafts (or elsewhere)</source>
+      </item>
+  </channel>
+</rss>

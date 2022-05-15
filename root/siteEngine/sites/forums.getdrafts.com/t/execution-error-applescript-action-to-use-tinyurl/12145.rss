@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Execution error — AppleScript action to use TinyURL</title>
+    <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145</link>
+    <description>I&#39;m making an action to shorten URLs via TinyURL. I intend to use the action on Mac + iOS.
+
+I&#39;m mostly going to use this to shorten x-callback-urls so I can use them in Notion, but it&#39;ll be useful in general I think.
+
+I have this script, which works when I test it in the Mac Script Editor, and fails when I run it in Drafts.
+
+Example script, works in Script Editor:
+```applescript
+set draft to &quot;bear://x-callback-url/open-note?id=DDF59ACC-6C42-42C6-B651-41D8B8B457CA-91312-0004D85C42EE3F2D&amp;show_window=yes&amp;new_window=yes&quot;
+
+set longUrl to draft
+set shellScript to &quot;curl https://tinyurl.com/api-create.php?url=&#39;&quot; &amp; longUrl &amp; &quot;&#39;&quot;
+set shortenedUrl to do shell script shellScript
+set the clipboard to shortenedUrl
+```
+
+Here is the same script, moved over to a Drafts AppleScript action:
+
+```applescript
+-- AppleScript content
+-- Editing and testing in Script Editor recommended
+on execute(draft)
+  set shellScript to &quot;curl https://tinyurl.com/api-create.php?url=&#39;&quot; &amp; draft &amp; &quot;&#39;&quot;
+  set shortenedUrl to do shell script shellScript
+  set the clipboard to shortenedUrl
+end execute
+```
+
+When I test the script in Script Editor, all good. When I try in Drafts, it fails with this error:
+```
+The operation couldn’t be completed. /Users/andrew/Library/Application Scripts/com.agiletortoise.Drafts-OSX/Temp/applescript-667161091.692247.scpt: execution error: Can’t make {permalink:&quot;drafts://open?uuid=EA4D0705-01DA-486D-BDC5-B1E5201A76E7&quot;, folderName:&quot;inbox&quot;, createdAt:date &quot;Monday, February 21, 2022 at 9:53:53 AM&quot;, modifiedLongitude:-118.353204953042, accessedAt:date &quot;Monday, February 21, 2022 at 10:20:07 AM&quot;, languageGrammar:&quot;Markdown&quot;, modifiedLatitude:34.078812588259, content:&quot;bear://x-callback-url/open-note?id=DDF59ACC-6C42-42C6-B651-41D8B8B457CA-91312-0004D85C42EE3F2D&amp;show_window=yes&amp;new_window=yes&quot;, modifiedAt:date &quot;Monday, February 21, 2022 at 10:31:30 AM&quot;, createdLongitude:-118.353209668168, createdLatitude:34.078812275776, uuid:&quot;EA4D0705-01DA-486D-BDC5-B1E5201A76E7&quot;, flagged:false, tags:{}, title:&quot;bear://x-callback-url/open-note?id=DDF59ACC-6C42-42C6-B651-41D8B8B457CA-91312-0004D85C42EE3F2D&amp;show_window=yes&amp;new_window=yes&quot;} into type Unicode text. (-1700)
+```</description>
+    
+    <lastBuildDate>Mon, 21 Feb 2022 19:28:03 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[andrews]]></dc:creator>
+        <description><![CDATA[
+            <p>Shared to Action directory <a href="https://actions.getdrafts.com/a/1wZ" rel="noopener nofollow ugc">here</a>, thank you very much for the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/10</link>
+        <pubDate>Mon, 21 Feb 2022 19:28:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-10</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[andrews]]></dc:creator>
+        <description><![CDATA[
+            <p>Yep, just realized that, rusty on my JS. Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/9</link>
+        <pubDate>Mon, 21 Feb 2022 19:21:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-9</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>JavaScript has a built-in <code>trim()</code> function on strings. (<a href="https://www.w3schools.com/jsref/jsref_trim_string.asp">ref</a>)</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/8</link>
+        <pubDate>Mon, 21 Feb 2022 19:20:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-8</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[andrews]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s working well, thank you. I’m passing in the URL as the draft content.</p>
+<p><s>So I’m getting it from the global variable, <code>draft.content</code>. Is there an easy way to strip any whitespace off front/end of passed in URL just in case I accidentally type an extra space or two on the end?!</s> I’m now getting the URL from <code>draft.content.trim()</code> and it’s working. Thank you! I’ll share this to the action directory.</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/7</link>
+        <pubDate>Mon, 21 Feb 2022 19:18:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-7</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Try this as a starting point. Not sure where you want to get your URL from…</p>
+<pre><code class="lang-javascript">let url = "drafts://open";
+let endpoint = `https://tinyurl.com/api-create.php?url=${url}`;
+
+let http = new HTTP();
+let response = http.request({
+	"url": endpoint,
+	"method": "GET"
+});
+
+if (response.success) {
+	app.setClipboard(response.responseText);
+}
+else {
+	console.log(`${response.statusCode} ${response.error}`);
+	context.fail();
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/6</link>
+        <pubDate>Mon, 21 Feb 2022 19:14:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-6</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There is an <a href="https://scripting.getdrafts.com/classes/app#setclipboard"><code>app.setClipboard</code> function</a> to set the contents of the system clipboard, if that’s what you needed.</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/5</link>
+        <pubDate>Mon, 21 Feb 2022 19:00:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-5</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[andrews]]></dc:creator>
+        <description><![CDATA[
+            <p>Ah, good point. Hmm.</p>
+<p>I was trying to do that but struggled to pass from JS to the clipboard. Is there a good example of that you can point me to?</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/4</link>
+        <pubDate>Mon, 21 Feb 2022 18:58:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-4</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Issues aside, AppleScript does not exist on iOS, so you may be barking up the wrong tree here if you say you want to use this cross-platform.</p>
+<p>You would be better off using Drafts’ native <a href="https://scripting.getdrafts.com/classes/http"><code>HTTP</code> script object</a> to make the call the Tiny URL.</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/3</link>
+        <pubDate>Mon, 21 Feb 2022 18:54:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-3</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p><code>draft</code> is a <em>draft</em> object in the second script whereas <code>draft</code> is a string in the first script.</p>
+<p>If you want the text contained in the draft object, try <code>content of the draft</code>.</p>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/2</link>
+        <pubDate>Mon, 21 Feb 2022 18:37:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-2</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+      <item>
+        <title>Execution error — AppleScript action to use TinyURL</title>
+        <dc:creator><![CDATA[andrews]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m making an action to shorten URLs via TinyURL. I intend to use the action on Mac + iOS.</p>
+<p>I’m mostly going to use this to shorten x-callback-urls so I can use them in Notion, but it’ll be useful in general I think.</p>
+<p>I have this script, which works when I test it in the Mac Script Editor, and fails when I run it in Drafts.</p>
+<p>Example script, works in Script Editor:</p>
+<pre data-code-wrap="applescript"><code class="lang-nohighlight">set draft to "bear://x-callback-url/open-note?id=DDF59ACC-6C42-42C6-B651-41D8B8B457CA-91312-0004D85C42EE3F2D&amp;show_window=yes&amp;new_window=yes"
+
+set longUrl to draft
+set shellScript to "curl https://tinyurl.com/api-create.php?url='" &amp; longUrl &amp; "'"
+set shortenedUrl to do shell script shellScript
+set the clipboard to shortenedUrl
+</code></pre>
+<p>Here is the same script, moved over to a Drafts AppleScript action:</p>
+<pre data-code-wrap="applescript"><code class="lang-nohighlight">-- AppleScript content
+-- Editing and testing in Script Editor recommended
+on execute(draft)
+  set shellScript to "curl https://tinyurl.com/api-create.php?url='" &amp; draft &amp; "'"
+  set shortenedUrl to do shell script shellScript
+  set the clipboard to shortenedUrl
+end execute
+</code></pre>
+<p>When I test the script in Script Editor, all good. When I try in Drafts, it fails with this error:</p>
+<pre><code class="lang-auto">The operation couldn’t be completed. /Users/andrew/Library/Application Scripts/com.agiletortoise.Drafts-OSX/Temp/applescript-667161091.692247.scpt: execution error: Can’t make {permalink:"drafts://open?uuid=EA4D0705-01DA-486D-BDC5-B1E5201A76E7", folderName:"inbox", createdAt:date "Monday, February 21, 2022 at 9:53:53 AM", modifiedLongitude:-118.353204953042, accessedAt:date "Monday, February 21, 2022 at 10:20:07 AM", languageGrammar:"Markdown", modifiedLatitude:34.078812588259, content:"bear://x-callback-url/open-note?id=DDF59ACC-6C42-42C6-B651-41D8B8B457CA-91312-0004D85C42EE3F2D&amp;show_window=yes&amp;new_window=yes", modifiedAt:date "Monday, February 21, 2022 at 10:31:30 AM", createdLongitude:-118.353209668168, createdLatitude:34.078812275776, uuid:"EA4D0705-01DA-486D-BDC5-B1E5201A76E7", flagged:false, tags:{}, title:"bear://x-callback-url/open-note?id=DDF59ACC-6C42-42C6-B651-41D8B8B457CA-91312-0004D85C42EE3F2D&amp;show_window=yes&amp;new_window=yes"} into type Unicode text. (-1700)
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145/1</link>
+        <pubDate>Mon, 21 Feb 2022 18:32:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12145-1</guid>
+        <source url="https://forums.getdrafts.com/t/execution-error-applescript-action-to-use-tinyurl/12145.rss">Execution error — AppleScript action to use TinyURL</source>
+      </item>
+  </channel>
+</rss>

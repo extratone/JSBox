@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Loading a taskpaper list from Dropbox</title>
+    <link>https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841</link>
+    <description>Hi,
+
+I have a very simple action, lightly modified from the TaskPaper group by @drdrang, to (1) load a taskpaper file from dropbox, (2) add a &#39;taskpaper&#39; tag to the file, (3) set a &#39;taskpaper&#39; workspace  and (4) set the syntax highlighting for the draft to TaskPaper. 
+
+If I run the action from Drafts itself, everything works as expected in iOS and macOS. But I want to call this action from the iOS Drafts widget, and if I run the action from there: (1) the tag is not applied, and (2) the syntax highlighting doesn&#39;t change. Any ideas?
+
+Here&#39;s the code:
+
+```
+// Get TaskPaper file for current month and set the draft to it.
+
+let workspace = Workspace.find(&quot;TaskPaper&quot;);
+app.applyWorkspace(workspace);
+
+// Dropbox folder where task file is.
+var path = &#39;/work/SUBFOLDER/&#39;;
+
+// Assemble filename from today&#39;s date.
+var today = new Date();
+var yr = today.getFullYear().toString();
+var filename = path + &#39;FILENAME.&#39; + yr + &#39;.taskpaper&#39;;
+
+// Get the file from Dropbox and set draft to it.
+var db = Dropbox.create();
+var content = db.read(filename);
+editor.setText(content);
+
+let syntax = Syntax.find(&quot;builtIn&quot;, &quot;TaskPaper&quot;);
+draft.syntax = syntax;
+draft.addTag(&quot;taskpaper&quot;)
+draft.update();
+```</description>
+    
+    <lastBuildDate>Mon, 19 Jul 2021 13:46:01 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Loading a taskpaper list from Dropbox</title>
+        <dc:creator><![CDATA[carlos]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, that worked perfectly.</p>
+          <p><a href="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841/3</link>
+        <pubDate>Mon, 19 Jul 2021 13:46:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10841-3</guid>
+        <source url="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841.rss">Loading a taskpaper list from Dropbox</source>
+      </item>
+      <item>
+        <title>Loading a taskpaper list from Dropbox</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This script mixes and matches <code>editor</code> and <code>draft</code> objects in a somewhat problematic way that is not obvious when run in the app, but becomes a problem when run from the widget, because the <code>draft</code> object is not loaded in the editor when run from a widget (similar issue when run from Shortcuts or a URL scheme).</p>
+<p>This would work reliably from the widget if the script created a new draft, modified it, then loaded it in the editor. Modifying just the end of the script:</p>
+<pre><code class="lang-javascript">// Get the file from Dropbox and set draft to it.
+var db = Dropbox.create();
+var content = db.read(filename);
+
+let d = new Draft();
+d.content = content;
+let syntax = Syntax.find("builtIn", "TaskPaper");
+d.syntax = syntax;
+d.addTag("taskpaper")
+d.update();
+editor.load(d);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841/2</link>
+        <pubDate>Sun, 18 Jul 2021 01:15:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10841-2</guid>
+        <source url="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841.rss">Loading a taskpaper list from Dropbox</source>
+      </item>
+      <item>
+        <title>Loading a taskpaper list from Dropbox</title>
+        <dc:creator><![CDATA[carlos]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>I have a very simple action, lightly modified from the TaskPaper group by <a class="mention" href="https://forums.getdrafts.com/u/drdrang">@drdrang</a>, to (1) load a taskpaper file from dropbox, (2) add a ‘taskpaper’ tag to the file, (3) set a ‘taskpaper’ workspace  and (4) set the syntax highlighting for the draft to TaskPaper.</p>
+<p>If I run the action from Drafts itself, everything works as expected in iOS and macOS. But I want to call this action from the iOS Drafts widget, and if I run the action from there: (1) the tag is not applied, and (2) the syntax highlighting doesn’t change. Any ideas?</p>
+<p>Here’s the code:</p>
+<pre><code class="lang-auto">// Get TaskPaper file for current month and set the draft to it.
+
+let workspace = Workspace.find("TaskPaper");
+app.applyWorkspace(workspace);
+
+// Dropbox folder where task file is.
+var path = '/work/SUBFOLDER/';
+
+// Assemble filename from today's date.
+var today = new Date();
+var yr = today.getFullYear().toString();
+var filename = path + 'FILENAME.' + yr + '.taskpaper';
+
+// Get the file from Dropbox and set draft to it.
+var db = Dropbox.create();
+var content = db.read(filename);
+editor.setText(content);
+
+let syntax = Syntax.find("builtIn", "TaskPaper");
+draft.syntax = syntax;
+draft.addTag("taskpaper")
+draft.update();
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841/1</link>
+        <pubDate>Sat, 17 Jul 2021 23:11:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10841-1</guid>
+        <source url="https://forums.getdrafts.com/t/loading-a-taskpaper-list-from-dropbox/10841.rss">Loading a taskpaper list from Dropbox</source>
+      </item>
+  </channel>
+</rss>

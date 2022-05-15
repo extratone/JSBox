@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>HTTP Post data in raw?</title>
+    <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424</link>
+    <description>As far as I known the [HTTP | Drafts Script Reference (getdrafts.com)](https://scripting.getdrafts.com/classes/http) request only accepts `json` or `form` for `data`. 
+
+In my case the server needs `raw`. (I&#39;m playing with Zotero web api).  Similar question seems to be there but no answers. [Can I &#39;POST&#39; Raw Data to a Web API? - Scripting - Drafts Community (getdrafts.com)](https://forums.getdrafts.com/t/can-i-post-raw-data-to-a-web-api/8180)</description>
+    
+    <lastBuildDate>Thu, 14 Apr 2022 09:47:55 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>HTTP Post data in raw?</title>
+        <dc:creator><![CDATA[dofine]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, sorry for the misleading. I’ll give it a try again. <img src="https://forums.getdrafts.com/images/emoji/apple/grinning.png?v=12" title=":grinning:" class="emoji" alt=":grinning:" loading="lazy" width="20" height="20"></p>
+          <p><a href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424/5</link>
+        <pubDate>Thu, 14 Apr 2022 09:47:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12424-5</guid>
+        <source url="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss">HTTP Post data in raw?</source>
+      </item>
+      <item>
+        <title>HTTP Post data in raw?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t see the need for <code>raw</code> here immediately, but I might be missing something.</p>
+<p>The <code>HTTP</code> object handles JSON for sending and receiving…in fact, it is the default behavior. Just use your JavaScript object as the <code>data</code> param, as in the example code <a href="https://scripting.getdrafts.com/classes/http">on the scripting reference page</a>. JSON seems to be what the Zotero API is sending and receiving.</p>
+<p>The API also sends back JSON, so the HTTP response will handle parsing that to a JavaScript object for you, and it will be in the <code>responseData</code> properly of the HTTPResponse.</p>
+          <p><a href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424/4</link>
+        <pubDate>Mon, 11 Apr 2022 13:21:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12424-4</guid>
+        <source url="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss">HTTP Post data in raw?</source>
+      </item>
+      <item>
+        <title>HTTP Post data in raw?</title>
+        <dc:creator><![CDATA[dofine]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry for the late reply.  For Zotero Web API, the write item requests needs data to be passed as json array.</p>
+<p><a href="https://www.zotero.org/support/dev/web_api/v3/write_requests" rel="noopener nofollow ugc">dev:web api:v3:write requests [Zotero Documentation]</a></p>
+          <p><a href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424/3</link>
+        <pubDate>Mon, 11 Apr 2022 03:37:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12424-3</guid>
+        <source url="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss">HTTP Post data in raw?</source>
+      </item>
+      <item>
+        <title>HTTP Post data in raw?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I did a quick code review, and no, that’s not currently supported. Would not be too big a change, I will try to get this modification incorporated.</p>
+<p>Do you have a specific example of a request/response you need to make (maybe a <code>curl</code> example)?</p>
+          <p><a href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424/2</link>
+        <pubDate>Fri, 08 Apr 2022 17:28:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12424-2</guid>
+        <source url="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss">HTTP Post data in raw?</source>
+      </item>
+      <item>
+        <title>HTTP Post data in raw?</title>
+        <dc:creator><![CDATA[dofine]]></dc:creator>
+        <description><![CDATA[
+            <p>As far as I known the <a href="https://scripting.getdrafts.com/classes/http" rel="noopener nofollow ugc">HTTP | Drafts Script Reference (getdrafts.com)</a> request only accepts <code>json</code> or <code>form</code> for <code>data</code>.</p>
+<p>In my case the server needs <code>raw</code>. (I’m playing with Zotero web api).  Similar question seems to be there but no answers. <a href="https://forums.getdrafts.com/t/can-i-post-raw-data-to-a-web-api/8180">Can I ‘POST’ Raw Data to a Web API? - Scripting - Drafts Community (getdrafts.com)</a></p>
+          <p><a href="https://forums.getdrafts.com/t/http-post-data-in-raw/12424/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/http-post-data-in-raw/12424/1</link>
+        <pubDate>Fri, 08 Apr 2022 14:15:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12424-1</guid>
+        <source url="https://forums.getdrafts.com/t/http-post-data-in-raw/12424.rss">HTTP Post data in raw?</source>
+      </item>
+  </channel>
+</rss>

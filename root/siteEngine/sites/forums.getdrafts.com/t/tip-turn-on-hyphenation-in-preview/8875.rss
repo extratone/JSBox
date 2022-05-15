@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tip] Turn on hyphenation in preview</title>
+    <link>https://forums.getdrafts.com/t/tip-turn-on-hyphenation-in-preview/8875</link>
+    <description>The Foghorn preview generates justified text and turns on hyphenation. This is should be working according to @agiletortoise from Drafts 23
+However, the template does _not_ set the `lang` attribute in the preview which presumably makes the hyphenation not very useful except for documents in English. 
+One can easily make hyphenation available in all languages like this:
+- copy the Foghorn template (using &quot;Export&quot; from the action&#39;s edit dialog) into Drafts&#39; template folder under a new name
+- In this new template, change the `&lt;html&gt;` element to `&lt;html lang=&quot;xx&quot;&gt;` where xx is your default language (`en` for English, `fr` for French, `de` for German etc.)
+- define a new action with &quot;HTML Preview&quot; as its only step and import this tempate into it.
+
+Now hyphenation should work without any further ado for the default language. That might be sufficient if you only write in one language.
+However, it gives weird results if you preview a document in _another_ language. Following a suggestion of @sylumer, in this case:
+- in your template, change  `&lt;html lang=&quot;xx&quot;&gt;` to `&lt;html lang=&quot;[[lang]]&quot;&gt;`
+- add a tag to the document in the form `lang-yy-YY` where yy-YY are the language and country codes (the latter is not strictly necessary, so `lang-yy` is fine, too). E.g., `en-GB` für british and `en-US` for american English
+-  Define a new action with a script as its first step:
+```
+let lang = &quot;xx&quot;;
+let tags = draft.tags;
+let found = tags.filter(t =&gt; t.includes(&quot;lang-&quot;))
+if (found &amp;&amp; found.length &gt; 0) {
+  lang = found[0].substr(-2);
+} 
+draft.setTemplateTag(&quot;lang&quot;, lang);
+```
+- add the &quot;HTML Preview&quot; step after this one using the modified template
+
+If you have inline code segments in your documents (i.e. included in single backqoutes) you might want to turn off hyphenation for them like so
+```
+  -webkit-hyphens: off;
+  -moz-hyphens: off;
+  hyphens: off;
+```
+This segment belongs in the CSS part of your template: 
+```
+code {
+…
+}
+```
+before the closing brace.</description>
+    
+    <lastBuildDate>Sun, 01 Nov 2020 12:36:40 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/tip-turn-on-hyphenation-in-preview/8875.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tip] Turn on hyphenation in preview</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <p>The Foghorn preview generates justified text and turns on hyphenation. This is should be working according to <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> from Drafts 23<br>
+However, the template does <em>not</em> set the <code>lang</code> attribute in the preview which presumably makes the hyphenation not very useful except for documents in English.<br>
+One can easily make hyphenation available in all languages like this:</p>
+<ul>
+<li>copy the Foghorn template (using “Export” from the action’s edit dialog) into Drafts’ template folder under a new name</li>
+<li>In this new template, change the <code>&lt;html&gt;</code> element to <code>&lt;html lang="xx"&gt;</code> where xx is your default language (<code>en</code> for English, <code>fr</code> for French, <code>de</code> for German etc.)</li>
+<li>define a new action with “HTML Preview” as its only step and import this tempate into it.</li>
+</ul>
+<p>Now hyphenation should work without any further ado for the default language. That might be sufficient if you only write in one language.<br>
+However, it gives weird results if you preview a document in <em>another</em> language. Following a suggestion of <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>, in this case:</p>
+<ul>
+<li>in your template, change  <code>&lt;html lang="xx"&gt;</code> to <code>&lt;html lang="[[lang]]"&gt;</code>
+</li>
+<li>add a tag to the document in the form <code>lang-yy-YY</code> where yy-YY are the language and country codes (the latter is not strictly necessary, so <code>lang-yy</code> is fine, too). E.g., <code>en-GB</code> für british and <code>en-US</code> for american English</li>
+<li>Define a new action with a script as its first step:</li>
+</ul>
+<pre><code class="lang-auto">let lang = "xx";
+let tags = draft.tags;
+let found = tags.filter(t =&gt; t.includes("lang-"))
+if (found &amp;&amp; found.length &gt; 0) {
+  lang = found[0].substr(-2);
+} 
+draft.setTemplateTag("lang", lang);
+</code></pre>
+<ul>
+<li>add the “HTML Preview” step after this one using the modified template</li>
+</ul>
+<p>If you have inline code segments in your documents (i.e. included in single backqoutes) you might want to turn off hyphenation for them like so</p>
+<pre><code class="lang-auto">  -webkit-hyphens: off;
+  -moz-hyphens: off;
+  hyphens: off;
+</code></pre>
+<p>This segment belongs in the CSS part of your template:</p>
+<pre><code class="lang-auto">code {
+…
+}
+</code></pre>
+<p>before the closing brace.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-turn-on-hyphenation-in-preview/8875/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-turn-on-hyphenation-in-preview/8875/1</link>
+        <pubDate>Fri, 23 Oct 2020 14:22:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8875-1</guid>
+        <source url="https://forums.getdrafts.com/t/tip-turn-on-hyphenation-in-preview/8875.rss">[Tip] Turn on hyphenation in preview</source>
+      </item>
+  </channel>
+</rss>

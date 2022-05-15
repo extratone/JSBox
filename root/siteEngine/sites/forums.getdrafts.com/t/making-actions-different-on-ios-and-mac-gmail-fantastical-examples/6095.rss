@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Making actions different on iOS and Mac: Gmail &amp; Fantastical examples</title>
+    <link>https://forums.getdrafts.com/t/making-actions-different-on-ios-and-mac-gmail-fantastical-examples/6095</link>
+    <description>Now that actions are available for both Mac and iOS, you may find there are times it makes sense for a single action to behave differently on one platform or the other, because URL schemes are different, or a particular app is only available on one platform, etc.
+
+Do make an action behave differently, Drafts allows you to enable or disable individual action steps by platform in the action editor.  Scripts can also detect the current platform using the `Device` object.  Let&#39;s take a look at examples of each method.
+
+## Enabling Action Steps by Platform
+
+This post assumes you have edited actions before. If you are new to editing actions, start [with the action docs first](https://docs.getdrafts.com/docs/actions/editing-actions.html).
+
+In the action editor, each step has options to enable or disable that step by platform. 
+
+![enabling-action-steps|617x337, 75%](upload://smO98o9bW6Zup8zAotHZ4dqCxrY.png) 
+
+If the step is not enabled for the current platform, when the action is run it will simply be skipped.
+
+## Gmail and Fantastical Examples
+
+A common case where it makes sense to branch the functionality of an action, is the case where URLs used to integrate with an app or service are not the same on different platforms.  Here are two example actions demonstrating:
+
+- [**Send to Gmail**](https://actions.getdrafts.com/a/1Fj)
+    - On iOS, there is a native [Gmail app](https://apps.apple.com/us/app/gmail-email-by-google/id422689480). When running on iOS, this action will open a new email message in the native Gmail app.
+    - On Mac, there is no native Gmail app available, so this action reverts to opening a new message in the Gmail web interface.
+- [**Parse in Fantastical**](https://actions.getdrafts.com/a/11m)
+   - This example, created by @RosemaryOrchard as part of her excellent [MacStories Review of Drafts 16](https://www.macstories.net/reviews/drafts-for-mac-its-action-time/), uses the same technique to address the fact that while the popular calendar app [Fantastical](https://flexibits.com) is available for both iOS and Mac, the app uses slightly different URL schemes on the different platforms.
+
+## Failing Gracefully
+
+Another good use case for enabling and disabling action steps by platform is the case where an action is known to only work on one platform, because a particular app or service is not available.  In this case, if you are publishing actions to the directory, it is useful to provide feedback to users if they try to install and run the action on an unsupported platform.
+
+Say you have an URL-based action for an app only available on iOS. In the action configuration, enable the URL step for the app *only on iOS* and disable it for Mac. Then add a [`Prompt` action step](https://docs.getdrafts.com/docs/actions/steps/advanced.html#prompt) that is enabled only on Mac, and displays a friendly message, like &quot;This action is not compatible with Mac.&quot;
+
+The [**Preview in Marked**](https://actions.getdrafts.com/a/11f) example demonstrates this in the inverse, as the [Marked app](https://marked2app.com) is only available on Mac.
+
+## Detecting Platform in Script
+
+In script action steps, if you wish to detect if the action is currently being performed on the Mac or iOS, use the example below:
+
+```javascript
+// branch logic based on platform
+if (device.systemName == &#39;macOS&#39;) {
+    // do something only on Mac
+}
+else {
+    // do somethign only on iOS
+}
+```
+
+More details can be found in the [`Device` object scripting documentation](https://scripting.getdrafts.com/classes/device.html)</description>
+    
+    <lastBuildDate>Thu, 12 Dec 2019 15:32:53 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/making-actions-different-on-ios-and-mac-gmail-fantastical-examples/6095.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Making actions different on iOS and Mac: Gmail &amp; Fantastical examples</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Now that actions are available for both Mac and iOS, you may find there are times it makes sense for a single action to behave differently on one platform or the other, because URL schemes are different, or a particular app is only available on one platform, etc.</p>
+<p>Do make an action behave differently, Drafts allows you to enable or disable individual action steps by platform in the action editor.  Scripts can also detect the current platform using the <code>Device</code> object.  Let’s take a look at examples of each method.</p>
+<h2>Enabling Action Steps by Platform</h2>
+<p>This post assumes you have edited actions before. If you are new to editing actions, start <a href="https://docs.getdrafts.com/docs/actions/editing-actions.html">with the action docs first</a>.</p>
+<p>In the action editor, each step has options to enable or disable that step by platform.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/c/c6d0eb6b66cc7679f153d238495cac8bb7110e9a.png" alt="enabling-action-steps" data-base62-sha1="smO98o9bW6Zup8zAotHZ4dqCxrY" width="462" height="252"></p>
+<p>If the step is not enabled for the current platform, when the action is run it will simply be skipped.</p>
+<h2>Gmail and Fantastical Examples</h2>
+<p>A common case where it makes sense to branch the functionality of an action, is the case where URLs used to integrate with an app or service are not the same on different platforms.  Here are two example actions demonstrating:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1Fj"><strong>Send to Gmail</strong></a>
+<ul>
+<li>On iOS, there is a native <a href="https://apps.apple.com/us/app/gmail-email-by-google/id422689480">Gmail app</a>. When running on iOS, this action will open a new email message in the native Gmail app.</li>
+<li>On Mac, there is no native Gmail app available, so this action reverts to opening a new message in the Gmail web interface.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/11m"><strong>Parse in Fantastical</strong></a>
+<ul>
+<li>This example, created by <a class="mention" href="https://forums.getdrafts.com/u/rosemaryorchard">@RosemaryOrchard</a> as part of her excellent <a href="https://www.macstories.net/reviews/drafts-for-mac-its-action-time/">MacStories Review of Drafts 16</a>, uses the same technique to address the fact that while the popular calendar app <a href="https://flexibits.com">Fantastical</a> is available for both iOS and Mac, the app uses slightly different URL schemes on the different platforms.</li>
+</ul>
+</li>
+</ul>
+<h2>Failing Gracefully</h2>
+<p>Another good use case for enabling and disabling action steps by platform is the case where an action is known to only work on one platform, because a particular app or service is not available.  In this case, if you are publishing actions to the directory, it is useful to provide feedback to users if they try to install and run the action on an unsupported platform.</p>
+<p>Say you have an URL-based action for an app only available on iOS. In the action configuration, enable the URL step for the app <em>only on iOS</em> and disable it for Mac. Then add a <a href="https://docs.getdrafts.com/docs/actions/steps/advanced.html#prompt"><code>Prompt</code> action step</a> that is enabled only on Mac, and displays a friendly message, like “This action is not compatible with Mac.”</p>
+<p>The <a href="https://actions.getdrafts.com/a/11f"><strong>Preview in Marked</strong></a> example demonstrates this in the inverse, as the <a href="https://marked2app.com">Marked app</a> is only available on Mac.</p>
+<h2>Detecting Platform in Script</h2>
+<p>In script action steps, if you wish to detect if the action is currently being performed on the Mac or iOS, use the example below:</p>
+<pre><code class="lang-javascript">// branch logic based on platform
+if (device.systemName == 'macOS') {
+    // do something only on Mac
+}
+else {
+    // do somethign only on iOS
+}
+</code></pre>
+<p>More details can be found in the <a href="https://scripting.getdrafts.com/classes/device.html"><code>Device</code> object scripting documentation</a></p>
+          <p><a href="https://forums.getdrafts.com/t/making-actions-different-on-ios-and-mac-gmail-fantastical-examples/6095/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/making-actions-different-on-ios-and-mac-gmail-fantastical-examples/6095/1</link>
+        <pubDate>Thu, 12 Dec 2019 15:32:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6095-1</guid>
+        <source url="https://forums.getdrafts.com/t/making-actions-different-on-ios-and-mac-gmail-fantastical-examples/6095.rss">Making actions different on iOS and Mac: Gmail &amp; Fantastical examples</source>
+      </item>
+  </channel>
+</rss>

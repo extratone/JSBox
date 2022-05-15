@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Import Calendar Events for Today</title>
+    <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576</link>
+    <description>I&#39;ve read the threads here in the forum on importing calendar events along with trying to manipulate calendar actions based on the [Calendar Drafts Script Reference](https://scripting.getdrafts.com/classes/calendar#events)... but my limited skills are preventing me from achieving my goal - which is:
+
+Create an Action that inserts &quot;today&#39;s&quot; calendar events from &quot;all&quot; my calendars in the following format:
+Time (in 24h) + Event Title
+
+That&#39;s it... all I am looking for.
+
+I&#39;d like to avoid date and calendar pickers... and eliminate all the necessary date data...
+
+Is this possible?</description>
+    
+    <lastBuildDate>Tue, 22 Mar 2022 09:30:01 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[Patrick68]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi all,<br>
+Just an amazing thread here with plenty of solution!!<br>
+I have multiple Calendar, (Perso, Pro…) how is possible to order the result by time and not by agenda/calendar? To have a clear view of the day starting with the fist appointment and next with the second in a time line</p>
+<p>Thanks<br>
+regards<br>
+Patrick</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/14</link>
+        <pubDate>Tue, 22 Mar 2022 09:30:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-14</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>Looks like I missed this one the first time round, but I’m glad it resurfaced. I currently run a shortcut every morning that archives yesterday’s activity (calendar, completed reminders and links to modified drafts) in yesterday’s daily journal. Been meaning to port that shortcut to Drafts, and this looks like it might provide me with a good foundation for doing so. Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/13</link>
+        <pubDate>Mon, 28 Feb 2022 16:32:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-13</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Some more settings and functionality, mostly to incorporate reminders:</p>
+<ul>
+<li>set <code>remind</code> in the settings section to change how reminders are handled:
+<ul>
+<li>
+<code>false</code> (no quotes) ignores Reminders altogether</li>
+<li>
+<code>”inc”</code> (with quotes) retrieves just incomplete tasks</li>
+<li>
+<code>”comp”</code> (with quotes) retrieves just completed tasks</li>
+<li>
+<code>”due”</code> (with quotes) retrieves incomplete tasks that have due dates on or after the start date (same as for events, set separately, <code>st</code>)</li>
+</ul>
+</li>
+<li>set <code>preRem</code> to <code>true</code> (no quotes) to add the name of the Reminder list each reminder belongs to</li>
+<li>if you use MultiMarkdown or some other syntaxes, the headings should stand out and the checkboxes should be tappable; however, marking a task as done in the draft won’t affect the original reminder in any way.</li>
+</ul>
+<pre><code class="lang-javascript">
+// version 0.1.3 (20210526.3)
+// script to get all events for
+// all calendars for the next 
+// day, and add to a new draft
+// by tf2
+
+// SETTINGS
+
+// append agenda to current
+// draft: set true
+// new draft: set false
+let append = true;
+
+// date offset determined the
+// range of days for which
+// events are shown. Number is
+// added to today's date; 0 means
+// today, 1 means tomorrow, etc
+let st = 0;
+let en = 1;
+// set today's date
+let aDate = new Date();
+let aaDate = new Date();
+// set start date
+let sDate = aDate.addDays(st);
+let eDate = aaDate.addDays(en)
+
+// include Reminders?
+// no = false (no quotes)
+// "inc" = all incomplete tasks
+// "due" = incomplete tasks due in
+//		range set above
+// "comp" = completed tasks
+// "all" = all tasks
+var remind = "due";
+
+// prepend calendar name
+// or reminder list 
+// to each line: set true
+let preCal = false;
+let preRem = false;
+
+
+// START SCRIPT PROPER
+
+// set header
+// set a header string to hold
+// the result 
+let sStr = sDate.getFullYear()+'-' + (pad2(sDate.getMonth()+1)) + '-'+ pad2(sDate.getDate());
+let eStr = eDate.getFullYear()+'-' + (pad2(eDate.getMonth()+1)) + '-'+ pad2(eDate.getDate());
+result = "# Agenda for ";
+// customize header for today
+if (st == 0 &amp;&amp; en == 1){
+  result += "today\n\n";
+}
+else {
+  result += sStr + " to " + eStr + "\n\n";
+}
+
+// get all calendars
+let cals = Calendar.getAllCalendars();
+
+// cycle thru calendars
+for (let cal of cals) {
+  if (cal) {
+    // set today &amp; tomorrow
+    let startD = new Date();
+    startD.setDate(startD.getDate() + st);
+    let endD = new Date(startD);
+    endD.setDate(endD.getDate() + en);
+    // get all events
+    let events = cal.events(startD, endD);
+    // cycle thru each event
+    for (let event of events) {
+      // get start date
+      let start = event.startDate;
+      // get hour, minutes
+      let st_hour = start.getHours();
+      let st_min = pad2(start.getMinutes());
+      // add to result
+      if (preCal) {
+        result += cal.title;
+        result += " — ";
+      }
+      result += st_hour+":"+st_min+" — ";
+      result += event.title;
+      result += "\n";
+    }
+  }
+}
+
+// retrieve reminders if remind
+// is set to true at top
+if (remind) {
+  let rLists = ReminderList.getAllReminderLists();
+  let remResult = "";
+  for (let rList in rLists){
+    if (remind == "all"){
+      var rems = rLists[rList].tasks;
+    }
+    else if (remind == "comp") {
+      var rems = rLists[rList].completeTasks;
+    }
+    else { // incomplete + due
+      var rems = rLists[rList].incompleteTasks;
+    }
+    for (let rem in rems) {
+      let val = rems[rem].isCompleted
+      if (val == true) {
+      	var symb = "- [x] ";
+      }
+      else {
+        var symb = "- [ ] ";
+      }
+      let text = "";
+      if (preRem = true) {
+        text += rLists[rList].title+": "; 
+      }
+      text += rems[rem].title;
+      let dueD = rems[rem].dueDate;
+      if (remind == "due") {
+      	if (dueD) {
+          if (dueD.valueOf() &gt;= sDate.valueOf()){
+            let remDstr = dueD.getFullYear() + "-" + (dueD.getMonth()+1) + "-" + dueD.getDate();
+            remResult += symb + text + " (due: " + remDstr + ")\n";
+          }          
+        }
+      }
+      else { // all incomplete tasks
+        remResult += symb + text + "\n";
+      }
+    } // end rem in rems
+  } // end rList in rLists
+  if (remResult != "") {
+    result += "\n## Reminders\n\n" + remResult;
+  }
+} // end if remind
+
+// append to a new draft or
+// create a new one, using
+// append setting from top
+if (append) {
+  result = "\n"+result;
+  draft.append(result);
+  draft.addTag("agenda");
+  draft.update;
+}
+else {
+  let d = new Draft();
+  d.content = result;
+  d.addTag("agenda");
+  d.update();
+}
+
+// function to ensure dates
+// and times are padded 
+// to two digits; from
+// https://electrictoolbox.com/pad-number-two-digits-javascript/
+function pad2(number) {
+  return (number &lt; 10 ? '0' : '') + number
+}
+
+// function to add days to
+// a date, from:
+// https://stackoverflow.com/questions/563406/add-days-to-javascript-date
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/11</link>
+        <pubDate>Thu, 27 May 2021 00:58:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-11</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Great idea. I can probably do this, but maybe not until tonight. (This is more or less how I’m teaching myself Javascript, so thank you!)</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/10</link>
+        <pubDate>Wed, 26 May 2021 16:23:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-10</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[NotPowerUser]]></dc:creator>
+        <description><![CDATA[
+            <p>You already did a great job by providing such powerful automation. However, I have another suggestion/request. Are you interested to expand your script to include reminders from Apple Reminders and create a section with heading: Due today or something similar?<br>
+This way you could get your mini dashboard for today which will include both events and reminders😊</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/9</link>
+        <pubDate>Wed, 26 May 2021 15:46:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-9</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Here’s a revised version that does several things by changing values at the top of the script:</p>
+<ol>
+<li>
+<p>Set whether to prepend the calendar name to each line</p>
+</li>
+<li>
+<p>Set a date range to display events from, as an offset from today’s date, in days (0 is today, 1 is tomorrow, etc.) — note that this handles month ends nicely, so May 31 + 1 day should give you June 1 instead of May 32, thanks to a function I found online.</p>
+</li>
+<li>
+<p>Customizes the header based on the date range you pick, with a special “today” value if you set the offsets to 0 and 1</p>
+</li>
+<li>
+<p>Choose whether to append the result to the current draft or create a new draft.</p>
+</li>
+</ol>
+<p>Enjoy.</p>
+<pre><code class="lang-javascript">
+// version 0.1.2 (20210526.2)
+// script to get all events for
+// all calendars for the next 
+// day, and add to a new draft
+// by tf2
+
+// SETTINGS
+
+// prepend calendar name 
+// to each line: set true
+let preCal = false;
+
+// append agenda to current
+// draft: set true
+// new draft: set false
+let append = true;
+
+// date offset determined the
+// range of days for which
+// events are shown. Number is
+// added to today's date; 0 means
+// today, 1 means tomorrow, etc
+let st = 0;
+let en = 1;
+// set today's date
+let aDate = new Date();
+// set start date
+let sDate = aDate.addDays(st);
+let eDate = aDate.addDays(en)
+
+// get all calendars
+let cals = Calendar.getAllCalendars();
+
+// set header
+// set a header string to hold
+// the result 
+let sStr = sDate.getFullYear()+'-' + (pad2(aDate.getMonth()+1)) + '-'+ pad2(aDate.getDate());
+let eStr = eDate.getFullYear()+'-' + (pad2(aDate.getMonth()+1)) + '-'+ pad2(aDate.getDate());
+result = "# Agenda for ";
+// customize header for today
+if (st == 0 &amp;&amp; en == 1){
+  result += "today\n\n";
+}
+else {
+  result += sStr + " to " + eStr + "\n\n";
+}
+
+// cycle thru calendars
+for (let cal of cals) {
+  if (cal) {
+    // set today &amp; tomorrow
+    let startD = new Date();
+    startD.setDate(startD.getDate() + st);
+    let endD = new Date(startD);
+    endD.setDate(endD.getDate() + en);
+    // get all events
+    let events = cal.events(startD, endD);
+    // cycle thru each event
+    for (let event of events) {
+      // get start date
+      let start = event.startDate;
+      // get hour, minutes
+      let st_hour = start.getHours();
+      let st_min = pad2(start.getMinutes());
+      // add to result
+      if (preCal) {
+        result += cal.title;
+        result += " — ";
+      }
+      result += st_hour+":"+st_min+" — ";
+      result += event.title;
+      result += "\n";
+    }
+  }
+}
+
+// append to a new draft or
+// create a new one, using
+// append setting from top
+if (append) {
+  result = "\n"+result;
+  draft.append(result);
+  draft.addTag("agenda");
+  draft.update;
+}
+else {
+  let d = new Draft();
+  d.content = result;
+  d.addTag("agenda");
+  d.update();
+}
+
+// function to ensure dates
+// and times are padded 
+// to two digits; from
+// https://electrictoolbox.com/pad-number-two-digits-javascript/
+function pad2(number) {
+  return (number &lt; 10 ? '0' : '') + number
+}
+
+// function to add days to
+// a date, from:
+// https://stackoverflow.com/questions/563406/add-days-to-javascript-date
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
+
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/8</link>
+        <pubDate>Wed, 26 May 2021 14:51:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-8</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p>Was able to add the events results to the clipboard by following <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> code to post the <a href="https://forums.getdrafts.com/t/obsidian-like-behaviour/8290/15">resulting string to the clipboard.</a></p>
+<p>Here is my modified version of <a class="mention" href="https://forums.getdrafts.com/u/tf2">@tf2</a> script &lt;thank you!&gt;</p>
+<p>I can’t figure out how to completely eliminate the date from the first line - but I can delete it manually:</p>
+<pre><code>// script to get all events for
+// all calendars for the next 
+// day, and add to a new draft
+// by tf2
+
+// get all calendars
+let cals = Calendar.getAllCalendars();
+
+// set a header string to hold
+// the result 
+aDate = new Date();
+
+aStr = aDate.getFullYear()+'-' + (pad2(aDate.getMonth()+1)) + '-'+ pad2(aDate.getDate());
+result = "";
+result += aStr + "\n";
+
+// cycle thru calendars
+for (let cal of cals) {
+  if (cal) {
+    // set today &amp; tomorrow
+    let today = new Date();
+    let tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 2);
+    // get all events
+    let events = cal.events(today, tomorrow);
+    // cycle thru each event
+    for (let event of events) {
+      // get start date
+      let start = event.startDate;
+      // get hour, minutes
+      let st_hour = start.getHours();
+      let st_min = pad2(start.getMinutes());
+      // add to result
+      result += st_hour+":"+st_min+" ";
+      result += event.title;
+      result += "\n";
+    }
+  }
+}
+
+let d = new Draft();
+d.content = result;
+app.setClipboard(result);
+console.log(result);
+d.update();
+
+// function to ensure minutes 
+// are two digits; from
+// https://electrictoolbox.com/pad-number-two-digits-javascript/
+function pad2(number) {
+  return (number &lt; 10 ? '0' : '') + number
+}</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/7</link>
+        <pubDate>Wed, 26 May 2021 14:45:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-7</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p>Working through today and tomorrow:</p>
+<p><em>Days = 24 hours…</em></p>
+<p>Changing this line:</p>
+<aside class="quote no-group" data-username="tf2" data-post="5" data-topic="10576">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/tf2/40/663_2.png" class="avatar"> tf2:</div>
+<blockquote>
+<p><code>    tomorrow.setDate(tomorrow.getDate() + 1);</code></p>
+</blockquote>
+</aside>
+<p>to <code>tomorrow.setDate(tomorrow.getDate() + 2);</code> = 48 hours… &gt; helpful if planning for tomorrow and more than 24 is required to capture tomorrows events.</p>
+<p>Still working though either appending or capturing the result to the clipboard…</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/6</link>
+        <pubDate>Wed, 26 May 2021 14:21:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-6</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Easy to do. In the below version, I added a setting (<code>preCal</code>) at the top. If you change it from <code>false</code> to <code>true</code>, it will prepend the calendar to each event.</p>
+<pre><code class="lang-javascript">
+// version 0.1.1 (20210526)
+// script to get all events for
+// all calendars for the next 
+// day, and add to a new draft
+// by tf2
+
+// SETTINGS
+
+// true=&gt;prepend calendar name 
+let preCal = false;
+
+// get all calendars
+let cals = Calendar.getAllCalendars();
+
+// set a header string to hold
+// the result 
+aDate = new Date();
+
+aStr = aDate.getFullYear()+'-' + (pad2(aDate.getMonth()+1)) + '-'+ pad2(aDate.getDate());
+result = "# Today's Agenda for ";
+result += aStr + "\n\n";
+
+// cycle thru calendars
+for (let cal of cals) {
+  if (cal) {
+    // set today &amp; tomorrow
+    let today = new Date();
+    let tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    // get all events
+    let events = cal.events(today, tomorrow);
+    // cycle thru each event
+    for (let event of events) {
+      // get start date
+      let start = event.startDate;
+      // get hour, minutes
+      let st_hour = start.getHours();
+      let st_min = pad2(start.getMinutes());
+      // add to result
+      if (preCal) {
+        result += cal.title;
+        result += " — ";
+      }
+      result += st_hour+":"+st_min+" — ";
+      result += event.title;
+      result += "\n";
+    }
+  }
+}
+
+let d = new Draft();
+d.content = result;
+d.addTag("agenda");
+d.update();
+
+// function to ensure minutes 
+// are two digits; from
+// https://electrictoolbox.com/pad-number-two-digits-javascript/
+function pad2(number) {
+  return (number &lt; 10 ? '0' : '') + number
+}
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/5</link>
+        <pubDate>Wed, 26 May 2021 13:54:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-5</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="tf2" data-post="2" data-topic="10576">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/tf2/40/663_2.png" class="avatar"> tf2:</div>
+<blockquote>
+<p>This should do what you want in a new draft, if you add an action with a single script step:</p>
+</blockquote>
+</aside>
+<p><a class="mention" href="https://forums.getdrafts.com/u/tf2">@tf2</a> This is brilliant - thank you so much.</p>
+<p>Reading through it helps me understand the process.</p>
+<p>Curious about two parts:</p>
+<ol>
+<li>Researching “Appending Script to Current Draft” appears to have limitations. If “Append” is not an option - could the script simply add the results to the clipboard?</li>
+</ol>
+<p>For example - running the script returns:</p>
+<blockquote>
+<p>15:30 — Meeting 1<br>
+18:30 — Meeting 2</p>
+</blockquote>
+<p>I could then paste the result directly into the draft I want to see it in.</p>
+<ol start="2">
+<li>What date parameter would I change in order to get tomorrows events?</li>
+</ol>
+<p>Many thanks again!</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/4</link>
+        <pubDate>Wed, 26 May 2021 13:52:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-4</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[NotPowerUser]]></dc:creator>
+        <description><![CDATA[
+            <p>Amazing! Is it possible to prepend on the end of each line the name of the calendar?</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/3</link>
+        <pubDate>Wed, 26 May 2021 12:02:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-3</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>This should do what you want in a new draft, if you add an action with a single script step:</p>
+<pre><code class="lang-javascript">
+// script to get all events for
+// all calendars for the next 
+// day, and add to a new draft
+// by tf2
+
+// get all calendars
+let cals = Calendar.getAllCalendars();
+
+// set a header string to hold
+// the result 
+aDate = new Date();
+
+aStr = aDate.getFullYear()+'-' + (pad2(aDate.getMonth()+1)) + '-'+ pad2(aDate.getDate());
+result = "# Today's Agenda for ";
+result += aStr + "\n\n";
+
+// cycle thru calendars
+for (let cal of cals) {
+  if (cal) {
+    // set today &amp; tomorrow
+    let today = new Date();
+    let tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    // get all events
+    let events = cal.events(today, tomorrow);
+    // cycle thru each event
+    for (let event of events) {
+      // get start date
+      let start = event.startDate;
+      // get hour, minutes
+      let st_hour = start.getHours();
+      let st_min = pad2(start.getMinutes());
+      // add to result
+      result += st_hour+":"+st_min+" — ";
+      result += event.title;
+      result += "\n";
+    }
+  }
+}
+
+let d = new Draft();
+d.content = result;
+d.addTag("agenda");
+d.update();
+
+// function to ensure minutes 
+// are two digits; from
+// https://electrictoolbox.com/pad-number-two-digits-javascript/
+function pad2(number) {
+  return (number &lt; 10 ? '0' : '') + number
+}
+
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/2</link>
+        <pubDate>Wed, 26 May 2021 03:08:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-2</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+      <item>
+        <title>Import Calendar Events for Today</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve read the threads here in the forum on importing calendar events along with trying to manipulate calendar actions based on the <a href="https://scripting.getdrafts.com/classes/calendar#events">Calendar Drafts Script Reference</a>… but my limited skills are preventing me from achieving my goal - which is:</p>
+<p>Create an Action that inserts “today’s” calendar events from “all” my calendars in the following format:<br>
+Time (in 24h) + Event Title</p>
+<p>That’s it… all I am looking for.</p>
+<p>I’d like to avoid date and calendar pickers… and eliminate all the necessary date data…</p>
+<p>Is this possible?</p>
+          <p><a href="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/import-calendar-events-for-today/10576/1</link>
+        <pubDate>Wed, 26 May 2021 00:35:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10576-1</guid>
+        <source url="https://forums.getdrafts.com/t/import-calendar-events-for-today/10576.rss">Import Calendar Events for Today</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="The “Send line to iOS Reminders” action created by @scripts4drafts is my starting point. 
+I’m hoping someone can tweak that script to do the following… 
+
+Instead of defining the Reminders list in the script, take the [[t&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="5430.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al&#39;" href="5430.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/tweak-send-line-to-ios-reminders-to-use-title-as-list-name-et-al/5430" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/tweak-send-line-to-ios-reminders-to-use-title-as-list-name-et-al/5430" />
+<meta property="og:title" content="Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al" />
+<meta name="twitter:title" content="Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al" />
+<meta property="og:description" content="The “Send line to iOS Reminders” action created by @scripts4drafts is my starting point.  I’m hoping someone can tweak that script to do the following…   Instead of defining the Reminders list in the script, take the [[title]] of the draft and use that as the name of the list in Reminders (creating it if it doesn’t exist) Insert the [[title]] of the draft into the first row of the notes field in the generated reminder Insert the [[draft_open_url]] below the [[title]]. (Bonus if it contains the c..." />
+<meta name="twitter:description" content="The “Send line to iOS Reminders” action created by @scripts4drafts is my starting point.  I’m hoping someone can tweak that script to do the following…   Instead of defining the Reminders list in the script, take the [[title]] of the draft and use that as the name of the list in Reminders (creating it if it doesn’t exist) Insert the [[title]] of the draft into the first row of the notes field in the generated reminder Insert the [[draft_open_url]] below the [[title]]. (Bonus if it contains the c..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="6 ❤" />
+<meta property="article:published_time" content="2019-08-26T08:11:39+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="5430.html">Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/reminders.html' class='discourse-tag' rel="tag">reminders</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/john.catalano'><span itemprop='name'>john.catalano</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-26T08:11:39Z' class='post-time'>
+                August 26, 2019,  8:11am
+              </time>
+              <meta itemprop='dateModified' content='2019-08-26T08:11:39Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The “Send line to iOS Reminders” <a href="../../../actions.getdrafts.com/a/1U1.html" rel="nofollow noopener">action</a> created by <a class="mention" href="https://forums.getdrafts.com/u/scripts4drafts">@scripts4drafts</a> is my starting point.</p>
+<p>I’m hoping someone can tweak that script to do the following…</p>
+<ol>
+<li>Instead of defining the Reminders list in the script, take the [[title]] of the draft and use that as the name of the list in Reminders (creating it if it doesn’t exist)</li>
+<li>Insert the [[title]] of the draft into the first row of the notes field in the generated reminder</li>
+<li>Insert the [[draft_open_url]] below the [[title]]. (Bonus if it contains the code to populate the URL field in the upcoming iOS 13 reminders app)</li>
+<li>In the draft, assume that all of the lines to be processed start with “[ ]” and when this script is run, insert an “O”, so the result of the processed line is “[O]”</li>
+</ol>
+<p>I’ve assembled some interesting things with URL schemes and Shortcuts, but nothing approaching the above.</p>
+<p>Thank you,</p>
+<p>John</p>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+          <meta itemprop='keywords' content='reminders'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-26T08:36:24Z' class='post-time'>
+                August 26, 2019,  8:36am
+              </time>
+              <meta itemprop='dateModified' content='2019-08-26T08:36:24Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Have you tried doing any of this yourself? You’re referencing tags and a clear step by step approach. On that basis, it seems like something you could definitely have a go at yourself; and then if you have particular issues come back with those.</p>
+<p>If you have had a go, I assume you must already have hit some issues. In that case it would be worth sharing what you have and the issue(s) you have encountered.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/john.catalano'><span itemprop='name'>john.catalano</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-26T08:36:58Z' class='post-time'>
+                August 26, 2019,  8:36am
+              </time>
+              <meta itemprop='dateModified' content='2019-08-26T09:31:06Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok… this part is working as expected…</p>
+<p>reminderList = draft.title, // pick the Reminders list you want<br>
+list = ReminderList.findOrCreate(reminderList),</p>
+<p>… working on it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/john.catalano'><span itemprop='name'>john.catalano</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-26T09:38:06Z' class='post-time'>
+                August 26, 2019,  9:38am
+              </time>
+              <meta itemprop='dateModified' content='2019-08-26T09:50:51Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>reminder.notes = draft.title</p>
+<p>I can get that, but what is the reference for the open url? And then, how do I insert it on the next line?</p>
+<p>And, then I don’t know how to…</p>
+<ul>
+<li>Get rid of the “[ ]” in the reminder title, and…</li>
+<li>Replace the "[ ] in the draft with “[O]”</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-26T10:23:14Z' class='post-time'>
+                August 26, 2019, 10:23am
+              </time>
+              <meta itemprop='dateModified' content='2019-08-26T10:23:14Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay.  I’ve put together a few code examples for you that should help you figure these out.  The comments should help explain what is going on, but otherwise just track which alert is which as the code runs as they just display various results one after the other.</p>
+<pre><code class="lang-auto">//Display the hyperlink for the current draft
+alert(draft.permalink);
+
+//Create a single unchecked line
+let strTemp = "[ ] foo";
+alert(strTemp);
+
+//Replace the uncheck with an "O" based check
+alert(strTemp.replace("[ ]", "[O]"));
+
+//Add another unchecked line
+strTemp += "\n[ ] bar";
+alert(strTemp);
+
+//Try the same replace as before
+//It only replaces the first instance so this replace is only going to work if we go line by line
+alert(strTemp.replace("[ ]", "[O]"));
+
+//If we use a regular expression, we can change all occurrences
+alert(strTemp.replace(/\[ \]/g, "[O]"));
+
+//Add another unchecked line with a mid-line uncheck
+strTemp += "\n[ ] quz &amp; another [ ] on the same line";
+alert(strTemp);
+
+//If we want to replace all, it will get the mid line too
+alert(strTemp.replace(/\[ \]/g, "[O]"));
+
+//If we only want the start of the line we change the regular expression
+alert(strTemp.replace(/^\[ \]/mg, "[O]"));
+</code></pre>
+<p>Keep in mind that removing text is logically the same as replacing it with a text string of zero length.</p>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/john.catalano'><span itemprop='name'>john.catalano</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-27T14:43:53Z' class='post-time'>
+                August 27, 2019,  2:43pm
+              </time>
+              <meta itemprop='dateModified' content='2019-08-27T14:43:53Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I was able to get this: reminder.notes = draft.title + “\n” + draft.permalink;</p>
+<p>Thank you.</p>
+<p>But I still don’t know what to do with the rest. I don’t know where to plug in strTemp.replace(/[ ]/g, “[O]”)); (which I think is the solution I’m after).</p>
+<p>Any more tips?</p>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-27T14:52:54Z' class='post-time'>
+                August 27, 2019,  2:52pm
+              </time>
+              <meta itemprop='dateModified' content='2019-08-27T14:52:54Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Well I don’t exactly understand where you want this to go from your description as there is some ambiguity there.</p>
+<p>If you want to do some processing with the content and send it on, use it as is, and use <code>strTemp</code> where you need it.  Otherwise perhaps this at the end?</p>
+<pre><code class="lang-auto">draft.content = draft.content.replace(/[ ]/g, "[O]")); 
+draft.update();
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/scripts4drafts'><span itemprop='name'>scripts4drafts</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-27T14:57:10Z' class='post-time'>
+                August 27, 2019,  2:57pm
+              </time>
+              <meta itemprop='dateModified' content='2019-08-27T14:57:10Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Assuming loc, len and str are set at the beginning of the “Send line to iOS Reminders” <a href="../../../actions.getdrafts.com/a/1U1.html" rel="nofollow noopener">script</a>, try this to edit the current line:</p>
+<p><code>editor.setTextInRange(loc, len, str.replace(/\[ \]/, “[O]”));</code></p>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/john.catalano'><span itemprop='name'>john.catalano</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-27T23:05:45Z' class='post-time'>
+                August 27, 2019, 11:05pm
+              </time>
+              <meta itemprop='dateModified' content='2019-08-28T02:13:58Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you, <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> and <a class="mention" href="https://forums.getdrafts.com/u/scripts4drafts">@scripts4drafts</a>.</p>
+<p>Got it. Here’s the result.</p>
+<pre><code>let [loc, len] = editor.getSelectedLineRange(),
+      str = editor.getTextInRange(loc, len),
+      icon = '[ ]',
+      reminderList = draft.title, // pick the Reminders list you want
+      list = ReminderList.findOrCreate(reminderList),
+      reminder = list.createReminder();
+    reminder.title = str.trim(); // trim gets rid of end of line (\n), if any
+    // -
+    reminder.title = str.replace(/\[ \] /,"");
+    // -
+    reminder.notes = draft.title + "\n" + draft.permalink;
+    reminder.update();
+    newStr = icon + ' ' + str;
+    editor.setTextInRange(loc, len, str.replace(/\[ \]/, "[O]"));
+    // move the cursor to the end of the edited line
+    editor.setSelectedRange(loc + newStr.trim().length, 0);
+    editor.setSelectedText('');
+    // activate is not required if the action is launched via a keyboard button
+    editor.activate();</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/scripts4drafts'><span itemprop='name'>scripts4drafts</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="5430.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-08-28T06:48:24Z' class='post-time'>
+                August 28, 2019,  6:48am
+              </time>
+              <meta itemprop='dateModified' content='2019-08-28T07:00:59Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Note that icon is no more useful in your script and newStr should be updated. I tweaked a little:</p>
+<pre><code>let [loc, len] = editor.getSelectedLineRange(),
+      str = editor.getTextInRange(loc, len),
+      newStr = str.trim(),  // trim gets rid of end of line (\n), if any
+      list = ReminderList.findOrCreate(draft.title),
+      reminder = list.createReminder();
+reminder.title = newStr.replace(/\[ \] /, '');
+reminder.notes = draft.title + '\n' + draft.permalink;
+reminder.update();
+editor.setTextInRange(loc, len, str.replace(/\[ \]/, '[O]'));
+// move the cursor to the end of the edited line
+editor.setSelectedRange(loc + newStr.length, 0);
+editor.setSelectedText('');
+// activate is not required if the action is launched via a keyboard button
+editor.activate();</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Tweak &quot;Send line to iOS Reminders&quot; to use [[title]] as list name, et al'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

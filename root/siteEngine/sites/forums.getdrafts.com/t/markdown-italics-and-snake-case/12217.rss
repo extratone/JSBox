@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Markdown italics and snake case</title>
+    <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217</link>
+    <description>Shamelessly taking a slightly lazy way out for this one... my grasp of regular expressions is loose at the best of times...
+
+Markdown italics are defined in the GitHub Markdown syntax as:
+
+`&quot;match&quot;: &quot;((?&lt;![\\\\\\*_])(\\*|_)(?![\\\\\\*_])([\\S?].*?)(?&lt;![\\\\|\\*])(\\2)(?![\\\\|\\*]))&quot;,`
+
+How would I refine the above so that the following doesn&#39;t happen? 
+
+&gt; no_*italics*_here
+
+i.e. italicisation of every other word in a snake cased phrase. 
+
+I&#39;m guessing I just need to ensure that the expression looks for a space preceding the opening underscore and after the closing underscore, but if anyone could save me some processing power by offering an assist, I&#39;d be grateful! 
+
+Also, I&#39;m assuming that such a modification wouldn&#39;t break the way Markdown italics syntax is supposed to work?</description>
+    
+    <lastBuildDate>Fri, 04 Mar 2022 08:16:12 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Yet another reason I’m glad I don’t support underscores like this in md2pptx. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=12" title=":slight_smile:" class="emoji" alt=":slight_smile:" loading="lazy" width="20" height="20"></p>
+<p>(The claim is what you write for md2pptx is supported by other Markdown processors, but that is not bijective.)</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/8</link>
+        <pubDate>Fri, 04 Mar 2022 08:16:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-8</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[drdrang]]></dc:creator>
+        <description><![CDATA[
+            <p>Putting “Markdown” and “spec” next to one another is a crime against humanity.</p>
+<p>Gruber’s Markdown and other older parsers do as his syntax documentation says. But lots of programmers who use intra_word_underscores in their code—and are too lazy to put them inside backticks—wanted an exception for that particular case, so parser writers added it. They usually point it out as a difference between their parser and Gruber’s, but it’s sometimes hard to find the reference.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/7</link>
+        <pubDate>Thu, 03 Mar 2022 14:50:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-7</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>This makes sense to me. Gives me reasons for the different ways of italicising or emboldening text, which I’d never really considered before. Glad I asked the question!</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/6</link>
+        <pubDate>Thu, 03 Mar 2022 13:05:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-6</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s fun. I guess the consensus is that inline emphasis has to use <code>*</code>…and <code>_</code> should be ignored. I think I’ll have to break the italic and bold syntax rules into to this properly.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b69648a8dd419dc18d45b54d8f524e99aa762ff6.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/b69648a8dd419dc18d45b54d8f524e99aa762ff6" title="CleanShot 2022-03-03 at 07.01.13@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b69648a8dd419dc18d45b54d8f524e99aa762ff6_2_456x375.jpeg" alt="CleanShot 2022-03-03 at 07.01.13@2x" data-base62-sha1="q3eSDt4gdSGV407uzi11IKXHFtQ" width="456" height="375" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b69648a8dd419dc18d45b54d8f524e99aa762ff6_2_456x375.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b69648a8dd419dc18d45b54d8f524e99aa762ff6_2_684x562.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b69648a8dd419dc18d45b54d8f524e99aa762ff6_2_912x750.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b69648a8dd419dc18d45b54d8f524e99aa762ff6_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/5</link>
+        <pubDate>Thu, 03 Mar 2022 13:01:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-5</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks! Gotta love Markdown, eh? <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=12" title=":wink:" class="emoji" alt=":wink:" loading="lazy" width="20" height="20"></p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/4</link>
+        <pubDate>Thu, 03 Mar 2022 13:01:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-4</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Although, looking back at <a href="https://daringfireball.net/projects/markdown/syntax#em">the Markdown spec</a> it explicitly calls out that inline emphasis should be supported, so <code>un*frigging*believable</code> should be un<em>frigging</em>believable…which all the Markdown parsers seem to support.</p>
+<p>Yet, all of them also do <em>not</em> support <code>un_frigging_believable</code>, it comes out un_frigging_believable, even though the spec says <code>*</code> and <code>_</code> are interchangeable. <img src="https://forums.getdrafts.com/images/emoji/apple/man_shrugging.png?v=12" title=":man_shrugging:" class="emoji" alt=":man_shrugging:" loading="lazy" width="20" height="20"></p>
+<p>Markdown. Am I right?</p>
+<p>The parsers also do not treat inline <code>**</code> bold the same as italics.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/3</link>
+        <pubDate>Thu, 03 Mar 2022 12:45:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-3</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>You know, I would consider that a bug with the default syntaxes. Surprised no one has pointed that out, but if the Markdown parsers don’t output italics for that, the highlighting should not mark it.</p>
+<p>Pretty easy fix. The regex pattern already looks to negate characters before and after. I think the easy fix is to the add <code>\w</code> (any word character) in those groups, like:</p>
+<pre><code class="lang-auto">((?&lt;![\\\*_\w])(\*|_)(?![\\\*_])([\S?].*?)(?&lt;![\\|\*])(\2)(?![\\|\*\w]))
+</code></pre>
+<p>That’s the un-escaped version. If you are editing the JSON directly in a text editor you’ll need to escape the backslashes.</p>
+<p>I will update the built-in syntaxes to catch this, however.</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/2</link>
+        <pubDate>Thu, 03 Mar 2022 12:36:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-2</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+      <item>
+        <title>Markdown italics and snake case</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>Shamelessly taking a slightly lazy way out for this one… my grasp of regular expressions is loose at the best of times…</p>
+<p>Markdown italics are defined in the GitHub Markdown syntax as:</p>
+<p><code>"match": "((?&lt;![\\\\\\*_])(\\*|_)(?![\\\\\\*_])([\\S?].*?)(?&lt;![\\\\|\\*])(\\2)(?![\\\\|\\*]))",</code></p>
+<p>How would I refine the above so that the following doesn’t happen?</p>
+<blockquote>
+<p>no_<em>italics</em>_here</p>
+</blockquote>
+<p>i.e. italicisation of every other word in a snake cased phrase.</p>
+<p>I’m guessing I just need to ensure that the expression looks for a space preceding the opening underscore and after the closing underscore, but if anyone could save me some processing power by offering an assist, I’d be grateful!</p>
+<p>Also, I’m assuming that such a modification wouldn’t break the way Markdown italics syntax is supposed to work?</p>
+          <p><a href="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217/1</link>
+        <pubDate>Thu, 03 Mar 2022 11:20:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12217-1</guid>
+        <source url="https://forums.getdrafts.com/t/markdown-italics-and-snake-case/12217.rss">Markdown italics and snake case</source>
+      </item>
+  </channel>
+</rss>

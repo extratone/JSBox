@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tip] Markdown headers and more precise cross-linking</title>
+    <link>https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828</link>
+    <description>Responding to the issue described in [[Discussion] Strict Cross Linking](https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/8?u=jsamlarose): 
+
+[quote=&quot;benhue, post:8, topic:8789&quot;]
+if I had this note:
+
+```
+# Deterministic System
+
+In [[Computer Science]] a deterministic system is a system that where no randomness is involved in the development of future states. So the same output will always be achieved from a given start condition or initial state.
+```
+
+Then if I have a reference to an article say called
+
+```
+# How a Deterministic System is the way forward
+
+[[Deterministic System]] is the way forward as we move to a state driven  etc. etc.
+```
+
+Now if I link to `[[Deterministic System]]` from a different note I would run into the same issue.
+[/quote]
+
+Wiki-linking in Drafts has a fuzziness/looseness to it. That allows us to forego the leading “#” in linking to a draft by title, but creates an issue when the same text string is used within the title of more than one draft. A title needs to be unique if it&#39;s going to be used as a reference link; or to be more precise in this context: a wiki-link needs to at least be able to target something of a draft&#39;s title that is unique to that draft. If you target your drafts using UUIDs or Zettel style timestamps, you’ll most likely escape this issue.
+
+Many of the available cross-linking actions make use of the `drafts.displayTitle` attribute, creating links based on titles without the leading “#”. So a draft titled `# Deterministic System` is linked to via `[[Deterministic System]]`. As case sensitivity isn’t considered, I can drop a `[[deterministic system]]` link in the natural flow of a block of text (note the lower case).
+
+Sounds obvious, but in cases like this **consider including the “#” symbol in the wiki-link.** This allows you to use the title-text as text within the title of any other draft while avoiding link-clash. A link to `[[# deterministic system]]` should avoid the issues detailed in the post above.</description>
+    
+    <lastBuildDate>Tue, 20 Oct 2020 18:55:48 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tip] Markdown headers and more precise cross-linking</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>quite a nice and simple prefix solution.</p>
+<p>I love it. It even works if you have a title like <code>### Lower Level Title</code> and still use it with a single hash <code>[[# Lower Level Title]]</code></p>
+<p>Cool.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828/2</link>
+        <pubDate>Tue, 20 Oct 2020 18:55:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8828-2</guid>
+        <source url="https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828.rss">[Tip] Markdown headers and more precise cross-linking</source>
+      </item>
+      <item>
+        <title>[Tip] Markdown headers and more precise cross-linking</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>Responding to the issue described in <a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/8">[Discussion] Strict Cross Linking</a>:</p>
+<aside class="quote no-group" data-username="benhue" data-post="8" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/benhue/40/3453_2.png" class="avatar"><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/8">[Discussion] Strict Cross Linking</a>
+</div>
+<blockquote>
+<p>if I had this note:</p>
+<pre><code class="lang-auto"># Deterministic System
+
+In [[Computer Science]] a deterministic system is a system that where no randomness is involved in the development of future states. So the same output will always be achieved from a given start condition or initial state.
+</code></pre>
+<p>Then if I have a reference to an article say called</p>
+<pre><code class="lang-auto"># How a Deterministic System is the way forward
+
+[[Deterministic System]] is the way forward as we move to a state driven  etc. etc.
+</code></pre>
+<p>Now if I link to <code>[[Deterministic System]]</code> from a different note I would run into the same issue.</p>
+</blockquote>
+</aside>
+<p>Wiki-linking in Drafts has a fuzziness/looseness to it. That allows us to forego the leading “#” in linking to a draft by title, but creates an issue when the same text string is used within the title of more than one draft. A title needs to be unique if it’s going to be used as a reference link; or to be more precise in this context: a wiki-link needs to at least be able to target something of a draft’s title that is unique to that draft. If you target your drafts using UUIDs or Zettel style timestamps, you’ll most likely escape this issue.</p>
+<p>Many of the available cross-linking actions make use of the <code>drafts.displayTitle</code> attribute, creating links based on titles without the leading “#”. So a draft titled <code># Deterministic System</code> is linked to via <code>[[Deterministic System]]</code>. As case sensitivity isn’t considered, I can drop a <code>[[deterministic system]]</code> link in the natural flow of a block of text (note the lower case).</p>
+<p>Sounds obvious, but in cases like this <strong>consider including the “#” symbol in the wiki-link.</strong> This allows you to use the title-text as text within the title of any other draft while avoiding link-clash. A link to <code>[[# deterministic system]]</code> should avoid the issues detailed in the post above.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828/1</link>
+        <pubDate>Tue, 20 Oct 2020 09:16:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8828-1</guid>
+        <source url="https://forums.getdrafts.com/t/tip-markdown-headers-and-more-precise-cross-linking/8828.rss">[Tip] Markdown headers and more precise cross-linking</source>
+      </item>
+  </channel>
+</rss>

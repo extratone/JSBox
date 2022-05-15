@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Scriptable App Widgets Pulling Text from Drafts - Scripting - Drafts Community</title>
+    <meta name="description" content="Would anyone be interested in an idea? I’m super impressed with Scriptable widgets for displaying simple text. I’d love the ability to display text from Drafts in a Scriptable widget. From there, users could make small s&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="8316.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Scriptable App Widgets Pulling Text from Drafts&#39;" href="https://forums.getdrafts.com/t/scriptable-app-widgets-pulling-text-from-drafts/8316.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/scriptable-app-widgets-pulling-text-from-drafts/8316" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/scriptable-app-widgets-pulling-text-from-drafts/8316" />
+<meta property="og:title" content="Scriptable App Widgets Pulling Text from Drafts" />
+<meta name="twitter:title" content="Scriptable App Widgets Pulling Text from Drafts" />
+<meta property="og:description" content="Would anyone be interested in an idea? I’m super impressed with Scriptable widgets for displaying simple text. I’d love the ability to display text from Drafts in a Scriptable widget. From there, users could make small script adjustments to use last line, first line, etc from the Draft. I’m guessing this would be extremely useful for a lot of users.  Relevant information here:         I’ve been trying to build this for a few days using my very js knowledge and can’t quite make it happen. If some..." />
+<meta name="twitter:description" content="Would anyone be interested in an idea? I’m super impressed with Scriptable widgets for displaying simple text. I’d love the ability to display text from Drafts in a Scriptable widget. From there, users could make small script adjustments to use last line, first line, etc from the Draft. I’m guessing this would be extremely useful for a lot of users.  Relevant information here:         I’ve been trying to build this for a few days using my very js knowledge and can’t quite make it happen. If some..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="14 ❤" />
+<meta property="article:published_time" content="2020-09-02T11:58:18+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="8316.html">Scriptable App Widgets Pulling Text from Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jarno527'><span itemprop='name'>jarno527</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-02T11:58:18Z' class='post-time'>
+                September 2, 2020, 11:58am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-02T11:58:18Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Would anyone be interested in an idea? I’m super impressed with Scriptable widgets for displaying simple text. I’d love the ability to display text from Drafts in a Scriptable widget. From there, users could make small script adjustments to use last line, first line, etc from the Draft. I’m guessing this would be extremely useful for a lot of users.<br>
+Relevant information here:<br>
+</p><aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/e/e76f0e83f55beafc53eb606362f7f9345b39c5d5.png" class="site-icon" width="32" height="32">
+      <a href="https://talk.automators.fm/t/how-to-make-scriptable-open-x-success-urls-passed-in-by-drafts/6806" target="_blank" rel="nofollow noopener" title="06:07PM - 06 March 2020">Automators Talk – 6 Mar 20</a>
+  </header>
+  <article class="onebox-body">
+    <img src="../../uploads/default/optimized/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5_2_500x500.png" class="thumbnail onebox-avatar" width="500" height="500" srcset="../../uploads/default/optimized/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5_2_500x500.png, ../../uploads/default/original/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5.png 1.5x, ../../uploads/default/original/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5_2_10x10.png">
+
+<h3><a href="https://talk.automators.fm/t/how-to-make-scriptable-open-x-success-urls-passed-in-by-drafts/6806" target="_blank" rel="nofollow noopener">How to make Scriptable open x-success URLs passed in by Drafts?</a></h3>
+
+<p>Anybody have an action that passes some data from Drafts to Scriptable?  I’m having trouble getting a script to work and can’t tell exactly where the issue is.  EDIT:  The issue seems to be that Scriptable doesn’t open the x-success callback URL...</p>
+
+  <p><span class="label1">Reading time: 1 mins 🕑</span>
+    <span class="label2">Likes: 2 ❤</span></p>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+<br>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/e/e76f0e83f55beafc53eb606362f7f9345b39c5d5.png" class="site-icon" width="32" height="32">
+      <a href="https://talk.automators.fm/t/widget-examples/7994" target="_blank" rel="nofollow noopener" title="04:49PM - 20 August 2020">Automators Talk – 20 Aug 20</a>
+  </header>
+  <article class="onebox-body">
+    <img src="../../uploads/default/optimized/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5_2_500x500.png" class="thumbnail onebox-avatar" width="500" height="500" srcset="../../uploads/default/optimized/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5_2_500x500.png, ../../uploads/default/original/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5.png 1.5x, ../../uploads/default/original/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a6448e3d407f60bb357124a0b8b36fc47052cce5_2_10x10.png">
+
+<h3><a href="https://talk.automators.fm/t/widget-examples/7994" target="_blank" rel="nofollow noopener">Widget Examples</a></h3>
+
+<p>Hi everyone,  I’m trying to gather a few examples of scripts that work with the new widgets in iOS 14, so people have a place to find inspiration for their own widgets. I would love if you would share your scripts that work with widgets in this...</p>
+
+  <p><span class="label1">Reading time: 5 mins 🕑</span>
+    <span class="label2">Likes: 31 ❤</span></p>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+<br>
+I’ve been trying to build this for a few days using my very js knowledge and can’t quite make it happen. If someone smarter than I wants to build it that would be fabulous or I’ll keep hacking away and see what I can manage.
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T20:34:33Z' class='post-time'>
+                September 3, 2020,  8:34pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T20:34:33Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../images/emoji/apple/raised_hand.png@v=9" title=":raised_hand:" class="emoji" alt=":raised_hand:"> Yep. Interested. A while back I’d asked here whether it was possible to display the text of a draft in a widget. At the time, I was trying to build something that would allow me to display my current task in a widget, something to approximate a version of <a href="https://brettterpstra.com/2020/02/14/scatterbrained-revisiting-the-doing-cli/">Brett Terpstra’s GeekTool view of “Doing”</a> for iOS. Doubt whether I’ve got the JS-chops for this right now— my last experiment with Scriptable ended horribly and with the revelation that my current JS credentials are very Drafts specific— but I’ll noodle and report back if I achieve anything worth reporting. In the meantime: good luck!</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jarno527'><span itemprop='name'>jarno527</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-05T13:06:58Z' class='post-time'>
+                September 5, 2020,  1:06pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-05T13:06:58Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for your interest here. I’ve gone as far as I’m going to get, I’m afraid. I got a Drafts URL to open Scriptable and display text. I can’t figure out how to get that data into a widget and I think I have to be done. Learning curve wins this time—I can’t really see why way through it. Here’s as far as I could go with it.</p>
+<p>Running a URL:<br>
+drafts://x-callback-url/get?uuid=[your UUID]&amp;x-success=scriptable:///run?scriptName=U</p>
+<pre><code class="lang-auto">const successURL = args.queryParameters["x-success"];
+console.log(successURL)
+
+let alert = new Alert()
+alert.message = “Draft content”
+alert.title = args.queryParameters.text;
+alert.addAction("OK")
+await alert.presentAlert()
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jarno527'><span itemprop='name'>jarno527</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-06T19:29:42Z' class='post-time'>
+                September 6, 2020,  7:29pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-06T19:29:42Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Update. So I got to where I wanted using Shortcuts and the new (still in beta), <a href="https://twitter.com/widgetpackapp/status/1302276532426215427?s=21" rel="nofollow noopener">Widget Pack app</a>. I’m excited! This shortcut just grabs the latest text block from the Draft in question and pops it into the widget. Of course all manner of variations / automations can also ensue.<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/daff59c1bb035c1720db9eade754a9dec8f7fac1" title="IMG_3011"><img src="../../uploads/default/optimized/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1_2_506x500.jpeg" alt="IMG_3011" data-base62-sha1="vflaPD4BR2zXqggKCIcpaxBbB9D" width="506" height="500" srcset="../../uploads/default/optimized/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1_2_506x500.jpeg, ../../uploads/default/optimized/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1_2_759x750.jpeg 1.5x, ../../uploads/default/optimized/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1_2_1012x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/daff59c1bb035c1720db9eade754a9dec8f7fac1_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">IMG_3011</span><span class="informations">1689×1668 467 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/3/3f552869eb2597c23c542ec6891dbff5d87a5127.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/3f552869eb2597c23c542ec6891dbff5d87a5127" title="IMG_3012"><img src="../../uploads/default/optimized/2X/3/3f552869eb2597c23c542ec6891dbff5d87a5127_2_624x500.jpeg" alt="IMG_3012" data-base62-sha1="92gwTkZRTMlU6tUGpRYSbjVT1Nd" width="624" height="500" srcset="../../uploads/default/optimized/2X/3/3f552869eb2597c23c542ec6891dbff5d87a5127_2_624x500.jpeg, ../../uploads/default/optimized/2X/3/3f552869eb2597c23c542ec6891dbff5d87a5127_2_936x750.jpeg 1.5x, ../../uploads/default/optimized/2X/3/3f552869eb2597c23c542ec6891dbff5d87a5127_2_1248x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3f552869eb2597c23c542ec6891dbff5d87a5127_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">IMG_3012</span><span class="informations">1640×1314 276 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-07T00:54:01Z' class='post-time'>
+                September 7, 2020, 12:54am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-07T00:54:01Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice work! I’m thinking the shortcut could be tweaked to get the most recent draft matching a query string or tag (e.g. <span class="mention">@inprogress</span>). The widget could be supplied with the url for the draft so tapping on the widget takes you to the draft…</p>
+<p>This almost makes up for the loss of live filtering in shortcut menus! (Almost…)</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/derekvan'><span itemprop='name'>derekvan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-07T15:32:12Z' class='post-time'>
+                September 7, 2020,  3:32pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-07T15:32:12Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yeah, I’m thinking more of a random draft too–could be a good way to get random inspiration quotes or something to appear. (although I’d still like to see this as a native Drafts widget that we could script <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>, maybe after you’ve had a break and the syntax stuff is done!)</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jarno527'><span itemprop='name'>jarno527</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-07T17:38:59Z' class='post-time'>
+                September 7, 2020,  5:38pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-07T17:38:59Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m always going to be in favor of increased functionality in Drafts. It’s already pretty much the hub of my life, so…<br>
+However, I honestly think this kind of function is already better served by other software. For what you described with random inspirational quotes, I think you want Scriptable. You could probably adapt <a href="https://talk.automators.fm/t/widget-examples/7994" rel="nofollow noopener">one of the examples here</a> by just inserting a different API source.<br>
+If you wanted to draw random quotes from a list you yourself compiled, you could just adjust my script to split by line and then choose a random item from that list. That would do it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-08T07:42:28Z' class='post-time'>
+                September 8, 2020,  7:42am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-08T07:42:28Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="derekvan" data-post="6" data-topic="8316">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/d/ba9def/40.png" class="avatar"> derekvan:</div>
+<blockquote>
+<p>random inspiration quotes</p>
+</blockquote>
+</aside>
+<p>My daily dashboard in Drafts pulls a random quote (line/paragraph) from a collection of different source drafts— The Enchiridion (Epictetus), Goethe’s Maxims, and other random quotes from things I’ve read. Sets the tone for the day. I’ve grown to appreciate that greatly. <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-08T07:59:44Z' class='post-time'>
+                September 8, 2020,  7:59am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-08T07:59:44Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Keen to get my head around Scriptable. Also looking at JSBox. I have yet to experiment with its widget capabilities, but it looks like a very accessible complement or possibly even alternative to Scriptable. I’d seen it before but it was listed as something that helps you “learn to code”, and I didn’t think it was as powerful/functional as it seems to be…</p>
+<p><a href="https://xteko.com/demos/en" class="onebox" target="_blank">https://xteko.com/demos/en</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jarno527'><span itemprop='name'>jarno527</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-08T08:04:36Z' class='post-time'>
+                September 8, 2020,  8:04am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-08T08:04:36Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Talk to me about this daily dashboard. What’ve you got going on there?</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-08T09:36:28Z' class='post-time'>
+                September 8, 2020,  9:36am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-08T11:36:32Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Every morning I run a shortcut (as part of a morning routine) that creates a new draft titled “[date:yyyyMMdd]-dashboard”.</p>
+<p>It consists of:</p>
+<ul>
+<li>a daily quote/aphorism (as described above)</li>
+<li>a header and placeholder for a list of the day’s actionable items</li>
+<li>events from today’s calendars; format: - [[[yyyyMMdd-HHmmss] - event title]]; makes it easy to create a new, appropriately titled note for any event during the day.</li>
+<li>projects to focus on today (currently drawn from a Trello board, titles in double brackets for links to drafts)</li>
+<li>today’s reminders (drawn from a GoodTask/Reminders list with links back to specific items in GoodTask)</li>
+<li>any drafts with today’s date referenced e.g. <span class="mention">@due</span>(date) or <span class="mention">@follow-up</span>(date) tags.</li>
+<li>a list of reading items: a wiki-linked reference to one knowledge item stored in drafts; a link to a random “read later” item stored in Reeder; a wiki-link for each of the current books/documents I’m reading, managed through a Trello board.</li>
+</ul>
+<p>Been running this for the past few months now, and I’m still tweaking/refining, but it’s been working well for me. Since I spend a lot of time in Drafts, it’s proven really useful to have a daily jumping off point there for everything else. It means I don’t have to go looking at things in a number of other apps to maintain an overview.</p>
+<p>Recent update was a shortcut that updates the block for today’s events, so that if I add an event during the day, it’s easy to reflect those changes in the dashboard</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="5" />
+           <span class='post-likes'>5 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jaymf'><span itemprop='name'>jaymf</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-26T00:57:50Z' class='post-time'>
+                May 26, 2021, 12:57am
+              </time>
+              <meta itemprop='dateModified' content='2021-05-26T00:57:50Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/jsamlarose">@jsamlarose</a> thanks for sharing your morning routine. We have a lot of similarities … but you’ve incorporated a few elements I’d like to add.</p>
+<p>If your willing - would you share the action(s) for the following elements:</p>
+<p>of:</p>
+<ul>
+<li>a daily quote/aphorism (as described above) <strong>the action that pulls these into the draft</strong>
+</li>
+<li>a header and placeholder for a list of the day’s actionable items</li>
+<li>events from today’s calendars; format: - [[[yyyyMMdd-HHmmss] - event title]]; makes it easy to create a new, appropriately titled note for any event during the day. <strong>I do this manually now in the same format for the same reasons - action available?</strong>
+</li>
+<li>projects to focus on today (currently drawn from a Trello board, titles in double brackets for links to drafts) *<em>wondering if I could do this from todoist?</em>
+</li>
+<li>any drafts with today’s date referenced e.g. <span class="mention">@due</span>(date) or <span class="mention">@follow-up</span>(date) tags.</li>
+<li>a list of reading items: a wiki-linked reference to one knowledge item stored in drafts; a link to a random “read later” item stored in Reeder; a wiki-link for each of the current books/documents I’m reading, managed through a Trello board. <strong>spaced repetition- would love to do something similar</strong>
+</li>
+</ul>
+<p>Many thanks in advance for sharing.</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-26T08:41:20Z' class='post-time'>
+                May 26, 2021,  8:41am
+              </time>
+              <meta itemprop='dateModified' content='2021-05-26T08:41:20Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You’re welcome! Glad it resonates.</p>
+<p>I’ve simplified my morning routine workflow quite a bit since I posted this. What I was doing before was essentially creating a one-stop overview of all of today’s tasks and notes (the dashboard). My morning routine in Drafts is now more focused on capturing first thoughts and reviewing yesterday’s actions/achievements/thoughts.</p>
+<p>I no longer use Trello; GoodTask is my one true tool for managing actionable items, particularly since it now has a Kanban view. I’ve been experimenting with timeline views of Reminders projects in Drafts via vis.js, and that’s been working well. Trello’s great, but working between Drafts and GoodTask feels cleaner and less complicated.</p>
+<p>Another thing to note is that I was doing more via Shortcuts when I wrote the post. While I still appreciate Shortcuts, Drafts actions and scripts are much more robust.</p>
+<p>All of this is just a long-winded way of saying I have no idea whether I archived that old workflow or over-wrote it! I’ll take a look back through the actions/shortcuts I was using, and see if I can retrieve enough to share.</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-26T09:01:31Z' class='post-time'>
+                May 26, 2021,  9:01am
+              </time>
+              <meta itemprop='dateModified' content='2021-05-26T09:05:22Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay. The system works. Kinda.</p>
+<p>Here’s <a href="https://www.icloud.com/shortcuts/cdd04f1a2e2a4c0a8e5403409bc954f8">the main dashboard shortcut</a>.</p>
+<p>It has a few dependencies, including the <a href="https://www.icloud.com/shortcuts/9b5aec05a6de4d089431f6cb6d0c503c">quotes and aphorisms</a> shortcut.</p>
+<p>That should cover most of what you’ve asked for, or at least point you in the right direction. Please forgive the rough edges— I picked a back-up from around that time, but I’m not sure if these were the most up-to-date versions of the shortcuts at the time I stopped using them. Holler if any probs.</p>
+<p>Todoist: haven’t worked with it, but if it provides appropriate data via Shortcuts, no reason why it shouldn’t be possible to wire in.</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jaymf'><span itemprop='name'>jaymf</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8316.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-05-26T13:20:06Z' class='post-time'>
+                May 26, 2021,  1:20pm
+              </time>
+              <meta itemprop='dateModified' content='2021-05-26T13:20:06Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the generous reply.</p>
+<p>Fascinating how workflows are in constant evolution.</p>
+<p>Looking forward to reviewing these to evolve my own.</p>
+<p>With appreciation!</p>
+        </div>
+
+        <meta itemprop='headline' content='Scriptable App Widgets Pulling Text from Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

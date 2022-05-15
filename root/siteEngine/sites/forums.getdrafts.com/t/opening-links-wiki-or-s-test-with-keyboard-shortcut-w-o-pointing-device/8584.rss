@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Opening links [[wiki]] or [[s:test]] with keyboard shortcut (w/o pointing device)</title>
+    <link>https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584</link>
+    <description>Hi all,
+
+I am trying to build my workflow with Drafts and like it very much so far. In general I like to keep my hands at the keyboard, and Drafts seems to do ok supporting this.
+
+Nevertheless I have found no way of opening links like [[s: test]] without a pointing device. I have found the &quot;open cross-link at cursor&quot; action, but this one seems to work only with the wiki-style links.
+
+Do I miss an (easy) option?
+
+Thanks for your support
+
+Martin</description>
+    
+    <lastBuildDate>Sat, 14 Nov 2020 22:50:24 +0000</lastBuildDate>
+    <category>Drafts for Mac</category>
+    <atom:link href="https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Opening links [[wiki]] or [[s:test]] with keyboard shortcut (w/o pointing device)</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Something that would cover this has been on my to-do list for a while.  I think I now have something that supports what you are looking for.</p>
+<blockquote>
+<p><strong>TAD-Process Link</strong><br>
+Taking the start of any selection as the cursor location, this action will attempt to identify any Markdown or wiki-style cross-link that the cursor is within. The action will then process that link as though it was a link the user had manually activated. If you favour the keyboard as your primary Drafts interaction device, consider creating an action that calls this one and assign it a keyboard shortcut.</p>
+</blockquote>
+<p><strong>Note:</strong> <em>The range of supported cross-links is explained in a key TADpoLe function it utilises -</em> <a href="https://tadpole.thoughtasylum.com/interfaces/app.html#ta_processcrosslink"><code>app.TA_processCrossLink</code></a>.</p>
+<p>There’s a bit of processing in this that is slightly convoluted, so hopefully it will work well, but my testing is certainly far from infallible.</p>
+<p>To use it:</p>
+<ol>
+<li>Download and set up the <a href="https://actions.getdrafts.com/g/1aM">ThoughtAsylum action group</a> and follow the set-up instructions (to have the action group get the latest TADpoLe code).</li>
+<li>Download the <a href="https://actions.getdrafts.com/g/1cv">ThoughtAsylum - Management action group</a> (<em>no set-up required for this one</em>).</li>
+<li>Create a new action in your own group and assign it your preferred keyboard shortcut, name and icon.</li>
+<li>Add a single step to your action - an <code>Include Action</code> step that includes the action <code>TAD-Process Link</code>.</li>
+</ol>
+<p>If the <code>TAD-Process Link</code> action gets updated in the future and you update the action group, you will get to keep all your personalised settings for your own action without having to remake anything.</p>
+<p>I hope that gives you a way forward <img src="https://forums.getdrafts.com/images/emoji/apple/+1/2.png?v=9" title=":+1:t2:" class="emoji" alt=":+1:t2:"></p>
+          <p><a href="https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584/2</link>
+        <pubDate>Sat, 14 Nov 2020 22:50:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8584-2</guid>
+        <source url="https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584.rss">Opening links [[wiki]] or [[s:test]] with keyboard shortcut (w/o pointing device)</source>
+      </item>
+      <item>
+        <title>Opening links [[wiki]] or [[s:test]] with keyboard shortcut (w/o pointing device)</title>
+        <dc:creator><![CDATA[MartinG]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi all,</p>
+<p>I am trying to build my workflow with Drafts and like it very much so far. In general I like to keep my hands at the keyboard, and Drafts seems to do ok supporting this.</p>
+<p>Nevertheless I have found no way of opening links like [[s: test]] without a pointing device. I have found the “open cross-link at cursor” action, but this one seems to work only with the wiki-style links.</p>
+<p>Do I miss an (easy) option?</p>
+<p>Thanks for your support</p>
+<p>Martin</p>
+          <p><a href="https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584/1</link>
+        <pubDate>Tue, 29 Sep 2020 07:03:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8584-1</guid>
+        <source url="https://forums.getdrafts.com/t/opening-links-wiki-or-s-test-with-keyboard-shortcut-w-o-pointing-device/8584.rss">Opening links [[wiki]] or [[s:test]] with keyboard shortcut (w/o pointing device)</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,364 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MustacheTemplate | Drafts Script Reference</title>
+	<meta name="description" content="Documentation for Drafts Script Reference">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="https://scripting.getdrafts.com/index.html" class="title">Drafts Script Reference</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="mustachetemplate.html#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="mustachetemplate.html#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="mustachetemplate.html">MustacheTemplate</a>
+				</li>
+			</ul>
+			<h1>Class MustacheTemplate</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="mustachetemplate.html#mustachetemplate" id="mustachetemplate" style="color: inherit; text-decoration: none;">
+							<h1>MustacheTemplate</h1>
+						</a>
+					</div>
+					<p>See also: <a href="draft.html#processmustachetemplate"><code>Draft.processMustachTemplate</code></a> for rendering with Mustache similar to how those templates are rendered in actions. The <code>MustacheTemplate</code> object is for rendering with your own custom context.</p>
+					<p>The MustacheTemplate object support rendering of templates using the <a href="https://en.wikipedia.org/wiki/Mustache_%28template_system%29">Mustache</a> template style.</p>
+					<p>Mustache templates offer advanced features for iterating over items, creating conditional blocks of text and more. This is still a bit of an experimental feature, please send feedback if you are finding edge cases or are interested in more functionality in this area.</p>
+					<p>The object can be used in one of two ways, by passing a specific template as a string and rendering it, or by passing a path to a subdirectory of the <code>iCloud Drive/Drafts/Library/Templates</code> folder which can contain more than one Mustache style templates (with file extension <code>.mustache</code>), and then rendering them. The late method has the advantage of supporting the use of partial templates in the same folder.</p>
+					<p>For details on using Mustache templates, we recommend reviewing <a href="https://www.bersling.com/2017/09/22/the-ultimate-mustache-tutorial/">tutorials</a>.</p>
+					<a href="mustachetemplate.html#about-passing-data-to-templates" id="about-passing-data-to-templates" style="color: inherit; text-decoration: none;">
+						<h3>About Passing Data to Templates</h3>
+					</a>
+					<p>When rendering Mustache templates, you pass the template itself and a data object which contains the values available to insert. The data object should be a Javascript object with keys and values. Values can be basic data types (numbers, strings, dates) and also arrays or nested objects which can be iterated using conventions of the Mustache syntax.</p>
+					<a href="mustachetemplate.html#example" id="example" style="color: inherit; text-decoration: none;">
+						<h3>Example</h3>
+					</a>
+					<pre><code class="language-javascript"><span class="hljs-comment">// create template to loop over drafts</span>
+<span class="hljs-keyword">let</span> t = <span class="hljs-string">`Template Output:
+{{#drafts}}
+Draft: {{content}}
+{{#isFlagged}}Flagged!{{/isFlagged}}{{^isFlagged}}Not Flagged{{/isFlagged}}
+{{/drafts}}`</span>;
+
+<span class="hljs-keyword">let</span> d1 = Draft.create();
+d1.content = <span class="hljs-string">&quot;First draft&quot;</span>;
+d1.isFlagged = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">let</span> d2 = Draft.create();
+d2.content = <span class="hljs-string">&quot;Second draft&quot;</span>;
+<span class="hljs-keyword">let</span> drafts = [d1, d2];
+
+<span class="hljs-keyword">let</span> data = {
+  <span class="hljs-string">&quot;drafts&quot;</span>: drafts
+};
+
+<span class="hljs-keyword">let</span> template = MustacheTemplate.createWithTemplate(t);
+<span class="hljs-keyword">let</span> result = template.render(data);
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">MustacheTemplate</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="mustachetemplate.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mustachetemplate.html#createwithpath" class="tsd-kind-icon">create<wbr>With<wbr>Path</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mustachetemplate.html#createwithtemplate" class="tsd-kind-icon">create<wbr>With<wbr>Template</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mustachetemplate.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="mustachetemplate.html#rendertemplate" class="tsd-kind-icon">render<wbr>Template</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="contenttype" class="tsd-anchor"></a>
+					<h3>content<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">content<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"text"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"html"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/MustacheTemplate.d.ts#L62">MustacheTemplate.d.ts:62</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Determines how the Mustache engine renders output. Valid options:</p>
+							<ul>
+								<li><code>text</code>: Render the output as plain text, do not do additional encoding of entities.</li>
+								<li><code>html</code>: Render output as escaped HTML with entities converted for use in HTML.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createwithpath" class="tsd-anchor"></a>
+					<h3>create<wbr>With<wbr>Path</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>With<wbr>Path<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mustachetemplate.html" class="tsd-signature-type">MustacheTemplate</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/MustacheTemplate.d.ts#L74">MustacheTemplate.d.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new object configured to point to a directory of Mustache template files in iCloud Drive. When using this method, other Mustache template located in the same directory will be available to be used as partials in the rendering process.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>path: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Relative path to a directory of Mustache template files (with .mustache file extension) located in <code>iCloud Drive/Drafts/Library/Templates</code>. For example to refer to templates in the directory <code>iCloud Drive/Drafts/Library/Templates/My Mustache Templates/</code>, pass <code>My Mustache Templates/</code> to this method.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="mustachetemplate.html" class="tsd-signature-type">MustacheTemplate</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="createwithtemplate" class="tsd-anchor"></a>
+					<h3>create<wbr>With<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>With<wbr>Template<span class="tsd-signature-symbol">(</span>template<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="mustachetemplate.html" class="tsd-signature-type">MustacheTemplate</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/MustacheTemplate.d.ts#L68">MustacheTemplate.d.ts:68</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new object with a template</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>template: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a valid Mustache template string</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="mustachetemplate.html" class="tsd-signature-type">MustacheTemplate</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="render" class="tsd-anchor"></a>
+					<h3>render</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">render<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/MustacheTemplate.d.ts#L48">MustacheTemplate.d.ts:48</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use in combination with <code>createWithTemplate(template)</code> to render the template using the data passsed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-symbol">{}</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Javascript object with the values to use when rendering the template. The object can have nested sub-objects.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-index-signature">
+											<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="rendertemplate" class="tsd-anchor"></a>
+					<h3>render<wbr>Template</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">render<wbr>Template<span class="tsd-signature-symbol">(</span>templateName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/MustacheTemplate.d.ts#L55">MustacheTemplate.d.ts:55</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Use in combination with <code>createWithPath(path)</code> to render the template using the data passsed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>templateName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of a template file in the directory passed to create the MustacheTemplate object. Do not include the &quot;.mustache&quot; file extension. For example, if you have a &quot;Document.mustache&quot; file in the directory, pass templateName &quot;Document&quot;.</p>
+									</div>
+								</li>
+								<li>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A Javascript object with the values to use when rendering the template. The object can have nested sub-objects.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="mustachetemplate.html" class="tsd-kind-icon">Mustache<wbr>Template</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="mustachetemplate.html#contenttype" class="tsd-kind-icon">content<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mustachetemplate.html#createwithpath" class="tsd-kind-icon">create<wbr>With<wbr>Path</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mustachetemplate.html#createwithtemplate" class="tsd-kind-icon">create<wbr>With<wbr>Template</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mustachetemplate.html#render" class="tsd-kind-icon">render</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="mustachetemplate.html#rendertemplate" class="tsd-kind-icon">render<wbr>Template</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="https://scripting.getdrafts.com/assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

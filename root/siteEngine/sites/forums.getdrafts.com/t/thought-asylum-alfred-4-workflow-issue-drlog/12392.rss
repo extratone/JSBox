@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+    <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392</link>
+    <description>I followed [Jaipal_Singh](https://forums.getdrafts.com/u/Jaipal_Singh)&#39;s steps from here https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue/11516  and got my dlog command working. But somehow it&#39;s only adding to whatever draft I&#39;ve already got going for the day (or sometimes even a past draft), as opposed to creating a new draft and putting the entry there?
+
+I feel so close and yet so far away! 
+
+In the immortal words of Leeloo, &quot;Help please?&quot;</description>
+    
+    <lastBuildDate>Sat, 16 Apr 2022 16:21:12 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>A new version of the workflow, containing this bug fix is now available.</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/16</link>
+        <pubDate>Sat, 16 Apr 2022 16:21:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-16</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks <a class="mention" href="https://forums.getdrafts.com/u/richard_cool">@Richard_Cool</a> - I’ll have that change out in the next update this weekend <img src="https://forums.getdrafts.com/images/emoji/apple/+1/2.png?v=12" title=":+1:t2:" class="emoji" alt=":+1:t2:" loading="lazy" width="20" height="20"></p>
+<p>When I made this change back in January, I put out a call for beta testers as it was quite a big change to how I was triggering Python scripts and unfortunately there was no feedback at that time <img src="https://forums.getdrafts.com/images/emoji/apple/disappointed.png?v=12" title=":disappointed:" class="emoji" alt=":disappointed:" loading="lazy" width="20" height="20"></p>
+<aside class="quote quote-modified" data-post="1" data-topic="11979">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/sylumer/40/2731_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/doctor-drafts-can-you-help-beta-test-this-update/11979">Doctor Drafts - Can You Help Beta Test this Update?</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/drafts-for-mac/15"><span class="badge-category-bg" style="background-color: #808281;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="For discussion of topics specific to the use of Drafts on the Mac platform.">Drafts for Mac</span></a>
+  </div>
+  <blockquote>
+    Hi everyone.  In the <a href="https://forums.getdrafts.com/t/an-alfred-workflow-for-drafts/10313/102">An Alfred Workflow for Drafts</a> thread, <a class="mention" href="https://forums.getdrafts.com/u/jstavers1">@jstavers1</a> noted a discrepancy around Python instructions. As a result I’ve been poking around today at resolving this. Not only by creating a set of detailed Python 3 install instructions, but also by trying to force the workflow (based on how Alfred workflows work) into being more forgiving. 
+The result is as well as what I hope is a straight forward and rigorous(?) set of install instructions I have now also overhauled the underlying …
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/15</link>
+        <pubDate>Sat, 16 Apr 2022 10:17:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-15</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[Richard_Cool]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m actually having this same issue.  I’ve been putting some outputs to check what each step is returning to see if I can figure out where the problem lies.</p>
+<p>I’ve found that the step where it calls <code>match_title.py</code> systematically returns the UUID of the currently open draft instead of the one matching the input to the script. Going into the directory containing the python code and calling <code>./runpythonscript.sh match_title.py "TEST DRAFT TITLE"</code> gives the same result.</p>
+<p>If I instead do <code>python3 match_title.py "TEST DRAFT TITLE"</code> I get an empty result (expected as there is no Draft with this title created).</p>
+<p>If I run both commands using a title that <em>does</em> appear in my library:<br>
+with runpythonscript: UUID of currently open draft<br>
+with pyhon3 call directory: UUID of matching draft.</p>
+<p>Figured it out: In the event that PYVER_DEFAULT isn’t 3, but PYVER_3 = 3, then the command issued is <code>python3 $1</code> so it calls<br>
+<code>python3 match_title.py</code></p>
+<p>It’s missing the actual argument and should match the call earlier in the script structure of<br>
+<code>python3 $1 {@:2}</code></p>
+<p>Would only experience this on systems that dont have a python command but has python3 (from home-brew).</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/14</link>
+        <pubDate>Thu, 14 Apr 2022 22:57:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-14</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for checking in, I got stuck trying to troubleshoot why the command isn’t working for me - as you can see in my screenshot my default is zsh but somehow when I’m following the steps I get switched to bash. I will update here again when I’m able to make any progress on it.</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/13</link>
+        <pubDate>Mon, 11 Apr 2022 20:19:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-13</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>How did you get on? Is your issue now resolved?</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/12</link>
+        <pubDate>Mon, 11 Apr 2022 16:21:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-12</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>Interesting… in settings it says I’m on zsh.</p>
+<p>Sorry, I missed the note above about the path entries. Got it now!</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/d5393411ec9b12e5c738a701498f29371fd862ab.png" data-download-href="https://forums.getdrafts.com/uploads/default/d5393411ec9b12e5c738a701498f29371fd862ab" title="CleanShot 2022-04-04 at 09.53.56@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d5393411ec9b12e5c738a701498f29371fd862ab_2_548x500.png" alt="CleanShot 2022-04-04 at 09.53.56@2x" data-base62-sha1="uqgg3iiaEMqB28SWQ4JT89rWA7F" width="548" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d5393411ec9b12e5c738a701498f29371fd862ab_2_548x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/d/d5393411ec9b12e5c738a701498f29371fd862ab_2_822x750.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/d/d5393411ec9b12e5c738a701498f29371fd862ab_2_1096x1000.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d5393411ec9b12e5c738a701498f29371fd862ab_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/11</link>
+        <pubDate>Mon, 04 Apr 2022 16:55:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-11</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve watched the video, and there are a few points to note.</p>
+<ol>
+<li>You have still left the <code>eval</code> command on the same line as the <code>PAtH</code>. As shown in the instructions, and as I noted above, you should have these on <strong>separate lines as they are separate instructions</strong>. As it stands I suspect the computer tries to rcarry out that line and effectively fails as it won’t be able to understand the intent of those two instructions concatenate together like that.</li>
+<li>For info, zsh and bash are different shells. The default on Mac became <code>zsh</code> several releases ago, which is why I tend to put everything into <code>zsh</code> when I publish. But, there are many possible shells to use. For example my default shell is fish. I would have expected yours to be zsh, but apparently you have stayed on bash or switched to bash. That’s why <code>exec $SHELL</code> could give you a bash shell execution. I’ll have a think about the best place to tweak the instructions for that (I’m thinking maybe ensure the user is switched to zsh explicitly, earlier, just to accommodate this command).<br>
+Not executing this additional should not affect drlog or Dr Drafts in general. It is just there to bring that path and evaluation or the shim into your current session… But if you don’t attempt to use it in that session, then there should be  no issue.
+<ul>
+<li><a href="https://en.m.wikipedia.org/wiki/Shell_(computing)">Wikipedia: Shell</a></li>
+</ul>
+</li>
+<li>As noted above, don’t get hung up on me having more entries in my path. Some people will have many more. Some people will have fewer. It all depends on what you have on your Mac. If this is the first time.you are editing the file, and nothing else has initialised or updated it, well, you’ll be starting with just one path.
+<ul>
+<li><a href="https://en.m.wikipedia.org/wiki/PATH_(variable)">Wikipedia : Path Variable</a></li>
+</ul>
+</li>
+</ol>
+<p>Please review the above and check what difference that makes.</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/10</link>
+        <pubDate>Mon, 04 Apr 2022 06:31:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-10</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks so much for your time - I went back and tried again starting with step 4 and nothing changed. <img src="https://forums.getdrafts.com/images/emoji/apple/frowning.png?v=12" title=":frowning:" class="emoji" alt=":frowning:" loading="lazy" width="20" height="20"> I made a video showing all of the steps and they look successful: <a href="https://cln.sh/6KLkW6" class="inline-onebox" rel="noopener nofollow ugc">CleanShot 2022-04-03 at 20.47.51 · CleanShot Cloud</a></p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/9</link>
+        <pubDate>Mon, 04 Apr 2022 03:54:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-9</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I should add, if you, or anyone else, have any suggestions for making the instructions clearer, do let me know. I wrote those instructions earlier this year because there are so many confusing and convoluted sets of instructions out there that people were having problems following. I figured it was worth me trying to do a clearer one to support Doctor Drafts, but I’m always happy to revise and tweak to make it easier and clearer for future users.</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/8</link>
+        <pubDate>Sat, 02 Apr 2022 09:47:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-8</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Looking at that screenshot, your <code>eval</code> command text is trying to be added to the <code>PATH</code> variable. That should be a separate line as in the screenshot from the instructions so that it can be executed as a command. Don’t worry about the other paths. They get added as you do and add more stuff at the command line.</p>
+<p>I agree that the shim path should be appearing in your <code>PATH</code> output; hopefuly correcting your .zshrc file will resolve that.</p>
+<p>Subsequently, when you get to step 7 in the instructions, that will set your default Python version.</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/7</link>
+        <pubDate>Sat, 02 Apr 2022 09:39:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-7</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>Okay… I noticed that I had no default set and not as many paths as you. The step I got the most stuck on was Step 4.</p>
+<p>I will have to google how to reset this and try again (unless you happen to be so kind as to explain but I’m not expecting free labor!).</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/3/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef" title="CleanShot 2022-04-02 at 02.14.50@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef_2_406x499.jpeg" alt="CleanShot 2022-04-02 at 02.14.50@2x" data-base62-sha1="92qEgTGmrIi5Vkf6wIjeYumienl" width="406" height="499" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef_2_406x499.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/3/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef_2_609x748.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/3/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef_2_812x998.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3f59e18203e19bfbcf5ebe8229f3a0a9552c15ef_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/6</link>
+        <pubDate>Sat, 02 Apr 2022 09:16:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-6</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>Ahhh, many thanks for the instruction on the addition to the workflow - I’ve separated that out now.</p>
+<p>I am on the most current version of Doctor Drafts. I had gotten a little overwhelmed by the whole Python instruction set and don’t think I completed it correctly on my first try. But then I got the rest of the way through it and after that I deleted Doctor Drafts and reinstalled it.</p>
+<p>I do see that I don’t have as many $PATH variables as you do…</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/e76d5f5027f6f09b11eae9a7df4c72a536b68651.png" data-download-href="https://forums.getdrafts.com/uploads/default/e76d5f5027f6f09b11eae9a7df4c72a536b68651" title="CleanShot 2022-04-02 at 02.06.57@2x"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76d5f5027f6f09b11eae9a7df4c72a536b68651_2_254x500.png" alt="CleanShot 2022-04-02 at 02.06.57@2x" data-base62-sha1="x1iCJF0l92ppa70DRXn14YRChkl" width="254" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76d5f5027f6f09b11eae9a7df4c72a536b68651_2_254x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76d5f5027f6f09b11eae9a7df4c72a536b68651_2_381x750.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76d5f5027f6f09b11eae9a7df4c72a536b68651_2_508x1000.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e76d5f5027f6f09b11eae9a7df4c72a536b68651_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/5</link>
+        <pubDate>Sat, 02 Apr 2022 09:10:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-5</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve just double checked mine is still working okay and no external updates have broken it. It is, so I’m pretty confident it still comes down to something localised for you.</p>
+<p>Can you do the following couple of things please?</p>
+<h3>
+<a name="h-1-confirm-the-version-of-doctor-drafts-1" class="anchor" href="https://forums.getdrafts.com#h-1-confirm-the-version-of-doctor-drafts-1"></a>1. Confirm the version of Doctor Drafts</h3>
+<p>Until I add this into the next thing, I think the easiest way to get this is by looking at the title of the workflow when you select it in Alfred’s preferences.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/2/2d5dba341ff8f89f6c47e0e7d4601064b04a9e84.png" alt="2022-04-02-08.30.02" data-base62-sha1="6tkimeTM223xrRxBNoqO6RXy5sE" width="622" height="192"></p>
+<p>The latest release at the time of writing is version 1.7.0</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://doctordrafts.thoughtasylum.com/documentation/change-log/">
+  <header class="source">
+      <img src="https://doctordrafts.thoughtasylum.com/favicon.ico" class="site-icon" width="256" height="256">
+
+      <a href="https://doctordrafts.thoughtasylum.com/documentation/change-log/" target="_blank" rel="noopener">Doctor Drafts</a>
+  </header>
+
+  <article class="onebox-body">
+    
+
+<h3><a href="https://doctordrafts.thoughtasylum.com/documentation/change-log/" target="_blank" rel="noopener">Change Log</a></h3>
+
+  <p>Change Log</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<h3>
+<a name="h-2-run-drdiag-2" class="anchor" href="https://forums.getdrafts.com#h-2-run-drdiag-2"></a>2. Run <code>drdiag</code>
+</h3>
+<p>Run the <code>drdiag</code> Doctor Drafts flow via Alfred. This runs some diagnostics to determine you have everything set up correctly. Put the results (screenshot or copy &amp; paste the text) into your reply - but <strong>DO NOT</strong> expand/include the Alfred PowerPack or Drafts Pro) subscription information. Those specific details are not relevant here and should not be publicly shared.</p>
+<p>For example, here’s how my <code>drdiag</code> results look:</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/1/12995129ab93362b813aafc007993473460a980d.png" data-download-href="https://forums.getdrafts.com/uploads/default/12995129ab93362b813aafc007993473460a980d" title="2022-04-02-08.42.00"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/12995129ab93362b813aafc007993473460a980d_2_509x500.png" alt="2022-04-02-08.42.00" data-base62-sha1="2Ex4DcS3xDyhu8lxCZJJpB2Tygt" width="509" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/12995129ab93362b813aafc007993473460a980d_2_509x500.png, https://forums.getdrafts.com/uploads/default/optimized/2X/1/12995129ab93362b813aafc007993473460a980d_2_763x750.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/1/12995129ab93362b813aafc007993473460a980d.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/12995129ab93362b813aafc007993473460a980d_2_10x10.png"></a></div><p></p>
+<hr>
+<h3>
+<a name="curent-theory-3" class="anchor" href="https://forums.getdrafts.com#curent-theory-3"></a>Curent Theory …</h3>
+<p>My initial guess is that it isn’t appending to random drafts as you noted in your first reply, but only what draft you have open last as you mention for your example case in the video and I think suggest in your original post. Based on that assumption, it leads me to suspect you may have skipped some of <a href="https://doctordrafts.thoughtasylum.com/basic/installation/">the Doctor Drafts set up instructions</a>, or that something failed when you were following them.</p>
+<p>The <code>drlog</code> flow has a block noted as “Match {query} in title and pass out UUID”. It runs a launcher shell script to run a Python script, which executes in the background and identifies what draft is the daily log using the command <code>./runpythonscript.sh match_title.py $argv</code>.</p>
+<p><strong>Ref:</strong> You can view details, including the flow layout, for this on the Doctor Drafts web site - <a href="https://doctordrafts.thoughtasylum.com/documentation/flow/drlog/">Flow: drlog</a>.</p>
+<p>I think the script may fail to run, pass back something, but not a UUID for today’s log draft, and the resulting append then defaults to the current/last viewed draft.</p>
+<p><strong>But</strong>, this is just a first guess based on very limited information and not being able to reproduce the issue. Hopefully, the answers to the questions above will help get a bit closer, and may even confirm my theory.</p>
+<p>As a final point of note, in your video it appears you have added your custom <code>dlog</code> flow to the Doctor Drafts workflow. I would recommend against doing this, and instead putting it in a separate workflow. That way you won’t lose anything when you update (and I will continue to put out updates), you won’t accidentally override anything in the original workflow, etc.</p>
+<p>I structure my own additional flows like this, and even the examples I use on the website. I do this for exactly these reasons.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3.png" data-download-href="https://forums.getdrafts.com/uploads/default/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3" title="2022-04-02-08.57.37"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3_2_279x500.png" alt="2022-04-02-08.57.37" data-base62-sha1="ibJLWxgQYVUjg9KJTUh4h0CdvJp" width="279" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3_2_279x500.png, https://forums.getdrafts.com/uploads/default/original/2X/7/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7f7ad13135503d14a841b3e72d0b3df7b00cdcb3_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/4</link>
+        <pubDate>Sat, 02 Apr 2022 08:02:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-4</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>I did try the shared version of the workflow in the thread. That worked for me in the same way, it added to any random draft it could find.</p>
+<p>I made a video to show you the action “in action” and my setup in Alfred preferences: <a href="https://cln.sh/7fTyc3" class="inline-onebox" rel="noopener nofollow ugc">CleanShot 2022-04-01 at 16.56.21 · CleanShot Cloud</a></p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/3</link>
+        <pubDate>Fri, 01 Apr 2022 23:59:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-3</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Did you try the shared version of the workflow in the thread?</p>
+<p>I am not sure how it could match to an old log as it should be matching utilising a date stamp in the title, which I would expect would preclude older logs from being picked up. Can you identify any pattern to this behaviour? I would need a starting point, such as a pattern, to begin tracking this down. Similarly for the draft you have open scenario.</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/2</link>
+        <pubDate>Fri, 01 Apr 2022 06:14:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-2</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+      <item>
+        <title>Thought asylum / Alfred 4 Workflow Issue: drlog</title>
+        <dc:creator><![CDATA[automationisfun]]></dc:creator>
+        <description><![CDATA[
+            <p>I followed <a href="https://forums.getdrafts.com/u/Jaipal_Singh">Jaipal_Singh</a>’s steps from here <a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue/11516" class="inline-onebox">Thought asylum / Alfred 4 workflow issue</a>  and got my dlog command working. But somehow it’s only adding to whatever draft I’ve already got going for the day (or sometimes even a past draft), as opposed to creating a new draft and putting the entry there?</p>
+<p>I feel so close and yet so far away!</p>
+<p>In the immortal words of Leeloo, “Help please?”</p>
+          <p><a href="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392/1</link>
+        <pubDate>Thu, 31 Mar 2022 23:51:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12392-1</guid>
+        <source url="https://forums.getdrafts.com/t/thought-asylum-alfred-4-workflow-issue-drlog/12392.rss">Thought asylum / Alfred 4 Workflow Issue: drlog</source>
+      </item>
+  </channel>
+</rss>

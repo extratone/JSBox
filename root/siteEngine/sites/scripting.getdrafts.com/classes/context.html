@@ -1,0 +1,371 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Context | Drafts Script Reference</title>
+	<meta name="description" content="Documentation for Drafts Script Reference">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="https://scripting.getdrafts.com/index.html" class="title">Drafts Script Reference</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="context.html#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="context.html#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="context.html">Context</a>
+				</li>
+			</ul>
+			<h1>Class Context</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<a href="context.html#context" id="context" style="color: inherit; text-decoration: none;">
+							<h1>Context</h1>
+						</a>
+					</div>
+					<p>A single global &quot;context&quot; object is available to scripts to control flow of the currently running action.</p>
+					<p>It is important to understand that <code>cancel()</code> and <code>fail()</code> will not immediately stop script, just stop any further action steps from being performed.</p>
+					<a href="context.html#example-control-flow" id="example-control-flow" style="color: inherit; text-decoration: none;">
+						<h3>Example: Control Flow</h3>
+					</a>
+					<pre><code class="language-javascript"><span class="hljs-comment">// test for logical condition before continuing</span>
+<span class="hljs-keyword">if</span> (!validationCondition) {
+  context.fail();
+}
+<span class="hljs-comment">// code below will still run.</span>
+</code></pre>
+					<a href="context.html#example-retreive-values" id="example-retreive-values" style="color: inherit; text-decoration: none;">
+						<h3>Example: Retreive values</h3>
+					</a>
+					<pre><code class="language-javascript"><span class="hljs-comment">// if a &quot;Run Workflow&quot; step preceded this script, lets look for a result</span>
+<span class="hljs-keyword">var</span> response = context.callbackResponses[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">if</span> (response) {
+  <span class="hljs-comment">// Workflow returns one &quot;result&quot; parameter, other apps may use other values.</span>
+  <span class="hljs-keyword">var</span> result = response[<span class="hljs-string">&quot;result&quot;</span>];
+  <span class="hljs-keyword">if</span> (result) {
+    <span class="hljs-comment">// so something with the result</span>
+  }
+}
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Context</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="context.html#applescriptresponses" class="tsd-kind-icon">apple<wbr>Script<wbr>Responses</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="context.html#callbackresponses" class="tsd-kind-icon">callback<wbr>Responses</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="context.html#previewvalues" class="tsd-kind-icon">preview<wbr>Values</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="context.html#addsuccessparameter" class="tsd-kind-icon">add<wbr>Success<wbr>Parameter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="context.html#cancel" class="tsd-kind-icon">cancel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="context.html#fail" class="tsd-kind-icon">fail</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="applescriptresponses" class="tsd-anchor"></a>
+					<h3>apple<wbr>Script<wbr>Responses</h3>
+					<div class="tsd-signature tsd-kind-icon">apple<wbr>Script<wbr>Responses<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Context.d.ts#L42">Context.d.ts:42</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If AppleScripts run using the AppleScript object return values, they will be converted to JavaScript object and stored in this array. See <a href="../../docs.getdrafts.com/docs/automation/applescript.html">AppleScript docs</a> for details.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="callbackresponses" class="tsd-anchor"></a>
+					<h3>callback<wbr>Responses</h3>
+					<div class="tsd-signature tsd-kind-icon">callback<wbr>Responses<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Context.d.ts#L37">Context.d.ts:37</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If <a href="../../docs.getdrafts.com/docs/actions/steps/advanced.html#callback-url">Callback URL</a> or <a href="../../docs.getdrafts.com/docs/actions/steps/advanced.html#run-shortcut">Run Shortcut</a> action steps using the &quot;Wait for response&quot; option have been run in steps before the script step in an action, and the target app returned to Drafts using an x-success callback, this object will contain an array of objects with the parsed query parameters included in those responses, in the order they were received.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>x: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="previewvalues" class="tsd-anchor"></a>
+					<h3>preview<wbr>Values</h3>
+					<div class="tsd-signature tsd-kind-icon">preview<wbr>Values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>string<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Context.d.ts#L47">Context.d.ts:47</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If <a href="../../docs.getdrafts.com/docs/actions/html-forms.html">HTML Preview</a> makes calls to <code>Drafts.send(key, value)</code> those values are stored in this object by <code>key</code>.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>string<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addsuccessparameter" class="tsd-anchor"></a>
+					<h3>add<wbr>Success<wbr>Parameter</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Success<wbr>Parameter<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Context.d.ts#L71">Context.d.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Used only when calling a Drafts action from another app via x-callback-url with a <code>/runAction</code> URL. Any parameters set via this method will be included as query args when calling the provided <code>x-success</code> parameter. As an example, the below:</p>
+								</div>
+								<pre><code><span class="hljs-selector-tag">context</span><span class="hljs-selector-class">.addSuccessParameter</span>(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>);
+<span class="hljs-selector-tag">context</span><span class="hljs-selector-class">.addSuccessParameter</span>(<span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;2&quot;</span>);
+</code></pre>
+								<p>Would result in the parameters <code>?a=1&amp;b=2</code> being added to the <code>x-success</code> callback.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name for the parameter</p>
+									</div>
+								</li>
+								<li>
+									<h5>value: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A string value for the parameter. Do <em>not</em> URL encode this value, it will be encoded when added to the callback URL.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="cancel" class="tsd-anchor"></a>
+					<h3>cancel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Context.d.ts#L52">Context.d.ts:52</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tell the context to cancel the action at the end of the script execution. If called, at the end of the script the action will be stopped. No subsequent action steps in the action will run, and the action still stop silently - no notification banners, sounds, etc. If a message is included it will be added to the action log to explain the cancellation.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>message: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fail" class="tsd-anchor"></a>
+					<h3>fail</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">fail<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/agiletortoise/drafts-script-reference/blob/bb281e8/src/Context.d.ts#L57">Context.d.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tell the context to fail the current action. In effect this is the same as <code>cancel()</code> but an error notification will be shown. If a message is included it will be added to the action log to explain the cancellation.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>message: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="context.html" class="tsd-kind-icon">Context</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="context.html#applescriptresponses" class="tsd-kind-icon">apple<wbr>Script<wbr>Responses</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="context.html#callbackresponses" class="tsd-kind-icon">callback<wbr>Responses</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="context.html#previewvalues" class="tsd-kind-icon">preview<wbr>Values</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="context.html#addsuccessparameter" class="tsd-kind-icon">add<wbr>Success<wbr>Parameter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="context.html#cancel" class="tsd-kind-icon">cancel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="context.html#fail" class="tsd-kind-icon">fail</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="https://scripting.getdrafts.com/assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

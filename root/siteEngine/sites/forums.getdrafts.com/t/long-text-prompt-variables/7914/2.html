@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Long text + Prompt + Variables - #2 by sylumer - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I am currently trying to figure out how to insert variables from prompt into long text. Inserting one or two sentences with a “+” is easy enough. But what is the best way to work with lots of text. I know there is the co&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Long text + Prompt + Variables&#39;" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/long-text-prompt-variables/7914/2" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/long-text-prompt-variables/7914/2" />
+<meta property="og:title" content="Long text + Prompt + Variables" />
+<meta name="twitter:title" content="Long text + Prompt + Variables" />
+<meta property="og:description" content="Maybe template literals is what you’re seeking?" />
+<meta name="twitter:description" content="Maybe template literals is what you’re seeking?" />
+<meta property="article:published_time" content="2020-07-14T06:37:50+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">Long text + Prompt + Variables</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/slyfox'><span itemprop='name'>slyfox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-14T03:51:23Z' class='post-time'>
+                July 14, 2020,  3:51am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-14T04:12:52Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I am currently trying to figure out how to insert variables from prompt into long text. Inserting one or two sentences with a “+” is easy enough. But what is the best way to work with lots of text. I know there is the combination of prompt and insert text but the problem with this approach is too many prompts rather than a single prompt with multiple areas to enter data.</p>
+<p>Maybe it is better to use Parse text action from the community repository?</p>
+<p>Example:</p>
+<p>Prompt looks like this:</p>
+<pre><code>//Set-up a basic prompt
+let prClient = Prompt.create();
+prClient.title = "Client Data";
+prClient.addButton("OK");
+//Client Info
+prClient.addSelect("clinic", "Clinic", ["Allied Med", "Advanced Healthcare"]);
+prClient.addTextField("name", "Full Name", "");
+prClient.addTextField("DOB", "Date of Birth", "");
+prClient.addTextField("DOL", "Date of Loss", "");
+prClient.addTextField("DOA", "Date of Assessment", "");
+prClient.addSelect("txNum", "Treatment Plan Number", ["First", "Second"], ["First"], true);
+</code></pre>
+<p>Pasted text looks like this:</p>
+<pre><code>Clinic: Clinic A
+Name: Mr. John Smith
+Date of Birth: July 13, 2020
+Date of Loss: July 13, 1987
+Treatment Plan: One
+
+Paragraph one (lots of text).
+
+Paragraph two with (lots of text) the name of the client.</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-14T06:37:50Z' class='post-time'>
+                July 14, 2020,  6:37am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-14T06:37:50Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Maybe template literals is what you’re seeking?</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://2r4s9p1yi1fa2jd7j43zph8r-wpengine.netdna-ssl.com/wp-content/themes/Hax/favicon.ico" class="site-icon" width="16" height="16">
+      <a href="https://hacks.mozilla.org/2015/05/es6-in-depth-template-strings-2/" target="_blank" rel="nofollow noopener">Mozilla Hacks – the Web developer blog</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/379;"><img src="../../../uploads/default/original/2X/7/75bf9fa388a4f3d2aecf3a6dbdfd1e3511fafbab.jpeg" class="thumbnail" width="690" height="379" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/75bf9fa388a4f3d2aecf3a6dbdfd1e3511fafbab_2_10x10.png"></div>
+
+<h3><a href="https://hacks.mozilla.org/2015/05/es6-in-depth-template-strings-2/" target="_blank" rel="nofollow noopener">ES6 In Depth: Template strings – Mozilla Hacks - the Web developer blog</a></h3>
+
+<p>ES6 In Depth is a series on new features being added to the JavaScript programming language in the 6th Edition of the ECMAScript standard, ES6 for short. Last week I ...</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../../accessing-variable-values-from-scripted-prompts/9702.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/accessing-variable-values-from-scripted-prompts/9702'>
+                      <span itemprop='name'>Accessing Variable Values from Scripted Prompts</span>
+                    </a>
+                    <meta itemprop='position' content='2'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/slyfox'><span itemprop='name'>slyfox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-14T16:27:15Z' class='post-time'>
+                July 14, 2020,  4:27pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-14T16:27:15Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Awesome. This may do the trick.</p>
+<p>Thank you.</p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/slyfox'><span itemprop='name'>slyfox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-14T22:05:58Z' class='post-time'>
+                July 14, 2020, 10:05pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-14T22:05:58Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>As an Alternative to Prompt and Paste, I am trying Paste and Parse.</p>
+<p>How can I combine create new Draft with content and then parse it as the next action? I tried adding Parse Content as “Include Action” in Actions menu but I get an error message</p>
+<blockquote>
+<p>Script Error: SyntaxError: Can’t create duplicate variable: ‘d’<br>
+Line number: undefined, Column undefined</p>
+</blockquote>
+<p>If I add One script and then another, it does not work either. What is the best way to combine them?</p>
+<p><strong>Action 1 - New Draft with Content to be Parsed</strong></p>
+<pre><code>let d = Draft.create();
+d.content = `Name: [[FirstName]] [[LastName]]
+Date of Birth: [[DOB]]`;
+d.addTag("prescreen");
+d.update();
+editor.load(d);
+</code></pre>
+<p><strong>Action 2 - Parse and Update</strong> Take from <a href="../../../../actions.getdrafts.com/a/1IL.html" rel="nofollow noopener">Email Parsed Template</a></p>
+<pre><code>/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module &amp;&amp; module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _templateTagParser = __webpack_require__(1);
+
+var parser = new _templateTagParser.TemplateTagParser();
+
+if (parser.ask()) {
+  var parts = [{
+    name: 'draft',
+    value: draft.content
+  }, {
+    name: 'title',
+    value: draft.title
+  }, {
+    name: 'body',
+    value: draft.content.split('\n').slice(1).join('\n')
+  }, {
+    name: 'selection',
+    value: editor.getSelectedText()
+  }, {
+    name: 'clipboard',
+    value: app.getClipboard()
+  }];
+  parts.forEach(function (part) {
+    var parsed = parser.parse(part.value);
+    draft.setTemplateTag("parsed_".concat(part.name), parsed.text);
+    draft.setTemplateTag("parsed_".concat(part.name, "_html"), parsed.html);
+  });
+} else {
+  context.cancel();
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TemplateTagParser = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var TemplateTagParser =
+/*#__PURE__*/
+function () {
+  function TemplateTagParser() {
+    var template = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : draft.content;
+
+    _classCallCheck(this, TemplateTagParser);
+
+    this.template = template;
+  }
+
+  _createClass(TemplateTagParser, [{
+    key: "ask",
+    value: function ask() {
+      var tags = this.tags;
+      if (tags.length == 0) return true;
+      var prompt = Prompt.create();
+      prompt.title = 'Progress Report - Client Data';
+      tags.forEach(function (tag) {
+        return prompt.addTextField(tag, tag, '');
+      });
+      prompt.addButton('Okay');
+      if (!prompt.show()) return false;
+      tags.forEach(function (tag) {
+        draft.setTemplateTag(tag, prompt.fieldValues[tag]);
+        console.log("Setting ".concat(tag, " to ").concat(prompt.fieldValues[tag]));
+      });
+      return true;
+    }
+  }, {
+    key: "parse",
+    value: function parse(str) {
+      var text = draft.processTemplate(str);
+      var html = MultiMarkdown.create().render(text);
+      return {
+        text: text,
+        html: html
+      };
+    }
+  }, {
+    key: "tags",
+    get: function get() {
+      var reservedTags = ['body', 'clipboard', 'created_latitude', 'created_longitude', 'created', 'date', 'draft_open_url', 'draft', 'latitude', 'longitude', 'modified_latitude', 'modified_longitude', 'modified', 'selection_length', 'selection_start', 'selection', 'time', 'title', 'uuid'];
+      var pattern = /\[\[([\w ]+)\]\]/g;
+      var tags = new Set();
+      var match;
+
+      while (match = pattern.exec(this.template)) {
+        tags.add(match[1]);
+      }
+
+      return Array.from(tags).filter(function (tag) {
+        return !reservedTags.includes(tag);
+      });
+    }
+  }]);
+
+  return TemplateTagParser;
+}();
+
+exports.TemplateTagParser = TemplateTagParser;
+
+/***/ })
+/******/ ]);
+
+// Update content
+//draft.content = draft.processTemplate("[[parsed_draft]]");
+//draft.update("[[parsed_draft]]");
+//
+// Create a new draft from existing
+
+var d = Draft.create();
+d.content = draft.processTemplate("[[parsed_draft]]");
+d.update();
+editor.load(d);
+draft = d;</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-15T06:25:57Z' class='post-time'>
+                July 15, 2020,  6:25am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-15T13:26:56Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That error message tells you that you are trying to re-define a variable, <code>d</code>.</p>
+<p>I’m going to take a guess from how you have described some of the above that what you have marked as actions are what you have added as steps to a single action, so I’ll refer to them as steps instead, otherwise it could get very confusing.</p>
+<p>In step 1 you define <code>d</code> like this.</p>
+<pre><code class="lang-auto">let d = Draft.create();
+</code></pre>
+<p>In step 2, the definitions from step 1 still apply. Think of the action as being a single session. In step 2 this line defines <code>d</code> again.</p>
+<pre><code class="lang-auto">var d = Draft.create();
+</code></pre>
+<p>It was originally defined with a let so that isn’t allowed.</p>
+<p>Now I’m not clear on why you would be creating a new draft twice with differing content, so it could well be that I’ve misinterpreted thing and that they really are separate actions, in which case the error presumably belongs to action 2; and therefore I’m a bit lost as to how action 1 is relevant as the content looks substantially different.</p>
+<p>But if you do have a variable conflict that would then come from one of the imports.</p>
+<p>To avoid name conflicts define variable names uniquely. To be honest, <code>d</code> may be quick to type and fine for short scripts, but it isn’t very descriptive.</p>
+<p>As to how to combine multiple actions, well you can carefully merge the steps and deal with any conflicts such as this, or you could also look at <a href="../../../../scripting.getdrafts.com/classes/app.html#queue%20action" rel="nofollow noopener">queueAction()</a>. Each approach has its own pros and cons.</p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/slyfox'><span itemprop='name'>slyfox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-15T13:07:41Z' class='post-time'>
+                July 15, 2020,  1:07pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-15T13:07:41Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you for the explanation of the error message.</p>
+<p>How would you make this workflow work?</p>
+<ol>
+<li>
+<p>Create a new draft with predefined text and tag. The text contains multiple [[fill-in-fileds]] like name, date of birth, phone…</p>
+</li>
+<li>
+<p>Run Parse Draft action that scans the draft for [[text]] and brings up a Prompt to fill in the information. After pressing ok, the draft content is updated with values from the prompt.</p>
+</li>
+</ol>
+<p>From my understanding, I can create one Action and have two scripts in it. Script 1 one pastes text and Script 2 parses content. The problem that I have is that running one action that has</p>
+<p>Here is what I got so far but I can’t seem to figure out why the Parse action creates a new Draft after the text was pasted instead of updating the existing draft.</p>
+<p>Action: <a href="https://actions.getdrafts.com/a/1aS" rel="nofollow noopener">https://actions.getdrafts.com/a/1aS</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-15T13:31:25Z' class='post-time'>
+                July 15, 2020,  1:31pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-15T13:31:25Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="slyfox" data-post="6" data-topic="7914">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../letter_avatar_proxy/v4/letter/s/da6949/40.png" class="avatar"> slyfox:</div>
+<blockquote>
+<p>Here is what I got so far but I can’t seem to figure out why the Parse action creates a new Draft after the text was pasted instead of updating the existing draft.</p>
+</blockquote>
+</aside>
+<p><code>let d = Draft.create();</code> in step 1 creates a <strong>new</strong> Draft.</p>
+<pre><code class="lang-auto">// Update content
+draft.content = draft.processTemplate("[[parsed_draft]]");
+draft.update("[[parsed_draft]]");
+</code></pre>
+<p>This references <code>draft</code> which is the draft you had loaded when the action was first run. Try changing those references to your new draft <code>d</code>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/slyfox'><span itemprop='name'>slyfox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-15T21:25:28Z' class='post-time'>
+                July 15, 2020,  9:25pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-15T21:25:28Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I changed it to</p>
+<pre><code>// Update content
+draft.content = draft.processTemplate(d);
+draft.update(d);
+</code></pre>
+<p>As a result, I get a propound then two notes. One is the inserted text (not parsed) and the other one contains this as content</p>
+<p><code>[object ActionKit.ScriptObjectDraft]</code></p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-16T06:37:01Z' class='post-time'>
+                July 16, 2020,  6:37am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-16T06:37:01Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There are a lot of instances where <code>draft</code> was being used rather than <code>d</code>.</p>
+<p>I had a quick run through and I think this is probably the combination you were attempting. Note it can be added to an action as a single Script step.</p>
+<pre><code class="lang-auto">let d = Draft.create();
+d.content = `Name: [[FirstName]] [[LastName]]
+Date of Birth: [[DOB]]`;
+d.addTag("prescreen");
+d.update();
+editor.load(d);
+
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module &amp;&amp; module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _templateTagParser = __webpack_require__(1);
+
+var parser = new _templateTagParser.TemplateTagParser();
+
+if (parser.ask()) {
+  var parts = [{
+    name: 'draft',
+    value: d.content
+  }, {
+    name: 'title',
+    value: d.title
+  }, {
+    name: 'body',
+    value: d.content.split('\n').slice(1).join('\n')
+  }, {
+    name: 'selection',
+    value: editor.getSelectedText()
+  }, {
+    name: 'clipboard',
+    value: app.getClipboard()
+  }];
+  parts.forEach(function (part) {
+    var parsed = parser.parse(part.value);
+    d.setTemplateTag("parsed_".concat(part.name), parsed.text);
+    d.setTemplateTag("parsed_".concat(part.name, "_html"), parsed.html);
+  });
+} else {
+  context.cancel();
+}
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.TemplateTagParser = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var TemplateTagParser =
+/*#__PURE__*/
+function () {
+  function TemplateTagParser() {
+    var template = arguments.length &gt; 0 &amp;&amp; arguments[0] !== undefined ? arguments[0] : d.content;
+
+    _classCallCheck(this, TemplateTagParser);
+
+    this.template = template;
+  }
+
+  _createClass(TemplateTagParser, [{
+    key: "ask",
+    value: function ask() {
+      var tags = this.tags;
+      if (tags.length == 0) return true;
+      var prompt = Prompt.create();
+      prompt.title = 'Progress Report - Client Data';
+      tags.forEach(function (tag) {
+        return prompt.addTextField(tag, tag, '');
+      });
+      prompt.addButton('Okay');
+      if (!prompt.show()) return false;
+      tags.forEach(function (tag) {
+        d.setTemplateTag(tag, prompt.fieldValues[tag]);
+        console.log("Setting ".concat(tag, " to ").concat(prompt.fieldValues[tag]));
+      });
+      return true;
+    }
+  }, {
+    key: "parse",
+    value: function parse(str) {
+      var text = d.processTemplate(str);
+      var html = MultiMarkdown.create().render(text);
+      return {
+        text: text,
+        html: html
+      };
+    }
+  }, {
+    key: "tags",
+    get: function get() {
+      var reservedTags = ['body', 'clipboard', 'created_latitude', 'created_longitude', 'created', 'date', 'draft_open_url', 'draft', 'latitude', 'longitude', 'modified_latitude', 'modified_longitude', 'modified', 'selection_length', 'selection_start', 'selection', 'time', 'title', 'uuid'];
+      var pattern = /\[\[([\w ]+)\]\]/g;
+      var tags = new Set();
+      var match;
+
+      while (match = pattern.exec(this.template)) {
+        tags.add(match[1]);
+      }
+
+      return Array.from(tags).filter(function (tag) {
+        return !reservedTags.includes(tag);
+      });
+    }
+  }]);
+
+  return TemplateTagParser;
+}();
+
+exports.TemplateTagParser = TemplateTagParser;
+
+/***/ })
+/******/ ]);
+
+
+d.content = d.processTemplate("[[parsed_draft]]");
+d.update();
+editor.load(d);
+</code></pre>
+<p>This gives me two lines with a name and DoB placeholder in a (single) new draft. It throws up a prompt for entering the first name, last name and DoB. After entering those, it substitutes in the values from the prompt for the values in the draft.</p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/slyfox'><span itemprop='name'>slyfox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-17T14:32:14Z' class='post-time'>
+                July 17, 2020,  2:32pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-17T14:32:14Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you. I guess this is the way to go.</p>
+<p>I was initially trying to separate the steps within the Action so that Insert Tex is a separate action. The reason for this is to quickly access it and edit if needed.</p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/long-text-prompt-variables/7914">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-17T15:19:30Z' class='post-time'>
+                July 17, 2020,  3:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-17T15:19:30Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="slyfox" data-post="10" data-topic="7914">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../letter_avatar_proxy/v4/letter/s/da6949/40.png" class="avatar"> slyfox:</div>
+<blockquote>
+<p>I was initially trying to separate the steps within the Action so that Insert Tex is a separate action. The reason for this is to quickly access it and edit if needed.</p>
+</blockquote>
+</aside>
+<p>You could still break that up, my point was that it was unnecessary for the two actions setup that you described in the first post. But remember if you are using the Insert Text step, that will almost certainly get lost as you are switching drafts around in the editor and updating.</p>
+<p>The best option there would probably just to be to include any insert text sort of content in that initial setting of <code>d.content</code>. After all, that is effectively what it is doing; inserting test, just into a new drafts is all.</p>
+        </div>
+
+        <meta itemprop='headline' content='Long text + Prompt + Variables'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

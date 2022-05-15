@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Add tasks as project in 2Do - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I’ve adapted a few existing actions to create a new one that will scan a Draft for all markdown formatted tasks and then create a new task in my 2Do inbox for each item. This seems to be working well. But what I would li&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="3199.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Add tasks as project in 2Do&#39;" href="3199.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/add-tasks-as-project-in-2do/3199" />
+<meta property="og:title" content="Add tasks as project in 2Do" />
+<meta name="twitter:title" content="Add tasks as project in 2Do" />
+<meta property="og:description" content="I’ve adapted a few existing actions to create a new one that will scan a Draft for all markdown formatted tasks and then create a new task in my 2Do inbox for each item. This seems to be working well. But what I would like to do now is have the action create a new project in 2Do from the document title and then add each of these items as sub-tasks in that project. So, for instance, if I have a document like this:  # Title - [ ] Item 1 - [ ] Item 2  I will get a 2Do project named “title” with “it..." />
+<meta name="twitter:description" content="I’ve adapted a few existing actions to create a new one that will scan a Draft for all markdown formatted tasks and then create a new task in my 2Do inbox for each item. This seems to be working well. But what I would like to do now is have the action create a new project in 2Do from the document title and then add each of these items as sub-tasks in that project. So, for instance, if I have a document like this:  # Title - [ ] Item 1 - [ ] Item 2  I will get a 2Do project named “title” with “it..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2018-11-21T02:47:10+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="3199.html">Add tasks as project in 2Do</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/tasks.html' class='discourse-tag' rel="tag">tasks</a>, 
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/luhmann'><span itemprop='name'>luhmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-21T02:47:10Z' class='post-time'>
+                November 21, 2018,  2:47am
+              </time>
+              <meta itemprop='dateModified' content='2018-11-21T02:47:10Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve adapted a few existing actions to <a>create a new one</a> that will scan a Draft for all markdown formatted tasks and then create a new task in my 2Do inbox for each item. This seems to be working well. But what I would like to do now is have the action create a new project in 2Do from the document title and then add each of these items as sub-tasks in that project. So, for instance, if I have a document like this:</p>
+<pre><code class="lang-auto"># Title
+- [ ] Item 1
+- [ ] Item 2
+</code></pre>
+<p>I will get a 2Do project named “title” with “item 1” and “item 2” as sub-tasks in that project. I’ve tried a few different ways to do this, but nothing has worked. (Unfortunately my scripting ability is very limited and all I can really do is slightly modify existing scripts, not create new ones from scratch.) Thanks for your help!</p>
+<p>(Note that this action should work even if some of the lines in the document are not tasks. The idea is that I could take notes at a meeting, add some tasks, and then have a new 2Do project for items to followup on after that meeting.)</p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+          <meta itemprop='keywords' content='tasks, actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/luhmann'><span itemprop='name'>luhmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-23T08:58:45Z' class='post-time'>
+                November 23, 2018,  8:58am
+              </time>
+              <meta itemprop='dateModified' content='2018-11-23T08:58:45Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>So it turns out that it is actually fairly easy to create a project with sub tasks in 2Do using the “paste” URL scheme:</p>
+<p><code>twodo://x-callback-url/paste?text=[[draft]]&amp;forList=Inbox</code></p>
+<p>This works with nested text in a draft:</p>
+<pre><code class="lang-auto">Project Title
+    task 1
+    task 2
+</code></pre>
+<p>So perhaps the best way to accomplish the initial concept would be to take the title and tasks and create a new draft, then run the URL scheme on that draft? Or is there an easier way?</p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/luhmann'><span itemprop='name'>luhmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-23T09:10:44Z' class='post-time'>
+                November 23, 2018,  9:10am
+              </time>
+              <meta itemprop='dateModified' content='2018-11-23T09:10:44Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Seems <a href="../automatic-action-upon-draft-creation/668.html">it is not possible to create a new draft and automatically trigger a second action</a>. So it would be better to find a way to add all the text that would go to that new draft directly to a URL scheme… Not sure how to do that though…</p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-23T14:22:04Z' class='post-time'>
+                November 23, 2018,  2:22pm
+              </time>
+              <meta itemprop='dateModified' content='2018-11-23T14:22:04Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There are couple of ways to create that URL and open it without the need to create a new draft.</p>
+<p>The most straightforward way would be to put the new text you constructed in a custom template tag, then use that tag in a Callback URL action step that follows your script, like:</p>
+<pre><code class="lang-javascript">let s = " ... your constructed text ... ";
+draft.setTemplateTag("paste_text", s);
+</code></pre>
+<p>Then for the URL scheme in a step after this script, use:</p>
+<pre><code class="lang-nohighlight">twodo://x-callback-url/paste?text=[[paste_text]]&amp;forList=Inbox
+</code></pre>
+<p>You could also do it all in script, constructing the full URL in a string, and using a <a href="../../../reference.getdrafts.com/objects/CallbackURL.html">CallbackURL</a> object to open that URL.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/luhmann'><span itemprop='name'>luhmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-25T02:25:40Z' class='post-time'>
+                November 25, 2018,  2:25am
+              </time>
+              <meta itemprop='dateModified' content='2018-11-25T02:25:40Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Currently my script parses each line and sends those it finds directly to 2Do, to modify it in this way I would need to append each found line to “s” (using the example above). How do I append to an existing template tag within the script?</p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-25T11:27:53Z' class='post-time'>
+                November 25, 2018, 11:27am
+              </time>
+              <meta itemprop='dateModified' content='2018-11-25T11:27:53Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="5" data-topic="3199">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../letter_avatar_proxy/v2/letter/l/ed655f/40.png" class="avatar"> luhmann:</div>
+<blockquote>
+<p>How do I append to an existing template tag within the script?</p>
+</blockquote>
+</aside>
+<p>For this scenario, consider using a string variable to keep appending to and then substitute that in for “paste text” when you want to use it.</p>
+<p>If it was pre-existing in some other scenarios, you might use processTemplate() to get the initial value to initialise the variable with.  You could consistently use processTemplate instead of a separate variable, but I personally think it is typically easier (for maintenance and explanation) to work with variables first and then the templates at the end of the process.</p>
+<p>Hope that covers what you’re after.</p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/luhmann'><span itemprop='name'>luhmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/8/850a1f67ceace07c2a294da1ba842fe982d52aef.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-25T12:50:35Z' class='post-time'>
+                November 25, 2018, 12:50pm
+              </time>
+              <meta itemprop='dateModified' content='2018-11-25T12:50:35Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks. Just posting this here as a reference:</p>
+<aside class="onebox stackexchange">
+  <header class="source">
+      <a href="https://stackoverflow.com/questions/1288095/append-to-string-variable" target="_blank" rel="nofollow noopener">stackoverflow.com</a>
+  </header>
+  <article class="onebox-body">
+      <a href="https://stackoverflow.com/users/153799/ronal" target="_blank" rel="nofollow noopener">
+    <img alt="Ronal" src="../../uploads/default/original/2X/8/850a1f67ceace07c2a294da1ba842fe982d52aef.png" class="thumbnail onebox-avatar" width="128" height="128">
+  </a>
+<h4>
+  <a href="https://stackoverflow.com/questions/1288095/append-to-string-variable" target="_blank" rel="nofollow noopener">Append to string variable</a>
+</h4>
+
+<div class="tags">
+  <strong>javascript, string, variables, append</strong>
+</div>
+
+<div class="date">
+  asked by
+  
+  <a href="https://stackoverflow.com/users/153799/ronal" target="_blank" rel="nofollow noopener">
+    Ronal
+  </a>
+  on <a href="https://stackoverflow.com/questions/1288095/append-to-string-variable" target="_blank" rel="nofollow noopener">01:57PM - 17 Aug 09 UTC</a>
+</div>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/luhmann'><span itemprop='name'>luhmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3199.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-11-25T14:45:50Z' class='post-time'>
+                November 25, 2018,  2:45pm
+              </time>
+              <meta itemprop='dateModified' content='2018-11-25T14:45:50Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Success. Thanks so much for your help!</p>
+<p><a href="../../../actions.getdrafts.com/a/1Qx.html" class="onebox" target="_blank" rel="nofollow noopener">https://actions.getdrafts.com/a/1Qx</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Add tasks as project in 2Do'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

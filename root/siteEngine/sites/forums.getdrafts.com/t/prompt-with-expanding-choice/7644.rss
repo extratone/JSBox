@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Prompt with Expanding Choice?</title>
+    <link>https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644</link>
+    <description>I&#39;m trying to figure out how to make Prompt action expand a button choice into a bigger chunk of text. Email action example:
+
+Prompt: Name
+Prompt: Email
+Prompt: Choice A OR Choice B
+
+However, &quot;Choice A&quot; will the expand in to a longer piece of pre-defined text (A long URL or a greeting message). 
+
+So far I can use the button function but it does not really work if the choice contains a long piece of text.
+
+I am trying to see if Drafts can do what Typinator does - present a choice A|B|C and then expand text based on the choice made.
+
+I guess I can figure out how to use [Class Prompt](https://scripting.getdrafts.com/classes/prompt) but how do I paste the results of the prompt? What is the script?</description>
+    
+    <lastBuildDate>Tue, 26 Apr 2022 17:24:59 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Prompt with Expanding Choice?</title>
+        <dc:creator><![CDATA[Brian_Seidman]]></dc:creator>
+        <description><![CDATA[
+            <p>Found your post while researching something else about prompts and just wondered if the built in “value” object in <a href="https://scripting.getdrafts.com/classes/prompt#addbutton" rel="noopener nofollow ugc">prompt.addButton</a> might be what you want? Consider something like:</p>
+<pre><code class="lang-auto">const p = new Prompt()
+
+p.addButton("Option A", "story A")
+p.addButton("Option B", "story B")
+
+p.show()
+
+const d = new Draft()
+
+d.content = p.buttonPressed
+
+d.update()
+</code></pre>
+<p>The second parameter in <code>addButton</code> gives you a different value for the button than its label, and the subsequent actions take the value of the button and paste it into a new draft. Hope that helps!</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/4</link>
+        <pubDate>Tue, 26 Apr 2022 17:24:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7644-4</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644.rss">Prompt with Expanding Choice?</source>
+      </item>
+      <item>
+        <title>Prompt with Expanding Choice?</title>
+        <dc:creator><![CDATA[slyfox]]></dc:creator>
+        <description><![CDATA[
+            <p>Would that work for this:</p>
+<p>Prompt window:</p>
+<pre><code>"Option A"
+"Option B"
+</code></pre>
+<p>If “<strong>Option A</strong>” is clicked, the pasted text will be a paragraph about <strong>story A.</strong></p>
+<p>If “<strong>Option B</strong>” is clicked, the pasted text will be a paragraph about <strong>story B.</strong></p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/3</link>
+        <pubDate>Wed, 17 Jun 2020 12:04:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7644-3</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644.rss">Prompt with Expanding Choice?</source>
+      </item>
+      <item>
+        <title>Prompt with Expanding Choice?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not sure I totally follow what you are describing, but prompt are static, in the sense that nothing in the interface of the prompt can be changed while the prompt is visible.</p>
+<p>If you have long segments of text you need displayed in the prompt to select from, you could use <code>addLabel</code> <a href="https://scripting.getdrafts.com/classes/prompt#addlabel">docs</a> to add the longer texts, and combine that with an <code>addSelect</code> <a href="https://scripting.getdrafts.com/classes/prompt#addselect">docs</a> which offers the A/B/C choices to specify which passage to select.</p>
+<p>We will also be introducing the ability to communicate information from HTML Preview steps back to the app in the next update - which makes it a powerful way to build more advanced dialogs using HTML/CSS/JavaScript that could have dynamic ways to hide/show elements.</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/2</link>
+        <pubDate>Thu, 11 Jun 2020 12:33:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7644-2</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644.rss">Prompt with Expanding Choice?</source>
+      </item>
+      <item>
+        <title>Prompt with Expanding Choice?</title>
+        <dc:creator><![CDATA[slyfox]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to figure out how to make Prompt action expand a button choice into a bigger chunk of text. Email action example:</p>
+<p>Prompt: Name<br>
+Prompt: Email<br>
+Prompt: Choice A OR Choice B</p>
+<p>However, “Choice A” will the expand in to a longer piece of pre-defined text (A long URL or a greeting message).</p>
+<p>So far I can use the button function but it does not really work if the choice contains a long piece of text.</p>
+<p>I am trying to see if Drafts can do what Typinator does - present a choice A|B|C and then expand text based on the choice made.</p>
+<p>I guess I can figure out how to use <a href="https://scripting.getdrafts.com/classes/prompt" rel="nofollow noopener">Class Prompt</a> but how do I paste the results of the prompt? What is the script?</p>
+          <p><a href="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644/1</link>
+        <pubDate>Wed, 10 Jun 2020 11:35:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7644-1</guid>
+        <source url="https://forums.getdrafts.com/t/prompt-with-expanding-choice/7644.rss">Prompt with Expanding Choice?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>(fast) todoist object integration - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="Hi guys, 
+I wanted to share a (at least for me) new method to integrate the todoist objects or better said a much faster use of it in scripts. 
+Earlier I used the methods of this todoist example action group to push task&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="4678.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;(fast) todoist object integration&#39;" href="4678.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/fast-todoist-object-integration/4678" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/fast-todoist-object-integration/4678" />
+<meta property="og:title" content="(fast) todoist object integration" />
+<meta name="twitter:title" content="(fast) todoist object integration" />
+<meta property="og:description" content="Hi guys,  I wanted to share a (at least for me) new method to integrate the todoist objects or better said a much faster use of it in scripts.  Earlier I used the methods of this todoist example action group to push tasks to todoist. E.g. create a prompt with all projects/labels to select it, maybe pick a due date and publish the task(s).  What annoyed me all the time was how long it takes to retrieve all the information everytime I want to create a task (especially when the internet connection ..." />
+<meta name="twitter:description" content="Hi guys,  I wanted to share a (at least for me) new method to integrate the todoist objects or better said a much faster use of it in scripts.  Earlier I used the methods of this todoist example action group to push tasks to todoist. E.g. create a prompt with all projects/labels to select it, maybe pick a due date and publish the task(s).  What annoyed me all the time was how long it takes to retrieve all the information everytime I want to create a task (especially when the internet connection ..." />
+<meta property="article:published_time" content="2019-05-13T09:43:54+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="4678.html">(fast) todoist object integration</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/todoist.html' class='discourse-tag' rel="tag">todoist</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="4678.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-05-13T09:43:54Z' class='post-time'>
+                May 13, 2019,  9:43am
+              </time>
+              <meta itemprop='dateModified' content='2019-05-13T10:17:38Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi guys,</p>
+<p>I wanted to share a (at least for me) new method to integrate the todoist objects or better said a much faster use of it in scripts.<br>
+Earlier I used the methods of <a href="../../../actions.getdrafts.com/g/1L3.html" rel="nofollow noopener">this</a> todoist example action group to push tasks to todoist. E.g. create a prompt with all projects/labels to select it, maybe pick a due date and publish the task(s).<br>
+What annoyed me all the time was how long it takes to retrieve all the information everytime I want to create a task (especially when the internet connection is not that fast.<br>
+Another thing was that I always needed to copy paste the code into other scripts to make project names and so on available to the new action.<br>
+Thats when I started with developing my own method.<br>
+First I created a script which retrieves all the information and stores it in variables which can be used later in other scripts. The script stored all the project names and corresponding IDs (and the same for the labels).<br>
+Personally I no longer store scripts directly in the actions but in script drafts and use the <code>eval()</code> function in the drafts action to run the code.<br>
+So at this stage I was able to just put the line <code>eval(Draft.find("UUID")</code>.content to the beginning of each todoist action and then use all the variabls in the action I’m building up. To clarify this a little bit, like in the linked action group - I save these variables:</p>
+<ul>
+<li>projectNames includes the names of all projects in todoist as array of stings</li>
+<li>labelNames includes the names of all labels in todoist as array of stings</li>
+<li>projectLookup can be used to retrieve the todoist internal ID of a project:<br>
+usage: <code>projectLookup[validProjectName(in projectNames)]</code>
+</li>
+<li>labelLookup can be used to retrieve the todoist internal ID of a label:<br>
+usage: <code>labelLookup[validLabelName(in labelNames)]</code>
+</li>
+</ul>
+<p>Now I was able to get rid of all the duplicated code, but I still had the “issue” with long execution times because the data always was fetched from todoist and so on.<br>
+Then I thought about how often I create a project in todoist and came to the conclusion that this really does not happen very often (once a week at the most). So why do I need to retrieve all the information everytime I execute the action? Actually I don’t. Thats why I started to create an action which stores all the project/label names and IDs in the iCloud Drive folder of drafts with a script in a JSON parseable string. I created an action which also stores the milliseconds timestamp at the beginning of the projectIDs file, based on this timestamp, a script can distinguish if its needed to reload the data from todoist or if its ok to use the data from the file.<br>
+The start of my script is the following:</p>
+<pre><code class="lang-auto">if (checkUpdateNecessary() || forceUpdate) {
+retrieveTodoistInformation();
+writeSettingsToFile();
+} 
+</code></pre>
+<p>The <code>checkUpdateNecessary()</code> function calculates the time difference between now (the time of execution) and the timestamp in the projectIDs file. If it returns true or the forceUpdate flag is set to true, the APIs getProjects() and getLabels() documented <a href="../../../reference.getdrafts.com/objects/Todoist.html" rel="nofollow noopener">here</a> are called and all the informations are stored in the file with the <code>writeSettingsToFile()</code> function by using the fileManager object in drafts. It was a little bit faster then retrieving the information everytime from todoist but I was a little bit dissapointed. Then I experienced a massive speed increase when I switched from storing the file in iCloud Drive to storing it locally on the device  [Literally while I’m writing this I thought about why I didn’t just store this in a draft…]. The execution time of getting all the todoist informationdecreased by more than a second (on 4G LTE) to nearlly zero. The bottleneck of speed is now just the publishing of the tasks but I can live with that.<br>
+I think I’ll try to move from the local file to a draft (mainly because this is easier to maintain and explain to others) but I was impressed on how quick it is just now.<br>
+The code and usage is not very easy but I thought it could be useful for some of you guys, too.</p>
+<p>Here is the code - its really not quite finished, but I wanted to share it and see if someone else finds this useful - I can poste sample codes for the creation of tasks, too and I’ll update here if I found better solutions or created an action group in the end:</p>
+<pre><code class="lang-auto">// get all todoist projects&amp;labels from local file and update if necessary
+
+//eval(Draft.find("this-drafts-uuid").content); - this line is just there to easily copy the evaluation of this script to any other draft
+
+let forceUpdate = false;
+const folderName = "todoistSettings";
+const projectIDsFileName = "allProjectIDs"
+const labelIDsFileName = "allLabelsIDs"
+
+// init projectIDs and labelIDs arrays
+var projectIDs = [];
+var labelIDs = [];
+
+//input time
+let now = Date.now();
+
+let maxTimeDiff = 168 //once a week - the difference is calcualted in hours
+
+//create File Manager Local
+var fm = FileManager.createLocal();
+
+var projectIDsString, labelIDsString;
+var checkUpdateNecessary = () =&gt; {
+if (!getSettingsIfAvailable()) {
+return true;
+} else {
+
+let fileContent = fm.readString("/todoistSettings/" + projectIDsFileName + ".txt");
+var fileContentLines = fileContent.split("\n");
+let creationTime = fileContentLines[0];
+projectIDsString = fileContentLines[1];
+let timeDiff = now - creationTime;
+let timeDiffHours = timeDiff / 3600000;
+labelIDsString = fm.readString("/todoistSettings/" + labelIDsFileName + ".txt");
+if (timeDiffHours &gt; maxTimeDiff) {
+return true;
+} else {
+return false;
+}
+}
+}
+
+var getSettingsIfAvailable = () =&gt; {
+// check if directory exists
+if (fm.listContents("/").toString().includes(folderName)) {
+//dir exists, nothing to be done
+return true;
+} else {
+// directory doesn't exist, create it
+fm.createDirectory(folderName, "/");
+return false;
+}
+}
+
+// utility function
+let mapIds = (arr, key, valKey) =&gt; {
+let result = {};
+arr.forEach(o =&gt; {
+result[o[key]] = o[valKey];
+})
+return result;
+}
+let retrieveTodoistInformation = () =&gt; {
+
+// create Todoist object and load project and label lists - I included another draft with eval() here, thats why the projectLookup... variables are at the bottom again.
+var todoist = Todoist.create();
+let projects = todoist.getProjects();
+let labels = todoist.getLabels();
+
+if (!projects || !labels) {
+console.fail("Unable to retreive data from Todoist.");
+}
+let projectLookup = mapIds(projects, "name", "id");
+let labelLookup = mapIds(labels, "name", "id");
+let projectNames = Object.keys(projectLookup);
+let labelNames = Object.keys(labelLookup);
+let labelIdLookup = mapIds(labels, "id", "name");
+let projectIdLookup = mapIds(projects, "id", "name");
+
+if (!projectLookup || !labelLookup) {
+console.log("Unable to retreive data from Todoist.");
+return false;
+}
+for (name of projectNames) {
+projectIDs.push([name, projectLookup[name]]);
+}
+for (name of labelNames) {
+labelIDs.push([name, labelLookup[name]]);
+}
+}
+
+var writeSettingsToFile = () =&gt; {
+fm.writeString("/todoistSettings/" + projectIDsFileName + ".txt", now + "\n" + JSON.stringify(projectIDs));
+fm.writeString("/todoistSettings/" + labelIDsFileName + ".txt", JSON.stringify(labelIDs));
+}
+
+
+if (checkUpdateNecessary() || forceUpdate) {
+retrieveTodoistInformation();
+writeSettingsToFile();
+} else {
+
+}
+
+var todoist = Todoist.create();
+projectIDs = "[";
+labelIDs = "[";
+let parsedProjectString = JSON.parse(projectIDsString);
+let parsedLabelString = JSON.parse(labelIDsString);
+
+for (let [prjName, prjID] of parsedProjectString) {
+projectIDs = projectIDs + "{\"name\":\"" + prjName + "\",\"id\":\"" + prjID + "\"},";
+}
+
+for (let [labelName, labelID] of parsedLabelString) {
+labelIDs = labelIDs + "{\"name\":\"" + labelName + "\",\"id\":\"" + labelID + "\"},";
+}
+
+projectIDs = projectIDs.substr(0, projectIDs.length - 1);
+projectIDs = projectIDs + "]";
+let parsedProjectIDs = JSON.parse(projectIDs);
+labelIDs = labelIDs.substr(0, labelIDs.length - 1);
+labelIDs = labelIDs + "]";
+let parsedLabelIDs = JSON.parse(labelIDs);
+
+let mapIds = (arr, key, valKey) =&gt; {
+let result = {};
+arr.forEach(o =&gt; {
+result[o[key]] = o[valKey];
+})
+return result;
+}
+
+var projectLookup = mapIds(parsedProjectIDs, "name", "id");
+var projectIdLookup = mapIds(parsedProjectIDs, "id", "name");
+var projectNames = Object.keys(projectLookup);
+var labelLookup = mapIds(parsedLabelIDs, "name", "id");
+var labelIdLookup = mapIds(parsedLabelIDs, "id", "name");
+var labelNames = Object.keys(labelLookup);
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='(fast) todoist object integration'>
+          <meta itemprop='keywords' content='todoist'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

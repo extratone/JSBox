@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JS :: Building prompts with Array.reduce and Object.assign - Scripting - Drafts Community</title>
+    <meta name="description" content="Array.reduce is the swiss army penknife of Javascript. 
+It simply lets us: 
+
+start with a seed value, and
+work through a list item by item – updating the seed value each time.
+
+and it turns out that all manner of things &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="604.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;JS :: Building prompts with Array.reduce and Object.assign&#39;" href="604.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604" />
+<meta property="og:title" content="JS :: Building prompts with Array.reduce and Object.assign" />
+<meta name="twitter:title" content="JS :: Building prompts with Array.reduce and Object.assign" />
+<meta property="og:description" content="Array.reduce is the swiss army penknife of Javascript.  It simply lets us:   start with a seed value, and work through a list item by item – updating the seed value each time.  and it turns out that all manner of things can be done in this way, sparing us from manually setting up loops and iterator values, and protecting us from all the boundary condition accidents and puzzles that loops are heir to.  One use of Array.reduce in Drafts is in creating a prompt from a list of button names.  For the..." />
+<meta name="twitter:description" content="Array.reduce is the swiss army penknife of Javascript.  It simply lets us:   start with a seed value, and work through a list item by item – updating the seed value each time.  and it turns out that all manner of things can be done in this way, sparing us from manually setting up loops and iterator values, and protecting us from all the boundary condition accidents and puzzles that loops are heir to.  One use of Array.reduce in Drafts is in creating a prompt from a list of button names.  For the..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2018-04-24T15:34:12+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="604.html">JS :: Building prompts with Array.reduce and Object.assign</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/draft8'><span itemprop='name'>draft8</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-24T15:34:12Z' class='post-time'>
+                April 24, 2018,  3:34pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-28T13:56:06Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" rel="nofollow noopener">Array.reduce</a> is the swiss army penknife of Javascript.</p>
+<p>It simply lets us:</p>
+<ul>
+<li>start with a seed value, and</li>
+<li>work through a list item by item – updating the seed value each time.</li>
+</ul>
+<p>and it turns out that all manner of things can be done in this way, sparing us from manually setting up loops and iterator values, and protecting us from all the boundary condition accidents and puzzles that loops are heir to.</p>
+<p>One use of <strong>Array.reduce</strong> in Drafts is in creating a prompt from a list of button names.</p>
+<p>For the initial seed value, we can use the standard JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" rel="nofollow noopener">Object.assign</a> to return a prompt object with any <strong>title</strong> etc properties that we need.</p>
+<p>For each stage of working through the button list, we define a function with two arguments (accumulator, item), or (a, x).</p>
+<ul>
+<li>The <strong>accumulator</strong> is the current state of the changing seed value</li>
+<li>the <strong>item</strong>, in this case, is a button name.</li>
+</ul>
+<p>Our function just adds a button, and returns the updated prompt.</p>
+<pre><code class="lang-javascript">// A prompt for selecting an item from a list.
+const p = categories.reduce(
+
+    // Accumulator updates - a button added for each category in the list:
+    (prompt, buttonName) =&gt; {
+        prompt.addButton(buttonName);
+        return prompt;
+    },
+
+    // Initial accumulator: a prompt with properties:
+    Object.assign(
+        Prompt.create(), {
+            title: 'Select list:',
+            message: 'Ask for a category, and append' +
+                ' to a tagged list for that category',
+            isCancellable: true
+        }
+    )
+);
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="4" />
+           <span class='post-likes'>4 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dfay'><span itemprop='name'>dfay</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-24T19:27:30Z' class='post-time'>
+                April 24, 2018,  7:27pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-24T19:27:30Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This I think requires a big conceptual shift, at least for me, but I think I see the logic.  I was completely confused by another code example you posted b/c of the initial <strong>const</strong> … but presumably this is all creating the object.  I’m not sure it’s the easiest code to follow for newcomers but I am intrigued by the approach.</p>
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/draft8'><span itemprop='name'>draft8</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-24T19:32:02Z' class='post-time'>
+                April 24, 2018,  7:32pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-24T19:58:34Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My feeling is that if you are starting out afresh, the mental model provided by</p>
+<ul>
+<li>map</li>
+<li>reduce</li>
+<li>filter</li>
+</ul>
+<p>is probably simpler than that of having to set up loops, increment mutable variables, check boundary conditions etc etc.</p>
+<p>(It certainly brings down the bug count, by handing the mechanics over to pre-built parts).</p>
+<p>If, however, we are already very used to loops and actions, then composing values does involve a bit of a mental shift.</p>
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/draft8'><span itemprop='name'>draft8</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-24T20:04:16Z' class='post-time'>
+                April 24, 2018,  8:04pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-24T20:04:16Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Incidentally, the full context of that snippet might make things clearer – you should find it by expanding the disclosure triangle in this post:</p>
+<aside class="quote quote-modified" data-post="7" data-topic="596">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/draft8/40/281_1.png" class="avatar">
+    <a href="../tip-append-to-running-lists-with-the-add-to-list-action/596/7@u=draft8.html">TIP: Append to running lists with the "Add to list" action</a> <a class="badge-wrapper  bullet" href="../../c/tips.html"><span class="badge-category-bg" style="background-color: #12A89D;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Quick Drafts tips on a variety of topics. Free free to post your own.">Tips &amp; Tricks</span></a>
+  </div>
+  <blockquote>
+    Javascript’s standard <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" rel="nofollow noopener">Array.map</a> can take an existing function on a single string, and apply it to a whole list of strings. 
+For example: 
+d.content = d.content + currentContent
+.split('\n')
+.map(x =&gt; '- [ ] ' + x)
+.join('\n'),
+
+Used in context: 
+<details><summary>Full source for an Add *All* to List variant – click to expand</summary>(() =&gt; {
+    'use strict';
+
+    // Based on an original script by @agiletortoise
+
+    /*
+      Ask for a category, and append to a 
+      tagged list for that category
+    */
+
+    …</details>
+  </blockquote>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/edgauthier'><span itemprop='name'>edgauthier</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-31T17:27:21Z' class='post-time'>
+                May 31, 2018,  5:27pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-31T17:27:21Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for posting this. I wanted to see if I could take it further as I’ve experimented with more declarative programming. Here’s a set of Prompt utility functions I’ve defined that I’m using to build prompts in my actions.</p>
+<pre><code class="lang-auto">// Title, Message -&gt; Prompt
+const newPrompt = (t = "", m = "") =&gt; 
+  Object.assign(Prompt.create(), {title: t, message: m});
+
+// Prompt, Button -&gt; Prompt
+const addButton = (p, b) =&gt; {p.addButton(b);return p;};
+
+// Title, Buttons -&gt; Prompt
+const buttonPrompt = (t, bs) =&gt; bs.reduce(addButton, newPrompt(t));
+
+// p = Prompt
+// c = ["funcName", [arguments]]
+const addControl = (p, c) =&gt; {
+  const func = c[0], args = c[1];
+  p[func](...args);
+  return p;
+};
+
+// Define a prompt in a object
+// {
+//   title: "",
+//   message: "",
+//   controls: [
+//     ["funcName", [arguments]],
+//     ["funcName", [arguments]]
+//   ]
+// }
+const customPrompt = p =&gt; 
+  p.controls.reduce(addControl, newPrompt(p.title, p.message));
+</code></pre>
+<p>And here are a few example prompts built with these functions.</p>
+<pre><code class="lang-auto">const opts = ["Yes", "No", "Maybe"];
+const p1 = buttonPrompt("Choose Option", opts);
+p1.show();
+
+const p2 = customPrompt({
+  title: "Go to Line",
+  controls: [
+    ["addTextField", ["ln", "Line Number:", "", {"keyboard":"numberPad"}]],
+    ["addButton", ["Go"]]
+  ]});
+p2.show();
+
+const params = ["Param1", "Param2", "Param3"];
+const p3 = customPrompt({
+  title: "Replace Parameters",
+  message: "Fill in all values.",
+  controls: params.reduce(
+    (c, v, i) =&gt; c.concat([["addTextField", [i, v, ""]]]),
+    [["addButton", ["Generate Tasks"]]])
+  });
+p3.show();
+</code></pre>
+<p>I’m not sure that this is necessarily any easier or better, but it was a good exercise to build this and see how to use some of these concepts together.</p>
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/draft8'><span itemprop='name'>draft8</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-31T17:43:32Z' class='post-time'>
+                May 31, 2018,  5:43pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-31T17:43:32Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My experience is that the bug count drops and the code-writing speed picks up when we start to construct values rather than ‘doing’ things, as if we were tiny humunculi running around inside the machine.</p>
+<p>The <em>mutate and proceed to next mutation</em> model involves carrying a lot of baggage in the head, and some of it always seems to slip out …</p>
+<p>It seems to work better just to define and compose the values we want.</p>
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/edgauthier'><span itemprop='name'>edgauthier</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="604.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-05-31T18:42:01Z' class='post-time'>
+                May 31, 2018,  6:42pm
+              </time>
+              <meta itemprop='dateModified' content='2018-05-31T18:42:01Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>In my short time with JavaScript, I’ve observed the same. I’ve converted a few short scripts from imperative to declarative style and was surprised at how much more concise and easier to read they became.</p>
+<p>I wish I spent more time with this back when I was coding for a living and not just a hobby.</p>
+        </div>
+
+        <meta itemprop='headline' content='JS :: Building prompts with Array.reduce and Object.assign'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

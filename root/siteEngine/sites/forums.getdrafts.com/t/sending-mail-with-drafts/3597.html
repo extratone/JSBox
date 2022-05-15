@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sending Mail with Drafts - Integration Guides - Drafts Community</title>
+    <meta name="description" content="Sending Mail with Drafts
+Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within th&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="3597.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Sending Mail with Drafts&#39;" href="3597.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597" />
+<meta property="og:title" content="Sending Mail with Drafts" />
+<meta name="twitter:title" content="Sending Mail with Drafts" />
+<meta property="og:description" content="Sending Mail with Drafts Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within the app - or by integrating with third party Mail clients. Even write with Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts and different methods available.  Mail Action Step Drafts ships with a default Mail action, in the “Ba..." />
+<meta name="twitter:description" content="Sending Mail with Drafts Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within the app - or by integrating with third party Mail clients. Even write with Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts and different methods available.  Mail Action Step Drafts ships with a default Mail action, in the “Ba..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="4 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="5 ❤" />
+<meta property="article:published_time" content="2019-01-14T20:50:06+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="3597.html">Sending Mail with Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/integration-guides.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Integration Guides</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/guide.html' class='discourse-tag' rel="tag">guide</a>, 
+            <a href='../../tag/mail.html' class='discourse-tag' rel="tag">mail</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-01-14T20:50:06Z' class='post-time'>
+                January 14, 2019,  8:50pm
+              </time>
+              <meta itemprop='dateModified' content='2020-11-25T13:54:05Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <h1>Sending Mail with Drafts</h1>
+<p>Drafts is a great place to, well, draft emails. Using Drafts allows you to use a convenient, configurable editor for a consistent writing experience and it’s easy to send email directly within the app - or by integrating with third party Mail clients. Even write with Markdown and send as rich HTML email.  This article covers some of these basics of using email in Drafts and different methods available.</p>
+<h3>Mail Action Step</h3>
+<p>Drafts ships with a default <a href="../../../actions.getdrafts.com/a/1BC.html">Mail</a> action, in the “Basic” action group.  This action is configured to use the first line of the draft as the subject line, and the remaining text as the body of the message. When used, a Mail mesage will pop up with the text already filled in. You add a recipient and tap “Send” and your mail is on the way.</p>
+<p>On iOS, it will use APIs to send via Apple’s Mail app. On the Mac, it uses <code>mailto:</code> URLs to open a message in your default email client.</p>
+<p>This is only the beginning of what is possible with the <a href="../../../getdrafts.com/actions/steps/mail.html">Mail action step</a>. Multiple actions can be set up using Mail action steps, each configured to have pre-defined To, CC &amp; BCC recipients, stock subject lines, or body templates which automatically add signatures or other reused content and formatting.  So it’s easy to set up, for example, a group email action to send to your project team or family.</p>
+<h3>Configuring Mail Action Steps</h3>
+<p>If you are new to actions, you can get familiar with the basics of editing actions in <a href="https://vimeo.com/276095230">our Create an Action screencast</a>, that’s a little beyond this article, but below shows a sample configuration of a Mail action step.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png" data-download-href="https://forums.getdrafts.com/uploads/default/eacc913bf772a9771a126f047a26d1fcbd465a27" title="mail-action"><img src="../../uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_496x500.png" alt="mail-action" data-base62-sha1="xv80IoA4hXuEMlPJyR4MoQtkPnp" width="496" height="500" srcset="../../uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_496x500.png, ../../uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_744x750.png 1.5x, ../../uploads/default/original/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/eacc913bf772a9771a126f047a26d1fcbd465a27_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">mail-action</span><span class="informations">816×822 117 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>There are more detailed explanations of the fields in the <a href="../../../getdrafts.com/actions/steps/mail.html">Mail action step documentation</a>. Each of these fields support <a href="../../../reference.getdrafts.com/topics/templates.html">Drafts template tags</a>, including the recipient fields, so it is possible to dynamically insert content.</p>
+<p>The basics are:</p>
+<ul>
+<li>
+<strong>Recipient fields (To, CC, BCC)</strong>: These fields can each have one or more email addresses (separated by commas). If values are configured for these fields, they will be pre-filled in the Mail window that opens, leaving you only to tap “Send” to finish the email. Use the (+) button to select email addresses from your contact list.</li>
+<li>
+<strong>Subject/Body fields</strong>: These templates control what text will be filled in the content fields of the mail message. The default values use tags which insert the first line (<code>[[title]]</code>) in the subject, and the remaining text (<code>[[body]]</code>) in the body of the message. The figure above demonstrates how these tags can be combined with static text. With the subject template <code>Band Update: [[title]]</code> the subject line will come out in the mail as <code>Band Update: First Line of Draft</code>. <em><a href="../using-drafts-templates/3728.html">More about using Templates</a>.</em>
+</li>
+<li>
+<strong>Advanced Options</strong>:
+<ul>
+<li>
+<em>Send as HTML</em>: If on, this will treat the output of the template as HTML and create a rich-text email. This means that the template should have HTML tags in it. This is typically used along with Markdown, see section below for details.</li>
+<li>
+<em>Send in background</em>: Used to send the email via web service without the requirement of opening a preview of the message. Because these message come “From” a generic address, it’s best for action which email to your own email address as a reminder, or similar.</li>
+</ul>
+</li>
+</ul>
+<h3>Markdown Mail</h3>
+<p><a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a text-to-HTML conversion tool that lets you write in simple plain text markup and easily convert it to HTML. Drafts has great <a href="../../../getdrafts.com/settings/markdown.html">Markdown support</a>, and it works nicely with Mail steps to create rich-text formatted emails.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png" data-download-href="https://forums.getdrafts.com/uploads/default/5657be8471de771cbc3fad05504fb98ec51272b1" title="mail-markdown"><img src="../../uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_612x499.png" alt="mail-markdown" data-base62-sha1="cjP3jSq7H9TseiIZCsIlluP9Il3" width="612" height="499" srcset="../../uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_612x499.png, ../../uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png 1.5x, ../../uploads/default/original/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5657be8471de771cbc3fad05504fb98ec51272b1_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">mail-markdown</span><span class="informations">816×666 93.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>To get started, install the <a href="../../../actions.getdrafts.com/a/1Cp.html">Markdown Mail</a> sample action from the Action Directory. This action uses a standard Mail action step, with two configuration changes:</p>
+<ul>
+<li>The “Send as HTML” option is enabled.</li>
+<li>The body template is changed to <code>%%[[body]]%%</code>. The double-percent syntax is a feature of the [Drafts template engine] that tells Drafts to treat any text between the double-percents as Markdown, and convert it to HTML.</li>
+</ul>
+<p>Using this step, it makes it quick and easy to send professional, rich-text email without a lot of fiddling with text selections in Mail.app.</p>
+<p>Because this relies on APIs that are not available on macOS, the basic implementation of Markdown Mail is not compatible with the Mac. We do offer a free helper app that enables this functionality on the Mac, called Mail Assistant. If you are interested in sending Markdown mail on the Mac, <a href="../../../docs.getdrafts.com/misc/mail-assistant.html">get more information and sample actions in our Mail Assistant article</a>.</p>
+<h3>Mailto: URLs</h3>
+<p>With the introduction of iOS 14, it is now possible to have third party email clients configured as your default application to handle <code>mailto</code> URLs. Because of this change, it might be desirable to have mail actions which explicitly use the <code>mailto</code> URL structure to send on both iOS and Mac.</p>
+<p>We have posted an <a href="../../../docs.getdrafts.com/misc/mail-assistant.html">example mailto-based action</a>.</p>
+<p>The biggest downside to this approach is that you must leave Drafts to complete the sending process.</p>
+<h3>Gmail and Outlook Action Steps</h3>
+<p>In addition to the “Mail” action step, there are dedicated steps available to send background email via <a href="../../../getdrafts.com/actions/steps/gmail.html">Gmail</a> or <a href="../../../getdrafts.com/actions/steps/outlook.html">Microsoft Outlook.com/Live/O365</a> accounts. These steps are configured very similar to the Mail step as covered above, but they do <em>not</em> open a window before sending the email. As a result these action steps <em>must</em> include at least one valid recipient email to send properly.</p>
+<p>The primary advantage of these steps is to allow a background email (without additional “Send” popup step) to be sent “From” your actual address with one of these services.</p>
+<h3>Third Party Email Apps</h3>
+<p>In addition to direct Mail support, Drafts can work with many third-party email clients directly. There are two common ways to send email using third party iOS email clients: Share extensions and URL schemes.</p>
+<p>Many email client apps provide share extensions that can accept text and can be used via the Drafts <a href="../../../actions.getdrafts.com/a/1BF.html">Share action</a>. When provided, these extensions will generally allow you to send an email, and use the text as the body of the email - requiring you to fill in the recipients and subject - just as the built-in iOS Mail share option.</p>
+<p>Many popular email client apps also provide support for integration via custom URL schemes. The format of the required URLs and the features they support varies between clients, but most allow sending subject and body text.  Some example actions are available in our Action Directory for most popular third party clients, like:</p>
+<ul>
+<li><a href="../../../actions.getdrafts.com/a/1J3.html">Spark</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1F2.html">Airmail</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1Fd.html">Outlook</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1Fj.html">Gmail</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1LB.html">Newton</a></li>
+</ul>
+<h3>Scripting Mail</h3>
+<p>This introduction doesn’t go deep enough to talk about scripting, but be aware that feature described above can also be accessed <a href="../../../reference.getdrafts.com/objects/Mail.html">via the Mail script object</a> in script steps - open all sorts of advanced possibilities. Scripting interfaces are also available to send via <a href="../../../reference.getdrafts.com/objects/GmailMessage.html">Gmail</a> and <a href="../../../reference.getdrafts.com/objects/OutlookMessage.html">Outlook</a> accounts directly - allowing use cases like looping over a list of email addresses and sending the same email individually to each as a “To:” recipient.</p>
+<h3>Common Questions</h3>
+<ul>
+<li>
+<strong>Can I send in the background using my own Mail accounts?</strong>
+<ul>
+<li>Yes, if you use Gmail or Outlook integrated accounts. If a mail step uses the “Send in Background” option, it is sent using a web service. Mail.app does not support background sending.</li>
+</ul>
+</li>
+<li>
+<strong>Can I pre-configure the “from” address in the Mail window if I have multiple accounts?</strong>
+<ul>
+<li>No, sadly. This is not an option provided by Apple in the APIs that work with Mail.app. It can be changed in the window that pops up by tapping on the from line.</li>
+</ul>
+</li>
+</ul>
+<h3>Other Sample Actions</h3>
+<p>A <a href="../../../actions.getdrafts.com/search@utf8=✓&amp;search_type=actions&amp;q=mail.html">search for “Mail” in the Action Directory</a> will always turn up some other interesting ideas for customizing mail actions - a few choice examples:</p>
+<ul>
+<li><a href="../../../actions.getdrafts.com/a/1Mr.html">Email to myself</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1ER.html">Email to group</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1Kd.html">Email teacher…</a></li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+          <meta itemprop='keywords' content='guide, mail'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../drafts-11-0-ios-released/4498/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498/2'>
+                      <span itemprop='name'>Drafts 11.0 (iOS) Released</span>
+                    </a>
+                    <meta itemprop='position' content='27'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../help-me-insert-an-email-address-link/5401/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/2'>
+                      <span itemprop='name'>Help me insert an email address link</span>
+                    </a>
+                    <meta itemprop='position' content='28'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../drafts-11-0-ios-released/4498.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/drafts-11-0-ios-released/4498'>
+                      <span itemprop='name'>Drafts 11.0 (iOS) Released</span>
+                    </a>
+                    <meta itemprop='position' content='29'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../no-email-function-in-macos-11-4-ios-14-6/10702/5.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/no-email-function-in-macos-11-4-ios-14-6/10702/5'>
+                      <span itemprop='name'>No email function in macOS 11.4/IOS 14.6</span>
+                    </a>
+                    <meta itemprop='position' content='30'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Pierre_Schurmann'><span itemprop='name'>Pierre_Schurmann</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-11-09T05:57:39Z' class='post-time'>
+                November 9, 2019,  5:57am
+              </time>
+              <meta itemprop='dateModified' content='2019-11-09T05:57:39Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>, need help with an issue. Due to migrating gmail accounts, I had to revoke the  OAuth permission that allowed me to send emails in the background and am getting an “oautherror error -11” message.</p>
+<p>Could you please tell me How can I reauthirize  with a new gmail account?<br>
+Thanks !</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-11-09T15:16:02Z' class='post-time'>
+                November 9, 2019,  3:16pm
+              </time>
+              <meta itemprop='dateModified' content='2019-11-09T15:16:02Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You need to forget the credentials for the service in settings. <a href="../../../docs.getdrafts.com/docs/settings/credentials.html" rel="nofollow noopener">Details</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/RichardHanmer'><span itemprop='name'>RichardHanmer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-05T11:36:09Z' class='post-time'>
+                January 5, 2021, 11:36am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-05T11:36:09Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>As far as I can tell this feature still only works on iOS.  Will this be available on the desktop version anytime soon?  It’s particularly frustrating as it’s been a long coming - esp as we’re subscribers to the app.  And the desktop version shows it as a “supported action”.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-05T13:33:43Z' class='post-time'>
+                January 5, 2021,  1:33pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-05T13:33:43Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Most of what is discussed in this article works on Mac. What are you specifically needing or is not working for you?</p>
+<p>The only exception to working out of the box on the Mac is Markdown formatted mail, which requires the installation and setup of the <a href="../../../docs.getdrafts.com/misc/mail-assistant.html">Mail Assistant helper app</a>, as discussed above.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/fabiomacori'><span itemprop='name'>fabiomacori</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-09T15:51:26Z' class='post-time'>
+                April 9, 2021,  3:51pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-09T15:51:26Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello guys,<br>
+Is it possible to configure the action with protonmail?</p>
+<p>If yes, can you point me out?</p>
+<p>Thank you<br>
+Fabio</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/melhopkop'><span itemprop='name'>melhopkop</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-25T09:16:17Z' class='post-time'>
+                October 25, 2021,  9:16am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-25T09:16:17Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi there! I’m fairly new to Drafts.</p>
+<p>I’m trying to configure it so that I can send email directly from Drafts, thus bypassing the need to check my email inbox. I’ve successfully configured this on my iPhone.</p>
+<p>On my Mac, my default mail client is Airmail. However, I’d like Drafts to send email with the Mail app so I can stay within Drafts. The mailto: action seems to be using whatever is the default app. Is there a way to set up the action to use Mail, even if it’s not the default?</p>
+<p>Thank you!</p>
+<p>Best wishes,</p>
+<p>Mel</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-25T09:29:26Z' class='post-time'>
+                October 25, 2021,  9:29am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-25T09:29:26Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="melhopkop" data-post="8" data-topic="3597">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/melhopkop/40/5740_2.png" class="avatar"> melhopkop:</div>
+<blockquote>
+<p>However, I’d like Drafts to send email with the Mail app so I can stay within Drafts.</p>
+</blockquote>
+</aside>
+<p>If you are sending mail using the Mail app, does that not mean that you are explicitly l <em>not</em> staying within Drafts?</p>
+<p>Have you looked at the Mail Assistant for Drafts referenced above? There is a from parameter for sending that relies on the Mail app account configuration. I suspect this is what you want to be using.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/melhopkop'><span itemprop='name'>melhopkop</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-25T09:52:43Z' class='post-time'>
+                October 25, 2021,  9:52am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-25T09:52:43Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <blockquote>
+<p>If you are sending mail using the Mail app, does that not mean that you are explicitly l <em>not</em> staying within Drafts?</p>
+</blockquote>
+<p>That’s not my understanding. In the iPhone app, for example, the Drafts action needs to use a mail client in order to pull up a list of emails, for example, but by using the native Maill app, it can do so with the app in the background and just show you the email your sending. If I use a 3rd party app, it pulls the app into the foreground and I see my stupid email inbox.</p>
+<p>I’ll take a look at the Mail Assistant - without further info, it didn’t look to me like it would address the issue I have here since the “mailto:” function seems to be calling whatever is selected as the default app for emailing but I’ll take a look.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-25T11:09:35Z' class='post-time'>
+                October 25, 2021, 11:09am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-25T11:09:35Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Mac does not have the same APIs available to send mail that iOS has…the Mail Assistant is a way to work around that problem. You have to use modified Mail actions that use the Mail Assistant, which is described in the <a href="../../../docs.getdrafts.com/misc/mail-assistant.html">Mail Assistant docs</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/melhopkop'><span itemprop='name'>melhopkop</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-25T13:37:53Z' class='post-time'>
+                October 25, 2021,  1:37pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-25T13:37:53Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for your response, <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>. That makes sense.</p>
+<p>I’ve downloaded Mail Assistant and read through the docs. I’ve downloaded the Markdown email example so I could see how it was structured. I looked through the Actions directly to see if something already existed that does this.</p>
+<p>I apologise if my ignorance is annoying here - I’m new to Drafts and still playing with it to work with my workflow. And I’m unclear still how to get it to do what I want it to do.</p>
+<p>I want to be able to send an email from Drafts without seeing my inbox. I guess this involves using Mail Assistant to work with the Mail App but I don’t currently understand how to use the URL scheme to get it to do this. Thank you!</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="3597.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-25T13:59:00Z' class='post-time'>
+                October 25, 2021,  1:59pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-25T13:59:00Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There are several options, which are discussed above, but it can be a bit confusing.</p>
+<p>If your mail accounts are with Gmail or Outlook, you can send directly through those accounts with actions that communicate directly to Google or Microsoft’s APIs. There are links to example actions for this above and these work on both Mac and iOS.</p>
+<p>Otherwise, you have to use a Mail app to send the email. On iOS, the “Mail” action is able to use Mail app without actually opening the app because Apple provides APIs to do that…those are not directly supported on Mac, so the “Mail” action step falls back to using “mailto:” URLs, which will open your default mail app to send mail.</p>
+<p>The Mail Assistant uses Apple’s Catalyst technology to access the iOS APIs to send mail from a Mac.  There is a sample action you can install that is linked in the Mail Assistant article (<a href="../../../directory.getdrafts.com/a/11l.html">found here</a>) that is already configured to use Mail Assistant on Mac. You do not need to worry about the URLs - just install Mail Assistant, and install this action in Drafts and use it, and you will get roughly the behavior you get on iOS with the Mail action.  You will have to have your outgoing Mail accounts configured for use in Mail.app for it to work, even if you are using AirMail as your client.</p>
+        </div>
+
+        <meta itemprop='headline' content='Sending Mail with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

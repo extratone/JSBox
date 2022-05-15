@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Add an action to a script</title>
+    <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605</link>
+    <description>Hi,
+
+I would like to take the [New Linked Draft](https://actions.getdrafts.com/a/18j) action a step further:
+
+I would like to add an action to the script when it executes so the the new draft created includes more than just the [[title]].
+
+I believe I am dealing with this portion of the script:
+
+
+```
+	// create the new linked draft
+	let d = Draft.create();
+	d.content = p.fieldValues[&quot;title&quot;];
+	d.content = d.processTemplate(template);
+	let tags = p.fieldValues[&quot;tags&quot;].split(&quot;,&quot;).map(s =&gt; s.trim());
+	for (let tag of tags) {
+		d.addTag(tag);
+	} 
+	d.update();
+```
+
+Many thanks for your guidance.</description>
+    
+    <lastBuildDate>Sun, 08 May 2022 12:35:35 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Great. Glad to hear that it helps <img src="https://forums.getdrafts.com/images/emoji/apple/sunglasses.png?v=12" title=":sunglasses:" class="emoji" alt=":sunglasses:" loading="lazy" width="20" height="20"></p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/8</link>
+        <pubDate>Sun, 08 May 2022 12:35:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-8</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> this works brilliantly… better than I could have hoped… Many thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/7</link>
+        <pubDate>Sun, 08 May 2022 12:03:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-7</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The action below should do what I summarised in points 1-4 above plus accommodate your revised notes on point 2 and 4.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://directory.getdrafts.com/a/1ze">
+  <header class="source">
+      <img src="https://directory.getdrafts.com/assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" class="site-icon" width="180" height="180">
+
+      <a href="https://directory.getdrafts.com/a/1ze" target="_blank" rel="noopener">directory.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://directory.getdrafts.com/a/1ze" target="_blank" rel="noopener">Drafts Directory: New Linked Draft (jaymf)</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<ul>
+<li>This action is <strong>heavily</strong> based on the <em>New Linked Draft</em> action linked in the first post.</li>
+<li>The action has no dependencies (i.e. it does not call any other actions)</li>
+<li>I have set the action up to utilise a couple of template tags to make maintenance of the new draft template a little easier.
+<ul>
+<li>
+<code>NEWDRAFTCONTENT</code> is the content of the new draft as a template that will be evaluated. Note the ise of the <code>[[backlink]]</code> tag - the use is the same as for the original action.</li>
+<li>
+<code>NEWDRAFTTITLEPREFIX</code> is the text to prefix to the title of the new draft. I have set this to be <code># </code> to match the prefix in your example.</li>
+</ul>
+</li>
+<li>I have made some assumptions in the construction of the template based on making what you had included in your example dynamic; if not perfect, it should be close - you can simply modify it accordingly.</li>
+<li>I have not made any use of the <em>Backlinks</em> action mentioned earlier, for the reason set out in point <span class="hashtag">#3</span> above.</li>
+</ul>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/6</link>
+        <pubDate>Sat, 07 May 2022 15:55:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-6</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, that is correct, and:</p>
+<p>On <span class="hashtag">#2</span> Never considered I could open the new draft (B)… in this case I think it would be helpful.<br>
+On <span class="hashtag">#4</span> The title of the draft should be in “[[Draft]]” format, so I can add the link elsewhere too.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/5</link>
+        <pubDate>Fri, 06 May 2022 18:46:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-5</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Let me see if I can summarise what you have set out. You want a single action to run when in the current draft (A) that…</p>
+<ol>
+<li>Inserts a link to a new draft (B) in current draft (A).</li>
+<li>Creates new draft (B) (in the background - i.e. staying with the current draft (A) in the editor) based on the template text above.</li>
+<li>Includes a set of back links as text in draft (B) - <em>which presumably would only ever be one link, draft (A), at tie of creation.</em>
+</li>
+<li>Places the title of the new draft (B) on the clipboard.</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/4</link>
+        <pubDate>Fri, 06 May 2022 18:03:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-4</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> thanks for your reply… let me rephrase what I am looking to accomplish without prescribing a solution… an open ended inquiry may yield a better result:</p>
+<p>I use the <a href="https://actions.getdrafts.com/a/18j">New Linked Action</a> many times a day.</p>
+<p>When invoked I name a new draft which is then inserted at the cursor position of the Draft I am viewing.</p>
+<p>I can then open the new Draft which has the [[Title]] and backlink to the Draft where the action was invoked.</p>
+<p>I would like to further automate my use of the New Linked Draft in this way:</p>
+<p>In addition to the title and backlink automatically being inserted into the new Draft, I would like to run another action, which I call “<a href="https://directory.getdrafts.com/a/1za">Short Meeting</a>” that will add additional information to the new Draft as follows:</p>
+<ol>
+<li>Insert text below the title of the draft</li>
+<li>Runs the <a href="https://directory.getdrafts.com/a/1zb">Backlinks Action</a>
+</li>
+<li>
+<a href="https://directory.getdrafts.com/a/1zc">Title action</a> (copies the title of the new draft to my clipboard.)</li>
+</ol>
+<p>Running this amended version of New Linked Draft would look something like this:</p>
+<pre><code class="lang-auto"># Test New Linked Draft with Short Meeting - 20220506
+
+::::::::::::::::::::::::::::::::::::: 
+Location: Drafts Community
+Attendees: Me + anyone else willing to help
+Date: [[2022-05-06d]]
+::::::::::::::::::::::::::::::::::::: 
+
+## Agenda
+
+
+## Notes
+
+
+
+:::::::::::::::::::::::::::::::::::::
+
+## Todoist Tasks
+- [ ] 
+
+
+## Action Plan / Agenda for Next Meeting
+
+
+
+:::::::::::::::::::::::::::::::::::::
+
+
+
+---
+
+## Backlinks
+
+[[d:2022-05-06d]]
+</code></pre>
+<p>Thanks to you or anyone else who can guide me further.</p>
+<p>With appreciation.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/3</link>
+        <pubDate>Fri, 06 May 2022 17:46:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-3</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="jaymf" data-post="1" data-topic="12605">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/jaymf/40/4039_2.png" class="avatar"> jaymf:</div>
+<blockquote>
+<p>I would like to add an action to the script when it executes so the the new draft created includes more than just the [[title]].</p>
+</blockquote>
+</aside>
+<p>This specifies the template being used, which defines the draft content.</p>
+<pre><code class="lang-auto">let template = `# [[title]]
+
+&lt; [[backlink]]`;
+</code></pre>
+<p>But, you have not actually mentioned anywhere what the “more” is or where in the draft it should appear.</p>
+<p><em>Also keep in mind that actions (can, and here do) contain script steps in Drafts parlance … you might not want to generally refer to adding an “action” into a script as that would normally then be interpreted as using some script to run another action, which is something that can be done; but I don’t think that was what you are after.</em></p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/2</link>
+        <pubDate>Thu, 05 May 2022 19:18:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-2</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+      <item>
+        <title>Add an action to a script</title>
+        <dc:creator><![CDATA[jaymf]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>I would like to take the <a href="https://actions.getdrafts.com/a/18j">New Linked Draft</a> action a step further:</p>
+<p>I would like to add an action to the script when it executes so the the new draft created includes more than just the [[title]].</p>
+<p>I believe I am dealing with this portion of the script:</p>
+<pre><code class="lang-auto">	// create the new linked draft
+	let d = Draft.create();
+	d.content = p.fieldValues["title"];
+	d.content = d.processTemplate(template);
+	let tags = p.fieldValues["tags"].split(",").map(s =&gt; s.trim());
+	for (let tag of tags) {
+		d.addTag(tag);
+	} 
+	d.update();
+</code></pre>
+<p>Many thanks for your guidance.</p>
+          <p><a href="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/add-an-action-to-a-script/12605/1</link>
+        <pubDate>Thu, 05 May 2022 18:43:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12605-1</guid>
+        <source url="https://forums.getdrafts.com/t/add-an-action-to-a-script/12605.rss">Add an action to a script</source>
+      </item>
+  </channel>
+</rss>

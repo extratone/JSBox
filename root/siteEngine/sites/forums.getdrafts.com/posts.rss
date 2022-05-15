@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:discourse="http://www.discourse.org/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts Community - Latest posts</title>
+    <link>https://forums.getdrafts.com</link>
+    <description>Latest posts</description>
+      <item>
+        <title>Mailer Using mailto: URL Scheme</title>
+        <dc:creator><![CDATA[@sylumer Stephen Millard]]></dc:creator>
+        <description><![CDATA[ <p>If you look back at my previous post you will see I did modify the base URL to get it to run.</p>
+<p>I’ve included the equivalent version reworked to match your additional logging so you can see the progression.</p>
+
+Reveal additional detail <a href="https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655/6">(click for more details)</a> ]]></description>
+        <link>https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655#post_6</link>
+        <pubDate>Sat, 14 May 2022 07:59:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35778</guid>
+      </item>
+      <item>
+        <title>Select Gmail account when using the mail action</title>
+        <dc:creator><![CDATA[@sylumer Stephen Millard]]></dc:creator>
+        <description><![CDATA[ <p>The mail action has no option to specify an account. You may be able to do something using a URL scheme.</p>
+<p><a href="https://support.google.com/mail/thread/121246097/ios-scheme-for-gmail-app-open-app-in-specific-account?hl=en" class="onebox" target="_blank" rel="noopener">https://support.google.com/mail/thread/121246097/ios-scheme-for-gmail-app-open-app-in-specific-account?hl=en</a></p> ]]></description>
+        <link>https://forums.getdrafts.com/t/select-gmail-account-when-using-the-mail-action/12665#post_2</link>
+        <pubDate>Sat, 14 May 2022 07:19:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35777</guid>
+      </item>
+      <item>
+        <title>Select Gmail account when using the mail action</title>
+        <dc:creator><![CDATA[@keith Keith L]]></dc:creator>
+        <description><![CDATA[ <p>Is there a way to select which Gmail account a Drafts email action opens?<br>
+I am usually logged into two gmail accounts, one personal and one for business. But when I compose a message and click the email action it opens a new email draft in Gmail but it’s not even clear which account it is, and no way to change.<br>
+Is this possible?<br>
+Thanks!</p> ]]></description>
+        <link>https://forums.getdrafts.com/t/select-gmail-account-when-using-the-mail-action/12665#post_1</link>
+        <pubDate>Sat, 14 May 2022 06:01:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35776</guid>
+      </item>
+      <item>
+        <title>Mailer Using mailto: URL Scheme</title>
+        <dc:creator><![CDATA[@nello Nello]]></dc:creator>
+        <description><![CDATA[ <aside class="quote no-group quote-modified" data-username="sylumer" data-post="4" data-topic="12655" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/sylumer/40/2731_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>… this still opens my mail client with the details populated and the desired console output.</p>
+</blockquote>
+</aside>
+<p>My problem with logging was that <code>Log Level</code> was set for <code>Errors</code> instead of <code>All</code>.   All my <code>console.log()</code> statements appear in the Action Log now.   <img src="https://forums.getdrafts.com/images/emoji/apple/partying_face.png?v=12" title=":partying_face:" class="emoji" alt=":partying_face:" loading="lazy" width="20" height="20"></p>
+<p>Now here’s my code with <code>console.log()</code> statements at each step of the URL scheme build.  (This reminds me of debugging programs in my FORTRAN class during my senior year of high school by inserting PRINT statements between every card of  my deck of 80-column punched cards.  <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=12" title=":wink:" class="emoji" alt=":wink:" loading="lazy" width="20" height="20">)</p>
+<pre><code class="lang-auto">console.log("enter script");
+
+// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+let strBody = `${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`;
+
+
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+// Base settings
+let cburlMailto = CallbackURL.create();
+
+console.log("after let cburlMailto = CallbackURL.create();");
+console.log("cburlMailto: " + cburlMailto.url);
+
+cburlMailto.waitForResponse = false;
+
+console.log("after cburlMailto.waitForResponse = false;");
+console.log("cburlMailto: " + cburlMailto.url);
+
+cburlMailto.baseURL = "mailto:" + strEmailTo;
+
+console.log("strEmailTo: " + strEmailTo);
+console.log("after cburlMailto.baseURL = \"mailto:\" + strEmailTo");
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Who else gets it
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+
+console.log("strEmailCc: " + strEmailCc);
+console.log("after cburlMailto.addParameter(\"cc\", strEmailCc);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+
+console.log("strEmailBcc: " + strEmailBcc);
+console.log("after cburlMailto.addParameter(\"bcc\", strEmailBcc);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+
+console.log("strPageTitle: " + strPageTitle);
+console.log("after cburlMailto.addParameter(\"subject\", strPageTitle);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Body
+cburlMailto.addParameter("body", strBody);
+
+console.log("strBody: " + strBody);
+console.log("after cburlMailto.addParameter(\"body\", strBody);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+
+
+// Open default mailer
+console.log("before cburlMailto.open()");
+cburlMailto.open();
+console.log("after cburlMailto.open()");
+console.log("exit script");
+</code></pre>
+<p>Here’s the Action Log:</p>
+<pre><code class="lang-auto">Script step completed.
+enter script
+after let cburlMailto = CallbackURL.create();
+cburlMailto: ?
+after cburlMailto.waitForResponse = false;
+cburlMailto: ?
+strEmailTo: nameTo1&lt;acctTo1@domain.tld&gt;
+after cburlMailto.baseURL = "mailto:" + strEmailTo
+cburlMailto: undefined
+strEmailCc: nameCC1&lt;acctCC1@domain.tld&gt;
+after cburlMailto.addParameter("cc", strEmailCc);
+cburlMailto: undefined
+strEmailBcc: nameBCC1&lt;acctBCC1@domain.tld&gt;
+after cburlMailto.addParameter("bcc", strEmailBcc);
+cburlMailto: undefined
+strPageTitle: pageTitle
+after cburlMailto.addParameter("subject", strPageTitle);
+cburlMailto: undefined
+strBody: nicknameList
+
+pageURL
+
+
+pageSelection
+after cburlMailto.addParameter("body", strBody);
+cburlMailto: undefined
+before cburlMailto.open()
+after cburlMailto.open()
+exit script
+Script step completed.
+Draft moved to trash
+</code></pre>
+<p>As you can see, there’s something wrong with:<br>
+<code>cburlMailto.baseURL = "mailto:" + strEmailTo</code></p>
+<p>Moreover, <code>cburlMailto.open()</code> still is not opening any mailer.</p>
+<p>UPDATE <span data-date="2022-05-13" data-time="17:24:00" class="discourse-local-date" data-format="LLL" data-timezone="America/Chicago" data-email-preview="2022-05-13T22:24:00Z UTC">2022-05-13T22:24:00Z UTC</span></p>
+<p>I fixed it by adding the following towards the top:</p>
+<p><code>let strBaseURL = "mailto:" + encodeURI(strEmailTo);</code></p>
+<p>And changing:</p>
+<p><code>cburlMailto.baseURL = "mailto:" + strEmailTo</code><br>
+to<br>
+<code>cburlMailto.baseURL = strBaseURL;</code></p>
+<p>Now the Action Log shows the mailto URL being built correctly:</p>
+<pre><code class="lang-auto">Script step completed.
+enter script
+after let cburlMailto = CallbackURL.create();
+cburlMailto: ?
+after cburlMailto.waitForResponse = false;
+cburlMailto: ?
+strBaseURL: mailto:nameTo1%3CacctTo1@domain.tld%3E
+after cburlMailto.baseURL = strBaseURL
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?
+strEmailCc: nameCC1&lt;acctCC1@domain.tld&gt;
+after cburlMailto.addParameter("cc", strEmailCc);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?cc=nameCC1%3CacctCC1@domain.tld%3E
+strEmailBcc: nameBCC1&lt;acctBCC1@domain.tld&gt;
+after cburlMailto.addParameter("bcc", strEmailBcc);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;cc=nameCC1%3CacctCC1@domain.tld%3E
+strPageTitle: pageTitle
+after cburlMailto.addParameter("subject", strPageTitle);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?subject=pageTitle&amp;bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;cc=nameCC1%3CacctCC1@domain.tld%3E
+strBody: nicknameList
+
+pageURL
+
+
+pageSelection
+after cburlMailto.addParameter("body", strBody);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?cc=nameCC1%3CacctCC1@domain.tld%3E&amp;bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;subject=pageTitle&amp;body=nicknameList%0A%0ApageURL%0A%0A%0ApageSelection
+before cburlMailto.open()
+after cburlMailto.open()
+exit script
+Script step completed.
+Draft moved to trash
+</code></pre>
+<p>On my iPhone 12 Pro running iOS 15.4.1 at least, setting the <code>cburlMailto.baseURL</code> property requires URL encoding whereas the method <code>cburlMailto.addParameter()</code>does NOT require URL encoding.</p>
+<p>I guess it’s unusual for the base URL to have characters that require encoding.   <img src="https://forums.getdrafts.com/images/emoji/apple/thinking.png?v=12" title=":thinking:" class="emoji" alt=":thinking:" loading="lazy" width="20" height="20"></p> ]]></description>
+        <link>https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655#post_5</link>
+        <pubDate>Fri, 13 May 2022 20:55:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35762</guid>
+      </item>
+      <item>
+        <title>Action Bar on Mac stuck on Markdown Items</title>
+        <dc:creator><![CDATA[@sylumer Stephen Millard]]></dc:creator>
+        <description><![CDATA[ <aside class="quote no-group" data-username="rkaplan" data-post="1" data-topic="12660">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/a3d4f5/40.png" class="avatar"> rkaplan:</div>
+<blockquote>
+<p>even if select a different Action group on the right side of the interface, the Action Bar does not change</p>
+</blockquote>
+</aside>
+<p>It sounds like you are trying to change the action bar content by changing the action group. If so,then the reason they don’t sync up is because they are not supposed to - <a href="https://docs.getdrafts.com/docs/actions/action-groups">see first paragraph here</a>.</p>
+<p>The action bar might typically be changed by the selection on the left, or via the touch bar if you Mac has one and the action bar is loaded into it.</p>
+<p>                    <a href="https://docs.getdrafts.com/images/docs/editor/keyboard.png" target="_blank" rel="noopener" class="onebox">
+            <img src="https://docs.getdrafts.com/images/docs/editor/keyboard.png" width="690" height="303">
+          </a>
+
+</p>
+<p>Action bars can also be populated for a workspace to load when the workspace is switched to, and you can also <a href="https://docs.getdrafts.com/docs/actions/steps/utility#configure-window">populate an action bar via an action</a>.</p> ]]></description>
+        <link>https://forums.getdrafts.com/t/action-bar-on-mac-stuck-on-markdown-items/12660#post_2</link>
+        <pubDate>Fri, 13 May 2022 19:14:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35761</guid>
+      </item>
+      <item>
+        <title>Mailer Using mailto: URL Scheme</title>
+        <dc:creator><![CDATA[@sylumer Stephen Millard]]></dc:creator>
+        <description><![CDATA[ <p>Note that mailto isn’t really an x-callback-url. It’s kind of an ugly coersion, but this still opens my mail client with the details populated and the desired console output.</p>
+<pre><code class="lang-auto">// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+// Base settings
+let cburlMailto = CallbackURL.create();
+cburlMailto.waitForResponse = false;
+cburlMailto.baseURL = "mailto:";
+cburlMailto.addParameter("to", strEmailTo);
+
+// Who else gets it
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+
+// Body
+cburlMailto.addParameter("body",`${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`);
+
+// Log Url string - Remove
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Open default mailer
+cburlMailto.open();
+</code></pre> ]]></description>
+        <link>https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655#post_4</link>
+        <pubDate>Fri, 13 May 2022 19:03:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35760</guid>
+      </item>
+      <item>
+        <title>Mailer Using mailto: URL Scheme</title>
+        <dc:creator><![CDATA[@nello Nello]]></dc:creator>
+        <description><![CDATA[ <aside class="quote no-group" data-username="sylumer" data-post="2" data-topic="12655" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/sylumer/40/2731_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>Try <code>console.log("cburlMailto: " + cburlMailto.url);</code>.</p>
+</blockquote>
+</aside>
+<p>Thank you for the link to the <a href="https://scripting.getdrafts.com/classes/callbackurl#url" rel="noopener nofollow ugc"> CallbackURL documentation</a>.</p>
+<p>I added the line that you suggested.  Now no error messages pop up when I run the action, but there also is no entry in the <a href="https://docs.getdrafts.com/docs/actions/action-log.html" rel="noopener nofollow ugc">console</a>.</p>
+<p>I added this alert:</p>
+<p><code>alert("cburlMailto: " + cburlMailto.url);</code></p>
+<p>When I run the action, the alert that pops up says:</p>
+<p><code>cburlMailto: undefined</code></p>
+<p>I don’t understand.</p>
+<p>If <code>cburlMailto.url</code> is really undefined, then why does my script run with out popping up an error?</p> ]]></description>
+        <link>https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655#post_3</link>
+        <pubDate>Fri, 13 May 2022 18:31:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35759</guid>
+      </item>
+      <item>
+        <title>Action Bar on Mac stuck on Markdown Items</title>
+        <dc:creator><![CDATA[@rkaplan Richard Kaplan]]></dc:creator>
+        <description><![CDATA[ <p>I have been using Drafts on my Mac for quite some time with no issue.</p>
+<p>Suddenly today the Action Bar at the bottom of my Mac only shows items fro Markdown; even if select a different Action group on the right side of the interface, the Action Bar does not change.  Why might this be?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/59e970075eb7337f26961ac4f41e08e132c7d325.png" data-download-href="https://forums.getdrafts.com/uploads/default/59e970075eb7337f26961ac4f41e08e132c7d325" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/59e970075eb7337f26961ac4f41e08e132c7d325_2_690x60.png" alt="image" data-base62-sha1="cPoDdTK4ncTgyAb2Sh5DC1Saqs5" width="690" height="60" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/59e970075eb7337f26961ac4f41e08e132c7d325_2_690x60.png, https://forums.getdrafts.com/uploads/default/optimized/2X/5/59e970075eb7337f26961ac4f41e08e132c7d325_2_1035x90.png 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/5/59e970075eb7337f26961ac4f41e08e132c7d325_2_1380x120.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/59e970075eb7337f26961ac4f41e08e132c7d325_2_10x10.png"></a></div><p></p> ]]></description>
+        <link>https://forums.getdrafts.com/t/action-bar-on-mac-stuck-on-markdown-items/12660#post_1</link>
+        <pubDate>Fri, 13 May 2022 17:59:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35758</guid>
+      </item>
+      <item>
+        <title>Automating Drafts with Keysmith app</title>
+        <dc:creator><![CDATA[@J_G]]></dc:creator>
+        <description><![CDATA[ <p>The automation captures clipboard AND sends the draft to its final location (for me, DevonThink, but could be anywhere), without shifting my focus.</p> ]]></description>
+        <link>https://forums.getdrafts.com/t/automating-drafts-with-keysmith-app/12497#post_5</link>
+        <pubDate>Fri, 13 May 2022 11:05:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35737</guid>
+      </item>
+      <item>
+        <title>Mailer Using mailto: URL Scheme</title>
+        <dc:creator><![CDATA[@sylumer Stephen Millard]]></dc:creator>
+        <description><![CDATA[ <p>Try <code>console.log("cburlMailto: " + cburlMailto.url);</code>.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://scripting.getdrafts.com/classes/callbackurl#url">
+  <header class="source">
+
+      <a href="https://scripting.getdrafts.com/classes/callbackurl#url" target="_blank" rel="noopener">scripting.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    
+
+<h3><a href="https://scripting.getdrafts.com/classes/callbackurl#url" target="_blank" rel="noopener">CallbackURL | Drafts Script Reference</a></h3>
+
+  <p>Documentation for Drafts Script Reference</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+ ]]></description>
+        <link>https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655#post_2</link>
+        <pubDate>Fri, 13 May 2022 05:14:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-35733</guid>
+      </item>
+  </channel>
+</rss>

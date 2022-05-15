@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+    <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604</link>
+    <description>[Array.reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) is the swiss army penknife of Javascript.
+
+It simply lets us:
+
+- start with a seed value, and 
+- work through a list item by item – updating the seed value each time.
+
+and it turns out that all manner of things can be done in this way, sparing us from manually setting up loops and iterator values, and protecting us from all the boundary condition accidents and puzzles that loops are heir to.
+
+One use of **Array.reduce** in Drafts is in creating a prompt from a list of button names.
+
+For the initial seed value, we can use the standard JS [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) to return a prompt object with any **title** etc properties that we need.
+
+For each stage of working through the button list, we define a function with two arguments (accumulator, item), or (a, x).
+
+- The **accumulator** is the current state of the changing seed value
+- the **item**, in this case, is a button name.
+
+Our function just adds a button, and returns the updated prompt.
+
+```javascript
+// A prompt for selecting an item from a list.
+const p = categories.reduce(
+
+    // Accumulator updates - a button added for each category in the list:
+    (prompt, buttonName) =&gt; {
+        prompt.addButton(buttonName);
+        return prompt;
+    },
+
+    // Initial accumulator: a prompt with properties:
+    Object.assign(
+        Prompt.create(), {
+            title: &#39;Select list:&#39;,
+            message: &#39;Ask for a category, and append&#39; +
+                &#39; to a tagged list for that category&#39;,
+            isCancellable: true
+        }
+    )
+);
+```</description>
+    
+    <lastBuildDate>Thu, 31 May 2018 18:42:01 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[edgauthier]]></dc:creator>
+        <description><![CDATA[
+            <p>In my short time with JavaScript, I’ve observed the same. I’ve converted a few short scripts from imperative to declarative style and was surprised at how much more concise and easier to read they became.</p>
+<p>I wish I spent more time with this back when I was coding for a living and not just a hobby.</p>
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/7</link>
+        <pubDate>Thu, 31 May 2018 18:42:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-7</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[draft8]]></dc:creator>
+        <description><![CDATA[
+            <p>My experience is that the bug count drops and the code-writing speed picks up when we start to construct values rather than ‘doing’ things, as if we were tiny humunculi running around inside the machine.</p>
+<p>The <em>mutate and proceed to next mutation</em> model involves carrying a lot of baggage in the head, and some of it always seems to slip out …</p>
+<p>It seems to work better just to define and compose the values we want.</p>
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/6</link>
+        <pubDate>Thu, 31 May 2018 17:43:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-6</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[edgauthier]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for posting this. I wanted to see if I could take it further as I’ve experimented with more declarative programming. Here’s a set of Prompt utility functions I’ve defined that I’m using to build prompts in my actions.</p>
+<pre><code class="lang-auto">// Title, Message -&gt; Prompt
+const newPrompt = (t = "", m = "") =&gt; 
+  Object.assign(Prompt.create(), {title: t, message: m});
+
+// Prompt, Button -&gt; Prompt
+const addButton = (p, b) =&gt; {p.addButton(b);return p;};
+
+// Title, Buttons -&gt; Prompt
+const buttonPrompt = (t, bs) =&gt; bs.reduce(addButton, newPrompt(t));
+
+// p = Prompt
+// c = ["funcName", [arguments]]
+const addControl = (p, c) =&gt; {
+  const func = c[0], args = c[1];
+  p[func](...args);
+  return p;
+};
+
+// Define a prompt in a object
+// {
+//   title: "",
+//   message: "",
+//   controls: [
+//     ["funcName", [arguments]],
+//     ["funcName", [arguments]]
+//   ]
+// }
+const customPrompt = p =&gt; 
+  p.controls.reduce(addControl, newPrompt(p.title, p.message));
+</code></pre>
+<p>And here are a few example prompts built with these functions.</p>
+<pre><code class="lang-auto">const opts = ["Yes", "No", "Maybe"];
+const p1 = buttonPrompt("Choose Option", opts);
+p1.show();
+
+const p2 = customPrompt({
+  title: "Go to Line",
+  controls: [
+    ["addTextField", ["ln", "Line Number:", "", {"keyboard":"numberPad"}]],
+    ["addButton", ["Go"]]
+  ]});
+p2.show();
+
+const params = ["Param1", "Param2", "Param3"];
+const p3 = customPrompt({
+  title: "Replace Parameters",
+  message: "Fill in all values.",
+  controls: params.reduce(
+    (c, v, i) =&gt; c.concat([["addTextField", [i, v, ""]]]),
+    [["addButton", ["Generate Tasks"]]])
+  });
+p3.show();
+</code></pre>
+<p>I’m not sure that this is necessarily any easier or better, but it was a good exercise to build this and see how to use some of these concepts together.</p>
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/5</link>
+        <pubDate>Thu, 31 May 2018 17:27:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-5</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[draft8]]></dc:creator>
+        <description><![CDATA[
+            <p>Incidentally, the full context of that snippet might make things clearer – you should find it by expanding the disclosure triangle in this post:</p>
+<aside class="quote quote-modified" data-post="7" data-topic="596">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/draft8/40/281_1.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/tip-append-to-running-lists-with-the-add-to-list-action/596/7?u=draft8">TIP: Append to running lists with the "Add to list" action</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/tips"><span class="badge-category-bg" style="background-color: #12A89D;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Quick Drafts tips on a variety of topics. Free free to post your own.">Tips &amp; Tricks</span></a>
+  </div>
+  <blockquote>
+    Javascript’s standard <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" rel="nofollow noopener">Array.map</a> can take an existing function on a single string, and apply it to a whole list of strings. 
+For example: 
+d.content = d.content + currentContent
+.split('\n')
+.map(x =&gt; '- [ ] ' + x)
+.join('\n'),
+
+Used in context: 
+Full source for an Add *All* to List variant – click to expand <a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/4">(click for more details)</a>
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/4</link>
+        <pubDate>Tue, 24 Apr 2018 20:04:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-4</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[draft8]]></dc:creator>
+        <description><![CDATA[
+            <p>My feeling is that if you are starting out afresh, the mental model provided by</p>
+<ul>
+<li>map</li>
+<li>reduce</li>
+<li>filter</li>
+</ul>
+<p>is probably simpler than that of having to set up loops, increment mutable variables, check boundary conditions etc etc.</p>
+<p>(It certainly brings down the bug count, by handing the mechanics over to pre-built parts).</p>
+<p>If, however, we are already very used to loops and actions, then composing values does involve a bit of a mental shift.</p>
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/3</link>
+        <pubDate>Tue, 24 Apr 2018 19:32:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-3</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[dfay]]></dc:creator>
+        <description><![CDATA[
+            <p>This I think requires a big conceptual shift, at least for me, but I think I see the logic.  I was completely confused by another code example you posted b/c of the initial <strong>const</strong> … but presumably this is all creating the object.  I’m not sure it’s the easiest code to follow for newcomers but I am intrigued by the approach.</p>
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/2</link>
+        <pubDate>Tue, 24 Apr 2018 19:27:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-2</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+      <item>
+        <title>JS :: Building prompts with Array.reduce and Object.assign</title>
+        <dc:creator><![CDATA[draft8]]></dc:creator>
+        <description><![CDATA[
+            <p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce" rel="nofollow noopener">Array.reduce</a> is the swiss army penknife of Javascript.</p>
+<p>It simply lets us:</p>
+<ul>
+<li>start with a seed value, and</li>
+<li>work through a list item by item – updating the seed value each time.</li>
+</ul>
+<p>and it turns out that all manner of things can be done in this way, sparing us from manually setting up loops and iterator values, and protecting us from all the boundary condition accidents and puzzles that loops are heir to.</p>
+<p>One use of <strong>Array.reduce</strong> in Drafts is in creating a prompt from a list of button names.</p>
+<p>For the initial seed value, we can use the standard JS <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign" rel="nofollow noopener">Object.assign</a> to return a prompt object with any <strong>title</strong> etc properties that we need.</p>
+<p>For each stage of working through the button list, we define a function with two arguments (accumulator, item), or (a, x).</p>
+<ul>
+<li>The <strong>accumulator</strong> is the current state of the changing seed value</li>
+<li>the <strong>item</strong>, in this case, is a button name.</li>
+</ul>
+<p>Our function just adds a button, and returns the updated prompt.</p>
+<pre><code class="lang-javascript">// A prompt for selecting an item from a list.
+const p = categories.reduce(
+
+    // Accumulator updates - a button added for each category in the list:
+    (prompt, buttonName) =&gt; {
+        prompt.addButton(buttonName);
+        return prompt;
+    },
+
+    // Initial accumulator: a prompt with properties:
+    Object.assign(
+        Prompt.create(), {
+            title: 'Select list:',
+            message: 'Ask for a category, and append' +
+                ' to a tagged list for that category',
+            isCancellable: true
+        }
+    )
+);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604/1</link>
+        <pubDate>Tue, 24 Apr 2018 15:34:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-604-1</guid>
+        <source url="https://forums.getdrafts.com/t/js-building-prompts-with-array-reduce-and-object-assign/604.rss">JS :: Building prompts with Array.reduce and Object.assign</source>
+      </item>
+  </channel>
+</rss>

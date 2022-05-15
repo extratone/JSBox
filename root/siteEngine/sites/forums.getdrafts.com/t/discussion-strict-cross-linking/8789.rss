@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Discussion] Strict Cross Linking</title>
+    <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789</link>
+    <description>So my feature request is an option to have strict cross lining like many other personal knowledge apps like Obsidan/Roam/etc. so right now I run into the following issue:
+
+I create a note that represents a person like so:
+![image|499x440](upload://uNeEu0SJYnSFvIsLNwqv2n3tWHL.png) 
+I then have a meeting with person and create a note:
+![image|482x438](upload://q2yLqlwqbAtuviyBDM8cbLLB416.png)
+I then want to link to the person in a different note:
+![image|480x439](upload://2ulXcdSbBSZDJLoy0IdY1enWcnH.png) 
+Clicking on the name brings up this:
+![image|482x446](upload://xSB8wBtAWmYAFMJFGuO87ZsktcR.jpeg) 
+
+So to make this work like it does in other apps I would have to go and remove the name from any note title or start adding zettelkasten style ids to every title. 
+
+So the feature request would be to an option that&#39;s say &quot;cross linking strict mode&quot; where links with [[]] only link to notes that exactly match (maybe we ignore the `# ` commonly found in titles), so [[Jeff Bezos]] only links to a note that has `# Jeff Bezos` as the title and creates one if it doesn&#39;t exist even if there&#39;s a note with a title like &quot;# 2020-10-16 Jeff Bezos meeting&quot;.</description>
+    
+    <lastBuildDate>Sat, 17 Oct 2020 13:12:53 +0000</lastBuildDate>
+    <category>Feature Requests</category>
+    <atom:link href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Definite some good feedback in this thread.</p>
+<p>Linking by title is always going to be less reliable than using unique identifiers and require a certain amount of discipline. If you want 100% reliable links, use <code>[[u:UUID]]</code> format links. Not human readable, yes, but totally reliable and resilient in cases of title changes, etc.</p>
+<p>Be aware that while this is a feature of Drafts, Drafts is never going to be purpose-built around optimizing for this cross-linking - it is a multi-purpose tool.</p>
+<p>Link identifiers and the links they create are dynamically defined in syntax highlighting definitions, and I’m working hard on getting custom syntax support out - it’s the next “big” feature on the road map now that support new OS features for the Fall is getting wrapped up…so that will open up a lot of customization options for additional/different ways to do markup for links (see <a href="https://docs.getdrafts.com/extending/syntax-definitions#link-definitions">format preview docs</a>).</p>
+<p>Some of the other things you are talking about - like behaviors when multiple matches are found - would require some other minor tweaks to parameters supported in Drafts <code>/open</code> URL scheme, I’m sure I can make some of those modification (like being able to suppress the multiple draft warning).</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/17</link>
+        <pubDate>Sat, 17 Oct 2020 13:12:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-17</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="jsamlarose" data-post="14" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/jsamlarose/40/652_2.png" class="avatar"> jsamlarose:</div>
+<blockquote>
+<p>see the current “multiple drafts match” message, I can’t help feeling like I’ve done something wrong in failing to ensure the uniqueness of my titling/links.</p>
+</blockquote>
+</aside>
+<p>Totally agreed[quote=“Bjb, post:15, topic:8789”]<br>
+strip Markdown headers<br>
+[/quote]</p>
+<p>Agreed if you broaden it to - remove symbols that belong to the defined syntax:</p>
+<ul>
+<li>
+<code>#</code> for Markdown or Python</li>
+<li>= for Asciidoctor and Dokuwiki</li>
+<li>// for JavaScript …</li>
+<li>% for Pandoc Markdown</li>
+</ul>
+<blockquote>
+<p>All only if the users will facilitate this new syntax feature Greg is working on…</p>
+</blockquote>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/16</link>
+        <pubDate>Sat, 17 Oct 2020 12:06:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-16</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Bjb]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/jsamlarose">@jsamlarose</a> - I think you have forwarded two really good ideas that would go far towards removing the rough edges of this evolving (and very powerful) capability:<br>
+1. Create an exact match link option, e.g., [[x: “exact title”]]<br>
+2. Remove the warning message in the event that multiple matches are found following a fuzzy search.<br>
+As you point out, a fuzzy search should be viewed as a feature, not as a problem. Being able to find any title with a particular word or phrase in it has real benefits, especially if you use long titles to make them as descriptive as possible.</p>
+<p>I’d like to suggest two refinements to your ideas:</p>
+<ol>
+<li>The exact search method should strip Markdown headers. It would therefore be “almost exact.”</li>
+<li>When an “exact match” link is constructed, it is important that spelling, case, plural variations, etc. not get in the way of creating “exactness.” Therefore, I recommend that after the first one or two letters are entered after “[[x:” that a list of matching titles be displayed and progressively narrowed as each letter is added to the link. Choosing from a list of potential matches is the best way to ensure that “exactness” is achieved.</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/15</link>
+        <pubDate>Sat, 17 Oct 2020 09:53:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-15</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>I hope this isn’t derailing the original feature request, but to offer yet another alternative: it would actually be really useful if, instead of the “multiple drafts match” warning, the quick search window was invoked immediately, and the closest exact/strict match was given preference and sorted to the top of the list of returned matches.</p>
+<p>This would truly be the best of both worlds. No syntax or symbols to remember, no additional behaviour to learn, yet we’d still have all the benefits and discoverability of the current fuzzy searching.</p>
+<p>I know it’s designed to be helpful, but when I see the current “multiple drafts match” message, I can’t help feeling like I’ve done something wrong in failing to ensure the uniqueness of my titling/links. And it’s a bit of a speed-bump. I’d prefer the quick search response to multiple drafts that match a wiki-link to feel more like a useful feature than a warning.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/14</link>
+        <pubDate>Sat, 17 Oct 2020 09:18:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-14</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="6" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>The strange thing is that the search box will search not only in the title field and also show the derart a that have the search term in the body.</p>
+</blockquote>
+</aside>
+<p>New in <a href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/2">Drafts 23</a>: the quick search that’s invoked from a wiki-link query defaults to searching for title only (<code>title:"My Draft"</code>) to help focus these searches in a better way.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/13</link>
+        <pubDate>Sat, 17 Oct 2020 08:19:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-13</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="benhue" data-post="8" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/benhue/40/3453_2.png" class="avatar"> benhue:</div>
+<blockquote>
+<p>So maybe a different example will highlight the issue</p>
+</blockquote>
+</aside>
+<p>Thanks for keeping the topic going.</p>
+<p>There are quite some users that are planing and working with drafts as a text and study database.</p>
+<p>I may be wrong with that but the second problem does not seem different.</p>
+<p>You might even use the <code>[[x:Computer Science]]</code> variant right away if you use the same prefix in your Computer Sience draft. The same way as prefix.<br>
+Though I would choose something like  <code>[[&gt;&gt;Computer Science]]</code> or even <code>[[📒 Computer Science]]</code></p>
+<p>Last but not least replace the Spaces with a dash or underscore.</p>
+<blockquote>
+<p>The goal is to tweak your draft title not to match the other reference and to fool the fuzzy search.</p>
+</blockquote>
+<p>The chosen prefix like <code>[[&gt;&gt; </code> can be placed on a keyboard for quick access and connected to a shortcut.</p>
+<p>There are some nice actions for <a href="https://actions.getdrafts.com/a/11Q">crosslinking</a> and a feature that you can create a new drafts note from wiki-style link if it is not available.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/12</link>
+        <pubDate>Sat, 17 Oct 2020 05:46:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-12</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[yvonnezed]]></dc:creator>
+        <description><![CDATA[
+            <p>Really interesting topic. If you were prepared to use an action to open links, you could probably already create one called strict open to do this.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/11</link>
+        <pubDate>Sat, 17 Oct 2020 01:38:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-11</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[benhue]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="jsamlarose" data-post="4" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/jsamlarose/40/652_2.png" class="avatar"> jsamlarose:</div>
+<blockquote>
+<p>It’s a fair point to raise, IMHO. See here, also: <a href="https://forums.getdrafts.com/t/a-better-way-to-trap-title-conflicts-for-wiki-linked-drafts/8610/4">A better way to trap title conflicts for wiki-linked drafts? </a></p>
+</blockquote>
+</aside>
+<p>Ahh nice I like the idea of <code>[[x:for an exact match]]</code> as a solution that would not remove the usefulness of the current fuzzy match. I remember somewhere talk of being able to add our own that will call an action? Then I could get JS to do the magic and get the desired effect.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/10</link>
+        <pubDate>Fri, 16 Oct 2020 21:21:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-10</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[benhue]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Bjb" data-post="2" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/b/a5b964/40.png" class="avatar"> Bjb:</div>
+<blockquote>
+<p>But, Drafts doesn’t perform the “collection” function. Therefore, if you clicked on [[Jeff Bezos]] using your plan, you would see only a fraction of the information related to Jeff.</p>
+</blockquote>
+</aside>
+<p>So from my experience there’s not too much difference between the basic way they both do this.</p>
+<p>In the end in Roam and Obsidian there’s two different notes/pages and all the app is doing is tracking the back links between the two and showing them at the bottom of the page. You could do the same thing in Drafts by searching all you notes for [[Jeff Bezos]] to get the backlinks, and even create an action that does that for you.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b0c511d847f31e8b52c6e71e1c6ea37994d10f17.png" data-download-href="https://forums.getdrafts.com/uploads/default/b0c511d847f31e8b52c6e71e1c6ea37994d10f17" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b0c511d847f31e8b52c6e71e1c6ea37994d10f17_2_550x500.png" alt="image" data-base62-sha1="pdMfN3CwC5h7SuuFw4iiO3cysfR" width="550" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b0c511d847f31e8b52c6e71e1c6ea37994d10f17_2_550x500.png, https://forums.getdrafts.com/uploads/default/original/2X/b/b0c511d847f31e8b52c6e71e1c6ea37994d10f17.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/b/b0c511d847f31e8b52c6e71e1c6ea37994d10f17.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b0c511d847f31e8b52c6e71e1c6ea37994d10f17_2_10x10.png"></a></div><p></p>
+<p>But you’r right in drafts expects you to do cross linking in a different way to these other apps, I just wondered if it might be possible to support mulitple ways.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/9</link>
+        <pubDate>Fri, 16 Oct 2020 21:15:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-9</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[benhue]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the replies, so these tips around prefixing would work for meeting notes and info surrounding work colleagues and such but I’ll run into the same issues when you create permanent/evergreen/study notes, which is where the power of cross linking comes into it’s own.</p>
+<p>So maybe a different example will highlight the issue I’m coming across if I want to make drafts the tool I use for PKM, which I don’t run into in Obisidan. if I had this note:</p>
+<pre><code class="lang-auto"># Deterministic System
+
+In [[Computer Science]] a deterministic system is a system that where no randomness is involved in the development of future states. So the same output will always be achieved from a given start condition or initial state.
+</code></pre>
+<p>Then if I have a reference to an article say called</p>
+<pre><code class="lang-auto"># How a Deterministic System is the way forward
+
+[[Deterministic System]] is the way forward as we move to a state driven  etc. etc.
+</code></pre>
+<p>Now if I link to <code>[[Deterministic System]]</code> from a different note I would run into the same issue.</p>
+<p>So if we were able to set in the options that we don’t want a helping hand as all the drafts app is doing is finding notes that have “Deterministic System” in the title and in this case I would want drafts to find the title that is exactly “Deterministic System”.</p>
+<p>It works in Obsidian as the name in the bracket has to be a file name. So in this case it would be <code>Deterministic System.md</code> and so it’s almost garunteed that each note is unique, unlike drafts. I guess If I wanted to use drafts instead I could alter my workflow and just link to the references of the note at the bottom instead of inline. Or start adding zettelkasten style IDs to the title to make it unique.</p>
+<p>Hopefully this makes it clearer</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/8</link>
+        <pubDate>Fri, 16 Oct 2020 21:05:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-8</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="benhue" data-post="1" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/benhue/40/3453_2.png" class="avatar"> benhue:</div>
+<blockquote>
+<p>I then have a meeting with person and create a note:</p>
+</blockquote>
+</aside>
+<p>It may be as simple as removing the name from the title and put it to the second line</p>
+<p>The first line is the title of the draft and has a very special meaning.</p>
+<p>If you do it like this</p>
+<pre><code># Meeting on Date about Something
+with [[Some Name]] and [[Another Name]]
+... more text ...
+</code></pre>
+<p>the meeting will also be linked to the person draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/7</link>
+        <pubDate>Fri, 16 Oct 2020 20:27:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-7</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe there is a small misunderstanding.</p>
+<p>Drafts does the following with wiki style links:</p>
+<ul>
+<li>Fuzzy Search for title</li>
+<li>check if more than one result in title field</li>
+<li>NO, open title</li>
+<li>Yes, feed link to a search box</li>
+</ul>
+<p>The strange thing is that the search box will search not only in the title field and also show the derart a that have the search term in the body.</p>
+<p>If you prefix the title of the person draft <strong>AND</strong> into your wiki links. Draft will only find one result and open it.</p>
+<p>Meeting Note:</p>
+<pre><code># Meeting 2020 Some Name
+
+....
+</code></pre>
+<p>Person Note:</p>
+<pre><code># P: Some Name 
+
+Personal page
+</code></pre>
+<p>Link Example:</p>
+<pre><code>Test Reference
+
+[[P: Some Name]]</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/6</link>
+        <pubDate>Fri, 16 Oct 2020 20:22:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-6</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Bjb]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not sure I understand how the prefix system would work to identify all information that might be embedded in a draft. For example, consider the following ROAM “block” - a paragraph in ROAM is called a block:</p>
+<ul>
+<li>Arranged meeting with [[Jeff Bezos]] to discuss [[my new yacht]] on [[October 30th, 2020]]</li>
+</ul>
+<p>This block would appear in four different ROAM “pages” (where a page is roughly analogous to a draft in Drafts):</p>
+<p>[[Jeff Bezos]]<br>
+[[my new yacht]]<br>
+[[October 30th, 2020]]<br>
+the page used for the entry - typically "today’s page</p>
+<p>Seeing it in any of the four different contexts provided by these four pages might be desirable at any given time.</p>
+<p>Mapping this functionality into Drafts is a problem too hard for me to solve. Drafts does stuff that ROAM does not - but I don’t think it does this particular thing - except maybe with a disciplined use of tags.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/5</link>
+        <pubDate>Fri, 16 Oct 2020 20:13:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-5</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[jsamlarose]]></dc:creator>
+        <description><![CDATA[
+            <p>It’s a fair point to raise, IMHO. See here, also: <a href="https://forums.getdrafts.com/t/a-better-way-to-trap-title-conflicts-for-wiki-linked-drafts/8610/4" class="inline-onebox">A better way to trap title conflicts for wiki-linked drafts?</a></p>
+<p>Greg’s aware of the rough edges, which leads me to believe that there’ll be further adjustments with this in mind. The recent release of <a href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/3">Drafts 23</a> with support for limiting search queries to titles is a step in a good direction, and it certainly does make quick search more useful in this kind of situation.</p>
+<aside class="quote no-group" data-username="Bjb" data-post="2" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/b/a5b964/40.png" class="avatar"> Bjb:</div>
+<blockquote>
+<p>I don’t know how you would be able to find all the information related</p>
+</blockquote>
+</aside>
+<p>Neat summary of the way cross-linking in Drafts differs from Roam! It’d be useful to pin that somewhere as a reference for anyone else who might benefit from the understanding.</p>
+<p>To be fair, the request was for an optional “strict” mode. No idea how feasible the optionality would be, but if it were possible, it could allow for a broader set of use cases…</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="3" data-topic="8789">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>a prefix for your person draft</p>
+</blockquote>
+</aside>
+<p>This reminded me of this: <a href="https://forums.getdrafts.com/t/rfc-cross-link-definition-formats/7366/6" class="inline-onebox">RFC: Cross-Link Definition Formats</a>, which seems to suggest that at some point in the future, we might be able to define some of these things for ourselves?</p>
+<p>The prefix suggestion should work well. I currently do something similar, and it allows for the best of both strict and loose linking. In this instance, the main Bezos note could even be titled “# @ Jeff Bezos” where the @ (or any other appropriate symbol) could be used consistently to connote a reference note like this…</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/4</link>
+        <pubDate>Fri, 16 Oct 2020 19:25:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-4</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/benhue">@benhue</a></p>
+<p>Did you think about a prefix for your person draft title like</p>
+<pre><code># Person: Name
+</code></pre>
+<p>That could even be abbreviated to <code>P:</code> to make it shorter.</p>
+<p>Then would you go around the issue of fuzzy matching.</p>
+<p>I wonder that Drafts now even finds the text that is not at the beginning- as it did before.</p>
+<p>I would like to keep it this flexible</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/3</link>
+        <pubDate>Fri, 16 Oct 2020 18:04:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-3</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[Bjb]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not sure that I agree with your idea.</p>
+<p>With Roam the first instance of [[Jeff Bezos]] would create a new “page” (“draft” in Drafts) titled Jeff Bezos.</p>
+<p>Thereafter, any use of [[Jeff Bezos]] such as:</p>
+<ul>
+<li>Met with [[Jeff Bezos]] to discuss my plans to buy a yacht.</li>
+</ul>
+<p>would exist on the page where it was entered, but also be added to the Jeff Bezos page.</p>
+<p>[[Jeff Bezos]] does double duty in Roam – it links you to a page if you click on it, and it also adds any entry with [[Jeff Bezos]] embedded in the entry to the Jeff Bezos page, regardless of where the entry was made.  There could be a dozen [[Jeff Bezos]] entries – none made on pages with “Jeff Bezos” in the title.</p>
+<p>But, Drafts doesn’t perform the “collection” function. Therefore, if you clicked on [[Jeff Bezos]] using your plan, you would see only a fraction of the information related to Jeff.</p>
+<p>In Drafts, the assumption is that you would link to drafts using more descriptive titles:</p>
+<p>[[Jeff Bezos meeting re my yacht]]<br>
+[[Jeff Bezos is a rich guy.]]<br>
+[[Jeff Bezos keeps asking to borrow my lawnmower.]]</p>
+<p>Each is a separate subject, residing on separate drafts, accessed through different links. If you search for [[Jeff Bezos]] Drafts shows you all the Jeff Bezos titles – and you can pick what you want.</p>
+<p>Otherwise, I don’t know how you would be able to find all the information related to our pal Jeff.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/2</link>
+        <pubDate>Fri, 16 Oct 2020 15:18:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-2</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+      <item>
+        <title>[Discussion] Strict Cross Linking</title>
+        <dc:creator><![CDATA[benhue]]></dc:creator>
+        <description><![CDATA[
+            <p>So my feature request is an option to have strict cross lining like many other personal knowledge apps like Obsidan/Roam/etc. so right now I run into the following issue:</p>
+<p>I create a note that represents a person like so:<br>
+<img src="https://forums.getdrafts.com/uploads/default/original/2X/d/d7d208d47077f7253aa63e3a58e923b50af1dfe9.png" alt="image" data-base62-sha1="uNeEu0SJYnSFvIsLNwqv2n3tWHL" width="499" height="440"><br>
+I then have a meeting with person and create a note:<br>
+<img src="https://forums.getdrafts.com/uploads/default/original/2X/b/b682a04d3d4da7a580d8ccf4a1b1493b8f2d63fc.png" alt="image" data-base62-sha1="q2yLqlwqbAtuviyBDM8cbLLB416" width="482" height="438"><br>
+I then want to link to the person in a different note:<br>
+<img src="https://forums.getdrafts.com/uploads/default/original/2X/1/1172be74004b2a5f6c61e2fd1d546aeeae887d0d.png" alt="image" data-base62-sha1="2ulXcdSbBSZDJLoy0IdY1enWcnH" width="480" height="439"><br>
+Clicking on the name brings up this:<br>
+<img src="https://forums.getdrafts.com/uploads/default/original/2X/e/ed73be100ca1e2dece4b67631f93be13513963d1.jpeg" alt="image" data-base62-sha1="xSB8wBtAWmYAFMJFGuO87ZsktcR" width="482" height="446"></p>
+<p>So to make this work like it does in other apps I would have to go and remove the name from any note title or start adding zettelkasten style ids to every title.</p>
+<p>So the feature request would be to an option that’s say “cross linking strict mode” where links with [[]] only link to notes that exactly match (maybe we ignore the <code># </code> commonly found in titles), so [[Jeff Bezos]] only links to a note that has <code># Jeff Bezos</code> as the title and creates one if it doesn’t exist even if there’s a note with a title like “# 2020-10-16 Jeff Bezos meeting”.</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789/1</link>
+        <pubDate>Fri, 16 Oct 2020 13:37:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8789-1</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-strict-cross-linking/8789.rss">[Discussion] Strict Cross Linking</source>
+      </item>
+  </channel>
+</rss>

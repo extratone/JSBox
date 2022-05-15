@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Template tag: selection, with fallback to entire draft</title>
+    <link>https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367</link>
+    <description>Hi, when I&#39;m creating custom actions I often seem to come back to this dilemma and I never managed to figure out if it is possible. What I want to achieve is for my actions to act on `[[selection]]`, but if nothing is selected, then use the entire `[[draft]]`.
+
+For example one of the actions I&#39;d like to use this on is &quot;Call phone number&quot;. Often a phone number is all I have in a draft, so nothing more than `[[draft]]` is needed. However, sometimes there is more stuff in the draft and I want to select the text and act on that instead. I would like to avoid having two different actions.
+
+Is this something that is already possible?</description>
+    
+    <lastBuildDate>Thu, 16 Jan 2020 17:54:41 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Template tag: selection, with fallback to entire draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-post="3" data-topic="6367">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>What you describe is already the behavior of the <code>[[selection]]</code> tag. From the <a href="https://docs.getdrafts.com/docs/actions/templates.html#content-tags" rel="nofollow noopener">template docs</a>:</p>
+</blockquote>
+</aside>
+<p>That’s obviously a clear sign that I need to re-read the docs as I don’t remember that feature of the tag at all <img src="https://forums.getdrafts.com/images/emoji/apple/roll_eyes.png?v=9" title=":roll_eyes:" class="emoji" alt=":roll_eyes:"></p>
+<p>Great tip though!</p>
+          <p><a href="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/5</link>
+        <pubDate>Thu, 16 Jan 2020 17:54:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6367-5</guid>
+        <source url="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367.rss">Template tag: selection, with fallback to entire draft</source>
+      </item>
+      <item>
+        <title>Template tag: selection, with fallback to entire draft</title>
+        <dc:creator><![CDATA[mfilej]]></dc:creator>
+        <description><![CDATA[
+            <p>Dang! I thought I already tried this. But apparently I messed something up. Really glad it works this way. Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/4</link>
+        <pubDate>Thu, 16 Jan 2020 15:47:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6367-4</guid>
+        <source url="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367.rss">Template tag: selection, with fallback to entire draft</source>
+      </item>
+      <item>
+        <title>Template tag: selection, with fallback to entire draft</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>What you describe is already the behavior of the <code>[[selection]]</code> tag. From the <a href="https://docs.getdrafts.com/docs/actions/templates.html#content-tags">template docs</a>:</p>
+<blockquote>
+<ul>
+<li>
+<code>[[selection]]</code>  If text was selected within the draft before selecting an action, this tag will return only that selected text. If no text was selected, it will return the full text of the draft.</li>
+</ul>
+</blockquote>
+<p>There is a separate <code>[[selection_only]]</code> tag that does <em>not</em> revert to the full draft if there is no selection.</p>
+          <p><a href="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/3</link>
+        <pubDate>Thu, 16 Jan 2020 15:38:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6367-3</guid>
+        <source url="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367.rss">Template tag: selection, with fallback to entire draft</source>
+      </item>
+      <item>
+        <title>Template tag: selection, with fallback to entire draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You could define your own tag in JavaScript to use. This illustrates how.</p>
+<pre><code class="lang-auto">if (editor.getSelectedText() == "") draft.setTemplateTag("grab", draft.content);
+else draft.setTemplateTag("grab", editor.getSelectedText());
+
+alert(draft.processTemplate("[[grab]]"));
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/2</link>
+        <pubDate>Thu, 16 Jan 2020 15:19:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6367-2</guid>
+        <source url="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367.rss">Template tag: selection, with fallback to entire draft</source>
+      </item>
+      <item>
+        <title>Template tag: selection, with fallback to entire draft</title>
+        <dc:creator><![CDATA[mfilej]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, when I’m creating custom actions I often seem to come back to this dilemma and I never managed to figure out if it is possible. What I want to achieve is for my actions to act on <code>[[selection]]</code>, but if nothing is selected, then use the entire <code>[[draft]]</code>.</p>
+<p>For example one of the actions I’d like to use this on is “Call phone number”. Often a phone number is all I have in a draft, so nothing more than <code>[[draft]]</code> is needed. However, sometimes there is more stuff in the draft and I want to select the text and act on that instead. I would like to avoid having two different actions.</p>
+<p>Is this something that is already possible?</p>
+          <p><a href="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367/1</link>
+        <pubDate>Thu, 16 Jan 2020 15:06:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6367-1</guid>
+        <source url="https://forums.getdrafts.com/t/template-tag-selection-with-fallback-to-entire-draft/6367.rss">Template tag: selection, with fallback to entire draft</source>
+      </item>
+  </channel>
+</rss>

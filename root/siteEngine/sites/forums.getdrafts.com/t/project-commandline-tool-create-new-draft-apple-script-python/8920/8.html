@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>[Project] Commandline Tool - Create new draft (Apple Script/Python) - #8 by Andreas_Haberle - Drafts Community</title>
+    <meta name="description" content="Is there a way to create a new draft from the command line? Like either add a text file as a new draft or save the command output as a new draft?">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;[Project] Commandline Tool - Create new draft (Apple Script/Python)&#39;" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920/8" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920/8" />
+<meta property="og:title" content="[Project] Commandline Tool - Create new draft (Apple Script/Python)" />
+<meta name="twitter:title" content="[Project] Commandline Tool - Create new draft (Apple Script/Python)" />
+<meta property="og:description" content="I found   xcall.app on github  and a thread date in march 2020    there is a wrapper in python (seems to be python 2.7 though)  robwalton/python-xcall: Implementation of x-callback-url (Inter app communication) on macOS using Python  or a rust implementation    I will look into it sometime in the future." />
+<meta name="twitter:description" content="I found   xcall.app on github  and a thread date in march 2020    there is a wrapper in python (seems to be python 2.7 though)  robwalton/python-xcall: Implementation of x-callback-url (Inter app communication) on macOS using Python  or a rust implementation    I will look into it sometime in the future." />
+<meta property="article:published_time" content="2020-11-03T16:36:56+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">[Project] Commandline Tool - Create new draft (Apple Script/Python)</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/ericbranowski'><span itemprop='name'>ericbranowski</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-27T19:31:03Z' class='post-time'>
+                October 27, 2020,  7:31pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-29T21:55:56Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is there a way to create a new draft from the command line? Like either add a text file as a new draft or save the command output as a new draft?</p>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-27T20:14:33Z' class='post-time'>
+                October 27, 2020,  8:14pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-27T20:14:33Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I can think of a few ways, but the simplest would probably be to output to a text file in the import folder.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="../../../../docs.getdrafts.com/docs/settings/automatic-import.html#file-import" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, ../../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, ../../../uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="../../../../docs.getdrafts.com/docs/settings/automatic-import.html#file-import" target="_blank" rel="noopener">Automatic Import</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/ericbranowski'><span itemprop='name'>ericbranowski</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-27T22:26:32Z' class='post-time'>
+                October 27, 2020, 10:26pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-27T22:29:12Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="2" data-topic="8920">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>I can think of a few ways, but the simplest would probably be to output to a text file in the import folder.</p>
+</blockquote>
+</aside>
+<p>Ah yes, that’ll work, thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-27T22:28:22Z' class='post-time'>
+                October 27, 2020, 10:28pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-27T22:28:22Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>An interesting idea would be a command line utility <strong>that took tags and the draft contents</strong>. Probably doable in AppleScript.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-28T09:52:01Z' class='post-time'>
+                October 28, 2020,  9:52am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-28T09:52:01Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My other thoughts were indeed some some AppleScript (run via <code>osascript</code>), and also triggering addition via a URL call. The write to the import folder just seemed the simplest option for getting the data in.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-28T10:01:02Z' class='post-time'>
+                October 28, 2020, 10:01am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-28T10:01:02Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I know. And, having perused the options for this the other day, I know you can assign tags on import.</p>
+<p>Something like</p>
+<p><code>newDraft tag1 tag2 -d “This is the title\n\nThis is the body\n* Item 1\n* Item2”</code></p>
+<p>would be really nice. I can imagine code of mine issuing that command.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-29T21:53:52Z' class='post-time'>
+                October 29, 2020,  9:53pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-29T21:53:52Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>use python and the url <img src="../../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<ul>
+<li>typer handles the agreements</li>
+<li>url calls should be easy</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/project-commandline-tool-create-new-draft-apple-script-python/8920">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-11-03T16:36:56Z' class='post-time'>
+                November 3, 2020,  4:36pm
+              </time>
+              <meta itemprop='dateModified' content='2020-11-03T16:36:56Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I found</p>
+<ul>
+<li>xcall.app on github</li>
+</ul>
+<p>and a thread date in march 2020</p>
+<aside class="quote quote-modified" data-post="1" data-topic="6920">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/buffaloseven/40/1074_2.png" class="avatar">
+    <a href="../../x-callback-in-alfred-workflows/6920.html">X-callback in Alfred Workflows?</a> <a class="badge-wrapper  bullet" href="../../../c/drafts-for-mac.html"><span class="badge-category-bg" style="background-color: #808281;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="For discussion of the Mac version of Drafts. The Mac version is current in preview. Please submit bug reports using the “Send Feedback” link in the Help menu of the preview version.">Drafts for Mac</span></a>
+  </div>
+  <blockquote>
+    I’ve been trying to figure this out, but I’ve hit a bit of a dead end with my knowledge. I have an Alfred app workflow that takes a variety of input variables and then feeds a JXA script that loads a few templates, does a bunch of processing, and then creates a project in Things 3 and a related Drafts document. 
+When creating the Drafts document, I’m creating it using the following code: 
+var draft_x = 'drafts5://x-callback-url/create?tag=[MyTag]&amp;tag=' encodeURComponent('[My Other Tag]') + '&amp;tex…
+  </blockquote>
+</aside>
+
+<p>there is a wrapper in python (seems to be python 2.7 though)</p>
+<p><a href="https://github.com/robwalton/python-xcall">robwalton/python-xcall: Implementation of x-callback-url (Inter app communication) on macOS using Python</a></p>
+<p>or a rust implementation</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+      <a href="https://github.com/ozbe/xcallback" target="_blank" rel="noopener">GitHub</a>
+  </header>
+  <article class="onebox-body">
+    <img src="../../../uploads/default/original/2X/2/28ea7c89f0a56039bc6c5306f9909ca40f17cea1.jpeg" class="thumbnail onebox-avatar" width="400" height="400">
+
+<h3><a href="https://github.com/ozbe/xcallback" target="_blank" rel="noopener">ozbe/xcallback</a></h3>
+
+<p>A utility for interacting with local macOS applications using x-callback-url http://x-callback-url.com. - ozbe/xcallback</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>I will look into it sometime in the future.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Project] Commandline Tool - Create new draft (Apple Script/Python)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

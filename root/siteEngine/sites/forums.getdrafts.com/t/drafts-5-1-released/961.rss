@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 5.1 Released</title>
+    <link>https://forums.getdrafts.com/t/drafts-5-1-released/961</link>
+    <description>Drafts 5.1 has been released.  This update brings back several action steps available in Drafts 4 that had not been updated yet (Box, Event, Open in...) and a variety of improvements to Workspaces, action log access and calendar scripting - details below:
+
+#### New action steps
+
+- **`Event` action step** returns for creating calendar events with default system card. [Docs and sample action](http://getdrafts.com/actions/steps/event).
+- **`Box` action step** to create, append, prepend to files in Box.com service. [Docs and Examples](http://getdrafts.com/actions/steps/box)
+- **`Open in...` action step** to support old-style document interaction export. [Docs and Examples](http://getdrafts.com/actions/steps/openin)
+
+#### Other new bits
+
+- **Workspaces and tag filters now support &quot;All - Any&quot; mode selection** to control whether drafts in the filter should match all the selected tags (and), or any of them (or).  This setting will be saved with Workspaces.
+- **Action steps in an action can now be disabled and duplicated** (swipe on step in action editing to select). Handy addition for work-in-progress step modifications and testing variants of scripts.
+- **Recent action log history (not specific to individual drafts) is now accessible from history button at top of action list.**  Makes access to recently performed actions quicker. Great for troubleshooting errors as well.
+- **Action log entries can now be deleted** (Swipe right).
+- **CMD-Return external keyboard shortcut to toggle editor focus.**
+- Support traditional table edit mode for better VoiceOver experience.
+
+#### Scripting changes
+
+- **Better scripting of Calendars and Events**, including the ability to read calendar events. Details:
+  - `Calendar.default` property which returns the system default calendar for new events.
+  - `Calendar.find(title)` method looks up a calendar by name.
+  - `Calendar.getAllCalendars();` returns array of all known calendars on the device.
+  - `events(startDate, endDate);` method to query the contents of a calendar. Returns an array of `Event` objects. This can be used to import calendar events into a drafts, among other things.
+  - `event.edit()` method. Displays a `Event` object in the system event editing card. Allows scripting to create modify the default values for the event (start/end, add alarms, etc.) then display the event for modification/editing and adding to the calendar.
+      - More detail in [scripting reference](http://beta-reference.getdrafts.com/)
+- `Box` script object to read and write files to Box.com service. [Docs](http://beta-reference.getdrafts.com/objects/Box.html)
+- `editor.isActive` bool property to determine if editor is currently in edit mode.
+
+#### Other fixes and updates
+
+- **Fix:** **Restore last selection when opening a draft.**
+- **Fix:** Better restore of text selections when undo/redo are used.
+- **Fix:** Improve frequency of updates to app badge.
+- **Fix:** Evernote action setup to use &quot;Text&quot; output not properly encoding some HTML entities.
+- **Fix:** Omit drafts in the trash from queries unless the trash folder is explicitly queried.
+- **Fix:** Various improvements for dynamic text.
+- **Change:** Better error reporting when file imports fail for some reason.
+- **Fix:** Workaround dark theme tinting of the system file import view.
+- **Fix:** Do not allow external keyboard shortcuts to interfere with arrow keys while editing search fields.
+
+[Download now on the App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8)</description>
+    
+    <lastBuildDate>Fri, 18 May 2018 20:39:01 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-5-1-released/961.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 5.1 Released</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts 5.1 has been released.  This update brings back several action steps available in Drafts 4 that had not been updated yet (Box, Event, Open in…) and a variety of improvements to Workspaces, action log access and calendar scripting - details below:</p>
+<h4>New action steps</h4>
+<ul>
+<li>
+<strong><code>Event</code> action step</strong> returns for creating calendar events with default system card. <a href="http://getdrafts.com/actions/steps/event">Docs and sample action</a>.</li>
+<li>
+<strong><code>Box</code> action step</strong> to create, append, prepend to files in <a href="http://Box.com">Box.com</a> service. <a href="http://getdrafts.com/actions/steps/box">Docs and Examples</a>
+</li>
+<li>
+<strong><code>Open in...</code> action step</strong> to support old-style document interaction export. <a href="http://getdrafts.com/actions/steps/openin">Docs and Examples</a>
+</li>
+</ul>
+<h4>Other new bits</h4>
+<ul>
+<li>
+<strong>Workspaces and tag filters now support “All - Any” mode selection</strong> to control whether drafts in the filter should match all the selected tags (and), or any of them (or).  This setting will be saved with Workspaces.</li>
+<li>
+<strong>Action steps in an action can now be disabled and duplicated</strong> (swipe on step in action editing to select). Handy addition for work-in-progress step modifications and testing variants of scripts.</li>
+<li>
+<strong>Recent action log history (not specific to individual drafts) is now accessible from history button at top of action list.</strong>  Makes access to recently performed actions quicker. Great for troubleshooting errors as well.</li>
+<li>
+<strong>Action log entries can now be deleted</strong> (Swipe right).</li>
+<li><strong>CMD-Return external keyboard shortcut to toggle editor focus.</strong></li>
+<li>Support traditional table edit mode for better VoiceOver experience.</li>
+</ul>
+<h4>Scripting changes</h4>
+<ul>
+<li>
+<strong>Better scripting of Calendars and Events</strong>, including the ability to read calendar events. Details:
+<ul>
+<li>
+<code>Calendar.default</code> property which returns the system default calendar for new events.</li>
+<li>
+<code>Calendar.find(title)</code> method looks up a calendar by name.</li>
+<li>
+<code>Calendar.getAllCalendars();</code> returns array of all known calendars on the device.</li>
+<li>
+<code>events(startDate, endDate);</code> method to query the contents of a calendar. Returns an array of <code>Event</code> objects. This can be used to import calendar events into a drafts, among other things.</li>
+<li>
+<code>event.edit()</code> method. Displays a <code>Event</code> object in the system event editing card. Allows scripting to create modify the default values for the event (start/end, add alarms, etc.) then display the event for modification/editing and adding to the calendar.
+<ul>
+<li>More detail in <a href="http://beta-reference.getdrafts.com/">scripting reference</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<code>Box</code> script object to read and write files to <a href="http://Box.com">Box.com</a> service. <a href="http://beta-reference.getdrafts.com/objects/Box.html">Docs</a>
+</li>
+<li>
+<code>editor.isActive</code> bool property to determine if editor is currently in edit mode.</li>
+</ul>
+<h4>Other fixes and updates</h4>
+<ul>
+<li>
+<strong>Fix:</strong> <strong>Restore last selection when opening a draft.</strong>
+</li>
+<li>
+<strong>Fix:</strong> Better restore of text selections when undo/redo are used.</li>
+<li>
+<strong>Fix:</strong> Improve frequency of updates to app badge.</li>
+<li>
+<strong>Fix:</strong> Evernote action setup to use “Text” output not properly encoding some HTML entities.</li>
+<li>
+<strong>Fix:</strong> Omit drafts in the trash from queries unless the trash folder is explicitly queried.</li>
+<li>
+<strong>Fix:</strong> Various improvements for dynamic text.</li>
+<li>
+<strong>Change:</strong> Better error reporting when file imports fail for some reason.</li>
+<li>
+<strong>Fix:</strong> Workaround dark theme tinting of the system file import view.</li>
+<li>
+<strong>Fix:</strong> Do not allow external keyboard shortcuts to interfere with arrow keys while editing search fields.</li>
+</ul>
+<p><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8">Download now on the App Store</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-1-released/961/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-1-released/961/1</link>
+        <pubDate>Fri, 18 May 2018 17:32:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-961-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-1-released/961.rss">Drafts 5.1 Released</source>
+      </item>
+  </channel>
+</rss>

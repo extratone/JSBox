@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Toggle between 2 tags</title>
+    <link>https://forums.getdrafts.com/t/toggle-between-2-tags/6097</link>
+    <description>I&#39;m trying to create an action to toggle between 2 possible tags. Basically, if a Draft has &quot;tag1&quot;, I&#39;d like to switch it to &quot;tag2&quot; and visa versa.
+I can&#39;t find anything in the Action Directory that does this (or something similar that I can hack around with). Can anyone suggest a plan of attack?
+
+Thanks!
+Paul</description>
+    
+    <lastBuildDate>Fri, 13 Dec 2019 16:44:50 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/toggle-between-2-tags/6097.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Toggle between 2 tags</title>
+        <dc:creator><![CDATA[pldcrl]]></dc:creator>
+        <description><![CDATA[
+            <p>That does the trick quite nicely. Thanks so much for the help!</p>
+<p>(I’m not worried about if the Draft already has both or neither tag - if it was being built for other users, maybe.)</p>
+          <p><a href="https://forums.getdrafts.com/t/toggle-between-2-tags/6097/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/toggle-between-2-tags/6097/3</link>
+        <pubDate>Fri, 13 Dec 2019 16:44:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6097-3</guid>
+        <source url="https://forums.getdrafts.com/t/toggle-between-2-tags/6097.rss">Toggle between 2 tags</source>
+      </item>
+      <item>
+        <title>Toggle between 2 tags</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>A script step like this should give you the basis for it I think.</p>
+<pre><code class="lang-auto">let strTag = "foo";
+if (draft.hasTag(strTag)) draft.removeTag(strTag);
+else draft.addTag(strTag);
+draft.update();
+</code></pre>
+<p>Just account for it not being one tag but two and so you need to do an add and remove each time.</p>
+<p>But also what happens should you inadvertently have both or neither…?</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/toggle-between-2-tags/6097/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/toggle-between-2-tags/6097/2</link>
+        <pubDate>Thu, 12 Dec 2019 22:27:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6097-2</guid>
+        <source url="https://forums.getdrafts.com/t/toggle-between-2-tags/6097.rss">Toggle between 2 tags</source>
+      </item>
+      <item>
+        <title>Toggle between 2 tags</title>
+        <dc:creator><![CDATA[pldcrl]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to create an action to toggle between 2 possible tags. Basically, if a Draft has “tag1”, I’d like to switch it to “tag2” and visa versa.<br>
+I can’t find anything in the Action Directory that does this (or something similar that I can hack around with). Can anyone suggest a plan of attack?</p>
+<p>Thanks!<br>
+Paul</p>
+          <p><a href="https://forums.getdrafts.com/t/toggle-between-2-tags/6097/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/toggle-between-2-tags/6097/1</link>
+        <pubDate>Thu, 12 Dec 2019 21:55:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6097-1</guid>
+        <source url="https://forums.getdrafts.com/t/toggle-between-2-tags/6097.rss">Toggle between 2 tags</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using templates</title>
+    <link>https://forums.getdrafts.com/t/using-templates/9803</link>
+    <description>Hello, I am testing &quot;New drafts with template&quot; for my workflow.
+Is it possible to use a description in the template without see it in the new draft.
+I think this should be possible but i need the right solution ;-)
+Thank you.
+
+Blue_dancer</description>
+    
+    <lastBuildDate>Fri, 12 Feb 2021 13:57:00 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-templates/9803.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>That should not be needed. Semi-colons, though generally recommended, are optional in JavaScript.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-templates/9803/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-templates/9803/6</link>
+        <pubDate>Fri, 12 Feb 2021 13:57:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9803-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-templates/9803.rss">Using templates</source>
+      </item>
+      <item>
+        <title>Using templates</title>
+        <dc:creator><![CDATA[Blue_dancer]]></dc:creator>
+        <description><![CDATA[
+            <p>I think there should be a “;” behind „…\n“);</p>
+<p>Thank you vor your help.<br>
+Blue_dancer</p>
+          <p><a href="https://forums.getdrafts.com/t/using-templates/9803/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-templates/9803/5</link>
+        <pubDate>Fri, 12 Feb 2021 10:12:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9803-5</guid>
+        <source url="https://forums.getdrafts.com/t/using-templates/9803.rss">Using templates</source>
+      </item>
+      <item>
+        <title>Using templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>My bad, had a typo in the original reply. I fixed it above, if you try again.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-templates/9803/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-templates/9803/4</link>
+        <pubDate>Thu, 11 Feb 2021 18:45:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9803-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-templates/9803.rss">Using templates</source>
+      </item>
+      <item>
+        <title>Using templates</title>
+        <dc:creator><![CDATA[Blue_dancer]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry, something went wrong. I think its my foult…but I don´t know were…<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/6/671efb9618a31694c604f62a32bd3ba0af19eb45.png" data-download-href="https://forums.getdrafts.com/uploads/default/671efb9618a31694c604f62a32bd3ba0af19eb45" title="Screenshot_drafts"><img src="https://forums.getdrafts.com/uploads/default/original/2X/6/671efb9618a31694c604f62a32bd3ba0af19eb45.png" alt="Screenshot_drafts" data-base62-sha1="eIfyHwSUUdr9sOsTjsTBPHLp7BH" width="690" height="462" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/671efb9618a31694c604f62a32bd3ba0af19eb45_2_10x10.png"></a></div><p></p>
+<p>thank you for your help.</p>
+<p>blue_dancer</p>
+          <p><a href="https://forums.getdrafts.com/t/using-templates/9803/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-templates/9803/3</link>
+        <pubDate>Thu, 11 Feb 2021 18:25:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9803-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-templates/9803.rss">Using templates</source>
+      </item>
+      <item>
+        <title>Using templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It is certainly very possible, in a variety of ways. Probably the most straight-forward within this particular action would be to use the first line of the template draft as the description, then remove that line when processing it to create the new draft.</p>
+<p>In the <a href="https://actions.getdrafts.com/a/1VL">New Draft from Template</a> action, look for the below line, which is where the content of the new draft gets assigned:</p>
+<pre><code class="lang-javascript">d.content = d.processTemplate(template.content);
+</code></pre>
+<p>And replace it with this:</p>
+<pre><code class="lang-javascript">// remove first line from template draft content
+let templateString = template.content.split("\n").slice(1).join("\n")
+d.content = d.processTemplate(templateString);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/using-templates/9803/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-templates/9803/2</link>
+        <pubDate>Thu, 11 Feb 2021 17:54:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9803-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-templates/9803.rss">Using templates</source>
+      </item>
+      <item>
+        <title>Using templates</title>
+        <dc:creator><![CDATA[Blue_dancer]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, I am testing “New drafts with template” for my workflow.<br>
+Is it possible to use a description in the template without see it in the new draft.<br>
+I think this should be possible but i need the right solution <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"><br>
+Thank you.</p>
+<p>Blue_dancer</p>
+          <p><a href="https://forums.getdrafts.com/t/using-templates/9803/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-templates/9803/1</link>
+        <pubDate>Thu, 11 Feb 2021 17:36:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9803-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-templates/9803.rss">Using templates</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Help me insert an email address link</title>
+    <link>https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401</link>
+    <description>I apologize in advance if this is obvious to others, but I have not been able to discern how to embed an email link in a draft.
+
+I am using iOS on an iPad, and I publish an email newsletter using Apple Mail. I have tried a number of times to write a person’s name, and then add a link that, when activated, will start an email address to the person.
+
+I have tried the syntax ” [Jimmy Jones] (jimmy@jones.com) “ and I have also tried 
+[Jimmy Jones] (mailto:jimmy@jones.com), but neither syntax works in the preview or in markdown email. Note: I added the spaces between the [] and () after I saw that the forums software automatically rendered those as links. When in drafts, I omit the space! :grinning:
+
+If this has already been answered either here in the forums or in the documentation, please just point me in the direction of that knowledge. Thanks!
+
+Dave Gerlits</description>
+    
+    <lastBuildDate>Sat, 16 Nov 2019 16:24:32 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Help me insert an email address link</title>
+        <dc:creator><![CDATA[davegerlits]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, your clarification works great.</p>
+<p>I can’t figure out what I was doing wrong, but, with your help, I will certainly be successful going forward!</p>
+          <p><a href="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/5</link>
+        <pubDate>Sat, 16 Nov 2019 16:24:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5401-5</guid>
+        <source url="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401.rss">Help me insert an email address link</source>
+      </item>
+      <item>
+        <title>Help me insert an email address link</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>If you are using a mail action that generates HTML, you would need the output of the template to include that as an html link, like:</p>
+<pre><code class="lang-auto">&lt;a href="mailto:jimmyjones@domain.com"&gt;Send Jimmy Mail&lt;/a&gt;
+</code></pre>
+<p>The easiest way to do that, is to use Markdown Mail which runs Markdown markup through a Markdown engine an converts it to HTML.</p>
+<p>The <a href="https://daringfireball.net/projects/markdown/syntax#link">syntax for links</a> in Markdown is: <code>[text](url)</code>, so, for the Markdown Mail action you would need to have the below in your draft:</p>
+<pre><code class="lang-markdown">[Send Jimmy Mail](mailto:jimmyjones@domain.com)
+</code></pre>
+<p>When running the Markdown mail action, that would get converted to the HTML <code>a</code> tag and be a clickable link in the resulting email.</p>
+<p>Does that help clarify?</p>
+          <p><a href="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/4</link>
+        <pubDate>Sat, 16 Nov 2019 14:11:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5401-4</guid>
+        <source url="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401.rss">Help me insert an email address link</source>
+      </item>
+      <item>
+        <title>Help me insert an email address link</title>
+        <dc:creator><![CDATA[davegerlits]]></dc:creator>
+        <description><![CDATA[
+            <p>My end goal is to have the text of my email contain a name, like Jimmy Jones, which contains a “mailto:” link, allowing the reader of the email to click the link and be brought to an email with Jimmy Jones as the addressee.</p>
+<p>I have been able to type an email address into drafts, enter the link mode, and click the link to make the email address a tappable link, but I have not been able to export that tappable link to an email via either the “Email” or “markdown email” actions.</p>
+<p>I feel like I am missing something obvious.</p>
+          <p><a href="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/3</link>
+        <pubDate>Sat, 16 Nov 2019 02:57:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5401-3</guid>
+        <source url="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401.rss">Help me insert an email address link</source>
+      </item>
+      <item>
+        <title>Help me insert an email address link</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Not sure I understand exactly what your end goal is…if it’s just to have link in the text of a draft you can tap to open a new message addressed in Mail, you can just place the email address in a draft, and enable <a href="https://getdrafts.com/editor/linkmode" rel="nofollow noopener">Link Mode</a> and the email address will become a tappable link.</p>
+<p>If you are wanting to automate this further, you can create email actions already configured to sent to specific addresses or groups. The <a href="https://forums.getdrafts.com/t/sending-mail-with-drafts/3597">email integration guide</a> covers some of these basic of configuring mail actions.</p>
+          <p><a href="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/2</link>
+        <pubDate>Mon, 19 Aug 2019 01:45:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5401-2</guid>
+        <source url="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401.rss">Help me insert an email address link</source>
+      </item>
+      <item>
+        <title>Help me insert an email address link</title>
+        <dc:creator><![CDATA[davegerlits]]></dc:creator>
+        <description><![CDATA[
+            <p>I apologize in advance if this is obvious to others, but I have not been able to discern how to embed an email link in a draft.</p>
+<p>I am using iOS on an iPad, and I publish an email newsletter using Apple Mail. I have tried a number of times to write a person’s name, and then add a link that, when activated, will start an email address to the person.</p>
+<p>I have tried the syntax ” [Jimmy Jones] (<a href="mailto:jimmy@jones.com">jimmy@jones.com</a>) “ and I have also tried<br>
+[Jimmy Jones] (<a href="mailto:jimmy@jones.com">mailto:jimmy@jones.com</a>), but neither syntax works in the preview or in markdown email. Note: I added the spaces between the [] and () after I saw that the forums software automatically rendered those as links. When in drafts, I omit the space! <img src="https://forums.getdrafts.com/images/emoji/apple/grinning.png?v=9" title=":grinning:" class="emoji" alt=":grinning:"></p>
+<p>If this has already been answered either here in the forums or in the documentation, please just point me in the direction of that knowledge. Thanks!</p>
+<p>Dave Gerlits</p>
+          <p><a href="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401/1</link>
+        <pubDate>Sun, 18 Aug 2019 22:44:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5401-1</guid>
+        <source url="https://forums.getdrafts.com/t/help-me-insert-an-email-address-link/5401.rss">Help me insert an email address link</source>
+      </item>
+  </channel>
+</rss>

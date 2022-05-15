@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Calling an action after setTemplateTag (bug with app.queueAction) - Issues - Drafts Community</title>
+    <meta name="description" content="I have a script that sets a template tag then queues up multiple actions. On macOS, the tag is unset when the last action is run, and on iOS, the tag does not seem to set at all. 
+Action 1: 
+draft.setTemplateTag(&amp;quot;Test&amp;quot;,&amp;quot;&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="8759.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Calling an action after setTemplateTag (bug with app.queueAction)&#39;" href="8759.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759" />
+<meta property="og:title" content="Calling an action after setTemplateTag (bug with app.queueAction)" />
+<meta name="twitter:title" content="Calling an action after setTemplateTag (bug with app.queueAction)" />
+<meta property="og:description" content="I have a script that sets a template tag then queues up multiple actions. On macOS, the tag is unset when the last action is run, and on iOS, the tag does not seem to set at all.  Action 1:  draft.setTemplateTag(&quot;Test&quot;,&quot;Hello World&quot;);  // Using draft.update() appears to makes no difference. //draft.update();  // My original code var actions = [&quot;Action 2&quot;,&quot;Action 2&quot;,&quot;Action 2&quot;] for (var i in actions) {   		action = Action.find(actions[i]);   		app.queueAction(action, draft); }  // Same problem us..." />
+<meta name="twitter:description" content="I have a script that sets a template tag then queues up multiple actions. On macOS, the tag is unset when the last action is run, and on iOS, the tag does not seem to set at all.  Action 1:  draft.setTemplateTag(&quot;Test&quot;,&quot;Hello World&quot;);  // Using draft.update() appears to makes no difference. //draft.update();  // My original code var actions = [&quot;Action 2&quot;,&quot;Action 2&quot;,&quot;Action 2&quot;] for (var i in actions) {   		action = Action.find(actions[i]);   		app.queueAction(action, draft); }  // Same problem us..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2020-10-14T10:58:01+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="8759.html">Calling an action after setTemplateTag (bug with app.queueAction)</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/issues/10" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Issues</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='https://forums.getdrafts.com/tag/👍🏼-solved' class='discourse-tag' rel="tag">👍🏼-solved</a>, 
+            <a href='../../tag/scripting.html' class='discourse-tag' rel="tag">scripting</a>, 
+            <a href='../../tag/mac.html' class='discourse-tag' rel="tag">mac</a>, 
+            <a href='../../tag/ios.html' class='discourse-tag' rel="tag">ios</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dewittn'><span itemprop='name'>dewittn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T10:58:01Z' class='post-time'>
+                October 14, 2020, 10:58am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-31T23:01:31Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have a script that sets a template tag then queues up multiple actions. On macOS, the tag is unset when the last action is run, and on iOS, the tag does not seem to set at all.</p>
+<p>Action 1:</p>
+<pre><code class="lang-auto">draft.setTemplateTag("Test","Hello World");
+
+// Using draft.update() appears to makes no difference.
+//draft.update();
+
+// My original code
+var actions = ["Action 2","Action 2","Action 2"]
+for (var i in actions) {
+  		action = Action.find(actions[i]);
+  		app.queueAction(action, draft);
+}
+
+// Same problem using this code
+/*
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+*/
+</code></pre>
+<p>Action 2</p>
+<pre><code class="lang-auto">var tag = draft.getTemplateTag("Test");
+if ( tag ) {
+	alert("Template tag set to: " + tag);
+} else {
+	alert("Template tag is not set.");
+}
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+          <meta itemprop='keywords' content='👍🏼-solved, scripting, mac, ios'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T13:17:55Z' class='post-time'>
+                October 14, 2020,  1:17pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T13:17:55Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Template tags are not intended to persist between actions. This is referenced explicitly in the custom template tag docs.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="../../../docs.getdrafts.com/docs/actions/templates.html#custom-tags" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, ../../uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, ../../uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="../../../docs.getdrafts.com/docs/actions/templates.html#custom-tags" target="_blank" rel="noopener">Templates</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>Note that queued actions are separate actions that are run after the original action and so should not be able to access such tags.</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dewittn'><span itemprop='name'>dewittn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T13:50:17Z' class='post-time'>
+                October 14, 2020,  1:50pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T13:50:17Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Forgive me, maybe I’m just having a dyslexic moment here, but where does it say that tags do are not intended to persist between actions? I don’t see it.</p>
+<blockquote>
+<p>In addition to the predefined tags always available, scripts in an action can create custom tags which become available to action steps run after the script in the same action. This is useful if a scripted action step processes text to create a value that then needs to be inserted in a later step that shares that text. The below example shows a simple script with creates a tag.</p>
+</blockquote>
+<p>If that is the intended behavior then I’ll find a different way to pass information between the scripts. Not a problem. However, I’m still getting a bug running the following code on iOS and macOS.</p>
+<pre><code class="lang-auto">draft.setTemplateTag("Test","Hello World");
+action = Action.find("Action 2");
+app.queueAction(action, draft);
+</code></pre>
+<p>Action 2 reports that no tag has been set.</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T14:06:51Z' class='post-time'>
+                October 14, 2020,  2:06pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T14:06:51Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>’s description is correct. As stated in the quote you inserted, “custom tags which become available to action steps run after the script in the <em>same</em> action”. This is definitely not a bug.</p>
+<p>Queuing an action is setting it up to run after the current action, but it is <em>not</em> part of the same action, so has a different context. Perhaps that could be clarified more in the scripting docs…current text, “Queues an action to run on a draft after the current action is complete.”</p>
+<p>There are many other ways to pass data between actions, if that is your desired outcome…which is best might depend on what you are trying to pass. Do you have a more concrete explanation of what you are trying to accomplish?</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dewittn'><span itemprop='name'>dewittn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T14:35:04Z' class='post-time'>
+                October 14, 2020,  2:35pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T14:35:04Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the clarification.</p>
+<p>I’m trying to set a template tag in one action that can be used in the callback URL of a second action, specifically the name of a journal in DayOne.</p>
+<p>For example, my first action adds a template tag of “journal” with the value “Memories.” Then, my second action checks to see if the journal tag is set. If not, it prompts me to pick one, and if it is, it opens the DayOne callback URL using the predefined template tag.</p>
+<p>Maybe I’m misusing tags because I’ve been chaining actions together this way for months. The only difference is that I have been using Step Types instead of a script. With Step Types, you can have a “Define Template Tag” step followed by an “Include Action” step, and the template tag will persist. This is why I thought it was a scripting bug.</p>
+<p>Am I using tags wrong, or is there a difference between the way Step Types and app.queueAction are processed?</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T14:53:48Z' class='post-time'>
+                October 14, 2020,  2:53pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T14:53:48Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="dewittn" data-post="5" data-topic="8759">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/dewittn/40/4212_2.png" class="avatar"> dewittn:</div>
+<blockquote>
+<p>Am I using tags wrong, or is there a difference between the way Step Types and app.queueAction are processed?</p>
+</blockquote>
+</aside>
+<p>Steps are within a <em>single</em> action and a single context for the custom template tags.</p>
+<p>Queueing of actions are all separate actions and so have separate contexts. The custom tags are unique to the context of each queued* separat* action.</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dewittn'><span itemprop='name'>dewittn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T15:05:49Z' class='post-time'>
+                October 14, 2020,  3:05pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T15:05:49Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Got it! Thank you so much.</p>
+<p>So then there is no equivalent “Insert Action” that can be used with scripting?</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T15:35:38Z' class='post-time'>
+                October 14, 2020,  3:35pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T15:35:38Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There is not scripting equivalent of the <a href="../../../docs.getdrafts.com/docs/actions/steps/advanced.html#include-action">Include Action step</a>. The action name field in the Include Action step is a dynamic template, however…so, you can use a template tag to define the action used…so, if your script does:</p>
+<pre><code class="lang-javascript">draft.setTemplateTag("actionName", "Action 2");
+</code></pre>
+<p>And there is an Include Action step after that script with the action name defined as <code>[[actionName]]</code>, it will roll in the steps from “Action 2”.</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-14T19:04:46Z' class='post-time'>
+                October 14, 2020,  7:04pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-14T19:04:46Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>hi <a class="mention" href="https://forums.getdrafts.com/u/dewittn">@dewittn</a> looks like a nice nut of automation you have set to crack yourself.</p>
+<p>Would you be willing to share your working action here or via the action directory?</p>
+<p>I would be highly interested</p>
+<p>Thanks<br>
+Andreas</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dewittn'><span itemprop='name'>dewittn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-15T10:41:23Z' class='post-time'>
+                October 15, 2020, 10:41am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-15T10:52:01Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>HI <a class="mention" href="https://forums.getdrafts.com/u/andreas_haberle">@Andreas_Haberle</a>, yeah absolutely!</p>
+<p>The basic idea is that I want to have a global action that handles the creation of DayOne entries.</p>
+<p>Every morning I start the day with a “morning pages” exercise where I clear my head and write down any tasks I need to do for the day. When I’m done writing, I have a <code>Complete Morning Pages</code> action that marks the task complete in Streaks, creates a new draft from selected text, and sends all To-do’s to things. Once all of those steps have been completed the draft is passed off to the <code>DayOne</code> action which files it away.</p>
+<p>I could combine all of these actions into a single script but I’d like to keep the morning pages <em>routine</em> separate from the DayOne <em>export</em>. This not only makes my DayOne action reusable with other actions, but makes it easier to manage if I ever want to make changes to the way I export to DayOne.</p>
+<p>Here is the code for the two related actions.</p>
+<h2>Action: Complete Morning Pages</h2>
+<p>Step 1: Script</p>
+<pre><code class="lang-auto">// If running on an iPhone or iPad, open streaks.
+const baseURL = "streaks://x-callback-url/completed/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX";
+if (device.model != "Mac") { openCallback(baseURL); }
+  
+draft.setTemplateTag("journal","Morning Pages");
+
+// Que actions to run 
+var actions = ["New from selection","Send To-do’s to things","DayOne"]
+  for (var i in actions) {
+  		action = Action.find(actions[i]);
+  		app.queueAction(action, draft);
+ }
+</code></pre>
+<h2>Action: DayOne</h2>
+<p>Step 1: Script</p>
+<pre><code class="lang-auto">var journals = [
+	"Journal",
+	"Morning Pages",
+	"Memories",
+	"Frisbee Scores"
+	];
+var templateTag = "journal";
+
+if (!draft.getTemplateTag(templateTag)) {
+  var p = Prompt.create();
+  p.title = "Choose A Journal";
+  p.message = "Which Journal would you like to use?";
+  p.addButton("OK");
+  p.addSelect(templateTag, "Journals", journals);
+
+  if (p.show()) { 
+   draft.setTemplateTag(templateTag,p.fieldValues[templateTag]);
+  } else {
+    context.cancel();
+  }
+}
+</code></pre>
+<p>Step 2: URL</p>
+<pre><code class="lang-auto">dayone2://post?entry=[[draft]]&amp;tags=[[tags]]&amp;journal=[[journal]]
+</code></pre>
+<h2></h2>
+<p>I like passing Template tags between scripts because it can drop right into the URL schema. I’ve been running it this way for months using the <strong>Include Action</strong> Step Type but I wanted to see if I could replicate this behavior with code.</p>
+<p>Another possible solution could be to save the journey name as a tag or append it as text to the end of the draft. I don’t like those solutions as much because then I’m adding something to a draft only to remove it in the next action.</p>
+<p>After some more testing, the code below works and sets a template tag for a queued action, but I have a feeling it might be more of a hack than an actual solution. <img src="../../images/emoji/apple/sweat_smile.png@v=9" title=":sweat_smile:" class="emoji" alt=":sweat_smile:"></p>
+<pre><code class="lang-auto">var d = Draft.find(draft.uuid);
+var action = Action.find("DayOne");
+
+d.setTemplateTag("journal","Morning Pages");
+app.queueAction(action, d);
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-15T11:43:32Z' class='post-time'>
+                October 15, 2020, 11:43am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-15T11:43:32Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="dewittn" data-post="10" data-topic="8759">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/dewittn/40/4212_2.png" class="avatar"> dewittn:</div>
+<blockquote>
+<p>Another possible solution could be to save the journey name as a tag or append it as text to the end of the draft. I don’t like those solutions as much because then I’m adding something to a draft only to remove it in the next action.</p>
+</blockquote>
+</aside>
+<p>You could store them as metadata using the functions I wrote into the <a href="https://tadpole.thoughtasylum.com">TADpoLe library</a>. They store the data outside of the draft so as not to pollute the existing content or meta data (e.g. tags).</p>
+<p>Once you include the library (including the <code>TAD</code> action from the <a href="../../../actions.getdrafts.com/g/1aM.html">ThoughtAsylum Action group</a> (download it and run the refresh action as per the instructions to get the latest library file on your devices) you can then call the meta data functions.</p>
+<p><code>draft.TA_metaRead()</code> will initialise the current draft with any persistent data held on file.</p>
+<p><code>draft.TA_metaWrite()</code> will write the current draft meta data to be persistently held to file.</p>
+<p>Then in action <span class="hashtag">#1</span> you could write something like this:</p>
+<pre><code class="lang-auto">draft.TA_metaRead();
+draft.meta.test = "hello world";
+draft.TA_metaWrite();
+</code></pre>
+<p>In action 2, you could read the value of the <code>test</code> property back like this:</p>
+<pre><code class="lang-auto">draft.TA_metaRead();
+alert(draft.meta.test);
+</code></pre>
+<p>Examples:</p>
+<ul>
+<li><a href="../../../actions.getdrafts.com/a/1d9.html">Action #1</a></li>
+<li><a href="../../../actions.getdrafts.com/a/1d0.html">Action #2</a></li>
+</ul>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../pending-pandoc-title-metadata-support/8718/14.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718/14'>
+                      <span itemprop='name'>[Pending] Pandoc Title / Metadata support</span>
+                    </a>
+                    <meta itemprop='position' content='5'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dewittn'><span itemprop='name'>dewittn</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8759.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-15T11:49:53Z' class='post-time'>
+                October 15, 2020, 11:49am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-15T11:49:53Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> This is great! I had no idea that library existed. I’ll definitely check it out! Thank you!</p>
+        </div>
+
+        <meta itemprop='headline' content='Calling an action after setTemplateTag (bug with app.queueAction)'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

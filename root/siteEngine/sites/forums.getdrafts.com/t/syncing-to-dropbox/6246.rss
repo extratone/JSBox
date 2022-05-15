@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Syncing to Dropbox</title>
+    <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246</link>
+    <description>Hi there
+
+I have read https://forums.getdrafts.com/t/using-dropbox-with-drafts/20 but I am not sure how to sync a draft to Dropbox. 
+
+I mean I want to read the draft from a path on Dropbox and then after editing I want to write it back to *the same* path.
+
+What&#39;s the easiest way to do this?
+
+Thanks for any pointers!</description>
+    
+    <lastBuildDate>Sun, 28 Jun 2020 08:37:53 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[pw6163]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks very much. That’s a great help.</p>
+<p>The server-side process is as much me being comfortable with that approach as anything else. I’d get a JSON blob with individual notes any of which could be extracted if required. I’ll use the calls that you’ve mentioned though. Getting used to a sophisticated product takes time, and part of it is using the abilities that it provides without circumventing them.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/11</link>
+        <pubDate>Sun, 28 Jun 2020 08:37:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-11</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="pw6163" data-post="9" data-topic="6246">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/p/e9a140/40.png" class="avatar"> pw6163:</div>
+<blockquote>
+<p>The “Save to Dropbox” action script is OK, but I’d like to get the Workspace and the tags as well as the content. Is that possible?</p>
+</blockquote>
+</aside>
+<ul>
+<li>
+<a href="https://scripting.getdrafts.com/classes/app" rel="nofollow noopener">app.currentWorkspace()</a>.</li>
+<li><a href="https://scripting.getdrafts.com/classes/draft" rel="nofollow noopener">draft.tags</a></li>
+</ul>
+<aside class="quote no-group" data-username="pw6163" data-post="9" data-topic="6246">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/p/e9a140/40.png" class="avatar"> pw6163:</div>
+<blockquote>
+<p>Then (there’s always more, isn’t there?) I’d like to be able to select all the notes, preferably sequentially and back them up to a DropBox folder I’ve created.</p>
+</blockquote>
+</aside>
+<ul>
+<li><a href="https://scripting.getdrafts.com/classes/draft" rel="nofollow noopener">Draft.query()</a></li>
+<li>
+<a href="https://scripting.getdrafts.com/classes/dropbox" rel="nofollow noopener">Dropbox.write()</a>.</li>
+</ul>
+<aside class="quote no-group" data-username="pw6163" data-post="9" data-topic="6246">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/p/e9a140/40.png" class="avatar"> pw6163:</div>
+<blockquote>
+<p>I’d run that via an IOS shortcut</p>
+</blockquote>
+</aside>
+<ul>
+<li>
+<a href="https://docs.getdrafts.com/docs/automation/shortcuts#run-action-with-text" rel="nofollow noopener">Run Action with text</a>; you could query for all the Drafts that you want based on the above, and you don’t have to do anything with the text.</li>
+</ul>
+<aside class="quote no-group" data-username="pw6163" data-post="9" data-topic="6246">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/p/e9a140/40.png" class="avatar"> pw6163:</div>
+<blockquote>
+<p>and then overnight the server would combine the notes into a single JSON blob.</p>
+</blockquote>
+</aside>
+<p>You could also just do that by appending to a file when writing from Drafts couldn’t you? What’s the server-side processing benefit here?</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/10</link>
+        <pubDate>Sun, 28 Jun 2020 06:23:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-10</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[pw6163]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve just started with Drafts, so if this has been answered elsewhere - sorry !</p>
+<p>The “Save to Dropbox” action script is OK, but I’d like to get the Workspace and the tags as well as the content. Is that possible?</p>
+<p>Then (there’s always more, isn’t there?) I’d like to be able to select all the notes, preferably sequentially and back them up to a DropBox folder I’ve created. I’d run that via an IOS shortcut, and then overnight the server would combine the notes into a single JSON blob. The server side is trivial, I just need to get the right data into DropBox first.</p>
+<p>Is anyone able to point me at some documentation to help?</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/9</link>
+        <pubDate>Sun, 28 Jun 2020 04:27:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-9</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>For a scripting action, UUID is a property of the Drafts object.  The <a href="https://scripting.getdrafts.com/classes/FileManager" rel="nofollow noopener">FileManager object</a> now has JSON read and write functions.</p>
+<p>Along with the Dropbox path, that gives you the Draft identifier and a way to save and retrieve key value pairs - match UUID and file path.</p>
+<p>That’s the basic premise.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/8</link>
+        <pubDate>Mon, 20 Apr 2020 05:19:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-8</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[RichardFairbanks]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you, sylumer, for the possibility of not needing to have the Dropbox path in the file.<br>
+I have dozens of text files on Dropbox that I would like to be able to sync with Dropbox in the manner you’re describing. Can you give an outline of what’s involved or point to a set of scripts or actions?<br>
+Blessings, and thank you!,<br>
+Richard Fairbanks</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/7</link>
+        <pubDate>Mon, 20 Apr 2020 01:12:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-7</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[halloleo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi sylumer, interesting idea - not necessarily what I need, but I can see the point.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/6</link>
+        <pubDate>Mon, 06 Jan 2020 04:46:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-6</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[halloleo]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks Dr. Drang! These scripts look great! I am checking it out!</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/5</link>
+        <pubDate>Mon, 06 Jan 2020 04:45:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-5</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>If you always keep a single draft per file, you could consider moving the path out into an index (e.g. as a JSON file) where you could match a draft UUID and a file path. If it isn’t a persistent 1-2-1 match, you would probably also need to include an initial existence in index &amp; drafts/ Dropbox check, and overwrite the index value if necessary.</p>
+<p>More complicated to maintain, but does keep your files clean, which can be an issue if they are config files, or if there’s a variation in the formats, gets around the approach that’s commonly used of putting the path on the first line which then makes it the title, etc.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/4</link>
+        <pubDate>Wed, 01 Jan 2020 16:58:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-4</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[drdrang]]></dc:creator>
+        <description><![CDATA[
+            <p>I wrote a couple of actions to semi-automate the process of moving drafts to and from Dropbox:</p>
+<aside class="onebox whitelistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/0/0c713c2ca7f390677b5e02df3cf8689e14a676ed.png" class="site-icon" width="16" height="16">
+      <a href="https://leancrew.com/all-this/2019/05/drafts-and-dropbox-redux/" target="_blank" rel="nofollow noopener">leancrew.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="" class="thumbnail" width="" height="">
+
+<h3><a href="https://leancrew.com/all-this/2019/05/drafts-and-dropbox-redux/" target="_blank" rel="nofollow noopener">Drafts and Dropbox redux - All this</a></h3>
+
+<p>A pair of Drafts actions for reading and writing to Dropbox files.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>It’s flexible in that it lets you save the draft anywhere in Dropbox, but it’s limiting in that you have to include the path to the file somewhere in the draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/3</link>
+        <pubDate>Wed, 01 Jan 2020 16:02:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-3</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Post v4, Drafts uses iCloud for sync and so can’t auto-sync to files in Dropbox.</p>
+<p>You can create actions that would let you read in a file from Dropbox and save back to it. This would be manually triggered. That refers back to the details in the post you linked to above.</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/2</link>
+        <pubDate>Wed, 01 Jan 2020 13:33:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-2</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+      <item>
+        <title>Syncing to Dropbox</title>
+        <dc:creator><![CDATA[halloleo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi there</p>
+<p>I have read <a href="https://forums.getdrafts.com/t/using-dropbox-with-drafts/20" class="inline-onebox">Using Dropbox with Drafts</a> but I am not sure how to sync a draft to Dropbox.</p>
+<p>I mean I want to read the draft from a path on Dropbox and then after editing I want to write it back to <em>the same</em> path.</p>
+<p>What’s the easiest way to do this?</p>
+<p>Thanks for any pointers!</p>
+          <p><a href="https://forums.getdrafts.com/t/syncing-to-dropbox/6246/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/syncing-to-dropbox/6246/1</link>
+        <pubDate>Wed, 01 Jan 2020 12:42:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6246-1</guid>
+        <source url="https://forums.getdrafts.com/t/syncing-to-dropbox/6246.rss">Syncing to Dropbox</source>
+      </item>
+  </channel>
+</rss>

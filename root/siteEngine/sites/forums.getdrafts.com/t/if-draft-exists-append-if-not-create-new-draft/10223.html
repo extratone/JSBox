@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>If draft exists, append. If not, create new draft - Scripting - Drafts Community</title>
+    <meta name="description" content="Js newbie here. I have seen a few actions which either append to an existing draft (if it exists), or create a new draft (if it doesn’t exist). I have attempted to recreate this with no success. 
+My end goal here is to: 
+&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10223.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;If draft exists, append. If not, create new draft&#39;" href="https://forums.getdrafts.com/t/if-draft-exists-append-if-not-create-new-draft/10223.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/if-draft-exists-append-if-not-create-new-draft/10223" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/if-draft-exists-append-if-not-create-new-draft/10223" />
+<meta property="og:title" content="If draft exists, append. If not, create new draft" />
+<meta name="twitter:title" content="If draft exists, append. If not, create new draft" />
+<meta property="og:description" content="Js newbie here. I have seen a few actions which either append to an existing draft (if it exists), or create a new draft (if it doesn’t exist). I have attempted to recreate this with no success.  My end goal here is to:   Query a draft by title (title = [[date|%Y-%-m-%-d]]) if that draft hasn’t been created yet/doesn’t exist, Create a new draft with Today’s Date as title If it already exists, append To that draft.  Appreciate any tips/advice thanks!" />
+<meta name="twitter:description" content="Js newbie here. I have seen a few actions which either append to an existing draft (if it exists), or create a new draft (if it doesn’t exist). I have attempted to recreate this with no success.  My end goal here is to:   Query a draft by title (title = [[date|%Y-%-m-%-d]]) if that draft hasn’t been created yet/doesn’t exist, Create a new draft with Today’s Date as title If it already exists, append To that draft.  Appreciate any tips/advice thanks!" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2021-04-12T18:28:34+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="10223.html">If draft exists, append. If not, create new draft</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jimmy'><span itemprop='name'>Jimmy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10223.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-12T18:28:34Z' class='post-time'>
+                April 12, 2021,  6:28pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-12T18:28:34Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Js newbie here. I have seen a few actions which either append to an existing draft (if it exists), or create a new draft (if it doesn’t exist). I have attempted to recreate this with no success.</p>
+<p>My end goal here is to:</p>
+<ul>
+<li>Query a draft by title (title = [[date|%Y-%-m-%-d]])</li>
+<li>if that draft hasn’t been created yet/doesn’t exist, Create a new draft with Today’s Date as title</li>
+<li>If it already exists, append To that draft.</li>
+</ul>
+<p>Appreciate any tips/advice thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='If draft exists, append. If not, create new draft'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10223.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-12T22:33:45Z' class='post-time'>
+                April 12, 2021, 10:33pm
+              </time>
+              <meta itemprop='dateModified' content='2021-04-12T23:03:19Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Try the code below. I’ve set it up as a function with parameters for the title, the text to insert and an optional parameter if you would like to force the loading of the updated draft into the editor.</p>
+<p>Hopefully, you will get the gist, but there is a bit where I’ve taken a shortcut just for example purposes as you didn’t cover it in your use case. That’s the case where there are multiple drafts with the same title. It isn’t impossible and the inbuilt search function I’ve used will actually also match on partials, so the deal’s the same for that (though you could limit it to exact title matches only with a broader search and some extra processing). If the search returns non-unique matches, you get a prompt asking if you want to append to the first match. It gives you its title and you get an indicator at the top of how many matches were found.</p>
+<p>I’ve also, <em>for now</em>, accounted for if the draft is already loaded in the editor. Sometimes, if you are editing the draft when you update it, the editor can lose the change. In those cases, rather than updating the draft I’ve opted to update the editor content.</p>
+<blockquote>
+<p><em>I’ve added some details at the end about this behaviour.</em></p>
+</blockquote>
+<p>Any questions, just note them below and I, or someone else on the forum will probably be able to help.</p>
+<pre><code class="lang-auto">insertContent(draft.processTemplate("[[date|%Y-%-m-%-d]]"),"The text to be appended.");
+
+function insertContent(p_strTitle, p_strInsert, p_bLoad = true)
+{
+
+	let ad = Draft.queryByTitle(p_strTitle);
+	if(ad.length == 0)
+	{
+		//Create a new draft
+		let dNew = new Draft();
+		dNew.content = p_strTitle + "\n" + p_strInsert;
+		dNew.update();
+		if(p_bLoad) editor.load(dNew);
+		return dNew;
+	}
+	if(ad.length == 1)
+	{
+		//The editor can sometimes conflict (race) with updating the loaded draft
+		//so we might need to take an alternate editor based approach
+		if(draft.uuid == ad[0].uuid)
+		{
+			//Update the draft in the editor
+			editor.setTextInRange(editor.getText().length, 0, "\n" + p_strInsert);
+		}
+		else
+		{
+			//Update an existing draft
+			ad[0].append(p_strInsert);
+			ad[0].update();
+		}
+		
+		//Load the appropriate draft into the editor
+		if(p_bLoad) editor.load(ad[0]);
+		else editor.load(draft);
+		return ad[0];
+	}
+	//If we got here we have more than one match.
+	//We could have full or partial duplicates (e.g. the date forms part of the 
+	//title for another draft). For this example, I will
+	//have Drafts give a yes no option, then update based on that
+	//Modify this if you wish to pop up a prompt to choose a draft, 
+	//fail outright with an error, etc.
+	let pAsk = Prompt.create();
+	pAsk.title = `Duplicate Drafts (${ad.length})`;
+	pAsk.message = `Do you want to update the first draft?
+"${ad[0].title}"`;
+	pAsk.addButton("Yes");
+	pAsk.addButton("No");
+	pAsk.isCancellable = false;
+	if (pAsk.show())
+	{
+		//User said yes, so update the first draft
+		if (pAsk.buttonPressed == "Yes")
+		{
+			//The editor can sometimes conflict (race) with updating the loaded draft
+			//so we might need to take an alternate editor based approach
+			if(draft.uuid == ad[0].uuid)
+			{
+				//Update the draft in the editor
+				editor.setTextInRange(editor.getText().length, 0, "\n" + p_strInsert);
+			}
+			else
+			{
+				//Update an existing draft
+				ad[0].append(p_strInsert);
+				ad[0].update();
+			}
+			
+			//Load the appropriate draft into the editor
+			if(p_bLoad) editor.load(ad[0]);
+			else editor.load(draft);
+			return ad[0];
+		}
+	}
+
+	//Return void
+	return;
+}
+</code></pre>
+<hr>
+<h4>
+<a name="the-timing-issue" class="anchor" href="10223.html#the-timing-issue"></a>The Timing Issue</h4>
+<p><a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>, updating the current draft doesn’t normally have a timing issue for updates, but here, I think it is introduced by being linked to the <code>queryByTitle()</code> function. When I run the code below on latest Mac beta, I sometimes get an update and sometimes I don’t. No particular pattern, which makes me think there’s a race going on somewhere.</p>
+<pre><code class="lang-auto">// Ensure a draft with a unique title is loaded in the app editor for this test
+
+// Get the title of the current draft 
+let ad = Draft.queryByTitle(draft.title);
+
+// Append 'foo' to the first returned draft in the array and update the draft
+ad[0].append("foo");
+ad[0].update();
+
+// RESULT: draft in editor is only sometimes updated in the editor
+</code></pre>
+<p><strong>EDIT</strong><br>
+And now I’m in bed reading, I’ve jut realised that if I check the UUID matches, instead of updating <code>ad[0]</code>, I could just update <code>draft</code> instead of adopting an <code>editor</code> approach. <img src="../../images/emoji/apple/confounded.png@v=9" title=":confounded:" class="emoji" alt=":confounded:"></p>
+        </div>
+
+        <meta itemprop='headline' content='If draft exists, append. If not, create new draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jimmy'><span itemprop='name'>Jimmy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10223.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-13T04:53:55Z' class='post-time'>
+                April 13, 2021,  4:53am
+              </time>
+              <meta itemprop='dateModified' content='2021-04-13T04:53:55Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Awesome! That seems to be working beautifully.</p>
+<p>One thing I’m still trying to get my head around:</p>
+<p><code>insertContent(draft.processTemplate("[[date|%Y-%-m-%-d]]"),"The text to be appended.");</code></p>
+<p>Is this what allows you to query a title that is a template, rather than - say - a plain english title like “Today”?</p>
+        </div>
+
+        <meta itemprop='headline' content='If draft exists, append. If not, create new draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10223.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-04-13T05:55:33Z' class='post-time'>
+                April 13, 2021,  5:55am
+              </time>
+              <meta itemprop='dateModified' content='2021-04-13T05:55:33Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><code>draft.processTemplate("[[date|%Y-%-m-%-d]]"</code> processes the template tag and outputs the evaluated text. That evaluated text is then used as the title to search for by the function being called.</p>
+        </div>
+
+        <meta itemprop='headline' content='If draft exists, append. If not, create new draft'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

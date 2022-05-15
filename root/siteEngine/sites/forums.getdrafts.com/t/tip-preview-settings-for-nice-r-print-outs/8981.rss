@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tip] Preview settings for nice(r) print-outs</title>
+    <link>https://forums.getdrafts.com/t/tip-preview-settings-for-nice-r-print-outs/8981</link>
+    <description>If one wants to print a HTML document, it might be helpful to provide different CSS settings in the template used for previewing. 
+
+Useful settings for the `@media print` block are (an example follows at the end)
+* `page-break-after: avoid` for most of the headings (`h1`through `h5`). In my opinion, `page-break-before: always` would be clearer, but Firefox does not support this. 
+* `orphans:` and `widows:` with numerical values given the number of lines to keep together at the bottom and top of a page. The default is 2, but you might want to increase this to get more visually pleasing results. Again, Firefox does not support those attributes.
+* Overall, you might want to consider setting a smaller `font-size` on the `body` element and resetting the margins to 0 for it. 
+* In theory, CSS provides a `@page` query permitting to define the size of the page and margins for it. However, no current browser supports this.
+
+Why should browser support even be important for printing? Simply because the print process is initiated and driven by the browser. So a HTML document with the exact same CSS settings looks different if it’s printed from Safari (or Drafts’ preview window) and Firefox. 
+```language-css
+/* @page not working in most browsers
+@page {
+  size: a4;
+}
+*/
+@media print {
+  body {                /* smaller font, no margins */
+    font-size: 90%;
+    margin-left: 0
+    margin-right: 0;
+  }
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+    /* better:
+    page-break-before: always;
+    but this does not work in Firefox
+    */
+  }
+  p, ul, ol, blockqote {
+    orphans: 4; /* not working in Firefox */
+    widows: 4; /* not working in Firefox */
+  }
+  pre code { /* reduce font-size for code blocks */
+    font-size: 90%;
+  } 
+ } /* @print */
+```</description>
+    
+    <lastBuildDate>Sun, 01 Nov 2020 13:00:24 +0000</lastBuildDate>
+    <category>Tips &amp; Tricks</category>
+    <atom:link href="https://forums.getdrafts.com/t/tip-preview-settings-for-nice-r-print-outs/8981.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tip] Preview settings for nice(r) print-outs</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <p>If one wants to print a HTML document, it might be helpful to provide different CSS settings in the template used for previewing.</p>
+<p>Useful settings for the <code>@media print</code> block are (an example follows at the end)</p>
+<ul>
+<li>
+<code>page-break-after: avoid</code> for most of the headings (<code>h1</code>through <code>h5</code>). In my opinion, <code>page-break-before: always</code> would be clearer, but Firefox does not support this.</li>
+<li>
+<code>orphans:</code> and <code>widows:</code> with numerical values given the number of lines to keep together at the bottom and top of a page. The default is 2, but you might want to increase this to get more visually pleasing results. Again, Firefox does not support those attributes.</li>
+<li>Overall, you might want to consider setting a smaller <code>font-size</code> on the <code>body</code> element and resetting the margins to 0 for it.</li>
+<li>In theory, CSS provides a <code>@page</code> query permitting to define the size of the page and margins for it. However, no current browser supports this.</li>
+</ul>
+<p>Why should browser support even be important for printing? Simply because the print process is initiated and driven by the browser. So a HTML document with the exact same CSS settings looks different if it’s printed from Safari (or Drafts’ preview window) and Firefox.</p>
+<pre><code class="lang-auto">/* @page not working in most browsers
+@page {
+  size: a4;
+}
+*/
+@media print {
+  body {                /* smaller font, no margins */
+    font-size: 90%;
+    margin-left: 0
+    margin-right: 0;
+  }
+  h1, h2, h3, h4, h5 {
+    page-break-after: avoid;
+    /* better:
+    page-break-before: always;
+    but this does not work in Firefox
+    */
+  }
+  p, ul, ol, blockqote {
+    orphans: 4; /* not working in Firefox */
+    widows: 4; /* not working in Firefox */
+  }
+  pre code { /* reduce font-size for code blocks */
+    font-size: 90%;
+  } 
+ } /* @print */
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/tip-preview-settings-for-nice-r-print-outs/8981/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-preview-settings-for-nice-r-print-outs/8981/1</link>
+        <pubDate>Sun, 01 Nov 2020 13:00:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8981-1</guid>
+        <source url="https://forums.getdrafts.com/t/tip-preview-settings-for-nice-r-print-outs/8981.rss">[Tip] Preview settings for nice(r) print-outs</source>
+      </item>
+  </channel>
+</rss>

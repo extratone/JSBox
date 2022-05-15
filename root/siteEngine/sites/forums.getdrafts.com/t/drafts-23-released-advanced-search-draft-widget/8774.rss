@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</title>
+    <link>https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774</link>
+    <description>## Drafts 23 has been released:
+
+- [iOS App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site)
+- [Mac App Store](https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site)
+
+![r23|641x396, 75%](upload://aRKtZsvc5TYA4EyVZ3GvmJw6IrU.jpeg)
+
+Details below. For a complete history of updates, visit:
+
+- [iOS Changelog](https://docs.getdrafts.com/docs/misc/changelog-ios)
+- [Mac Changelog](https://docs.getdrafts.com/docs/misc/changelog-mac)</description>
+    
+    <lastBuildDate>Thu, 15 Oct 2020 15:35:34 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>Drafts 23 macOS Release Notes</h2>
+<h4>Advanced Search Queries</h4>
+<p>Drafts searches support powerful new query options. These options apply to anywhere drafts are searched, including the draft list, workspaces quick search, and scripted queries:</p>
+<ul>
+<li>Not new, but searches can use quotation marks to find “exact phrases”, and prefix a term with a hyphen to omit it, like <code>-blue</code>.</li>
+<li>Support for <code>title:</code> and <code>tag:</code> prefixes to force a query to only look for a term in draft titles or tags. May be combined with exact phrase searching, so <code>title:"My Draft"</code> will look for only drafts with the string “My Draft” in the first line.</li>
+<li>
+<code>AND</code> and <code>OR</code> operator support. <code>AND</code> is not needed, as it is assumed as the operator at any space between terms. Examples:</li>
+<li>
+<code>blue OR green</code> would find any drafts with either “blue” or “green” in the text.</li>
+<li>
+<code>blue red OR green</code> would find drafts with both “blue” and “red” or only “green”.</li>
+<li>Regular expression terms. Marked by wrapping a term in forward slashes (<code>/term/</code>). Examples (not necessarily useful ones):
+<ul>
+<li>
+<code>/.*ABC.*/</code> would find any drafts with “ABC” in the text.</li>
+<li>
+<code>/\d+/</code> would find any drafts that <em>start</em> with a number.</li>
+<li>
+<code>/.*\[\[.*\]\].*/</code> would find drafts with <code>[[wiki-style]]</code> links</li>
+</ul>
+</li>
+</ul>
+<p>More details on available search options can be found <a href="https://docs.getdrafts.com/docs/drafts/filtering#searching-drafts">in the User Guide</a>.</p>
+<h4>Other Updates</h4>
+<ul>
+<li>Small but useful change: When searching the action list, groups appear as separators. It is now possible to tap on those group separators to load the group in the list.</li>
+<li>“Duplicate” swipe action in Workspace manager.</li>
+<li>
+<code>[[display_title]]</code> and <code>[[body_preview]]</code> template tags. These match the trimmed display versions of the title and body displayed in the draft list. <a href="https://docs.getdrafts.com/docs/actions/templates">Template tag reference</a>.</li>
+<li>If <code>/open</code> URL with title parameter finds more than one matching draft, the resulting search now opens with <code>title:"value"</code> search to limit results to only matching titles.</li>
+<li>“Save Current” option in workspaces menu to create a new workspace based on current list options.</li>
+<li>
+<code>draft.bodyPreview(maxLength: Int)</code> function. Returns trimmed body preview similar to what is used in the draft list, removing first line and trimming whitespace and truncating to the requested length.</li>
+<li>Import from backup might not maintain correct modification dates.</li>
+<li>Restore “Miscellaneous” category of action icons, which was missing for some reason.</li>
+<li>XML-RPC requests might improperly entify parameter strings.</li>
+<li>Better quit behavior, trying to make sure any current changes are synced to cloud, if possible.</li>
+<li>Clicking a task in a draft open in multiple windows would not immediately update other windows as it should.</li>
+<li>Scripted prompt in an action called via <code>app.queueAction</code> might not display.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/3</link>
+        <pubDate>Thu, 15 Oct 2020 15:35:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8774-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774.rss">Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</source>
+      </item>
+      <item>
+        <title>Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>Drafts 23 iOS Release Notes</h2>
+<h4>Draft Widget</h4>
+<p>“Draft” widget type to display the content of a specific draft. This is in addition to Grid and List widget types released in the previous update. After adding the widget, edit options to select draft and display options. Tapping the widget opens the selected draft. Useful for keeping a scratchpad draft, or similar. <a href="https://docs.getdrafts.com/docs/extensions/widgets">More on Widgets</a>.</p>
+<h4>Advanced Search Queries</h4>
+<p>Drafts searches support powerful new query options. These options apply to anywhere drafts are searched, including the draft list, workspaces quick search, and scripted queries:</p>
+<ul>
+<li>Not new, but searches can use quotation marks to find “exact phrases”, and prefix a term with a hyphen to omit it, like <code>-blue</code>.</li>
+<li>Support for <code>title:</code> and <code>tag:</code> prefixes to force a query to only look for a term in draft titles or tags. May be combined with exact phrase searching, so <code>title:"My Draft"</code> will look for only drafts with the string “My Draft” in the first line.</li>
+<li>
+<code>AND</code> and <code>OR</code> operator support. <code>AND</code> is not needed, as it is assumed as the operator at any space between terms. Examples:</li>
+<li>
+<code>blue OR green</code> would find any drafts with either “blue” or “green” in the text.</li>
+<li>
+<code>blue red OR green</code> would find drafts with both “blue” and “red” or only “green”.</li>
+<li>Regular expression terms. Marked by wrapping a term in forward slashes (<code>/term/</code>). Examples (not necessarily useful ones):
+<ul>
+<li>
+<code>/.*ABC.*/</code> would find any drafts with “ABC” in the text.</li>
+<li>
+<code>/\d+/</code> would find any drafts that <em>start</em> with a number.</li>
+<li>
+<code>/.*\[\[.*\]\].*/</code> would find drafts with <code>[[wiki-style]]</code> links</li>
+</ul>
+</li>
+</ul>
+<p>More details on available search options can be found <a href="https://docs.getdrafts.com/docs/drafts/filtering#searching-drafts">in the User Guide</a>.</p>
+<h4>Other Updates</h4>
+<ul>
+<li>Small but useful change: When searching the action list, groups appear as separators. It is now possible to tap on those group separators to load the group in the list.</li>
+<li>List widget now has “All” as a folder selection option.</li>
+<li>List widget supports small widget size, displaying only the one top draft in the workspace.</li>
+<li>“Open App” command option for widgets which just opens Drafts like tapping the app icon (not the “Empty” option already does this, too, but that’s not clear)</li>
+<li>“Duplicate” swipe action in Workspace manager.</li>
+<li>
+<code>[[display_title]]</code> and <code>[[body_preview]]</code> template tags. These match the trimmed display versions of the title and body displayed in the draft list. <a href="https://docs.getdrafts.com/docs/actions/templates">Template tag reference</a>.</li>
+<li>If <code>/open</code> URL with title parameter finds more than one matching draft, the resulting search now opens with <code>title:"value"</code> search to limit results to only matching titles.</li>
+<li>“Save Current” option in workspaces menu to create a new workspace based on current list options.</li>
+<li>
+<code>draft.bodyPreview(maxLength: Int)</code> function. Returns trimmed body preview similar to what is used in the draft list, removing first line and trimming whitespace and truncating to the requested length.</li>
+<li>Disable smart quotes-dashes in find window.</li>
+<li>Add way to enable link mode from action bar selection view.</li>
+<li>Import from backup might not maintain correct modification dates.</li>
+<li>Restore “Miscellaneous” category of action icons, which was missing for some reason.</li>
+<li>Widget intent configuration options should not appear in the Shortcuts app.</li>
+<li>Continuing search from Spotlight should go to quick search when available.</li>
+<li>Issue with automatic changes between dark-light mode not updating editor text properly.</li>
+<li>XML-RPC requests might improperly entify parameter strings.</li>
+<li>Workspaces using date filters would display incorrect counts in a Widget.</li>
+<li>
+<code>app.showDraftList()</code> called with a pinned draft list on iPad could result in greyed out editor.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/2</link>
+        <pubDate>Thu, 15 Oct 2020 15:34:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8774-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774.rss">Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</source>
+      </item>
+      <item>
+        <title>Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>Drafts 23 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/4/4c292a48c64352a4653ebfedab8b872a832383a2.jpeg" alt="r23" data-base62-sha1="aRKtZsvc5TYA4EyVZ3GvmJw6IrU" width="480" height="297"></p>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-ios">iOS Changelog</a></li>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-mac">Mac Changelog</a></li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774/1</link>
+        <pubDate>Thu, 15 Oct 2020 15:20:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8774-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-23-released-advanced-search-draft-widget/8774.rss">Drafts 23 Released - Advanced Search, &quot;Draft&quot; Widget</source>
+      </item>
+  </channel>
+</rss>

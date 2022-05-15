@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Auto-updating the Mac beta</title>
+    <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948</link>
+    <description>Howdy everyone! I&#39;ve been a Drafts user for a while, and the Mac app is already establishing an important place in my desktop workflow. Fantastic work so far, Greg.
+
+Is there any chance the Mac app will move to Sparkle or a similar framework for auto-updating the beta? I love using the app, but the beta install-and-reinstall process is less than ideal. Thanks!</description>
+    
+    <lastBuildDate>Fri, 09 Apr 2021 20:28:39 +0000</lastBuildDate>
+    <category>Drafts for Mac</category>
+    <atom:link href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[tjluoma]]></dc:creator>
+        <description><![CDATA[
+            <p>Ok, the script has been updated to:</p>
+<ol>
+<li>
+<p>Install to the standard location of <code>/Applications/Drafts.app</code></p>
+</li>
+<li>
+<p>Check to see if an existing <code>/Applications/Drafts.app</code> installation is from the Mac App Store, and (if so) warn the user that they must manually remove the version before using this script. The message <em>also</em> warns against installing both versions at the same time.</p>
+</li>
+</ol>
+<p>Here’s an example where I have the standard version installed and ran the update script:</p>
+<blockquote>
+<p>di-drafts-beta: Outdated: 26.1.5 vs 26.2.2</p>
+<p>WARNING! The version of Drafts found at ‘/Applications/Drafts.app’ is from the Mac App Store.</p>
+<p>/usr/local/di/di-drafts-beta.sh can only install or update the <em>beta</em> version of Drafts.</p>
+<p>If you wish to use the beta, you must first remove the Drafts.app from the Mac App Store.</p>
+<p>Please note that having <em>both</em> versions installed is <strong>HIGHLY DISCOURAGED</strong><br>
+and could cause <strong>data loss or corruption</strong>.</p>
+<p>Please don’t do that.</p>
+</blockquote>
+<p>Of course the Terminal can’t interpret Markdown, but it still gets the raw emphasis and bold characters.</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/14</link>
+        <pubDate>Fri, 09 Apr 2021 20:18:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-14</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, I think so. People can always switch back to App Store version if they decide to get off beta, but have both is just likely to cause confusion.</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/13</link>
+        <pubDate>Fri, 09 Apr 2021 18:01:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-13</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[tjluoma]]></dc:creator>
+        <description><![CDATA[
+            <p>Hrm… this makes me think that I should change the script to install to <code>/Applications/Drafts.app</code> (and refuse to install if a root-owned app already lives there).</p>
+<p>Would you consider that a better idea?</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/12</link>
+        <pubDate>Fri, 09 Apr 2021 17:48:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-12</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I will say, for the record, it’s not a great idea to have both the production <em>and</em> beta versions installed, and it’s 100% a <strong>really bad idea</strong> to run both at the same time. They will both read-write from the same data stores and that could create some real problems. It also creates conflicts if you use URL schemes at all.</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/11</link>
+        <pubDate>Fri, 09 Apr 2021 16:21:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-11</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[tjluoma]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh… well that’s about 10,000 times better.</p>
+<p>I have updated the script to use that instead.</p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/10</link>
+        <pubDate>Fri, 09 Apr 2021 15:05:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-10</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>If you want a more reliable way to check current beta version, this is where the app itself checks:</p>
+<p><code>https://config.agiletortoise.com/drafts-mac/beta/build-status.json</code></p>
+<p>It’s just a JSON file with the current beta build number:</p>
+<pre><code class="lang-json">{
+	"latest-version": "26.2.2",
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/9</link>
+        <pubDate>Fri, 09 Apr 2021 13:48:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-9</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[tjluoma]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, HTML scraping to get the version number means that this will break if the formatting of that page changes… however, until then, an updating script can be found at <a href="https://github.com/tjluoma/di/blob/main/di-drafts-beta.sh" rel="noopener nofollow ugc">di-drafts-beta.sh</a>.</p>
+<p><s># NOTE!</s></p>
+<p><s>The beta will be installed to <strong><code>/Applications/Drafts Beta.app</code></strong> to allow the beta to be installed alongside the official release. This should hopefully avoid confusion and namespace collisions.</s></p>
+<h1>
+<a name="installation" class="anchor" href="https://forums.getdrafts.com#installation"></a>Installation</h1>
+<ol>
+<li>
+<p><a href="https://raw.githubusercontent.com/tjluoma/di/main/di-drafts-beta.sh" rel="noopener nofollow ugc">Download di-drafts-beta.sh</a> to your Mac.</p>
+</li>
+<li>
+<p>Save it to somewhere like <code>/usr/local/bin/di-drafts-beta.sh</code></p>
+</li>
+<li>
+<p>Make it executable: <code>chmod 755 /usr/local/bin/di-drafts-beta.sh</code></p>
+</li>
+<li>
+<p>(Optional) If you want it to run periodically, save the text block below to something like: <code>~/Library/LaunchAgents/com.tjluoma.update-drafts-beta.plist</code> (where <code>~</code> is your home directory):</p>
+</li>
+</ol>
+<pre><code class="lang-auto">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;Label&lt;/key&gt;
+	&lt;string&gt;com.tjluoma.update-drafts-beta&lt;/string&gt;
+	&lt;key&gt;Program&lt;/key&gt;
+	&lt;string&gt;/usr/local/di/di-drafts-beta.sh&lt;/string&gt;
+	&lt;key&gt;RunAtLoad&lt;/key&gt;
+	&lt;true/&gt;
+	&lt;key&gt;StandardErrorPath&lt;/key&gt;
+	&lt;string&gt;/tmp/com.tjluoma.update-drafts-beta-stderr.txt&lt;/string&gt;
+	&lt;key&gt;StandardOutPath&lt;/key&gt;
+	&lt;string&gt;/tmp/com.tjluoma.update-drafts-beta-stdout.txt&lt;/string&gt;
+	&lt;key&gt;StartInterval&lt;/key&gt;
+	&lt;integer&gt;21600&lt;/integer&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<p>Then run</p>
+<p><code>launchctl load ~/Library/LaunchAgents/com.tjluoma.update-drafts-beta.plist</code></p>
+<p>It will check for a new version every 21,600 seconds (aka 6 hours). You can adjust that time by editing the <code>StartInterval</code> key (replace <code>21600</code> with the number of seconds you want). <em>Tip:</em> There are 3600 seconds per hour. But you knew that already.</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/8</link>
+        <pubDate>Fri, 09 Apr 2021 13:35:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-8</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Beta info still here:</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      
+      <a href="https://docs.getdrafts.com/beta/" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/1/1d31b46403f63e2264cb5d25434187b7b244f018_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/beta/" target="_blank" rel="noopener">Beta Program</a></h3>
+
+<p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/7</link>
+        <pubDate>Fri, 09 Apr 2021 12:39:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-7</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[tjluoma]]></dc:creator>
+        <description><![CDATA[
+            <p>Is there still a Mac beta? I seem to have lost track.</p>
+<p>I think that <code>di-drafts.sh</code> stopped working once Drafts for Mac arrived in the Mac App Store, but if there’s a new beta, I’ll be happy to take another look.</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/6</link>
+        <pubDate>Fri, 09 Apr 2021 12:30:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-6</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[benfsmith]]></dc:creator>
+        <description><![CDATA[
+            <p>I came looking for something similar. The link to tjluoma’s script appears to be broken. Does anyone know if it was moved or a better solution has since been developed? I created a partial solution with KM and Hazel, but it isn’t great</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/5</link>
+        <pubDate>Sun, 28 Mar 2021 14:15:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-5</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[chadbailey59]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, Greg. That explanation makes sense.</p>
+<p>And thanks for that script, tjluoma. It looks like it does exactly what I need.</p>
+<p>If anyone else comes across this thread and wants an easy way to automate running that script, I use an app called Lingon 3 from the Mac App Store for easily creating plists like tjluoma described. In about 30 seconds, I had that script running on startup and every 4 hours.</p>
+<p>Thanks again, everyone!</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/4</link>
+        <pubDate>Tue, 12 Mar 2019 15:40:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-4</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[tjluoma]]></dc:creator>
+        <description><![CDATA[
+            <p>Well, as I am wont to do, I wrote a shell script that I use to keep the Drafts beta up-to-date.</p>
+<p>So far it has worked very well for me.</p>
+<p>You can find it here:</p>
+<p><a href="https://github.com/tjluoma/di/blob/master/di-drafts.sh" rel="nofollow noopener">https://github.com/tjluoma/di/blob/master/di-drafts.sh</a></p>
+<p>It only uses tools which come with macOS by default, so you don’t need to download/install anything else.</p>
+<p>I don’t know what your level of comfort/expertise is with dealing with shell scripts on macOS, but feel free to reply here if you need help getting it set up.</p>
+<p>The best/easiest way to use it is to use a <code>launchd</code> plist which will run it automatically once or twice a day. I can put one together if that would help (I’m on my iPad at the moment or else I would have just attached one to this post).</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/3</link>
+        <pubDate>Sat, 09 Mar 2019 06:45:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-3</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The final app will only be distributed via the Mac App Store, so I have not taken time to incorporate other upgrade options solely for the beta.  Perhaps sometime down the road, but there will be a production release in the App Store soon and that will be the best way keep current.</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/2</link>
+        <pubDate>Fri, 08 Mar 2019 20:47:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-2</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+      <item>
+        <title>Auto-updating the Mac beta</title>
+        <dc:creator><![CDATA[chadbailey59]]></dc:creator>
+        <description><![CDATA[
+            <p>Howdy everyone! I’ve been a Drafts user for a while, and the Mac app is already establishing an important place in my desktop workflow. Fantastic work so far, Greg.</p>
+<p>Is there any chance the Mac app will move to Sparkle or a similar framework for auto-updating the beta? I love using the app, but the beta install-and-reinstall process is less than ideal. Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948/1</link>
+        <pubDate>Fri, 08 Mar 2019 19:33:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3948-1</guid>
+        <source url="https://forums.getdrafts.com/t/auto-updating-the-mac-beta/3948.rss">Auto-updating the Mac beta</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Obsidian with Drafts</title>
+    <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221</link>
+    <description>![image|500x500, 50%](upload://hVK9uiem912r4Uzuuq2ENlHAkde.jpeg)
+
+- [**Obsidian Website**](https://obsidian.md)
+- **URL Scheme**: `obsidian://`
+- [**URL Scheme Documentation**](https://help.obsidian.md/Advanced+topics/Using+obsidian+URI)
+
+&gt; Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to expand on these ideas, or let us know if we&#39;ve missed something important.
+
+[Obsidian](https://obsidian.md) is a popular personal knowledge management application that focuses on organizing and cross-linking Markdown files.
+
+Drafts works nicely as a capture front-end for Obsidian. This article covers methods available to send items you have captured in Drafts to your Obsidian vaults. The actions provide here are all cross-platform and will work on both iOS and Mac.
+
+Not all ways to work with Obsidian are covered here, just some basics to get you started.
+
+## URL-Based Actions
+
+[Obsidian’s URL scheme support](https://help.obsidian.md/Advanced+topics/Using+obsidian+URI) allows Drafts to create new files in Obsidian, passing details to control which vault, file name, and content to include.
+
+Below are example actions with variations of what is possible with URLs, see &quot;Modifying URL Action Examples&quot; below for details on adapting these to your needs:
+
+- [**Send to Obsidian**](https://actions.getdrafts.com/a/1qB)
+	- This action creates a new file with the content of the current draft in the active Obsidian vault, using the first line of the draft as a file name. It also appends any tags assigned in Drafts as #hashtags at the end of the file. The file will be stored in the default location for new files, as specified in Obsidian settings.
+- [**Send to Obsidian Vault**](https://actions.getdrafts.com/a/1qm)
+	- A modified version of the above action, this action also specifies which vault to use. If you have multiple Obsidian vaults, you might create multiple duplicates of this action, specifying a different target vault in each. See the &quot;Modifying...&quot; section below for details on changing the vault name.
+
+For advanced use cases, see the [Obsidian URL documentation](https://help.obsidian.md/Advanced+topics/Using+obsidian+URI) for details on available parameters. It is possible to use different parameter combinations to target specific paths, etc.
+
+#### Modifying URL Action Examples
+
+Each of the example actions above defines the parameters used to construct the Obsidian URL in a series of &quot;Define Template Tag&quot; action steps. To modify these parameters, you can edit the templates of each of these steps.
+
+For the &quot;Send to Obsidian Vault&quot; example to be useful, you will have to edit the action and change the template value &quot;MY-VAULT&quot; in the first step of the action to match the name of a vault in your Obsidian installation.
+
+![obsidian-url|690x386](upload://uCVthd02cpGSEVQfzEk9QCrC4PB.png)
+
+#### URL Pros &amp; Cons
+
+- **PROS**:
+	- Not important where you store your vaults.
+	- Works with encrypted vaults.
+	- After completion, you are left in Obsidian editing the newly created file, if you need to make any additional tweaks.
+- **CONS**:
+	- Obsidian app must opened to complete the action.
+	- Obsidian does not support callback URLs, so this method cannot return results to Drafts, or be combined with other action steps as effectively.
+	- Cannot update existing files, only create new ones.
+
+## File-Based Actions
+
+Obsidian vaults are a set of text files in a folder. Drafts can read-write-update files. Therefore, as long as your Obsidian vault is stored in a location accessible to Drafts actions, Drafts can also add to files in your vault directly, without the need to launch Obsidian.
+
+&gt; Both of the below example actions rely on [Folder Bookmarks](https://docs.getdrafts.com/docs/settings/bookmarks), a new feature introduced in Draft v28. Make sure you are up-to-date before using these actions.
+
+Below are file action examples:
+
+- [**Save to Obsidian Vault**](https://actions.getdrafts.com/a/1qn)
+	- Save current draft to the root folder associated with the bookmark named &quot;Obsidian Vault&quot;, using the first line as the file name.
+- [**Append to Obsidian Journal**](https://actions.getdrafts.com/a/1qo)
+	- Appends text of current draft to daily journal file named like `Daily-YYYY-MM-DD` in the folder `Journal`. If the file does not exist, it will be created.
+
+#### About Bookmarks
+
+Both of these examples rely on [Folder Bookmarks](https://docs.getdrafts.com/docs/settings/bookmarks). The first time you run each of these examples on a device, you will be prompted to select your Obsidian Vault folder to grant Drafts permission to create files in that folder. More details on how bookmarks operate in the docs, but your vault must reside in a location which can be accessed by bookmarks. On Mac, this is any folder you have permissions to modify, but it is more limited on iOS, as many file provider apps (like Dropbox, Google Drive) do not support bookmarking. The most reliable place to store a vault to be able to use file-based actions on iOS is in your iCloud Drive folder.
+
+#### Modifying File Actions
+
+Each of the above examples uses a single [File action step](https://docs.getdrafts.com/docs/actions/steps/services#file). File action steps have extensive options for configuring the path, file name, and content of the file. See [docs](https://docs.getdrafts.com/docs/actions/steps/services#file) for details on configuring these options.
+
+![obsidian-file|690x386, 100%](upload://dkc02f6qxYiYrD0mVVsF3ibFZXM.png)
+
+#### File Pros &amp; Cons
+
+- **PROS**:
+	- No need to launch Obsidian to add content to a vault.
+	- Actions can also append-prepend-update files, not just create new ones.
+- **CONS**:
+	- Vault must be store in a location accessible to Drafts.</description>
+    
+    <lastBuildDate>Fri, 04 Feb 2022 21:31:34 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Obsidian with Drafts</title>
+        <dc:creator><![CDATA[BillPetro]]></dc:creator>
+        <description><![CDATA[
+            <p>I love these plugins, but I’m still having difficulty defining my valutName.</p>
+<p>My vault is in my iCloud Drive &gt; Obsidian &gt; BillPetro</p>
+<p>However, even using Advanced Obsidian URI, I’m still getting an error:</p>
+<p>What am I doing wrong?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/850c82dc2798303b07de3b7ee6de955c107e3eb9" title="Drafts"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9_2_318x500.jpeg" alt="Drafts" data-base62-sha1="iZ0j8nzefvpFZNVtMfaxUzkxpJn" width="318" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9_2_318x500.jpeg, https://forums.getdrafts.com/uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/850c82dc2798303b07de3b7ee6de955c107e3eb9_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/6</link>
+        <pubDate>Fri, 04 Feb 2022 21:31:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11221-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+      </item>
+      <item>
+        <title>Using Obsidian with Drafts</title>
+        <dc:creator><![CDATA[alehandrof]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you for this guide! I had used the build-in and Advanced Obsidian URI plugins, but found them flimsy, especially on mobile. The app would need to open and often the text would get lost somewhere along the way.</p>
+<p>The “File-Based Actions” workflow is much more reliable for me.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/5</link>
+        <pubDate>Wed, 06 Oct 2021 06:32:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11221-5</guid>
+        <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+      </item>
+      <item>
+        <title>Using Obsidian with Drafts</title>
+        <dc:creator><![CDATA[miscellaneplans]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes! The Advanced Obsidian URI plugin works well. <a href="https://mattedwards.com.au/" rel="noopener nofollow ugc">Matt Edwards</a> helped me figure out how to append to my daily note in Obsidian, as well as how to create new files anywhere in Obsidian—all from Drafts.<br>
+Here are the two actions he made:</p><aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1q8">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1q8" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1q8" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Append to Obsidian Daily Note</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1qe">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://actions.getdrafts.com/a/1qe" target="_blank" rel="noopener nofollow ugc">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1qe" target="_blank" rel="noopener nofollow ugc">Drafts Directory: Send to Obsidian Folder</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>I wrote about how I use these actions in my Obsidian productivity system, <a href="https://medium.com/produclivity/a-step-by-step-guide-for-creating-your-own-delicious-slice-of-text-based-productivity-8ad4a7d8a7b5" rel="noopener nofollow ugc">here</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/4</link>
+        <pubDate>Mon, 27 Sep 2021 00:41:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11221-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+      </item>
+      <item>
+        <title>Using Obsidian with Drafts</title>
+        <dc:creator><![CDATA[mikecufc]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you so much!!!</p>
+          <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/3</link>
+        <pubDate>Tue, 21 Sep 2021 23:16:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11221-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+      </item>
+      <item>
+        <title>Using Obsidian with Drafts</title>
+        <dc:creator><![CDATA[motopascyyy]]></dc:creator>
+        <description><![CDATA[
+            <p>Just wanted to share something regarding using URL schemes to append/prepend to existing files. It is possible to do this but for now at least, you need to use a plugin such as the <a href="https://github.com/Vinzent03/obsidian-advanced-uri">Advanced Obsidian URI</a> plugin. It will require you to use a different syntax and obviously isn’t supported by the main development team but something for people to consider.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/2</link>
+        <pubDate>Tue, 21 Sep 2021 21:37:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11221-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+      </item>
+      <item>
+        <title>Using Obsidian with Drafts</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/7dabfb5511d212b7b8358016f48fb1081909b4b4" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_250x250.jpeg" alt="image" data-base62-sha1="hVK9uiem912r4Uzuuq2ENlHAkde" width="250" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_250x250.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_375x375.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_500x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7dabfb5511d212b7b8358016f48fb1081909b4b4_2_10x10.png"></a></div><p></p>
+<ul>
+<li><a href="https://obsidian.md"><strong>Obsidian Website</strong></a></li>
+<li>
+<strong>URL Scheme</strong>: <code>obsidian://</code>
+</li>
+<li><a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<blockquote>
+<p>Disclaimer: We are not Obsidian experts! This guide is meant to get people started with the basics of using Drafts with Obsidian. Feel free to expand on these ideas, or let us know if we’ve missed something important.</p>
+</blockquote>
+<p><a href="https://obsidian.md">Obsidian</a> is a popular personal knowledge management application that focuses on organizing and cross-linking Markdown files.</p>
+<p>Drafts works nicely as a capture front-end for Obsidian. This article covers methods available to send items you have captured in Drafts to your Obsidian vaults. The actions provide here are all cross-platform and will work on both iOS and Mac.</p>
+<p>Not all ways to work with Obsidian are covered here, just some basics to get you started.</p>
+<h2>
+<a name="url-based-actions-1" class="anchor" href="https://forums.getdrafts.com#url-based-actions-1"></a>URL-Based Actions</h2>
+<p><a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI">Obsidian’s URL scheme support</a> allows Drafts to create new files in Obsidian, passing details to control which vault, file name, and content to include.</p>
+<p>Below are example actions with variations of what is possible with URLs, see “Modifying URL Action Examples” below for details on adapting these to your needs:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1qB"><strong>Send to Obsidian</strong></a>
+<ul>
+<li>This action creates a new file with the content of the current draft in the active Obsidian vault, using the first line of the draft as a file name. It also appends any tags assigned in Drafts as <span class="hashtag">#hashtags</span> at the end of the file. The file will be stored in the default location for new files, as specified in Obsidian settings.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1qm"><strong>Send to Obsidian Vault</strong></a>
+<ul>
+<li>A modified version of the above action, this action also specifies which vault to use. If you have multiple Obsidian vaults, you might create multiple duplicates of this action, specifying a different target vault in each. See the “Modifying…” section below for details on changing the vault name.</li>
+</ul>
+</li>
+</ul>
+<p>For advanced use cases, see the <a href="https://help.obsidian.md/Advanced+topics/Using+obsidian+URI">Obsidian URL documentation</a> for details on available parameters. It is possible to use different parameter combinations to target specific paths, etc.</p>
+<h4>
+<a name="modifying-url-action-examples-2" class="anchor" href="https://forums.getdrafts.com#modifying-url-action-examples-2"></a>Modifying URL Action Examples</h4>
+<p>Each of the example actions above defines the parameters used to construct the Obsidian URL in a series of “Define Template Tag” action steps. To modify these parameters, you can edit the templates of each of these steps.</p>
+<p>For the “Send to Obsidian Vault” example to be useful, you will have to edit the action and change the template value “MY-VAULT” in the first step of the action to match the name of a vault in your Obsidian installation.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png" data-download-href="https://forums.getdrafts.com/uploads/default/d6a7b2f47d998be446eec4ee86b61cb6092646cf" title="obsidian-url"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_690x386.png" alt="obsidian-url" data-base62-sha1="uCVthd02cpGSEVQfzEk9QCrC4PB" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d6a7b2f47d998be446eec4ee86b61cb6092646cf_2_10x10.png"></a></div><p></p>
+<h4>
+<a name="url-pros-cons-3" class="anchor" href="https://forums.getdrafts.com#url-pros-cons-3"></a>URL Pros &amp; Cons</h4>
+<ul>
+<li>
+<strong>PROS</strong>:
+<ul>
+<li>Not important where you store your vaults.</li>
+<li>Works with encrypted vaults.</li>
+<li>After completion, you are left in Obsidian editing the newly created file, if you need to make any additional tweaks.</li>
+</ul>
+</li>
+<li>
+<strong>CONS</strong>:
+<ul>
+<li>Obsidian app must opened to complete the action.</li>
+<li>Obsidian does not support callback URLs, so this method cannot return results to Drafts, or be combined with other action steps as effectively.</li>
+<li>Cannot update existing files, only create new ones.</li>
+</ul>
+</li>
+</ul>
+<h2>
+<a name="file-based-actions-4" class="anchor" href="https://forums.getdrafts.com#file-based-actions-4"></a>File-Based Actions</h2>
+<p>Obsidian vaults are a set of text files in a folder. Drafts can read-write-update files. Therefore, as long as your Obsidian vault is stored in a location accessible to Drafts actions, Drafts can also add to files in your vault directly, without the need to launch Obsidian.</p>
+<blockquote>
+<p>Both of the below example actions rely on <a href="https://docs.getdrafts.com/docs/settings/bookmarks">Folder Bookmarks</a>, a new feature introduced in Draft v28. Make sure you are up-to-date before using these actions.</p>
+</blockquote>
+<p>Below are file action examples:</p>
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/1qn"><strong>Save to Obsidian Vault</strong></a>
+<ul>
+<li>Save current draft to the root folder associated with the bookmark named “Obsidian Vault”, using the first line as the file name.</li>
+</ul>
+</li>
+<li>
+<a href="https://actions.getdrafts.com/a/1qo"><strong>Append to Obsidian Journal</strong></a>
+<ul>
+<li>Appends text of current draft to daily journal file named like <code>Daily-YYYY-MM-DD</code> in the folder <code>Journal</code>. If the file does not exist, it will be created.</li>
+</ul>
+</li>
+</ul>
+<h4>
+<a name="about-bookmarks-5" class="anchor" href="https://forums.getdrafts.com#about-bookmarks-5"></a>About Bookmarks</h4>
+<p>Both of these examples rely on <a href="https://docs.getdrafts.com/docs/settings/bookmarks">Folder Bookmarks</a>. The first time you run each of these examples on a device, you will be prompted to select your Obsidian Vault folder to grant Drafts permission to create files in that folder. More details on how bookmarks operate in the docs, but your vault must reside in a location which can be accessed by bookmarks. On Mac, this is any folder you have permissions to modify, but it is more limited on iOS, as many file provider apps (like Dropbox, Google Drive) do not support bookmarking. The most reliable place to store a vault to be able to use file-based actions on iOS is in your iCloud Drive folder.</p>
+<h4>
+<a name="modifying-file-actions-6" class="anchor" href="https://forums.getdrafts.com#modifying-file-actions-6"></a>Modifying File Actions</h4>
+<p>Each of the above examples uses a single <a href="https://docs.getdrafts.com/docs/actions/steps/services#file">File action step</a>. File action steps have extensive options for configuring the path, file name, and content of the file. See <a href="https://docs.getdrafts.com/docs/actions/steps/services#file">docs</a> for details on configuring these options.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png" data-download-href="https://forums.getdrafts.com/uploads/default/5d64a0ed7b26bd7c246eea87ead747b03deb94d6" title="obsidian-file"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_690x386.png" alt="obsidian-file" data-base62-sha1="dkc02f6qxYiYrD0mVVsF3ibFZXM" width="690" height="386" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_690x386.png, https://forums.getdrafts.com/uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/5d64a0ed7b26bd7c246eea87ead747b03deb94d6_2_10x10.png"></a></div><p></p>
+<h4>
+<a name="file-pros-cons-7" class="anchor" href="https://forums.getdrafts.com#file-pros-cons-7"></a>File Pros &amp; Cons</h4>
+<ul>
+<li>
+<strong>PROS</strong>:
+<ul>
+<li>No need to launch Obsidian to add content to a vault.</li>
+<li>Actions can also append-prepend-update files, not just create new ones.</li>
+</ul>
+</li>
+<li>
+<strong>CONS</strong>:
+<ul>
+<li>Vault must be store in a location accessible to Drafts.</li>
+</ul>
+</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221/1</link>
+        <pubDate>Tue, 21 Sep 2021 20:34:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11221-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-obsidian-with-drafts/11221.rss">Using Obsidian with Drafts</source>
+      </item>
+  </channel>
+</rss>

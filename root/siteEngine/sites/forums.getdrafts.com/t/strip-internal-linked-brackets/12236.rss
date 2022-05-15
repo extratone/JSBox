@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Strip Internal Linked Brackets</title>
+    <link>https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236</link>
+    <description>I am assuming this is possible with some more advanced JavaScript than my own skills. I’d love to add to an action to strip the internal linked brackets (e.g., [[remove the brackets around this]]) within an action. 
+
+Any guidance would be great! Thanks so much.</description>
+    
+    <lastBuildDate>Sat, 05 Mar 2022 22:00:44 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Strip Internal Linked Brackets</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Try this code. It uses a regular expression pattern to replace each instance of text with double brackets around it with just the bracketed text, throughout the current draft content, and then update the current draft with the result.</p>
+<pre><code class="lang-auto">draft.content = draft.content.replace(/\[\[(.*)\]\]/g, "$1");
+draft.update();
+</code></pre>
+<p>Add it to a script step and check that it is sufficient for your uses.</p>
+<p>If you want a backup, add <code>draft.saveVersion();</code> before the previous two lines of code to crate a backup in the draft’s versions.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236/2</link>
+        <pubDate>Sat, 05 Mar 2022 22:00:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12236-2</guid>
+        <source url="https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236.rss">Strip Internal Linked Brackets</source>
+      </item>
+      <item>
+        <title>Strip Internal Linked Brackets</title>
+        <dc:creator><![CDATA[marcelosomers]]></dc:creator>
+        <description><![CDATA[
+            <p>I am assuming this is possible with some more advanced JavaScript than my own skills. I’d love to add to an action to strip the internal linked brackets (e.g., [[remove the brackets around this]]) within an action.</p>
+<p>Any guidance would be great! Thanks so much.</p>
+          <p><a href="https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236/1</link>
+        <pubDate>Sat, 05 Mar 2022 21:35:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12236-1</guid>
+        <source url="https://forums.getdrafts.com/t/strip-internal-linked-brackets/12236.rss">Strip Internal Linked Brackets</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Send to Obsidian with YAML | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="YFjNATgpz2IOyUNfkMsKAsjIdGfUXxZ+eVk9WWaGkbITR+uLXEJoh4GZ+A/EiFEcb2uqnCqPXNhUKG8gT34PQA==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Send to Obsidian with YAML" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1p2" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Send to Obsidian with YAML" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1p2" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/action_share.png" class="action-icon" />Send to Obsidian with YAML</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by CuriousRabbit,
+    Last update
+    9 months ago
+</div>
+
+    <div class='update_notes'>
+      <h3>UPDATES</h3>
+      <div id="firstUpdateNote">
+      <h4>9 months ago</h4>
+      <p>Version 1.0.1</p>
+
+<p>Add ability to send all drafts to a consistent location within the target vault. This effectivly creates a special “inbox” for all drafts sent to Obsidian.</p>
+
+<p>Add option of creating the Obsidian file silently, i.e., <br>
+not opening the new file or bringing it to the forground.</p>
+
+      </div>
+      <a href="1p2.html#" onclick="document.getElementById('firstUpdateNote').classList.add('hide');document.getElementById('additionalNotes').classList.remove('hide');this.classList.add('hide');return false;">show all updates...</a>
+      <div id="additionalNotes" class='hide'>
+        <div>
+        <h4>9 months ago</h4>
+        <p>Version 1.0.1</p>
+
+<p>Add ability to send all drafts to a consistent location within the target vault. This effectivly creates a special “inbox” for all drafts sent to Obsidian.</p>
+
+<p>Add option of creating the Obsidian file silently, i.e., <br>
+not opening the new file or bringing it to the forground.</p>
+
+        </div>
+        <div>
+        <h4>9 months ago</h4>
+        <p>Restructure things to allow for complete customization of the YAML front matter. Tags are always put in YAML form but other metadata can be defined as the user needs. By default the standard document metadata of Title, Author, Subject, Date, and Source are predefined. But, any or all of these can be changed or deleted. Or, more metadata can be added. Changed commentary in the code to explain the how-to of this. Hopefully a friendlier, more flexible tool for those not so comfortable with coding skills.  </p>
+
+        </div>
+        <div>
+        <h4>9 months ago</h4>
+        <h3>Updated 2021-08-12</h3>
+
+<ul>
+<li>Switch to using the draft creation date as the metadata date rather than the current calendar date.</li>
+<li>Clarify and amplify the commentary in the code for customization.</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='description'>
+        <p>Send a draft to Obsidian as a new note with YAML metadata as front matter. The tags and title metadata from the draft are carried over to the Obsidian note as front matter. </p>
+
+<p>Other YAML metadata keys are optionally provided.  I tried to structure things such that code neophytes can modify this to their purposes without too much trouble. </p>
+
+<p>The YAML keys incorportated here are what I thought would be reasonable meta data for a document, ala PDF or Word. Your needs and mileage may vary.</p>
+
+<p>Hopefully some people wil find this helpful. Email <a href="mailto:scripts@creeds.cloud">scripts@creeds.cloud</a> with bugs or suggestions. </p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1p2&amp;data=%7B%22uuid%22:%2216DA87B3-79A6-4DC4-A6A2-1B9B7E355BF5%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22/*%20%5Cn%20Ver%200.9.0%20Send%20Draft.app%20draft%20to%20Obsidian%20with%20YAML%20front%20matter.%202021-08-08%5Cn%20Ver%200.9.1%20Correct%20a%20copy/paste%20error%20causing%20runtime%20exception.%202021-08-09%5Cn%20Ver%200.9.2%20Switch%20YAML%20date%20to%20draft%20creation%20date.%20Clarify%20comments%202021-08-12%5Cn%20Ver%201.0.0%20Restructure%20to%20turn%20all%20YAML,%20except%20the%20tags,%20user%20configurable%5Cn%5Ct%5Ct%5Cttext.%20Makes%20configuration%20of%20custom%20YAML%20possible.%202021-08-18%5Cn%20Ver%201.0.1%20Add%20%5C%22inbox%5C%22%20folder%20option%20and%20createSilently%20option.%202021-08-21%20%5Cn%20%5Cn%20From%20a%20direction%20pointed%20to%20in%20Ulysses%20sheet%20w/%20tags%20action.%5Cn%20Thanks%20to%20Olivier%20Spinnler%20(@OlivierPS)%20and%20others.%20%5Cn%5Cn%20Metadata%20lines%20and%20tags%20are%20formatted%20as%20YAML%20front%20matter%20then%20appended%20%5Cn%20with%20the%20Draft%20text.%20The%20combined%20text%20is%20then%20sent%20as%20a%20new%20note%20to%20your%5Cn%20Obsidian%20vault.%20The%20text%20of%20the%20Draft%20remains%20unaltered%20by%20this%20code.%5Cn%20%5Cn%20%5Cn%20%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%20NOTE:%20Configurable%20items%20to%20set%20below%20%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cn%20%5Cn%20MANDATORY:%20Modify%20vaultName%20with%20the%20name%20of%20your%20target%20vault.%5Cn%20This%20action%20won&#39;t%20work%20without%20a%20correct%20name%20for%20an%20existing%20vault.%5Cn%20%5Cn%20*/%20%5Cn%20%5Cnconst%20vaultName%20%5Ct%5Ct=%20%5C%22your-vault-name-here%5C%22;%5Cn%5Cn%20/***NEW***%20The%20transfered%20note%20will%20be%20located%20either%20where%20Obsidian%20settings%20%5Cn%5Ctsay%20new%20files%20shoud%20go,%20OR,%20in%20a%20%5C%22inbox%5C%22%20folder%20you%20configure%20below.%5Cn%5Cn%20Examples:%5Cn%20%5Cn%20%5CtinFolder%20=%20%5C%22%5C%22%20will%20rely%20on%20the%20Obsidian%20settings%20for%20where%20to%20put%20the%20file.%5Cn%20%5CtIt%20should%20be%20noted%20that%20Obsidian&#39;s%20%5C%22Same%20folder%20as%20current%20file%5C%22%20setting%5Cn%20%5Ctwill%20depend%20on%20the%20currently%20open%20Obsidian%20file.%20The%20%5C%22current%20file%5C%22%20context%5Cn%20%5Ctexists%20even%20when%20Obsidian%20is%20not%20running.%20If%20a%20file%20was%20open%20on%20quit,%20that%5Cn%20%5Ctis%20the%20current%20file.%20If%20no%20file%20is/was%20open,%20Obsidian%20will%20locate%20the%20new%20%5Cn%20%5Ctfile%20at%20the%20top%20level%20of%20the%20vault%20as%20there%20is%20no%20other%20possible%20context%20%20%5Cn%20%5Ctfor%20%5C%22current%20file%5C%22.%20%5Cn%20%5Cn%20%5CtinFolder%20=%20%5C%22From-Drafts%5C%22%20will%20put%20the%20note%20in%20a%20%5C%22From-Drafts%5C%22%20folder%20which%5Cn%5Ctis%20assumed%20be%20in%20the%20top%20level%20of%20the%20vault.%20If%20%5C%22From-Drafts%5C%22%20does%20not%5Cn%20%5Ctcurrently%20exist,%20it%20will%20be%20created.%20%5Cn%20%5Cn%5CtinFolder%20=%20%5C%22gathered/Drafts%5C%22%20will%20place%20the%20note%20in%20the%20%5C%22Drafts%5C%22%20subfolder%5Cn%20%5Ctof%20the%20%5C%22gathered%5C%22%20folder.%20Those%20folders%20will%20be%20created%20if%20they&#39;re%20not%5Cn%20%5Ctalready%20there.%5Cn%20*/%5Cn%20%5Cnconst%20inFolder%20=%20%5C%22%5C%22;%5Cn%5Cn/***NEW***%20%20createSilently%20determines%20whether%20the%20Draft%20should%20silently%20create%5Cn%20%20%20the%20new%20Obsidian%20file%20in%20the%20vault,%20or,%20alternatively,%20should%20the%20new%20file%20%5Cn%20%20%20be%20opened%20and%20brought%20to%20the%20front.%20In%20either%20case%20Obsidian%20will%20be%20made%20the%5Cn%20%20%20active%20application.%5Cn*/%5Cn%5Cnconst%20createSilently%20=%20false;%5Cn%5Cn/*%5Cn%20%20%20Any%20one%20of%20the%20following%20headerItems%20can%20be%20changed%20to%20suit%20your%20needs.%5Cn%20%20%20The%20label,%20e.g.%20%5C%22Author%5C%22,%20gets%20combined%20with%20its%20value,%20e.g.%20%5C%22Mr.%20Magoo%5C%22,%5Cn%20%20%20to%20form%20a%20YAML%20metadata%20line,%20e.g.,%20%5C%22Author:%20Mr.%20Magoo%5C%22%5Cn%5Cn%20%20%20Values%20do%20not%20have%20to%20be%20literals,%20they%20can%20be%20calculated%20as%20shown%5Cn%20%20%20in%20the%20default%20Title%20or%20Date%20lines%20below.%20E.G.,%20if%20you%20wanted%20to%20have%5Cn%20%20%20the%20default%20Date%20item%20be%20todays%20date,%20use%20getISOShortDate(new%20Date)%5Cn%20%20%20For%20attributes%20of%20the%20draft,%20see%20https://scripting.getdrafts.com/classes/draft%5Cn%5Cn%5CtI%20chose%20these%20data%20as%20reasonable%20metadata%20for%20a%20document,%20ala%20PDF%20or%20%5Cn%5CtWord.%20Your%20needs%20and%20mileage%20may%20vary.%20I%20tried%20to%20make%20it%20easy%20for%20those%5Cn%5Ctuncomfortable%20with%20coding%20to%20change%20things%20to%20meet%20their%20requirements.%5Cn%5Cn%20%20%20Any%20or%20all%20of%20the%20frontmatter%20lines%20can%20be%20deleted%20if%20they&#39;re%20of%20no%20%5Cn%20%20%20value%20to%20you.%20Be%20sure%20to%20leave%20the%20lines%20%5C%22let%20headerItems%20=%20[%5C%22%20and%20%5C%22];%5C%22%5Cn%5Cn%20%20%20Conversely,%20you%20can%20add%20any%20new%20lines%20you%20need%20by%20following%20the%20pattern.%20%5Cn%5Cn*/%20%5Cn%5Cnlet%20headerItems%20=%20[%5Cn%5Ct%5Ct%7B%20%5C%22label%5C%22:%20%5C%22Title%5C%22,%20%5Ct%5C%22value%5C%22:%20(draft.displayTitle)%20%7D,%5Cn%5Ct%5Ct%7B%20%5C%22label%5C%22:%20%5C%22Author%5C%22,%20%5Ct%5C%22value%5C%22:%20%5C%22Mr.%20Magoo%5C%22%20%7D,%5Cn%5Ct%5Ct%7B%20%5C%22label%5C%22:%20%5C%22Subject%5C%22,%20%5C%22value%5C%22:%20%5C%22%5C%22%20%7D,%5Cn%5Ct%5Ct%7B%20%5C%22label%5C%22:%20%5C%22Date%5C%22,%20%5Ct%5Ct%5C%22value%5C%22:%20(getISOShortDate(draft.createdAt))%20%7D,%5Cn%5Ct%5Ct%7B%20%5C%22label%5C%22:%20%5C%22Source%5C%22,%20%5Ct%5C%22value%5C%22:%20%5C%22Drafts%5C%22%20%7D,%5Cn];%5Cn//%20%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%5Cu003e%20End%20of%20configuration%20variables%20%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cu003c%5Cn%5Cn%5Cnconst%20obsidianURL%20=%20%5C%22obsidian://new%5C%22;%5Cnlet%20cb%20=%20CallbackURL.create();%5Cncb.baseURL%20=%20obsidianURL;%5Cncb.addParameter(%20%5C%22vault%5C%22,%20vaultName%20);%5Cnif%20(createSilently)%20%5Cn%7B%5Cn%5Ctcb.addParameter(%20%5C%22silent%5C%22,%20createSilently%20);%20%20%5Cn%7D%5Cnif%20(inFolder%20==%20%5C%22%5C%22)%20%7B%5Cn%5Ctcb.addParameter(%20%5C%22name%5C%22,%20draft.displayTitle%20);%5Cn%7D%20%5Cnelse%20%5Cn%7B%5Cn%5Ctcb.addParameter(%20%5C%22file%5C%22,%20(inFolder%20+%20%5C%22/%5C%22%20+%20draft.displayTitle)%20)%5Cn%7D%5Cn%5Cn//%20Build%20CSV%20list%20of%20Drafts%20tags,%20spaces%20in%20tags%20changed%20to%20&#39;_&#39;%5Cnlet%20tags%20=%20draft.tags;%5Cnlet%20noteTags%20=%20%5C%22%5C%22;%5Cnfor%20(let%20i%20=%200;%20i%20%5Cu003c%20tags.length;%20i++)%20%7B%5Cn%5Ctlet%20nstag%20=%20tags[i].replaceAll(%20&#39;%20&#39;,%20&#39;_&#39;);%5Cn%5CtnoteTags%20+=%20%5C%22%20%5C%22%20+%20nstag%20+%20%5C%22,%5C%22;%5Cn%7D%5Cn%5Cn//%20Delete%20the%20trailing%20comma%20from%20the%20tags.%20YAML%20doesn&#39;t%20care%20but%20it&#39;s%20ugly.%5CnnoteTags%20=%20noteTags.substring(%200,%20noteTags.length%20-%201%20);%5Cn%5Cn//%20Format%20YAML%20front%20matter%5Cnlet%20frontMatter%20=%20buildYAMLBlock(%20headerItems,%20noteTags%20);%5Cn%5Cn//%20Add%20the%20fully%20composed%20content%20to%20the%20note%20and%20go.%5Cncb.addParameter(%20%5C%22content%5C%22,%20frontMatter%20+%20draft.content%20);%5Cncb.waitForResponse%20=%20false;%5Cnvar%20success%20=%20cb.open();%5Cn%5Cn//%20TA%20DA!%20Our%20work%20is%20done%20here.%5Cn%5Cn//%20Utility%20functions:%5Cn%5Cn//%20YAML%20composition%20function.%20%5Cnfunction%20buildYAMLBlock(%20metadataItems,%20metadataTags%20)%20%7B%5Cn%5Ct%5Cn%5Ctlet%20yaml%20=%20%5C%22---%5C%5Cn%5C%22;%5Cn%5Ctfor%20(let%20i%20=%200;%20i%20%5Cu003c%20metadataItems.length;%20i++)%20%7B%5Cn%5Ct%5Ctyaml%20+=%20metadataItems[i].label%20+%20%5C%22:%20%5C%22%20+%20metadataItems[i].value%20+%20&#39;%5C%5Cn&#39;%5Cn%5Ct%7D%5Cn%5Ct//%20Tags%20always%20go%20out%20last.%5Cn%5Ctyaml%20+=%20%5C%22tags:%20[%5C%22%20+%20metadataTags%20+%20%5C%22%20]%5C%5Cn%5C%22;%5Cn%5Ctyaml%20+=%20%5C%22---%5C%5Cn%5C%22;%5Cn%5Ctreturn%20yaml;%5Cn%7D%5Cn%5Cn//%20Format%20a%20date%20string%20in%20yyyy-mm-dd%20format%5Cnfunction%20getISOShortDate(date)%20%7B%5Cn%5Ctconst%20month%20=%20%60$%7Bdate.getMonth()%20+%201%7D%60.padStart(2,%20%5C%220%5C%22)%5Cn%5Ctconst%20day%20=%20%60$%7Bdate.getDate()%7D%60.padStart(2,%20%5C%220%5C%22);%5Cn%5Ctreturn%20date.getFullYear()%20+%20%5C%22-%5C%22%20+%20month%20+%20%5C%22-%5C%22%20+%20day;%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22C7F74167-7D06-4420-885A-5E21A835CB3F%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:0,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Send%20to%20Obsidian%20with%20YAML%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22yellow%22,%22actionDescription%22:%22Send%20a%20draft%20to%20Obsidian%20as%20a%20new%20note%20with%20YAML%20metadata%20as%20front%20matter.%20The%20tags%20and%20title%20metadata%20from%20the%20draft%20are%20carried%20over%20to%20the%20Obsidian%20note%20as%20front%20matter.%5Cn%5CnOther%20YAML%20metadata%20keys%20are%20optionally%20provided.%20I%20tried%20to%20structure%20things%20such%20that%20code%20neophytes%20can%20modify%20this%20to%20their%20purposes%20without%20too%20much%20trouble.%5Cn%5CnThe%20YAML%20keys%20incorportated%20here%20are%20what%20I%20thought%20would%20be%20reasonable%20meta%20data%20for%20a%20document,%20ala%20PDF%20or%20Word.%20Your%20needs%20and%20mileage%20may%20vary.%5Cn%5CnHopefully%20some%20people%20wil%20find%20this%20helpful.%20Email%20scripts@creeds.cloud%20with%20bugs%20or%20suggestions.%5Cn%5CnVer.%200.9.1%20-%20fix%20a%20stupid%20mistake%20from%20a%20last%20minute%20edit%5CnVer%20.0.9.2%20-%20Switch%20YAML%20date%20to%20draft%20creation%20date.%20Clarify%20some%20comments.%20Add%20fictiious%20author%20name.%22,%22keyUseIcon%22:false,%22icon%22:%22action_share%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22C4B43073-AC0B-433B-B016-5A15C215642F%22,%22assignTags%22:[%22sent2obsidian%22],%22name%22:%22Send%20to%20Obsidian%20with%20YAML%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>/* 
+ Ver 0.9.0 Send Draft.app draft to Obsidian with YAML front matter. 2021-08-08
+ Ver 0.9.1 Correct a copy/paste error causing runtime exception. 2021-08-09
+ Ver 0.9.2 Switch YAML date to draft creation date. Clarify comments 2021-08-12
+ Ver 1.0.0 Restructure to turn all YAML, except the tags, user configurable
+			text. Makes configuration of custom YAML possible. 2021-08-18
+ Ver 1.0.1 Add &quot;inbox&quot; folder option and createSilently option. 2021-08-21 
+ 
+ From a direction pointed to in Ulysses sheet w/ tags action.
+ Thanks to Olivier Spinnler (@OlivierPS) and others. 
+
+ Metadata lines and tags are formatted as YAML front matter then appended 
+ with the Draft text. The combined text is then sent as a new note to your
+ Obsidian vault. The text of the Draft remains unaltered by this code.
+ 
+ 
+ &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; NOTE: Configurable items to set below &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+ 
+ MANDATORY: Modify vaultName with the name of your target vault.
+ This action won&#39;t work without a correct name for an existing vault.
+ 
+ */ 
+ 
+const vaultName 		= &quot;your-vault-name-here&quot;;
+
+ /***NEW*** The transfered note will be located either where Obsidian settings 
+	say new files shoud go, OR, in a &quot;inbox&quot; folder you configure below.
+
+ Examples:
+ 
+ 	inFolder = &quot;&quot; will rely on the Obsidian settings for where to put the file.
+ 	It should be noted that Obsidian&#39;s &quot;Same folder as current file&quot; setting
+ 	will depend on the currently open Obsidian file. The &quot;current file&quot; context
+ 	exists even when Obsidian is not running. If a file was open on quit, that
+ 	is the current file. If no file is/was open, Obsidian will locate the new 
+ 	file at the top level of the vault as there is no other possible context  
+ 	for &quot;current file&quot;. 
+ 
+ 	inFolder = &quot;From-Drafts&quot; will put the note in a &quot;From-Drafts&quot; folder which
+	is assumed be in the top level of the vault. If &quot;From-Drafts&quot; does not
+ 	currently exist, it will be created. 
+ 
+	inFolder = &quot;gathered/Drafts&quot; will place the note in the &quot;Drafts&quot; subfolder
+ 	of the &quot;gathered&quot; folder. Those folders will be created if they&#39;re not
+ 	already there.
+ */
+ 
+const inFolder = &quot;&quot;;
+
+/***NEW***  createSilently determines whether the Draft should silently create
+   the new Obsidian file in the vault, or, alternatively, should the new file 
+   be opened and brought to the front. In either case Obsidian will be made the
+   active application.
+*/
+
+const createSilently = false;
+
+/*
+   Any one of the following headerItems can be changed to suit your needs.
+   The label, e.g. &quot;Author&quot;, gets combined with its value, e.g. &quot;Mr. Magoo&quot;,
+   to form a YAML metadata line, e.g., &quot;Author: Mr. Magoo&quot;
+
+   Values do not have to be literals, they can be calculated as shown
+   in the default Title or Date lines below. E.G., if you wanted to have
+   the default Date item be todays date, use getISOShortDate(new Date)
+   For attributes of the draft, see https://scripting.getdrafts.com/classes/draft
+
+	I chose these data as reasonable metadata for a document, ala PDF or 
+	Word. Your needs and mileage may vary. I tried to make it easy for those
+	uncomfortable with coding to change things to meet their requirements.
+
+   Any or all of the frontmatter lines can be deleted if they&#39;re of no 
+   value to you. Be sure to leave the lines &quot;let headerItems = [&quot; and &quot;];&quot;
+
+   Conversely, you can add any new lines you need by following the pattern. 
+
+*/ 
+
+let headerItems = [
+		{ &quot;label&quot;: &quot;Title&quot;, 	&quot;value&quot;: (draft.displayTitle) },
+		{ &quot;label&quot;: &quot;Author&quot;, 	&quot;value&quot;: &quot;Mr. Magoo&quot; },
+		{ &quot;label&quot;: &quot;Subject&quot;, &quot;value&quot;: &quot;&quot; },
+		{ &quot;label&quot;: &quot;Date&quot;, 		&quot;value&quot;: (getISOShortDate(draft.createdAt)) },
+		{ &quot;label&quot;: &quot;Source&quot;, 	&quot;value&quot;: &quot;Drafts&quot; },
+];
+// &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; End of configuration variables &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+
+const obsidianURL = &quot;obsidian://new&quot;;
+let cb = CallbackURL.create();
+cb.baseURL = obsidianURL;
+cb.addParameter( &quot;vault&quot;, vaultName );
+if (createSilently) 
+{
+	cb.addParameter( &quot;silent&quot;, createSilently );  
+}
+if (inFolder == &quot;&quot;) {
+	cb.addParameter( &quot;name&quot;, draft.displayTitle );
+} 
+else 
+{
+	cb.addParameter( &quot;file&quot;, (inFolder + &quot;/&quot; + draft.displayTitle) )
+}
+
+// Build CSV list of Drafts tags, spaces in tags changed to &#39;_&#39;
+let tags = draft.tags;
+let noteTags = &quot;&quot;;
+for (let i = 0; i &lt; tags.length; i++) {
+	let nstag = tags[i].replaceAll( &#39; &#39;, &#39;_&#39;);
+	noteTags += &quot; &quot; + nstag + &quot;,&quot;;
+}
+
+// Delete the trailing comma from the tags. YAML doesn&#39;t care but it&#39;s ugly.
+noteTags = noteTags.substring( 0, noteTags.length - 1 );
+
+// Format YAML front matter
+let frontMatter = buildYAMLBlock( headerItems, noteTags );
+
+// Add the fully composed content to the note and go.
+cb.addParameter( &quot;content&quot;, frontMatter + draft.content );
+cb.waitForResponse = false;
+var success = cb.open();
+
+// TA DA! Our work is done here.
+
+// Utility functions:
+
+// YAML composition function. 
+function buildYAMLBlock( metadataItems, metadataTags ) {
+	
+	let yaml = &quot;---\n&quot;;
+	for (let i = 0; i &lt; metadataItems.length; i++) {
+		yaml += metadataItems[i].label + &quot;: &quot; + metadataItems[i].value + &#39;\n&#39;
+	}
+	// Tags always go out last.
+	yaml += &quot;tags: [&quot; + metadataTags + &quot; ]\n&quot;;
+	yaml += &quot;---\n&quot;;
+	return yaml;
+}
+
+// Format a date string in yyyy-mm-dd format
+function getISOShortDate(date) {
+	const month = `${date.getMonth() + 1}`.padStart(2, &quot;0&quot;)
+	const day = `${date.getDate()}`.padStart(2, &quot;0&quot;);
+	return date.getFullYear() + &quot;-&quot; + month + &quot;-&quot; + day;
+}</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Nothing
+        , Tags: sent2obsidian
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Info</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Info</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

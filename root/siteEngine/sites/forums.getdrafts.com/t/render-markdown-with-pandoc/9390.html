@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Render Markdown with Pandoc - Scripting - Drafts Community</title>
+    <meta name="description" content="I use Pandoc a lot to convert my Markdown documents to PDF, as it supports the inclusion of Latex snippets. 
+For me this is especially useful for Math equations. 
+Thus I created my first Drafts action (macOS only) to con&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="9390.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Render Markdown with Pandoc&#39;" href="https://forums.getdrafts.com/t/render-markdown-with-pandoc/9390.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_1024x747.jpeg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_1024x747.jpeg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/render-markdown-with-pandoc/9390" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/render-markdown-with-pandoc/9390" />
+<meta property="og:title" content="Render Markdown with Pandoc" />
+<meta name="twitter:title" content="Render Markdown with Pandoc" />
+<meta property="og:description" content="I use Pandoc a lot to convert my Markdown documents to PDF, as it supports the inclusion of Latex snippets.  For me this is especially useful for Math equations.  Thus I created my first Drafts action (macOS only) to convert my Markdown file to a PDF using Pandoc and I wanted to share it here:  As I don’t yet really have a lot of knowledge about how the different parts of a Drafts action work, I copied the sceleton from this post: https://forums.getdrafts.com/t/copy-notes-to-obsidian-folder/8787..." />
+<meta name="twitter:description" content="I use Pandoc a lot to convert my Markdown documents to PDF, as it supports the inclusion of Latex snippets.  For me this is especially useful for Math equations.  Thus I created my first Drafts action (macOS only) to convert my Markdown file to a PDF using Pandoc and I wanted to share it here:  As I don’t yet really have a lot of knowledge about how the different parts of a Drafts action work, I copied the sceleton from this post: https://forums.getdrafts.com/t/copy-notes-to-obsidian-folder/8787..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2020-12-21T08:44:57+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="9390.html">Render Markdown with Pandoc</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>, 
+            <a href='../../tag/mac.html' class='discourse-tag' rel="tag">mac</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jonatan'><span itemprop='name'>Jonatan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9390.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-21T08:44:57Z' class='post-time'>
+                December 21, 2020,  8:44am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-21T14:28:56Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I use Pandoc a lot to convert my Markdown documents to PDF, as it supports the inclusion of Latex snippets.<br>
+For me this is especially useful for Math equations.</p>
+<p>Thus I created my first Drafts action (macOS only) to convert my Markdown file to a PDF using Pandoc and I wanted to share it here:</p>
+<p>As I don’t yet really have a lot of knowledge about how the different parts of a Drafts action work, I copied the sceleton from this post: <a href="../copy-notes-to-obsidian-folder/8787/5.html">https://forums.getdrafts.com/t/copy-notes-to-obsidian-folder/8787/5</a></p>
+<p>I then replaced the <code>mv</code> command with pandoc and added an AppleScript at the end to invoke Preview to show the finished pdf (Now removed, see edit).</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/c084df417fa55a75ada9c996f56a997e06f3966b" title="Screenshot 2020-12-21 at 09.43.26"><img src="../../uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_684x500.jpeg" alt="Screenshot 2020-12-21 at 09.43.26" data-base62-sha1="rt6lN3Qevl5pS5pFZzfEEq5AktB" width="684" height="500" srcset="../../uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_684x500.jpeg, ../../uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_1026x750.jpeg 1.5x, ../../uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_1368x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c084df417fa55a75ada9c996f56a997e06f3966b_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screenshot 2020-12-21 at 09.43.26</span><span class="informations">2148×1568 227 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>The only step is a “Script” that has this content:</p>
+<pre><code class="lang-auto">function exportFile(p_strDestinationPath)
+{
+	// Write a file to the Drafts area
+	let fmLocal = FileManager.createCloud();
+	fmLocal.writeString("/convertthisfile.txt", draft.content);
+
+	// Set up a shell script to move the file out of the Drafts area
+	let strScript = `#!/bin/zsh
+	/usr/local/bin/pandoc "$HOME/Library/Mobile Documents/iCloud~com~agiletortoise~Drafts5/Documents/convertthisfile.txt" --pdf-engine=/Library/TeX/texbin/pdflatex -o "${p_strDestinationPath}"
+	open -a Preview "${p_strDestinationPath}"
+	`;
+	let shScript = ShellScript.create(strScript);
+
+	// Run the script
+	if (shScript.execute())
+	{
+		app.displayInfoMessage("Success");
+		return true;
+	}
+	else
+	{
+		app.displayErrorMessage("Error: " + shScript.standardError);
+		console.log(shScript.standardError);
+		return false;
+	}
+}
+
+exportFile("$HOME/Library/Mobile Documents/com~apple~CloudDocs/Temp/test_output_from_drafts.pdf");
+</code></pre>
+<p>Edit: I had previously used an AppleScript to launch Preview, but <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> suggested me using a shell command, which works great and is way faster. Thus I changed this post to reflect that improved version.</p>
+        </div>
+
+        <meta itemprop='headline' content='Render Markdown with Pandoc'>
+          <meta itemprop='keywords' content='actions, mac'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="https://forums.getdrafts.com/t/draft-to-pdf-attached-to-mail-message-on-mac/9240/4" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/draft-to-pdf-attached-to-mail-message-on-mac/9240/4'>
+                      <span itemprop='name'>Draft to PDF attached to Mail message on Mac?</span>
+                    </a>
+                    <meta itemprop='position' content='3'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9390.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-21T08:47:06Z' class='post-time'>
+                December 21, 2020,  8:47am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-21T08:47:06Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Does twiddle (<code>~</code>) not work - for the home directory?</p>
+        </div>
+
+        <meta itemprop='headline' content='Render Markdown with Pandoc'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jonatan'><span itemprop='name'>Jonatan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9390.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-21T08:51:30Z' class='post-time'>
+                December 21, 2020,  8:51am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-21T08:51:30Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Didn’t event think about trying that one, but sadly: No <img src="../../images/emoji/apple/confused.png@v=9" title=":confused:" class="emoji" alt=":confused:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Render Markdown with Pandoc'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9390.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-21T09:00:08Z' class='post-time'>
+                December 21, 2020,  9:00am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-21T09:00:08Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s actually why I asked it as a tentative question. <img src="../../images/emoji/apple/frowning.png@v=9" title=":frowning:" class="emoji" alt=":frowning:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Render Markdown with Pandoc'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9390.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-21T10:00:08Z' class='post-time'>
+                December 21, 2020, 10:00am
+              </time>
+              <meta itemprop='dateModified' content='2020-12-21T10:00:08Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Jonatan" data-post="1" data-topic="9390">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/j/d07c76/40.png" class="avatar"> Jonatan:</div>
+<blockquote>
+<p>Sadly I didn’t get the $HOME variable to work in the AppleScript and had to write the path explicitly. If anyone has an idea how to fix that part I am more than happy for suggestions <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+</blockquote>
+</aside>
+<p>Rather than “fix” the AppleScript, how about just opening the PDF from the command line after you have generated it with pandoc?</p>
+<pre><code class="lang-auto">open -a Preview "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Temp/test_output_from_drafts.pdf"
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Render Markdown with Pandoc'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jonatan'><span itemprop='name'>Jonatan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="9390.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-12-21T14:24:43Z' class='post-time'>
+                December 21, 2020,  2:24pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-21T14:24:43Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="5" data-topic="9390">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p><code>open -a Preview "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Temp/test_output_from_drafts.pdf"</code></p>
+</blockquote>
+</aside>
+<p>Wow, how did I not think of this? Great solution, works like a charm and it’s way faster :)!</p>
+        </div>
+
+        <meta itemprop='headline' content='Render Markdown with Pandoc'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+    <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406</link>
+    <description>I  have an action that loops through the text in a draft, and where it finds an Apple message link (`x-apple-reminder://XXXXXX`) it replaces that line with a checklist item containing the reminder ID, so:
+
+&gt; preamble  
+&gt; some text x-apple-reminder://95E7E03F-A0AC-4BCA-8E6A-361FBFC65B5F  
+&gt; and more
+
+becomes 
+
+&gt; preamble  
+&gt; [ ] x-apple-reminder://95E7E03F-A0AC-4BCA-8E6A-361FBFC65B5F. 
+&gt; and more
+
+About half the time, the action discards most of the text, leaving only the *last* checklist item. No other text, no other checklist items, etc.
+
+If I paste the original text back in and run the same action again, after one or two tries, it works. 
+
+I&#39;m not clear how this is happening -- the script is very simple, and nothing asynchronous is going on. All on macOS, v19.2.0, by the way. The script:
+
+```js
+const lines = draft.content.split(/\n/);
+const outlines = [];
+
+lines.forEach((line) =&gt; {
+    const matches = line.match(/x-apple-reminder:\/\/(.+)/);
+
+    if (matches) {
+        outlines.push(`[ ] ${matches[1]}`);
+    }
+    else {
+        outlines.push(line);
+    }
+});
+
+draft.content = outlines.join(&quot;\n&quot;);
+```</description>
+    
+    <lastBuildDate>Thu, 14 May 2020 20:05:40 +0000</lastBuildDate>
+    <category>Issues</category>
+    <atom:link href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ll make a note to look into it. At least the mystery is solved for now.</p>
+          <p><a href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/6</link>
+        <pubDate>Thu, 14 May 2020 20:05:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7406-6</guid>
+        <source url="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss">Intermittent JavaScript action bug - losing text somewhere in the process</source>
+      </item>
+      <item>
+        <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+        <dc:creator><![CDATA[paulroub]]></dc:creator>
+        <description><![CDATA[
+            <p>Dug into the initial draft text. It’s coming through with CRs instead of LFs. So we see it was one big line, and therefore reduce to one checklist item. I may have been wrong about its sometimes working properly.</p>
+<p>Copying the text and pasting back in, we get LFs and the script works as expected.</p>
+<p>The text was created by piping a command’s output through <code>pbcopy</code>, then</p>
+<pre><code class="lang-auto">osascript -e 'tell application "Drafts"' \
+  -e 'set theText to (the clipboard as text)' \
+  -e '  make new draft with properties {content: theText, flagged: true}' \
+  -e 'end tell'
+</code></pre>
+<p>which seems to deliver carriage returns. The pasteboard was filled by <code>cat filename | pbcopy</code>, where the <code>filename</code>  file <em>does</em> contain LF-terminated lines.</p>
+<p>Anyway, having the script match <code>[\r\n]</code> solves the problem. Not sure if should be considered a bug that drafts created this way appear normal, but actually have oddball line endings.</p>
+          <p><a href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/5</link>
+        <pubDate>Thu, 14 May 2020 19:59:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7406-5</guid>
+        <source url="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss">Intermittent JavaScript action bug - losing text somewhere in the process</source>
+      </item>
+      <item>
+        <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>For debugging, good old <code>alert("Message")</code> calls are useful.</p>
+          <p><a href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/4</link>
+        <pubDate>Thu, 14 May 2020 19:57:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7406-4</guid>
+        <source url="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss">Intermittent JavaScript action bug - losing text somewhere in the process</source>
+      </item>
+      <item>
+        <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+        <dc:creator><![CDATA[paulroub]]></dc:creator>
+        <description><![CDATA[
+            <p>No - that’s what’s baffling. The <em>same</em> text, pasted back into the same draft, will run successfully. And sometimes it works on the first try.</p>
+<p>The drafts are created via AppleScript, but I’m not sure how that would affect anything.</p>
+<p>I’m calling it from the Action list, always – sometimes while focused on the draft text; sometimes just selecting the draft in the Inbox. No difference.</p>
+<p>Is there a way to see logging info that’s more than one line? I’ve tried scattering <code>app.displayInfoMessage()</code> around, to see <em>when</em> the text is getting lost – before the split, after, during the final join, or somewhere outside of the script; but there’s just the one line of info visible, and trying to select/copy dismisses it.</p>
+          <p><a href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/3</link>
+        <pubDate>Thu, 14 May 2020 19:23:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7406-3</guid>
+        <source url="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss">Intermittent JavaScript action bug - losing text somewhere in the process</source>
+      </item>
+      <item>
+        <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I just tried here and can’t get it to fail as you describe after a number of attempts.</p>
+<p>Is it anything specific about the text of the draft, or how you are calling the action (from list, action bar, menu, etc.) when it fails?</p>
+          <p><a href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/2</link>
+        <pubDate>Thu, 14 May 2020 18:57:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7406-2</guid>
+        <source url="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss">Intermittent JavaScript action bug - losing text somewhere in the process</source>
+      </item>
+      <item>
+        <title>Intermittent JavaScript action bug - losing text somewhere in the process</title>
+        <dc:creator><![CDATA[paulroub]]></dc:creator>
+        <description><![CDATA[
+            <p>I  have an action that loops through the text in a draft, and where it finds an Apple message link (<code>x-apple-reminder://XXXXXX</code>) it replaces that line with a checklist item containing the reminder ID, so:</p>
+<blockquote>
+<p>preamble<br>
+some text x-apple-reminder://95E7E03F-A0AC-4BCA-8E6A-361FBFC65B5F<br>
+and more</p>
+</blockquote>
+<p>becomes</p>
+<blockquote>
+<p>preamble<br>
+[ ] x-apple-reminder://95E7E03F-A0AC-4BCA-8E6A-361FBFC65B5F.<br>
+and more</p>
+</blockquote>
+<p>About half the time, the action discards most of the text, leaving only the <em>last</em> checklist item. No other text, no other checklist items, etc.</p>
+<p>If I paste the original text back in and run the same action again, after one or two tries, it works.</p>
+<p>I’m not clear how this is happening – the script is very simple, and nothing asynchronous is going on. All on macOS, v19.2.0, by the way. The script:</p>
+<pre><code class="lang-auto">const lines = draft.content.split(/\n/);
+const outlines = [];
+
+lines.forEach((line) =&gt; {
+    const matches = line.match(/x-apple-reminder:\/\/(.+)/);
+
+    if (matches) {
+        outlines.push(`[ ] ${matches[1]}`);
+    }
+    else {
+        outlines.push(line);
+    }
+});
+
+draft.content = outlines.join("\n");
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406/1</link>
+        <pubDate>Thu, 14 May 2020 17:54:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7406-1</guid>
+        <source url="https://forums.getdrafts.com/t/intermittent-javascript-action-bug-losing-text-somewhere-in-the-process/7406.rss">Intermittent JavaScript action bug - losing text somewhere in the process</source>
+      </item>
+  </channel>
+</rss>

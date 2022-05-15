@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Examples (Mac): AppleScript &amp; Shell Script | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="m0kC5VtDAn9Lsq942fYEDu34McEjsfy2PYRSAb0nOf6Ws0k4XRFq8MEn+0dywT/KhTK4S6NYnpRzyslyNhIgcQ==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Examples (Mac): AppleScript &amp; Shell Script" />
+    <meta property="og:url" content="https://directory.getdrafts.com/g/16C" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Examples (Mac): AppleScript &amp; Shell Script" />
+    <meta property="twitter:url" content="https://directory.getdrafts.com/g/16C" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action Group</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/script.png" class="action-icon" />Examples (Mac): AppleScript &amp; Shell Script</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+  Posted by agiletortoise,
+Last update about 2 years ago
+</div>
+
+
+<div class='description'>
+	<p>Several example actions demonstrating use of AppleScript and shell scripts form Drafts on the Mac.</p>
+
+</div>
+
+<div class="certification">
+  
+  <a class='trusted' href='16C.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="../assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /> Trusted member</a>
+</div>
+
+<div>
+  <a class="btn btn-blue" href="drafts5://actionGroup?identifier=16C&amp;data=%7B%22name%22:%22Examples%20(Mac):%20AppleScript%20%5Cu0026%20Shell%20Script%22,%22hidden%22:false,%22tintColor%22:%22none%22,%22actions%22:[%7B%22uuid%22:%221DE63C8A-717F-4904-928E-779DE5F1D8D4%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22on%20execute(draft)%5Cr%5Ctset%20theText%20to%20%5C%22%5C%22%5Cr%5Ct%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22UUID:%20%5C%22%20%5Cu0026%20uuid%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22TITLE:%20%5C%22%20%5Cu0026%20title%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22CR:%20%5C%22%20%5Cu0026%20createdAt%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22MOD:%20%5C%22%20%5Cu0026%20modifiedAt%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22F:%20%5C%22%20%5Cu0026%20folderName%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22Flagged:%20%5C%22%20%5Cu0026%20flagged%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctset%20theText%20to%20theText%20%5Cu0026%20%5C%22Syntax:%20%5C%22%20%5Cu0026%20languageGrammar%20of%20the%20draft%20%5Cu0026%20return%5Cr%5Ctdisplay%20dialog%20theText%5Cr%5Ct%5Crend%20execute%5Cr%22%7D,%22type%22:%22runAppleScript%22,%22isEnabled%22:true,%22uuid%22:%22C3225E17-99F1-4420-A6F2-6670CB2241FE%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22AppleScript:%20Show%20Draft%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22blue%22,%22actionDescription%22:%22Example%20action%20which%20demonstrates%20using%20an%20AppleScript%20in%20Drafts.%20This%20version%20just%20displays%20a%20dialog%20with%20the%20contents%20of%20the%20current%20draft,%20which%20are%20passed%20to%20the%20Run%20AppleScript%20step.%22,%22keyUseIcon%22:false,%22icon%22:%22script%22,%22visibility%22:384,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22AppleScript:%20Show%20Draft%22%7D,%7B%22uuid%22:%22EBAE855D-A6C1-4D1F-9229-1E102B60FE96%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22on%20execute(draft)%5Cr%5Ctreturn%20%7Bnum:%201,%20str:%20%5C%22best%5C%22%7D%5Crend%20execute%5Cr%5Cr%22%7D,%22type%22:%22runAppleScript%22,%22isEnabled%22:true,%22uuid%22:%22F498F60B-AB63-465A-AA5D-91EA81689BCD%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20If%20a%20previous%20Run%20AppleScript%20step%5Cn//%20returned%20a%20value,%20it%20will%20be%20in%20the%20%5Cn//%20%60context.appleScriptResponses%60%20array%5Cnalert(JSON.stringify(context.appleScriptResponses));%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22A4FE3199-CFC7-440B-B719-C3ED7EECFCF2%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22AppleScript:%20Handle%20Response%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22blue%22,%22actionDescription%22:%22Example%20action%20demonstrating%20how%20to%20get%20response%20data%20from%20an%20AppleScript%20in%20subsequent%20script%20steps.%22,%22keyUseIcon%22:false,%22icon%22:%22script%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22AppleScript:%20Handle%20Response%22%7D,%7B%22uuid%22:%220EEA909C-FF50-40C1-A945-95B73D60DAAF%22,%22steps%22:[%7B%22platforms%22:2,%22data%22:%7B%22script%22:%22let%20method%20=%20%5C%22execute%5C%22;%5Cnlet%20script%20=%20%60on%20execute(bodyHTML)%5Cn%5Cttell%20application%20%5C%22Safari%5C%22%5Cn%5Ct%5Ctactivate%5Cn%5Ctend%20tell%5Cn%5Ctreturn%20%5C%22Yeah!%5C%22%5Cnend%20execute%60;%5Cn%5Cnlet%20html%20=%20draft.processTemplate(%5C%22%25%25[[draft]]%25%25%5C%22);%5Cn%5Cnlet%20runner%20=%20AppleScript.create(script);%5Cnif%20(runner.execute(method,%20[html]))%20%7B%5Cn%5Ct//%20the%20AppleScript%20ran%20without%20error%5Cn%5Ct//%20if%20the%20script%20returned%20a%20result,%20it&#39;s%20available...%5Cn%5Ctalert(runner.lastResult);%5Cn%7D%5Cnelse%20%7B%5Cn%5Ctalert(runner.lastError);%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22D79E3C19-11EB-4511-BB63-1BC670121EA1%22%7D,%7B%22platforms%22:1,%22data%22:%7B%22promptKey%22:%22prompt%22,%22includeTextField%22:%22false%22,%22includeCancelButton%22:%22true%22,%22promptMessage%22:%22This%20action%20demonstrates%20features%20only%20available%20on%20the%20Mac%20version%20of%20Drafts.%22,%22promptTitle%22:%22iOS%20not%20supported%22,%22textFieldDefault%22:%22%22,%22promptButtons%22:%22OK%22%7D,%22type%22:%22prompt%22,%22isEnabled%22:true,%22uuid%22:%220B558ED8-2288-44DF-8BE4-020074DAEA4F%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22AppleScript:%20Run%20From%20Script%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22orange%22,%22actionDescription%22:%22Demonstrates%20calling%20AppleScript%20from%20JavaScript%20in%20a%20Script%20step.%22,%22keyUseIcon%22:false,%22icon%22:%22script%22,%22visibility%22:384,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22AppleScript:%20Run%20From%20Script%22%7D,%7B%22uuid%22:%22D5F304B4-D6A9-46CB-813E-26681E761D31%22,%22steps%22:[%7B%22platforms%22:2,%22data%22:%7B%22script%22:%22let%20script%20=%20%60%23!/bin/bash%5Cnecho%20%5C%22Total%20arguments%20:%20$%23%5C%22%5Cnecho%20%5C%221st%20Argument%20=%20$1%5C%22%5Cnecho%20%5C%222nd%20argument%20=%20$2%5C%22%5Cn%60;%5Cnlet%20runner%20=%20ShellScript.create(script);%5Cn%5Cnif%20(runner.execute([%5C%221%5C%22,%20%5C%222%5C%22]))%20%7B%5Cn%5Ctalert(%5C%22STDOUT:%20%5C%22%20+%20runner.standardOutput);%5Cn%7D%5Cnelse%20%7B%5Cn%5Ctalert(%5C%22STDERR:%20%5C%22%20+%20runner.standardError);%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%229E02151B-9D8C-48AD-8230-DAAD16BEDB1D%22%7D,%7B%22platforms%22:1,%22data%22:%7B%22promptKey%22:%22prompt%22,%22includeTextField%22:%22false%22,%22includeCancelButton%22:%22true%22,%22promptMessage%22:%22This%20action%20demonstrates%20features%20only%20available%20on%20the%20Mac%20version%20of%20Drafts.%22,%22promptTitle%22:%22iOS%20not%20supported%22,%22textFieldDefault%22:%22%22,%22promptButtons%22:%22OK%22%7D,%22type%22:%22prompt%22,%22isEnabled%22:true,%22uuid%22:%22C92082F7-4E42-4B07-BB58-A7695AA5681B%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22ShellScript:%20Bash%20Example%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22none%22,%22actionDescription%22:%22Run%20simple%20bash%20shell%20script%20via%20script.%20Mac%20only.%22,%22keyUseIcon%22:false,%22icon%22:%22code-alt%22,%22visibility%22:384,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22ShellScript:%20Bash%20Example%22%7D,%7B%22uuid%22:%2232A0C184-F452-4CEC-B911-FEAF9382F441%22,%22steps%22:[%7B%22platforms%22:2,%22data%22:%7B%22script%22:%22let%20script%20=%20%60%23!/usr/bin/env%20ruby%5CnARGV.each%20do%20%7Ca%7C%5Cn%20%20puts%20%5C%22Argument:%20%23%7Ba%7D%5C%22%5Cnend%5Cn%60;%5Cnlet%20runner%20=%20ShellScript.create(script);%5Cn%5Cnif%20(runner.execute([%5C%221%5C%22,%20%5C%222%5C%22]))%20%7B%5Cn%5Ctalert(%5C%22STDOUT:%5C%5Cn%5C%22%20+%20runner.standardOutput);%5Cn%7D%5Cnelse%20%7B%5Cn%5Ctalert(%5C%22STDERR:%5C%5Cn%5C%22%20+%20runner.standardError);%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%222C67BF71-9270-4949-AA36-A34BC44308F7%22%7D,%7B%22platforms%22:1,%22data%22:%7B%22promptKey%22:%22prompt%22,%22includeTextField%22:%22false%22,%22includeCancelButton%22:%22true%22,%22promptMessage%22:%22This%20action%20demonstrates%20features%20only%20available%20on%20the%20Mac%20version%20of%20Drafts.%22,%22promptTitle%22:%22iOS%20not%20supported%22,%22textFieldDefault%22:%22%22,%22promptButtons%22:%22OK%22%7D,%22type%22:%22prompt%22,%22isEnabled%22:true,%22uuid%22:%22586605A1-A584-4307-B5E5-7B69BA0E9C6F%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22ShellScript:%20Ruby%20Example%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22none%22,%22actionDescription%22:%22Run%20simple%20shell%20Ruby%20shell%20script.%20Mac%20only.%22,%22keyUseIcon%22:false,%22icon%22:%22code-alt%22,%22visibility%22:384,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22ShellScript:%20Ruby%20Example%22%7D,%7B%22uuid%22:%2284BF8EDD-EAD1-4307-A954-628EF9EA6B5C%22,%22steps%22:[],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22empty%22,%22discoverabilityTitle%22:%22Invalid%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22none%22,%22actionDescription%22:%22%22,%22keyUseIcon%22:false,%22icon%22:%22%22,%22visibility%22:480,%22backingIsSeparator%22:true,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[],%22name%22:%22Demo%22%7D,%7B%22uuid%22:%2276318A76-A753-4F73-8468-EFA0F4CD166E%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22on%20execute(draft)%5Cr%5Ctset%20docText%20to%20(%5C%22%23%23%20Safari%20Tabs%5C%22%20%5Cu0026%20linefeed%20as%20string)%20%5Cu0026%20linefeed%20as%20string%5Cr%5Cttell%20application%20%5C%22Safari%5C%22%5Cr%5Ct%5Ct--Variables%5Cr%5Ct%5Ctset%20windowCount%20to%20number%20of%20windows%5Cr%5Ct%5Ct%5Cr%5Ct%5Ct--Repeat%20for%20Every%20Window%5Cr%5Ct%5Ctrepeat%20with%20x%20from%201%20to%20windowCount%5Cr%5Ct%5Ct%5Ctset%20tabcount%20to%20number%20of%20tabs%20in%20window%20x%5Cr%5Ct%5Ct%5Ct%5Cr%5Ct%5Ct%5Ct--Repeat%20for%20Every%20Tab%20in%20Current%20Window%5Cr%5Ct%5Ct%5Ctrepeat%20with%20y%20from%201%20to%20tabcount%5Cr%5Ct%5Ct%5Ct%5Ct%5Cr%5Ct%5Ct%5Ct%5Ct--Get%20Tab%20Name%20%5Cu0026%20URL%5Cr%5Ct%5Ct%5Ct%5Ctset%20tabName%20to%20name%20of%20tab%20y%20of%20window%20x%5Cr%5Ct%5Ct%5Ct%5Ctset%20tabURL%20to%20URL%20of%20tab%20y%20of%20window%20x%5Cr%5Ct%5Ct%5Ct%5Ct%5Cr%5Ct%5Ct%5Ct%5Ctset%20docText%20to%20docText%20%5Cu0026%20%5C%22-%20[%5C%22%20%5Cu0026%20tabName%20%5Cu0026%20%5C%22](%5C%22%20%5Cu0026%20tabURL%20%5Cu0026%20%5C%22)%5C%22%20%5Cu0026%20linefeed%20as%20string%5Cr%5Ct%5Ct%5Ctend%20repeat%5Cr%5Ct%5Ct%5Ct%5Cr%5Ct%5Ctend%20repeat%5Cr%5Ctend%20tell%5Cr%5Ctreturn%20docText%5Crend%20execute%5Cr%5Cr--stub%20call%20to%20execute%20for%20easier%20testing%20in%20Script%20Editor%5Crexecute(%7B%7D)%22%7D,%22type%22:%22runAppleScript%22,%22isEnabled%22:true,%22uuid%22:%223A14F97F-F559-42D0-BE78-A7F694A16639%22%7D,%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22let%20d%20=%20Draft.create();%5Cnd.content%20=%20context.appleScriptResponses[0];%5Cnd.update();%5Cn%5Cneditor.load(d);%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22583B2A6E-96B0-47B4-9474-8F3FE9E6EBFD%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22New%20Draft%20with%20Safari%20Tabs%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22blue%22,%22actionDescription%22:%22Use%20AppleScript%20to%20gather%20all%20current%20tabs%20open%20in%20Safari%20and%20create%20a%20Markdown%20list%20in%20a%20new%20draft%20containing%20the%20title%20and%20URL%20of%20the%20pages%20in%20each%20tab.%22,%22keyUseIcon%22:false,%22icon%22:%22script%22,%22visibility%22:384,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22New%20Draft%20with%20Safari%20Tabs%22%7D,%7B%22uuid%22:%228F9EAA22-0517-42C6-BCCB-6DEDF2DDB007%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22let%20method%20=%20%5C%22openInBBEdit%5C%22;%5Cnlet%20script%20=%20%60on%20openInBBEdit(content)%5Cr%5Cttell%20application%20%5C%22BBEdit%5C%22%5Cr%5Ct%5Ctactivate%5Cr%5Ct%5Ctset%20theWin%20to%20make%20new%20text%20window%5Cr%5Ct%5Ctset%20the%20contents%20of%20theWin&#39;s%20document%20to%20content%5Cr%5Ctend%20tell%5Crend%20openInBBEdit%5Cr%60;%5Cn%5Cnlet%20runner%20=%20AppleScript.create(script);%5Cnif%20(!runner.execute(method,%20[draft.content]))%20%7B%5Cn%5Ctconsole.log(runner.lastError);%5Cn%5Ctcontext.fail();%5Cn%7D%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%224DF0B22C-D7C6-49A4-9B10-8656869D262B%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Send%20to%20BBEdit%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22blue%22,%22actionDescription%22:%22Demonstrates%20calling%20AppleScript%20from%20JavaScript%20in%20a%20Script%20step.%22,%22keyUseIcon%22:false,%22icon%22:%22script%22,%22visibility%22:384,%22backingIsSeparator%22:false,%22groupUUID%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22assignTags%22:[%22debug%22],%22name%22:%22Send%20to%20BBEdit%22%7D],%22modifiedAt%22:606067756.890245,%22disposition%22:0,%22uuid%22:%22E58E0DEC-214B-4122-890F-FDAFCE3DE05B%22,%22visibility%22:128,%22createdAt%22:606067756.890245,%22icon%22:%22script%22,%22changeTag%22:%22xn5%22%7D">Install</a>
+</div>
+
+<hr style="margin: 1em 0;"/>
+<h4>Included Actions</h4>
+<ul class='action-group'>
+  	<li>
+  		<div class='list_content'>
+  			AppleScript: Show Draft
+  		</div>
+  	</li>
+  	<li>
+  		<div class='list_content'>
+  			AppleScript: Handle Response
+  		</div>
+  	</li>
+  	<li>
+  		<div class='list_content'>
+  			AppleScript: Run From Script
+  		</div>
+  	</li>
+  	<li>
+  		<div class='list_content'>
+  			ShellScript: Bash Example
+  		</div>
+  	</li>
+  	<li>
+  		<div class='list_content'>
+  			ShellScript: Ruby Example
+  		</div>
+  	</li>
+  	<li class='separator'>
+  		<div class='list_content'>
+  			Demo
+  		</div>
+  	</li>
+  	<li>
+  		<div class='list_content'>
+  			New Draft with Safari Tabs
+  		</div>
+  	</li>
+  	<li>
+  		<div class='list_content'>
+  			Send to BBEdit
+  		</div>
+  	</li>
+</ul>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

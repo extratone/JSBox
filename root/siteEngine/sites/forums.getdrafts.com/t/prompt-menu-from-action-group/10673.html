@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Prompt Menu from Action Group - Scripting - Drafts Community</title>
+    <meta name="description" content="I’m wondering… Is it possible to set up an action group whose actions will be dynamically reflected in a prompt. 
+What I’m aiming at: 
+Each time I add or remove an action from group “Quick Actions”, the associated prompt&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10673.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Prompt Menu from Action Group&#39;" href="https://forums.getdrafts.com/t/prompt-menu-from-action-group/10673.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/prompt-menu-from-action-group/10673" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/prompt-menu-from-action-group/10673" />
+<meta property="og:title" content="Prompt Menu from Action Group" />
+<meta name="twitter:title" content="Prompt Menu from Action Group" />
+<meta property="og:description" content="I’m wondering… Is it possible to set up an action group whose actions will be dynamically reflected in a prompt.  What I’m aiming at:  Each time I add or remove an action from group “Quick Actions”, the associated prompt action will present a menu of buttons for running these actions, and will automatically be updated to reflect whichever actions are in that group.  I’m thinking this would be a more efficient way of updating prompt actions, by simply modifying this designated group, rather than ..." />
+<meta name="twitter:description" content="I’m wondering… Is it possible to set up an action group whose actions will be dynamically reflected in a prompt.  What I’m aiming at:  Each time I add or remove an action from group “Quick Actions”, the associated prompt action will present a menu of buttons for running these actions, and will automatically be updated to reflect whichever actions are in that group.  I’m thinking this would be a more efficient way of updating prompt actions, by simply modifying this designated group, rather than ..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2021-06-15T19:21:03+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="10673.html">Prompt Menu from Action Group</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/scripting/13" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #AB9364'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Scripting</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jimmy'><span itemprop='name'>Jimmy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-15T19:21:03Z' class='post-time'>
+                June 15, 2021,  7:21pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-15T19:21:03Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m wondering… Is it possible to set up an action group whose actions will be dynamically reflected in a prompt.</p>
+<p>What I’m aiming at:</p>
+<p>Each time I add or remove an action from group “Quick Actions”, the associated prompt action will present a menu of buttons for running these actions, and will automatically be updated to reflect whichever actions are in that group.</p>
+<p>I’m thinking this would be a more efficient way of updating prompt actions, by simply modifying this designated group, rather than changing the prompt action itself each time I want to tweak it.</p>
+<p>I’m guessing this is probably fairly straightforward… Search for actions in a group, generate button prompt for each action etc, however I’m still a newbie with js for some reason I tend to struggle the most with creating arrays, iteration etc<br>
+<img src="../../images/emoji/apple/woozy_face.png@v=9" title=":woozy_face:" class="emoji only-emoji" alt=":woozy_face:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-15T21:02:16Z' class='post-time'>
+                June 15, 2021,  9:02pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-15T21:02:16Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Jimmy" data-post="1" data-topic="10673">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/jimmy/40/5181_2.png" class="avatar"> Jimmy:</div>
+<blockquote>
+<p>I’m wondering… Is it possible to set up an action group whose actions will be dynamically reflected in a prompt.</p>
+</blockquote>
+</aside>
+<p>Yes it is.</p>
+<aside class="quote no-group" data-username="Jimmy" data-post="1" data-topic="10673">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/jimmy/40/5181_2.png" class="avatar"> Jimmy:</div>
+<blockquote>
+<p>I’m guessing this is probably fairly straightforward… Search for actions in a group, generate button prompt for each action etc,</p>
+</blockquote>
+</aside>
+<p>That sounds pretty reasonable.</p>
+<aside class="quote no-group" data-username="Jimmy" data-post="1" data-topic="10673">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/jimmy/40/5181_2.png" class="avatar"> Jimmy:</div>
+<blockquote>
+<p>however I’m still a newbie with js for some reason I tend to struggle the most with creating arrays, iteration etc</p>
+</blockquote>
+</aside>
+<p>Is that you asking for some sort of support, or someone to build it for you?</p>
+<p>I’m going to assume the former and you just need a nudge to tell you that you are on the right lines and perhaps some pointers to what you might need.</p>
+<p>Now, you could roll your own from scratch, but I’m going to point you instead to a couple of my action groups that include actions that will take out a lot of the prompt and trigger coding that would otherwise be required, allowing you to focus just on the population of an array of action names.</p>
+<hr>
+<p>In the <a href="../../../actions.getdrafts.com/g/1aM.html">ThoughtAsylum action group</a> there is a helper action called <code>TAD-Action Menu</code>.</p>
+<blockquote>
+<p>This is a helper action called from another action that sets up several template tags to populate the menu.</p>
+<p>There is an example action in the ThoughtAsylum - Power User action group called <code>TAD-Info Menu</code> that you can clone to build your own action menu.</p>
+<p>It uses <code>actiondisplaynames</code> and <code>actionnames</code> template tags to list the buttons and the actions they trigger (first line in one maps to first line in other, etc.</p>
+<p>It uses <code>prompttitle</code> and <code>promptmessage</code> template tags to specify the name and message for the prompt the user chooses from for which action to run.</p>
+</blockquote>
+<p>The <a href="../../../actions.getdrafts.com/g/1ct.html">ThoughtAsylum - Power User action group</a>, as noted above, contains <code>TAD-Info Menu</code>.</p>
+<p>You could duplicate this action, and modify it to use a script to set the <code>actiondisplaynames</code> and <code>action names</code> tags.</p>
+<p>I would recommend looking at the following to help you build a list of action names, and to set the two template tags (for your use case they would be identical).</p>
+<ul>
+<li>JavaScript
+<ul>
+<li><a href="https://www.w3schools.com/js/js_arrays.asp">Arrays</a></li>
+<li>
+<a href="https://www.w3schools.com/jsref/jsref_foreach.asp">Array forEach()</a> or <a href="https://www.w3schools.com/jsref/jsref_map.asp">Array map()</a>
+</li>
+<li><a href="https://www.w3schools.com/jsref/jsref_join.asp">Array join()</a></li>
+</ul>
+</li>
+<li>Draft
+<ul>
+<li>
+<a href="../../../scripting.getdrafts.com/classes/draft.html#settemplatetag">setTemplateTag()</a>.</li>
+</ul>
+</li>
+<li>Action Group
+<ul>
+<li><a href="../../../scripting.getdrafts.com/classes/actiongroup.html#find">find()</a></li>
+<li><a href="../../../scripting.getdrafts.com/classes/actiongroup.html#actions">actions</a></li>
+</ul>
+</li>
+<li>Action
+<ul>
+<li><a href="../../../scripting.getdrafts.com/classes/action.html#name">name</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>Key Points</strong></p>
+<ol>
+<li>“Find” your action group to get access to an array of action objects.</li>
+<li>Each action object has a “name”.</li>
+<li>Get the name of each of those actions and build a list with each action name on a new line. A good way to do this is to build an array of just the names and “join” them together with new line “<code>\n</code>” characters for example.</li>
+<li>“Set” the two “template tags” of the current draft to be the list, and your action should be all set.</li>
+</ol>
+<hr>
+<p>Hope that helps.</p>
+<p>Give it a try. If you get stuck, post your code and people will be able to point you in the right direction.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-15T21:06:50Z' class='post-time'>
+                June 15, 2021,  9:06pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-15T21:06:50Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I just put something together which maybe shout fit your needs: <a href="../../../actions.getdrafts.com/a/1nW.html" class="inline-onebox">ActionPrompt | Drafts Directory</a></p>
+<p>please try this and report if this helps <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-16T08:01:16Z' class='post-time'>
+                June 16, 2021,  8:01am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-16T08:01:16Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Literally your answer wasn’t there when I pressed reply.<br>
+I just looked at the TAD-Info Menu Action but it throws an error for the first two options, only the specific drafts works on my end. I reinstalled the actiongroup but it didn’t help:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/da4a00cae3d1eb0e17b6070468b2707718d139db" title="image"><img src="../../uploads/default/optimized/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db_2_230x500.jpeg" alt="image" data-base62-sha1="v94DE56UQqxQ7bg6aIQVIFPFktZ" width="230" height="500" srcset="../../uploads/default/optimized/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db_2_230x500.jpeg, ../../uploads/default/optimized/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db_2_345x750.jpeg 1.5x, ../../uploads/default/optimized/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db_2_460x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/da4a00cae3d1eb0e17b6070468b2707718d139db_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1125×2436 226 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-16T09:14:59Z' class='post-time'>
+                June 16, 2021,  9:14am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-16T09:14:59Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I fixed that issue <a href="https://www.thoughtasylum.com/taagdcl/#2021-05-31">at the end of May</a>. Do you have the latest version of the  ThoughtAsylum Action Group (not the Power User one) on your device?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-16T11:34:08Z' class='post-time'>
+                June 16, 2021, 11:34am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-16T11:34:08Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>thanks that fixed it… btw is ther any action which updates all installed ThoughtAsylum ActionGroups ?</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Jimmy'><span itemprop='name'>Jimmy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-16T12:31:09Z' class='post-time'>
+                June 16, 2021, 12:31pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-16T12:31:09Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you both for the assistance! <a class="mention" href="https://forums.getdrafts.com/u/flohgro">@FlohGro</a> I tried the action, however for some reason when I select an action from the Prompt, the same action is executed regardless of which button is pressed. <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> I’m going to take a closer look at the TAD route this evening, as this looks like a good learning opportunity.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-16T12:57:36Z' class='post-time'>
+                June 16, 2021, 12:57pm
+              </time>
+              <meta itemprop='dateModified' content='2021-06-16T12:57:36Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="FlohGro" data-post="6" data-topic="10673" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/flohgro/40/1621_2.png" class="avatar"> FlohGro:</div>
+<blockquote>
+<p>thanks that fixed it</p>
+</blockquote>
+</aside>
+<p>Great <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<aside class="quote no-group" data-username="FlohGro" data-post="6" data-topic="10673" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/flohgro/40/1621_2.png" class="avatar"> FlohGro:</div>
+<blockquote>
+<p>btw is ther any action which updates all installed ThoughtAsylum ActionGroups ?</p>
+</blockquote>
+</aside>
+<p>No. I’m not aware of any mechanism to push updates to action groups like that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/FlohGro'><span itemprop='name'>FlohGro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10673.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-06-17T04:52:40Z' class='post-time'>
+                June 17, 2021,  4:52am
+              </time>
+              <meta itemprop='dateModified' content='2021-06-17T04:52:40Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for reporting, I was able to reproduce it and fixed it. Please update the action: <a href="../../../actions.getdrafts.com/a/1nW.html" class="inline-onebox">ActionPrompt | Drafts Directory</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Prompt Menu from Action Group'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

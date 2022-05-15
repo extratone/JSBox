@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Flashcards in Drafts - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="For a while now I have been using Drafts as my main note taking app, and copying notes out to use in various flashcard apps. However, I realised I could save time by creating a rudimentary flashcard review system within &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="7936.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Flashcards in Drafts&#39;" href="https://forums.getdrafts.com/t/flashcards-in-drafts/7936.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/flashcards-in-drafts/7936" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/flashcards-in-drafts/7936" />
+<meta property="og:title" content="Flashcards in Drafts" />
+<meta name="twitter:title" content="Flashcards in Drafts" />
+<meta property="og:description" content="For a while now I have been using Drafts as my main note taking app, and copying notes out to use in various flashcard apps. However, I realised I could save time by creating a rudimentary flashcard review system within Drafts itself.  I’m very much a Javascript novice, and this has been a learning project for me. I cobbled together this action by looking at other example actions, and occasional Googling. Right now it functions pretty much as I would like, but I would be keen to hear any suggest..." />
+<meta name="twitter:description" content="For a while now I have been using Drafts as my main note taking app, and copying notes out to use in various flashcard apps. However, I realised I could save time by creating a rudimentary flashcard review system within Drafts itself.  I’m very much a Javascript novice, and this has been a learning project for me. I cobbled together this action by looking at other example actions, and occasional Googling. Right now it functions pretty much as I would like, but I would be keen to hear any suggest..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2020-07-16T05:15:15+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="7936.html">Flashcards in Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dhaysom'><span itemprop='name'>dhaysom</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-16T05:15:15Z' class='post-time'>
+                July 16, 2020,  5:15am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-16T05:15:15Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>For a while now I have been using Drafts as my main note taking app, and copying notes out to use in various flashcard apps. However, I realised I could save time by creating a rudimentary flashcard review system within Drafts itself.</p>
+<p>I’m very much a Javascript novice, and this has been a learning project for me. I cobbled together this action by looking at other example actions, and occasional Googling. Right now it functions pretty much as I would like, but I would be keen to hear any suggestions for improvements to the code itself (e.g. is there a more elegant solution to incorporating the CSS styling than the very long string it currently uses?), or the functionality of the action (e.g. are tags the best way to keep track of the review date and mastery count, or is there a better approach I’m missing?)</p>
+<p>The main action is called <a href="https://actions.getdrafts.com/a/1aT" rel="nofollow noopener"><strong>review flashcards</strong></a>, and <a href="https://actions.getdrafts.com/a/1aU" rel="nofollow noopener"><strong>convert to flashcard</strong></a> is a supplementary action.</p>
+<hr>
+<h2>Review Flashcards</h2>
+<h3>Tags</h3>
+<ul>
+<li>This action uses three types of tag:
+<ul>
+<li>
+<code>flashcard</code>: used to identify notes that are to be reviewed as flashcards</li>
+<li>
+<code>reviewYYYYMMDD</code>: used to keep track of the date when flashcards are due</li>
+<li>
+<code>masteryX</code>: used to calculate when the next review date will be</li>
+</ul>
+</li>
+</ul>
+<h3>Making Flashcards</h3>
+<ul>
+<li>turn any note into a flashcard by adding the three tags listed above, e.g. <code>flashcard</code>, <code>mastery1</code> and <code>review20200716</code>
+</li>
+<li>the action <strong>convert to flashcard</strong> will add these tags automatically</li>
+<li>use the line break (<code>---</code>) to split the flashcards into different sides
+<ul>
+<li>sides will be revealed one at a time</li>
+<li>there is no limit to the number of sides a flashcard can have</li>
+</ul>
+</li>
+</ul>
+<h3>Reviewing Flashcards</h3>
+<ul>
+<li>when this action is run, it will find all notes with the <code>flashcard</code> tag and a review date tag that is on or before the current date</li>
+<li>if you select “remembered”, the mastery count will be doubled</li>
+<li>if you select “forgot”, the mastery count will be halved (down to a minimum of 1)</li>
+<li>the new mastery count indicates the number of days before the next review
+<ul>
+<li>e.g. after remembering a card with the <code>mastery2</code> tag on 20200716, the tag will be updated to <code>mastery4</code>, and the review date tag will be updated to <code>review20200720</code>
+</li>
+<li>e.g. after forgetting a card with the <code>mastery2</code> tag on 20200716, the tag will be updated the <code>mastery1</code>, and the review date tag will be updated to <code>review20200717</code>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>Convert to Flashcard</h2>
+<p>Adds the following tags to the current note:</p>
+<ul>
+<li><code>flashcard</code></li>
+<li>
+<code>reviewYYYYMMDD</code> – the current date</li>
+<li><code>mastery1</code></li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="4" />
+           <span class='post-likes'>4 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="https://forums.getdrafts.com/t/display-only-parts-of-a-draft/8380/4" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/display-only-parts-of-a-draft/8380/4'>
+                      <span itemprop='name'>Display only parts of a draft</span>
+                    </a>
+                    <meta itemprop='position' content='3'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dhaysom'><span itemprop='name'>dhaysom</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-16T05:21:05Z' class='post-time'>
+                July 16, 2020,  5:21am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-16T05:21:05Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Here’s how the flashcards look when reviewed:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1" title="image"><img src="../../uploads/default/optimized/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1_2_470x500.jpeg" alt="image" data-base62-sha1="fcRD0d5xkwLtCYtHU1Mc1lRGTSN" width="470" height="500" srcset="../../uploads/default/optimized/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1_2_470x500.jpeg, ../../uploads/default/optimized/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1_2_705x750.jpeg 1.5x, ../../uploads/default/optimized/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1_2_940x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6a94e673e2b876aef0b6fee11d6a507d03d5d0c1_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1398×1485 41.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dhaysom'><span itemprop='name'>dhaysom</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/5/50d4690778f87591954f830eb064dbc437525d10.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-16T05:22:53Z' class='post-time'>
+                July 16, 2020,  5:22am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-16T05:22:53Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/5/50d4690778f87591954f830eb064dbc437525d10.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/50d4690778f87591954f830eb064dbc437525d10" title="image"><img src="../../uploads/default/optimized/2X/5/50d4690778f87591954f830eb064dbc437525d10_2_474x500.jpeg" alt="image" data-base62-sha1="bx3hDM7xFiJsl1I3mz1kSjdfy4o" width="474" height="500" srcset="../../uploads/default/optimized/2X/5/50d4690778f87591954f830eb064dbc437525d10_2_474x500.jpeg, ../../uploads/default/optimized/2X/5/50d4690778f87591954f830eb064dbc437525d10_2_711x750.jpeg 1.5x, ../../uploads/default/optimized/2X/5/50d4690778f87591954f830eb064dbc437525d10_2_948x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/5/50d4690778f87591954f830eb064dbc437525d10_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1405×1482 82.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yashodhankhare'><span itemprop='name'>yashodhankhare</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-17T15:54:25Z' class='post-time'>
+                July 17, 2020,  3:54pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-17T15:54:25Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Does this action create a flash card in the Anki iOS app?</p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-17T16:49:39Z' class='post-time'>
+                July 17, 2020,  4:49pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-17T16:49:39Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="yashodhankhare" data-post="4" data-topic="7936" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../letter_avatar_proxy/v4/letter/y/da6949/40.png" class="avatar"> yashodhankhare:</div>
+<blockquote>
+<p>Does this action create a flash card in the Anki iOS app?</p>
+</blockquote>
+</aside>
+<p>The OP does say it is doing it all within Drafts, and doesn’t mention Anki at all as a prerequisite.</p>
+<aside class="quote no-group" data-username="dhaysom" data-post="1" data-topic="7936">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/dhaysom/40/3861_2.png" class="avatar"> dhaysom:</div>
+<blockquote>
+<p>However, I realised I could save time by creating a rudimentary flashcard review system within Drafts itself.</p>
+</blockquote>
+</aside>
+<p>To see what it is doing you can download and try it <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dhaysom'><span itemprop='name'>dhaysom</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-18T00:26:21Z' class='post-time'>
+                July 18, 2020, 12:26am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-18T00:26:21Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nope: it replicates some of the functionality of apps like Anki without leaving Drafts.</p>
+<p>For my own personal usage, I don’t require many of the specific features of Anki. All I really need is to be presented with some of my notes on a repetition-spaced schedule so that I don’t forget all about them, and that’s what this action does!</p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-20T20:06:47Z' class='post-time'>
+                July 20, 2020,  8:06pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-20T20:06:47Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey,<br>
+That’s a great idea.<br>
+I will try it and come back to you with a feedback.<br>
+Thought I have to confess I am not a JavaScript pro (only a pro software engineer)<br>
+But we will see…<br>
+Felix</p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-20T23:00:49Z' class='post-time'>
+                July 20, 2020, 11:00pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-20T23:00:49Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I got the first steps into understanding your code.<br>
+The actions are great! That’s what I was waiting for.</p>
+<p>About the Stylesheet question</p>
+<ul>
+<li>
+<p>use a local/cloud file uns drafts like so:</p>
+<p>// CSS styling from file<br>
+// create a local file in App documents<br>
+let fmLocal = FileManager.createLocal(); // Local file in app container<br>
+let stylesheet = fmLocal.readString("/_css/flash_card.css")</p>
+</li>
+</ul>
+<p>But this has to be created with a file action or a script action<br>
+I did a simple file action:</p>
+<ul>
+<li>name : setup_flashcards</li>
+<li>steps 1
+<ul>
+<li>file_name: flash_card.css</li>
+<li>folder: _css</li>
+<li>Template: your Stylesheet string</li>
+</ul>
+</li>
+</ul>
+<p>Is this what you where looking dir?</p>
+<p>More about the file manager on <a href="../../../scripting.getdrafts.com/classes/filemanager.html" rel="nofollow noopener">https://scripting.getdrafts.com/classes/filemanager</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-20T23:06:22Z' class='post-time'>
+                July 20, 2020, 11:06pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-20T23:25:17Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>the better solution is to put the files int iCloud</p>
+<pre><code>// CSS styling in icloud
+let fmCloud = FileManager.createCloud(); 
+let stylesheet = fmCloud.readString("/_css/flash_card.css")
+</code></pre>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/4a19d47b8fbfa140f94c2cd445afc6857d3d823f" title="image"><img src="../../uploads/default/optimized/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f_2_231x500.jpeg" alt="image" data-base62-sha1="azwFKnpTDPtPtJYwcj71gFZXymb" width="231" height="500" srcset="../../uploads/default/optimized/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f_2_231x500.jpeg, ../../uploads/default/optimized/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f_2_346x750.jpeg 1.5x, ../../uploads/default/optimized/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f_2_462x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/4/4a19d47b8fbfa140f94c2cd445afc6857d3d823f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">828×1792 75.2 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Topic: Code Improvement Suggestions</p>
+<blockquote>
+<p>Source Code Style is always a compromise<br>
+Always ask yourself  does this also work for me</p>
+</blockquote>
+<ol>
+<li>
+<p>Tags:<br>
+I would prefer Tag names to be separated with an extra underscore for readability (mastery_5, review_20200621,…)</p>
+</li>
+<li>
+<p>Common constants and functions:<br>
+I would define a basic drafts action, that defines the core variables and constants (use const keyword instead of let for constant definition) and define it as the first step in both of the actions</p>
+</li>
+<li>
+<p>Dates:<br>
+I would suggest an iso date 2020-06-20 this can be generated with Date(now).getISOString().slice(0,10)<br>
+(The slice is to only use the date but not the  time)</p>
+</li>
+<li>
+<p>API:<br>
+Maybe the functions could be integrated to a class … I would have to check this later</p>
+</li>
+<li>
+<p>HTML Display:<br>
+The content should be reset after any other card … Or a auto scroll could do the trick with (too) long flash card stacks ((I over did it with a very long drafts note with more than 20 flash cards))</p>
+</li>
+</ol>
+<p>Please feel free to comment this.<br>
+You did a great job with your scripts<br>
+I would never have the time to create TGIF Ron scratch. Let’s improve it together if you like</p>
+<p>Sincerely Felix from Germany</p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dhaysom'><span itemprop='name'>dhaysom</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-21T23:16:11Z' class='post-time'>
+                July 21, 2020, 11:16pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-21T23:16:11Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Awesome – this is really helpful, thank you! It will take me a while to process it all, but I’m excited about applying these suggestions to a new and improved version of the action.</p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-21T23:32:45Z' class='post-time'>
+                July 21, 2020, 11:32pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-21T23:32:45Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I found a great solution for working with files so we could</p>
+<ul>
+<li>move the css to _css/flash_card.css</li>
+<li>move the core functions to _js/library.js and import it via an separate (pre) action script<br>
+((all script actions of draft action will be usable for other script actions — global context))</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/dhaysom'><span itemprop='name'>dhaysom</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-07T05:27:21Z' class='post-time'>
+                August 7, 2020,  5:27am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-07T05:27:21Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Updated with a few changes:</p>
+<h3>1.01</h3>
+<ul>
+<li>added autoscroll on pressing the “flip” button</li>
+<li>added dark mode</li>
+<li>tweaked heading font sizes</li>
+<li>moved CSS into a separate step for clarity</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jaymf'><span itemprop='name'>jaymf</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7936.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-09T18:50:20Z' class='post-time'>
+                October 9, 2020,  6:50pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-09T18:50:20Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/dhaysom">@dhaysom</a> thanks for this great set of actions - really fired up to use it.</p>
+<p>Unfortunately the action <a href="https://actions.getdrafts.com/a/1aU" rel="noopener nofollow ugc">convert to flashcard | Drafts Action Directory</a> is not setting the tags permanently after it is run.</p>
+<p>It appears</p>
+<p><code>draft.update(); </code></p>
+<p>needs to be added to the end of the script.</p>
+<p>For reference: (<a href="https://forums.getdrafts.com/t/tags-disappear-after-running-an-action/8406/2" class="inline-onebox">Tags disappear after running an action</a>)</p>
+        </div>
+
+        <meta itemprop='headline' content='Flashcards in Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="https://forums.getdrafts.com/t/pending-boomerang-draft-or-hide-and-return-to-inbox-function-to-stay-tidy/8824/5" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/pending-boomerang-draft-or-hide-and-return-to-inbox-function-to-stay-tidy/8824/5'>
+                      <span itemprop='name'>[Pending] ‘Boomerang’ draft or ‘hide and return to inbox’ function to stay tidy</span>
+                    </a>
+                    <meta itemprop='position' content='3'>
+                  </div>
+            </div>
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

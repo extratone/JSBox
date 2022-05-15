@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Sending Images to Wordpress – Trouble With Upload</title>
+    <link>https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913</link>
+    <description>I was hoping someone here could help me with a bit of a round-about way I&#39;m utilizing Drafts to (hopefully) upload an image to Wordpress. I think my issue might lie in a slight misunderstanding of what exactly the Wordpress XML-RPC expects when receiving a file.
+
+So, the general workflow is this. The action is triggered and it immediately switches over to Shortcuts and runs a shortcut I&#39;ve built to get the image and related information. Shortcuts passes a dictionary back to Drafts of format:
+
+```
+shortcut_result = {
+	string alt,
+	string data,
+	string name,
+	string title,
+	string type
+}
+```
+
+Most of this is just metadata for the image. Key to this particular issue is that in the workflow, I let the user pick a photo, then I convert it to `base64` and store it in the `shortcut_result.data` dictionary entry as a string.
+
+In Drafts, after setting up the credentials, I then construct the following request to send to Wordpress:
+
+```
+let the_image = JSON.parse(draft.getTemplateTag(&quot;shortcut_result&quot;));
+let method = &quot;wp.uploadFile&quot;;
+let params = [
+	1,
+	cred.getValue(&quot;username&quot;),
+	cred.getValue(&quot;password&quot;),
+	{
+		bits: the_image.data,
+		name: the_image.name + &quot;.&quot; + the_image.type,
+		type: MIMEtypes[the_image.type]
+	}
+];
+```
+
+While this successfully posts, the image file created on the server is corrupted and won&#39;t display. I also tried adding polyfills into the script for `atob()` and `btoa()` support, which didn&#39;t seem to work the way I tried. Lastly, I stole the `Base64` constructor from a Javascript XML-RPC library, converted the base64 back to binary to pass into the Base64 constructor, and then tried sending the object:
+
+```
+var Base64 = {
+	binary bits,
+	func encode,
+	func decode
+}
+```
+
+This didn&#39;t work, nor did sending `Base64.encode()`.
+
+I really think I&#39;m just missing something on how to package the binary data for Wordpress to properly ingest. MIME types are correct, and if I paste the `base64` data Shortcuts returns into a `base64 → image` decoder the images appear properly, so it&#39;s all in how I&#39;m sending the data to Wordpress.
+
+Anybody have any advice? Is there something with Drafts&#39; WordPress class I could be missing that is causing the problem? Some other way I could package the `base64` data?</description>
+    
+    <lastBuildDate>Mon, 22 Oct 2018 22:16:29 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Sending Images to Wordpress – Trouble With Upload</title>
+        <dc:creator><![CDATA[buffaloseven]]></dc:creator>
+        <description><![CDATA[
+            <p>Gave it a try and no go :-/</p>
+<p>Here’s the image Wordpress produced: <a href="https://www.aweathermoment.com/wordpress/wp-content/uploads/2018/10/img_4672.png" rel="nofollow noopener">https://www.aweathermoment.com/wordpress/wp-content/uploads/2018/10/img_4672.png</a></p>
+<p>Maybe someone smarter in this than I can see what’s gone wrong.</p>
+<p>The WP call in Drafts successfully executes, though. So that’s good?</p>
+<p>My hope is doing it via scripting so that I can get the Post ID after the upload, then edit the post to add the various metadata (title, alt text, caption, etc.) within the Wordpress installation. After that’s the easy part of inserting a formatted markdown image link.</p>
+<p>Edit: I’m a little curious if the problem could be rooted in a string encoding problem or something like that? Does Drafts do any encoding manipulation on what’s returned from Shortcuts?</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913/3</link>
+        <pubDate>Mon, 22 Oct 2018 22:14:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2913-3</guid>
+        <source url="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913.rss">Sending Images to Wordpress – Trouble With Upload</source>
+      </item>
+      <item>
+        <title>Sending Images to Wordpress – Trouble With Upload</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Just briefly looking at this, but based on a few Stack Overflow posts, it seems Wordpress is looking for the base64 string to be wrapped in <code>&lt;base64&gt;</code> tags…they have a class <a href="https://developer.wordpress.org/reference/classes/ixr_base64/">IXR_Base64</a> that just wraps it like that and is what they are looking for…</p>
+<p>Untested, but maybe try:</p>
+<pre><code class="lang-javascript">let params = [
+	1,
+	cred.getValue("username"),
+	cred.getValue("password"),
+	{
+		bits: "&lt;base64&gt;" + the_image.data + "&lt;/base64&gt;",
+		name: the_image.name + "." + the_image.type,
+		type: MIMEtypes[the_image.type]
+	}
+];
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913/2</link>
+        <pubDate>Mon, 22 Oct 2018 21:16:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2913-2</guid>
+        <source url="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913.rss">Sending Images to Wordpress – Trouble With Upload</source>
+      </item>
+      <item>
+        <title>Sending Images to Wordpress – Trouble With Upload</title>
+        <dc:creator><![CDATA[buffaloseven]]></dc:creator>
+        <description><![CDATA[
+            <p>I was hoping someone here could help me with a bit of a round-about way I’m utilizing Drafts to (hopefully) upload an image to Wordpress. I think my issue might lie in a slight misunderstanding of what exactly the Wordpress XML-RPC expects when receiving a file.</p>
+<p>So, the general workflow is this. The action is triggered and it immediately switches over to Shortcuts and runs a shortcut I’ve built to get the image and related information. Shortcuts passes a dictionary back to Drafts of format:</p>
+<pre><code class="lang-auto">shortcut_result = {
+	string alt,
+	string data,
+	string name,
+	string title,
+	string type
+}
+</code></pre>
+<p>Most of this is just metadata for the image. Key to this particular issue is that in the workflow, I let the user pick a photo, then I convert it to <code>base64</code> and store it in the <code>shortcut_result.data</code> dictionary entry as a string.</p>
+<p>In Drafts, after setting up the credentials, I then construct the following request to send to Wordpress:</p>
+<pre><code class="lang-auto">let the_image = JSON.parse(draft.getTemplateTag("shortcut_result"));
+let method = "wp.uploadFile";
+let params = [
+	1,
+	cred.getValue("username"),
+	cred.getValue("password"),
+	{
+		bits: the_image.data,
+		name: the_image.name + "." + the_image.type,
+		type: MIMEtypes[the_image.type]
+	}
+];
+</code></pre>
+<p>While this successfully posts, the image file created on the server is corrupted and won’t display. I also tried adding polyfills into the script for <code>atob()</code> and <code>btoa()</code> support, which didn’t seem to work the way I tried. Lastly, I stole the <code>Base64</code> constructor from a Javascript XML-RPC library, converted the base64 back to binary to pass into the Base64 constructor, and then tried sending the object:</p>
+<pre><code class="lang-auto">var Base64 = {
+	binary bits,
+	func encode,
+	func decode
+}
+</code></pre>
+<p>This didn’t work, nor did sending <code>Base64.encode()</code>.</p>
+<p>I really think I’m just missing something on how to package the binary data for Wordpress to properly ingest. MIME types are correct, and if I paste the <code>base64</code> data Shortcuts returns into a <code>base64 → image</code> decoder the images appear properly, so it’s all in how I’m sending the data to Wordpress.</p>
+<p>Anybody have any advice? Is there something with Drafts’ WordPress class I could be missing that is causing the problem? Some other way I could package the <code>base64</code> data?</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913/1</link>
+        <pubDate>Mon, 22 Oct 2018 17:58:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2913-1</guid>
+        <source url="https://forums.getdrafts.com/t/sending-images-to-wordpress-trouble-with-upload/2913.rss">Sending Images to Wordpress – Trouble With Upload</source>
+      </item>
+  </channel>
+</rss>

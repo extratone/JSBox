@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Run action directly from iOS Share Extension - #4 by agiletortoise - Feature Requests - Drafts Community</title>
+    <meta name="description" content="It would be amazing if there was a way to add one or two customizable buttons to the iOS Share Extension for frequently used actions. (It could be as simple as the first two Actions in some Action Group if you didn’t wan&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Run action directly from iOS Share Extension&#39;" href="../11576.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576/4" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576/4" />
+<meta property="og:title" content="Run action directly from iOS Share Extension" />
+<meta name="twitter:title" content="Run action directly from iOS Share Extension" />
+<meta property="og:description" content="Share extensions are not well suited to supporting full action execution. They run with very limited memory/functionality constraints.  I’d say there are a few possibilities for simplifying your flow, however.  First, consider separating capture and processing. Just capture as you go, and process in multiple drafts you have captured later with operations, or with some kind of sweep operation that processes drafts based on tag or similar.  Or improve convenience a bit by putting those actions you..." />
+<meta name="twitter:description" content="Share extensions are not well suited to supporting full action execution. They run with very limited memory/functionality constraints.  I’d say there are a few possibilities for simplifying your flow, however.  First, consider separating capture and processing. Just capture as you go, and process in multiple drafts you have captured later with operations, or with some kind of sweep operation that processes drafts based on tag or similar.  Or improve convenience a bit by putting those actions you..." />
+<meta property="article:published_time" content="2021-11-15T12:56:07+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">Run action directly from iOS Share Extension</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../../c/features.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #92278F'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Feature Requests</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/eddy'><span itemprop='name'>eddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-14T08:53:28Z' class='post-time'>
+                November 14, 2021,  8:53am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-14T08:55:26Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It would be amazing if there was a way to add one or two customizable buttons to the iOS Share Extension for frequently used actions. (It could be as simple as the first two Actions in some Action Group if you didn’t want to deal with a whole new UI “thing”…)</p>
+<p>Right now, my workflow means I have to:</p>
+<ol>
+<li>Tap the iOS “Share” icon</li>
+<li>Tap Drafts</li>
+<li>
+<em>Optionally</em> adjust the shared content (often times it’s fine as-is, but it’s really nice to be able to edit it when necessary)</li>
+<li>Tap the “Open” button</li>
+<li>Tap the “Actions” button in top-right corner of Drafts</li>
+<li>Tap the desired action that I use all the time</li>
+</ol>
+<p>It would be fantastic if I could skip 4, 5 &amp; 6 and just have a button (or two) next to “Open” “Save” that would run the action.</p>
+<p>Even more ideal would be an optional “large target” feature for the iOS Share Extension. I typically <em>don’t</em> write a lot of text directly in the Share sheet, so I’d <em>totally</em> make the trade-off of a smaller text area to get larger tap targets.</p>
+<p>I’m trying to get this process down to as few “precise taps” as possible, so it works reliably in lower-dexterity situations (such as when wearing gloves). Tapping the “Drafts” icon in the Share sheet is easy; after that, a lot of the tap targets are quite small.</p>
+<p>Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-15T07:36:58Z' class='post-time'>
+                November 15, 2021,  7:36am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-15T07:36:58Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Any reason you can’t write a shortcut to do most of this?</p>
+<p>Note: I don’t have detail on this but what a share sheet extension can do is generally very limited, UI-wise.</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/eddy'><span itemprop='name'>eddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-15T09:28:03Z' class='post-time'>
+                November 15, 2021,  9:28am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-15T09:28:03Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I actually did try to write a custom Shortcut. It works (thanks to the <a href="https://scriptable.app/" rel="noopener nofollow ugc">Scriptable</a> app) <strong>but</strong> it has two major annoyances (both that also require extra dexterity):</p>
+<ol>
+<li>
+<p>I have to “scroll down” on the Share Sheet to get to the Shortcut; I’m not aware of a way to “get it at the top” like the <strong>Drafts</strong> icon or <strong>Drafts Quick Capture</strong> entry.</p>
+</li>
+<li>
+<p>Much more annoying is the “privacy verification” check. In order to get the title of the URL, every time you “share” a URL from a new domain (or sub-domain), you have to approve it. For example:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/d29f29967e25d7a7802d24cbfcd6aa434f2c2585" title="image"><img src="../../../uploads/default/optimized/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585_2_690x381.jpeg" alt="image" data-base62-sha1="u3fgUydUfOsrwwqIebvywlGpUqx" width="690" height="381" srcset="../../../uploads/default/optimized/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585_2_690x381.jpeg, ../../../uploads/default/optimized/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585_2_1035x571.jpeg 1.5x, ../../../uploads/default/original/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d29f29967e25d7a7802d24cbfcd6aa434f2c2585_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1284×709 68.5 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+</li>
+</ol>
+<p>If there was a way to get a Shortcut to appear on the initial display of the Share interface (without any scrolling) <em>and</em> a way to bypass the privacy verification step, then a Shortcut would probably be an OK solution. (Also, My Shortcut acts more like “Quick Capture” and doesn’t allow editing; I didn’t try to add an interactive step where the share could be edited before saving once I saw how annoying the privacy pop-up was.)</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-15T12:56:07Z' class='post-time'>
+                November 15, 2021, 12:56pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-15T12:56:07Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Share extensions are not well suited to supporting full action execution. They run with very limited memory/functionality constraints.</p>
+<p>I’d say there are a few possibilities for simplifying your flow, however.</p>
+<p>First, consider separating capture and processing. Just capture as you go, and process in multiple drafts you have captured later with <a href="../../tip-performing-operations-on-multiple-drafts/6532.html">operations</a>, or with some kind of sweep operation that processes drafts based on tag or similar.</p>
+<p>Or improve convenience a bit by putting those actions you want quick access to in your <a href="../../../../docs.getdrafts.com/docs/editor/action-bar.html">action bar</a> so you don’t have to go find them in the action list.</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/eddy'><span itemprop='name'>eddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-15T19:36:28Z' class='post-time'>
+                November 15, 2021,  7:36pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-15T19:36:28Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the suggestions.</p>
+<p>Is there any way to bypass the “Share interface” and go <em>directly</em> to a new open draft in Drafts? That would at least save the step of having to tap the “Open” button. (I know about “Drafts Quick Capture”, but that bypasses the UI completely.) Not having to tap “Open”, combined with putting my actions in the Action Bar, would be a nice improvement!</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-15T19:45:34Z' class='post-time'>
+                November 15, 2021,  7:45pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-15T19:45:34Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>No. Technically the “Open” button is not allowed by Apple as it is…it is a hack that swizzles in some code that tricks iOS into opening Drafts even though those APIs are blocked in Share extensions. Going straight to the App would certainly get me rejected.</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/eddy'><span itemprop='name'>eddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-15T19:49:58Z' class='post-time'>
+                November 15, 2021,  7:49pm
+              </time>
+              <meta itemprop='dateModified' content='2021-11-15T19:49:58Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oof… understood. Thanks for the insight! Keep up the great work. <img src="../../../images/emoji/apple/grin.png@v=10" title=":grin:" class="emoji" alt=":grin:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-16T07:42:07Z' class='post-time'>
+                November 16, 2021,  7:42am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-16T07:42:07Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I can solve one of these: You can re-order share sheet extensions. I think it’s “Edit” top right that does that for you. Then drag the extension up.</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/eddy'><span itemprop='name'>eddy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/run-action-directly-from-ios-share-extension/11576">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-11-16T09:41:48Z' class='post-time'>
+                November 16, 2021,  9:41am
+              </time>
+              <meta itemprop='dateModified' content='2021-11-16T09:41:48Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, you’re right: I can click the <strong>⊕</strong> next to my “Save Away” Shortcut in the “Edit actions…” screen to move it to the “Favorites” section at the top, eliminating the need to scroll. <img src="../../../images/emoji/apple/+1.png@v=10" title=":+1:" class="emoji" alt=":+1:"> Thanks!</p>
+<p>(Now if only there was a way to avoid the “Privacy” prompt for every new [sub]domain!)</p>
+<p>I also moved my Drafts action to the beginning of the “Processing” Action Group and now it is a tap away when the keyboard is present, which is a nice improvement.</p>
+        </div>
+
+        <meta itemprop='headline' content='Run action directly from iOS Share Extension'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

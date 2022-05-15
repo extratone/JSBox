@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Drafts to record &quot;headless&quot; log entries via dictation?</title>
+    <link>https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862</link>
+    <description>Hi --
+
+I&#39;m exploring the automation features in Drafts and am running into some challenges that might stem from some fundamental misunderstandings of what is possible. I&#39;d like to be able to quickly record a short snippet of text (1-2 sentences) and have them automatically be appended to an existing note in Drafts or potentially Evernote. Is it possible to create either a Drafts script or use iOS Shortcuts to do this?
+
+The key is that I&#39;d like it to be completeness voice driven. I&#39;d like to avoid having to look at the screen or touch/press any buttons on the screen. If it ends up being done via a Shortcut, I imagine being able to say &quot;Hey Siri, take a quick note&quot;, then speak 1-2 sentences, and get a little audio queue to indicate they&#39;ve been appended to my sheet.
+
+I&#39;ve tried creating a shortcut to capture the dictation, find the most recent draft, and append it as follows:
+
+1. Create Draft with Dictation [Show When Run = False]
+2. Search Drafts [Show When Run = False]
+3. Run Action [Append To Evernote Journal] on [Magic Variable Drafts]
+
+However, this always ends up with the Drafts app visible and doesn&#39;t reliably append the content to Evernote. Am I missing something?
+
+Thanks,
+
+Ramon</description>
+    
+    <lastBuildDate>Sun, 12 Jul 2020 12:58:54 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Drafts to record &quot;headless&quot; log entries via dictation?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Integrating dictation into an action has to be done via script. The following script step at the beginning of an action would open dictation, and create a new draft with the result, then run an action named “INSERT-YOUR-ACTION-NAME” on that new draft:</p>
+<pre><code class="lang-javascript">let text = editor.dictate();
+if (text.length &gt; 0) { // you did not cancel
+  // create a save new draft
+  let d = new Draft();
+  d.content = text;
+  d.update();
+
+  // run another action on that draft to finish processing...
+  let a = Action.find("INSERT-YOUR-ACTION-NAME");
+  app.queueAction(a, d);
+}
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/4</link>
+        <pubDate>Sun, 12 Jul 2020 12:58:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7862-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862.rss">Using Drafts to record &quot;headless&quot; log entries via dictation?</source>
+      </item>
+      <item>
+        <title>Using Drafts to record &quot;headless&quot; log entries via dictation?</title>
+        <dc:creator><![CDATA[Felciano]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for the clarification. I’d like to try option <span class="hashtag">#2</span> and do this all within Drafts, as the natural language parsing seems better there. However I haven’t been able to figure out how to create a custom Drafts action that includes “open dictation”. How do I get that in place?</p>
+<p>Ramon</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/3</link>
+        <pubDate>Sat, 11 Jul 2020 23:22:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7862-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862.rss">Using Drafts to record &quot;headless&quot; log entries via dictation?</source>
+      </item>
+      <item>
+        <title>Using Drafts to record &quot;headless&quot; log entries via dictation?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>There’s a couple of ways you could approach this…but you are essentially running into a bit of an oddity of Shortcuts. There are shortcut actions that can be run in the background, and ones that require the app to launch. You can’t really mix-and-match the two types, because Shortcuts does not wait for an app to finish if it has to be launched, and the behavior is unpredictable as a result.  The “Create Draft with Dictation” and “Run Action” shortcut have to run in Drafts.</p>
+<p>To get what you want there are two good options:</p>
+<ol>
+<li>
+<p>Do the dictation in Shortcuts. Shortcuts has its own native dictation action, and if you use it in Shortcuts one, you have the text and can then run an action on it with the “Run Action” action.</p>
+</li>
+<li>
+<p>Do it all in Drafts. A single action could be scripted to open dictation, wait for the result (to be hands free, you will have to set the “Timeout” option in the dictation window), and post it to Evernote. Once configured the way you like it, you can use the “Add to Siri” option on the action edit screen to setup a voice trigger for the action.</p>
+</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/2</link>
+        <pubDate>Tue, 07 Jul 2020 14:02:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7862-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862.rss">Using Drafts to record &quot;headless&quot; log entries via dictation?</source>
+      </item>
+      <item>
+        <title>Using Drafts to record &quot;headless&quot; log entries via dictation?</title>
+        <dc:creator><![CDATA[Felciano]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi –</p>
+<p>I’m exploring the automation features in Drafts and am running into some challenges that might stem from some fundamental misunderstandings of what is possible. I’d like to be able to quickly record a short snippet of text (1-2 sentences) and have them automatically be appended to an existing note in Drafts or potentially Evernote. Is it possible to create either a Drafts script or use iOS Shortcuts to do this?</p>
+<p>The key is that I’d like it to be completeness voice driven. I’d like to avoid having to look at the screen or touch/press any buttons on the screen. If it ends up being done via a Shortcut, I imagine being able to say “Hey Siri, take a quick note”, then speak 1-2 sentences, and get a little audio queue to indicate they’ve been appended to my sheet.</p>
+<p>I’ve tried creating a shortcut to capture the dictation, find the most recent draft, and append it as follows:</p>
+<ol>
+<li>Create Draft with Dictation [Show When Run = False]</li>
+<li>Search Drafts [Show When Run = False]</li>
+<li>Run Action [Append To Evernote Journal] on [Magic Variable Drafts]</li>
+</ol>
+<p>However, this always ends up with the Drafts app visible and doesn’t reliably append the content to Evernote. Am I missing something?</p>
+<p>Thanks,</p>
+<p>Ramon</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862/1</link>
+        <pubDate>Tue, 07 Jul 2020 00:24:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7862-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-to-record-headless-log-entries-via-dictation/7862.rss">Using Drafts to record &quot;headless&quot; log entries via dictation?</source>
+      </item>
+  </channel>
+</rss>

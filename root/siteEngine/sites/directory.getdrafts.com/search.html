@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="unMZGUiPFDxYxeDI4lRJkNXnLQ9PWVMWqGKehmYxEWy3iVLETt18s9JQtPdJY3JUvS2khc+wMTTmLAX17QQI4w==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Search" />
+    <meta property="og:url" content="https://directory.getdrafts.com/search" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Search" />
+    <meta property="twitter:url" content="https://directory.getdrafts.com/search" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4></h4>
+                  </div>
+                  <div class="header">
+                      <h1>Search</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+
+<hr/>
+
+
+    <h4>Actions</h4>
+    
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">&#8592; Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="search@page=2.html">2</a> <a aria-label="Page 3" href="search@page=3.html">3</a> <a aria-label="Page 4" href="search@page=4.html">4</a> <a aria-label="Page 5" href="search@page=5.html">5</a> <a aria-label="Page 6" href="search@page=6.html">6</a> <a aria-label="Page 7" href="search@page=7.html">7</a> <a aria-label="Page 8" href="search@page=8.html">8</a> <a aria-label="Page 9" href="search@page=9.html">9</a> <span class="gap">&hellip;</span> <a aria-label="Page 36" href="search@page=36.html">36</a> <a aria-label="Page 37" href="search@page=37.html">37</a> <a class="next_page" rel="next" href="search@page=2.html">Next &#8594;</a></div>
+
+<div class='list'>
+<ul>
+
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/page-search.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zs.html">Search Drafts Directory</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 4 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle5.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zp.html">versions</a> 
+			<span class='caption'><br>Posted by Lacsmith, </span>
+		<span class='caption'>Last update 2 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/479-slowmo2.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zn.html">Stream with VLC</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 4 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_runshortcut.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zm.html">Search RoutineHub</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 5 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/type-rotate.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zl.html">Telegram Bot Post</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 6 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/typography.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zk.html">Tumblr Text Post</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 6 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/list.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zj.html">Workspace Table of Contents</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 6 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/phone.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zi.html">Call</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 6 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_check2.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zf.html">Relative Dates - Taskpaper to Omnifocus</a> 
+			<span class='caption'><br>Posted by unknown, </span>
+		<span class='caption'>Last update 7 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_url.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1z5.html">Blink Selection</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 11 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/apple-bite.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1z1.html">App Store Search</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 12 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/515-film-roll.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zZ.html">Insert Micro.Blog GLightbox Image</a> 
+			<span class='caption'><br>Posted by @pdxmph, </span>
+		<span class='caption'>Last update 12 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/sim-card.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zW.html">Post to Writeas Blog</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 12 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/phone-retro.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zS.html">Open Random Draft from Workspace</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by FlohGro, </span>
+		<span class='caption'>Last update 18 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/sim-card.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zO.html">Post to Writeas</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 11 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/bear-face.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zG.html">Capture with Bear</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 24 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_export.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zF.html">Send to DNP</a> 
+			<span class='caption'><br>Posted by pmbauer, </span>
+		<span class='caption'>Last update 25 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_url.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zD.html">Open URL (Firefox)</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 25 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/660-film-strip.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zC.html">Add to Letterboxd Watchlist</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 25 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_url.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1zA.html">Open URL (Microsoft Edge)</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 26 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/fax-machine.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yv.html">Club MacStories Search</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 26 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_email_filled.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yr.html">spark mail composer</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by FlohGro, </span>
+		<span class='caption'>Last update 28 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/feather-pen.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yn.html">Typefully</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 30 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/442-information-symbol1.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yg.html">Current Draft Info</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update 6 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_email.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yc.html">Mail.app &lt;-&gt; Airmail</a> 
+			<span class='caption'><br>Posted by taglia, </span>
+		<span class='caption'>Last update about 1 month ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_email.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yb.html">Extract email addresses</a> 
+			<span class='caption'><br>Posted by taglia, </span>
+		<span class='caption'>Last update about 1 month ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_message.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1ya.html">Obsidian Markdown Comments</a> 
+			<span class='caption'><br>Posted by pseudometa, </span>
+		<span class='caption'>Last update about 1 month ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_export.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1y3.html">Move to Obsidian</a> 
+			<span class='caption'><br>Posted by pmbauer, </span>
+		<span class='caption'>Last update about 1 month ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/terminal.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yY.html">Run Shell Command</a> 
+			<span class='caption'><br>Posted by David Blue, </span>
+		<span class='caption'>Last update about 1 month ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/content.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="a/1yX.html">Lorem Ipsum Generator</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 month ago</span>
+		</div>
+	</li>
+
+</ul>
+</div>
+
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">&#8592; Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="search@page=2.html">2</a> <a aria-label="Page 3" href="search@page=3.html">3</a> <a aria-label="Page 4" href="search@page=4.html">4</a> <a aria-label="Page 5" href="search@page=5.html">5</a> <a aria-label="Page 6" href="search@page=6.html">6</a> <a aria-label="Page 7" href="search@page=7.html">7</a> <a aria-label="Page 8" href="search@page=8.html">8</a> <a aria-label="Page 9" href="search@page=9.html">9</a> <span class="gap">&hellip;</span> <a aria-label="Page 36" href="search@page=36.html">36</a> <a aria-label="Page 37" href="search@page=37.html">37</a> <a class="next_page" rel="next" href="search@page=2.html">Next &#8594;</a></div>
+
+
+<hr/>
+<h4>Action Groups</h4>
+    
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">&#8592; Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="search@page=2.html">2</a> <a aria-label="Page 3" href="search@page=3.html">3</a> <a aria-label="Page 4" href="search@page=4.html">4</a> <a class="next_page" rel="next" href="search@page=2.html">Next &#8594;</a></div>
+
+<div class='list'>
+<ul>
+
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle5.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1ws.html">[untitled]</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update 2 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_person1.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1zY.html">[untitled]</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update 9 days ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_url.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1yH.html">⌚️</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update about 2 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/sim-card.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1C3.html">Action Scripting</a> 
+				<span class='caption'><br>Posted by @nahumck, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle5.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/18o.html">Actions</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update almost 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/sync.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1Lj.html">Actions</a> 
+				<span class='caption'><br>Posted by mattmaybe, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/share.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1BV.html">Actions-Apps</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update over 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/search.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1BU.html">Actions-Searches</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/337-flip.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1M3.html">Apps</a> 
+				<span class='caption'><br>Posted by @denismunhoz, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/radio-button-active.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1BG.html">Basic</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update 13 days ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/favorite.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1xR.html">Basic</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update 2 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/favorite.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1xS.html">Basic</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update 2 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/favorite.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1Wo.html">Basic</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update almost 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/list.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1gZ.html">Bullet Journal</a> 
+				<span class='caption'><br>Posted by @ianlhayes, </span>
+			<span class='caption'>Last update over 1 year ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/list.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/11M.html">Bullet Journal</a> 
+				<span class='caption'><br>Posted by Chris Chowdhury, </span>
+			<span class='caption'>Last update over 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/583-broadcast.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1pr.html">Castro</a> 
+				<span class='caption'><br>Posted by tomtjes, </span>
+			<span class='caption'>Last update about 2 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/364-4up.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/11t.html">CSV</a> 
+				<span class='caption'><br>Posted by Emil Erlandsson, </span>
+			<span class='caption'>Last update over 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle5.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1BQ.html">Date + Time Actions</a> 
+				<span class='caption'><br>Posted by @SingleItemStore, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_event.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1HD.html">dateProcessing</a> 
+				<span class='caption'><br>Posted by FlohGro, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/ellipsis-vertical.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1hw.html">Dots</a> 
+				<span class='caption'><br>Posted by jamiejenkins, </span>
+			<span class='caption'>Last update 3 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/settings.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1JW.html">Draft Tools</a> 
+				<span class='caption'><br>Posted by mattmaybe, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/settings.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1Rq.html">Draft Tools</a> 
+				<span class='caption'><br>Posted by mattmaybe, </span>
+			<span class='caption'>Last update over 3 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/caret-right.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1Ba.html">Editing</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update 13 days ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/caret-right.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1Z6.html">Editing</a> 
+				<span class='caption'><br>Posted by unknown, </span>
+			<span class='caption'>Last update over 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/inkwell.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1mq.html">Ellane W</a> 
+				<span class='caption'><br>Posted by Ellane W, </span>
+			<span class='caption'>Last update 12 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/inkwell.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1ov.html">Ellane W iCloud</a> 
+				<span class='caption'><br>Posted by Ellane W, </span>
+			<span class='caption'>Last update 10 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/script.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/16C.html">Examples (Mac): AppleScript &amp; Shell Script</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update about 2 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/check-square.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1L3.html">Examples-Todoist</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update almost 4 years ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/link.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/18q.html">Examples: Cross-Linking</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update 4 months ago</span>
+
+		</div>
+	</li>
+	<li>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/check-square.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="g/1m0.html">Examples: Google Tasks</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+				<span class='caption'><br>Posted by agiletortoise, </span>
+			<span class='caption'>Last update 12 months ago</span>
+
+		</div>
+	</li>
+
+</ul>
+</div>
+
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">&#8592; Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="search@page=2.html">2</a> <a aria-label="Page 3" href="search@page=3.html">3</a> <a aria-label="Page 4" href="search@page=4.html">4</a> <a class="next_page" rel="next" href="search@page=2.html">Next &#8594;</a></div>
+
+
+<hr/>
+<h4>Syntaxes</h4>
+    
+
+
+<div class='list'>
+<ul>
+
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1iG.html">AsciiDoc</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1jc.html">Custom MultiMarkdown</a> 
+			<span class='caption'><br>Posted by devsl, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1hR.html">Demo: Hashtags &amp; Mentions</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1ho.html">Demo: Navigate Tasks</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1in.html">Demo: Rainbow</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1hS.html">Demo: Task Marks </a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1hm.html">Draftsdown</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by @nahumck, </span>
+		<span class='caption'>Last update 7 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1hl.html">Fountain</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1kV.html">Frankenstein</a> 
+			<span class='caption'><br>Posted by Brian S., </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1qt.html">iA Markdown</a> 
+			<span class='caption'><br>Posted by @ttwardz, </span>
+		<span class='caption'>Last update 6 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1kG.html">iA Markdown</a> 
+			<span class='caption'><br>Posted by @ttwardz, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1kl.html">Jira</a> 
+			<span class='caption'><br>Posted by Chris Hoffman, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1jJ.html">Ledger time</a> 
+			<span class='caption'><br>Posted by rkoopmann, </span>
+		<span class='caption'>Last update 7 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1xC.html">Markdown (GitHub) + Wiki-Link Extras</a> 
+			<span class='caption'><br>Posted by @jsamlarose, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1j2.html">MerlinMarkdown</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by @nahumck, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1xL.html">Mini BBCode</a> 
+			<span class='caption'><br>Posted by Quiddle, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1wh.html">MultiMarkdown (Full Text)</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1r1.html">Obsidian Markdown</a> 
+			<span class='caption'><br>Posted by Chris Grieser (pseudometa), </span>
+		<span class='caption'>Last update 7 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1zH.html">Obsidian Markdown</a> 
+			<span class='caption'><br>Posted by pmbauer, </span>
+		<span class='caption'>Last update 24 days ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1jV.html">OKRs</a> 
+			<span class='caption'><br>Posted by Maciej Kubat, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1jl.html">OKRs</a> 
+			<span class='caption'><br>Posted by Maciej Kubat, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1qu.html">Org</a> 
+			<span class='caption'><br>Posted by Will, </span>
+		<span class='caption'>Last update 8 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1jG.html">Simple List+</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1hf.html">TaskPaper+</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1iw.html">Tweets</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by @nahumck, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1mM.html">Twitter Workspace</a> 
+			<span class='caption'><br>Posted by Chris Grieser, </span>
+		<span class='caption'>Last update 12 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<a href="s/1sC.html">WikiSyntax</a> 
+			<span class='caption'><br>Posted by jneug, </span>
+		<span class='caption'>Last update 6 months ago</span>
+		</div>
+	</li>
+
+</ul>
+</div>
+
+
+
+
+<hr/>
+<h4>Themes</h4>
+    
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">&#8592; Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="search@page=2.html">2</a> <a aria-label="Page 3" href="search@page=3.html">3</a> <a class="next_page" rel="next" href="search@page=2.html">Next &#8594;</a></div>
+
+<div class='list'>
+<ul>
+
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1kW.html">
+				<div class="theme_preview">
+    <div style="background-color:#003941;color:#d9e5ec">
+        <div class="tint" style="color:#51a2ca;">&#8853;</div>
+        <div class="title">BelleÎle Dark</div>
+        <div class="alt1" style="background-color:#003f52;">&nbsp;</div>
+        <div class="alt2" style="background-color:#004e5d;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by urbanbike, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1vm.html">
+				<div class="theme_preview">
+    <div style="background-color:#000000;color:#dad8d9">
+        <div class="tint" style="color:#efb709;">&#8853;</div>
+        <div class="title">Black &amp; Yellow</div>
+        <div class="alt1" style="background-color:#000000;">&nbsp;</div>
+        <div class="alt2" style="background-color:#1d1e19;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by David Blue, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1ou.html">
+				<div class="theme_preview">
+    <div style="background-color:#ffffff;color:#1d2229">
+        <div class="tint" style="color:#1d2229;">&#8853;</div>
+        <div class="title">BR Atlas</div>
+        <div class="alt1" style="background-color:#f0f0f0;">&nbsp;</div>
+        <div class="alt2" style="background-color:#d7d7d7;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by Bryan Smith, </span>
+		<span class='caption'>Last update 10 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1kP.html">
+				<div class="theme_preview">
+    <div style="background-color:#21283e;color:#e1e6e9">
+        <div class="tint" style="color:#c5c5c5;">&#8853;</div>
+        <div class="title">BR Code Blue</div>
+        <div class="alt1" style="background-color:#21283e;">&nbsp;</div>
+        <div class="alt2" style="background-color:#29324d;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by Bryan Smith, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1kQ.html">
+				<div class="theme_preview">
+    <div style="background-color:#1d2229;color:#fcfcfc">
+        <div class="tint" style="color:#f2f4f8;">&#8853;</div>
+        <div class="title">BR Plain</div>
+        <div class="alt1" style="background-color:#1d2229;">&nbsp;</div>
+        <div class="alt2" style="background-color:#252c34;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by Bryan Smith, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1jK.html">
+				<div class="theme_preview">
+    <div style="background-color:#060199;color:#FFFFFF">
+        <div class="tint" style="color:#C0C0C0;">&#8853;</div>
+        <div class="title">BSOD</div>
+        <div class="alt1" style="background-color:#2C34AD;">&nbsp;</div>
+        <div class="alt2" style="background-color:#050758;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by kimonostereo, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1jd.html">
+				<div class="theme_preview">
+    <div style="background-color:#000000;color:#DDDDDD">
+        <div class="tint" style="color:#2D85F0;">&#8853;</div>
+        <div class="title">Custom Dark</div>
+        <div class="alt1" style="background-color:#222222;">&nbsp;</div>
+        <div class="alt2" style="background-color:#333333;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by devsl, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1je.html">
+				<div class="theme_preview">
+    <div style="background-color:#FFFFFF;color:#000000">
+        <div class="tint" style="color:#004D7D;">&#8853;</div>
+        <div class="title">Custom Light</div>
+        <div class="alt1" style="background-color:#F6F6F6;">&nbsp;</div>
+        <div class="alt2" style="background-color:#c2c2c2;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by devsl, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1s0.html">
+				<div class="theme_preview">
+    <div style="background-color:#000000;color:#DDDDDD">
+        <div class="tint" style="color:#EEC765;">&#8853;</div>
+        <div class="title">Dark</div>
+        <div class="alt1" style="background-color:#222222;">&nbsp;</div>
+        <div class="alt2" style="background-color:#333333;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 6 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1j4.html">
+				<div class="theme_preview">
+    <div style="background-color:#212121;color:#EEEDF0">
+        <div class="tint" style="color:#F32E3A;">&#8853;</div>
+        <div class="title">Dark and Friendly</div>
+        <div class="alt1" style="background-color:#252A2B;">&nbsp;</div>
+        <div class="alt2" style="background-color:#000000;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by mattbirchler, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1pS.html">
+				<div class="theme_preview">
+    <div style="background-color:#212121;color:#EEEDF0">
+        <div class="tint" style="color:#2d8ec7;">&#8853;</div>
+        <div class="title">Dark Knight</div>
+        <div class="alt1" style="background-color:#252A2B;">&nbsp;</div>
+        <div class="alt2" style="background-color:#000000;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by @Chris_Lawley, </span>
+		<span class='caption'>Last update 9 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1jI.html">
+				<div class="theme_preview">
+    <div style="background-color:#000000;color:#A1CAF1">
+        <div class="tint" style="color:#4994EC;">&#8853;</div>
+        <div class="title">dark-blue</div>
+        <div class="alt1" style="background-color:#03152E;">&nbsp;</div>
+        <div class="alt2" style="background-color:#072A48;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by FlohGro, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iQ.html">
+				<div class="theme_preview">
+    <div style="background-color:#083562;color:#ffffff">
+        <div class="tint" style="color:#409cff;">&#8853;</div>
+        <div class="title">DarkBlueDot</div>
+        <div class="alt1" style="background-color:#0051a3;">&nbsp;</div>
+        <div class="alt2" style="background-color:#0040dd;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1vy.html">
+				<div class="theme_preview">
+    <div style="background-color:#524533;color:#ffffff">
+        <div class="tint" style="color:#b59469;">&#8853;</div>
+        <div class="title">DarkBrownDot</div>
+        <div class="alt1" style="background-color:#705c41;">&nbsp;</div>
+        <div class="alt2" style="background-color:#775d3b;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1jg.html">
+				<div class="theme_preview">
+    <div style="background-color:#002d3f;color:#ffffff">
+        <div class="tint" style="color:#5de6ff;">&#8853;</div>
+        <div class="title">DarkCyanDot</div>
+        <div class="alt1" style="background-color:#0071a4;">&nbsp;</div>
+        <div class="alt2" style="background-color:#006796;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1ip.html">
+				<div class="theme_preview">
+    <div style="background-color:#282A36;color:#F7F7EF">
+        <div class="tint" style="color:#8AFF7F;">&#8853;</div>
+        <div class="title">Darker Dracula for Drafts v2.1</div>
+        <div class="alt1" style="background-color:#1E1F2A;">&nbsp;</div>
+        <div class="alt2" style="background-color:#44475A;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by Jake B, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iW.html">
+				<div class="theme_preview">
+    <div style="background-color:#1c1c1e;color:#ffffff">
+        <div class="tint" style="color:#98989d;">&#8853;</div>
+        <div class="title">DarkGrayDot</div>
+        <div class="alt1" style="background-color:#2c2c2e;">&nbsp;</div>
+        <div class="alt2" style="background-color:#616165;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iO.html">
+				<div class="theme_preview">
+    <div style="background-color:#00430a;color:#ffffff">
+        <div class="tint" style="color:#31de4b;">&#8853;</div>
+        <div class="title">DarkGreenDot</div>
+        <div class="alt1" style="background-color:#00630f;">&nbsp;</div>
+        <div class="alt2" style="background-color:#007018;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iS.html">
+				<div class="theme_preview">
+    <div style="background-color:#3634a3;color:#ffffff">
+        <div class="tint" style="color:#5e5ce6;">&#8853;</div>
+        <div class="title">DarkIndigoDot</div>
+        <div class="alt1" style="background-color:#33326b;">&nbsp;</div>
+        <div class="alt2" style="background-color:#3634a3;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1wA.html">
+				<div class="theme_preview">
+    <div style="background-color:#3b6664;color:#ffffff">
+        <div class="tint" style="color:#66d4cf;">&#8853;</div>
+        <div class="title">DarkMintDot</div>
+        <div class="alt1" style="background-color:#5d9390;">&nbsp;</div>
+        <div class="alt2" style="background-color:#0b7570;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iK.html">
+				<div class="theme_preview">
+    <div style="background-color:#341f00;color:#ffffff">
+        <div class="tint" style="color:#ffb340;">&#8853;</div>
+        <div class="title">DarkOrangeDot</div>
+        <div class="alt1" style="background-color:#5b3801;">&nbsp;</div>
+        <div class="alt2" style="background-color:#ad3a00;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iY.html">
+				<div class="theme_preview">
+    <div style="background-color:#442128;color:#ffffff">
+        <div class="tint" style="color:#ff6482;">&#8853;</div>
+        <div class="title">DarkPinkDot</div>
+        <div class="alt1" style="background-color:#50242d;">&nbsp;</div>
+        <div class="alt2" style="background-color:#c11032;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1vz.html">
+				<div class="theme_preview">
+    <div style="background-color:#360052;color:#ffffff">
+        <div class="tint" style="color:#da8fff;">&#8853;</div>
+        <div class="title">DarkPurpleDot</div>
+        <div class="alt1" style="background-color:#4e0076;">&nbsp;</div>
+        <div class="alt2" style="background-color:#ad44ab;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iI.html">
+				<div class="theme_preview">
+    <div style="background-color:#4e0703;color:#ffffff">
+        <div class="tint" style="color:#ff6961;">&#8853;</div>
+        <div class="title">DarkRedDot</div>
+        <div class="alt1" style="background-color:#700801;">&nbsp;</div>
+        <div class="alt2" style="background-color:#c20618;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1wB.html">
+				<div class="theme_preview">
+    <div style="background-color:#3e6b76;color:#ffffff">
+        <div class="tint" style="color:#5de6ff;">&#8853;</div>
+        <div class="title">DarkTealDot</div>
+        <div class="alt1" style="background-color:#53747d;">&nbsp;</div>
+        <div class="alt2" style="background-color:#00778c;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1iM.html">
+				<div class="theme_preview">
+    <div style="background-color:#625205;color:#ffffff">
+        <div class="tint" style="color:#ffd426;">&#8853;</div>
+        <div class="title">DarkYellowDot</div>
+        <div class="alt1" style="background-color:#7a6605;">&nbsp;</div>
+        <div class="alt2" style="background-color:#925100;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1j3.html">
+				<div class="theme_preview">
+    <div style="background-color:#282A36;color:#F8F8F2">
+        <div class="tint" style="color:#6272A4;">&#8853;</div>
+        <div class="title">Dracula</div>
+        <div class="alt1" style="background-color:#44475A;">&nbsp;</div>
+        <div class="alt2" style="background-color:#44475A;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by frd, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1wg.html">
+				<div class="theme_preview">
+    <div style="background-color:#000000;color:#00cdcd">
+        <div class="tint" style="color:#00cdcd;">&#8853;</div>
+        <div class="title">ENCOM</div>
+        <div class="alt1" style="background-color:#000000;">&nbsp;</div>
+        <div class="alt2" style="background-color:#00a595;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by David Blue, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1kU.html">
+				<div class="theme_preview">
+    <div style="background-color:#282A36;color:#00FF00">
+        <div class="tint" style="color:#6272A4;">&#8853;</div>
+        <div class="title">Frankenstein</div>
+        <div class="alt1" style="background-color:#222222;">&nbsp;</div>
+        <div class="alt2" style="background-color:#333333;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by Brian S., </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='list_content'>
+			<div>
+			<a href="t/1j9.html">
+				<div class="theme_preview">
+    <div style="background-color:#E49A52;color:#800140">
+        <div class="tint" style="color:#C36B0F;">&#8853;</div>
+        <div class="title">Great Pumpkin</div>
+        <div class="alt1" style="background-color:#F59E00;">&nbsp;</div>
+        <div class="alt2" style="background-color:#C5580D;">&nbsp;&nbsp;</div>
+    </div>
+</div>
+			</a>
+			</div>
+			<span class='caption'>Posted by kimonostereo, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+
+</ul>
+</div>
+
+<div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">&#8592; Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="search@page=2.html">2</a> <a aria-label="Page 3" href="search@page=3.html">3</a> <a class="next_page" rel="next" href="search@page=2.html">Next &#8594;</a></div>
+
+
+<hr/>
+<h4>Workspaces</h4>
+    
+
+
+<div class='list'>
+<ul>
+
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/calendar-time.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1cM.html">&gt; 7 Days Old</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1iD.html">Blue</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/radio-button.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1wG.html">Brown</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/radio-button.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1ji.html">Cyan</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1hx.html">Gray</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1iC.html">Green</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1iE.html">Indigo</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle5.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1mD.html">keep it personal</a> 
+			<span class='caption'><br>Posted by unknown, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/list.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1gV.html">Lists</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/radio-button.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1wE.html">Mint</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1iA.html">Orange</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1hy.html">Pink</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/radio-button.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1iF.html">Purple</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1hz.html">Red</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/btn_tags_selected.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/17a.html">Tagged</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/radio-button.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1wF.html">Teal</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update 3 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/pages.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1eP.html">Templates</a> <a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/calendar-favorite.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1cJ.html">Today</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/tweet.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1mN.html">Twitter</a> 
+			<span class='caption'><br>Posted by Chris Grieser, </span>
+		<span class='caption'>Last update 12 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/btn_tags_selected.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/170.html">Untagged</a> <a class='verified' href='search.html#' title='Tested'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/verified-0a462f6fe5d6003d5dc5dd995c0c818a21e3dd5fdb9aaab171c16fb75cbf76f4.svg" /></a><a class='trusted' href='search.html#' title='From trusted community member'><img style="width:24px;height:24px;vertical-align:middle;" src="assets/trusted-c3f95628f768e0a0ed09961d556a8012d1b1be6ae9e6adede683513eec0df814.svg" /></a>
+			<span class='caption'><br>Posted by agiletortoise, </span>
+		<span class='caption'>Last update 2 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/sync.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1oH.html">Workspaces</a> 
+			<span class='caption'><br>Posted by sharkyski1 , </span>
+		<span class='caption'>Last update 10 months ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/action_circle4.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1iB.html">Yellow</a> 
+			<span class='caption'><br>Posted by jamiejenkins, </span>
+		<span class='caption'>Last update about 1 year ago</span>
+		</div>
+	</li>
+	<li style='clear:both;'>
+		<div class='icon'>
+			<img src="https://config.agiletortoise.com/drafts-icons/calendar-time.png" class="action-icon" />
+		</div>
+		<div class='list_content'>
+			<a href="w/1pA.html">Yesterday</a> 
+			<span class='caption'><br>Posted by @yacaFx, </span>
+		<span class='caption'>Last update 10 months ago</span>
+		</div>
+	</li>
+
+</ul>
+</div>
+
+
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Trick to assign actions to Bold/Italic/Underline commands - Tips &amp; Tricks - Drafts Community</title>
+    <meta name="description" content="This is a bit of goofiness that is the result of the way iOS handles bold, italics and underline commands and input views. 
+[bold-ital] 
+Bold, italics and underline commands have their own routing, regardless of whether &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="339.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Trick to assign actions to Bold/Italic/Underline commands&#39;" href="339.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/1X/de94f72dee38120b0cd6623a0679443d5defbf51.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/1X/de94f72dee38120b0cd6623a0679443d5defbf51.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/trick-to-assign-actions-to-bold-italic-underline-commands/339" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/trick-to-assign-actions-to-bold-italic-underline-commands/339" />
+<meta property="og:title" content="Trick to assign actions to Bold/Italic/Underline commands" />
+<meta name="twitter:title" content="Trick to assign actions to Bold/Italic/Underline commands" />
+<meta property="og:description" content="This is a bit of goofiness that is the result of the way iOS handles bold, italics and underline commands and input views.     Bold, italics and underline commands have their own routing, regardless of whether they are triggered by using external keyboard shortcuts (⌘-B, ⌘-I and ⌘-U), triggered from the text selection menu, or from the iPad keyboard shortcuts.  Since Drafts intervenes in this process to be able to react to those external keyboard shortcuts, if you trigger bold, italic or underli..." />
+<meta name="twitter:description" content="This is a bit of goofiness that is the result of the way iOS handles bold, italics and underline commands and input views.     Bold, italics and underline commands have their own routing, regardless of whether they are triggered by using external keyboard shortcuts (⌘-B, ⌘-I and ⌘-U), triggered from the text selection menu, or from the iPad keyboard shortcuts.  Since Drafts intervenes in this process to be able to react to those external keyboard shortcuts, if you trigger bold, italic or underli..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="6 ❤" />
+<meta property="article:published_time" content="2018-04-19T19:39:19+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="339@page=2.html">
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="339.html">Trick to assign actions to Bold/Italic/Underline commands</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/tips.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #12A89D'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Tips &amp; Tricks</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/tip.html' class='discourse-tag' rel="tag">tip</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+            <link itemprop="image" href="../../uploads/default/original/1X/de94f72dee38120b0cd6623a0679443d5defbf51.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T19:39:19Z' class='post-time'>
+                April 19, 2018,  7:39pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T19:39:19Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is a bit of goofiness that is the result of the way iOS handles bold, italics and underline commands and input views.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/1X/de94f72dee38120b0cd6623a0679443d5defbf51.png" data-download-href="https://forums.getdrafts.com/uploads/default/de94f72dee38120b0cd6623a0679443d5defbf51" title="bold-ital.png"><img src="../../uploads/default/optimized/1X/de94f72dee38120b0cd6623a0679443d5defbf51_2_690x370.png" alt="bold-ital" width="690" height="370" srcset="../../uploads/default/optimized/1X/de94f72dee38120b0cd6623a0679443d5defbf51_2_690x370.png, ../../uploads/default/original/1X/de94f72dee38120b0cd6623a0679443d5defbf51.png 1.5x, ../../uploads/default/original/1X/de94f72dee38120b0cd6623a0679443d5defbf51.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/1X/de94f72dee38120b0cd6623a0679443d5defbf51_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">bold-ital.png</span><span class="informations">815×438 41.7 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>Bold, italics and underline commands have their own routing, regardless of whether they are triggered by using external keyboard shortcuts (⌘-B, ⌘-I and ⌘-U), triggered from the text selection menu, or from the iPad keyboard shortcuts.  Since Drafts intervenes in this process to be able to react to those external keyboard shortcuts, if you trigger bold, italic or underline via any of the other methods, you will get the same thing happen as if you hit the external keyboard shortcut.</p>
+<p>The default installation of Drafts comes with Markdown bold and italics actions assigned to the ⌘-B and ⌘-I shortcuts…so they are also triggered if you select “Bold” or “Italic” from the text selection menu.  You can change these assignments if there are other actions you would rather run using those buttons…or assign some other action to the ⌘-U shortcut, and you would be able to run that action by tapping the “Underline” commands in the other locations.</p>
+<p>Not, perhaps, that exciting, but a handy little tip if you want to have another tool accessible from the text selection menu - like say assigning ⌘-U to an action which toggled title-lower-upper case on the selection.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+          <meta itemprop='keywords' content='tip'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cheekyjeremy'><span itemprop='name'>cheekyjeremy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T20:07:03Z' class='post-time'>
+                April 19, 2018,  8:07pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T20:07:03Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I still cannot seem to get underline to work in a draft. Italic and bold work fine, but underline doesn’t seem to make any change</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T20:10:45Z' class='post-time'>
+                April 19, 2018,  8:10pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T20:10:45Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There is no such thing as underline in Markdown, so the underline command has nothing attached to it. If you want to attach a function to it, you can by assigning the ⌘-U keyboard shortcut to an action.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T20:11:45Z' class='post-time'>
+                April 19, 2018,  8:11pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T20:11:45Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Markdown does not support underlining but does support bold and italic; Markdown being most users’ default draft syntax. This is probably why Greg separated that CMD+U out from Bold and Italic in his original posting and why it wouldn’t do anything by default.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cheekyjeremy'><span itemprop='name'>cheekyjeremy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T21:48:42Z' class='post-time'>
+                April 19, 2018,  9:48pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T21:48:42Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is there a workaround that works on an iPhone ?</p>
+<p>There is no such thing as underline in Markdown, so the underline command has nothing attached to it. If you want to attach a function to it, you can by assigning the ⌘-U keyboard shortcut to an action.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T22:01:41Z' class='post-time'>
+                April 19, 2018, 10:01pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T22:01:41Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This trick works on iPhone.  Even if you do not have an external keyboard connected, if an action is assigned to these shortcuts, the bold/ital/underline buttons in the text selection menu will fire that action.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nahumck'><span itemprop='name'>nahumck</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T22:57:16Z' class='post-time'>
+                April 19, 2018, 10:57pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T22:57:16Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You could use ⌘U to insert <code>&lt;u&gt;words here&lt;/u&gt;</code> around the selected word. It’s HTML and not Markdown, but it will work in previews just fine.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cheekyjeremy'><span itemprop='name'>cheekyjeremy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-19T23:43:14Z' class='post-time'>
+                April 19, 2018, 11:43pm
+              </time>
+              <meta itemprop='dateModified' content='2018-04-19T23:43:14Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>But I don’t have a command key on my iPhone, so how do I set that shortcut ?. While I use drafts all day long, and have many built actions that save me endless amounts of time, I do not anything about the coding in the background</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cpac'><span itemprop='name'>cpac</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-20T00:13:48Z' class='post-time'>
+                April 20, 2018, 12:13am
+              </time>
+              <meta itemprop='dateModified' content='2018-04-20T00:13:48Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think you two are talking past each other.</p>
+<p>Jeremy -</p>
+<p>You seem to want to make some text in Drafts underlined. Right?</p>
+<p>That just isn’t currently possible. Drafts are plain text, not rich text. And there’s no plain text way (at least in Markdown) to specify underlining. The bold and italic formatting are part of markdown and the fact that Drafts does a bit of WYSIWYG with them is just a convenience. (Note that Drafts adds the plain text asterisks and underscores, not just the formatting in the abstract.)</p>
+<p>Given that underlining doesn’t work, Greg’s tip above is a hidden way to access an action using the “Underline” command. It could trigger whatever action you might want. To specify an action to be triggered in this way, you need to modify the action so that its assigned keyboard shortcut is command-u. You do that by editing the action, which can be done on a  phone or an ipad.</p>
+<p>To trigger such an action on an iPhone, you’d use the normal “underline” button that appears when you select some text (it’s that black pop-up, then the BIU button, then “underline”).</p>
+<p>That’s not terribly handy on the iphone, but you can do it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cheekyjeremy'><span itemprop='name'>cheekyjeremy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-20T00:28:13Z' class='post-time'>
+                April 20, 2018, 12:28am
+              </time>
+              <meta itemprop='dateModified' content='2018-04-20T00:28:13Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks. I did try that and the command etc is all there, but it doesn’t seem to actually underline it. This is certainly not important, it would just be helpful</p>
+<p>J</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cpac'><span itemprop='name'>cpac</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-20T00:30:00Z' class='post-time'>
+                April 20, 2018, 12:30am
+              </time>
+              <meta itemprop='dateModified' content='2018-04-20T00:30:00Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yep. It wont actually underline it in Drafts because Drafts doesn’t display underlining.</p>
+<p>If you are trying to underlining in text that you send to other apps, then Tim’s tip above is probably the best way to do that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/MelanieIs'><span itemprop='name'>MelanieIs</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-14T03:23:58Z' class='post-time'>
+                December 14, 2018,  3:23am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-14T03:23:58Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I cannot for the life of me bold or italic or underline in the iPhone app. Okay, in that slow way, I can highlight on the phone and scroll through to the BIU options. But keyboard shortcuts do not work in the desktop app, and even from the phone - so it puts it in markdown language, but if I export that to a text file it’s just in markdown, it’s not bold or italics.</p>
+<p>In other people’s screenshots, they have the option. I don’t. What am I doing wrong?<br>
+On Drafts5. Have paid account.</p>
+<p>Thanks.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-14T07:34:12Z' class='post-time'>
+                December 14, 2018,  7:34am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-14T07:34:12Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="12" data-topic="339">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../letter_avatar_proxy/v2/letter/m/5daacb/40.png" class="avatar"> MelanieIs:</div>
+<blockquote>
+<p>so it puts it in markdown language, but if I export that to a text file it’s just in markdown, it’s not bold or italics.</p>
+</blockquote>
+</aside>
+<p>Text files are plain text. No formatting. Try converting your text file to something that can be displayed with rich formatting; e.g. export as something other than a text file.</p>
+<p>HTML is often a good option. Whilst it is stored as plain text, any browser can render it as rich text.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-14T07:49:27Z' class='post-time'>
+                December 14, 2018,  7:49am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-14T07:49:27Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m wondering if <span class="mention">@melaniels</span> knows how to export to e.g. HTML (or RTF). The latter I don’t know myself, so no insult intended.</p>
+<p>By the way, I don’t think there is an underline in Markdown. In which case (ab)using the HTML <code>&lt;ins&gt;</code> tag might be the way to go.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/MelanieIs'><span itemprop='name'>MelanieIs</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-14T22:18:07Z' class='post-time'>
+                December 14, 2018, 10:18pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-14T22:18:07Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have no need to export to HTML, and that wasn’t my question.</p>
+<p>I would like to use bold or italic text in drafts, and I don’t see how.</p>
+<p>I would like to do this from the new Drafts desktop app, and from my phone. The normal keyboard shortcuts (command-B; command-i) do not work.</p>
+<p>Thanks.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-14T22:22:03Z' class='post-time'>
+                December 14, 2018, 10:22pm
+              </time>
+              <meta itemprop='dateModified' content='2018-12-14T22:22:03Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Drafts is a plain text app. It does not do bold/italics or other rich text natively.</p>
+<p>If you are trying to convert to rich text from Markdown, that can only be done on iOS at this time. That is done via actions in Drafts, and actions are not available in the Mac version yet.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/cheekyjeremy'><span itemprop='name'>cheekyjeremy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-15T04:25:47Z' class='post-time'>
+                December 15, 2018,  4:25am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-15T04:25:47Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I don’t seem to be able to escape Markdown in my iOS app. My “current draft” setting is set to Plain Text and the Default is set to plain text, but as soon as I try to edit some text (make it bold etc” it applies the markdown <strong>example</strong> to the text. I did not used to do this</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_18' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-12-15T08:02:40Z' class='post-time'>
+                December 15, 2018,  8:02am
+              </time>
+              <meta itemprop='dateModified' content='2018-12-15T08:02:40Z'>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That may well be by design as you can’t bold plain text. Maybe by selecting to bold it’s being helpful by switching to a format that supports bold tagging and some visual display of that - Markdown.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_19' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/us40489'><span itemprop='name'>us40489</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-20T07:24:02Z' class='post-time'>
+                April 20, 2019,  7:24am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-20T07:24:02Z'>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That little tip at the end of your post is very interesting and would be quite useful for me. How do you set this “toggle between title-lower-upper” up? I haven’t been able to get my head around it. Thanks very much for a practical help how to do it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_20' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="339.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-04-20T08:29:29Z' class='post-time'>
+                April 20, 2019,  8:29am
+              </time>
+              <meta itemprop='dateModified' content='2019-04-20T08:29:29Z'>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There’s an action in the action directory that does <code>Mixed case -&gt; Upper -&gt; Lower -&gt; Initial Caps</code> - <a href="../../../actions.getdrafts.com/a/1I9.html" rel="nofollow noopener">Case Toggle Action</a>.</p>
+<p>But note that Initial Caps is not quite the same as title case.</p>
+<p>For a starting point for broader text case and style changes, maybe take a look at Tim’s <a href="../../../actions.getdrafts.com/a/1Bg.html" rel="nofollow noopener">Text Modifier action</a> in the action directory.  This deals with various text cases, but with a prompt button based selection rather than a cyclic one.</p>
+<p>In terms of figuring out a cycle of toggling, upper and lower is easy.  Just check if the text is upper or lower case.</p>
+<p>Perhaps something along these lines…<br>
+<code>if(editor.getSelectedText().toUpperCase() == editor.getSelectedText()) alert("Text is uppercase");</code></p>
+<p>True title case is actually much more problematic as you may be able to tell from comparing the Initial Caps vs. Title Case.  If you were happy with Initial Caps, then you just check the case of the first and second alphabetic characters of the selection; but the first action gives you a ready made solution in any case.</p>
+<p>The second action accounts for the non initial capping for short words, so you could search for longer words … but the title may not have any.  A better solution would be to strip out the potentially always lower cased words and then compare against what’s left.</p>
+<p>But… there are some things that should always be capitalised - e.g. “IBM”, “DHL”.  These pose an issue for titling, and even when lower casing, some people always prefer/believe/desire that proper nouns remain capitalised.</p>
+<p>Ultimately you can get a pretty good automation set-up from these two, but if you have some exceptions, you may need to incorporate these yourself, or handle them manually.</p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Trick to assign actions to Bold/Italic/Underline commands'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="339@page=2.html">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

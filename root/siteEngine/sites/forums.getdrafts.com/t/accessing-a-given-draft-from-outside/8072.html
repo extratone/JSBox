@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Accessing a given draft from outside - Drafts for Mac - Drafts Community</title>
+    <meta name="description" content="HI, so much content about scripting, but all I saw was about running actions from within Drafts. 
+My scope would be different: I want to access a (fixed) draft from an macOS-shell. 
+Basically I want to search the content&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="8072.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Accessing a given draft from outside&#39;" href="https://forums.getdrafts.com/t/accessing-a-given-draft-from-outside/8072.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/accessing-a-given-draft-from-outside/8072" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/accessing-a-given-draft-from-outside/8072" />
+<meta property="og:title" content="Accessing a given draft from outside" />
+<meta name="twitter:title" content="Accessing a given draft from outside" />
+<meta property="og:description" content="HI, so much content about scripting, but all I saw was about running actions from within Drafts.  My scope would be different: I want to access a (fixed) draft from an macOS-shell.  Basically I want to search the content of this Draft and display it (grep, sed etc.). This draft contains sort of a little text based database  If this works manually I want to integrate this in to an Alfred list filter.  Is there an example or other hints for me?  Sorry, if the question is overly stupid with an easy..." />
+<meta name="twitter:description" content="HI, so much content about scripting, but all I saw was about running actions from within Drafts.  My scope would be different: I want to access a (fixed) draft from an macOS-shell.  Basically I want to search the content of this Draft and display it (grep, sed etc.). This draft contains sort of a little text based database  If this works manually I want to integrate this in to an Alfred list filter.  Is there an example or other hints for me?  Sorry, if the question is overly stupid with an easy..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2020-08-04T12:51:51+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="8072.html">Accessing a given draft from outside</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/drafts-for-mac.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Drafts for Mac</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/tschloss'><span itemprop='name'>tschloss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-04T12:51:51Z' class='post-time'>
+                August 4, 2020, 12:51pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-04T12:51:51Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>HI, so much content about scripting, but all I saw was about running actions from within Drafts.</p>
+<p>My scope would be different: I want to access a (fixed) draft from an macOS-shell.<br>
+Basically I want to search the content of this Draft and display it (grep, sed etc.). This draft contains sort of a little text based database</p>
+<p>If this works manually I want to integrate this in to an Alfred list filter.</p>
+<p>Is there an example or other hints for me?<br>
+Sorry, if the question is overly stupid with an easy to find answer…</p>
+<p>Thank you<br>
+Thomas</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-04T14:42:33Z' class='post-time'>
+                August 4, 2020,  2:42pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-04T14:42:33Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Take a look at this thread and the Alfred workflow for the basic premise.</p>
+<aside class="quote quote-modified" data-post="1" data-topic="3949">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/handythinks/40/240_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/swipe-my-alfred-workflow-for-drafts-for-mac/3949">Swipe my Alfred Workflow for Drafts for Mac</a> <a class="badge-wrapper  bullet" href="../../c/drafts-for-mac.html"><span class="badge-category-bg" style="background-color: #808281;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="For discussion of the Mac version of Drafts. The Mac version is current in preview. Please submit bug reports using the “Send Feedback” link in the Help menu of the preview version.">Drafts for Mac</span></a>
+  </div>
+  <blockquote>
+    Hi y’all. I created an Alfred workflow to help interact with Drafts for Mac quickly. 
+Here is <a href="https://www.evernote.com/l/AAUhw9bg9TRHAYbKJOWYqumA8CBJElMdw1A" rel="nofollow noopener">a link to download</a> it. 
+ <a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/0/0ef067d0c5db311ddc05be771f55cf537ded8221.png" data-download-href="https://forums.getdrafts.com/uploads/default/0ef067d0c5db311ddc05be771f55cf537ded8221" title="Screen Shot 2019-03-08 at 1.17.18 PM.png">[18%20PM]</a> 
+It incorporated a menu that can be called upon by using “d” space. A quick keyword trigger is also available for each one. 
+It supports: 
+
+Create New Draft (dd)
+Search Drafts (ds)
+Prepend a set Draft (dp)
+Append a set Draft (da)
+
+3 and 4 require setup in the workflow tool. See end of post for this. 
+Menu Driven Actions
+type “d” space and then you’ll get these actions,…
+  </blockquote>
+</aside>
+
+<p>Also take a look at the <a href="../../../docs.getdrafts.com/docs/automation/urlschemes.html" rel="nofollow noopener">URL scheme info</a>. <a href="../../../docs.getdrafts.com/docs/automation/applescript.html#using-drafts-from-applescript" rel="nofollow noopener">AppleScript support</a> for accessing Drafts is still pending, so I’d say that URL access is the way to go for now in exploring this.</p>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/tschloss'><span itemprop='name'>tschloss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-04T15:23:00Z' class='post-time'>
+                August 4, 2020,  3:23pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-04T15:23:00Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you so far. That sound like the perfect direction. I have to dig through it now…</p>
+<p>Thomas</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/tschloss'><span itemprop='name'>tschloss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T05:38:30Z' class='post-time'>
+                August 5, 2020,  5:38am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T05:38:30Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I tried to use the URL-scheme way (which seems the only way as of now anyway).</p>
+<p>But:<br>
+1.) I noticed that I don’t know who to use these URLs from a Bash script. curl doesn’t recognize the scheme.<br>
+2.) The natural URL_action would be “get”, but I need something to understand the back-reference URL. =&gt; so I decided to use “runaction” instead together with the App-action “Copy”.<br>
+But the documentation is unclear to me: There is a mandatory “text” parameter and the expected “uuid” paramter is not there.</p>
+<p>If anyone has a suggestion it would be great, but don’t waste your time with me.</p>
+<p>Thank you<br>
+Thomas</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T06:34:09Z' class='post-time'>
+                August 5, 2020,  6:34am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T06:34:09Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This workflow is not really accessible - only if you are on a mac and have alfred installed.<br>
+That may be fine with <a class="mention" href="https://forums.getdrafts.com/u/tschloss">@tschloss</a> …</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T07:07:21Z' class='post-time'>
+                August 5, 2020,  7:07am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T07:07:21Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="tschloss" data-post="4" data-topic="8072">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/tschloss/40/602_2.png" class="avatar"> tschloss:</div>
+<blockquote>
+<p>1.) I noticed that I don’t know who to use these URLs from a Bash script. curl doesn’t recognize the scheme.<br>
+2.) The natural URL_action would be “get”, but I need something to understand the back-reference URL. =&gt; so I decided to use “runaction” instead together with the App-action “Copy”.</p>
+</blockquote>
+</aside>
+<p>I use <a href="https://github.com/martinfinke/xcall" rel="nofollow noopener">xcall</a> for this.</p>
+<aside class="quote no-group" data-username="tschloss" data-post="4" data-topic="8072">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/tschloss/40/602_2.png" class="avatar"> tschloss:</div>
+<blockquote>
+<p>But the documentation is unclear to me: There is a mandatory “text” parameter and the expected “uuid” paramter is not there.</p>
+</blockquote>
+</aside>
+<p>You don’t have to use the text parameter in your action, so you can just pass in an empty string.</p>
+<p>Since you are opting to use <code>runaction</code>, it doesn’t need a UUID because actions run against the currently loaded draft.</p>
+<p>You could use the text parameter to pass in a specific UUID, or have one specified in your action. Then have your action scripted to work on the draft specified by your uuid rather than the current draft instance, <code>draft</code>.</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="5" data-topic="8072" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>This workflow is not really accessible - only if you are on a mac and have alfred installed.<br>
+That may be fine with <a class="mention" href="https://forums.getdrafts.com/u/tschloss">@tschloss</a> …</p>
+</blockquote>
+</aside>
+<p>It could certainly be easier with more automation options, but I don’t believe it is inaccessible - the example Alfred workflow linked to earlier is an example of this. I’m sure many others like myself also have some similar things on our Macs. Inn regards to it being a Mac thing; yes some tools are only available on the Mac (e.g. shell script, AppleScript, use of Marked2), and likewise, some things are only available on i`*OS (e.g. Shortcuts).</p>
+<p>There are details of <a href="../../../docs.getdrafts.com/docs/actions/platform-notes.html#action-step-compatibility" rel="nofollow noopener">specific action steps that are limited or work differently on different platforms</a> available and are worth being aware of if you use Drafts across platforms.</p>
+<p>Ultimately do note that this request was posted in the ‘Drafts for Mac’ forum and <em>explicitly</em> references the Mac and Alfred (a Mac only app). I think that makes it relatively clear that the solution being sought is Mac specific rather than seeking something cross-platform.</p>
+<p>I hope that clarifies things.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/tschloss'><span itemprop='name'>tschloss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T07:41:12Z' class='post-time'>
+                August 5, 2020,  7:41am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T07:41:12Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you sylumer for your quick and good looking reply, which I have to work through later.</p>
+<p>The hint to xcal is definitely a great step forward. I will try to use this, sound perfect.</p>
+<p>If runAction always refers to the current draft, it is useless for my purpose. I hoped I can direkt it to a draft with a given UUID (which would make a lot of sense fpr the API design IMHO - but I am so grateful about Drafts on Mac and how far it is already after a short period of time, so no complaints).</p>
+<p>(And Yes, I have the Alfred workflow installed: useful in itself, but could learn only little in relation to my “project”. All 4 actions more or less only send something (fire and forget) and not receiving specific conents and dealing with it).</p>
+<p>/Thomas</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T07:56:40Z' class='post-time'>
+                August 5, 2020,  7:56am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T07:56:40Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks,<br>
+I hoe I did not anger you.</p>
+<p>I was trying to understand the problem and solve it.</p>
+<p>You are totally right.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T08:11:22Z' class='post-time'>
+                August 5, 2020,  8:11am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T08:11:22Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="tschloss" data-post="7" data-topic="8072">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/tschloss/40/602_2.png" class="avatar"> tschloss:</div>
+<blockquote>
+<p>If runAction always refers to the current draft, it is useless for my purpose. I hoped I can direkt it to a draft with a given UUID (which would make a lot of sense fpr the API design IMHO - but I am so grateful about Drafts on Mac and how far it is already after a short period of time, so no complaints).</p>
+</blockquote>
+</aside>
+<p>As I suggested above. Take your action and have it work on a draft specified by the text.</p>
+<p>For example, if I start with a URL something like this:</p>
+<pre><code class="lang-auto">drafts://x-callback-url/runAction?text=70FE885A-83B1-44C3-BC81-2CCF87427B78&amp;action=GetText
+</code></pre>
+<p>And have a Script step in the <code>GetText</code> action like this.</p>
+<pre><code class="lang-auto">draftToWorkOn = Draft.find(draft.content);
+alert(draftToWorkOn.content);
+</code></pre>
+<p>It will display the content of the draft whose UUID I put in the x-callback-url. I think from what you have described that this would allow you to work with the draft you want.</p>
+<aside class="quote no-group" data-username="Andreas_Haberle" data-post="8" data-topic="8072">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>I hoe I did not anger you.</p>
+</blockquote>
+</aside>
+<p>Not at all. All good <img src="../../images/emoji/apple/+1/2.png@v=9" title=":+1:t2:" class="emoji" alt=":+1:t2:"> I was just trying to clarify for you.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T09:12:31Z' class='post-time'>
+                August 5, 2020,  9:12am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T09:12:31Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="9" data-topic="8072">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<pre><code class="lang-auto">draftToWorkOn = Draft.find(draft.content);
+alert(draftToWorkOn.content);
+</code></pre>
+</blockquote>
+</aside>
+<p>does this return anything.<br>
+I set up a shortcut with your url and a own uuid<br>
+then i created the get text script</p>
+<p>the alert shows text<br>
+the quick view in shortcuts is enpty</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T10:20:03Z' class='post-time'>
+                August 5, 2020, 10:20am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T10:20:03Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>It doesn’t return anything to Shortcuts no.</p>
+<ol>
+<li>The script only uses an alert, there’s nothing in that code to set any sort of response explicitly.</li>
+<li>The <code>runAction</code> x-callback-url action doesn’t have any return options defined to it unlike say <code>create</code> or <code>get</code>. See the documentation for details about what actions do and do not have data return options built in.</li>
+</ol>
+<p>If I was using Shortcuts, I’d opt to use a [run](<a href="../../../docs.getdrafts.com/docs/automation/shortcuts.html#running" rel="nofollow noopener">https://docs.getdrafts.com/docs/automation/shortcuts#running</a> actions) action step, but again, the run isn’t set to return anything. A manual intervention would be required.</p>
+<p>For Shortcuts I’d use the usual workaround of grabbing the clipboard, running the action modified to put the result on the clipboard, then reading the clipboard back when back in Shortcuts and once I have it, restoring the original clipboard.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T15:03:01Z' class='post-time'>
+                August 5, 2020,  3:03pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T15:03:01Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I admit I’m not following this entire thread (busy week!), but I would note that the <a href="../../../docs.getdrafts.com/docs/automation/urlschemes.html#open"><code>/open</code></a> URL can also take an action parameter, which then executes the action on that specific draft, something like:</p>
+<pre><code class="lang-nohighlight">drafts://open?uuid=MY-UUID&amp;action=Copy
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T20:22:25Z' class='post-time'>
+                August 5, 2020,  8:22pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T20:22:25Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> - thanks a lot for your reply.</p>
+<p>In my opinion the problem is of the chicken-and-egg kind.<br>
+It is hard to get the UUID of a draft in the first place.</p>
+<p>If the UUID is available the interface is pretty strong and very good!</p>
+<p>But to get the UUID - e.g. via a search - not a problem in an action - than to pass it back out.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> told me to use a file or clipboard based workflow and this works OK.</p>
+<p>What I would love to see from you is a <code>/get_uuid_list?query=Traft.Content&amp;search=Title</code> that has a return value of a JSON-array with all UUIDs that match.</p>
+<p>I found this missing search in other apps (like Bear).</p>
+<p>Until then I will use your great app and the astonishing people in this community and use the clipboard.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T20:39:17Z' class='post-time'>
+                August 5, 2020,  8:39pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T20:39:17Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I think you are thinking URL schemes can work like HTTP, and they do not. You can’t pass a response to a custom URL scheme, it’s just a URL that gets handed off to an app.</p>
+<p>Callback URLs are a way to workaround this when apps agree on separate custom URL schemes and implement ways to call each other’s URLs, but that not the same thing as requesting data. You can never get data back from a call to an app’s custom URLs. There’s no server processing the data and returning a response.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-05T21:11:55Z' class='post-time'>
+                August 5, 2020,  9:11pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-05T21:11:55Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>OK. Maybe I am confused or mistaken.<br>
+But the <code>/get</code> callback does get something back (the content of the draft).</p>
+<blockquote>
+<p><strong>retParam</strong>   <em>[string, optional]</em>  : The name of the argument to use to pass the draft content back to the x-success URL.</p>
+</blockquote>
+<p>Is this not a kind of (simple) return value?</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/tschloss'><span itemprop='name'>tschloss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-06T06:21:54Z' class='post-time'>
+                August 6, 2020,  6:21am
+              </time>
+              <meta itemprop='dateModified' content='2020-08-06T06:21:54Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you for the discussion.</p>
+<p>The “xcall” hint already was very good. Used with “get uuid” it displayed a little JSON object with the content of the draft to STDOUT. So this could be used for my purpose.</p>
+<p>The hint to send “get uuid &amp; action=copy” made it even better for me, the content of this drafts comes in macOS pasteboard and I can work with “pbpaste |” on the the text content.<br>
+In the Draft application UI this draft will be selected (which was surprising, but doesn’t bother me).</p>
+<p>Thank you again.</p>
+<p>Thomas</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8072.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-08-06T13:42:09Z' class='post-time'>
+                August 6, 2020,  1:42pm
+              </time>
+              <meta itemprop='dateModified' content='2020-08-06T13:42:09Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>In HTTP, you made a request from a URL, and get a response.</p>
+<p>When opening a URL for an app, the system (iOS or macOS), simple using the scheme (before the colon in the URL) to determine which app can handle that URL, then opens that app with the URL as an argument.  There is no two communication, no response to the original requesting process.</p>
+<p><a href="http://x-callback-url.com">x-callback-url</a> was developed as a spec to allow apps to communicate two-way over custom URL schemes by agreeing on a format for URL query parameters that can include other URLs, which an app can then use to return to the original calling app. If you use them, you include a URL as the <code>x-success</code> parameter in a URL to Drafts, then when Drafts is done with whatever the URL requested it to do, it will open that URL - with, in some cases, additional parameters added (like the <code>retParam</code> value) to pass information back to the original calling app.</p>
+<p>This is not something you can just utilize directly from another scripting environment, however, because you need an app running somewhere that is able to handle the response URL. That is what the <a href="https://github.com/martinfinke/xcall">xcall</a> command line tool does.</p>
+        </div>
+
+        <meta itemprop='headline' content='Accessing a given draft from outside'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

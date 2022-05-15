@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>[Pending] Pandoc Title / Metadata support - #16 by sylumer - Feature Requests - Drafts Community</title>
+    <meta name="description" content="Currently the first line of a draft is considered the title. 
+If that line starts with a “#”, it is assumed to be stripped. 
+In some Markdown — like Pandoc — a title can be in a metadata block, with lines starting with “&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;[Pending] Pandoc Title / Metadata support&#39;" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718/16" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718/16" />
+<meta property="og:title" content="[Pending] Pandoc Title / Metadata support" />
+<meta name="twitter:title" content="[Pending] Pandoc Title / Metadata support" />
+<meta property="og:description" content="Well it is linked to the UUID, so that’s more than close  in my book.  For discussions on meta data, it may be worth going back through other discussions too. There have been a few over the years!  Custom meta data in particular has come up a few times and Greg’s previous proposed solution was actually to use a second draft and some actions to tie the meta data block to the original draft.    I don’t know if the roadmap has change in the interim, but that’s certainly where we’re starting from." />
+<meta name="twitter:description" content="Well it is linked to the UUID, so that’s more than close  in my book.  For discussions on meta data, it may be worth going back through other discussions too. There have been a few over the years!  Custom meta data in particular has come up a few times and Greg’s previous proposed solution was actually to use a second draft and some actions to tie the meta data block to the original draft.    I don’t know if the roadmap has change in the interim, but that’s certainly where we’re starting from." />
+<meta property="article:published_time" content="2020-10-16T20:25:55+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">[Pending] Pandoc Title / Metadata support</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../../c/features.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #92278F'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Feature Requests</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/ifischer'><span itemprop='name'>ifischer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-09T15:41:51Z' class='post-time'>
+                October 9, 2020,  3:41pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-09T17:46:49Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Currently the first line of a draft is considered the title.<br>
+If that line starts with a “#”, it is assumed to be stripped.<br>
+In some Markdown — like Pandoc — a title can be in a metadata block, with lines starting with “%” and the first line being the title.<br>
+Can we treat % at the start of the first line as the title, and strip it the same way H1 / “#” is stripped?</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-09T16:28:34Z' class='post-time'>
+                October 9, 2020,  4:28pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-09T16:28:34Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You can control exactly how the content is being passed out of Drafts via actions.  What exactly is your set-up?</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-09T17:46:37Z' class='post-time'>
+                October 9, 2020,  5:46pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-09T17:46:37Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Drafts always sets the first line as a title.</p>
+<p>We had a discussion some weeks ago about managing meta data in drafts.</p>
+<p>The three approaches in short</p>
+<ol>
+<li>add a meta block from the second line (title first)</li>
+<li>append a meta block at the bottom</li>
+<li>organize the meta data in a separate file (use <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> TADpole library from action directory for that)</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/ifischer'><span itemprop='name'>ifischer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-15T20:47:17Z' class='post-time'>
+                October 15, 2020,  8:47pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-15T21:46:32Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I wasn’t referring to how it was being passed out of Drafts, so much as a requested change in how Drafts interprets that first line as a title.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-15T21:01:53Z' class='post-time'>
+                October 15, 2020,  9:01pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-15T21:01:53Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="ifischer" data-post="1" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/ifischer/40/4261_2.png" class="avatar"> ifischer:</div>
+<blockquote>
+<p>Currently the first line of a draft is considered the title.<br>
+If that line starts with a “#”, it is assumed to be stripped.</p>
+</blockquote>
+</aside>
+<p>Just as some context, the reason I had taken it as you were talking about exporting is because the first line of the draft in Drafts is defined as the title, but I didn’t think that the second line was true.</p>
+<p>There are some places where what is effectively a display version of the title is used, such as in the draft listing for example, but whenever the title property of a draft is accessed, in my experience, it has always included any leading Markdown heading syntax that is specified.</p>
+<p>Obviously an incorrect assumption on my part, but just explaining the why.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T05:33:50Z' class='post-time'>
+                October 16, 2020,  5:33am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T05:33:50Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ok, after reading the pandoc documentation, I assume you are talking about this topic:</p>
+<h2>Metadata blocks</h2>
+<p>Extension: <code>pandoc_title_block</code></p>
+<p>If the file begins with a title block</p>
+<pre><code class="lang-auto">% title
+% author(s) (separated by semicolons)
+% date
+</code></pre>
+<p>As long as the title stays in the first line it should not be so hard to add <code>%</code> to the signs that get removed.<br>
+<a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> … am I wrong?</p>
+<p>I hope this feature will be controlled by the upcoming syntax definition extension in Drafts.<br>
+Because it is very convenient to remove this heading characters in the other parts of the app</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T08:01:48Z' class='post-time'>
+                October 16, 2020,  8:01am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T08:01:48Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Right. Metadata would be a good example of something to treat differently from Title and Body Text.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T09:20:06Z' class='post-time'>
+                October 16, 2020,  9:20am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T09:20:06Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Title is positional, but such meta data is not in that while it does always appear at the start, the length varies.</p>
+<p>In this particular case,it seems to be tied to a specific syntax - Specifically Pandoc’s own flavour of Markdown. Like Andreas suggested, it seems to be more of a flavour of syntax.</p>
+<p>Maybe Drafts could offer more control around this sort of thing, but it seems prudent to also consider what the custom syntax definitions will bring.</p>
+<p>Perhaps tying in the display title in Drafts to the syntax definition. I happen to be of the opinion that if a draft is set as plain text and the title starts with a hash, the title listed in the Drafts list should also start with a hash as it is only formatting if you are dealing with Markdown.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T09:39:20Z' class='post-time'>
+                October 16, 2020,  9:39am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T09:39:20Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I realise this is an immodest <img src="../../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"> proposal - and I (and probably <a class="mention" href="https://forums.getdrafts.com/u/andreas_haberle">@Andreas_Haberle</a>) have an ulterior motive - md2pptx.</p>
+<p>I would like the data model to have another component, so that we have three:</p>
+<ol>
+<li>Title</li>
+<li>Metadata</li>
+<li>Body text</li>
+</ol>
+<p>How metadata is handled and displayed is the interesting bit. Also interesting is how the title is detected and displayed - as it might not be the first line of the draft.</p>
+<p>What I’m not sure about is whether metadata key/value pairs is part of what passes for the Markdown spec.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T09:50:51Z' class='post-time'>
+                October 16, 2020,  9:50am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T09:50:51Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="martinpacker" data-post="9" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<p>What I’m not sure about is whether metadata key/value pairs is part of what passes for the Markdown spec.</p>
+</blockquote>
+</aside>
+<p>The only place I’ve seen it in relation to the currently supported flavours of Markdown for Drafts is in the MMD spec.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <a href="https://fletcher.github.io/MultiMarkdown-4/metadata.html" target="_blank" rel="noopener">fletcher.github.io</a>
+  </header>
+  <article class="onebox-body">
+    <img src="16.html" class="thumbnail" width="20" height="20">
+
+<h3><a href="https://fletcher.github.io/MultiMarkdown-4/metadata.html" target="_blank" rel="noopener">Metadata</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T10:50:35Z' class='post-time'>
+                October 16, 2020, 10:50am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T10:50:35Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m tending to include MMD extensions - otherwise I couldn’t do tabular slides (often converted from CSV via mdpre) or footnotes.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T17:47:39Z' class='post-time'>
+                October 16, 2020,  5:47pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T17:47:39Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="8" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>I happen to be of the opinion that if a draft is set as plain text and the title starts with a hash, the title listed in the Drafts list should also start with a hash as it is only formatting if you are dealing with Markdown.</p>
+</blockquote>
+</aside>
+<p>That’s right. It is a special feature that only works on the markdown heading style.</p>
+<p>In Java Script it does not remove the comments.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/ifischer">@ifischer</a><br>
+You may think about writing it with a hash and preprocess it before conversion with pandoc.</p>
+<aside class="quote no-group" data-username="sylumer" data-post="8" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>Maybe Drafts could offer more control around this sort of thing, but it seems prudent to also consider what the custom syntax definitions will bring.</p>
+</blockquote>
+</aside>
+<p>I think that would be great to have a toggle switch to strip the corresponding header signs.</p>
+<p>If you look into other syntax definitions like DokuWiki it even would have to remove the signs from start and stop of the line.</p>
+<p>A logical way would be to tie it to the syntax definition.</p>
+<aside class="quote no-group" data-username="martinpacker" data-post="9" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<ul>
+<li>Title</li>
+<li>Metadata</li>
+<li>Body text</li>
+</ul>
+</blockquote>
+</aside>
+<p>I would like to have a metadata block in drafts that is foldable and merges the (i) section metadata with user defined key/value pairs.</p>
+<p>This would be a completely different UI and I am not sure how <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> would think about it.</p>
+<p>A more simpler solution would be to invert the title colors to show its special meaning.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T18:30:52Z' class='post-time'>
+                October 16, 2020,  6:30pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T18:30:52Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You are thinking of presentation / editing of metadata. I agree that’s a new UI. I’m also thinking of a metadata object as an attribute of a draft - a list of key/value pairs. One thing I notice, BTW, is metadata can be multiline - according to the MultiMarkdown spec.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T20:05:18Z' class='post-time'>
+                October 16, 2020,  8:05pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T20:05:18Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="martinpacker" data-post="13" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/martinpacker/40/684_2.png" class="avatar"> martinpacker:</div>
+<blockquote>
+<p>I’m also thinking of a metadata object as an attribute of a draft - a list of key/value pairs</p>
+</blockquote>
+</aside>
+<p>There are other options for that too <img src="../../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<aside class="quote quote-modified" data-post="11" data-topic="8759">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/resolved-calling-an-action-after-settemplatetag-bug-with-app-queueaction/8759/11">[RESOLVED] Calling an action after setTemplateTag (bug with app.queueAction)</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/issues/10"><span class="badge-category-bg" style="background-color: #F1592A;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Think you may have come across a bug, or are having functional issues with Drafts? You can always report directly to us at support@agiletortoise.com, but if you think others might benefit feel free to discuss it here as well.">Issues</span></a>
+  </div>
+  <blockquote>
+    You could store them as metadata using the functions I wrote into the <a href="https://tadpole.thoughtasylum.com">TADpoLe library</a>. They store the data outside of the draft so as not to pollute the existing content or meta data (e.g. tags). 
+Once you include the library (including the TAD action from the <a href="../../../../actions.getdrafts.com/g/1aM.html">ThoughtAsylum Action group</a> (download it and run the refresh action as per the instructions to get the latest library file on your devices) you can then call the meta data functions. 
+draft.TA_metaRead() will initialise the current draft w…
+  </blockquote>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T20:15:03Z' class='post-time'>
+                October 16, 2020,  8:15pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T20:15:03Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> that’s a great function.</p>
+<p>But it is still not closely linked to the draft itself.</p>
+<p>This is moving from the original topic but I think that the title field itself is not obvious in the actual implementation and that the metadata could be extended inside DraftsCore implementation.</p>
+<p>In the current version everything is a big textedit  and a view behind the info button.</p>
+<p>I would love to see a new implementation that merges the given implementation with the new ideas.</p>
+<p>It might be not so easy to get the easy and lightweight editor with a more complex implementation <strong>but</strong> let’s say it <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> is one of the iOS developers - so I think he would be able to do this magic in Drafts. <img src="../../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-16T20:25:55Z' class='post-time'>
+                October 16, 2020,  8:25pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-16T20:25:55Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Andreas_Haberle" data-post="15" data-topic="8718">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>But it is still not closely linked to the draft itself.</p>
+</blockquote>
+</aside>
+<p>Well it is linked to the UUID, so that’s more than close  in my book.</p>
+<p>For discussions on meta data, it may be worth going back through other discussions too. There have been a few over the years!  Custom meta data in particular has come up a few times and Greg’s previous proposed solution was actually to use a second draft and some actions to tie the meta data block to the original draft.</p>
+<aside class="quote quote-modified" data-post="1" data-topic="7288">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../../user_avatar/forums.getdrafts.com/cucumbercutter/40/3469_2.png" class="avatar">
+    <a href="../../option-of-having-a-comment-section-to-the-right-with-synopsis-and-general-comments-meta-text/7288.html">Option of having a comment section to the right with synopsis and general comments (meta text)</a> <a class="badge-wrapper  bullet" href="../../../c/features.html"><span class="badge-category-bg" style="background-color: #92278F;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Some feature you think is missing from Drafts? We’re always listening, let us know.">Feature Requests</span></a>
+  </div>
+  <blockquote>
+    One important feature I miss in Drafts is the option of having a section/column in the right corner where you can enter metatext such as a little synopsis about what this particular note is about and general comments / TO DO’s, and so on.  If implemented, then it would be possible to only have the real text in the actual note (and not like now where we have to blend the real text and meta-text and TO-DO’s together in the same note). 
+If this feature was implemented, I’d surely sign up for Drafts…
+  </blockquote>
+</aside>
+
+<p>I don’t know if the roadmap has change in the interim, but that’s certainly where we’re starting from.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/pending-pandoc-title-metadata-support/8718">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-17T07:09:47Z' class='post-time'>
+                October 17, 2020,  7:09am
+              </time>
+              <meta itemprop='dateModified' content='2020-10-17T07:09:47Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you. Actions is a good way to do it. However, I think there are advantages in it being pushed down into “the engine” - as we Db2 fans like to call it.</p>
+        </div>
+
+        <meta itemprop='headline' content='[Pending] Pandoc Title / Metadata support'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

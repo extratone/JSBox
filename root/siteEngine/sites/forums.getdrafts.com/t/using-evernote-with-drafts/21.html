@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Using Evernote with Drafts - Integration Guides - Drafts Community</title>
+    <meta name="description" content="App Store
+
+URL Scheme: en://
+URL Scheme Documentation
+
+
+Warning: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="21.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Using Evernote with Drafts&#39;" href="21.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/1X/f850009db41e32e6c34669b1f112fdea4fa69a91.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/1X/f850009db41e32e6c34669b1f112fdea4fa69a91.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/using-evernote-with-drafts/21" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/using-evernote-with-drafts/21" />
+<meta property="og:title" content="Using Evernote with Drafts" />
+<meta name="twitter:title" content="Using Evernote with Drafts" />
+<meta property="og:description" content="App Store  URL Scheme: en:// URL Scheme Documentation   Warning: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), several of the key methods of integration with new app updates (AppleScript, URL schemes), and no longer supports their integration SDKs. Although some of these methods do still work, we are not sure how long they will continue to work.   Evernote is a popular note platform. Draf..." />
+<meta name="twitter:description" content="App Store  URL Scheme: en:// URL Scheme Documentation   Warning: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), several of the key methods of integration with new app updates (AppleScript, URL schemes), and no longer supports their integration SDKs. Although some of these methods do still work, we are not sure how long they will continue to work.   Evernote is a popular note platform. Draf..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2018-04-04T16:41:39+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="21.html">Using Evernote with Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/integration-guides.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Integration Guides</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/guide.html' class='discourse-tag' rel="tag">guide</a>, 
+            <a href='../../tag/evernote.html' class='discourse-tag' rel="tag">evernote</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+            <link itemprop="image" href="../../uploads/default/original/1X/f850009db41e32e6c34669b1f112fdea4fa69a91.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-04-04T16:41:39Z' class='post-time'>
+                April 4, 2018,  4:41pm
+              </time>
+              <meta itemprop='dateModified' content='2020-12-29T12:47:25Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../uploads/default/original/1X/f850009db41e32e6c34669b1f112fdea4fa69a91.png" alt="app-icon" data-base62-sha1="zqFOEGFMgEzzOhEYnhqru3KGdWx" width="105" height="105"></p>
+<ul>
+<li><a href="https://itunes.apple.com/us/app/id281796108?mt=8&amp;uo=4&amp;at=11l4Cf&amp;ct=directory"><strong>App Store</strong></a></li>
+<li>
+<strong>URL Scheme:</strong> en://</li>
+<li><a href="https://github.com/evernote/evernote-ios-x-callback-url"><strong>URL Scheme Documentation</strong></a></li>
+</ul>
+<blockquote>
+<p><strong>Warning</strong>: At this time we do not recommend relying on integration with Evernote from Drafts, or any other third party app. Evernote has removed (without notice), several of the key methods of integration with new app updates (AppleScript, URL schemes), and <em>no longer supports</em> their integration SDKs. Although some of these methods do still work, we are not sure how long they will continue to work.</p>
+</blockquote>
+<p><a href="http://evernote.com">Evernote</a> is a popular note platform. Drafts can capture text to Evernote in a number of ways.</p>
+<h2>Evernote Action step (iOS Only)</h2>
+<blockquote>
+<p><strong>Note</strong>: The Evernote action step relies on the <a href="https://github.com/evernote/evernote-cloud-sdk-ios">Evernote SDK</a>, which Evernote no longer supports. We are maintaining our own version of this SDK to keep it working for now, but are not sure about the future of these features, and there are a few “gotchas”, including the fact that if you login to Evernote using a Google account, you cannot use these features. This is not something we can fix or workaround, it would require a fix from Evernote.</p>
+</blockquote>
+<p>Drafts offers native integration with Evernote using the <a href="../../../getdrafts.com/actions/steps/evernote.html">Evernote action step</a>. Actions using this step can create, replace, append or prepend to notes in any notebook, assign tags, etc…even convert Markdown to Evernote rich text. Some ready to use samples from the directory:</p>
+<ul>
+<li>
+<a href="../../../actions.getdrafts.com/a/1E9.html">Save to Evernote</a>: Saves draft to Evernote in a timestamped note, converting Markdown to Evernote’s native ENML rich-text format.</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1E0.html">Append to Evernote Journal</a>: Append draft to rolling monthly journal notes in Evernote.</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1Ea.html">Evernote with Todos</a>: Saves to Evernote converting Drafts’ [ ] task marks to Evernote checkboxes.</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1Ll.html">Save to Evernote (Text)</a>: Same as save action above, but treats text as plain text converting line breaks, but not applying any Markdown formatting.</li>
+</ul>
+<p><strong>Formatting</strong>: <em>see the formatting footnote below to better understand how text is converted to Evernote</em>.</p>
+<p><strong>Mac Note</strong>: Evernote does not provide a standard REST API, so these actions rely on a custom SDK from Evernote. Evernote does not offer a similar SDK for Mac at this time, so these features are not enabled.</p>
+<h2>Share Extension (iOS Only)</h2>
+<p>Evernote offers an iOS Share extension for creating tasks which can be used with the Drafts’ Share action. This requires no special setup or configuration, just that both apps be installed on the device. Just tap the “Share” action, and use select Evernote.  The share extension offers great flexibility in assigning Evernote tags and destination notebooks.</p>
+<p><strong>Mac Note</strong>: Note that Evernote does have a share extension in their Mac application, but it does not accept text for some reason, so does not appear as an option when sharing from Drafts. This is something Evernote would have to change at their end to function with Drafts.</p>
+<h2>URL-Based Actions (iOS Only) DEPRECATED!!!</h2>
+<blockquote>
+<p><strong>As of September, 2020, the Evernote iOS app was updated and no longer supports the URL schemes it has in the past. This method is no longer available!</strong></p>
+</blockquote>
+<p>Evernote supports <a href="https://github.com/evernote/evernote-ios-x-callback-url">URL schemes</a>, including x-callback-url.</p>
+<ul>
+<li>
+<a href="../../../actions.getdrafts.com/a/1C1.html">New Note in Evernote</a>: Sends the current draft to Evernote as a new note, with the first line of the draft as the title and remaining text as the content of the note.</li>
+</ul>
+<p><strong>Mac Note</strong>: Evernote’s Mac app does not implement support for the same URL schemes as their iOS app. They do register the same <code>Evernote:</code> URL scheme, but the action do not work, so generally if you run a URL-based Evernote action on the Mac, the Evernote app will launch, but nothing will happen.</p>
+<h2>Emailing into Evernote</h2>
+<p>Evernote offers the ability to email notes. Details about how to email to Evernote are available in <a href="https://help.evernote.com/hc/en-us/articles/209005347-How-to-save-email-into-Evernote">their documentation</a>.  Once you determine your unique Evernote email address, you can configure a Drafts’ <a href="../../../getdrafts.com/actions/steps/evernote.html">Mail action step</a> with that “To” email address and “Send in Background” enabled for a quick, single tap method to send a note to Evernote.</p>
+<p>This is generally the best option for integrating with Evernote on the Mac.</p>
+<h2>AppleScript (macOS Only) DEPRECATED!!!</h2>
+<blockquote>
+<p><strong>As of October, 2020, the Evernote Mac app was updated and no longer supports the AppleScript. This method is no longer available!</strong></p>
+</blockquote>
+<p>It is also possible to do advanced creation and modification of notes in Evernote via AppleScript integration. We have <a href="../evernote-example-with-cross-platform-support-via-applescript/7058.html">posted a sample action</a> demonstrating how to create cross-platform Evernote actions with AppleScript.</p>
+<h2>Formatting Text for Evernote</h2>
+<p>Evernote stores notes using it’s own <a href="https://dev.evernote.com/doc/articles/enml.php">ENML</a> markup, which is very much like HTML. When displayed in Evernote’s apps, the ENML is rendered much like HTML is in a web-browser to appear as rich-text…but, ultimately, under the hood, it is stored in this HTML-like markup.</p>
+<p>Drafts edits plain text notes. When sending text from Drafts to Evernote using their APIs, the text has to be converted to ENML. Drafts offers several strategies to do this, as controlled by the template output format of the <a href="../../../docs.getdrafts.com/docs/actions/steps/services.html#evernote">Evernote action step</a>. The two common options are:</p>
+<ul>
+<li>
+<strong>Text:</strong> Using this option, Drafts assumes you want your output treated as plain text. It will encode HTML entities, add line break tags where you have them, etc., when sending to Evernote. It will <em>not</em>, however, result in any rich-text formatting in Evernote. If you do not use Markdown, this is probably the option you want.</li>
+<li>
+<strong>Markdown::</strong> Using this option, Draft will run the output through your preferred Markdown parser to convert it to HTML before sending to Evernote. Since ENML is very close to HTML, this generally works to get nice rich-text formatting of bold, italics, lists, links and other common markup in the resulting Evernote document.</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+          <meta itemprop='keywords' content='guide, evernote'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../specifying-notebook-in-new-note-in-evernote/3349/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/specifying-notebook-in-new-note-in-evernote/3349/2'>
+                      <span itemprop='name'>Specifying Notebook in New Note in Evernote</span>
+                    </a>
+                    <meta itemprop='position' content='15'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../help-with-append-to-evernote-notebook-note/6830/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/help-with-append-to-evernote-notebook-note/6830/2'>
+                      <span itemprop='name'>Help with Append to Evernote Notebook &amp; note</span>
+                    </a>
+                    <meta itemprop='position' content='16'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../poll-what-services-would-you-like-to-see-added-to-drafts/2021/34.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/poll-what-services-would-you-like-to-see-added-to-drafts/2021/34'>
+                      <span itemprop='name'>POLL: What services would you like to see added to Drafts?</span>
+                    </a>
+                    <meta itemprop='position' content='17'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../can-t-get-markdown-checkboxes-bullets-to-covert-to-evernote/9947/5.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/can-t-get-markdown-checkboxes-bullets-to-covert-to-evernote/9947/5'>
+                      <span itemprop='name'>Can’t get Markdown checkboxes &amp; bullets to convert to Evernote</span>
+                    </a>
+                    <meta itemprop='position' content='18'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../problems-with-actions-after-upgrading-from-drafts4/7834/5.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/problems-with-actions-after-upgrading-from-drafts4/7834/5'>
+                      <span itemprop='name'>Problems with actions after upgrading from Drafts4</span>
+                    </a>
+                    <meta itemprop='position' content='19'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../evernote-example-with-cross-platform-support-via-applescript/7058.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/evernote-example-with-cross-platform-support-via-applescript-deprecated/7058'>
+                      <span itemprop='name'>Evernote example with cross-platform support via AppleScript [DEPRECATED]</span>
+                    </a>
+                    <meta itemprop='position' content='20'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../unable-to-send-to-evernote-from-desktop-app/12252/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/unable-to-send-to-evernote-from-desktop-app/12252/3'>
+                      <span itemprop='name'>Unable to send to Evernote from desktop app</span>
+                    </a>
+                    <meta itemprop='position' content='21'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../append-to-evernote-journal-action-with-2-evernote-accounts/12451/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/append-to-evernote-journal-action-with-2-evernote-accounts/12451/2'>
+                      <span itemprop='name'>Append to Evernote Journal action with 2 Evernote accounts</span>
+                    </a>
+                    <meta itemprop='position' content='22'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../cant-get-drafts-formatting-to-render-correctly-in-evernote-using-send-to-evernote-action/9009.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/cant-get-drafts-formatting-to-render-correctly-in-evernote-using-send-to-evernote-action/9009'>
+                      <span itemprop='name'>Can&#39;t get Drafts formatting to render correctly in Evernote, using Send to Evernote action</span>
+                    </a>
+                    <meta itemprop='position' content='23'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../action-to-append-to-a-checklist-in-an-evernote-note/11335/3.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/action-to-append-to-a-checklist-in-an-evernote-note/11335/3'>
+                      <span itemprop='name'>Action to append to a checklist in an Evernote note</span>
+                    </a>
+                    <meta itemprop='position' content='24'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Gadgetbox'><span itemprop='name'>Gadgetbox</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-07-04T06:41:19Z' class='post-time'>
+                July 4, 2018,  6:41am
+              </time>
+              <meta itemprop='dateModified' content='2018-07-04T06:41:19Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Is it possible to add a list of pros and cons for each method to aid in choosing one? Thanks! <img src="../../images/emoji/apple/doughnut.png@v=5" title=":doughnut:" class="emoji" alt=":doughnut:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/BillPetro'><span itemprop='name'>BillPetro</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2018-08-27T17:44:20Z' class='post-time'>
+                August 27, 2018,  5:44pm
+              </time>
+              <meta itemprop='dateModified' content='2018-08-27T18:16:41Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-post="1" data-topic="21">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../user_avatar/forums.getdrafts.com/agiletortoise/40/33_1.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>Append to Evernote Journal</p>
+</blockquote>
+</aside>
+<p>Is it possible to modify “Append to Evernote Journal” so that it converts Markdown into proper format for Evernote, like “Markdown to Evernote” action?<br>
+…<br>
+Never mind, I figured out how to Edit the action and change it from Text to Markdown.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/lucas222'><span itemprop='name'>lucas222</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2019-06-23T06:03:23Z' class='post-time'>
+                June 23, 2019,  6:03am
+              </time>
+              <meta itemprop='dateModified' content='2019-06-23T06:03:23Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Like most users, I have many (in my case 300 + notebooks) in evernote.<br>
+Perhaps useful to mention that only new note in evernote allows the user to choose in which notebook the note is inserted, whereas save to evernote just sends the newly created note to the all purpose ‚non classified‘ dumpster, forcing the user to open evernote the move the move into the appropriate note sometime in the future, a laborious task.<br>
+For this reason, IMO using New Note is a no brainer.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jimw'><span itemprop='name'>jimw</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-18T21:33:19Z' class='post-time'>
+                April 18, 2020,  9:33pm
+              </time>
+              <meta itemprop='dateModified' content='2020-04-18T21:33:19Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Sorry to resurrect this old thread, but I was wondering whether it is possible to change the Evernote note title from the date/time as it is now to the first line/heading 1 of the Draft?</p>
+<p>Thanks</p>
+<p>Jim</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-19T07:53:05Z' class='post-time'>
+                April 19, 2020,  7:53am
+              </time>
+              <meta itemprop='dateModified' content='2020-04-19T07:53:05Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, it mentions this in the original post above.</p>
+<p>Assuming that you are now referring to <a href="../../../actions.getdrafts.com/a/16n.html" rel="nofollow noopener">this action</a>, you would change the <code>noteTitle</code> definition from <code>[[time]]</code> to <code>[[title]]</code>.</p>
+<p>You can find documentation for these points as follow:</p>
+<ul>
+<li>
+<a href="../../../docs.getdrafts.com/docs/actions/steps/utility.html#define-template-tag" rel="nofollow noopener">Define Template Tag action step</a>.</li>
+<li>
+<a href="../../../docs.getdrafts.com/docs/actions/templates.html#tags" rel="nofollow noopener">Template Tags</a>.</li>
+</ul>
+<p>Hope that helps.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/RochelleB-S'><span itemprop='name'>RochelleB-S</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-11T00:02:24Z' class='post-time'>
+                January 11, 2021, 12:02am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-11T00:02:24Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m changing my MacOS Evernote shortcuts to email a note into Evernote. This is very reliable. I write in Drafts using Markdown. Is there any way to use a script to convert Drafts/Markdown checkboxes of [ ] to an Evernote checkbox? I’m using HTML output.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-11T00:55:57Z' class='post-time'>
+                January 11, 2021, 12:55am
+              </time>
+              <meta itemprop='dateModified' content='2021-01-11T00:55:57Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I do not believe there is anyway to generate any kind of checkboxes through their Email interface, I’m afraid.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Rob_Muise'><span itemprop='name'>Rob_Muise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-30T17:10:47Z' class='post-time'>
+                January 30, 2021,  5:10pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-30T17:10:47Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I feel like I am way over my head with Drafts, but here goes.  I can not seem to be able to figure out how to send my Drafts, from either iOS or macOS to Evernote.  All I am looking to do is create a new note in Evernote from a draft.</p>
+<p>Thanks</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-30T17:15:12Z' class='post-time'>
+                January 30, 2021,  5:15pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-30T17:15:12Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Can I check that you have tried to use one of the actions Greg posted at the start of this thread?</p>
+<aside class="quote no-group" data-username="agiletortoise" data-post="1" data-topic="21">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/agiletortoise/40/1822_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<ul>
+<li>
+<a href="../../../actions.getdrafts.com/a/1E9.html">Save to Evernote </a>: Saves draft to Evernote in a timestamped note, converting Markdown to Evernote’s native ENML rich-text format.</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1E0.html">Append to Evernote Journal </a>: Append draft to rolling monthly journal notes in Evernote.</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1Ea.html">Evernote with Todos </a>: Saves to Evernote converting Drafts’ [ ] task marks to Evernote checkboxes.</li>
+<li>
+<a href="../../../actions.getdrafts.com/a/1Ll.html">Save to Evernote (Text) </a>: Same as save action above, but treats text as plain text converting line breaks, but not applying any Markdown formatting.</li>
+</ul>
+</blockquote>
+</aside>
+<p>If you have, can you share what happens? e.g. nothing, an error message.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Rob_Muise'><span itemprop='name'>Rob_Muise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-30T20:22:31Z' class='post-time'>
+                January 30, 2021,  8:22pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-30T20:22:31Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the suggestions and have tried all of them and get this error</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png" data-download-href="https://forums.getdrafts.com/uploads/default/892cdc334706a3382da2875a8bf473fc52e05a5f" title="image"><img src="../../uploads/default/optimized/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f_2_690x288.png" alt="image" data-base62-sha1="jzvwBxDngjj7QY2pe54EuMiKCYf" width="690" height="288" srcset="../../uploads/default/optimized/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f_2_690x288.png, ../../uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png 1.5x, ../../uploads/default/original/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/892cdc334706a3382da2875a8bf473fc52e05a5f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">822×344 26.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-01-30T22:08:27Z' class='post-time'>
+                January 30, 2021, 10:08pm
+              </time>
+              <meta itemprop='dateModified' content='2021-01-30T22:08:27Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Okay, I guess that is on Mac not iOS/iPadOS which those particular actions are for (Mac action was further down and I think would now require the Evernote legacy app). Is that correct?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/evansthompson'><span itemprop='name'>evansthompson</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-13T05:27:20Z' class='post-time'>
+                July 13, 2021,  5:27am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-13T05:27:20Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m sure this is a relatively simple scripting thing, but it’s beyond me. I’d like to take the Drafts tags and convert them into Evernote tags for the email subject.</p>
+<p>As I understand it, <code>[[tags]]</code> returns <code>tag1,tag2,tag2</code> whereas Evernote is expecting <code>#tag1 #tag2 #tag3</code></p>
+<p>Can someone point me in the direction of how to do this?</p>
+<p>Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-13T06:12:30Z' class='post-time'>
+                July 13, 2021,  6:12am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-13T06:12:30Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You could use JavaScript to build the title. Process each tag separately and append to the title.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/evansthompson'><span itemprop='name'>evansthompson</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-13T06:15:37Z' class='post-time'>
+                July 13, 2021,  6:15am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-13T06:15:37Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I was thinking of that. In all my years of working in the computer industry, I’ve never really learned to code.  I guess this is as good a time as any to start. <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-13T06:18:19Z' class='post-time'>
+                July 13, 2021,  6:18am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-13T06:18:19Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>To get you started, you could check out this action.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1Uu">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="../../../actions.getdrafts.com/a/1Uu.html" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, ../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, ../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="../../../actions.getdrafts.com/a/1Uu.html" target="_blank" rel="noopener">Drafts Directory: Tags to Hashtags</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/evansthompson'><span itemprop='name'>evansthompson</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="21.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-13T06:23:31Z' class='post-time'>
+                July 13, 2021,  6:23am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-13T06:23:31Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Perfect! Thanks! Stack Overflow and other examples have allowed me to hobble along thus far.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Evernote with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

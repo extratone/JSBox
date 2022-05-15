@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Insert Date with a Prompt - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="I created my first scripting action today! It was also the first time I’ve ever tried to learn/use javascript, and I’m far more proud of it than is warranted. 
+My goal was to create a prompt that would allow me to choose&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="10850.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Insert Date with a Prompt&#39;" href="10850.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/insert-date-with-a-prompt/10850" />
+<meta property="og:title" content="Insert Date with a Prompt" />
+<meta name="twitter:title" content="Insert Date with a Prompt" />
+<meta property="og:description" content="I created my first scripting action today! It was also the first time I’ve ever tried to learn/use javascript, and I’m far more proud of it than is warranted.  My goal was to create a prompt that would allow me to choose from several formats to insert the current date into my current draft. I started with the Prompt action, but couldn’t understand how to take the output of the prompt and change it into anything useful. All I could get out of the prompt was the text that made up the button I pres..." />
+<meta name="twitter:description" content="I created my first scripting action today! It was also the first time I’ve ever tried to learn/use javascript, and I’m far more proud of it than is warranted.  My goal was to create a prompt that would allow me to choose from several formats to insert the current date into my current draft. I started with the Prompt action, but couldn’t understand how to take the output of the prompt and change it into anything useful. All I could get out of the prompt was the text that made up the button I pres..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="4 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="7 ❤" />
+<meta property="article:published_time" content="2021-07-19T00:30:23+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="10850.html">Insert Date with a Prompt</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/scripting.html' class='discourse-tag' rel="tag">scripting</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-19T00:30:23Z' class='post-time'>
+                July 19, 2021, 12:30am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-19T00:30:23Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I created my first scripting action today! It was also the first time I’ve ever tried to learn/use javascript, and I’m far more proud of it than is warranted.</p>
+<p>My goal was to create a prompt that would allow me to choose from several formats to insert the current date into my current draft. I started with the Prompt action, but couldn’t understand how to take the output of the prompt and change it into anything useful. All I could get out of the prompt was the text that made up the button I pressed.</p>
+<p>So…I went down the (admittedly) much harder route and tried to figure out how to use a script to display a prompt and do what I wanted. It took a while, and with much referencing the example actions in the Directory, the Draft Script Reference, and this very forum.</p>
+<p>Here’s the result: <a href="../../../actions.getdrafts.com/a/1o3.html" rel="noopener nofollow ugc">Insert Date (Prompt)</a>. And <a href="https://dsh.re/8d64e" rel="noopener nofollow ugc">here’s a screencast</a> of it working using a keyboard command.</p>
+<p>And here’s the script. It’s my first one, so I have a lot to learn. If anyone has suggestions on how to streamline the code, I’d love to learn. As Dani Rojas says in Ted Lasso, “Roast me, amigo!”</p>
+<pre><code class="lang-auto">
+// # Insert a formatted date in Drafts.app using a prompt.
+
+// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = "Insert Formatted Date";
+
+// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the 'Return' key when prompted.
+p.addButton("yyyy-mm-dd");
+p.addButton("Month d, yyyy");
+p.addButton("mm/dd/yyyy");
+p.addButton("mm-dd-yyyy");
+p.addButton("mm/d/yy");
+p.addButton("mm-d-yy");
+
+// Show prompt
+p.show();
+
+var b = (p.buttonPressed)
+
+var ymd = draft.processTemplate("2021-07-18")
+var mdy = draft.processTemplate("[[date|%B %e, %Y]]")
+
+// Process dates based on button selection and set variable for the processed date (pd).
+if (b == "yyyy-mm-dd") {
+	var pd = draft.processTemplate("2021-07-18")
+	}
+if (b == "Month d, yyyy") {
+	var pd = draft.processTemplate("[[date|%B %e, %Y]]")
+	}
+if (b == "mm/dd/yyyy") {
+	var pd = draft.processTemplate("[[date|%m/%d/%Y]]")
+	}
+if (b == "mm-dd-yyyy") {
+	var pd = draft.processTemplate("[[date|%m-%d-%Y]]")
+	}
+if (b == "mm/d/yy") {
+	var pd = draft.processTemplate("[[date|%m/%e/%y]]")
+	}
+if (b == "mm-d-yy") {
+	var pd = draft.processTemplate("[[date|%m-%e-%y]]")
+	}
+
+// Take action
+if (pd != undefined) {
+	// Insert processed date template into the draft at the selected range or point
+	editor.setTextInRange(st, len, pd);
+	// Reactivate the editor with the insertion point at the end of the newly added date
+	editor.setSelectedRange(st + pd.length, 0);
+}
+
+editor.activate();
+
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+          <meta itemprop='keywords' content='scripting'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-19T11:46:49Z' class='post-time'>
+                July 19, 2021, 11:46am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-19T11:46:49Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Congratulations for your first action! Gotta love that feeling of having learned/achieved something. <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<p>I’m no JavaScript pro, but what about this?</p>
+<pre><code class="lang-auto">// # Insert a formatted date in Drafts.app using a prompt.
+
+// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = "Insert Formatted Date";
+
+// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the 'Return' key when prompted.
+p.addButton("yyyy-MM-dd");
+p.addButton("MMMM d, yyyy");
+p.addButton("MM/dd/yyyy");
+p.addButton("MM-dd-yyyy");
+p.addButton("MM/d/yy");
+p.addButton("MM-d-yy");
+
+// Show prompt
+p.show();
+
+var b = (p.buttonPressed)
+
+// are these two leftover from something?
+
+var ymd = draft.processTemplate("2021-07-18") 
+var mdy = draft.processTemplate("[[date|%B %e, %Y]]")
+
+// if you use Date.js, you can use the prompt to as a variable for the date template (you've already done the work up there...)
+var pd = new Date().toString(b)
+
+// Take action
+if (pd != undefined) {
+	// Insert processed date template into the draft at the selected range or point
+	editor.setTextInRange(st, len, pd);
+	// Reactivate the editor with the insertion point at the end of the newly added date
+	editor.setSelectedRange(st + pd.length, 0);
+}
+
+editor.activate();
+</code></pre>
+<p>Basically, if you use Date.js to parse the date string, you can use the output of the prompt as a variable to supply the template, which you’ve pretty much already defined in the prompt’s options (though note the difference between m and M for Date.js— specifying minutes vs months…). Saves a few lines of code and the need to write out those conditional statements…</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://github.com/datejs/Datejs">
+  <header class="source">
+      <img src="https://github.githubassets.com/favicons/favicon.svg" class="site-icon" width="32" height="32">
+
+      <a href="https://github.com/datejs/Datejs" target="_blank" rel="noopener">GitHub</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/345;"><img src="../../uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_690x345.png" class="thumbnail" width="690" height="345" srcset="../../uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_690x345.png, ../../uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_1035x517.png 1.5x, ../../uploads/default/original/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d2def38b6e1561dbd325b2a0b6feda771ad62ca8_2_10x10.png"></div>
+
+<h3><a href="https://github.com/datejs/Datejs" target="_blank" rel="noopener">datejs/Datejs</a></h3>
+
+  <p>A JavaScript Date and Time Library. Contribute to datejs/Datejs development by creating an account on GitHub.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-19T12:19:44Z' class='post-time'>
+                July 19, 2021, 12:19pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-19T12:19:44Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is great as-is (except the hard-coded <code>"2021-07-18"</code>, oops!), but if you simply asking for way to make minor improvements, I would suggest abstracting the options into an object to make it a little easier to manage if you wanted to add/remove options in the future…something like:</p>
+<pre><code class="lang-javascript">let options = {
+  "yyyy-mm-dd": "[[date|%Y-%m-%d]]",
+  "Month d, yyyy": "[[date|%B %e, %Y]]",
+  "mm/dd/yyyy": "[[date|%m/%d/%Y]]",
+  "mm-dd-yyyy": "[[date|%m-%d-%Y]]",
+  "mm/d/yy": "[[date|%m/%e/%y]]",
+  "mm-d-yy": "[[date|%m-%e-%y]]"
+}
+</code></pre>
+<p>This object has each button option as a key, and each format associated with that format as it’s value.  You can then create the buttons like:</p>
+<pre><code class="lang-javascript">for (let key of Object.keys(options)) {
+  p.addButton(k);
+}
+</code></pre>
+<p>And, after the prompt is displayed, lookup the format to use from the object, like:</p>
+<pre><code class="lang-javascript">let b = (p.buttonPressed)
+let format = options[b];
+let pd = draft.processTemplate(format);
+</code></pre>
+<p>None of this enhances the functionality of your script, but to edit options, you need only update the options object at the top of the script.</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-22T19:10:54Z' class='post-time'>
+                July 22, 2021,  7:10pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-22T19:10:54Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you! I like the idea of being able to just write the format that I want without necessarily needing to know the conversion. Then if other people download it, they can easily add their preferred formats, too.</p>
+<p>How would I got about including Date.js? Would I add another action and copy the code from GitHub into it?</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-22T19:25:21Z' class='post-time'>
+                July 22, 2021,  7:25pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-22T19:25:21Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="_heyjarrod" data-post="4" data-topic="10850">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/_heyjarrod/40/5518_2.png" class="avatar"> _heyjarrod:</div>
+<blockquote>
+<p>How would I got about including Date.js? Would I add another action and copy the code from GitHub into it?</p>
+</blockquote>
+</aside>
+<p>It is actually built in. No additional steps required to include it.</p>
+<aside class="quote quote-modified" data-post="4" data-topic="5440">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/agiletortoise/40/1822_2.png" class="avatar">
+    <a href="../strptime-equivalent/5440/4.html">Strptime() equivalent?</a> 
+  </div>
+  <blockquote>
+    Just for the record here, Drafts includes the <a href="https://github.com/datejs/Datejs" rel="nofollow noopener">Date.js</a> library in it’s Javascript runtime automatically, so Date.parse is dramatically enhanced over the standard Javascript version. 
+A few examples: 
+Date.parse("t")                 // Returns today's date.
+Date.parse("today")             // Returns today's date.
+Date.parse("tomorrow")          // Returns tomorrow's date.
+Date.parse("yesterday")         // Returns yesterday's date.
+
+Date.parse("next friday")       // Returns the date of the next F…
+  </blockquote>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-22T19:53:25Z' class='post-time'>
+                July 22, 2021,  7:53pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-22T19:53:25Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thank you, Greg! I had wanted to separate out those options so that they could easily be edited by myself or others. I just wasn’t sure if they would work across different steps.</p>
+<p>I appreciate you providing the example, and I updated the action with it. <img src="../../images/emoji/apple/slightly_smiling_face.png@v=9" title=":slightly_smiling_face:" class="emoji" alt=":slightly_smiling_face:"></p>
+<aside class="quote no-group" data-username="agiletortoise" data-post="3" data-topic="10850">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/agiletortoise/40/1822_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>(except the hard-coded <code>"2021-07-18"</code>, oops!)</p>
+</blockquote>
+</aside>
+<p>Whoops! Luckily that part didn’t make it into the action I shared to the directory.</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-22T19:54:30Z' class='post-time'>
+                July 22, 2021,  7:54pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-22T19:54:30Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../images/emoji/apple/+1.png@v=9" title=":+1:" class="emoji" alt=":+1:"> Good to know! I’ll play around with that next.</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-24T17:28:13Z' class='post-time'>
+                July 24, 2021,  5:28pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-24T17:28:13Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <h1>
+<a name="aha-1" class="anchor" href="10850.html#aha-1"></a>Aha!</h1>
+<p>Based on the excellent suggestions here, I think I’ve arrived at my ultimate vision for this action: a prompt that is easily configurable (and, therefore, necessarily understandable) for anyone who downloads it.</p>
+<p>I ended up using both <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a>’s tip for separating out the options (but used an array instead of a dictionary), and <a class="mention" href="https://forums.getdrafts.com/u/jsamlarose">@jsamlarose</a>’s advice to implement Date.js so that the selected button text itself could be used when processing the date’s format.</p>
+<p>Anyone can reference Date.js to add their preferred date and time format to the options array, and the syntax for those <a href="https://github.com/datejs/Datejs#standard-date-and-time-format-specifiers" rel="noopener nofollow ugc">date and time format specifiers</a> are pretty human-readable so they work fine as buttons.</p>
+<h2>
+<a name="heres-the-result-2" class="anchor" href="10850.html#heres-the-result-2"></a>Here’s the result</h2>
+<p>Step 1:</p>
+<pre><code class="lang-auto">// Arrange the buttons in the order in which you prefer. The top button will be highlighted by default and can be selected by pressing the 'Return' key when prompted.
+
+const options = [
+  "yyyy-MM-dd",
+  "MMMM d, yyyy",
+  "MM/dd/yyyy",
+  "MM-dd-yyyy",
+  "MM/d/yy",
+  "MM-d-yy"
+]
+// Additional date formats can be configured by referencing the Datejs documentation on GitHub (https://github.com/datejs/Datejs)
+</code></pre>
+<p>Step 2:</p>
+<pre><code class="lang-auto">// Store selection
+const [st, len] = editor.getSelectedRange();
+
+// Create prompt
+var p = Prompt.create();
+
+p.title = "Insert Formatted Date";
+
+// Build buttons using the array elements from the previous script
+for (let i = 0; i &lt; options.length; i++) {
+  p.addButton(options[i]);
+} // First statement executes once before running the for loop (in this case, sets the initial variable i for the first element in the array), Second statement defines the condition for executing the code block (ITC, keep running as long as i is less than the number of elements in the options array), Third statement executes every time after the code block has been executed (ITC, increases the value of i by 1)
+
+// Show prompt
+p.show();
+
+// Process dates based on button selection (b) and set variable for the processed date (pd) using Date.js
+let b = (p.buttonPressed)
+let pd = new Date().toString(b);
+
+// Take action
+if (pd != undefined) {
+	editor.setTextInRange(st, len, pd);	// Inserts processed date template into the draft at the selected range or point
+	editor.setSelectedRange(st + pd.length, 0);	// Reactivates the editor with the insertion point at the end of the newly added date
+}
+
+editor.activate();
+</code></pre>
+<p>I’ve updated the <a href="../../../actions.getdrafts.com/a/1o3.html" rel="noopener nofollow ugc">action in the directory</a>. Thanks for helping me through this first creation!</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-24T18:26:27Z' class='post-time'>
+                July 24, 2021,  6:26pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-24T18:26:27Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just to add another alternative take to the mix, take a peek at this version. It uses an even simpler option for users to maintain the list in the action (no array, no object definition, just plain text), deals with the user cancelling, and technically accounts for any options where the insertion date string cannot be defined (pops up an app level error message).</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://actions.getdrafts.com/a/1ok">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="../../../actions.getdrafts.com/a/1ok.html" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, ../../uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, ../../uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="../../../actions.getdrafts.com/a/1ok.html" target="_blank" rel="noopener">Drafts Directory: Insert Date (Prompt)</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<details>
+<summary>
+Step 1 - Tag Definition</summary>
+<p><strong>Tag = OPTIONS</strong></p>
+<pre><code class="lang-nohighlight">yyyy-MM-dd
+MMMM d, yyyy
+MM/dd/yyyy
+MM-dd-yyyy
+MM/d/yy
+MM-d-yy
+</code></pre>
+</details>
+<details>
+<summary>
+Step 2 - Script Definition</summary>
+<pre><code class="lang-auto">//Create prompt
+let promptDate = Prompt.create();
+promptDate.title = "Insert Formatted Date";
+draft.getTemplateTag("OPTIONS").split("\n").map(strDateOption =&gt; promptDate.addButton(strDateOption));
+
+//Process the prompt response
+if (promptDate.show())
+{
+	let strDate = new Date().toString(promptDate.buttonPressed);
+	if (strDate != undefined)
+	{
+		//Replace selection
+		const [intSelStart, intSelLen] = editor.getSelectedRange();
+		editor.setTextInRange(intSelStart, intSelLen, strDate);
+		//Position cursor at end of insertion
+		editor.setSelectedRange(intSelStart + strDate.length, 0);
+	}
+	else app.displayErrorMessage(`"${promptDate.buttonPressed}" could not be converted to a date.`);
+}
+
+//Activate editor
+editor.activate();
+</code></pre>
+</details>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-24T19:05:48Z' class='post-time'>
+                July 24, 2021,  7:05pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-24T19:05:48Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Wow! Good stuff! I think I understand everything except for the last bit of this line:</p>
+<aside class="quote no-group" data-username="sylumer" data-post="9" data-topic="10850">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p><code>draft.getTemplateTag("OPTIONS").split("\n").map(strDateOption =&gt; promptDate.addButton(strDateOption))</code></p>
+</blockquote>
+</aside>
+<p>I see that it get the tag defined in the first step, splits it by new lines, and maps it to a new array in order to make the buttons. This may be obvious, but what is the <code>strDateOption =&gt;...</code>? I don’t see it defined before it gets called there.</p>
+<p>Thank you!</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-24T19:21:16Z' class='post-time'>
+                July 24, 2021,  7:21pm
+              </time>
+              <meta itemprop='dateModified' content='2021-07-24T19:21:16Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This might help.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/b/bb672a4e0dd22701ecfddd8c5eced17d86b0fde2.png" class="site-icon" width="48" height="48">
+
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">developer.mozilla.org</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/388;"><img src="../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_690x388.png" class="thumbnail" width="690" height="388" srcset="../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_690x388.png, ../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_1035x582.png 1.5x, ../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_1380x776.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_10x10.png"></div>
+
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noopener">Array.prototype.map() - JavaScript | MDN</a></h3>
+
+  <p>The map() method creates
+a new array populated with the results of calling a provided function on
+  every element in the calling array.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<ul>
+<li>
+<code>strDateOption</code> is the placeholder for the current line being processed. Each is an option for which date format to used and is expressed as a string, therefore the variable name. I like to try and use the names to tell me not only what a variable is/if for, but also what type it is.</li>
+<li>
+<code>=&gt;</code> is what defines it as a “<em>fat arrow function</em>”, and here it is just a compact way of writing an anonymous function like <code>function (strDateOption){promptDate.addButton(strDateOption)}</code>
+</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/_heyjarrod'><span itemprop='name'>_heyjarrod</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-25T01:20:26Z' class='post-time'>
+                July 25, 2021,  1:20am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-25T01:20:26Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Ah, I see now. That makes a lot of sense. I’ll update the action in the directory with your suggestions. Thank you!</p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="10850.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-07-25T09:12:33Z' class='post-time'>
+                July 25, 2021,  9:12am
+              </time>
+              <meta itemprop='dateModified' content='2021-07-25T09:12:33Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You can pick out any elements you want to make use of, but it was intended just to show you some alternative approaches. You don’t have to change anything about your original one. It was functional as it was.</p>
+<p><em>The version I created is on the directory, but it is unlisted meaning that unless someone enters the address or uses the link above, they will not discover it.</em></p>
+        </div>
+
+        <meta itemprop='headline' content='Insert Date with a Prompt'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

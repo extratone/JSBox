@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Help With Templates</title>
+    <link>https://forums.getdrafts.com/t/help-with-templates/9504</link>
+    <description>Hi. I created the template shown in the image below, but, when I create a new draft from this template, I’d like it to remove the title so I can input my own. However, I still want the title in the template as an identifier when I’m choosing a template. Is there any special code/symbols that I should surround the title in so it doesn’t appear in the actual draft?
+
+![image|690x290](upload://upcriE4k7ZcUOtiQYFlTuTTjPi.jpeg)</description>
+    
+    <lastBuildDate>Sat, 02 Jan 2021 15:15:32 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/help-with-templates/9504.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[glor]]></dc:creator>
+        <description><![CDATA[
+            <p>That fixed it, thank you! <img src="https://forums.getdrafts.com/images/emoji/apple/blush.png?v=9" title=":blush:" class="emoji" alt=":blush:"></p>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/10</link>
+        <pubDate>Sat, 02 Jan 2021 15:15:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-10</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Ha! I saw the problem in reverse. Vacation brain.</p>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/9</link>
+        <pubDate>Sat, 02 Jan 2021 14:40:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-9</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I can see what my earlier mistake was, I missed amending <code>draft</code> to <code>template</code> in the first of those replacement lines. It should have been this:</p>
+<pre><code class="lang-auto">let astrLines = template.lines;
+astrLines.shift();
+d.content = d.processTemplate(astrLines.join("\n"));
+</code></pre>
+<p>I’ve applied it to a copy of the original action and tested it with a template and it works for me. However, I have also set it to use <code>draft</code> rather than <code>d</code> in the line for the <code>processTemplate</code> step as per Greg’s note (see below).</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1fo" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="" class="thumbnail" width="" height="">
+
+<h3><a href="https://actions.getdrafts.com/a/1fo" target="_blank" rel="noopener">New Draft with Template Body | Drafts Action Directory</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="quote no-group" data-username="agiletortoise" data-post="5" data-topic="9504">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> was close…minor change to his suggestion:</p>
+</blockquote>
+</aside>
+<p>I get that the current draft would probably be best (for processing any custom template tags for example), but that was part of the original code, so it probably needs amending in the original action too.</p>
+
+Screenshot from Action Directory <a href="https://forums.getdrafts.com/t/help-with-templates/9504/8">(click for more details)</a>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/8</link>
+        <pubDate>Sat, 02 Jan 2021 08:42:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-8</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[glor]]></dc:creator>
+        <description><![CDATA[
+            <p>Hmm. It’s still giving me a blank draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/7</link>
+        <pubDate>Sat, 02 Jan 2021 02:24:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-7</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> was close…minor change to his suggestion:</p>
+<pre><code class="lang-javascript">let astrLines = draft.lines;
+astrLines.shift();
+// use "draft", not "d" in line below...
+d.content = draft.processTemplate(astrLines.join("\n"));
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/5</link>
+        <pubDate>Sat, 02 Jan 2021 01:04:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-5</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[glor]]></dc:creator>
+        <description><![CDATA[
+            <p>That is the action I’m using. I tried replacing the code with what you suggested, but all it did was give me a blank draft.</p>
+<p>I was hoping there were some symbols I could surround my title with that Drafts would recognize &amp; ignore.</p>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/4</link>
+        <pubDate>Sat, 02 Jan 2021 00:33:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-4</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>How are you generating your new draft from your template?</p>
+<p>This approach?</p>
+<aside class="quote quote-modified" data-post="1" data-topic="4253">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/tip-creating-new-drafts-with-templates/4253">TIP: Creating New Drafts with Templates</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/tips/11"><span class="badge-category-bg" style="background-color: #12A89D;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Quick Drafts tips on a variety of topics. Free free to post your own.">Tips &amp; Tricks</span></a>
+  </div>
+  <blockquote>
+    UPDATE - 2020/11/01 The current version of this action has been updated with new features, such as cursor placement, as of Nov. 1, 2020. You may need to reinstall the <a href="https://actions.getdrafts.com/a/1VL">action from the directory</a> if you have a previous version installed. 
+
+It is often handy to create a new draft based on some boilerplate template content to ease the creation of meetings notes, lists, or other content with repetitive structure. The <a href="https://actions.getdrafts.com/a/1VL">New Draft with Template</a> example action provides an easy way to do this based on temp…
+  </blockquote>
+</aside>
+
+<p>i.e. Utilising this action?</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1VL" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <img src="" class="thumbnail" width="" height="">
+
+<h3><a href="https://actions.getdrafts.com/a/1VL" target="_blank" rel="noopener">New Draft with Template | Drafts Action Directory</a></h3>
+
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>If so, you should be able to get just the body rather than the full content of the note being used for the template by modifying the action and changing:</p>
+<pre><code class="lang-auto">d.content = d.processTemplate(template.content);
+</code></pre>
+<p>to be</p>
+<pre><code class="lang-auto">let astrLines = draft.lines;
+astrLines.shift();
+d.content = d.processTemplate(astrLines.join("\n"));
+</code></pre>
+<p>There are other ways to do this, but I think this might be a reliable and easy to understand one … RegEx might lead to too much complexity to cater for escaping title content and erroneous single line templates.</p>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/2</link>
+        <pubDate>Fri, 01 Jan 2021 22:47:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-2</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+      <item>
+        <title>Help With Templates</title>
+        <dc:creator><![CDATA[glor]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi. I created the template shown in the image below, but, when I create a new draft from this template, I’d like it to remove the title so I can input my own. However, I still want the title in the template as an identifier when I’m choosing a template. Is there any special code/symbols that I should surround the title in so it doesn’t appear in the actual draft?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/0/036fe9382333a9009b66983886d30f6dcf4eb0f0.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/036fe9382333a9009b66983886d30f6dcf4eb0f0" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/0/036fe9382333a9009b66983886d30f6dcf4eb0f0_2_690x290.jpeg" alt="image" data-base62-sha1="upcriE4k7ZcUOtiQYFlTuTTjPi" width="690" height="290" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/0/036fe9382333a9009b66983886d30f6dcf4eb0f0_2_690x290.jpeg, https://forums.getdrafts.com/uploads/default/original/2X/0/036fe9382333a9009b66983886d30f6dcf4eb0f0.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/0/036fe9382333a9009b66983886d30f6dcf4eb0f0.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/036fe9382333a9009b66983886d30f6dcf4eb0f0_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/help-with-templates/9504/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/help-with-templates/9504/1</link>
+        <pubDate>Fri, 01 Jan 2021 21:49:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9504-1</guid>
+        <source url="https://forums.getdrafts.com/t/help-with-templates/9504.rss">Help With Templates</source>
+      </item>
+  </channel>
+</rss>

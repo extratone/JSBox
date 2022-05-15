@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+    <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522</link>
+    <description>Hi All,
+
+I am using the script below to take a line in Draft that starts with a - and sending it to OmniFocus as a new task with the correct tag. This works really well. What I would like to add is the ability to have the script put information into the &quot;Note&quot; section of the OmniFocus task. 
+
+For example, 
+
+If I write this in Drafts:
+
+- Work with people to finish this project | I need to connect with Fred so he knows what to do.
+
+After the right script was created, in OmniFocus it would look like this:
+
+Task - Work with people to finish this project
+Tag - Fred
+Note - I need to connect with Fred so he knows what to do. 
+
+In the text from Drafts I&#39;m using the &quot;|&quot; as the divider between the title of the Task and what should go into the Note. I am not married to this so if there is a better way to do this I&#39;m open to it.
+
+Thank you!!!!
+
+```
+// Add  - Fred - *
+function processDraft(p_strIdentifier, p_strNewPrefix = &quot;&quot;)
+{
+	// Check each line of the current draft
+	for (let strLine of draft.lines)
+	{
+		// If the line starts with the task prefix, process it
+		if (strLine.startsWith(p_strIdentifier))
+		{
+			// Build and call the URL
+			let cb = CallbackURL.create();
+			cb.baseURL = &quot;omnifocus:///add&quot;;
+			cb.addParameter(&quot;name&quot;, p_strNewPrefix + strLine.substring(p_strIdentifier.length));
+			cb.addParameter(&quot;note&quot;, draft.permalink);
+			cb.addParameter(&quot;project&quot;, draft.displayTitle);
+			cb.addParameter(&quot;context&quot;, &quot;🗒 - Fred&quot;);
+			cb.addParameter(&quot;autosave&quot;, &quot;true&quot;);
+			cb.open();
+		}
+	}
+	return;
+}
+
+//Call the function to process the draft with the identifier and the optional prefix to use in OmniFocus.
+processDraft(&quot;-&quot;, &quot;🗒 &quot;);
+```</description>
+    
+    <lastBuildDate>Tue, 09 Nov 2021 11:18:16 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You did note that there could be syntax issues, and it was just a couple of typos. I wish my unchecked responses were so accurate <img src="https://forums.getdrafts.com/images/emoji/apple/laughing.png?v=10" title=":laughing:" class="emoji" alt=":laughing:"></p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/9</link>
+        <pubDate>Tue, 09 Nov 2021 11:18:16 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-9</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>thanks <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> for fixing this - note to myself: at least check the syntax</p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/8</link>
+        <pubDate>Tue, 09 Nov 2021 10:16:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-8</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[Greg_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>That worked!!! Thank you so much! Not only does it work but I learned a little more about scripting. <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=10" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Really appreciate it.</p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/7</link>
+        <pubDate>Sun, 07 Nov 2021 17:05:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-7</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Just a quick scan.</p>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/3/3f20e465930085e8e9b030cb0d726c4f8f899a20.jpeg" alt="image" data-base62-sha1="90syd6UHzYst5vBa9ZEzwCnKncs" width="666" height="293"></p>
+<p>I see one of these variable references seems to be missing an “s” from the end of the name. The <code>let</code> defines the variable, so that is the name that should be used throughout. Typo in the name simply refers to a different variable that may or may not exist.</p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/6</link>
+        <pubDate>Sun, 07 Nov 2021 12:41:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-6</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[Greg_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,<br>
+Again, thank you! I fixed that and it threw this:</p>
+<p>Script Error: ReferenceError: Can’t find variable: linePart<br>
+Line number: 20, Column 24</p>
+<p>I am a newbie (clearly) and appreciate the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/5</link>
+        <pubDate>Sun, 07 Nov 2021 12:17:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-5</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>It is telling you that this line (15) is missing a closing parenthesis.</p>
+<pre><code class="lang-auto">if(strLine.includes(taskNoteDivider){
+</code></pre>
+<p>If you look at some of the other lines, you will see examples of where it is correct</p>
+<pre><code class="lang-auto">if(strLine.includes(taskNoteDivider)){
+</code></pre>
+<p>The parentheses must always be balanced for opening and closing.</p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/4</link>
+        <pubDate>Sun, 07 Nov 2021 09:49:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-4</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[Greg_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>I want to thank you for taking the time to help. I really appreciate it. I am having a problem with the syntex. I keep getting the attached error. Any chance you can help me out with it (again?)?<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png" data-download-href="https://forums.getdrafts.com/uploads/default/a6a4536ea8b3ad95605ec538bb73af790a007ed2" title="Screen Shot 423"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2_2_690x326.png" alt="Screen Shot 423" data-base62-sha1="nMbkfWei1cRM3c1nNMNBdjvupRU" width="690" height="326" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2_2_690x326.png, https://forums.getdrafts.com/uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a6a4536ea8b3ad95605ec538bb73af790a007ed2_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/3</link>
+        <pubDate>Sun, 07 Nov 2021 00:14:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-3</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>you need several things to achieve what you need. I’m not a very experienced javascript user so there might be a more efficient / elegant solution for your problem.<br>
+Here is what I would do (attention i just edited tthis online and did not test it so there may be some typos or syntax issues.:</p>
+<pre><code class="lang-auto">const taskNoteDivider = "|";
+
+// Add  - Fred - *
+function processDraft(p_strIdentifier, p_strNewPrefix = "")
+{
+	// Check each line of the current draft
+	for (let strLine of draft.lines)
+	{
+		// If the line starts with the task prefix, process it
+		if (strLine.startsWith(p_strIdentifier))
+		{
+			// check if the divider is included in the task
+			let taskName = "";
+			let taskNote = "";
+			if(strLine.includes(taskNoteDivider){
+				// split the line into the task name and the content for the note
+				let lineContent = p_strNewPrefix + strLine.substring(p_strIdentifier.length);
+				let lineParts = lineContent.split(taskNoteDivider);
+				taskName = lineParts[0];
+				taskNote = linePart[1] + "\n" + draft.permalink;
+			} else {
+				taskName =  p_strNewPrefix + strLine.substring(p_strIdentifier.length);
+				taskNote = draft.permalink;
+			}
+			// Build and call the URL
+			let cb = CallbackURL.create();
+			cb.baseURL = "omnifocus:///add";
+			cb.addParameter("name", taskName);
+			cb.addParameter("note", taskNote);
+			cb.addParameter("project", draft.displayTitle);
+			cb.addParameter("context", "🗒 - Fred");
+			cb.addParameter("autosave", "true");
+			cb.open();
+		}
+	}
+	return;
+}
+
+//Call the function to process the draft with the identifier and the optional prefix to use in OmniFocus.
+processDraft("-", "🗒 ");
+</code></pre>
+<p>hope this helps <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=10" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/2</link>
+        <pubDate>Fri, 05 Nov 2021 14:01:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-2</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+      <item>
+        <title>Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</title>
+        <dc:creator><![CDATA[Greg_Shambo]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi All,</p>
+<p>I am using the script below to take a line in Draft that starts with a - and sending it to OmniFocus as a new task with the correct tag. This works really well. What I would like to add is the ability to have the script put information into the “Note” section of the OmniFocus task.</p>
+<p>For example,</p>
+<p>If I write this in Drafts:</p>
+<ul>
+<li>Work with people to finish this project | I need to connect with Fred so he knows what to do.</li>
+</ul>
+<p>After the right script was created, in OmniFocus it would look like this:</p>
+<p>Task - Work with people to finish this project<br>
+Tag - Fred<br>
+Note - I need to connect with Fred so he knows what to do.</p>
+<p>In the text from Drafts I’m using the “|” as the divider between the title of the Task and what should go into the Note. I am not married to this so if there is a better way to do this I’m open to it.</p>
+<p>Thank you!!!</p>
+<pre><code class="lang-auto">// Add  - Fred - *
+function processDraft(p_strIdentifier, p_strNewPrefix = "")
+{
+	// Check each line of the current draft
+	for (let strLine of draft.lines)
+	{
+		// If the line starts with the task prefix, process it
+		if (strLine.startsWith(p_strIdentifier))
+		{
+			// Build and call the URL
+			let cb = CallbackURL.create();
+			cb.baseURL = "omnifocus:///add";
+			cb.addParameter("name", p_strNewPrefix + strLine.substring(p_strIdentifier.length));
+			cb.addParameter("note", draft.permalink);
+			cb.addParameter("project", draft.displayTitle);
+			cb.addParameter("context", "🗒 - Fred");
+			cb.addParameter("autosave", "true");
+			cb.open();
+		}
+	}
+	return;
+}
+
+//Call the function to process the draft with the identifier and the optional prefix to use in OmniFocus.
+processDraft("-", "🗒 ");
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522/1</link>
+        <pubDate>Thu, 04 Nov 2021 14:56:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11522-1</guid>
+        <source url="https://forums.getdrafts.com/t/send-draft-to-omnifocus-task-include-text-in-note-of-the-task/11522.rss">Send Draft to OmniFocus Task include text in &quot;Note&quot; of the task</source>
+      </item>
+  </channel>
+</rss>

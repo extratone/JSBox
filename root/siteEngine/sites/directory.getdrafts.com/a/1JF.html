@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Toggle @done | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="Yf0jbvAFdzg7kKp2QCqdSe6V1L5NS5/wp2mCczSopJRsB2iz9lcft7EF/knrHaaNhl9dNM2i/dLpJxkAv529Gw==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Toggle @done" />
+    <meta property="og:url" content="https://directory.getdrafts.com/a/1JF" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Toggle @done" />
+    <meta property="twitter:url" content="https://directory.getdrafts.com/a/1JF" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/checkbox-active.png" class="action-icon" />Toggle @done</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by @ComplexPoint,
+    Last update
+    almost 4 years ago
+</div>
+
+
+    <div class='description'>
+        <p>Toggle the <strong>@done</strong> tag (with date stamp) on all selected lines. <br>
+(All additional lines are toggled in sync with the first selected line)</p>
+
+<p>Can also be run in macOS BBEdit as a JXA script.</p>
+
+<p>To enable macOS use, first save the library code at:</p>
+
+<p><a href="https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62">https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62</a></p>
+
+<p>as <code>~/Library/Script Libraries/BBDrafts.js</code> on the macOS machine.</p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1JF&amp;data=%7B%22uuid%22:%229B86B6C4-B7B6-414E-AD84-1BBD2ABCE2B9%22,%22steps%22:[%7B%22data%22:%7B%22script%22:%22(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20&#39;use%20strict&#39;;%5Cn%5Cn%20%20%20%20//%20A%20script%20for%20toggling%20date-stamped%20@done(2018-05-20%2018)%20tags,%5Cn%5Cn%20%20%20%20//%20Either:%5Cn%20%20%20%20//%5Cn%20%20%20%20//%201.%20In%20a%20Drafts%205%20script%20action%20for%20TaskPaper%20mode,%20or%5Cn%20%20%20%20//%202.%20as%20a%20JXA%20script%20for%20macOS%20BBEdit.%5Cn%5Cn%20%20%20%20//%20BBEdit%20use%20requires%20the%20library%20at:%5Cn%5Cn%20%20%20%20//%20https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62%5Cn%5Cn%20%20%20%20//%20saved%20on%20macOS%20as:%20~/Library/Script%20Libraries/BBDrafts.js%5Cn%5Cn%20%20%20%20//%20Rob%20Trew%20(c)%202018%5Cn%20%20%20%20//%20Ver%200.2%5Cn%5Cn%20%20%20%20//%20MAIN%20-----------------------------------------------%5Cn%5Cn%20%20%20%20//%20toggleDone%20::%20Drafts%20IO%20()%20-%5Cu003e%20String%5Cn%20%20%20%20const%20toggleDone%20=%20()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20e%20=%20editor,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20rngLines%20=%20e.getSelectedLineRange(),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20strLines%20=%20e.getTextInRange(...rngLines),%5Cn%5Cn%20%20%20%20%20%20%20%20%20%20%20%20rgxDone%20=%20tagRegex(&#39;done&#39;),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20dcts%20=%20map(s%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20line:%20s,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mbRange:%20tagRangeMay(rgxDone,%20s)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20lines(strLines)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20lng%20=%20dcts.length,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20lrLines%20=%20bindLR(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20lng%20%5Cu003e%200%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Right(dcts)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20Left(&#39;No%20lines%20found&#39;),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20blnDone%20=%20!xs[0].mbRange.Nothing,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20strTag%20=%20blnDone%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&#39;&#39;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20%60%20@done($%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20take(10,%20(new%20Date())%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.toISOString())%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D)%60;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20Right(map(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20x%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mb%20=%20x.mbRange,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20range%20=%20mb.Just,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20strLine%20=%20x.line;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mb.Nothing%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20strLine%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20(%20//%20@done%20removed%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20take(range[0]%20-%201,%20strLine)%20+%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20drop(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20range[0]%20+%20range[1],%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20strLine%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%20+%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(blnDone%20%7C%7C%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20strip(strLine).length%20%5Cu003c%201%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20))%20?%20&#39;&#39;%20:%20strTag%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20xs%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20));%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%5Cn%20%20%20%20%20%20%20%20return%20lrLines.Left%20%7C%7C%20(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20str%20=%20unlines(lrLines.Right);%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.setTextInRange(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20...rngLines,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20str%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.setSelectedRange(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20rngLines[0],%20str.length%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20unlines(lrLines.Right)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20%7D)();%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20TAG%20TOGGLING%20FUNCTIONS%20-----------------------------%5Cn%5Cn%20%20%20%20//%20tagRegex%20::%20String%20-%5Cu003e%20Regex%5Cn%20%20%20%20const%20tagRegex%20=%20strTag%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20new%20RegExp(&#39;(%5E%7C%5C%5C%5C%5Cs*)(@&#39;%20+%20strTag%20+%20&#39;)(%5C%5C%5C%5C(.*%5C%5C%5C%5C)%7C)&#39;);%5Cn%5Cn%20%20%20%20//%20A%20Range%20tuple:%20(startIndex%20::%20Int,%20length%20::%20Int)%5Cn%20%20%20%20//%20Range%20::%20(Int,%20Int)%5Cn%20%20%20%20//%20tagRangeMay%20::%20Regex%20-%5Cu003e%20String%20-%5Cu003e%20Maybe%20Range%5Cn%20%20%20%20const%20tagRangeMay%20=%20(rgxTag,%20strLine)%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20const%20m%20=%20strLine.match(rgxTag);%5Cn%20%20%20%20%20%20%20%20return%20m%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20Just([m.index%20+%201,%20m[0].length%20-%201])%5Cn%20%20%20%20%20%20%20%20)%20:%20Nothing();%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20GENERIC%20FUNCTIONS%20----------------------------------%5Cn%5Cn%20%20%20%20//%20Just%20::%20a%20-%5Cu003e%20Just%20a%5Cn%20%20%20%20const%20Just%20=%20x%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20type:%20&#39;Maybe&#39;,%5Cn%20%20%20%20%20%20%20%20Nothing:%20false,%5Cn%20%20%20%20%20%20%20%20Just:%20x%5Cn%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20//%20Left%20::%20a%20-%5Cu003e%20Either%20a%20b%5Cn%20%20%20%20const%20Left%20=%20x%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20type:%20&#39;Either&#39;,%5Cn%20%20%20%20%20%20%20%20Left:%20x%5Cn%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20//%20Nothing%20::%20()%20-%5Cu003e%20Nothing%5Cn%20%20%20%20const%20Nothing%20=%20()%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20type:%20&#39;Maybe&#39;,%5Cn%20%20%20%20%20%20%20%20Nothing:%20true,%5Cn%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20//%20Right%20::%20b%20-%5Cu003e%20Either%20a%20b%5Cn%20%20%20%20const%20Right%20=%20x%20=%5Cu003e%20(%7B%5Cn%20%20%20%20%20%20%20%20type:%20&#39;Either&#39;,%5Cn%20%20%20%20%20%20%20%20Right:%20x%5Cn%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20//%20Determines%20whether%20all%20elements%20of%20the%20structure%5Cn%20%20%20%20//%20satisfy%20the%20predicate.%5Cn%20%20%20%20//%20all%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20[a]%20-%5Cu003e%20Bool%5Cn%20%20%20%20const%20all%20=%20(p,%20xs)%20=%5Cu003e%20xs.every(p);%5Cn%5Cn%20%20%20%20//%20bindLR%20(%5Cu003e%5Cu003e=)%20::%20Either%20a%20-%5Cu003e%20(a%20-%5Cu003e%20Either%20b)%20-%5Cu003e%20Either%20b%5Cn%20%20%20%20const%20bindLR%20=%20(m,%20mf)%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20m.Right%20!==%20undefined%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20mf(m.Right)%5Cn%20%20%20%20%20%20%20%20)%20:%20m;%5Cn%5Cn%20%20%20%20//%20concatMap%20::%20(a%20-%5Cu003e%20[b])%20-%5Cu003e%20[a]%20-%5Cu003e%20[b]%5Cn%20%20%20%20const%20concatMap%20=%20(f,%20xs)%20=%5Cu003e%20[].concat.apply([],%20xs.map(f));%5Cn%5Cn%20%20%20%20//%20doesFileExist%20::%20FilePath%20-%5Cu003e%20IO%20Bool%5Cn%20%20%20%20const%20doesFileExist%20=%20strPath%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20const%20ref%20=%20Ref();%5Cn%20%20%20%20%20%20%20%20return%20$.NSFileManager.defaultManager%5Cn%20%20%20%20%20%20%20%20%20%20%20%20.fileExistsAtPathIsDirectory(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20$(strPath)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.stringByStandardizingPath,%20ref%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20%5Cu0026%5Cu0026%20ref[0]%20!==%201;%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20drop%20::%20Int%20-%5Cu003e%20[a]%20-%5Cu003e%20[a]%5Cn%20%20%20%20//%20drop%20::%20Int%20-%5Cu003e%20String%20-%5Cu003e%20String%5Cn%20%20%20%20const%20drop%20=%20(n,%20xs)%20=%5Cu003e%20xs.slice(n);%5Cn%5Cn%20%20%20%20//%20dropWhileEnd%20::%20(Char%20-%5Cu003e%20Bool)%20-%5Cu003e%20String%20-%5Cu003e%20String%5Cn%20%20%20%20//%20dropWhileEnd%20::%20(a%20-%5Cu003e%20Bool)%20-%5Cu003e%20[a]%20-%5Cu003e%20[a]%5Cn%20%20%20%20const%20dropWhileEnd%20=%20(p,%20s)%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20let%20i%20=%20s.length;%5Cn%20%20%20%20%20%20%20%20while%20(i--%20%5Cu0026%5Cu0026%20p(s[i]))%20%7B%7D%5Cn%20%20%20%20%20%20%20%20return%20s.slice(0,%20i%20+%201);%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20isSpace%20::%20Char%20-%5Cu003e%20Bool%5Cn%20%20%20%20const%20isSpace%20=%20c%20=%5Cu003e%20/%5C%5Cs/.test(c);%5Cn%5Cn%20%20%20%20//%20lines%20::%20String%20-%5Cu003e%20[String]%5Cn%20%20%20%20const%20lines%20=%20s%20=%5Cu003e%20s.split(/[%5C%5Cr%5C%5Cn]/);%5Cn%5Cn%20%20%20%20//%20map%20::%20(a%20-%5Cu003e%20b)%20-%5Cu003e%20[a]%20-%5Cu003e%20[b]%5Cn%20%20%20%20const%20map%20=%20(f,%20xs)%20=%5Cu003e%20xs.map(f);%5Cn%5Cn%20%20%20%20//%20readFile%20::%20FilePath%20-%5Cu003e%20IO%20String%5Cn%20%20%20%20const%20readFile%20=%20strPath%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20let%20error%20=%20$(),%5Cn%20%20%20%20%20%20%20%20%20%20%20%20str%20=%20ObjC.unwrap(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20$.NSString.stringWithContentsOfFileEncodingError(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20$(strPath)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.stringByStandardizingPath,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20$.NSUTF8StringEncoding,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20error%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20%20%20%20%20return%20Boolean(error.code)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20ObjC.unwrap(error.localizedDescription)%5Cn%20%20%20%20%20%20%20%20)%20:%20str;%5Cn%20%20%20%20%7D;%5Cn%5Cn%20%20%20%20//%20strip%20::%20String%20-%5Cu003e%20String%5Cn%20%20%20%20const%20strip%20=%20s%20=%5Cu003e%20s.trim();%5Cn%5Cn%20%20%20%20//%20stripEnd%20::%20String%20-%5Cu003e%20String%5Cn%20%20%20%20const%20stripEnd%20=%20s%20=%5Cu003e%20dropWhileEnd(isSpace,%20s);%5Cn%5Cn%20%20%20%20//%20take%20::%20Int%20-%5Cu003e%20[a]%20-%5Cu003e%20[a]%5Cn%20%20%20%20const%20take%20=%20(n,%20xs)%20=%5Cu003e%20xs.slice(0,%20n);%5Cn%5Cn%20%20%20%20//%20unlines%20::%20[String]%20-%5Cu003e%20String%5Cn%20%20%20%20const%20unlines%20=%20xs%20=%5Cu003e%20xs.join(&#39;%5C%5Cn&#39;);%5Cn%5Cn%20%20%20%20//%20LIBRARY%20IMPORT%20--------------------------------------%5Cn%5Cn//%20Evaluate%20a%20function%20f%20::%20(()%20-%5Cu003e%20a)%5Cn//%20in%20the%20context%20of%20the%20JS%20libraries%20whose%20source%5Cn//%20filePaths%20are%20listed%20in%20fps%20::%20[FilePath]%5Cn%5Cn//%20usingLibs%20::%20[FilePath]%20-%5Cu003e%20(()%20-%5Cu003e%20a)%20-%5Cu003e%20a%5Cnconst%20usingLibs%20=%20(fps,%20f)%20=%5Cu003e%5Cn%20%20%20%20all(doesFileExist,%20fps)%20?%20(%5Cn%20%20%20%20%20%20%20%20eval(%60(()%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20&#39;use%20strict&#39;;%5Cn%20%20%20%20%20%20%20%20%20%20%20%20$%7Bfps.map(readFile).join(&#39;%5C%5Cn%5C%5Cn&#39;)%7D%5Cn%20%20%20%20%20%20%20%20%20%20%20%20return%20($%7Bf%7D)();%5Cn%20%20%20%20%20%20%20%20%7D)();%60)%5Cn%20%20%20%20)%20:%20libraryRequest(fps);%5Cn%5Cn//%20libraryRequest%20::%20[FilePath]%20-%5Cu003e%20IO%20[FilePath]%5Cnconst%20libraryRequest%20=%20fps%20=%5Cu003e%20%7B%5Cn%20%20%20%20const%5Cn%20%20%20%20%20%20%20%20sa%20=%20standardSEAdditions(),%5Cn%20%20%20%20%20%20%20%20gaps%20=%20concatMap(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20fp%20=%5Cu003e%20doesFileExist(fp)%20?%20(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20[]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20)%20:%20[fp],%5Cn%20%20%20%20%20%20%20%20%20%20%20%20fps%5Cn%20%20%20%20%20%20%20%20);%5Cn%20%20%20%20return%20(%5Cn%20%20%20%20%20%20%20%20sa.activate(),%5Cn%20%20%20%20%20%20%20%20sa.displayDialog(%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%60Library%20not%20found%20at:%5Cn%5Cn%20%20%20%20%20%20%20%20$%7Bgaps.join(&#39;%5C%5Cn&#39;)%7D%60,%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20withTitle:%20&#39;Library%20file%20needed&#39;,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20buttons:%20[&#39;OK&#39;]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20),%5Cn%20%20%20%20%20%20%20%20gaps%5Cn%20%20%20%20);%5Cn%7D;%5Cn%5Cn%20%20%20%20//%20standardSEAdditions%20::%20()%20-%5Cu003e%20Application%5Cn%20%20%20%20const%20standardSEAdditions%20=%20()%20=%5Cu003e%5Cn%20%20%20%20%20%20%20%20Object.assign(Application(&#39;System%20Events&#39;),%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20includeStandardAdditions:%20true%5Cn%20%20%20%20%20%20%20%20%7D);%5Cn%5Cn%20%20%20%20//%20iOS%20Drafts%205%20?%5Cn%20%20%20%20return%20Boolean(this.editor)%20?%20(%5Cn%20%20%20%20%20%20%20%20toggleDone()%5Cn%20%20%20%20%20%20%20%20//%20macOS%20JXA,%20using%20the%20library%20at:%5Cn%20%20%20%20%20%20%20%20//%5Cn%20%20%20%20%20%20%20%20//%20https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62%5Cn%20%20%20%20%20%20%20%20//%5Cn%20%20%20%20%20%20%20%20//%20Saved%20as%20~/Library/Script%20Libraries/BBDrafts.js%5Cn%20%20%20%20)%20:%20usingLibs(%5Cn%20%20%20%20%20%20%20%20[%5Cn%20%20%20%20%20%20%20%20%20%20%20%20&#39;~/Library/Script%20Libraries/BBDrafts.js&#39;%5Cn%20%20%20%20%20%20%20%20],%5Cn%20%20%20%20%20%20%20%20toggleDone%5Cn%20%20%20%20);%5Cn%7D)();%5Cn%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%226384B9F1-6605-4383-972E-546868075B2D%22%7D],%22shortName%22:%22Toggle%22,%22shouldConfirm%22:false,%22disposition%22:3,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22D%22,%22controlKey%22:false,%22commandKey%22:true,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Toggle%20@done%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22notificationType%22:1,%22tintColor%22:%22orange%22,%22actionDescription%22:%22Toggle%20the%20@done%20tag%20(with%20date%20stamp)%20on%20all%20selected%20lines.%20%5Cn(All%20additional%20lines%20are%20toggled%20in%20sync%20with%20the%20first%20selected%20line)%5Cn%5CnCan%20also%20be%20run%20in%20macOS%20BBEdit%20as%20a%20JXA%20script.%5Cn%5CnTo%20enable%20macOS%20use,%20first%20save%20the%20library%20code%20at:%5Cn%5Cnhttps://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62%5Cn%5Cn[BBDrafts.js](https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62)%5Cn%5Cnas%20~/Library/Script%20Libraries/BBDrafts.js%20on%20the%20macOS%20machine.%22,%22keyUseIcon%22:true,%22icon%22:%22checkbox-active%22,%22visibility%22:2,%22groupUUID%22:%2288FD510E-CAAA-47FA-A251-1A70EC66F708%22,%22supportedPlatform%22:%22any%22,%22groupDisposition%22:0,%22name%22:%22Toggle%20@done%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>(() =&gt; {
+    &#39;use strict&#39;;
+
+    // A script for toggling date-stamped @done(2018-05-20 18) tags,
+
+    // Either:
+    //
+    // 1. In a Drafts 5 script action for TaskPaper mode, or
+    // 2. as a JXA script for macOS BBEdit.
+
+    // BBEdit use requires the library at:
+
+    // https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62
+
+    // saved on macOS as: ~/Library/Script Libraries/BBDrafts.js
+
+    // Rob Trew (c) 2018
+    // Ver 0.2
+
+    // MAIN -----------------------------------------------
+
+    // toggleDone :: Drafts IO () -&gt; String
+    const toggleDone = () =&gt; {
+        const
+            e = editor,
+            rngLines = e.getSelectedLineRange(),
+            strLines = e.getTextInRange(...rngLines),
+
+            rgxDone = tagRegex(&#39;done&#39;),
+            dcts = map(s =&gt; ({
+                    line: s,
+                    mbRange: tagRangeMay(rgxDone, s)
+                }),
+                lines(strLines)
+            ),
+            lng = dcts.length,
+            lrLines = bindLR(
+                lng &gt; 0 ? (
+                    Right(dcts)
+                ) : Left(&#39;No lines found&#39;),
+                xs =&gt; {
+                    const
+                        blnDone = !xs[0].mbRange.Nothing,
+                        strTag = blnDone ? (
+                            &#39;&#39;
+                        ) : ` @done(${
+                                    take(10, (new Date())
+                                    .toISOString())
+                            })`;
+                    return Right(map(
+                        x =&gt; {
+                            const
+                                mb = x.mbRange,
+                                range = mb.Just,
+                                strLine = x.line;
+                            return (
+                                mb.Nothing ? (
+                                    strLine
+                                ) : ( // @done removed
+                                    take(range[0] - 1, strLine) +
+                                    drop(
+                                        range[0] + range[1],
+                                        strLine
+                                    )
+                                )
+                            ) + (
+                                (blnDone || (
+                                    strip(strLine).length &lt; 1
+                                )) ? &#39;&#39; : strTag
+                            );
+                        },
+                        xs
+                    ));
+                }
+            );
+
+        return lrLines.Left || (() =&gt; {
+            const str = unlines(lrLines.Right);
+            return (
+                e.setTextInRange(
+                    ...rngLines,
+                    str
+                ),
+                e.setSelectedRange(
+                    rngLines[0], str.length
+                ),
+                unlines(lrLines.Right)
+            );
+        })();
+    };
+
+    // TAG TOGGLING FUNCTIONS -----------------------------
+
+    // tagRegex :: String -&gt; Regex
+    const tagRegex = strTag =&gt;
+        new RegExp(&#39;(^|\\s*)(@&#39; + strTag + &#39;)(\\(.*\\)|)&#39;);
+
+    // A Range tuple: (startIndex :: Int, length :: Int)
+    // Range :: (Int, Int)
+    // tagRangeMay :: Regex -&gt; String -&gt; Maybe Range
+    const tagRangeMay = (rgxTag, strLine) =&gt; {
+        const m = strLine.match(rgxTag);
+        return m ? (
+            Just([m.index + 1, m[0].length - 1])
+        ) : Nothing();
+    };
+
+    // GENERIC FUNCTIONS ----------------------------------
+
+    // Just :: a -&gt; Just a
+    const Just = x =&gt; ({
+        type: &#39;Maybe&#39;,
+        Nothing: false,
+        Just: x
+    });
+
+    // Left :: a -&gt; Either a b
+    const Left = x =&gt; ({
+        type: &#39;Either&#39;,
+        Left: x
+    });
+
+    // Nothing :: () -&gt; Nothing
+    const Nothing = () =&gt; ({
+        type: &#39;Maybe&#39;,
+        Nothing: true,
+    });
+
+    // Right :: b -&gt; Either a b
+    const Right = x =&gt; ({
+        type: &#39;Either&#39;,
+        Right: x
+    });
+
+    // Determines whether all elements of the structure
+    // satisfy the predicate.
+    // all :: (a -&gt; Bool) -&gt; [a] -&gt; Bool
+    const all = (p, xs) =&gt; xs.every(p);
+
+    // bindLR (&gt;&gt;=) :: Either a -&gt; (a -&gt; Either b) -&gt; Either b
+    const bindLR = (m, mf) =&gt;
+        m.Right !== undefined ? (
+            mf(m.Right)
+        ) : m;
+
+    // concatMap :: (a -&gt; [b]) -&gt; [a] -&gt; [b]
+    const concatMap = (f, xs) =&gt; [].concat.apply([], xs.map(f));
+
+    // doesFileExist :: FilePath -&gt; IO Bool
+    const doesFileExist = strPath =&gt; {
+        const ref = Ref();
+        return $.NSFileManager.defaultManager
+            .fileExistsAtPathIsDirectory(
+                $(strPath)
+                .stringByStandardizingPath, ref
+            ) &amp;&amp; ref[0] !== 1;
+    };
+
+    // drop :: Int -&gt; [a] -&gt; [a]
+    // drop :: Int -&gt; String -&gt; String
+    const drop = (n, xs) =&gt; xs.slice(n);
+
+    // dropWhileEnd :: (Char -&gt; Bool) -&gt; String -&gt; String
+    // dropWhileEnd :: (a -&gt; Bool) -&gt; [a] -&gt; [a]
+    const dropWhileEnd = (p, s) =&gt; {
+        let i = s.length;
+        while (i-- &amp;&amp; p(s[i])) {}
+        return s.slice(0, i + 1);
+    };
+
+    // isSpace :: Char -&gt; Bool
+    const isSpace = c =&gt; /\s/.test(c);
+
+    // lines :: String -&gt; [String]
+    const lines = s =&gt; s.split(/[\r\n]/);
+
+    // map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+    const map = (f, xs) =&gt; xs.map(f);
+
+    // readFile :: FilePath -&gt; IO String
+    const readFile = strPath =&gt; {
+        let error = $(),
+            str = ObjC.unwrap(
+                $.NSString.stringWithContentsOfFileEncodingError(
+                    $(strPath)
+                    .stringByStandardizingPath,
+                    $.NSUTF8StringEncoding,
+                    error
+                )
+            );
+        return Boolean(error.code) ? (
+            ObjC.unwrap(error.localizedDescription)
+        ) : str;
+    };
+
+    // strip :: String -&gt; String
+    const strip = s =&gt; s.trim();
+
+    // stripEnd :: String -&gt; String
+    const stripEnd = s =&gt; dropWhileEnd(isSpace, s);
+
+    // take :: Int -&gt; [a] -&gt; [a]
+    const take = (n, xs) =&gt; xs.slice(0, n);
+
+    // unlines :: [String] -&gt; String
+    const unlines = xs =&gt; xs.join(&#39;\n&#39;);
+
+    // LIBRARY IMPORT --------------------------------------
+
+// Evaluate a function f :: (() -&gt; a)
+// in the context of the JS libraries whose source
+// filePaths are listed in fps :: [FilePath]
+
+// usingLibs :: [FilePath] -&gt; (() -&gt; a) -&gt; a
+const usingLibs = (fps, f) =&gt;
+    all(doesFileExist, fps) ? (
+        eval(`(() =&gt; {
+            &#39;use strict&#39;;
+            ${fps.map(readFile).join(&#39;\n\n&#39;)}
+            return (${f})();
+        })();`)
+    ) : libraryRequest(fps);
+
+// libraryRequest :: [FilePath] -&gt; IO [FilePath]
+const libraryRequest = fps =&gt; {
+    const
+        sa = standardSEAdditions(),
+        gaps = concatMap(
+            fp =&gt; doesFileExist(fp) ? (
+                []
+            ) : [fp],
+            fps
+        );
+    return (
+        sa.activate(),
+        sa.displayDialog(
+            `Library not found at:
+
+        ${gaps.join(&#39;\n&#39;)}`, {
+                withTitle: &#39;Library file needed&#39;,
+                buttons: [&#39;OK&#39;]
+            }
+        ),
+        gaps
+    );
+};
+
+    // standardSEAdditions :: () -&gt; Application
+    const standardSEAdditions = () =&gt;
+        Object.assign(Application(&#39;System Events&#39;), {
+            includeStandardAdditions: true
+        });
+
+    // iOS Drafts 5 ?
+    return Boolean(this.editor) ? (
+        toggleDone()
+        // macOS JXA, using the library at:
+        //
+        // https://gist.github.com/RobTrew/675b0f14f87b77ee025755e067022c62
+        //
+        // Saved as ~/Library/Script Libraries/BBDrafts.js
+    ) : usingLibs(
+        [
+            &#39;~/Library/Script Libraries/BBDrafts.js&#39;
+        ],
+        toggleDone
+    );
+})();
+</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Default
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Error</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Info</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Using Drafts Templates</title>
+    <link>https://forums.getdrafts.com/t/using-drafts-templates/3728</link>
+    <description># Template Basics
+
+Drafts actions consist of &quot;steps.&quot; [Action steps](https://docs.getdrafts.com/actions/steps/) are available for a wide range of functions and services: Sending messages, mail, saving files, and much more. Regardless of the purpose of the step, any step that output information has some fields that allow you to control what text the step uses, and (with a few minor exceptions) use templates to dynamically generate that text.
+
+If you have poked around in the action editor and wondered what some of those `[[title]]` and `[[body]]` things are, this article is for you.
+
+Templates are plain text combined with tags. Consider tags placeholders for some piece of information you want to be inserted when the action is run. Drafts tags are identified by double square brackets (`[[ ]]`), surrounding the tag name and options. Most tags insert some content or meta data related to the current draft on which an action is being performed.
+
+## Common Content Tags
+
+The tags that get the most use, and which you are likely to see as defaults in many action steps, are:
+
+- **`[[draft]]`** : Replaced with full text of the current draft.
+- **`[[title]]`** : Replaced with text of the first line of a draft.
+- **`[[body]]`** : Replace with everything *but* the first line of the draft.
+
+Take the &quot;Copy&quot; action, which ships with Drafts in the &quot;Basic&quot; action group. The action places the contents of the current draft in the clipboard. The action itself consists of one [Clipboard action step](https://docs.getdrafts.com/docs/actions/steps/system#clipboard), with the template `[[draft]]`.  If you wanted an action that copied just the first line of the draft to the clipboard, you could change the template of the clipboard action step to `[[title]]`.
+
+The default &quot;Mail&quot; action, which ships with the app, uses the `[[title]]` tag for the subject line of the email, and `[[body]]` as the content of the email.
+
+![1%202019-01-31%2016-39-17|345x184](upload://shNVmE8WSxl2JFqpdoNpVctg4xG.jpeg) 
+
+You can mix tags with static text in templates, so you could also have the template string `Title: [[title]]`, which would produce the first line of the draft, with the prefix `Title: `.
+
+There is a handy `[[line|n]]` tag that lets you extract individual or ranges of lines from the content of a draft. The `line` tag is an example of a tag with a formatting option, separated from the tag name by a `|` pipe character.  In this case, that option takes line number (1 for the first, 2 for the second, etc.), or range, like `1..3` for first through the third line.  If you omit the beginning or end line number, the range will assume beginning or end, so `..4` is the first four lines, and `5..` is the fifth line to the end of the draft. Negative indexes which count back from the end can also be used, so `[[line|-1]]` would get you just the last line.
+
+The `linke` can be very useful in splitting up values from a draft into separate values. Say you want an action that saves to a folder in Dropbox, but you want to specify that in the draft itself. You could type the following draft:
+
+```plain
+My File Name
+Personal
+
+The content of the draft.
+```
+
+Then have an action configured with a [Dropbox action step](https://docs.getdrafts.com/docs/actions/steps/services#dropbox) using the following template values for its fields:
+
+- **Name**: `[[line|1]].txt`
+- **Path**: `/[[line|2]]/`
+- **Template**: `[[line|3..]]`
+
+![1%202019-01-31%2016-42-01|304x250](upload://gDFgN6c1U0LxyROgibFWsZt4MpO.jpeg) 
+
+Using this action, on the draft sample text above would result in a file on Dropbox named &quot;My File Name.txt&quot; in the folder &quot;Personal&quot;, with the content &quot;The content of the draft.&quot;
+
+## Date and Time Tags
+
+Another commonly used set of tags are date-related tags. The available date tags are:
+
+- **`[[date]]`**: Current date, defaulting to the format `%Y-%m-%d`, which is equivalent to YYYY-MM-DD.
+- **`[[created]]`**: The date the current draft was created.
+- **`[[modified]]`**: The date the content of the current draft was last modified.
+
+Each of these tags can also take a formatting string, after the `|` separator, using [strftime](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/strftime.3.html) formatting. There are formatting characters to allow configuration of almost any possible date and time string - including year, month names, day names, and much more. The [Apple strftime reference](https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/strftime.3.html) has details on all the available options. A few commonly used format examples:
+
+- `[[date|%Y-%m-%d]]` : _Result:_ 2019-01-31
+- `[[date|%I:%M %p]]` : _Result:_ 06:19 PM
+- `[[date|%d %B %Y %H:%M:%S]]` : _Result:_ 31 January 2019 21:19:20
+
+Dr. Drang wrote an [excellent blog post about date tags in Drafts](http://www.leancrew.com/all-this/2013/02/new-flexible-timestamps-in-drafts/) which is an excellent resource as well.
+
+To test formats, we also recommend [strftime.net](http://strftime.net), an online format builder which previews the output of format strings.
+
+The most common use case for date tags is timestamping when appending to a daily journal file, or starting a draft from a template.
+
+## Additional Tags
+
+Visit the [template tag reference](https://docs.getdrafts.com/docs/actions/templates) for a complete list of available built-in tags. Using tags you can access information like location data stored with a draft, its UUID and permalink, tags, and more.
+
+## No Tags Required
+
+Keep in mind that just because templates in actions can contain tags to dynamically insert text, they don&#39;t need to. Many times you just want plain static text in a template to add boilerplate snippets,
+
+## Special Template Markup
+
+In addition to tags, there are a couple of special markup conventions used in templates for convenience, they are:
+
+- **`{{ }}`** : Any text between double curly braces will be URL encoded for use in URL query parameters. This is typically used in [Open URL action steps](https://getdrafts.com/actions/steps/openurl) to properly encode text to be included in a URL.
+- **`%% %%`** : Any text between double percent signs will be converted from Markdown to HTML using your default [Markdown options](https://getdrafts.com/settings/markdown). Useful when publishing to locations that want HTML input.
+- **`&lt;&lt;textexpander-shortcut&gt;&gt;`** _[iOS Only]_ : If you use [TextExpander](https://textexpander.com/), it is possible to dynamically expand a TextExpander snippet when a template is evaluated. Generally useful for snippets you do not want to be expanded until the action is run because they contain dates or other output which is time-sensitive. To expand a snippet in a template, wrap the snippet&#39;s shortcut text in `&lt;&lt; &gt;&gt;`.
+
+## Conclusion
+
+With just a few tweaks to templates, you can create an array of useful actions that save time and formatting.</description>
+    
+    <lastBuildDate>Thu, 23 Sep 2021 22:01:09 +0000</lastBuildDate>
+    <category>Integration Guides</category>
+    <atom:link href="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It the title actually likely to be more than one line? Note that lines are defined by an invisible line feed (<code>\n</code>) character, and are not affected by the text soft-wrapping to the next line in the display.</p>
+<p>Certainly a variety of ways to approach the problem. If you genuinely have values of varying numbers of lines, you likely need to add some delimiter markup to reliable split the text.  So your template might be something like:</p>
+<pre><code class="lang-auto">title
+===
+subtitle
+===
+body
+===
+hashtags
+</code></pre>
+<p>Then in code those values could be split on the delimiter:</p>
+<pre><code class="lang-javascript">// split values on "===" and trim whitespace
+let fields = draft.content.split("===").map(n =&gt; n.trim());
+// now
+let title = fields[0];
+let subtitle = fields[1];
+// etc.
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/13</link>
+        <pubDate>Thu, 23 Sep 2021 22:01:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-13</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[jphorn]]></dc:creator>
+        <description><![CDATA[
+            <p>Not sure if templates are the right way to go about this, but here goes. I’m trying to create a boilerplate for our Instagram posts where our editors can type/fill the following fields, of which most are variable in length.</p>
+<p>title<br>
+subtitle<br>
+body<br>
+hashtags</p>
+<p>I understand how to do body and hashtags, but I’m not sure how to deal with the variable length for title and subtitle. [[title]] will only select the first line of the draft and I don’t think I can use [[line:2-X]. because X is unknown.</p>
+<p>How would I solve this?</p>
+<p>All info will be sent to an iOS shortcut for further processing (where I need to process all the different fields again)</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/12</link>
+        <pubDate>Thu, 23 Sep 2021 20:56:10 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-12</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[sgclark]]></dc:creator>
+        <description><![CDATA[
+            <p>Clipboard action step link in the 5th paragraph appears to still be a broken link.</p>
+<p>It appears to be pointing to this URL.</p><aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/a/a85fcb3b7e01c2820ae497ee6b55a2ee272716c1.png" class="site-icon" width="32" height="32">
+      <a href="https://getdrafts.com/error" target="_blank" rel="noopener nofollow ugc">getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://getdrafts.com/error" target="_blank" rel="noopener nofollow ugc">Drafts, Where Text Starts</a></h3>
+
+<p>Drafts quick-capture app for iPhone, iPad, Mac and Apple Watch</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/11</link>
+        <pubDate>Mon, 10 May 2021 12:10:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-11</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Updated links, thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/10</link>
+        <pubDate>Tue, 23 Mar 2021 12:36:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-10</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[PhilipK]]></dc:creator>
+        <description><![CDATA[
+            <p>The links in this article are broken, for instance the link to “template reference” under Additional Tags goes to the home page of the user guide rather than the actual reference page, and other links 404. Would be useful if this could be fixed.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/9</link>
+        <pubDate>Tue, 23 Mar 2021 08:26:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-9</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>If you are using an action as a trigger, you can modify the cursor position using the <code>editor.setSelectedRange()</code> in a script action.</p>
+<p>If that isn’t the case, can you please provide full details of what you are doing with the information in the previous posts?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/8</link>
+        <pubDate>Sat, 07 Dec 2019 13:19:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-8</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[Hanson]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, How to specify the location of the cursor in a template.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/7</link>
+        <pubDate>Sat, 07 Dec 2019 12:41:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-7</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[thynds]]></dc:creator>
+        <description><![CDATA[
+            <p>Yikes! It was an operator error! Problem solved!</p>
+<p>It was a lack of understanding on my part.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/6</link>
+        <pubDate>Wed, 17 Apr 2019 15:15:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-6</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>How are you applying the snippet for expansion?  Is it simply an Insert Text action or are you using another method to initiate the evaluation?</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/5</link>
+        <pubDate>Wed, 17 Apr 2019 07:31:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-5</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[thynds]]></dc:creator>
+        <description><![CDATA[
+            <p>That was an example only.<br>
+The snippet is actually ddate. It inserts the current date at the location.<br>
+Yes. It is an exact match.<br>
+All is refreshed and enabled.<br>
+Yes it works in drafts and every where else too.<br>
+This is what it looks like in the document<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b8a7c7143f85538bc88e8261f0f455aa469a265b.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/b8a7c7143f85538bc88e8261f0f455aa469a265b" title="9AF6B1E3-2FE2-44CD-86E3-14757A69B563.jpeg"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b8a7c7143f85538bc88e8261f0f455aa469a265b_2_690x237.jpeg" alt="image" width="690" height="237" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b8a7c7143f85538bc88e8261f0f455aa469a265b_2_690x237.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b8a7c7143f85538bc88e8261f0f455aa469a265b_2_1035x355.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/b/b8a7c7143f85538bc88e8261f0f455aa469a265b.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b8a7c7143f85538bc88e8261f0f455aa469a265b_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/4</link>
+        <pubDate>Wed, 17 Apr 2019 03:26:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-4</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>A few troubleshooting questions:</p>
+<ul>
+<li>You have a snippet with the shortcut “TE-Shortcut”?</li>
+<li>It’s an exact match (e.g. case-sensitive)?</li>
+<li>Your snippets are refreshed, and TE expansion and “expand in actions” are enabled in Drafts settings?</li>
+<li>You can type that snippet in a draft and it works?</li>
+<li>It’s not a fill-in snippet? Those cannot be dynamically evaluated, only as you type.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/3</link>
+        <pubDate>Wed, 17 Apr 2019 01:13:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-3</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[thynds]]></dc:creator>
+        <description><![CDATA[
+            <p>Re: Textexpander<br>
+Is there something I am doing wrong? or some setting I missed? Attempting to enclose the TE shortcut doesn’t seem to work. <code>&lt;&lt;TE-Shortcut&gt;&gt;</code> The last bracket doesn’t appear to be a part of the code. It does not expand.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/2</link>
+        <pubDate>Tue, 16 Apr 2019 22:24:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-2</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+      <item>
+        <title>Using Drafts Templates</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h1>
+<a name="template-basics-1" class="anchor" href="https://forums.getdrafts.com#template-basics-1"></a>Template Basics</h1>
+<p>Drafts actions consist of “steps.” <a href="https://docs.getdrafts.com/actions/steps/">Action steps</a> are available for a wide range of functions and services: Sending messages, mail, saving files, and much more. Regardless of the purpose of the step, any step that output information has some fields that allow you to control what text the step uses, and (with a few minor exceptions) use templates to dynamically generate that text.</p>
+<p>If you have poked around in the action editor and wondered what some of those <code>[[title]]</code> and <code>[[body]]</code> things are, this article is for you.</p>
+<p>Templates are plain text combined with tags. Consider tags placeholders for some piece of information you want to be inserted when the action is run. Drafts tags are identified by double square brackets (<code>[[ ]]</code>), surrounding the tag name and options. Most tags insert some content or meta data related to the current draft on which an action is being performed.</p>
+<h2>
+<a name="common-content-tags-2" class="anchor" href="https://forums.getdrafts.com#common-content-tags-2"></a>Common Content Tags</h2>
+<p>The tags that get the most use, and which you are likely to see as defaults in many action steps, are:</p>
+<ul>
+<li>
+<strong><code>[[draft]]</code></strong> : Replaced with full text of the current draft.</li>
+<li>
+<strong><code>[[title]]</code></strong> : Replaced with text of the first line of a draft.</li>
+<li>
+<strong><code>[[body]]</code></strong> : Replace with everything <em>but</em> the first line of the draft.</li>
+</ul>
+<p>Take the “Copy” action, which ships with Drafts in the “Basic” action group. The action places the contents of the current draft in the clipboard. The action itself consists of one <a href="https://docs.getdrafts.com/docs/actions/steps/system#clipboard">Clipboard action step</a>, with the template <code>[[draft]]</code>.  If you wanted an action that copied just the first line of the draft to the clipboard, you could change the template of the clipboard action step to <code>[[title]]</code>.</p>
+<p>The default “Mail” action, which ships with the app, uses the <code>[[title]]</code> tag for the subject line of the email, and <code>[[body]]</code> as the content of the email.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/c6401fdeec9efe8693616b4fde9e5f23ce336ac8" title="1%202019-01-31%2016-39-17"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_345x184.jpeg" alt="1%202019-01-31%2016-39-17" data-base62-sha1="shNVmE8WSxl2JFqpdoNpVctg4xG" width="345" height="184" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_345x184.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_517x276.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_690x368.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6401fdeec9efe8693616b4fde9e5f23ce336ac8_2_10x10.png"></a></div><p></p>
+<p>You can mix tags with static text in templates, so you could also have the template string <code>Title: [[title]]</code>, which would produce the first line of the draft, with the prefix <code>Title: </code>.</p>
+<p>There is a handy <code>[[line|n]]</code> tag that lets you extract individual or ranges of lines from the content of a draft. The <code>line</code> tag is an example of a tag with a formatting option, separated from the tag name by a <code>|</code> pipe character.  In this case, that option takes line number (1 for the first, 2 for the second, etc.), or range, like <code>1..3</code> for first through the third line.  If you omit the beginning or end line number, the range will assume beginning or end, so <code>..4</code> is the first four lines, and <code>5..</code> is the fifth line to the end of the draft. Negative indexes which count back from the end can also be used, so <code>[[line|-1]]</code> would get you just the last line.</p>
+<p>The <code>linke</code> can be very useful in splitting up values from a draft into separate values. Say you want an action that saves to a folder in Dropbox, but you want to specify that in the draft itself. You could type the following draft:</p>
+<pre><code class="lang-nohighlight">My File Name
+Personal
+
+The content of the draft.
+</code></pre>
+<p>Then have an action configured with a <a href="https://docs.getdrafts.com/docs/actions/steps/services#dropbox">Dropbox action step</a> using the following template values for its fields:</p>
+<ul>
+<li>
+<strong>Name</strong>: <code>[[line|1]].txt</code>
+</li>
+<li>
+<strong>Path</strong>: <code>/[[line|2]]/</code>
+</li>
+<li>
+<strong>Template</strong>: <code>[[line|3..]]</code>
+</li>
+</ul>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/749ea3cbd1093d34902dff048de0115e3a18de10" title="1%202019-01-31%2016-42-01"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_304x250.jpeg" alt="1%202019-01-31%2016-42-01" data-base62-sha1="gDFgN6c1U0LxyROgibFWsZt4MpO" width="304" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_304x250.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_456x375.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_608x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/749ea3cbd1093d34902dff048de0115e3a18de10_2_10x10.png"></a></div><p></p>
+<p>Using this action, on the draft sample text above would result in a file on Dropbox named “My File Name.txt” in the folder “Personal”, with the content “The content of the draft.”</p>
+<h2>
+<a name="date-and-time-tags-3" class="anchor" href="https://forums.getdrafts.com#date-and-time-tags-3"></a>Date and Time Tags</h2>
+<p>Another commonly used set of tags are date-related tags. The available date tags are:</p>
+<ul>
+<li>
+<strong><code>[[date]]</code></strong>: Current date, defaulting to the format <code>%Y-%m-%d</code>, which is equivalent to YYYY-MM-DD.</li>
+<li>
+<strong><code>[[created]]</code></strong>: The date the current draft was created.</li>
+<li>
+<strong><code>[[modified]]</code></strong>: The date the content of the current draft was last modified.</li>
+</ul>
+<p>Each of these tags can also take a formatting string, after the <code>|</code> separator, using <a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/strftime.3.html">strftime</a> formatting. There are formatting characters to allow configuration of almost any possible date and time string - including year, month names, day names, and much more. The <a href="https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man3/strftime.3.html">Apple strftime reference</a> has details on all the available options. A few commonly used format examples:</p>
+<ul>
+<li>
+<code>[[date|%Y-%m-%d]]</code> : <em>Result:</em> 2019-01-31</li>
+<li>
+<code>[[date|%I:%M %p]]</code> : <em>Result:</em> 06:19 PM</li>
+<li>
+<code>[[date|%d %B %Y %H:%M:%S]]</code> : <em>Result:</em> 31 January 2019 21:19:20</li>
+</ul>
+<p>Dr. Drang wrote an <a href="http://www.leancrew.com/all-this/2013/02/new-flexible-timestamps-in-drafts/">excellent blog post about date tags in Drafts</a> which is an excellent resource as well.</p>
+<p>To test formats, we also recommend <a href="http://strftime.net">strftime.net</a>, an online format builder which previews the output of format strings.</p>
+<p>The most common use case for date tags is timestamping when appending to a daily journal file, or starting a draft from a template.</p>
+<h2>
+<a name="additional-tags-4" class="anchor" href="https://forums.getdrafts.com#additional-tags-4"></a>Additional Tags</h2>
+<p>Visit the <a href="https://docs.getdrafts.com/docs/actions/templates">template tag reference</a> for a complete list of available built-in tags. Using tags you can access information like location data stored with a draft, its UUID and permalink, tags, and more.</p>
+<h2>
+<a name="no-tags-required-5" class="anchor" href="https://forums.getdrafts.com#no-tags-required-5"></a>No Tags Required</h2>
+<p>Keep in mind that just because templates in actions can contain tags to dynamically insert text, they don’t need to. Many times you just want plain static text in a template to add boilerplate snippets,</p>
+<h2>
+<a name="special-template-markup-6" class="anchor" href="https://forums.getdrafts.com#special-template-markup-6"></a>Special Template Markup</h2>
+<p>In addition to tags, there are a couple of special markup conventions used in templates for convenience, they are:</p>
+<ul>
+<li>
+<strong><code>{{ }}</code></strong> : Any text between double curly braces will be URL encoded for use in URL query parameters. This is typically used in <a href="https://getdrafts.com/actions/steps/openurl">Open URL action steps</a> to properly encode text to be included in a URL.</li>
+<li>
+<strong><code>%% %%</code></strong> : Any text between double percent signs will be converted from Markdown to HTML using your default <a href="https://getdrafts.com/settings/markdown">Markdown options</a>. Useful when publishing to locations that want HTML input.</li>
+<li>
+<strong><code>&lt;&lt;textexpander-shortcut&gt;&gt;</code></strong> <em>[iOS Only]</em> : If you use <a href="https://textexpander.com/">TextExpander</a>, it is possible to dynamically expand a TextExpander snippet when a template is evaluated. Generally useful for snippets you do not want to be expanded until the action is run because they contain dates or other output which is time-sensitive. To expand a snippet in a template, wrap the snippet’s shortcut text in <code>&lt;&lt; &gt;&gt;</code>.</li>
+</ul>
+<h2>
+<a name="conclusion-7" class="anchor" href="https://forums.getdrafts.com#conclusion-7"></a>Conclusion</h2>
+<p>With just a few tweaks to templates, you can create an array of useful actions that save time and formatting.</p>
+          <p><a href="https://forums.getdrafts.com/t/using-drafts-templates/3728/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/using-drafts-templates/3728/1</link>
+        <pubDate>Thu, 31 Jan 2019 22:43:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3728-1</guid>
+        <source url="https://forums.getdrafts.com/t/using-drafts-templates/3728.rss">Using Drafts Templates</source>
+      </item>
+  </channel>
+</rss>

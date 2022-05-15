@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Need help with if and else statement in a script - Drafts Community</title>
+    <meta name="description" content="Hi! I’m trying to run a script based on a draft languageGrammar. I want to achieve if draft languageGrammar is Markdown toggle checklist, if languageGrammar is Taskpaper, toggle done date in Taskpaper format. 
+So far, I &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="11866.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Need help with if and else statement in a script&#39;" href="https://forums.getdrafts.com/t/need-help-with-if-and-else-statement-in-a-script/11866.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/need-help-with-if-and-else-statement-in-a-script/11866" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/need-help-with-if-and-else-statement-in-a-script/11866" />
+<meta property="og:title" content="Need help with if and else statement in a script" />
+<meta name="twitter:title" content="Need help with if and else statement in a script" />
+<meta property="og:description" content="Hi! I’m trying to run a script based on a draft languageGrammar. I want to achieve if draft languageGrammar is Markdown toggle checklist, if languageGrammar is Taskpaper, toggle done date in Taskpaper format.  So far, I was able to get languageGrammar for a draft and then run the script. What happens is that no matter if draft set to Markdown or Taskpaper, script runs only the Taskpaper part of script.  Script:  let dLG = draft.languageGrammar;  	if (dLG = &quot;Taskpaper&quot;) { // Mark current task or ..." />
+<meta name="twitter:description" content="Hi! I’m trying to run a script based on a draft languageGrammar. I want to achieve if draft languageGrammar is Markdown toggle checklist, if languageGrammar is Taskpaper, toggle done date in Taskpaper format.  So far, I was able to get languageGrammar for a draft and then run the script. What happens is that no matter if draft set to Markdown or Taskpaper, script runs only the Taskpaper part of script.  Script:  let dLG = draft.languageGrammar;  	if (dLG = &quot;Taskpaper&quot;) { // Mark current task or ..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="3 ❤" />
+<meta property="article:published_time" content="2022-01-02T22:49:30+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="11866.html">Need help with if and else statement in a script</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/NotPowerUser'><span itemprop='name'>NotPowerUser</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-02T22:49:30Z' class='post-time'>
+                January 2, 2022, 10:49pm
+              </time>
+              <meta itemprop='dateModified' content='2022-01-02T22:49:30Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi! I’m trying to run a script based on a draft languageGrammar. I want to achieve if draft languageGrammar is Markdown toggle checklist, if languageGrammar is Taskpaper, toggle done date in Taskpaper format.</p>
+<p>So far, I was able to get languageGrammar for a draft and then run the script. What happens is that no matter if draft set to Markdown or Taskpaper, script runs only the Taskpaper part of script.</p>
+<p>Script:</p>
+<pre><code class="lang-auto">let dLG = draft.languageGrammar;
+
+	if (dLG = "Taskpaper") {
+// Mark current task or selected tasks as done today.
+
+// Set the done marker text with today's date.
+var today = new Date();
+var yr = today.getFullYear().toString();
+var mo = today.getMonth() + 1;
+mo = mo.toString().padStart(2, '0');
+var da = today.getDate()
+da = da.toString().padStart(2, '0');
+var marker = ' @done(' + da + '-' + mo + '-' + yr + ')';
+
+// Get all the currently selected lines.
+var lines = editor.getSelectedLineRange();
+var sel = editor.getTextInRange(lines[0], lines[1]).replace(/\n$/, '');
+
+// Loop through the lines, adding the done marker to tasks only.
+var selArray = sel.split('\n');
+var numLines = selArray.length;
+for (var i=0; i&lt;numLines; i++) {
+  if (selArray[i].startsWith('-')) {
+    selArray[i] += marker;
+  }
+}
+
+//Replace the selected lines with the marked lines.
+var doneText = selArray.join('\n');
+var doneLength = doneText.length;
+editor.setTextInRange(lines[0], lines[1], doneText + '\n');
+editor.setSelectedRange(lines[0] + doneLength, 0);
+}
+	else if (dLG = "Markdown") {
+// Toggle tasks marks on selected lines
+const off = "[ ]";
+const on = "[x]";
+
+// grab state
+let [lnStart, lnLen] = editor.getSelectedLineRange();
+let lnText = editor.getTextInRange(lnStart, lnLen);
+let [selStart, selLen] = editor.getSelectedRange();
+
+// check if any incomplete tasks are in selection
+if (lnText.includes(off)) {
+	lnText = lnText.replaceAll(off, on);
+}
+else { // no incomplete tasks, mark undone
+	lnText = lnText.replaceAll(on, off);
+}
+editor.setTextInRange(lnStart, lnLen, lnText);
+}
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-02T23:21:37Z' class='post-time'>
+                January 2, 2022, 11:21pm
+              </time>
+              <meta itemprop='dateModified' content='2022-01-02T23:21:37Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Keep in mind <code>languageGrammar</code> is a deprecated property and you probably want to work with <code>syntax</code> now.</p>
+<p>I suspect that your issue lies in you not testing for equality in your conditions; “=” is not an equality test.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/6/63fcb6523ac0c3bbd8f87d3d358fa882ca48a26f.png" class="site-icon" width="48" height="48">
+
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality" target="_blank" rel="noopener">developer.mozilla.org</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/388;"><img src="../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_690x388.png" class="thumbnail" width="690" height="388" srcset="../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_690x388.png, ../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_1035x582.png 1.5x, ../../uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_1380x776.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7c212d669f9e3367480797f5d5bf0d81e72e5573_2_10x10.png"></div>
+
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality" target="_blank" rel="noopener">Equality (==) - JavaScript | MDN</a></h3>
+
+  <p>The equality operator (==) checks whether its two operands are equal,
+  returning a Boolean result. Unlike the strict
+equality operator, it attempts to convert and compare operands that are of
+  different types.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/NotPowerUser'><span itemprop='name'>NotPowerUser</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-03T08:37:34Z' class='post-time'>
+                January 3, 2022,  8:37am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-03T08:37:34Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have read the article you linked and I sort of understand what == does, but have no idea how to include it in the script.</p>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-03T08:45:52Z' class='post-time'>
+                January 3, 2022,  8:45am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-03T08:45:52Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>You would need to apply it in the equality checks you were intending to make:</p>
+<pre><code class="lang-auto">if (dLG == "Taskpaper")
+//...
+else if (dLG == "Markdown") {
+</code></pre>
+<p>Note that the point about the deprecation of <code>languageGrammar</code> still stands.</p>
+<p>You may also wish to account for other Markdown syntax <em>flavours</em>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/NotPowerUser'><span itemprop='name'>NotPowerUser</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-03T09:08:16Z' class='post-time'>
+                January 3, 2022,  9:08am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-03T09:08:16Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="4" data-topic="11866">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>You would need to apply it in the equality checks you were intending to make:</p>
+</blockquote>
+</aside>
+<p>Aha, I did it actually yesterday evening, but gave up because then would Markdown part be execute but not Taskpaper… Now all works. I just needed to change “Taskpaper” to “TaskPaper”. Thank you as always <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a></p>
+<aside class="quote no-group" data-username="sylumer" data-post="4" data-topic="11866">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>Note that the point about the deprecation of languageGrammar still stands.</p>
+</blockquote>
+</aside>
+<p>Yes, modified it right away.</p>
+<pre><code class="lang-auto">let dLG = draft.syntax.name;
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-04T20:53:58Z' class='post-time'>
+                January 4, 2022,  8:53pm
+              </time>
+              <meta itemprop='dateModified' content='2022-01-04T20:53:58Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>In case this helps you understand the differences a little more, early on when I was learning to write code, I found it useful to think of <code>=</code> as the word “get” and <code>==</code> as “equals”.</p>
+<p>So for your line <code>let dLG = draft.syntax.name;</code> I read this in my head as "The variable <code>dLG</code> gets the value of <code>draft.syntax.name</code>".</p>
+<p>For the line sylumer wrote <code>if (dLG == "Taskpaper")</code>, I then read it as “If <code>dLG</code> equals “Taskpaper””</p>
+<p>It helped me early on in my career, maybe it’ll help you (or anyone else).</p>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/a/ac8a965c5b8d5e134da82e686a4e29398012d17b.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-04T22:56:15Z' class='post-time'>
+                January 4, 2022, 10:56pm
+              </time>
+              <meta itemprop='dateModified' content='2022-01-04T22:56:15Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Usually, “=” is referred to as (an) assignment, “==” as equality (same value), and “===” as strict equality (same value and same type). Not to dissuade anyone from developing their own interpretations and understanding (it is invaluable to do so), but for someone who is learning, I would argue the case that it is better to use those terms as it then helps you locate and reference documentation about them, particularly given that there are more assignment and (in)equality options that can be applied.</p>
+<p>For example:</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://www.w3schools.com/js/js_assignment.asp">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/b/bd0f0ab29d6934165e4ef7bafd881d27068d0ac6.png" class="site-icon" width="48" height="48">
+
+      <a href="https://www.w3schools.com/js/js_assignment.asp" target="_blank" rel="noopener">w3schools.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:436/228;"><img src="../../uploads/default/original/2X/a/ac8a965c5b8d5e134da82e686a4e29398012d17b.png" class="thumbnail" width="436" height="228"></div>
+
+<h3><a href="https://www.w3schools.com/js/js_assignment.asp" target="_blank" rel="noopener">JavaScript Assignment</a></h3>
+
+  <p>W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://www.w3schools.com/js/js_comparisons.asp">
+  <header class="source">
+      <img src="../../uploads/default/original/2X/b/bd0f0ab29d6934165e4ef7bafd881d27068d0ac6.png" class="site-icon" width="48" height="48">
+
+      <a href="https://www.w3schools.com/js/js_comparisons.asp" target="_blank" rel="noopener">w3schools.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:436/228;"><img src="../../uploads/default/original/2X/a/ac8a965c5b8d5e134da82e686a4e29398012d17b.png" class="thumbnail" width="436" height="228"></div>
+
+<h3><a href="https://www.w3schools.com/js/js_comparisons.asp" target="_blank" rel="noopener">JavaScript Comparison and Logical Operators</a></h3>
+
+  <p>W3Schools offers free online tutorials, references and exercises in all the major languages of the web. Covering popular subjects like HTML, CSS, JavaScript, Python, SQL, Java, and many, many more.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-05T02:11:52Z' class='post-time'>
+                January 5, 2022,  2:11am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-05T02:11:52Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks sylumer. I only mentioned my approach as this was what helped me grasp the concepts of assignment and equality in code syntax when I was just starting out. Of course, if one can sort it out using the official naming conventions, I definitely encourage them to stick with that.</p>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/NotPowerUser'><span itemprop='name'>NotPowerUser</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="11866.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-07T01:28:49Z' class='post-time'>
+                January 7, 2022,  1:28am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-07T01:28:49Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Great explanation! I’m aware of that I need to read more about JavaScript.</p>
+        </div>
+
+        <meta itemprop='headline' content='Need help with if and else statement in a script'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

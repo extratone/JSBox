@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Move Lines Down | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="VZO8cSw91Je8r2pMnayWTOblC5tDXIgnO3i26L1VSzgmjJr7SFZzcjP/0RzJ781SQUbVYL2MwoEWCeSRlK3Vyg==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Move Lines Down" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1HI" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Move Lines Down" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1HI" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/arrow-down.png" class="action-icon" />Move Lines Down</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by @mattgemmell,
+    Last update
+    almost 4 years ago
+</div>
+
+
+    <div class='description'>
+        <p>Moves the selected line(s) down by one line.</p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1HI&amp;data=%7B%22uuid%22:%22807286D5-849E-46DD-90D0-83ADC1F7EBFE%22,%22steps%22:[%7B%22type%22:%22script%22,%22data%22:%7B%22script%22:%22//%20Direction%20to%20move%20the%20lines.%5Cnvar%20moveUp%20=%20false;%5Cn%5CnString.prototype.splitLines%20=%20function%20()%20%7B%5Cn%5Ct//%20Splits%20string%20into%20lines,%20each%20ending%20with%20a%20newline%20(%5C%5Cn).%5Cn%5Ct//%20Note:%20the%20last%20fragment%20might%20not%20end%20with%20a%20newline.%5Cn%5Ctreturn%20this.match(/[%5E%5C%5Cn]*%5C%5Cn/g);%5Cn%7D;%5Cn%5Cnfunction%20minRange(theRange)%20%7B%5Cn%5Ct//%20Returns%20index%20of%20start%20of%20theRange.%5Cn%5Ctreturn%20theRange[0];%5Cn%7D%5Cn%5Cnfunction%20maxRange(theRange)%20%7B%5Cn%5Ct//%20Returns%20index%20immediately%20AFTER%20end%20of%20theRange.%5Cn%5Ctreturn%20theRange[0]%20+%20theRange[1];%5Cn%7D%5Cn%5CnString.prototype.lastChar%20=%20function%20()%20%7B%5Cn%5Ctreturn%20this.substring(this.length%20-%201,%20this.length);%5Cn%7D;%5Cn%5CnString.prototype.inRange%20=%20function%20(theRange)%20%7B%5Cn%5Ctreturn%20this.substring(theRange[0],%20theRange[0]%20+%20theRange[1]);%5Cn%7D%5Cn%5Cnfunction%20show(title,%20content)%20%7B%5Cn%5Ctalert(title%20+%20%5C%22%5C%5Cn%23%5C%22%20+%20content%20+%20%5C%22%23%5C%22);%5Cn%7D%5Cn%5Cnfunction%20showInRange(title,%20range,%20text)%20%7B%5Cn%5Ctshow(title,%20text.substring(range[0],%20range[0]%20+%20range[1]));%5Cn%7D%5Cn%5Cn/*%5CnWe%20need%20to%20distinguish%20between%20a%20user-selection%20which%20spans%20a%20newLine%20onto%20the%20following%20line,%20and%20a%20getSelectedLineRange()%20result%20which%20has%20automatically%20expanded%20to%20include%20a%20line&#39;s%20trailing%20newline.%5Cn%5CnThis%20is%20for%20the%20case%20where%20getSelectedLineRange()%20is%20ambiguous:%5Cn%5Cn-%20This%20occurs%20only%20when%20a%20user%20selection%20exists.%20If%20no%20selection%20exists,%20the%20insertion%20point%20is%20always%20on%20a%20single%20line.%5Cn-%20This%20occurs%20only%20when%20the%20user%20selection%20ends%20immediately%20after%20a%20newLine.%20Otherwise,%20there&#39;s%20no%20ambiguity%20in%20the%20range%20returned%20from%20getSelectedLineRange().%5Cn-%20It%20doesn&#39;t%20matter%20whether%20the%20following%20line%20is%20blank%20or%20not.%5Cn-%20This%20doesn&#39;t%20occur%20with%20a%20_preceding_%20selected%20blank%20line,%20because%20getSelectedLineRange()%20will%20be%20different.%5Cn%5CnThe%20ambiguity%20in%20getSelectedLineRange()%20arises%20because:%5Cn%5CnA.%20The%20getSelectedLineRange()%20might%20span%20the%20trailing%20linebreak%20because%20**the%20user%20selected%20past%20that%20point**.%5CnB.%20The%20getSelectedLineRange()%20might%20span%20the%20trailing%20linebreak%20because%20**it%20auto-expands%20to%20include%20it**.%5Cn%5CnIn%20situation%20A,%20the%20user%20wants%20to%20**also%20act%20on%20the%20following%20line**;%20they%20selected%20it%20explicitly.%5CnIn%20situation%20B,%20the%20user%20wants%20**not%20to%20act%20on%20the%20following%20line**;%20its%20preceding%20newline%20was%20just%20part%20of%20the%20line-range.%5Cn%5CnWe%20can%20disambiguate%20by%20checking%20getSelectedLineRange()%20against%20getSelectedRange().%20If%20both%20ranges%20end%20at%20the%20same%20maxRange,%20it&#39;s%20a%20user-selection,%20and%20we%20**should**%20include%20the%20following%20line%20(by%20expanding%20the%20candidate%20line-range%20up%20to%20and%20including%20the%20next%20newline).%20Otherwise,%20the%20range%20was%20auto-expanded%20to%20include%20the%20trailing%20newline,%20and%20we%20should%20**not**%20include%20the%20following%20line.%5Cn*/%5Cn%5Cn//%20Do%20some%20sanity%20checking.%5Cnvar%20newLine%20=%20%5C%22%5C%5Cn%5C%22;%5Cnvar%20lineRange%20=%20editor.getSelectedLineRange();%5Cnvar%20selRange%20=%20editor.getSelectedRange();%5Cnvar%20draftText%20=%20editor.getText();%5Cnvar%20draftLength%20=%20draftText.length;%5Cnvar%20proceed%20=%20true;%5Cnif%20(moveUp%20%5Cu0026%5Cu0026%20minRange(lineRange)%20==%200)%20%7B%5Cn%5Ct//%20Can&#39;t%20move%20lines%20up.%5Cn%5Ctproceed%20=%20false;%5Cn%5Ct%5Cn%7D%20else%20if%20(!moveUp%20%5Cu0026%5Cu0026%20maxRange(lineRange)%20%5Cu003e=%20draftLength)%20%7B%5Cn%5Ct//%20Can&#39;t%20move%20lines%20down.%5Cn%5Ctproceed%20=%20false;%5Cn%7D%5Cn%5Cnif%20(proceed)%20%7B%5Cn%5Ct//%20Normalise,%20to%20ensure%20all%20lines%20end%20with%20a%20newLine.%5Cn%5Ctvar%20addedNewLine%20=%20false;%5Cn%5Ctif%20(draftText.lastChar()%20!=%20newLine)%20%7B%5Cn%5Ct%5CtdraftText%20=%20draftText%20+%20newLine;%5Cn%5Ct%5CtaddedNewLine%20=%20true;%5Cn%5Ct%5Ctif%20(moveUp)%20%7B%5Cn%5Ct%5Ct%5Ct//%20Check%20to%20see%20if%20we%20need%20to%20adjust%20lineRange%20accordingly.%5Cn%5Ct%5Ct%5Ct//%20Doesn&#39;t%20apply%20when%20moving%20down,%20because%20we%20can&#39;t%20be%20on%20the%20last%20line.%5Cn%5Ct%5Ct%5Ctif%20(maxRange(lineRange)%20==%20draftLength)%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct//%20Last%20line%20of%20draft%20is%20selected.%20Expand%20length%20of%20range%20for%20added%20newLine.%5Cn%5Ct%5Ct%5Ct%5CtlineRange[1]%20=%20lineRange[1]%20+%201;%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D%5Cn%5Ct%5CtdraftLength%20=%20draftLength%20+%201;%5Cn%5Ct%7D%5Cn%5Cn%5Ct//%20Handle%20ambiguous%20line-range%20case%20of%20user-selection%20spanning%20a%20trailing%20newLine.%5Cn%5Ct//%20(See%20full%20explanation%20above.)%5Cn%5Ctif%20(selRange[1]%20%5Cu003e%200)%20%7B%5Cn%5Ct%5Ct//%20There&#39;s%20a%20selection.%5Cn%5Ct%5Ctvar%20selText%20=%20draftText.inRange(selRange);%5Cn%5Ct%5Ctif%20(selText.lastChar()%20==%20newLine)%20%7B%5Cn%5Ct%5Ct%5Ct//%20Last%20char%20of%20user%20selection%20is%20a%20newline;%20expand%20lineRange%20to%20include%20next%20line.%5Cn%5Ct%5Ct%5Ct//%20(Because%20visually%20in%20terms%20of%20the%20iOS%20selection,%20that&#39;s%20the%20user&#39;s%20intention.)%5Cn%5Ct%5Ct%5Ct//%20Note:%20also%20include%20the%20newLine%20itself%20at%20the%20end%20of%20the%20next%20line.%5Cn%5Ct%5Ct%5Ctvar%20nextNewLinePosn%20=%20draftText.indexOf(newLine,%20maxRange(selRange));%5Cn%5Ct%5Ct%5CtlineRange[1]%20=%20lineRange[1]%20+%20(nextNewLinePosn%20-%20maxRange(lineRange))%20+%201;%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%5Ct%5Cn%5Ct//%20Expand%20lineRange%20to%20give%20us%20an%20extra%20line%20to%20move.%5Cn%5Ctif%20(moveUp)%20%7B%5Cn%5Ct%5Ct//%20Moving%20up.%20Get%20extra%20line%20before%20the%20selected%20lines,%20to%20move%20down.%5Cn%5Ct%5Ct//%20We%20offset%20by%20-2%20to%20go%20back%20past%20the%20preceding%20lineBreak.%5Cn%5Ct%5Ctvar%20prevLineStart%20=%20draftText.lastIndexOf(newLine,%20minRange(lineRange)%20-%202);%5Cn%5Ct%5Ct%5Cn%5Ct%5Ct//%20Adjust%20prevLineStart%20so%20we%20don&#39;t%20capture%20the%20found%20newline%20itself.%5Cn%5Ct%5Ctif%20(prevLineStart%20==%20-1)%20%7B%20//%20In%20case%20we%20hit%20start%20of%20draft.%5Cn%5Ct%5Ct%5CtprevLineStart%20=%200;%5Cn%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Ct//%20Exclude%20the%20newLine%20itself%20which%20preceeds%20the%20previous%20line.%5Cn%5Ct%5Ct%5Ctif%20((minRange(lineRange)%20-%20prevLineStart)%20%5Cu003e%201)%20%7B%5Cn%5Ct%5Ct%5Ct%5CtprevLineStart%20=%20prevLineStart%20+%201;%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D%5Cn%5Ct%5CtlineRange[1]%20=%20lineRange[1]%20+%20(lineRange[0]%20-%20prevLineStart);%5Cn%5Ct%5CtlineRange[0]%20=%20prevLineStart;%5Cn%5Ct%5Ct%5Cn%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct//%20Moving%20down.%20Get%20extra%20line%20after%20the%20selected%20lines,%20to%20move%20up.%5Cn%5Ct%5Ctvar%20nextLineEnd%20=%20draftText.indexOf(newLine,%20maxRange(lineRange));%5Cn%5Ct%5Ctif%20(nextLineEnd%20==%20-1)%20%7B%20//%20We%20hit%20end%20of%20draft.%5Cn%5Ct%5Ct%5CtnextLineEnd%20=%20draftLength;%5Cn%5Ct%5Ct%7D%5Cn%5Ct%5CtlineRange[1]%20=%20(nextLineEnd%20+%201)%20-%20lineRange[0];%5Cn%5Ct%7D%5Cn%5Ct%5Cn%5Ct//%20Grab%20the%20relevant%20full%20lines%20of%20text.%5Cn%5Ctvar%20selectedLines%20=%20draftText.substring(minRange(lineRange),%20maxRange(lineRange));%5Cn%5Ct%5Cn%5Ct//%20Rearrange%20lines.%5Cn%5Ctvar%20lines%20=%20selectedLines.splitLines();%5Cn%5Ctvar%20extraLineArray%20=%20[];%5Cn%5Ctif%20(moveUp)%20%7B%5Cn%5Ct%5Ct//%20Shift%20first%20(extra)%20line%20to%20end,%20thus%20moving%20all%20others%20up.%5Cn%5Ct%5CtextraLineArray%20=%20lines.splice(0,%201);%5Cn%5Ct%5CtextraLineArray%20=%20lines.splice(lines.length,%200,%20extraLineArray[0]);%5Cn%5Ct%5Ct%5Cn%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct//%20Shift%20last%20(extra)%20line%20to%20start,%20thus%20moving%20all%20others%20down.%5Cn%5Ct%5CtextraLineArray%20=%20lines.splice(lines.length%20-%201,%201);%5Cn%5Ct%5CtextraLineArray%20=%20lines.splice(0,%200,%20extraLineArray[0]);%5Cn%5Ct%7D%5Cn%5Ct%5Cn%5Ct//%20Replace%20selected%20lines%20with%20reordered%20ones.%5Cn%5Ctvar%20newLinesChunk%20=%20lines.join(%5C%22%5C%22);%5Cn%5Cn%5Ct//%20If%20we%20added%20a%20newLine%20to%20the%20end%20of%20draftText%20originally,%5Cn%5Ct//%20and%20we&#39;re%20replacing%20in%20that%20portion,%20remove%20it%20again.%5Cn%5Ctif%20(addedNewLine%20%5Cu0026%5Cu0026%20maxRange(lineRange)%20%5Cu003e=%20(draftLength%20-%201))%20%7B%5Cn%5Ct%5CtnewLinesChunk%20=%20newLinesChunk.substring(0,%20newLinesChunk.length%20-%201);%5Cn%5Ct%7D%5Cn%5Ct%5Cn%5Ct//%20Work%20out%20new%20selection%20range,%20to%20preserve%20selected%20lines.%5Cn%5Ctvar%20newSelectionRange%20=%20[%20lineRange[0],%20lineRange[1]%20];%5Cn%5CtnewSelectionRange[1]%20=%20newLinesChunk.length;%5Cn%5Ctvar%20delta%20=%200;%5Cn%5Ctif%20(moveUp)%20%7B%5Cn%5Ct%5Ct//%20Should%20select%20all%20but%20the%20last%20(extra;%20moved%20down)%20line.%5Cn%5Ct%5Ctdelta%20=%20lines[lines.length%20-%201].length;%5Cn%5Ct%5CtnewSelectionRange[1]%20=%20newSelectionRange[1]%20-%20delta;%5Cn%5Ct%5Ct%5Cn%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct//%20Should%20select%20all%20but%20the%20first%20(extra;%20moved%20up)%20line.%5Cn%5Ct%5Ctdelta%20=%20lines[0].length;%5Cn%5Ct%5CtnewSelectionRange[0]%20=%20newSelectionRange[0]%20+%20delta;%5Cn%5Ct%5CtnewSelectionRange[1]%20=%20newSelectionRange[1]%20-%20delta;%5Cn%5Ct%7D%5Cn%5Cn%5Ct//%20Replace%20text%20in%20editor.%5Cn%5Cteditor.setTextInRange(lineRange[0],%20lineRange[1],%20newLinesChunk);%5Cn%5Ct%5Cn%5Ct//%20Maintain%20selection,%20ensuring%20it%20doesn&#39;t%20end%20in%20a%20spurious%20newLine.%5Cn%5Ctif%20(editor.getTextInRange(newSelectionRange[0],%20newSelectionRange[1]).lastChar()%20==%20newLine)%20%7B%5Cn%5Ct%5CtnewSelectionRange[1]%20=%20newSelectionRange[1]%20-%201;%5Cn%5Ct%7D%5Cn%5Cteditor.setSelectedRange(newSelectionRange[0],%20newSelectionRange[1]);%5Cn%7D%5Cn%5Cn/*%5Cn%5CnTest%20data%20below.%5Cn%5Cnone%5Cntwo%5Cnthree%5Cnfour%5Cn%5Cn*/%22%7D,%22uuid%22:%226B18BF1B-2C04-4F6D-B025-A0E0390391A9%22%7D],%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:0,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22K%22,%22controlKey%22:true,%22commandKey%22:true,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Move%20Lines%20Down%22,%22shiftKey%22:false%7D,%22logLevel%22:1,%22notificationType%22:1,%22tintColor%22:%22none%22,%22actionDescription%22:%22Moves%20the%20selected%20line(s)%20down%20by%20one%20line.%22,%22keyUseIcon%22:true,%22icon%22:%22arrow-down%22,%22visibility%22:2,%22groupUUID%22:%22791925DD-2261-4E23-A0C6-D0FFB6DF9670%22,%22supportedPlatform%22:%22any%22,%22groupDisposition%22:0,%22name%22:%22Move%20Lines%20Down%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// Direction to move the lines.
+var moveUp = false;
+
+String.prototype.splitLines = function () {
+	// Splits string into lines, each ending with a newline (\n).
+	// Note: the last fragment might not end with a newline.
+	return this.match(/[^\n]*\n/g);
+};
+
+function minRange(theRange) {
+	// Returns index of start of theRange.
+	return theRange[0];
+}
+
+function maxRange(theRange) {
+	// Returns index immediately AFTER end of theRange.
+	return theRange[0] + theRange[1];
+}
+
+String.prototype.lastChar = function () {
+	return this.substring(this.length - 1, this.length);
+};
+
+String.prototype.inRange = function (theRange) {
+	return this.substring(theRange[0], theRange[0] + theRange[1]);
+}
+
+function show(title, content) {
+	alert(title + &quot;\n#&quot; + content + &quot;#&quot;);
+}
+
+function showInRange(title, range, text) {
+	show(title, text.substring(range[0], range[0] + range[1]));
+}
+
+/*
+We need to distinguish between a user-selection which spans a newLine onto the following line, and a getSelectedLineRange() result which has automatically expanded to include a line&#39;s trailing newline.
+
+This is for the case where getSelectedLineRange() is ambiguous:
+
+- This occurs only when a user selection exists. If no selection exists, the insertion point is always on a single line.
+- This occurs only when the user selection ends immediately after a newLine. Otherwise, there&#39;s no ambiguity in the range returned from getSelectedLineRange().
+- It doesn&#39;t matter whether the following line is blank or not.
+- This doesn&#39;t occur with a _preceding_ selected blank line, because getSelectedLineRange() will be different.
+
+The ambiguity in getSelectedLineRange() arises because:
+
+A. The getSelectedLineRange() might span the trailing linebreak because **the user selected past that point**.
+B. The getSelectedLineRange() might span the trailing linebreak because **it auto-expands to include it**.
+
+In situation A, the user wants to **also act on the following line**; they selected it explicitly.
+In situation B, the user wants **not to act on the following line**; its preceding newline was just part of the line-range.
+
+We can disambiguate by checking getSelectedLineRange() against getSelectedRange(). If both ranges end at the same maxRange, it&#39;s a user-selection, and we **should** include the following line (by expanding the candidate line-range up to and including the next newline). Otherwise, the range was auto-expanded to include the trailing newline, and we should **not** include the following line.
+*/
+
+// Do some sanity checking.
+var newLine = &quot;\n&quot;;
+var lineRange = editor.getSelectedLineRange();
+var selRange = editor.getSelectedRange();
+var draftText = editor.getText();
+var draftLength = draftText.length;
+var proceed = true;
+if (moveUp &amp;&amp; minRange(lineRange) == 0) {
+	// Can&#39;t move lines up.
+	proceed = false;
+	
+} else if (!moveUp &amp;&amp; maxRange(lineRange) &gt;= draftLength) {
+	// Can&#39;t move lines down.
+	proceed = false;
+}
+
+if (proceed) {
+	// Normalise, to ensure all lines end with a newLine.
+	var addedNewLine = false;
+	if (draftText.lastChar() != newLine) {
+		draftText = draftText + newLine;
+		addedNewLine = true;
+		if (moveUp) {
+			// Check to see if we need to adjust lineRange accordingly.
+			// Doesn&#39;t apply when moving down, because we can&#39;t be on the last line.
+			if (maxRange(lineRange) == draftLength) {
+				// Last line of draft is selected. Expand length of range for added newLine.
+				lineRange[1] = lineRange[1] + 1;
+			}
+		}
+		draftLength = draftLength + 1;
+	}
+
+	// Handle ambiguous line-range case of user-selection spanning a trailing newLine.
+	// (See full explanation above.)
+	if (selRange[1] &gt; 0) {
+		// There&#39;s a selection.
+		var selText = draftText.inRange(selRange);
+		if (selText.lastChar() == newLine) {
+			// Last char of user selection is a newline; expand lineRange to include next line.
+			// (Because visually in terms of the iOS selection, that&#39;s the user&#39;s intention.)
+			// Note: also include the newLine itself at the end of the next line.
+			var nextNewLinePosn = draftText.indexOf(newLine, maxRange(selRange));
+			lineRange[1] = lineRange[1] + (nextNewLinePosn - maxRange(lineRange)) + 1;
+		}
+	}
+	
+	// Expand lineRange to give us an extra line to move.
+	if (moveUp) {
+		// Moving up. Get extra line before the selected lines, to move down.
+		// We offset by -2 to go back past the preceding lineBreak.
+		var prevLineStart = draftText.lastIndexOf(newLine, minRange(lineRange) - 2);
+		
+		// Adjust prevLineStart so we don&#39;t capture the found newline itself.
+		if (prevLineStart == -1) { // In case we hit start of draft.
+			prevLineStart = 0;
+		} else {
+			// Exclude the newLine itself which preceeds the previous line.
+			if ((minRange(lineRange) - prevLineStart) &gt; 1) {
+				prevLineStart = prevLineStart + 1;
+			}
+		}
+		lineRange[1] = lineRange[1] + (lineRange[0] - prevLineStart);
+		lineRange[0] = prevLineStart;
+		
+	} else {
+		// Moving down. Get extra line after the selected lines, to move up.
+		var nextLineEnd = draftText.indexOf(newLine, maxRange(lineRange));
+		if (nextLineEnd == -1) { // We hit end of draft.
+			nextLineEnd = draftLength;
+		}
+		lineRange[1] = (nextLineEnd + 1) - lineRange[0];
+	}
+	
+	// Grab the relevant full lines of text.
+	var selectedLines = draftText.substring(minRange(lineRange), maxRange(lineRange));
+	
+	// Rearrange lines.
+	var lines = selectedLines.splitLines();
+	var extraLineArray = [];
+	if (moveUp) {
+		// Shift first (extra) line to end, thus moving all others up.
+		extraLineArray = lines.splice(0, 1);
+		extraLineArray = lines.splice(lines.length, 0, extraLineArray[0]);
+		
+	} else {
+		// Shift last (extra) line to start, thus moving all others down.
+		extraLineArray = lines.splice(lines.length - 1, 1);
+		extraLineArray = lines.splice(0, 0, extraLineArray[0]);
+	}
+	
+	// Replace selected lines with reordered ones.
+	var newLinesChunk = lines.join(&quot;&quot;);
+
+	// If we added a newLine to the end of draftText originally,
+	// and we&#39;re replacing in that portion, remove it again.
+	if (addedNewLine &amp;&amp; maxRange(lineRange) &gt;= (draftLength - 1)) {
+		newLinesChunk = newLinesChunk.substring(0, newLinesChunk.length - 1);
+	}
+	
+	// Work out new selection range, to preserve selected lines.
+	var newSelectionRange = [ lineRange[0], lineRange[1] ];
+	newSelectionRange[1] = newLinesChunk.length;
+	var delta = 0;
+	if (moveUp) {
+		// Should select all but the last (extra; moved down) line.
+		delta = lines[lines.length - 1].length;
+		newSelectionRange[1] = newSelectionRange[1] - delta;
+		
+	} else {
+		// Should select all but the first (extra; moved up) line.
+		delta = lines[0].length;
+		newSelectionRange[0] = newSelectionRange[0] + delta;
+		newSelectionRange[1] = newSelectionRange[1] - delta;
+	}
+
+	// Replace text in editor.
+	editor.setTextInRange(lineRange[0], lineRange[1], newLinesChunk);
+	
+	// Maintain selection, ensuring it doesn&#39;t end in a spurious newLine.
+	if (editor.getTextInRange(newSelectionRange[0], newSelectionRange[1]).lastChar() == newLine) {
+		newSelectionRange[1] = newSelectionRange[1] - 1;
+	}
+	editor.setSelectedRange(newSelectionRange[0], newSelectionRange[1]);
+}
+
+/*
+
+Test data below.
+
+one
+two
+three
+four
+
+*/</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Nothing
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Error</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Error</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

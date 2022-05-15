@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+    <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660</link>
+    <description>Hello, I’m having trouble appending text to an existing draft using the `Add to Draft` Action in the Shortcuts app. I’m not sure if I’m doing something wrong or is it caused by Drafts/Shortcuts. Please help me solve this problem, thank you in advance!  
+
+To reproduce the issue, please do the following steps:  
+
+1. Create a shortcut in the Shortcuts app that contains two actions: `Text` and `Add to Draft`. The `Text` action contains the text to be appended to an existing draft, and the `Add to Draft` action is to be configured as follows:
+
+* Mode: `Append`
+* Draft UUID: Fill in the UUID of the draft you want the text to append to
+* Edit in Drafts: No
+* Run Action: No
+
+[This is an example I made.](https://www.icloud.com/shortcuts/efa28ff4983949fab3102bc6a0396c80)
+
+2. Create a Drafts Action that contains only a single `Run Shortcut` Step. Fill in the name of the above shortcut. Configure the Action as follows:
+
+* Wait for Response: Yes
+
+[This is an example I made.](https://actions.getdrafts.com/a/1Pi)
+
+Now, trigger the Drafts Action. The Action should launch the shortcut which appends some text to an existing draft. My problem is, I can see the text being appended to the draft when Shortcuts launches Drafts for the first time, but when Shortcuts launches Drafts for the second time, the appended text disappears. I tried multiple times and the always got the same result.</description>
+    
+    <lastBuildDate>Thu, 04 Oct 2018 17:24:25 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, thank you for your explanation! I explained in one of my replies to another user what I am trying to accomplish. The Drafts Action and Shortcuts shortcut I gave as examples in my original post didn’t make any sense because I was trying to make my question simple and clear so I removed the steps unrelated to this issue.<br>
+Coincidentally, I saw your <a href="https://forums.getdrafts.com/t/tip-insert-result-of-a-shortcuts-app-shortcut-in-current-draft/2666/2">TIP post</a> several days ago about inserting the result of a shortcut in current draft, which provided a perfect solution to my problem. The <code>[[shortcut_result]]</code> tag is extremely useful and powerful, thank you so much for your tip!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/16</link>
+        <pubDate>Thu, 04 Oct 2018 17:24:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-16</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This is not exactly a bug…though it certainly is an issue. The problem results from attempting to manipulate the draft that is the draft in context of the current action from outside the context of that action and creating a race condition about what is the correct content of the draft.</p>
+<p>It hasn’t come up before, but I should likely add a hard lock on the current draft while the action is running and throw an error if Shortcuts or another source attempts to manipulate that draft via URLs while it’s in context.</p>
+<p>This would work fine if the draft Shortcut is targeting is not the same draft that was in context when the action was run.</p>
+<p>If your <code>Run Shortcut</code> step is not set to wait for a response, this works, also. The action completes before Shortcuts attempts to make changes to the draft - at least in my testing I can’t get it to fail if wait for response is off.</p>
+<p>If it is on, Drafts is waiting for Shortcuts to finish. Your shortcut comes in an edits the draft via URL while the action is still running - but the action is not aware of these changes and it is operating on the draft as it existed prior to those changes being made.  Which is how it should be, because other steps/scripts in the action could have made changes to the content of the draft as well and those should not be discarded.</p>
+<p>Not sure what your ultimate goal is here, if you describe your task I could suggest other ways to accomplish the result.</p>
+<p>There are plenty of ways to avoid this problem, if you describe what you are trying to accomplish. If you are trying to insert content generated from Shortcuts in the current draft, it would be better to have the Shortcut return the new text to Drafts and have Drafts update the current draft.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/15</link>
+        <pubDate>Thu, 04 Oct 2018 14:32:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-15</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m completely at lost too. I might consider contacting the developer for further insight.<br>
+Thank you so much for your kind help!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/14</link>
+        <pubDate>Mon, 01 Oct 2018 14:17:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-14</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[davenicholls]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m afraid that I don’t know what’s going on there. It’s not clear why it would behave differently for you</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/13</link>
+        <pubDate>Mon, 01 Oct 2018 14:05:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-13</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you so much for testing the shortcut and Drafts Action! However, the issue still persists when I try, please take a look at this <a href="https://share.icloud.com/photos/0kszY15tXFlNzL7WreyXmZ6yw#Langfang_-_Guangyang" rel="nofollow noopener">Screen Recording</a>.<br>
+I’m starting to feel that I must have made a really stupid mistake somewhere. Please tell me what I’m doing wrong, this issue is bothering me a lot. Thank you again!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/12</link>
+        <pubDate>Mon, 01 Oct 2018 13:43:50 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-12</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[davenicholls]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve just tried this with your example Shortcut and Draftsaction and, unless I’m missing something, it looks like its working:</p>
+<p><a href="https://share.icloud.com/photos/0gD3e9_HDRffTSoQeyA05zd0A" class="onebox" target="_blank" rel="nofollow noopener">https://share.icloud.com/photos/0gD3e9_HDRffTSoQeyA05zd0A</a></p>
+<p>Dave</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/10</link>
+        <pubDate>Mon, 01 Oct 2018 13:09:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-10</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>I have no idea why this is happening either. Thank you so much for your help!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/9</link>
+        <pubDate>Mon, 01 Oct 2018 11:38:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-9</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[davenicholls]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, that makes it much clearer.</p>
+<p>I’m still unsure as to why the issue is occurring. I will try to take a look when I finish work today.</p>
+<p>Dave</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/8</link>
+        <pubDate>Mon, 01 Oct 2018 11:08:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-8</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>In fact, I did include the UUID of the draft in the template so as to pass the UUID of the draft I’m currently editing as the shortcut input into my shortcut, so I’m sure that the text was appended to the right draft. Also, during my previous tests, before triggering the Drafts Action, the draft contained</p>
+<blockquote>
+<p>Test<br>
+This is a test</p>
+</blockquote>
+<p>Then I triggered the action, which ran the shortcut. I could see the previous draft became</p>
+<blockquote>
+<p>Test<br>
+This is a test<br>
+Appended text</p>
+</blockquote>
+<p>before Drafts launches Shortcuts again. Then Shortcuts launches Drafts for the second time, and the draft became</p>
+<blockquote>
+<p>Test<br>
+This is a test</p>
+</blockquote>
+<p>again. I have absolutely no idea what I was doing wrong.</p>
+<p>Thank you so much for helping!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/7</link>
+        <pubDate>Mon, 01 Oct 2018 09:32:08 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-7</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>It works for me if I get your test action to include the UUID in the template and call my test shortcut, which is very similar to yours except for the generic utilisation of the UUID.</p>
+<p>Therefore that suggests your issue is in the specification of the UUID in Shortcuts.</p>
+<p>Are you 100% sure your UUID for the draft in Drafts always matches the UUID specified in your Shortcuts custom shortcut? I suspect it is updating a different draft which would be one reason you might briefly see the text added to a draft and then seemingly not present when it returns to (a different draft) at the end of the shortcut.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/6</link>
+        <pubDate>Mon, 01 Oct 2018 06:54:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-6</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, thank you for your reply! I do realize the shortcut and Drafts Action I gave as examples in my original post seemed rather unnecessary. This is because the shortcut and Drafts Action I posted were only short versions of what I was actually trying to create. I figured out the problem was caused by the <code>Add to Draft</code> action in Shortcuts, so I thought I’d make my question simpler by only mentioning the related parts. Please see the full version of what I was trying to create in my other reply in this post if you’re interested.<br>
+I am quite new to Drafts and did not realize there was a <code>Insert Text</code> Step in Drafts, and I solved my problem by replacing the <code>Add to Draft</code> action in Shortcuts with the <code>Insert Text</code> Action Step in Drafts. Thank you for your help! However, I still do not understand why the appended text disappears when I try to append text using the <code>Add to Draft</code> action in Shortcuts. Could you please provide some insight on this issue? Thanks again!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/5</link>
+        <pubDate>Mon, 01 Oct 2018 02:36:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-5</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, thank you for your reply!</p>
+<p>I just ran a quick test and if I trigger the shortcut within the Shortcuts app, the appended text does not disappear when I return to Drafts after running this shortcut.</p>
+<p>There is a reason why I want to trigger this shortcut within an Drafts Action. What I actually want to achieve is more complex than simply triggering an Action which runs a shortcut, but to make my question simpler, I didn’t mention the unrelated parts of the shortcut and draft action. If you’re interested, here is the full version of what I have built:</p>
+<ol>
+<li>Take a picture with the Camera app</li>
+<li>Launch Drafts and write some text related to the picture just taken</li>
+<li>Trigger a Drafts Action containing three Steps:
+<ol>
+<li>
+<code>Script</code>: Run a script to add some predefined tags to this draft</li>
+<li>
+<code>Run Shortcut</code>: Run a shortcut in the Shortcuts app. This shortcut performs the following actions:
+<ol>
+<li>Create an image in <a href="https://itunes.apple.com/cn/app/devonthink-to-go/id395722470?l=en&amp;mt=8" rel="nofollow noopener">DEVONthink To Go</a>
+</li>
+<li>Get the item link of this image and append it to the previous draft</li>
+</ol>
+</li>
+<li>
+<code>URL</code>: Create a new task within my task manager app. The title of the task is <code>[[title]]</code>, the content of the task is <code>[[body]]</code> and the tags of the task is <code>[[tags]]</code>.</li>
+</ol>
+</li>
+</ol>
+<p>With the help of the shortcut and Drafts Action described above, I can take a picture related to a task, write some description in Drafts, trigger the Drafts Action and then I’m good to go. When I launch my task manager app, I have a new task with <code>[[title]]</code> as its title and <code>[[body]]</code> as its content. The <code>[[body]]</code> also contains a DEVONthink item link at its end and when I click the item link within the task, I will be instantly brought to the picture I took.<br>
+The problem is, because the item link appended to the draft with <code>Add to Draft</code> always disappears, the task in my task manager app does not have the DEVONthink item link at its end. I figured out the missing item link was caused by the <code>Add to Draft</code> action, so I created a super short version of the shortcut and Drafts Action I created to describe my problem.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/4</link>
+        <pubDate>Mon, 01 Oct 2018 02:25:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-4</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>It does seem a little strange to do it this way rather than say pass back some data to Drafts from Shortcuts and have Drafts process it, but this approach works in my quick testing.</p>
+<ul>
+<li><a href="https://www.icloud.com/shortcuts/26685f03a47244068d74992ebe03f6a8">Shortcut - Drafts Test Append</a></li>
+<li><a href="https://actions.getdrafts.com/a/1Pj">Drafts Action - Drafts Append &amp; Shortcuts Append</a></li>
+</ul>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/3</link>
+        <pubDate>Sun, 30 Sep 2018 17:28:14 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-3</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[davenicholls]]></dc:creator>
+        <description><![CDATA[
+            <p>Can I check whether the shortcut works if you just run it from the Shortcuts app?</p>
+<p>Is there a specific reason why you need to trigger the shortcut from Drafts and have it update a Draft?</p>
+<p>I’m asking because I’m wondering if the jumping out of Drafts to Shortcuts and back in is causing the problem. If it is, then understanding why you are jumping out and back to Drafts might allow me to suggest an alternative approach.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/2</link>
+        <pubDate>Sun, 30 Sep 2018 14:58:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-2</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+      <item>
+        <title>Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</title>
+        <dc:creator><![CDATA[xrch]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, I’m having trouble appending text to an existing draft using the <code>Add to Draft</code> Action in the Shortcuts app. I’m not sure if I’m doing something wrong or is it caused by Drafts/Shortcuts. Please help me solve this problem, thank you in advance!</p>
+<p>To reproduce the issue, please do the following steps:</p>
+<ol>
+<li>Create a shortcut in the Shortcuts app that contains two actions: <code>Text</code> and <code>Add to Draft</code>. The <code>Text</code> action contains the text to be appended to an existing draft, and the <code>Add to Draft</code> action is to be configured as follows:</li>
+</ol>
+<ul>
+<li>Mode: <code>Append</code>
+</li>
+<li>Draft UUID: Fill in the UUID of the draft you want the text to append to</li>
+<li>Edit in Drafts: No</li>
+<li>Run Action: No</li>
+</ul>
+<p><a href="https://www.icloud.com/shortcuts/efa28ff4983949fab3102bc6a0396c80" rel="nofollow noopener">This is an example I made.</a></p>
+<ol start="2">
+<li>Create a Drafts Action that contains only a single <code>Run Shortcut</code> Step. Fill in the name of the above shortcut. Configure the Action as follows:</li>
+</ol>
+<ul>
+<li>Wait for Response: Yes</li>
+</ul>
+<p><a href="https://actions.getdrafts.com/a/1Pi" rel="nofollow noopener">This is an example I made.</a></p>
+<p>Now, trigger the Drafts Action. The Action should launch the shortcut which appends some text to an existing draft. My problem is, I can see the text being appended to the draft when Shortcuts launches Drafts for the first time, but when Shortcuts launches Drafts for the second time, the appended text disappears. I tried multiple times and the always got the same result.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660/1</link>
+        <pubDate>Sun, 30 Sep 2018 13:33:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-2660-1</guid>
+        <source url="https://forums.getdrafts.com/t/can-t-append-text-to-existing-drafts-using-the-add-to-draft-action-in-the-shortcuts-app/2660.rss">Can’t append text to existing drafts using the Add to Draft action in the Shortcuts app</source>
+      </item>
+  </channel>
+</rss>

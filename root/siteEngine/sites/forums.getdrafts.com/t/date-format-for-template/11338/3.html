@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Date format for template - #3 by Wrxhokie - Syntaxes &amp; Themes - Drafts Community</title>
+    <meta name="description" content="I’m building some templates for work, and I’m trying to use the [[date]] tag and formatting options, but for some reason its not accepting the formatting options I give it.  What am I doing wrong here?">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="https://forums.getdrafts.com/t/date-format-for-template/11338" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Date format for template&#39;" href="../11338.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_1024x715.jpeg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_1024x715.jpeg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/date-format-for-template/11338/3" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/date-format-for-template/11338/3" />
+<meta property="og:title" content="Date format for template" />
+<meta name="twitter:title" content="Date format for template" />
+<meta property="og:description" content="Thanks for the help, that’s essentially what this template is used for, as I’m using it with the “New Draft from template” action (TIP: Creating New Drafts with Templates)  The tag [[date]] resolves fine in the preview window, but when I try to format it won’t recognize it." />
+<meta name="twitter:description" content="Thanks for the help, that’s essentially what this template is used for, as I’m using it with the “New Draft from template” action (TIP: Creating New Drafts with Templates)  The tag [[date]] resolves fine in the preview window, but when I try to format it won’t recognize it." />
+<meta property="article:published_time" content="2021-10-09T03:15:43+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="https://forums.getdrafts.com/t/date-format-for-template/11338">Date format for template</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="https://forums.getdrafts.com/c/syntaxes-themes/16" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #ED207B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Syntaxes &amp; Themes</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Wrxhokie'><span itemprop='name'>Wrxhokie</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-08T20:10:54Z' class='post-time'>
+                October 8, 2021,  8:10pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-08T20:10:54Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m building some templates for work, and I’m trying to use the [[date]] tag and formatting options, but for some reason its not accepting the formatting options I give it.  What am I doing wrong here?</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/aa713d35acbd0a383415ebe92e8c9e2174e0207e" title="image"><img src="../../../uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_689x481.jpeg" alt="image" data-base62-sha1="ojNMAgU9LQ7gFM4cr9qcSS2EqqG" width="689" height="481" srcset="../../../uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_689x481.jpeg, ../../../uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_1033x721.jpeg 1.5x, ../../../uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_1378x962.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/aa713d35acbd0a383415ebe92e8c9e2174e0207e_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">2388×1668 178 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-08T20:41:33Z' class='post-time'>
+                October 8, 2021,  8:41pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-08T20:41:33Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Welcome <a class="mention" href="https://forums.getdrafts.com/u/wrxhokie">@Wrxhokie</a>. I believe what you need to do is store this template inside of an “Insert Text” action. If you do that, then the template tags take effect. Here’s the <a href="../../../../docs.getdrafts.com/docs/actions/steps/utility.html">documentation</a> for that.</p>
+<p>You can also create a more complicated action which references this template draft to then create a new one every day (since this is for a daily note). If you need help putting that together, let me know.</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Wrxhokie'><span itemprop='name'>Wrxhokie</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-09T03:15:43Z' class='post-time'>
+                October 9, 2021,  3:15am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-09T03:15:43Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for the help, that’s essentially what this template is used for, as I’m using it with the “New Draft from template” action (<a href="../../tip-creating-new-drafts-with-templates/4253.html" class="inline-onebox">TIP: Creating New Drafts with Templates</a>)</p>
+<p>The tag [[date]] resolves fine in the preview window, but when I try to format it won’t recognize it.</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Zrapata'><span itemprop='name'>Zrapata</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-09T03:28:24Z' class='post-time'>
+                October 9, 2021,  3:28am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-09T03:28:24Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>One question, is the format on the top the same for all your files or it changes depending on the draft?</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Zrapata'><span itemprop='name'>Zrapata</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-09T03:40:36Z' class='post-time'>
+                October 9, 2021,  3:40am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-09T03:40:36Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/motopascyyy">@motopascyyy</a> Sorry for the previous question I missonderstood your question.</p>
+<p>Your problem is that you are not using the format correctly. Here’s an example</p>
+<hr>
+<p>You are writing something like then, and when you create a new file from the template you get the same as text</p>
+<pre><code class="lang-css">[[date|%B %d %Y]]
+</code></pre>
+<hr>
+<p>But that’s because the format expects dashes instead of spaces like below</p>
+<pre><code class="lang-css">[[date|%B-%d-%Y]]
+</code></pre>
+<hr>
+<p>At least from everything I just tested it worked fine for me with the correct formatting, expect in the preview window, there it stays as text. But if that’s also part of the problem, let me know to think of a solution</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-10T01:11:58Z' class='post-time'>
+                October 10, 2021,  1:11am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-10T01:11:58Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s odd. I was able to use the <a href="../../../../actions.getdrafts.com/a/1VL.html">action listed in the guide</a> and used your template exactly as is, and it worked.</p>
+<p>Here’s what I did:</p>
+<ol>
+<li>
+<p>Create a draft with the appropriate template and tagged with <code>template</code><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1" title="Screen Shot 2021-10-09 at 9.05.51 PM"><img src="../../../uploads/default/optimized/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1_2_690x250.jpeg" alt="Screen Shot 2021-10-09 at 9.05.51 PM" data-base62-sha1="fpuzrnpH0ujHngaoAVy6OCod7Vv" width="690" height="250" srcset="../../../uploads/default/optimized/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1_2_690x250.jpeg, ../../../uploads/default/optimized/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1_2_1035x375.jpeg 1.5x, ../../../uploads/default/optimized/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1_2_1380x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6c025603444bd6ce71cdc1dd6a80160ac2e2dbe1_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screen Shot 2021-10-09 at 9.05.51 PM</span><span class="informations">2500×906 207 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+</li>
+<li>
+<p>Run the selected action:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/d/d7325d373a6c905a404b728d81cc21e07523869c.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/d7325d373a6c905a404b728d81cc21e07523869c" title="Screen Shot 2021-10-09 at 9.07.48 PM"><img src="../../../uploads/default/optimized/2X/d/d7325d373a6c905a404b728d81cc21e07523869c_2_690x242.jpeg" alt="Screen Shot 2021-10-09 at 9.07.48 PM" data-base62-sha1="uHIyLEE4UtIremAZN88bxeUryuE" width="690" height="242" srcset="../../../uploads/default/optimized/2X/d/d7325d373a6c905a404b728d81cc21e07523869c_2_690x242.jpeg, ../../../uploads/default/optimized/2X/d/d7325d373a6c905a404b728d81cc21e07523869c_2_1035x363.jpeg 1.5x, ../../../uploads/default/optimized/2X/d/d7325d373a6c905a404b728d81cc21e07523869c_2_1380x484.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/d/d7325d373a6c905a404b728d81cc21e07523869c_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screen Shot 2021-10-09 at 9.07.48 PM</span><span class="informations">2500×879 178 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+</li>
+<li>
+<p>Select the appropriate template:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/6/653adf3cca4614fd01324ebada3452ee4e385683.png" data-download-href="https://forums.getdrafts.com/uploads/default/653adf3cca4614fd01324ebada3452ee4e385683" title="Screen Shot 2021-10-09 at 9.09.21 PM"><img src="../../../uploads/default/optimized/2X/6/653adf3cca4614fd01324ebada3452ee4e385683_2_636x500.png" alt="Screen Shot 2021-10-09 at 9.09.21 PM" data-base62-sha1="erwm9e8A25CoiALQgLktLno06Y3" width="636" height="500" srcset="../../../uploads/default/optimized/2X/6/653adf3cca4614fd01324ebada3452ee4e385683_2_636x500.png, ../../../uploads/default/original/2X/6/653adf3cca4614fd01324ebada3452ee4e385683.png 1.5x, ../../../uploads/default/original/2X/6/653adf3cca4614fd01324ebada3452ee4e385683.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/653adf3cca4614fd01324ebada3452ee4e385683_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screen Shot 2021-10-09 at 9.09.21 PM</span><span class="informations">920×723 79.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+</li>
+<li>
+<p>The expected Draft is then created with the dates as expected:<br>
+<div class="lightbox-wrapper"><a class="lightbox" href="../../../uploads/default/original/2X/0/041b950ad5be7f8c80424c989c6f09b27ba1b1ba.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/041b950ad5be7f8c80424c989c6f09b27ba1b1ba" title="Screen Shot 2021-10-09 at 9.09.51 PM"><img src="../../../uploads/default/optimized/2X/0/041b950ad5be7f8c80424c989c6f09b27ba1b1ba_2_690x238.jpeg" alt="Screen Shot 2021-10-09 at 9.09.51 PM" data-base62-sha1="Al0haeAWul5EA2rGwoRC9acf9M" width="690" height="238" srcset="../../../uploads/default/optimized/2X/0/041b950ad5be7f8c80424c989c6f09b27ba1b1ba_2_690x238.jpeg, ../../../uploads/default/optimized/2X/0/041b950ad5be7f8c80424c989c6f09b27ba1b1ba_2_1035x357.jpeg 1.5x, ../../../uploads/default/optimized/2X/0/041b950ad5be7f8c80424c989c6f09b27ba1b1ba_2_1380x476.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/0/041b950ad5be7f8c80424c989c6f09b27ba1b1ba_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Screen Shot 2021-10-09 at 9.09.51 PM</span><span class="informations">2500×863 188 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg>
+</div></a></div></p>
+</li>
+</ol>
+<p><a class="mention" href="https://forums.getdrafts.com/u/wrxhokie">@Wrxhokie</a>, does this look like the same steps you’ve taken?</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Wrxhokie'><span itemprop='name'>Wrxhokie</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-10T01:25:43Z' class='post-time'>
+                October 10, 2021,  1:25am
+              </time>
+              <meta itemprop='dateModified' content='2021-10-10T01:25:43Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That’s good to know, because I was going by the preview view only to make sure it was correct first.  I guess the preview window doesn’t interpret date formatting correctly.</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/motopascyyy'><span itemprop='name'>motopascyyy</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-10T15:54:50Z' class='post-time'>
+                October 10, 2021,  3:54pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-10T15:54:50Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> will probably need to confirm, but the preview action on its own won’t “process” the templates. Processing the templates means scanning for any of the appropriate syntaxes (like [[date]]) and then converting them in the text (either in memory or in the actual draft).</p>
+<p>This makes sense to me because you can’t always guarantee that text matching a typical template isn’t meant to actually just be the text. The preview action is basically a way of throwing the current draft into a Markdown (or other) parser and then converting that into HTML so that it looks pretty. It’s not a preview of what the template would look like now if you were to trigger an action. I hope this helps explain it a bit.</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+            <link itemprop="image" href="../../../uploads/default/original/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-10T16:41:58Z' class='post-time'>
+                October 10, 2021,  4:41pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-10T17:07:31Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Template tags only get processed only when pushed through Drafts’ templating engine. That happens when using actions that are configured to utilise it. Either through particular steps that support tag processing, or through an explicit set of code in a script step.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://docs.getdrafts.com/docs/actions/templates">
+  <header class="source">
+      <img src="../../../../docs.getdrafts.com/favicon.ico.html" class="site-icon" width="" height="">
+
+      <a href="../../../../docs.getdrafts.com/docs/actions/templates.html" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="../../../uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_690x362.png" class="thumbnail" width="690" height="362" srcset="../../../uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_690x362.png, ../../../uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_1035x543.png 1.5x, ../../../uploads/default/original/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_10x10.png"></div>
+
+<h3><a href="../../../../docs.getdrafts.com/docs/actions/templates.html" target="_blank" rel="noopener">Templates</a></h3>
+
+  <p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>The templating engine is not a standard preprocessor to the default Markdown to HTML preview functionality or actions, but you can create actions to do this preprocessing.</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Zrapata'><span itemprop='name'>Zrapata</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-10T17:02:39Z' class='post-time'>
+                October 10, 2021,  5:02pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-10T17:02:39Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>As they said, it doesnt work with live preview, if you want to preview them you need a custom preview from an action</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Wrxhokie'><span itemprop='name'>Wrxhokie</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="https://forums.getdrafts.com/t/date-format-for-template/11338">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2021-10-12T13:19:34Z' class='post-time'>
+                October 12, 2021,  1:19pm
+              </time>
+              <meta itemprop='dateModified' content='2021-10-12T13:19:34Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks guys, makes sense now.</p>
+        </div>
+
+        <meta itemprop='headline' content='Date format for template'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

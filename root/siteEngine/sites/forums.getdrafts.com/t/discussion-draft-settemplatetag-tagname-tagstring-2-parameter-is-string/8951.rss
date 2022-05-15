@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Discussion] draft.setTemplateTag( tagName, tagString); // 2.Parameter is String!</title>
+    <link>https://forums.getdrafts.com/t/discussion-draft-settemplatetag-tagname-tagstring-2-parameter-is-string/8951</link>
+    <description>I was working on a action yesterday and could not find why my template would crash on using my custom template tag set with `draft.setTemplateTag( tagName, tagString);`
+
+From @zach script I had a nice code template that set a float value in the template.
+
+&gt; Nice! 
+
+A quick copy and my dictionary/object was stored in the value.
+Buut - the HTMLPreview would not work if I used this custom template with `[[tagName]]`
+
+24h later I was reading the documentation and found the problem.
+
+&gt; the second parameter is string only !
+
+Why?
+
+1. **Java Script** converts the float to a string :see_no_evil: 
+2. **Java Script** does **NOT** convert an object to string :hear_no_evil:
+
+This would need a `JSON.stringify( tagString )` and do not forget the `JSON.parse( draft.getTemplateTag( tagName )` for back conversion.
+
+My fiddled code snippet to solve it in future...
+
+[details=&quot;Code - read close before consumption&quot;]
+
+
+    require(&quot;tad.js&quot;);
+
+    class TagsDatabase {
+      constructor( p_debug ) {
+        this.debug = p_debug;
+
+      }
+      
+      store( p_tagName, p_value )
+      {
+      let r_done = false;
+      let tagData = JSON.stringify( p_value );
+      draft.setTemplateTag(
+          p_tagName, tagData);
+
+      let jsonString = draft.getTemplateTag( p_tagName );
+      let value = JSON.parse( jsonString );
+
+      r_done = ( jsonString == tagData );
+       
+      //if(this.p_debug)
+      app.TA_msgInfo(&quot;done: &quot; + r_done +
+       &quot;\ntagName: &quot; +  p_tagName +
+       &quot;\nvalue: &quot; + JSON.stringify(value) );
+      return r_done;
+      
+      }
+      
+      restore( p_tagName  )
+      {
+      let jsonString = draft.getTemplateTag( p_tagName );
+      let r_value = JSON.parse( jsonString );
+      
+        //if(this.p_debug)
+      app.TA_msgInfo(
+       &quot;tagName: &quot; +  p_tagName +
+       &quot;\nvalue: &quot; + JSON.stringify(r_value) );
+      
+      return r_value;
+      }
+
+    }
+
+    tags = new TagsDatabase( true );
+
+    tags.store( &quot;a&quot;, {&quot;b&quot;: 13} );
+    tags.restore( &quot;a&quot; );
+
+[/details]
+
+Do not let Java Script fool you. :see_no_evil:
+  Andreas</description>
+    
+    <lastBuildDate>Thu, 29 Oct 2020 21:34:21 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/discussion-draft-settemplatetag-tagname-tagstring-2-parameter-is-string/8951.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Discussion] draft.setTemplateTag( tagName, tagString); // 2.Parameter is String!</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>I was working on a action yesterday and could not find why my template would crash on using my custom template tag set with <code>draft.setTemplateTag( tagName, tagString);</code></p>
+<p>From <a class="mention" href="https://forums.getdrafts.com/u/zach">@zach</a> script I had a nice code template that set a float value in the template.</p>
+<blockquote>
+<p>Nice!</p>
+</blockquote>
+<p>A quick copy and my dictionary/object was stored in the value.<br>
+Buut - the HTMLPreview would not work if I used this custom template with <code>[[tagName]]</code></p>
+<p>24h later I was reading the documentation and found the problem.</p>
+<blockquote>
+<p>the second parameter is string only !</p>
+</blockquote>
+<p>Why?</p>
+<ol>
+<li>
+<strong>Java Script</strong> converts the float to a string <img src="https://forums.getdrafts.com/images/emoji/apple/see_no_evil.png?v=9" title=":see_no_evil:" class="emoji" alt=":see_no_evil:">
+</li>
+<li>
+<strong>Java Script</strong> does <strong>NOT</strong> convert an object to string <img src="https://forums.getdrafts.com/images/emoji/apple/hear_no_evil.png?v=9" title=":hear_no_evil:" class="emoji" alt=":hear_no_evil:">
+</li>
+</ol>
+<p>This would need a <code>JSON.stringify( tagString )</code> and do not forget the <code>JSON.parse( draft.getTemplateTag( tagName )</code> for back conversion.</p>
+<p>My fiddled code snippet to solve it in future…</p>
+
+Code - read close before consumption <a href="https://forums.getdrafts.com/t/discussion-draft-settemplatetag-tagname-tagstring-2-parameter-is-string/8951/1">(click for more details)</a>
+<p>Do not let Java Script fool you. <img src="https://forums.getdrafts.com/images/emoji/apple/see_no_evil.png?v=9" title=":see_no_evil:" class="emoji" alt=":see_no_evil:"><br>
+Andreas</p>
+          <p><a href="https://forums.getdrafts.com/t/discussion-draft-settemplatetag-tagname-tagstring-2-parameter-is-string/8951/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/discussion-draft-settemplatetag-tagname-tagstring-2-parameter-is-string/8951/1</link>
+        <pubDate>Thu, 29 Oct 2020 21:34:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8951-1</guid>
+        <source url="https://forums.getdrafts.com/t/discussion-draft-settemplatetag-tagname-tagstring-2-parameter-is-string/8951.rss">[Discussion] draft.setTemplateTag( tagName, tagString); // 2.Parameter is String!</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Bold [[time]] and send to Bear</title>
+    <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187</link>
+    <description>I want to create an action that appends to a Bear note. I re-worked the Append to Bear Journal and have it working to send the note from Drafts to Bear with the date and time using [[time]] a colon and then the text of the draft. What I would like to do is first do a hard return so there is a space between the last note and the new one and then make the date and time created using the [[time]] code show as bold text in Bear. If I use an asterisk or two asterisks like this [[**time**] it shows up the same [[**time**]] instead of in bold. I do NOT know how to write scripts AT ALL. So if this is a stupid question, I apologize.</description>
+    
+    <lastBuildDate>Fri, 09 Apr 2021 17:39:42 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Bold [[time]] and send to Bear</title>
+        <dc:creator><![CDATA[djmerrill]]></dc:creator>
+        <description><![CDATA[
+            <p>I got it working perfectly! Thank you so very much! And thanks for the info that this is not scripting but URL knowledge. I was not joking that I did not know how to write these things at all. Thank you again for the courtesy of taking the time to help me. It is much appreciated.</p>
+          <p><a href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/6</link>
+        <pubDate>Fri, 09 Apr 2021 17:39:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10187-6</guid>
+        <source url="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss">Bold [[time]] and send to Bear</source>
+      </item>
+      <item>
+        <title>Bold [[time]] and send to Bear</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>This article is a good place to start to understand how the tags and templates work to configure actions:</p>
+<aside class="quote quote-modified" data-post="1" data-topic="3728">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">Using Drafts Templates</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/integration-guides/7"><span class="badge-category-bg" style="background-color: #3AB54A;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Integration guides are short articles covering ways Drafts can integrate with different Apps and Services.  Looking for an app integration not covered here, visit the Drafts Directory">Integration Guides</span></a>
+  </div>
+  <blockquote>
+    <a name="template-basics" class="anchor" href="https://forums.getdrafts.com#template-basics"></a>Template Basics
+Drafts actions consist of “steps.” <a href="https://docs.getdrafts.com/actions/steps/">Action steps</a> are available for a wide range of functions and services: Sending messages, mail, saving files, and much more. Regardless of the purpose of the step, any step that output information has some fields that allow you to control what text the step uses, and (with a few minor exceptions) use templates to dynamically generate that text. 
+If you have poked around in the action editor and wondered what some of those [[title]] and [[body]] …
+  </blockquote>
+</aside>
+
+<p>I would note that this gets a lot easier with URLs if you use the <a href="https://docs.getdrafts.com/docs/actions/steps/utility#define-template-tag">“Define Template Tag” action step</a>, because you can setup the text you want to send without having to worry about the URL encoding.</p>
+<p>For the example above, you could add a Define Template Tag step, with the tag name set to “mytext” above the “Open URL” step, and enter the information like this:</p>
+<pre><code class="lang-nohighlight">*[[time]]*: [[draft]]
+
+</code></pre>
+<p>Then, use the URL:</p>
+<pre><code class="lang-nohighlight">bear://x-callback-url/add-text?title=Journal-[[date|%Y-%m]]&amp;text=[[mytext]]&amp;mode=append
+</code></pre>
+<p>Drafts will take care of doing the encoding for the URL and replace the <code>[[mytest]]</code> in the URL with the results of the template step above.</p>
+          <p><a href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/5</link>
+        <pubDate>Fri, 09 Apr 2021 17:28:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10187-5</guid>
+        <source url="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss">Bold [[time]] and send to Bear</source>
+      </item>
+      <item>
+        <title>Bold [[time]] and send to Bear</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Previously you asked for a “hard return”. The <code>%0A</code> did that. To make a blank line just put two of those in consecutively for two newlines characters in a row.</p>
+<p>Note that this isn’t scripting, but just a bit of URL knowledge.</p>
+          <p><a href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/4</link>
+        <pubDate>Fri, 09 Apr 2021 17:21:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10187-4</guid>
+        <source url="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss">Bold [[time]] and send to Bear</source>
+      </item>
+      <item>
+        <title>Bold [[time]] and send to Bear</title>
+        <dc:creator><![CDATA[djmerrill]]></dc:creator>
+        <description><![CDATA[
+            <p>That worked to bold the text! Thank you very much! Is there any way to add a blank line before appending the text to the note in Bear? Also, if anyone has any good books, articles, etc. that they can recommend so that I can learn how to write these scripts myself I would appreciate it. Thank you again for your help.</p>
+          <p><a href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/3</link>
+        <pubDate>Fri, 09 Apr 2021 16:40:04 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10187-3</guid>
+        <source url="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss">Bold [[time]] and send to Bear</source>
+      </item>
+      <item>
+        <title>Bold [[time]] and send to Bear</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>If you don’t have Markdown compatibility mode enabled, try this URL in your script.</p>
+<pre><code class="lang-auto">bear://x-callback-url/add-text?title=Journal-[[date|%Y-%m]]&amp;text=%0A%2A[[time]]%2A%3A%20[[draft]]&amp;mode=append
+</code></pre>
+<p>If you do have it enabled, try this one instead.</p>
+<pre><code class="lang-auto">bear://x-callback-url/add-text?title=Journal-[[date|%Y-%m]]&amp;text=%0A%2A%2A[[time]]%2A%2A%3A%20[[draft]]&amp;mode=append
+</code></pre>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/2</link>
+        <pubDate>Fri, 09 Apr 2021 08:44:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10187-2</guid>
+        <source url="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss">Bold [[time]] and send to Bear</source>
+      </item>
+      <item>
+        <title>Bold [[time]] and send to Bear</title>
+        <dc:creator><![CDATA[djmerrill]]></dc:creator>
+        <description><![CDATA[
+            <p>I want to create an action that appends to a Bear note. I re-worked the Append to Bear Journal and have it working to send the note from Drafts to Bear with the date and time using [[time]] a colon and then the text of the draft. What I would like to do is first do a hard return so there is a space between the last note and the new one and then make the date and time created using the [[time]] code show as bold text in Bear. If I use an asterisk or two asterisks like this [[<strong>time</strong>] it shows up the same [[<strong>time</strong>]] instead of in bold. I do NOT know how to write scripts AT ALL. So if this is a stupid question, I apologize.</p>
+          <p><a href="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187/1</link>
+        <pubDate>Thu, 08 Apr 2021 23:38:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10187-1</guid>
+        <source url="https://forums.getdrafts.com/t/bold-time-and-send-to-bear/10187.rss">Bold [[time]] and send to Bear</source>
+      </item>
+  </channel>
+</rss>

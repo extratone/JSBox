@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+    <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961</link>
+    <description>## Abstract:
+ 
+&gt; Learn how to facilitate HTML Preview Action Step and HTMLpreview object in scripts
+&gt; by heavily using intelligent tags 
+&gt; and nice details.
+
+## Motivation
+
+* Learn and understand what a HTML document with CSS (Style) and JS (Code) needs.
+* Show usage of some advanced features out of the box
+* Using multiple CSS and JS resources
+* Keeping the preview text simple and easy to maintain
+
+
+## Setup
+
+
+## First Template
+
+I created a structured template to be filled with the getTemplateTags() function. These must be defined before calling the preview with this content.
+
+    &lt;! DOCTYPE html&gt;
+    &lt;html dir=&quot;auto&quot;&gt; 
+
+    &lt;head&gt; 
+    &lt;title&gt;[[title]]&lt;/title&gt;
+    [[head/meta]]
+    [[head/css]]
+    [[head/js]]
+    &lt;/head&gt; 
+
+    &lt;body&gt; 
+    [[body/content]]
+    &lt;/body&gt; 
+
+    &lt;/html&gt; 
+
+
+The content of the templates are grouped in the to sections:
+
+1. `head` :: metadata, styles and scripts
+2. `body` :: only content, structure and important styling
+
+&gt; I do not discuss good HTML guide lines here. Only note that CSS should be placed in the header!
+
+### For the Definition in the `&lt;head&gt;`
+
+1. `[[head/meta]]` :: add meta data to your document ((Note: this might only start making sense if you safe your document. The documents meta data should/could be placed here))
+2. `[[head/css]]` :: the css files or css definitions in `&lt;style&gt;` tags.
+3. `[[head/js]]` :: the global java script libraries ((like includes))
+
+### For the Content in the `&lt;body&gt;`
+
+4. `[[body/js/load]]`  :: ((removed))
+5. `[[body/content]]` :: the content itself. This mostly should be filled with the build in `[[body]]` template
+6. `[[body/js/show]]` :: ((removed))
+
+&gt; Note: Edit:  4. and 6. will be abandoned ...
+&gt; @chrillek lead me on a Google suggestion not to use Java Script in the body
+&gt;  I will try if we could do that by facilitating the EventListeners with `onload`</description>
+    
+    <lastBuildDate>Sat, 31 Oct 2020 13:48:58 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>I tried to write about it here …</p>
+<aside class="quote quote-modified" data-post="1" data-topic="8967">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/discussion-java-scripts-in-drafts-or-elsewhere/8967">[Discussion] Java Scripts in Drafts (or elsewhere)</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/scripting/13"><span class="badge-category-bg" style="background-color: #AB9364;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Discussions about Javascript techniques, and Drafts scripting in general">Scripting</span></a>
+  </div>
+  <blockquote>
+    I am actively developing some scripts and actions in Drafts that use the HTML Preview Action. 
+The underling topic - how to set it up and a good HTML document should be created and a great reply by <a class="mention" href="https://forums.getdrafts.com/u/chrillek">@chrillek</a>  - brought me to the following article: 
+<a href="https://developer.mozilla.org/de/docs/Web/API/EventTarget/addEventListener">EventTarget.addEventListener() - Web API Referenz | MDN</a> 
+I had to read with some astonishment that the practice of many tutorials to put Java Script inside the body of the HTML document is really bad practice and might even be the reason for some of t…
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/7</link>
+        <pubDate>Sat, 31 Oct 2020 13:48:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8961-7</guid>
+        <source url="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss">[Tip] Templated HTML generation (with scripts and preview)</source>
+      </item>
+      <item>
+        <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="5" data-topic="8961">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>integrate the EventListener</p>
+</blockquote>
+</aside>
+<p>Which one? Or rather: What do you want to achieve?</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/6</link>
+        <pubDate>Sat, 31 Oct 2020 12:03:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8961-6</guid>
+        <source url="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss">[Tip] Templated HTML generation (with scripts and preview)</source>
+      </item>
+      <item>
+        <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <p>Danke.</p>
+<p>Quite nice. I think I have to integrate the EventListener into my scripts.</p>
+<p>That might help not only for speed but also for debugging on the <code>errors</code> event .</p>
+<p>Thanks / Tausend Dank</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/5</link>
+        <pubDate>Sat, 31 Oct 2020 11:59:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8961-5</guid>
+        <source url="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss">[Tip] Templated HTML generation (with scripts and preview)</source>
+      </item>
+      <item>
+        <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="3" data-topic="8961">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>do you have a link for that recommendation ?</p>
+</blockquote>
+</aside>
+<p>There’s this here in <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/page-speed-rules-and-recommendations?hl=de" rel="noopener nofollow ugc">German</a><br>
+And this here in <a href="https://moz.com/learn/seo/page-speed" rel="noopener nofollow ugc">English</a> (look for page speed)<br>
+There’s also an <a href="https://developers.google.com/speed/docs/insights/BlockingJS" rel="noopener nofollow ugc">older description in English</a><br>
+There’s a short <a href="https://stackoverflow.com/questions/29438297/how-do-i-move-render-blocking-javascript-below-the-fold-in-a-small-page" rel="noopener nofollow ugc">thread on Stackexchange</a>, too<br>
+It sums up to: The browser does not render HTML before it has loaded the JS. So the page appears to load slower. This is more important for big JS files (like infamous JQuery). You could experiment with putting it in the <code>head</code> element or at the end of the <code>body</code> and compare the analysis for both variants in Google’s page speed tool</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/4</link>
+        <pubDate>Sat, 31 Oct 2020 11:19:19 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8961-4</guid>
+        <source url="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss">[Tip] Templated HTML generation (with scripts and preview)</source>
+      </item>
+      <item>
+        <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+        <dc:creator><![CDATA[chrillek]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Andreas_Haberle" data-post="1" data-topic="8961">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>load scripts before defining the content</p>
+</blockquote>
+</aside>
+<p>Depending on usage, this might not be advisable: at least Google consistently encourages to move JS to the end of the page so as not to slow down loading and rendering. This is probably even true if your JS code modifies the DOM since it (the DOM) has to be loaded first.</p>
+          <p><a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/2</link>
+        <pubDate>Sat, 31 Oct 2020 11:03:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8961-2</guid>
+        <source url="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss">[Tip] Templated HTML generation (with scripts and preview)</source>
+      </item>
+      <item>
+        <title>[Tip] Templated HTML generation (with scripts and preview)</title>
+        <dc:creator><![CDATA[Andreas_Haberle]]></dc:creator>
+        <description><![CDATA[
+            <h2>Abstract:</h2>
+<blockquote>
+<p>Learn how to facilitate HTML Preview Action Step and HTMLpreview object in scripts<br>
+by heavily using intelligent tags<br>
+and nice details.</p>
+</blockquote>
+<h2>Motivation</h2>
+<ul>
+<li>Learn and understand what a HTML document with CSS (Style) and JS (Code) needs.</li>
+<li>Show usage of some advanced features out of the box</li>
+<li>Using multiple CSS and JS resources</li>
+<li>Keeping the preview text simple and easy to maintain</li>
+</ul>
+<h2>Setup</h2>
+<h2>First Template</h2>
+<p>I created a structured template to be filled with the getTemplateTags() function. These must be defined before calling the preview with this content.</p>
+<pre><code>&lt;! DOCTYPE html&gt;
+&lt;html dir="auto"&gt; 
+
+&lt;head&gt; 
+&lt;title&gt;[[title]]&lt;/title&gt;
+[[head/meta]]
+[[head/css]]
+[[head/js]]
+&lt;/head&gt; 
+
+&lt;body&gt; 
+[[body/content]]
+&lt;/body&gt; 
+
+&lt;/html&gt; 
+</code></pre>
+<p>The content of the templates are grouped in the to sections:</p>
+<ol>
+<li>
+<code>head</code> :: metadata, styles and scripts</li>
+<li>
+<code>body</code> :: only content, structure and important styling</li>
+</ol>
+<blockquote>
+<p>I do not discuss good HTML guide lines here. Only note that CSS should be placed in the header!</p>
+</blockquote>
+<h3>For the Definition in the <code>&lt;head&gt;</code>
+</h3>
+<ol>
+<li>
+<code>[[head/meta]]</code> :: add meta data to your document ((Note: this might only start making sense if you safe your document. The documents meta data should/could be placed here))</li>
+<li>
+<code>[[head/css]]</code> :: the css files or css definitions in <code>&lt;style&gt;</code> tags.</li>
+<li>
+<code>[[head/js]]</code> :: the global java script libraries ((like includes))</li>
+</ol>
+<h3>For the Content in the <code>&lt;body&gt;</code>
+</h3>
+<ol start="4">
+<li>
+<code>[[body/js/load]]</code>  :: ((removed))</li>
+<li>
+<code>[[body/content]]</code> :: the content itself. This mostly should be filled with the build in <code>[[body]]</code> template</li>
+<li>
+<code>[[body/js/show]]</code> :: ((removed))</li>
+</ol>
+<blockquote>
+<p>Note: Edit:  4. and 6. will be abandoned …<br>
+<a class="mention" href="https://forums.getdrafts.com/u/chrillek">@chrillek</a> lead me on a Google suggestion not to use Java Script in the body<br>
+I will try if we could do that by facilitating the EventListeners with <code>onload</code></p>
+</blockquote>
+          <p><a href="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961/1</link>
+        <pubDate>Sat, 31 Oct 2020 09:44:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8961-1</guid>
+        <source url="https://forums.getdrafts.com/t/tip-templated-html-generation-with-scripts-and-preview/8961.rss">[Tip] Templated HTML generation (with scripts and preview)</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Using Notion with Drafts - Integration Guides - Drafts Community</title>
+    <meta name="description" content="Using Notion with Drafts
+
+NOTE: Notion integration requires Drafts v31 or greater. The Notion API used for integration is still in beta, as such aspects of this functionality may change or break and Notion finalizes t&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12107.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Using Notion with Drafts&#39;" href="12107.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8de55c8e06744ca3ae87c5add6cb5d1453baf844.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8de55c8e06744ca3ae87c5add6cb5d1453baf844.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/using-notion-with-drafts/12107" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/using-notion-with-drafts/12107" />
+<meta property="og:title" content="Using Notion with Drafts" />
+<meta name="twitter:title" content="Using Notion with Drafts" />
+<meta property="og:description" content="Using Notion with Drafts  NOTE: Notion integration requires Drafts v31 or greater. The Notion API used for integration is still in beta, as such aspects of this functionality may change or break and Notion finalizes their API.   Notion is an online project management and information system. Drafts currently two ways to integrate with Notion:    Notion action step. Can create new sub-pages, or append to existing pages, as plain text or as to-do lists.  Notion script object: Provides a request ..." />
+<meta name="twitter:description" content="Using Notion with Drafts  NOTE: Notion integration requires Drafts v31 or greater. The Notion API used for integration is still in beta, as such aspects of this functionality may change or break and Notion finalizes their API.   Notion is an online project management and information system. Drafts currently two ways to integrate with Notion:    Notion action step. Can create new sub-pages, or append to existing pages, as plain text or as to-do lists.  Notion script object: Provides a request ..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="4 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="27 ❤" />
+<meta property="article:published_time" content="2022-02-16T16:36:57+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="12107@page=2.html">
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="12107.html">Using Notion with Drafts</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/integration-guides.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Integration Guides</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/guide.html' class='discourse-tag' rel="tag">guide</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/8/8de55c8e06744ca3ae87c5add6cb5d1453baf844.png">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-16T16:36:57Z' class='post-time'>
+                February 16, 2022,  4:36pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-18T19:18:41Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><img src="../../uploads/default/original/2X/8/8de55c8e06744ca3ae87c5add6cb5d1453baf844.png" alt="notion" data-base62-sha1="kfgJ95xnp9sAMMBNS6WbTNliysk" width="311" height="165"></p>
+<h1>
+<a name="using-notion-with-drafts-1" class="anchor" href="12107.html#using-notion-with-drafts-1"></a>Using Notion with Drafts</h1>
+<blockquote>
+<p><strong>NOTE:</strong> Notion integration requires Drafts v31 or greater. The Notion API used for integration is still in beta, as such aspects of this functionality may change or break and Notion finalizes their API.</p>
+</blockquote>
+<p><a href="https://www.notion.so">Notion</a> is an online project management and information system. Drafts currently two ways to integrate with Notion:</p>
+<ul>
+<li>
+<a href="../../../docs.getdrafts.com/docs/actions/steps/services.html#notion">Notion action step</a>. Can create new sub-pages, or append to existing pages, as plain text or as to-do lists.</li>
+<li>
+<a href="../../../scripting.getdrafts.com/classes/notion.html"><code>Notion</code> script object</a>: Provides a <code>request</code> method which allows you to script calls to the full Notion API, while providing automatic OAuth authenticate flow.</li>
+</ul>
+<p>The action step provides a basic, easy to approach way to get your data from Drafts to Notion. Scripting supports advanced integration, for users needing to work with databases and other block types in Notion.</p>
+<h2>
+<a name="notion-authentication-and-permissions-2" class="anchor" href="12107.html#notion-authentication-and-permissions-2"></a>Notion Authentication and Permissions</h2>
+<p>Like most services Drafts integrates with, Notion uses the <a href="https://en.wikipedia.org/wiki/OAuth">OAuth standard</a> for authentication. The first time you use an action that integrates with Notion, you will be redirected to the Notion website and asked to log in and authorize Drafts to use your account.</p>
+<p>When authenticating, Notion has an additional step of selecting specific pages in Notions which the integration will be granted permissions to access. It is recommended you give Drafts permissions <em>only</em> to the pages you plan to target with actions.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f.png" data-download-href="https://forums.getdrafts.com/uploads/default/27e6dbf034b521ba318be9a70426e1e426e6424f" title="notion-authentication"><img src="../../uploads/default/optimized/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f_2_690x367.png" alt="notion-authentication" data-base62-sha1="5GZeyq75fzyHzjsUiUFdzmCuZH1" width="690" height="367" srcset="../../uploads/default/optimized/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f_2_690x367.png, ../../uploads/default/original/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f.png 1.5x, ../../uploads/default/original/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/2/27e6dbf034b521ba318be9a70426e1e426e6424f_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">notion-authentication</span><span class="informations">815×434 68.8 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>After you have authorized Drafts, you can add and remove page permissions in the Notion interface:</p>
+<ul>
+<li>Navigate to the Notion Page you wish to add to the Drafts integration.</li>
+<li>Select “Share”, then “Invite” and select the “Drafts” integration to allow it permission to use the page.</li>
+</ul>
+<p>Permissions are inherited, so granting Drafts permission to access a page or workspace, gives it permission to access child elements of that item.</p>
+<p>If “Drafts” does not appear as an option when to invite in your share page, make sure you have run a Notion action in Drafts and successfully authenticated to the correct workspace in Notion.</p>
+<h2>
+<a name="notion-action-step-3" class="anchor" href="12107.html#notion-action-step-3"></a>Notion Action Step</h2>
+<p>The <a href="../../../docs.getdrafts.com/docs/actions/steps/services.html#notion">Notion action step</a> can add text or to-do lists to pages in Notion. Aspects of this step may change, but it’s a start. To get started, install an example action:</p>
+<ul>
+<li><a href="../../../directory.getdrafts.com/a/1uS.html">Notion-Create Page</a></li>
+<li><a href="../../../directory.getdrafts.com/a/1uC.html">Notion-Append as Text</a></li>
+<li><a href="../../../directory.getdrafts.com/a/1uT.html">Notion-Append as To-Do List</a></li>
+<li><a href="../../../directory.getdrafts.com/a/1uD.html">Notion-Append as To Do List</a></li>
+</ul>
+<p>By default, these examples ask you to select a Notion page as a target each time they are run. They can also be configured to target a specific page by page ID. See next section on obtaining IDs, and the <a href="../../../docs.getdrafts.com/docs/actions/steps/services.html#notion">step documentation</a> for further details on options available.</p>
+<h2>
+<a name="obtaining-notion-page-ids-4" class="anchor" href="12107.html#obtaining-notion-page-ids-4"></a>Obtaining Notion Page IDs</h2>
+<p>To configure action steps to target a specific page in Notion, you can use the “Select” button in the action step configuration, or obtain a specific Page ID from Notion.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1.png" data-download-href="https://forums.getdrafts.com/uploads/default/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1" title="notion-page-id"><img src="../../uploads/default/optimized/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1_2_690x386.png" alt="notion-page-id" data-base62-sha1="slEXJlvCo6JOqrUZk8k0MMP56jD" width="690" height="386" srcset="../../uploads/default/optimized/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1_2_690x386.png, ../../uploads/default/original/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1.png 1.5x, ../../uploads/default/original/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/c/c6afb1dafb77ecd3b9e378ea170f52171c3a4ae1_2_10x10.png"><div class="meta">
+<svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use href="#far-image"></use></svg><span class="filename">notion-page-id</span><span class="informations">815×457 70.9 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use href="#discourse-expand"></use></svg>
+</div></a></div></p>
+<p>To get a page ID:</p>
+<ul>
+<li>Navigate to the page in the Notion website or app.</li>
+<li>Use the “Share” button, and “Copy Link” to get the unique URL for the page.</li>
+<li>The Page ID is the string of numbers and letters at the end of the URL.</li>
+</ul>
+<p>Once you obtain that page ID, you can paste it in an action and change the action to “Assign” the target page.</p>
+<p><em>Be sure the page you wish to target has been invited to the “Drafts” integration (see permissions section above) or the action will fail.</em></p>
+<h2>
+<a name="using-the-notion-api-in-script-5" class="anchor" href="12107.html#using-the-notion-api-in-script-5"></a>Using the Notion API in Script</h2>
+<p>For advanced users, Drafts also provides a <a href="../../../scripting.getdrafts.com/classes/notion.html">Notion Script object</a> that allows you to make requests directly against the Notion API. Any API calls can be used, see <a href="https://developers.notion.com/reference/intro">Notion API docs</a> for information on available methods. This object may add convenience methods for some functions, but right now only has a single <code>request</code> method that allows for arbitrary calls against the Notion API. Example action:</p>
+<ul>
+<li><a href="../../../directory.getdrafts.com/a/1uE.html">Notion: List Pages</a></li>
+</ul>
+<h2>
+<a name="notion-and-markdownrich-texthtml-6" class="anchor" href="12107.html#notion-and-markdownrich-texthtml-6"></a>Notion and Markdown/Rich Text/HTML</h2>
+<p>Notion stores text in its own <a href="https://developers.notion.com/reference/block">structured block format</a>. In their own apps and web version, they have tools that convert between Markdown pasted into the interface, and this native block format.</p>
+<p>At this time, Notion has not added the ability to convert between this native block format and HTML or Markdown to the capabilities of the API.</p>
+<p>It is possible to construct Notion blocks using JavaScript in Drafts (they are just complex JSON objects), and pass those values to the API, but due to the complexity of the format, we do not have any automated tools to do this conversion.</p>
+<p>We are hoping Notion adds this capability before the API is final, and we will certain support it to provide a smoother way to pass Markdown and/or HTML to Notion if they do.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+          <meta itemprop='keywords' content='guide'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="9" />
+           <span class='post-likes'>9 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../cant-get-notion-beta-integration-working/12249/2.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/cant-get-notion-beta-integration-working/12249/2'>
+                      <span itemprop='name'>Can&#39;t get Notion Beta Integration working</span>
+                    </a>
+                    <meta itemprop='position' content='14'>
+                  </div>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="../drafts-31-released-interface-refresh-notion-support/12165.html" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/drafts-31-released-interface-refresh-notion-support/12165'>
+                      <span itemprop='name'>Drafts 31 Released: Interface Refresh, Notion Support</span>
+                    </a>
+                    <meta itemprop='position' content='15'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+              unlisted 
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-16T16:37:02Z' class='post-time'>
+                February 16, 2022,  4:37pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-16T16:37:02Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+              listed 
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-25T12:44:59Z' class='post-time'>
+                February 25, 2022, 12:44pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-25T12:44:59Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yacafx'><span itemprop='name'>yacafx</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-26T22:40:55Z' class='post-time'>
+                February 26, 2022, 10:40pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-26T22:40:55Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looks like the link for <a href="../../../scripting.getdrafts.com/classes/notion.html" rel="noopener nofollow ugc">https://scripting.getdrafts.com/classes/notion</a> is not working… or maybe not published yet?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-26T22:46:52Z' class='post-time'>
+                February 26, 2022, 10:46pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-26T22:46:52Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Oops, forgot to push the scripting reference updates. It’s there now.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yacafx'><span itemprop='name'>yacafx</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-26T23:51:48Z' class='post-time'>
+                February 26, 2022, 11:51pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-26T23:51:48Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>U r the best! Thank u! <img src="../../images/emoji/apple/smiley.png@v=12" title=":smiley:" class="emoji" alt=":smiley:" loading="lazy" width="20" height="20"><img src="../../images/emoji/apple/smiley.png@v=12" title=":smiley:" class="emoji" alt=":smiley:" loading="lazy" width="20" height="20"><img src="../../images/emoji/apple/smiley.png@v=12" title=":smiley:" class="emoji" alt=":smiley:" loading="lazy" width="20" height="20"></p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nk141700'><span itemprop='name'>nk141700</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-27T04:17:32Z' class='post-time'>
+                February 27, 2022,  4:17am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-27T04:17:32Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Good to see some Notion integrations!</p>
+<p>After playing around with these options, I take it neither the “Create Page” or “Append as Text” action steps are capable of creating a new entry / page in a database?</p>
+<p>Is that capability on the horizon?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-27T09:58:28Z' class='post-time'>
+                February 27, 2022,  9:58am
+              </time>
+              <meta itemprop='dateModified' content='2022-02-27T09:58:28Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>In case it helps, it should be possible now - see “Using the Notion API in Script” above. It is just that you have to do some of the lifting rather than there being a prebuilt action to help.</p>
+<p>If there’s a demand and use there for these options in particular, I wouldn’t be surprised if Greg built it into Drafts, or a Notion &amp; Drafts user shared an action to do this based on scripting the interaction.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nk141700'><span itemprop='name'>nk141700</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-02-27T15:36:42Z' class='post-time'>
+                February 27, 2022,  3:36pm
+              </time>
+              <meta itemprop='dateModified' content='2022-02-27T15:36:42Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Understood, thanks! I’ll give that a shot and see what I can come up with.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jejaramillo'><span itemprop='name'>jejaramillo</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-03T15:08:58Z' class='post-time'>
+                March 3, 2022,  3:08pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-03T15:08:58Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>How can I reinstall from 0 actions to create pages in NOTION? I have deleted it from Draft, I have reinstalled it but I can’t get it to ask me again for permissions and authentications in Notion to be able to reinstall it correctly. It always gives me an error.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-03T15:12:31Z' class='post-time'>
+                March 3, 2022,  3:12pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-03T15:12:31Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Drafts store account information in <a href="../../../docs.getdrafts.com/docs/settings/credentials.html">Credentials</a>. Visit that section in settings and forget your Notion credentials if you need to re-authenticate for some reason.</p>
+<p>You do <em>not</em> need to re-authenticate to change what pages/databaases the integration has access to, however. See information above on inviting the Drafts integration to other content in Notion.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Keenan_Burke-Pitts'><span itemprop='name'>Keenan_Burke-Pitts</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-05T16:58:00Z' class='post-time'>
+                March 5, 2022,  4:58pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-05T16:58:00Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Just want to confirm if this update allows for insertion of notes into Notion databases? Does this integration allow for draft notes to be added as new pages (aka new rows inserted) within a Notion database? Thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-05T17:32:51Z' class='post-time'>
+                March 5, 2022,  5:32pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-05T17:32:51Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>There is a create page example action listed in the original post above, and as noted, you can interact with the Notion API in any way you like via the scripting object. So as long as the API supports an interaction, the Drafts implementation also supports it as it supports interacting with the official API.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Marsch'><span itemprop='name'>Marsch</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-05T20:09:08Z' class='post-time'>
+                March 5, 2022,  8:09pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-05T20:09:08Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>+1<br>
+I agree - that would be very helpful.<br>
+For instance in order to be able to create an Actions/Task in an Action Item database.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-05T20:29:07Z' class='post-time'>
+                March 5, 2022,  8:29pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-05T20:29:07Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>As noted, it is possible to script updates to databases. I’m working on some example actions to demonstrate.  It’s not too easy to have a baked-in action step to update databases, because every database has a different structure so it can’t really be done in a simple way that work work for any database.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/GS_Boss'><span itemprop='name'>GS_Boss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-21T15:16:05Z' class='post-time'>
+                March 21, 2022,  3:16pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-21T15:16:05Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hello, I am trying to use the new action to add a page to the database, but it’s not working.</p>
+<ul>
+<li>Added integration with Notion&lt;&gt;Drafts</li>
+<li>Shared DB with the Integration</li>
+<li>Got Database ID and pasted to the scriptthe  (part where you mention YOUR DATABASE ID HERE<br>
+I tried multiple times with different databases, but nothing is going to Notion</li>
+</ul>
+<p>Can you help, please?</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="3" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-21T15:32:48Z' class='post-time'>
+                March 21, 2022,  3:32pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-21T15:32:48Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Databases are not supported by the action step. Only pages at this time.</p>
+<p>Databases could be addressed directly with scripted actions.</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_18' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/feliz'><span itemprop='name'>feliz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-22T03:50:29Z' class='post-time'>
+                March 22, 2022,  3:50am
+              </time>
+              <meta itemprop='dateModified' content='2022-03-22T03:50:29Z'>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>HI, I created the action you are referring to.<br>
+It has stopped working recently - I’m not very experienced in this so I am trying to work out what has changed. It may be the Notion API changes.<br>
+Apologies for the problem, if I work out what is wrong I will post an update!</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_19' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/feliz'><span itemprop='name'>feliz</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-03-22T18:25:55Z' class='post-time'>
+                March 22, 2022,  6:25pm
+              </time>
+              <meta itemprop='dateModified' content='2022-03-22T18:25:55Z'>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have updated the action.</p>
+<p>I also added a note in the script to check that your database pages title property is called “Name” which is the default. I did not explain this in the last version.</p>
+<p>If you changed the default, then you will need to replace “Name” in the script with exact name of the title field.<br>
+Hope it works for you !</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_20' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/GS_Boss'><span itemprop='name'>GS_Boss</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12107.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-04-15T10:32:18Z' class='post-time'>
+                April 15, 2022, 10:32am
+              </time>
+              <meta itemprop='dateModified' content='2022-04-15T10:32:18Z'>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Its working well, many thanks</p>
+        </div>
+
+        <meta itemprop='headline' content='Using Notion with Drafts'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="12107@page=2.html">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Can I add to a .txt file at a specified insertion point?</title>
+    <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637</link>
+    <description>Hi, I have what might be quite a niche use case that I&#39;m hoping some smart person here can help me solve for. Here&#39;s the **tl;dr**, and after that I&#39;ll go into a few more specifics:
+
+&gt; I want to be able to add the text of a draft to a Dropbox-hosted .txt file at a predetermined point
+
+Phrased another way: I *almost* want to prepend to an existing file, but I need to leave in place the first four lines of that file.
+
+***
+
+OK, a bit of context. I use a blogging tool called [Blot](https://blot.im) which operates by mirroring a Dropbox folder, and turning anything in that folder into a blog post or page. (It&#39;s super neat, surprisingly versatile, and I enjoy using it a great deal.) In order to take advantage of some of Blot&#39;s functions, I need to use the first few lines of an uploaded text file for metadata. For example, a typical blog post .txt file will start something like this:
+
+```
+Title: Title of Post
+Date: YYYY-mm-dd
+Permalink: permalink
+Tags: tag1, tag2
+```
+
+(Side note: Drafts is *fantastic* in combination with Blot. I&#39;ve built simple actions that push drafts, posts, and pages to Dropbox (and hence to my site) all with no problem. I basically have a Workspace set up in Drafts that acts as a dedicated writing space for my blog, with one-touch publishing actions.)
+
+Now I&#39;m trying to work out a way of *updating* a page on my site, rather than adding one. Let&#39;s say I have a file named Wire.txt and it begins like this: 
+
+```
+Title: Wire
+Permalink: wire
+Menu: no
+
+1 Jan 2020, 12:00
+Hello World
+```
+
+I&#39;m trying to build a Drafts action that will add the text of a draft *before* &#39;1 Jan 2020, 12:00&#39;, but which will leave the three lines of metadata at the top of the file. What I&#39;m looking for essentially is a command that tells Drafts to go to line 5 of the .txt file and insert: 
+
+```
+[[date|%d %b %Y, %H:%M:%S]]  
+[[draft]]  
+
+```
+
+It would be easy to append to the file, but I&#39;m looking to keep a reverse-chronological log, so I need it to go at the top. If I choose prepend it pushes the metadata down, and the file stops working as intended at Blot&#39;s end. 
+
+Any and all assistance greatly appreciated. If I&#39;ve not made something clear by all means just ask. 
+
+***
+
+For additional context:
+
+1. I was hopeful this might be solvable with the `[[line|n]]` content tag, but as far as I can see that&#39;s referring to lines in the draft itself, not lines in the file you&#39;re altering. 
+
+2. I looked at the `/replaceRange` parameter to see if I could figure out an x-callback-url implementation, but that requires a defined length for the insertion, and I&#39;m looking for the freedom to add a draft of any given length.</description>
+    
+    <lastBuildDate>Tue, 28 Jul 2020 00:12:23 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[miscellaneplans]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s great news! I’ve just had a look at Blot, thanks for mentioning it, very interesting indeed.</p>
+<p>If it’s not too cheeky to ask, would you mind sharing the action you’ve come up with to prepend below the first 4 lines?</p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/8</link>
+        <pubDate>Tue, 28 Jul 2020 00:12:23 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-8</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[firstandforest]]></dc:creator>
+        <description><![CDATA[
+            <p><a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a> Thank you so much, with the most minor of tweaks I have it working just as intended. Literally never would have figured it out without your help.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/7</link>
+        <pubDate>Mon, 15 Jun 2020 08:54:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-7</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[firstandforest]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow, this is stellar! Thanks so much for your help. To be honest I had got almost nowhere in an hour of trying and had all but given up on the idea.</p>
+<p>I’ll plug this in this afternoon and give it a go!</p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/6</link>
+        <pubDate>Sun, 14 Jun 2020 10:50:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-6</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>If you do happen to get lost, here’s some more help <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+
+Expand for a script that might do it <a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/5">(click for more details)</a>
+<p><em>The above I don’t think will quite do everything for you, but if you also lookup <a href="https://scripting.getdrafts.com/classes/draft#processtemplate" rel="nofollow noopener">draft.processTemplate()</a>, and make an amendment or two, I think it might.</em></p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/5</link>
+        <pubDate>Wed, 10 Jun 2020 15:09:20 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-5</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[firstandforest]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your considered input, it certainly provides me a path to work on.<br>
+(Look for my follow-up post where I get hopelessly lost!)</p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/4</link>
+        <pubDate>Wed, 10 Jun 2020 12:34:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-4</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m wondering if a general action that takes the new doc links, including a “file:” or similar reference, and injects the text would be handy.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/3</link>
+        <pubDate>Wed, 10 Jun 2020 07:37:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-3</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You would need to:</p>
+<ol>
+<li>Read in the Dropbox file (see <a href="https://scripting.getdrafts.com/classes/dropbox" rel="nofollow noopener">Drafts scripting reference for Dropbox</a>).</li>
+<li>Split the file content by line break.</li>
+<li>Join the first 4 lines of file content with the draft content and the remaining lines of file content (in that order - there are various ways to do this in JavaScript).</li>
+<li>Write that new set of content back to the Dropbox file to overwrite it.</li>
+</ol>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/2</link>
+        <pubDate>Tue, 09 Jun 2020 19:50:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-2</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+      <item>
+        <title>Can I add to a .txt file at a specified insertion point?</title>
+        <dc:creator><![CDATA[firstandforest]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi, I have what might be quite a niche use case that I’m hoping some smart person here can help me solve for. Here’s the <strong>tl;dr</strong>, and after that I’ll go into a few more specifics:</p>
+<blockquote>
+<p>I want to be able to add the text of a draft to a Dropbox-hosted .txt file at a predetermined point</p>
+</blockquote>
+<p>Phrased another way: I <em>almost</em> want to prepend to an existing file, but I need to leave in place the first four lines of that file.</p>
+<hr>
+<p>OK, a bit of context. I use a blogging tool called <a href="https://blot.im" rel="nofollow noopener">Blot</a> which operates by mirroring a Dropbox folder, and turning anything in that folder into a blog post or page. (It’s super neat, surprisingly versatile, and I enjoy using it a great deal.) In order to take advantage of some of Blot’s functions, I need to use the first few lines of an uploaded text file for metadata. For example, a typical blog post .txt file will start something like this:</p>
+<pre><code class="lang-auto">Title: Title of Post
+Date: YYYY-mm-dd
+Permalink: permalink
+Tags: tag1, tag2
+</code></pre>
+<p>(Side note: Drafts is <em>fantastic</em> in combination with Blot. I’ve built simple actions that push drafts, posts, and pages to Dropbox (and hence to my site) all with no problem. I basically have a Workspace set up in Drafts that acts as a dedicated writing space for my blog, with one-touch publishing actions.)</p>
+<p>Now I’m trying to work out a way of <em>updating</em> a page on my site, rather than adding one. Let’s say I have a file named Wire.txt and it begins like this:</p>
+<pre><code class="lang-auto">Title: Wire
+Permalink: wire
+Menu: no
+
+1 Jan 2020, 12:00
+Hello World
+</code></pre>
+<p>I’m trying to build a Drafts action that will add the text of a draft <em>before</em> ‘1 Jan 2020, 12:00’, but which will leave the three lines of metadata at the top of the file. What I’m looking for essentially is a command that tells Drafts to go to line 5 of the .txt file and insert:</p>
+<pre><code class="lang-auto">[[date|%d %b %Y, %H:%M:%S]]  
+[[draft]]  
+
+</code></pre>
+<p>It would be easy to append to the file, but I’m looking to keep a reverse-chronological log, so I need it to go at the top. If I choose prepend it pushes the metadata down, and the file stops working as intended at Blot’s end.</p>
+<p>Any and all assistance greatly appreciated. If I’ve not made something clear by all means just ask.</p>
+<hr>
+<p>For additional context:</p>
+<ol>
+<li>
+<p>I was hopeful this might be solvable with the <code>[[line|n]]</code> content tag, but as far as I can see that’s referring to lines in the draft itself, not lines in the file you’re altering.</p>
+</li>
+<li>
+<p>I looked at the <code>/replaceRange</code> parameter to see if I could figure out an x-callback-url implementation, but that requires a defined length for the insertion, and I’m looking for the freedom to add a draft of any given length.</p>
+</li>
+</ol>
+          <p><a href="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637/1</link>
+        <pubDate>Tue, 09 Jun 2020 17:12:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7637-1</guid>
+        <source url="https://forums.getdrafts.com/t/can-i-add-to-a-txt-file-at-a-specified-insertion-point/7637.rss">Can I add to a .txt file at a specified insertion point?</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Basic script to insert a simple timestamp</title>
+    <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994</link>
+    <description>The timestamp format is simply &#39;hh:mm&#39; and is inserted right at the cursor location.
+
+The script is in the [Directory](https://actions.getdrafts.com/a/1U3).</description>
+    
+    <lastBuildDate>Tue, 18 May 2021 12:09:42 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Basic script to insert a simple timestamp</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>You could also just use the following text in an Insert Text action to go the opposite direction and do it in one line no scripting (thanks to Drafts’ template engine). <img src="https://forums.getdrafts.com/images/emoji/apple/wink.png?v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+<pre><code class="lang-auto">[[date|%H:%M]] 
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/6</link>
+        <pubDate>Tue, 18 May 2021 12:09:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3994-6</guid>
+        <source url="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss">Basic script to insert a simple timestamp</source>
+      </item>
+      <item>
+        <title>Basic script to insert a simple timestamp</title>
+        <dc:creator><![CDATA[scripts4drafts]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi,</p>
+<p>indeed, the Insert Text action is easier.</p>
+<p>Just for fun, here is the script with your request:</p>
+<pre><code>let loc = editor.getSelectedRange()[0],
+  now = new Date().toTimeString().slice(0, 5);
+editor.setTextInRange(loc, 0, now + ' ');
+editor.setSelectedRange(loc + 6, 0);</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/5</link>
+        <pubDate>Tue, 18 May 2021 08:48:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3994-5</guid>
+        <source url="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss">Basic script to insert a simple timestamp</source>
+      </item>
+      <item>
+        <title>Basic script to insert a simple timestamp</title>
+        <dc:creator><![CDATA[wirinun]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for your help!</p>
+          <p><a href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/4</link>
+        <pubDate>Sun, 16 May 2021 22:30:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3994-4</guid>
+        <source url="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss">Basic script to insert a simple timestamp</source>
+      </item>
+      <item>
+        <title>Basic script to insert a simple timestamp</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The easiest way if you are not comfortable with JavaScript is to just add in an Insert Text action step and have it insert the space after the time has been inserted. The cursor is then placed after the space.</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1mK" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1mK" target="_blank" rel="noopener">Drafts Directory: Insert a simple timestamp &amp; space</a></h3>
+
+<p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/3</link>
+        <pubDate>Sat, 15 May 2021 08:18:33 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3994-3</guid>
+        <source url="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss">Basic script to insert a simple timestamp</source>
+      </item>
+      <item>
+        <title>Basic script to insert a simple timestamp</title>
+        <dc:creator><![CDATA[wirinun]]></dc:creator>
+        <description><![CDATA[
+            <p>Hello, how can I alter the script so the cursor has a space after the timestamp?</p>
+<p>Many thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/2</link>
+        <pubDate>Fri, 14 May 2021 22:38:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3994-2</guid>
+        <source url="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss">Basic script to insert a simple timestamp</source>
+      </item>
+      <item>
+        <title>Basic script to insert a simple timestamp</title>
+        <dc:creator><![CDATA[scripts4drafts]]></dc:creator>
+        <description><![CDATA[
+            <p>The timestamp format is simply ‘hh:mm’ and is inserted right at the cursor location.</p>
+<p>The script is in the <a href="https://actions.getdrafts.com/a/1U3" rel="nofollow noopener">Directory</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994/1</link>
+        <pubDate>Wed, 13 Mar 2019 07:42:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3994-1</guid>
+        <source url="https://forums.getdrafts.com/t/basic-script-to-insert-a-simple-timestamp/3994.rss">Basic script to insert a simple timestamp</source>
+      </item>
+  </channel>
+</rss>

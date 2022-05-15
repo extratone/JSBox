@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Bulk-create txt files with Dropbox API</title>
+    <link>https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714</link>
+    <description>I’m trying to create a complex script that reads from an airtable database, creates a text based on a markdown template replacing placeholders with info from airtable, saves textfiles to dropbox and triggers a shortcut to create PDFs from the text files. I pretty much have a working solution for each part of the script using iCloud, but since Apple won’t let me write or retrieve files from other than the app-specific folder, it’s hard to integrate the drafts action and the shortcut. Because of this limitation I’m now trying to write to Dropbox instead.
+
+# Help me create a file upload api request to dropbox
+I’m in a little over my head trying to create api calls from scratch, but I want to learn. I have read the dropbox api documentation, but I’m struggling to understand it and translate it to a Drafts api request.
+
+This is what I have so far:
+```
+//Create Dropbox object
+let dbxMain = Dropbox.create();
+
+//Build some file info
+let txt = `#Testfile
+This is a testfile created by Drafts.
+- Ain&#39;t that swell?`;
+
+let path = &quot;/0-temp/test/testfile.txt&quot;;
+
+//Build the arguments for calling the Dropbox move
+let urlEndpoint = &quot;https://content.dropboxapi.com/2/files/upload&quot;;
+
+let dictArgs = {
+    &quot;path&quot;: path,
+    &quot;mode&quot;: &quot;add&quot;,
+    &quot;autorename&quot;: true,
+    &quot;mute&quot;: false,
+    &quot;strict_conflict&quot;: false
+};
+
+//Create the file
+
+let objResp = dbxMain.contentUploadRequest(
+  {
+	  &quot;url&quot;: urlEndpoint,
+	  &quot;method&quot;: &quot;POST&quot;,
+	  &quot;parameters&quot;: dictArgs,
+	  &quot;data&quot;: txt
+  });
+```
+
+This gives me the following error:
+![image|572x500](upload://xT2abqw9H13569zn70SeUhzQdUs.jpeg)
+
+I read in the Dropbox API to include the content of the file in the body of the request, which interpreted as using the `data` property of the DropboxRequestSettings argument in the API call. From what I understand of this error message, I’m either sending the file content (string) in the wrong way/format, or I’m failing to specify the format through a header.
+
+## Questions
+1. Am I understanding the error message correctly?
+2. Can I send the file content as a string, like I tried?
+3. Do I need to encode the string in any way, and how?
+4. Do I need to provide additional headers?
+
+Any tips, advice or examples would be greatly appreciated!</description>
+    
+    <lastBuildDate>Sat, 15 Feb 2020 20:22:56 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Bulk-create txt files with Dropbox API</title>
+        <dc:creator><![CDATA[steinar]]></dc:creator>
+        <description><![CDATA[
+            <p>Thank you again! It works like a charm!</p>
+          <p><a href="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714/3</link>
+        <pubDate>Sat, 15 Feb 2020 20:22:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6714-3</guid>
+        <source url="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714.rss">Bulk-create txt files with Dropbox API</source>
+      </item>
+      <item>
+        <title>Bulk-create txt files with Dropbox API</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>You are close. The difference is that you are passing <code>parameters</code> that should be passed as <code>dropbox-api-args</code>. Try making the call like the below.</p>
+<pre><code class="lang-javascript">let objResp = dbxMain.contentUploadRequest(
+  {
+	  "url": urlEndpoint,
+	  "method": "POST",
+	  "dropbox-api-args": dictArgs,
+	  "data": txt
+  });
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714/2</link>
+        <pubDate>Sat, 15 Feb 2020 16:15:45 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6714-2</guid>
+        <source url="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714.rss">Bulk-create txt files with Dropbox API</source>
+      </item>
+      <item>
+        <title>Bulk-create txt files with Dropbox API</title>
+        <dc:creator><![CDATA[steinar]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to create a complex script that reads from an airtable database, creates a text based on a markdown template replacing placeholders with info from airtable, saves textfiles to dropbox and triggers a shortcut to create PDFs from the text files. I pretty much have a working solution for each part of the script using iCloud, but since Apple won’t let me write or retrieve files from other than the app-specific folder, it’s hard to integrate the drafts action and the shortcut. Because of this limitation I’m now trying to write to Dropbox instead.</p>
+<h1>Help me create a file upload api request to dropbox</h1>
+<p>I’m in a little over my head trying to create api calls from scratch, but I want to learn. I have read the dropbox api documentation, but I’m struggling to understand it and translate it to a Drafts api request.</p>
+<p>This is what I have so far:</p>
+<pre><code class="lang-auto">//Create Dropbox object
+let dbxMain = Dropbox.create();
+
+//Build some file info
+let txt = `#Testfile
+This is a testfile created by Drafts.
+- Ain't that swell?`;
+
+let path = "/0-temp/test/testfile.txt";
+
+//Build the arguments for calling the Dropbox move
+let urlEndpoint = "https://content.dropboxapi.com/2/files/upload";
+
+let dictArgs = {
+    "path": path,
+    "mode": "add",
+    "autorename": true,
+    "mute": false,
+    "strict_conflict": false
+};
+
+//Create the file
+
+let objResp = dbxMain.contentUploadRequest(
+  {
+	  "url": urlEndpoint,
+	  "method": "POST",
+	  "parameters": dictArgs,
+	  "data": txt
+  });
+</code></pre>
+<p>This gives me the following error:<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/ed805b69532ab9d247b40a9c1b84b6320f69f850.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/ed805b69532ab9d247b40a9c1b84b6320f69f850" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/ed805b69532ab9d247b40a9c1b84b6320f69f850_2_572x500.jpeg" alt="image" data-base62-sha1="xT2abqw9H13569zn70SeUhzQdUs" width="572" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/ed805b69532ab9d247b40a9c1b84b6320f69f850_2_572x500.jpeg, https://forums.getdrafts.com/uploads/default/original/2X/e/ed805b69532ab9d247b40a9c1b84b6320f69f850.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/e/ed805b69532ab9d247b40a9c1b84b6320f69f850.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/ed805b69532ab9d247b40a9c1b84b6320f69f850_2_10x10.png"></a></div><p></p>
+<p>I read in the Dropbox API to include the content of the file in the body of the request, which interpreted as using the <code>data</code> property of the DropboxRequestSettings argument in the API call. From what I understand of this error message, I’m either sending the file content (string) in the wrong way/format, or I’m failing to specify the format through a header.</p>
+<h2>Questions</h2>
+<ol>
+<li>Am I understanding the error message correctly?</li>
+<li>Can I send the file content as a string, like I tried?</li>
+<li>Do I need to encode the string in any way, and how?</li>
+<li>Do I need to provide additional headers?</li>
+</ol>
+<p>Any tips, advice or examples would be greatly appreciated!</p>
+          <p><a href="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714/1</link>
+        <pubDate>Sat, 15 Feb 2020 14:51:43 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-6714-1</guid>
+        <source url="https://forums.getdrafts.com/t/bulk-create-txt-files-with-dropbox-api/6714.rss">Bulk-create txt files with Dropbox API</source>
+      </item>
+  </channel>
+</rss>

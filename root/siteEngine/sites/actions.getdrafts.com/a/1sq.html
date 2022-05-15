@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Send Multi-Items to Dynalist | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="MTZ1uIH4cLaMxL9Yh5ztY1bu9GP8ayo+KGVdguAACmRCKVMy5ZPXUwOUBAjT37Z98U0qmAK7YJgFFA/7yfiUlg==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Send Multi-Items to Dynalist" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1sq" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Send Multi-Items to Dynalist" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1sq" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/631-infinity.png" class="action-icon" />Send Multi-Items to Dynalist</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by sorashima,
+    Last update
+    4 months ago
+</div>
+
+    <div class='update_notes'>
+      <h3>UPDATES</h3>
+      <div id="firstUpdateNote">
+      <h4>4 months ago</h4>
+      <p>The position where the items will be inserted is now selectable.  (Top / End)</p>
+
+      </div>
+      <a href="1sq.html#" onclick="document.getElementById('firstUpdateNote').classList.add('hide');document.getElementById('additionalNotes').classList.remove('hide');this.classList.add('hide');return false;">show all updates...</a>
+      <div id="additionalNotes" class='hide'>
+        <div>
+        <h4>4 months ago</h4>
+        <p>The position where the items will be inserted is now selectable.  (Top / End)</p>
+
+        </div>
+        <div>
+        <h4>4 months ago</h4>
+        <p>Enabled to select the position where the item will be inserted.  (Top / End)</p>
+
+        </div>
+        <div>
+        <h4>4 months ago</h4>
+        <p>Enabled to select the position where the item will be inserted.  (Prepend / Append)</p>
+
+        </div>
+        <div>
+        <h4>5 months ago</h4>
+        <p>Changed to keep the draft in the Inbox instead of moving it to the archive if you cancel when selecting a destination or if there is any error communicating with Dynalist.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='description'>
+        <p>Send action from Drafts app to Dynalist for multiple items with nested structures.</p>
+
+<h1>Initial setting</h1>
+
+<h2>Access token registration</h2>
+
+<p>When you run this action for the first time, you will be asked for the access token of Dynalist, so enter it.</p>
+
+<p>Access tokens can be obtained from Dynalist&rsquo;s <a href="https://dynalist.io/developer">Developer Page</a>.</p>
+
+<h2>Destination item settings</h2>
+
+<p>You can register destinations other than inbox in advance.</p>
+
+<p>The first time this action is launched, <code>&lt;iCloud Drive&gt;/Drafts/DynalistMultiNestBulkSend/destinations.txt</code> will be created.<br><br>
+Add the links of the items you want to send to.</p>
+
+<p>example:<br><br>
+<img src="https://i.gyazo.com/217c803026c4fe30d556adde2f3b680f.png" alt=""></p>
+
+<p><img src="https://i.gyazo.com/thumb/315/cc147b54a22c629da838b0a3478b1820.jpg" alt=""><br>
+When the action is executed, it asks for the destination.</p>
+
+<h1>Format</h1>
+
+<p><img src="https://i.gyazo.com/041b32861936646806f501be8520f34e.jpg" alt=""><br>
+<img src="https://i.gyazo.com/37f6438350f3ffa540245a43e3de76a8.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/c72163907e8fcf769d4dcc7e2dc519ad.jpg" alt=""><br>
+<img src="https://i.gyazo.com/a1a3d920661bba22ce9ad9d446c4872c.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/3e0a27fd7955ef04339fa30a0836be81.jpg" alt=""><br>
+<img src="https://i.gyazo.com/41fb8efb75bb592eba16bfc9a6361a46.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/0d97b0559b9e1383f251ab23699800f0.jpg" alt=""><br>
+<img src="https://i.gyazo.com/e98785269283ff70fc098e87149c48bc.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/fc576e7fbc7c54c50fad0a640b9dd371.jpg" alt=""><br>
+<img src="https://i.gyazo.com/f6f8a76cda01f0912a0877fa2e110f00.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/ce2a38517c77ce7e96d47f19fa5e7044.jpg" alt=""><br>
+<img src="https://i.gyazo.com/96bdb21848342e6cb0fe29050658e223.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/f4bdba015e770443eaf0b0c1acc98fa6.jpg" alt=""><br>
+<img src="https://i.gyazo.com/db11c90be4add9879941a2ff67c3650b.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/3fddcaed892d90221e28f6b832c2ff42.jpg" alt=""><br>
+<img src="https://i.gyazo.com/fabb883904bd5736719a2b747955a7a7.jpg" alt=""></p>
+
+<p><br/></p>
+
+<p><img src="https://i.gyazo.com/79680a1ad85beffd420252b4ea1eb817.jpg" alt=""><br>
+<img src="https://i.gyazo.com/72a362dda3cd221ca1d8edfb2bcaaa52.jpg" alt=""></p>
+
+<p><br/></p>
+
+<hr>
+
+<h1>Limitations</h1>
+
+<p>The Dynalist API used by this action has two restrictions:</p>
+
+<blockquote>
+<p><em>Rate limit policy<br><br>
+　<br><br>
+You can access this API at a steady rate of 60 times per minute, with a burst of 20 requests at once. See the <a href="https://apidocs.dynalist.io/#rate-limit-explanation">rate limit section</a> for more information on how it works.<br><br>
+　<br><br>
+The rate limit above is for <strong>number of requests</strong>. There&rsquo;s another rate limit for the number of changes you can send. You can send changes at a steady rate of 240 changes per minute, with a burst of 500 changes.</em><br>
+　<br><br>
+<strong><a href="https://apidocs.dynalist.io/#rate-limit-policy-5">https://apidocs.dynalist.io/#rate-limit-policy-5</a></strong></p>
+</blockquote>
+
+<p>This action sends items of the same nesting level together, so you won&rsquo;t hit the first limitation unless you use it abnormally to send an outline structure that exceeds 20 nesting levels at once.<br><br>
+However, even if the outline structure is one nested level, sending more than 500 items at a time can lead to a second limit.</p>
+
+<p><br/></p>
+
+<hr>
+
+<p><br/></p>
+
+<p><a href="https://sorashima.hatenablog.com/entry/MultiNestLvlMultiNodeSendFromDraftsToDynalist">https://sorashima.hatenablog.com/entry/MultiNestLvlMultiNodeSendFromDraftsToDynalist</a></p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1sq&amp;data=%7B%22uuid%22:%22000BF52F-45C2-45ED-8B72-678C750FE5D7%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22/*%20DynalistMultiNestBulkSend%20*/%5Cn/*%202021-12-13%20*/%5Cn%5Cnconst%20ROOTPATH%20=%20%5C%22/%5C%22%5Cnconst%20DIRNAME%20=%20%5C%22DynalistMultiNestBulkSend%5C%22%5Cnconst%20FILENAME%20=%20%5C%22destinations.txt%5C%22%5Cn%5Cn%5Cn%5Cn//%20Store%20Secret%20Token%20of%20Dynalist%20in%20Credential.%5Cnconst%20cre%20=%20Credential.create(%5C%22Dynalist%5C%22,%20%5C%22Dynalist%5C%22)%5Cncre.addPasswordField(%5C%22token%5C%22,%20%5C%22Secret%20Token%5C%22)%5Cncre.authorize()%5Cn%5Cn%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20If%20the%20directory%20%5C%22DynalistMultiNestBulkSend%5C%22%20in%20iCloud%20drive%20does%20not%20exist,%20create%20it.%5Cn//%20%5Cnconst%20mkDir%20=%20function%20()%20%7B%5Cn%20%20const%20fmCloud%20=%20FileManager.createCloud()%5Cn%5Cn%20%20let%20success%20=%20true%5Cn%20%20if%20(!fmCloud.listContents(ROOTPATH).includes(DIRNAME%20+%20%5C%22/%5C%22))%20%7B%5Cn%20%20%20%20if%20(%20!fmCloud.createDirectory(DIRNAME,%20ROOTPATH)%20)%20%7B%5Cn%20%20%20%20%20%20alert(%60Can&#39;t%20create%20directory%20%5C%22$%7BDIRNAME%7D%5C%22.%60)%5Cn%20%20%20%20%20%20success%20=%20false%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%20%20return%20success%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20read%20destination%20urls%20from%20%5C%22DynalistMultiNestBulkSend/destinations.txt%5C%22%20stored%20in%20iCloud%20drive%5Cn//%20%5Cnconst%20readDestTxt%20=%20function%20()%20%7B%5Cn%20%20const%20fmCloud%20=%20FileManager.createCloud()%5Cn%5Cn%20%20const%20res%20=%20%7Bsuccess:%20true%7D%5Cn%20%20let%20content%20=%20fmCloud.readString(ROOTPATH%20+%20DIRNAME%20+%20%5C%22/%5C%22%20+%20FILENAME)%5Cn%20%20if%20(content%20===%20undefined)%20%7B%5Cn%20%20%20%20//%20if%20the%20file%20does%20not%20exist%20or%20could%20not%20be%20read,%20try%20to%20create%20the%20file.%5Cn%20%20%20%20content%20=%20%5C%22destinations%5C%5Cn//%20Write%20the%20destination%20Dynalist%20item%20links%20one%20by%20one%20below.%5C%5Cn%5C%22%5Cn%20%20%20%20if%20(%20!fmCloud.writeString(ROOTPATH%20+%20DIRNAME%20+%20%5C%22/%5C%22%20+%20FILENAME,%20content)%20)%20%7B%5Cn%20%20%20%20%20%20alert(%60Can&#39;t%20create%20file%20%5C%22$%7BFILENAME%7D%5C%22.%60)%5Cn%20%20%20%20%20%20res.success%20=%20false%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%20%20res.content%20=%20content%5Cn%20%20return%20res%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20Read%20items%20from%20Dynalist%20based%20on%20URL%20read%20from%20destinations.txt.%5Cn//%20%5Cnconst%20readDestContentFromDL%20=%20function%20(t)%20%7B%5Cn%20%20const%20http%20=%20HTTP.create()%5Cn%20%20const%20destA%20=%20[]%5Cn%5Cn%20%20t.split(%5C%22%5C%5Cn%5C%22).forEach(l%20=%5Cu003e%20%7B%5Cn%5Cn%20%20%20%20const%20idA%20=%20l.match(/https:%5C%5C/%5C%5C/dynalist%5C%5C.io%5C%5C/d%5C%5C/([%5E%23]+)(%23z=(.+)%7C)$/)%5Cn%5Cn%20%20%20%20if%20(idA%20!==%20null)%20%7B%5Cn%20%20%20%20%20%20const%20file_id%20=%20idA[1]%5Cn%20%20%20%20%20%20const%20node_id%20=%20idA[3]%20!==%20undefined%20?%20idA[3]%20:%20%5C%22root%5C%22%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20const%20response%20=%20http.request(%7B%5Cn%20%20%20%20%20%20%20%20url:%20%5C%22https://dynalist.io/api/v1/doc/read%5C%22,%5Cn%20%20%20%20%20%20%20%20encoding:%20%5C%22json%5C%22,%5Cn%20%20%20%20%20%20%20%20method:%20%5C%22POST%5C%22,%5Cn%20%20%20%20%20%20%20%20data:%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20token:%20cre.getValue(%5C%22token%5C%22),%5Cn%20%20%20%20%20%20%20%20%20%20file_id:%20file_id%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%7D)%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20if%20(response.success)%20%7B%5Cn%20%20%20%20%20%20%20%20//%20If%20the%20HTTP%20request%20completes%20successfully.%5Cn%20%20%20%20%20%20%20%20const%20dynalistRes%20=%20JSON.parse(response.responseText)%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20if%20(dynalistRes._code%20==%20&#39;Ok&#39;)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20//%20If%20the%20_code%20in%20the%20response%20is%20Ok%20(successful%20request)%5Cn%20%20%20%20%20%20%20%20%20%20const%20destO%20=%20%7Btitle:%20dynalistRes.title%7D%5Cn%20%20%20%20%20%20%20%20%20%20const%20nodeO%20=%20dynalistRes.nodes.find(n%20=%5Cu003e%20n.id%20==%20node_id)%5Cn%20%20%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%20if%20(nodeO%20!==%20undefined)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20destO.content%20=%20nodeO.content%5Cn%20%20%20%20%20%20%20%20%20%20%20%20destO.file_id%20=%20file_id%5Cn%20%20%20%20%20%20%20%20%20%20%20%20destO.node_id%20=%20node_id%5Cn%20%20%20%20%20%20%20%20%20%20%20%20destA.push(destO)%5Cn%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%20%20%7D)%5Cn%20%20return%20destA%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20Get%20the%20location%20of%20inbox%5Cn//%20%5Cnconst%20getLocOfInbox%20=%20function%20()%20%7B%5Cn%20%20const%20res%20=%20%7Bsuccess:%20false%7D%5Cn%5Cn%20%20const%20http%20=%20HTTP.create()%5Cn%20%20const%20response%20=%20http.request(%7B%5Cn%20%20%20%20url:%20%5C%22https://dynalist.io/api/v1/pref/get%5C%22,%5Cn%20%20%20%20encoding:%20%5C%22json%5C%22,%5Cn%20%20%20%20method:%20%5C%22POST%5C%22,%5Cn%20%20%20%20data:%20%7B%5Cn%20%20%20%20%20%20token:%20cre.getValue(%5C%22token%5C%22),%5Cn%20%20%20%20%20%20key:%20%5C%22inbox_location%5C%22%20%20%5Cn%20%20%20%20%7D%5Cn%20%20%7D)%5Cn%5Cn%20%20if%20(response.success)%20%7B%5Cn%20%20%20%20//%20If%20the%20HTTP%20request%20completes%20successfully.%5Cn%20%20%20%20const%20dynalistRes%20=%20JSON.parse(response.responseText)%5Cn%5Cn%20%20%20%20if%20(dynalistRes._code%20==%20&#39;Ok&#39;)%20%7B%5Cn%20%20%20%20%20%20//%20If%20the%20_code%20in%20the%20response%20is%20Ok%20(successful%20request)%5Cn%20%20%20%20%20%20const%20valueA%20=%20dynalistRes.value.split(%5C%22/%5C%22)%5Cn%5Cn%20%20%20%20%20%20res.file_id%20=%20valueA[0]%5Cn%20%20%20%20%20%20res.node_id%20=%20valueA[1]%20!==%20undefined%20?%20valueA[1]%20:%20%5C%22root%5C%22%5Cn%20%20%20%20%20%20res.success%20=%20true%5Cn%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20alert(dynalistRes._code%20+%20%5C%22%5C%5Cn%5C%22%20+%20dynalistRes._msg)%5Cn%20%20%20%20%7D%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20alert(response.error)%5Cn%20%20%7D%5Cn%20%20return%20res%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20Read%20the%20draft%20line%20by%20line,%20parse%20it,%20and%20save%20the%20items%20in%20an%20array.%5Cn//%20%5Cnconst%20parseDraft%20=%20function%20()%20%7B%5Cn%20%20let%20isTitle%20=%20true%5Cn%20%20let%20maxLvl%20=%200%5Cn%20%20let%20preLvl%20=%200%5Cn%20%20let%20cNodeNum%20=%200%5Cn%20%20const%20parentStack%20=%20[]%5Cn%20%20const%20nodeStack%20=%20[]%5Cn%20%20let%20noteStack%20=%20[]%5Cn%20%20let%20aNode%20=%20%7Bparam:%20%7Bcontent:%20%5C%22%5C%22%7D%7D%5Cn%5Cn%5Cn%5Cn%20%20draft.lines.forEach(l%20=%5Cu003e%20%7B%5Cn%5Cn%20%20%20%20const%20bulletA%20=%20l.match(/%5E([-%E3%83%BC]+)([0-3%EF%BC%90-%EF%BC%93]%7C[roygbp%E3%82%8C%E3%81%8A%E3%81%84%E3%81%90%E3%81%B6%E3%81%B1%E3%83%AC%E3%82%AA%E3%82%A4%E3%82%B0%E3%83%96%E3%83%91]%7C[%EF%BC%9F%EF%BC%81?!])?([0-3%EF%BC%90-%EF%BC%93]%7C[roygbp%E3%82%8C%E3%81%8A%E3%81%84%E3%81%90%E3%81%B6%E3%81%B1%E3%83%AC%E3%82%AA%E3%82%A4%E3%82%B0%E3%83%96%E3%83%91]%7C[%EF%BC%9F%EF%BC%81?!])?([0-3%EF%BC%90-%EF%BC%93]%7C[roygbp%E3%82%8C%E3%81%8A%E3%81%84%E3%81%90%E3%81%B6%E3%81%B1%E3%83%AC%E3%82%AA%E3%82%A4%E3%82%B0%E3%83%96%E3%83%91]%7C[%EF%BC%9F%EF%BC%81?!])?[%20%E3%80%80]/i)%5Cn%5Cn%5Cn%20%20%20%20if%20(bulletA%20!==%20null)%20%7B%5Cn%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20//%20title%20of%20a%20item%5Cn%20%20%20%20%20%20//%20%5Cn%5Cn%5Cn%20%20%20%20%20%20//%20Stack%20the%20previous%20item%20on%20the%20array%5Cn%20%20%20%20%20%20if%20(cNodeNum%20!=%200)%20%7B%5Cn%20%20%20%20%20%20%20%20//%20Execute%20if%20not%20the%20first%20loop.%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20//%20Delete%20the%20last%20blank%20line%20in%20the%20note.%5Cn%20%20%20%20%20%20%20%20if%20(noteStack[noteStack.length%20-%201]%20==%20%5C%22%5C%22)%20noteStack.pop()%5Cn%20%20%20%20%20%20%20%20aNode.param.note%20=%20noteStack.join(%5C%22%5C%5Cn%5C%22)%5Cn%20%20%20%20%20%20%20%20noteStack%20=%20[]%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20nodeStack.push(aNode)%5Cn%5Cn%20%20%20%20%20%20%20%20aNode%20=%20%7Bparam:%20%7Bcontent:%20%5C%22%5C%22%7D%7D%5Cn%20%20%20%20%20%20%7D%5Cn%5Cn%5Cn%20%20%20%20%20%20isTitle%20=%20true%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20//%20Determine%20nesting%20level%5Cn%20%20%20%20%20%20aNode.nestLvl%20=%20bulletA[1].length%5Cn%5Cn%20%20%20%20%20%20//%20Determine%20maximum%20level%5Cn%20%20%20%20%20%20if%20(aNode.nestLvl%20%5Cu003e%20maxLvl)%20maxLvl%20=%20aNode.nestLvl%5Cn%5Cn%5Cn%20%20%20%20%20%20switch%20(true)%20%7B%5Cn%20%20%20%20%20%20%20%20case%20aNode.nestLvl%20==%20preLvl:%5Cn%20%20%20%20%20%20%20%20%20%20//%20If%20the%20nesting%20level%20does%20not%20change,%20do%20nothing%20to%20the%20parent%20stack.%5Cn%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20case%20aNode.nestLvl%20==%20preLvl%20+%201:%5Cn%20%20%20%20%20%20%20%20%20%20//%20If%20the%20nesting%20level%20is%20one%20deeper,%20stack%20the%20previous%20nesting%20level%20on%20the%20parent%20stack.%5Cn%20%20%20%20%20%20%20%20%20%20parentStack.push(cNodeNum)%5Cn%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20case%20aNode.nestLvl%20%5Cu003c%20preLvl:%5Cn%20%20%20%20%20%20%20%20%20%20//%20Break%20the%20delta%20parent%20stack%20when%20the%20nesting%20level%20is%20shallow.%5Cn%20%20%20%20%20%20%20%20%20%20for%20(let%20i%20=%200;%20i%20%5Cu003c%20preLvl%20-%20aNode.nestLvl;%20i++)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20parentStack.pop()%5Cn%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20case%20aNode.nestLvl%20%5Cu003e%20preLvl%20+%201:%5Cn%20%20%20%20%20%20%20%20%20%20//%20Add%20empty%20diff%20node%20if%20nesting%20level%20goes%20up%20by%202%20or%20more.%5Cn%20%20%20%20%20%20%20%20%20%20for%20(let%20i%20=%20preLvl%20+%201;%20i%20%5Cu003c%20aNode.nestLvl;%20i++)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20const%20iNode%20=%20%7Bparam:%20%7Bcontent:%20%5C%22%5C%22%7D%7D%5Cn%20%20%20%20%20%20%20%20%20%20%20%20iNode.nestLvl%20=%20i%5Cn%20%20%20%20%20%20%20%20%20%20%20%20parentStack.push(cNodeNum)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20iNode.parentNum%20=%20parentStack[parentStack.length%20-%201]%5Cn%20%20%20%20%20%20%20%20%20%20%20%20iNode.num%20=%20++cNodeNum%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%20%20%20nodeStack.push(iNode)%5Cn%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20parentStack.push(cNodeNum)%5Cn%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%7D%5Cn%5Cn%20%20%20%20%20%20aNode.parentNum%20=%20parentStack[parentStack.length%20-%201]%5Cn%5Cn%20%20%20%20%20%20aNode.num%20=%20++cNodeNum%5Cn%20%20%20%20%20%20preLvl%20=%20aNode.nestLvl%5Cn%5Cn%20%20%20%20%20%20aNode.param.content%20=%20l.match(/%5E([-%E3%83%BC]+)([0-3%EF%BC%90-%EF%BC%93]%7C[roygbp%E3%82%8C%E3%81%8A%E3%81%84%E3%81%90%E3%81%B6%E3%81%B1%E3%83%AC%E3%82%AA%E3%82%A4%E3%82%B0%E3%83%96%E3%83%91]%7C[%EF%BC%9F%EF%BC%81?!])?([0-3%EF%BC%90-%EF%BC%93]%7C[roygbp%E3%82%8C%E3%81%8A%E3%81%84%E3%81%90%E3%81%B6%E3%81%B1%E3%83%AC%E3%82%AA%E3%82%A4%E3%82%B0%E3%83%96%E3%83%91]%7C[%EF%BC%9F%EF%BC%81?!])?([0-3%EF%BC%90-%EF%BC%93]%7C[roygbp%E3%82%8C%E3%81%8A%E3%81%84%E3%81%90%E3%81%B6%E3%81%B1%E3%83%AC%E3%82%AA%E3%82%A4%E3%82%B0%E3%83%96%E3%83%91]%7C[%EF%BC%9F%EF%BC%81?!])?[%20%E3%80%80](.*)$/i)[5]%5Cn%5Cn%5Cn%20%20%20%20%20%20Array.from(bulletA[0]).forEach(s%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20switch%20(true)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[0%EF%BC%90]/.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[1%EF%BC%91]/.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.heading%20=%201%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[2%EF%BC%92]/.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.heading%20=%202%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[3%EF%BC%93]/.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.heading%20=%203%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[r%E3%82%8C%E3%83%AC]/i.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.color%20=%201%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[o%E3%81%8A%E3%82%AA]/i.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.color%20=%202%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[y%E3%81%84%E3%82%A4]/i.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.color%20=%203%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[g%E3%81%90%E3%82%B0]/i.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.color%20=%204%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[b%E3%81%B6%E3%83%96]/i.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.color%20=%205%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[p%E3%81%B1%E3%83%91]/i.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.color%20=%206%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[%EF%BC%9F?]/.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.checkbox%20=%20true%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.checked%20=%20false%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%20%20case%20/[%EF%BC%81!]/.test(s):%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.checkbox%20=%20true%5Cn%20%20%20%20%20%20%20%20%20%20%20%20aNode.param.checked%20=%20true%5Cn%20%20%20%20%20%20%20%20%20%20%20%20break%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%7D)%5Cn%5Cn%20%20%20%20%7D%20else%20%7B%5Cn%20%20%5Cn%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20//%20[note%20%7C%20other%20than%20the%20first%20line%20of%20the%20title]%20of%20a%20item%5Cn%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20const%20bullet2A%20=%20l.match(/%5E[%E3%80%81,](.*)$/)%5Cn%20%20%20%20%20%20if%20(bullet2A%20!==%20null%20%5Cu0026%5Cu0026%20isTitle)%20%7B%5Cn%20%20%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20%20%20//%20If%20the%20lines%20starting%20with%20a%20comma%20follow%20the%20title%20line,%20treat%20it%20as%20a%20continuation%20of%20the%20title,%20otherwise%20treat%20it%20as%20part%20of%20a%20note.%5Cn%20%20%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20%20%20aNode.param.content%20+=%20%60%5C%5Cn$%7Bbullet2A[1]%7D%60%5Cn%20%20%20%20%5Cn%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20%20%20//%20note%5Cn%20%20%20%20%20%20%20%20//%20%5Cn%20%20%20%20%20%20%20%20isTitle%20=%20false%5Cn%20%20%20%20%20%20%20%20noteStack.push(l)%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%5Cn%20%20%20%20%7D%5Cn%20%20%5Cn%20%20%7D)%5Cn%5Cn%20%20//%20Stack%20last%20item%20on%20the%20array%5Cn%20%20//Delete%20the%20last%20blank%20line%20in%20the%20note.%5Cn%20%20if%20(noteStack[noteStack.length%20-%201]%20==%20%5C%22%5C%22)%20noteStack.pop()%5Cn%20%20aNode.param.note%20=%20noteStack.join(%5C%22%5C%5Cn%5C%22)%5Cn%20%20nodeStack.push(aNode)%5Cn%5Cn%20%20return%20%7BnodeStack:%20nodeStack,%20maxLvl:%20maxLvl%7D%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20Select%20a%20destination.%5Cn//%20%5Cnconst%20selDest%20=%20function%20(locOfInbox,%20destA)%20%7B%5Cn%20%20const%20res%20=%20%7Bselected:%20true%7D%5Cn%20%20const%20p%20=%20Prompt.create()%5Cn%5Cn%20%20p.title%20=%20%5C%22Select%20Destination%5C%22%5Cn%20%20p.addButton(%5C%22Inbox%5C%22)%5Cn%20%20destA.forEach((dest,%20idx)%20=%5Cu003e%20%7B%5Cn%20%20%20%20p.addButton(dest.content,%20idx)%5Cn%20%20%7D)%5Cn%5Cn%20%20p.addSelect(%5C%22position%5C%22,%5C%22Position%5C%22,[%5C%22Top%5C%22,%5C%22End%5C%22],[%5C%22Top%5C%22],false)%5Cn%20%20%5Cn%20%20if%20(%20!p.show()%20)%20%7B%5Cn%20%20%20%20res.selected%20=%20false%5Cn%20%20%7D%20else%20%7B%5Cn%20%20%20%20res.index%20=%20p.fieldValues[%5C%22position%5C%22]%20==%20%5C%22Top%5C%22%20?%200%20:%20-1%5Cn%5Cn%20%20%20%20if%20(p.buttonPressed%20==%20%5C%22Inbox%5C%22)%20%7B%5Cn%20%20%20%20%20%20res.file_id%20=%20locOfInbox.file_id%5Cn%20%20%20%20%20%20res.node_id%20=%20locOfInbox.node_id%5Cn%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20p.buttonPressed%5Cn%20%20%20%20%20%20res.file_id%20=%20destA[p.buttonPressed].file_id%5Cn%20%20%20%20%20%20res.node_id%20=%20destA[p.buttonPressed].node_id%5Cn%20%20%20%20%7D%5Cn%20%20%7D%20%5Cn%20%20return%20res%5Cn%7D%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20Insert%20items%20of%20the%20same%20nesting%20level%20together%20into%20Dynalist%20from%20the%20highest%20nesting%20level%20to%20lowest.%5Cn//%20%5Cnconst%20sendToDynalistInBulk%20=%20function%20(parsDrft,%20dest)%20%7B%5Cn%5Cn%20%20let%20sendingStatOK%20=%20true%5Cn%20%20const%20http%20=%20HTTP.create()%5Cn%5Cn%20%20const%20req%20=%20%7B%5Cn%20%20%20%20url:%20%5C%22https://dynalist.io/api/v1/doc/edit%5C%22,%5Cn%20%20%20%20encoding:%20%5C%22json%5C%22,%5Cn%20%20%20%20method:%20%5C%22POST%5C%22,%5Cn%20%20%20%20data:%20%7B%5Cn%20%20%20%20%20%20token:%20cre.getValue(%5C%22token%5C%22),%5Cn%20%20%20%20%20%20file_id:%20dest.file_id%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%5Cn%20%20for%20(i%20=%201;%20i%20%5Cu003c=%20parsDrft.maxLvl;%20i++)%20%7B%5Cn%20%20%20%20if%20(sendingStatOK)%20%7B%5Cn%20%20%20%20%20%20const%20changesA%20=%20[]%5Cn%20%20%20%20%20%20const%20sentNode%20=%20[]%5Cn%5Cn%5Cn%20%20%20%20%20%20parsDrft.nodeStack.forEach((node,%20idx)%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20if%20(node.nestLvl%20==%20i)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20const%20changeO%20=%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20action:%20%5C%22insert%5C%22,%5Cn%20%20%20%20%20%20%20%20%20%20%20%20index:%20dest.index%5Cn%20%20%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%20%20%20%20//%20Parameter%20settings%20for%20each%20item%20(content,%20note,%20color,%20heading,%20checkboxe%20and%20it%20status)%5Cn%20%20%20%20%20%20%20%20%20%20Object.assign(changeO,%20node.param)%5Cn%5Cn%20%20%20%20%20%20%20%20%20%20//%20For%20the%20outermost%20nested%20node,%20parent_id%20should%20be%20the%20node_id%20of%20the%20selected%20destination.%5Cn%20%20%20%20%20%20%20%20%20%20if%20(node.parentNum%20==%200)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20changeO.parent_id%20=%20dest.node_id%5Cn%20%20%20%20%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20//%20%20Otherwise,%20parent_id%20should%20be%20the%20node_id%20of%20the%20parent%20node%20of%20each%20item.%5Cn%20%20%20%20%20%20%20%20%20%20%20%20changeO.parent_id%20=%20parsDrft.nodeStack.find(n%20=%5Cu003e%20n.num%20==%20node.parentNum).node_id%5Cn%20%20%20%20%20%20%20%20%20%20%7D%20%20%5Cn%20%20%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%20changesA.push(changeO)%5Cn%20%20%20%20%20%20%20%20%20%20sentNode.push(idx)%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%7D)%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20req.data.changes%20=%20changesA.reverse()%5Cnconsole.log(JSON.stringify(req))%5Cn%20%20%20%20%20%20const%20response%20=%20http.request(req)%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20if%20(response.success)%20%7B%5Cn%20%20%20%20%20%20%20%20//%20If%20the%20HTTP%20request%20completes%20successfully.%5Cn%20%20%20%20%20%20%20%20const%20dynalistRes%20=%20JSON.parse(response.responseText)%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20console.log(JSON.stringify(dynalistRes))%5Cn%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20if%20(dynalistRes._code%20==%20&#39;Ok&#39;)%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20//%20If%20the%20_code%20in%20the%20response%20is%20Ok%20(successful%20request)%5Cn%20%20%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%20//%20If%20sending%20is%20successful,%20store%20the%20item&#39;s%20node_id%20for%20descendant%20nodes.%20%20%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20%20%20dynalistRes.new_node_ids.reverse().forEach((n,%20idx)%20=%5Cu003e%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20parsDrft.nodeStack[sentNode[idx]].node_id%20=%20n%5Cn%20%20%20%20%20%20%20%20%20%20%7D)%20%20%5Cn%20%20%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20%20%20alert(dynalistRes._code%20+%20%5C%22%5C%5Cn%5C%22%20+%20dynalistRes._msg)%5Cn%20%20%20%20%20%20%20%20%20%20sendingStatOK%20=%20false%5Cn%20%20%20%20%20%20%20%20%7D%5Cn%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20alert(response.error)%5Cn%20%20%20%20%20%20%20%20sendingStatOK%20=%20false%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%7D%5Cn%5Cn%5Cn%5Cn%5Cn%5Cn%5Cn//%20%5Cn//%20supervisor%5Cn//%20%5Cnlet%20success%20=%20false%5Cnif%20(mkDir())%20%7B%5Cn%5Cn%20%20const%20destTxt%20=%20readDestTxt()%5Cn%20%20if%20(destTxt.success)%20%7B%5Cn%20%20%5Cn%20%20%20%20const%20destA%20=%20readDestContentFromDL(destTxt.content)%5Cn%20%20%20%20%5Cn%20%20%20%20const%20locOfInbox%20=%20getLocOfInbox()%5Cn%20%20%20%20if%20(locOfInbox.success)%20%7B%5Cn%20%20%20%20%5Cn%20%20%20%20%20%20const%20pd%20=%20parseDraft()%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20const%20dest%20=%20selDest(locOfInbox,%20destA)%5Cn%20%20%20%20%20%20success%20=%20true%5Cn%20%20%20%20%20%20if%20(dest.selected)%20%7B%5Cn%20%20%20%20%20%20%5Cn%20%20%20%20%20%20%20%20sendToDynalistInBulk(pd,%20dest)%5Cn%20%20%20%20%20%20%7D%20else%20%7B%5Cn%20%20%20%20%20%20%20%20context.cancel()%5Cn%20%20%20%20%20%20%7D%5Cn%20%20%20%20%7D%5Cn%20%20%7D%5Cn%7D%5Cnif%20(!success)%20context.fail()%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%22FCD600A4-6B8C-4188-AE62-99FE1553BC21%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:1,%22keyCommand%22:%7B%22optionKey%22:false,%22input%22:%22%22,%22controlKey%22:false,%22commandKey%22:false,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Send%20Multi-Items%20to%20Dynalist%22,%22shiftKey%22:false%7D,%22logLevel%22:2,%22groupDisposition%22:0,%22notificationType%22:2,%22tintColor%22:%22blue%22,%22actionDescription%22:%22Send%20action%20from%20the%20Drafts%20app%20to%20Dynalist%20for%20multiple%20items%20with%20nested%20structures.%22,%22keyUseIcon%22:false,%22icon%22:%22631-infinity%22,%22visibility%22:96,%22backingIsSeparator%22:false,%22groupUUID%22:%2296CAE3FA-7537-443C-8996-DC9112222743%22,%22assignTags%22:[%22dynalist%22],%22name%22:%22Send%20Multi-Items%20to%20Dynalist%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>/* DynalistMultiNestBulkSend */
+/* 2021-12-13 */
+
+const ROOTPATH = &quot;/&quot;
+const DIRNAME = &quot;DynalistMultiNestBulkSend&quot;
+const FILENAME = &quot;destinations.txt&quot;
+
+
+
+// Store Secret Token of Dynalist in Credential.
+const cre = Credential.create(&quot;Dynalist&quot;, &quot;Dynalist&quot;)
+cre.addPasswordField(&quot;token&quot;, &quot;Secret Token&quot;)
+cre.authorize()
+
+
+
+
+
+// 
+// If the directory &quot;DynalistMultiNestBulkSend&quot; in iCloud drive does not exist, create it.
+// 
+const mkDir = function () {
+  const fmCloud = FileManager.createCloud()
+
+  let success = true
+  if (!fmCloud.listContents(ROOTPATH).includes(DIRNAME + &quot;/&quot;)) {
+    if ( !fmCloud.createDirectory(DIRNAME, ROOTPATH) ) {
+      alert(`Can&#39;t create directory &quot;${DIRNAME}&quot;.`)
+      success = false
+    }
+  }
+  return success
+}
+
+
+
+// 
+// read destination urls from &quot;DynalistMultiNestBulkSend/destinations.txt&quot; stored in iCloud drive
+// 
+const readDestTxt = function () {
+  const fmCloud = FileManager.createCloud()
+
+  const res = {success: true}
+  let content = fmCloud.readString(ROOTPATH + DIRNAME + &quot;/&quot; + FILENAME)
+  if (content === undefined) {
+    // if the file does not exist or could not be read, try to create the file.
+    content = &quot;destinations\n// Write the destination Dynalist item links one by one below.\n&quot;
+    if ( !fmCloud.writeString(ROOTPATH + DIRNAME + &quot;/&quot; + FILENAME, content) ) {
+      alert(`Can&#39;t create file &quot;${FILENAME}&quot;.`)
+      res.success = false
+    }
+  }
+  res.content = content
+  return res
+}
+
+
+
+// 
+// Read items from Dynalist based on URL read from destinations.txt.
+// 
+const readDestContentFromDL = function (t) {
+  const http = HTTP.create()
+  const destA = []
+
+  t.split(&quot;\n&quot;).forEach(l =&gt; {
+
+    const idA = l.match(/https:\/\/dynalist\.io\/d\/([^#]+)(#z=(.+)|)$/)
+
+    if (idA !== null) {
+      const file_id = idA[1]
+      const node_id = idA[3] !== undefined ? idA[3] : &quot;root&quot;
+      
+      const response = http.request({
+        url: &quot;https://dynalist.io/api/v1/doc/read&quot;,
+        encoding: &quot;json&quot;,
+        method: &quot;POST&quot;,
+        data: {
+          token: cre.getValue(&quot;token&quot;),
+          file_id: file_id
+        }
+      })
+      
+      if (response.success) {
+        // If the HTTP request completes successfully.
+        const dynalistRes = JSON.parse(response.responseText)
+        
+        if (dynalistRes._code == &#39;Ok&#39;) {
+          // If the _code in the response is Ok (successful request)
+          const destO = {title: dynalistRes.title}
+          const nodeO = dynalistRes.nodes.find(n =&gt; n.id == node_id)
+          
+          if (nodeO !== undefined) {
+            destO.content = nodeO.content
+            destO.file_id = file_id
+            destO.node_id = node_id
+            destA.push(destO)
+          }
+          
+        }
+        
+      }
+    }
+  })
+  return destA
+}
+
+
+
+// 
+// Get the location of inbox
+// 
+const getLocOfInbox = function () {
+  const res = {success: false}
+
+  const http = HTTP.create()
+  const response = http.request({
+    url: &quot;https://dynalist.io/api/v1/pref/get&quot;,
+    encoding: &quot;json&quot;,
+    method: &quot;POST&quot;,
+    data: {
+      token: cre.getValue(&quot;token&quot;),
+      key: &quot;inbox_location&quot;  
+    }
+  })
+
+  if (response.success) {
+    // If the HTTP request completes successfully.
+    const dynalistRes = JSON.parse(response.responseText)
+
+    if (dynalistRes._code == &#39;Ok&#39;) {
+      // If the _code in the response is Ok (successful request)
+      const valueA = dynalistRes.value.split(&quot;/&quot;)
+
+      res.file_id = valueA[0]
+      res.node_id = valueA[1] !== undefined ? valueA[1] : &quot;root&quot;
+      res.success = true
+    } else {
+      alert(dynalistRes._code + &quot;\n&quot; + dynalistRes._msg)
+    }
+  } else {
+    alert(response.error)
+  }
+  return res
+}
+
+
+
+// 
+// Read the draft line by line, parse it, and save the items in an array.
+// 
+const parseDraft = function () {
+  let isTitle = true
+  let maxLvl = 0
+  let preLvl = 0
+  let cNodeNum = 0
+  const parentStack = []
+  const nodeStack = []
+  let noteStack = []
+  let aNode = {param: {content: &quot;&quot;}}
+
+
+
+  draft.lines.forEach(l =&gt; {
+
+    const bulletA = l.match(/^([-ー]+)([0-3０-３]|[roygbpれおいぐぶぱレオイグブパ]|[？！?!])?([0-3０-３]|[roygbpれおいぐぶぱレオイグブパ]|[？！?!])?([0-3０-３]|[roygbpれおいぐぶぱレオイグブパ]|[？！?!])?[ 　]/i)
+
+
+    if (bulletA !== null) {
+      // 
+      // title of a item
+      // 
+
+
+      // Stack the previous item on the array
+      if (cNodeNum != 0) {
+        // Execute if not the first loop.
+        
+        // Delete the last blank line in the note.
+        if (noteStack[noteStack.length - 1] == &quot;&quot;) noteStack.pop()
+        aNode.param.note = noteStack.join(&quot;\n&quot;)
+        noteStack = []
+      
+        nodeStack.push(aNode)
+
+        aNode = {param: {content: &quot;&quot;}}
+      }
+
+
+      isTitle = true
+      
+      // Determine nesting level
+      aNode.nestLvl = bulletA[1].length
+
+      // Determine maximum level
+      if (aNode.nestLvl &gt; maxLvl) maxLvl = aNode.nestLvl
+
+
+      switch (true) {
+        case aNode.nestLvl == preLvl:
+          // If the nesting level does not change, do nothing to the parent stack.
+          break
+        case aNode.nestLvl == preLvl + 1:
+          // If the nesting level is one deeper, stack the previous nesting level on the parent stack.
+          parentStack.push(cNodeNum)
+          break
+        case aNode.nestLvl &lt; preLvl:
+          // Break the delta parent stack when the nesting level is shallow.
+          for (let i = 0; i &lt; preLvl - aNode.nestLvl; i++) {
+            parentStack.pop()
+          }
+          break
+        case aNode.nestLvl &gt; preLvl + 1:
+          // Add empty diff node if nesting level goes up by 2 or more.
+          for (let i = preLvl + 1; i &lt; aNode.nestLvl; i++) {
+            const iNode = {param: {content: &quot;&quot;}}
+            iNode.nestLvl = i
+            parentStack.push(cNodeNum)
+            iNode.parentNum = parentStack[parentStack.length - 1]
+            iNode.num = ++cNodeNum     
+            nodeStack.push(iNode)
+          }
+          parentStack.push(cNodeNum)
+          break
+      }
+
+      aNode.parentNum = parentStack[parentStack.length - 1]
+
+      aNode.num = ++cNodeNum
+      preLvl = aNode.nestLvl
+
+      aNode.param.content = l.match(/^([-ー]+)([0-3０-３]|[roygbpれおいぐぶぱレオイグブパ]|[？！?!])?([0-3０-３]|[roygbpれおいぐぶぱレオイグブパ]|[？！?!])?([0-3０-３]|[roygbpれおいぐぶぱレオイグブパ]|[？！?!])?[ 　](.*)$/i)[5]
+
+
+      Array.from(bulletA[0]).forEach(s =&gt; {
+        switch (true) {
+          case /[0０]/.test(s):
+            break
+          case /[1１]/.test(s):
+            aNode.param.heading = 1
+            break
+          case /[2２]/.test(s):
+            aNode.param.heading = 2
+            break
+          case /[3３]/.test(s):
+            aNode.param.heading = 3
+            break
+          case /[rれレ]/i.test(s):
+            aNode.param.color = 1
+            break
+          case /[oおオ]/i.test(s):
+            aNode.param.color = 2
+            break
+          case /[yいイ]/i.test(s):
+            aNode.param.color = 3
+            break
+          case /[gぐグ]/i.test(s):
+            aNode.param.color = 4
+            break
+          case /[bぶブ]/i.test(s):
+            aNode.param.color = 5
+            break
+          case /[pぱパ]/i.test(s):
+            aNode.param.color = 6
+            break
+          case /[？?]/.test(s):
+            aNode.param.checkbox = true
+            aNode.param.checked = false
+            break
+          case /[！!]/.test(s):
+            aNode.param.checkbox = true
+            aNode.param.checked = true
+            break
+        }
+      })
+
+    } else {
+  
+      // 
+      // [note | other than the first line of the title] of a item
+      // 
+      const bullet2A = l.match(/^[、,](.*)$/)
+      if (bullet2A !== null &amp;&amp; isTitle) {
+        // 
+        // If the lines starting with a comma follow the title line, treat it as a continuation of the title, otherwise treat it as part of a note.
+        // 
+        aNode.param.content += `\n${bullet2A[1]}`
+    
+      } else {
+        // 
+        // note
+        // 
+        isTitle = false
+        noteStack.push(l)
+      
+      }
+    
+    }
+  
+  })
+
+  // Stack last item on the array
+  //Delete the last blank line in the note.
+  if (noteStack[noteStack.length - 1] == &quot;&quot;) noteStack.pop()
+  aNode.param.note = noteStack.join(&quot;\n&quot;)
+  nodeStack.push(aNode)
+
+  return {nodeStack: nodeStack, maxLvl: maxLvl}
+}
+
+
+
+// 
+// Select a destination.
+// 
+const selDest = function (locOfInbox, destA) {
+  const res = {selected: true}
+  const p = Prompt.create()
+
+  p.title = &quot;Select Destination&quot;
+  p.addButton(&quot;Inbox&quot;)
+  destA.forEach((dest, idx) =&gt; {
+    p.addButton(dest.content, idx)
+  })
+
+  p.addSelect(&quot;position&quot;,&quot;Position&quot;,[&quot;Top&quot;,&quot;End&quot;],[&quot;Top&quot;],false)
+  
+  if ( !p.show() ) {
+    res.selected = false
+  } else {
+    res.index = p.fieldValues[&quot;position&quot;] == &quot;Top&quot; ? 0 : -1
+
+    if (p.buttonPressed == &quot;Inbox&quot;) {
+      res.file_id = locOfInbox.file_id
+      res.node_id = locOfInbox.node_id
+    } else {
+      p.buttonPressed
+      res.file_id = destA[p.buttonPressed].file_id
+      res.node_id = destA[p.buttonPressed].node_id
+    }
+  } 
+  return res
+}
+
+
+
+// 
+// Insert items of the same nesting level together into Dynalist from the highest nesting level to lowest.
+// 
+const sendToDynalistInBulk = function (parsDrft, dest) {
+
+  let sendingStatOK = true
+  const http = HTTP.create()
+
+  const req = {
+    url: &quot;https://dynalist.io/api/v1/doc/edit&quot;,
+    encoding: &quot;json&quot;,
+    method: &quot;POST&quot;,
+    data: {
+      token: cre.getValue(&quot;token&quot;),
+      file_id: dest.file_id
+    }
+  }
+
+  for (i = 1; i &lt;= parsDrft.maxLvl; i++) {
+    if (sendingStatOK) {
+      const changesA = []
+      const sentNode = []
+
+
+      parsDrft.nodeStack.forEach((node, idx) =&gt; {
+      
+        if (node.nestLvl == i) {
+          const changeO = {
+            action: &quot;insert&quot;,
+            index: dest.index
+          }
+          // Parameter settings for each item (content, note, color, heading, checkboxe and it status)
+          Object.assign(changeO, node.param)
+
+          // For the outermost nested node, parent_id should be the node_id of the selected destination.
+          if (node.parentNum == 0) {
+            changeO.parent_id = dest.node_id
+          } else {
+            //  Otherwise, parent_id should be the node_id of the parent node of each item.
+            changeO.parent_id = parsDrft.nodeStack.find(n =&gt; n.num == node.parentNum).node_id
+          }  
+          
+          changesA.push(changeO)
+          sentNode.push(idx)
+        }
+      })
+      
+      req.data.changes = changesA.reverse()
+console.log(JSON.stringify(req))
+      const response = http.request(req)
+      
+      if (response.success) {
+        // If the HTTP request completes successfully.
+        const dynalistRes = JSON.parse(response.responseText)
+        
+        console.log(JSON.stringify(dynalistRes))
+        
+        if (dynalistRes._code == &#39;Ok&#39;) {
+          // If the _code in the response is Ok (successful request)
+          
+          // If sending is successful, store the item&#39;s node_id for descendant nodes.        
+          dynalistRes.new_node_ids.reverse().forEach((n, idx) =&gt; {
+            parsDrft.nodeStack[sentNode[idx]].node_id = n
+          })  
+        } else {
+          alert(dynalistRes._code + &quot;\n&quot; + dynalistRes._msg)
+          sendingStatOK = false
+        }
+      } else {
+        alert(response.error)
+        sendingStatOK = false
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// 
+// supervisor
+// 
+let success = false
+if (mkDir()) {
+
+  const destTxt = readDestTxt()
+  if (destTxt.success) {
+  
+    const destA = readDestContentFromDL(destTxt.content)
+    
+    const locOfInbox = getLocOfInbox()
+    if (locOfInbox.success) {
+    
+      const pd = parseDraft()
+      
+      const dest = selDest(locOfInbox, destA)
+      success = true
+      if (dest.selected) {
+      
+        sendToDynalistInBulk(pd, dest)
+      } else {
+        context.cancel()
+      }
+    }
+  }
+}
+if (!success) context.fail()</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Archive
+        , Tags: dynalist
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Info</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Info</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

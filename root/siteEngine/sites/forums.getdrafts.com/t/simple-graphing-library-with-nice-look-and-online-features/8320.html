@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Graphing Library with nice look and online features - Drafts Community</title>
+    <meta name="description" content="Hi all Graphviz or PlantUml Users and Lovers, 
+you might be interested in a small tool I found some months ago. It is not a complete replacement but a nice tool that is available offline and online with a really compact. &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="8320.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Simple Graphing Library with nice look and online features&#39;" href="https://forums.getdrafts.com/t/simple-graphing-library-with-nice-look-and-online-features/8320.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/simple-graphing-library-with-nice-look-and-online-features/8320" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/simple-graphing-library-with-nice-look-and-online-features/8320" />
+<meta property="og:title" content="Simple Graphing Library with nice look and online features" />
+<meta name="twitter:title" content="Simple Graphing Library with nice look and online features" />
+<meta property="og:description" content="Hi all Graphviz or PlantUml Users and Lovers,  you might be interested in a small tool I found some months ago. It is not a complete replacement but a nice tool that is available offline and online with a really compact.  After thinking and reading about visual generating graphs from draft links I made up this mock up  www.nomnoml.com/#view/%23.green%3A%20fill%3D%238f8 %23.red%3A%20fill%3D%23f88%20href%3D&quot;www.bbc.com&quot; %23spacing%3A%2032 %23padding%3A%2012  [Draft%20A]%20&lt;-&gt;%20[Draft%20B] [Draft%..." />
+<meta name="twitter:description" content="Hi all Graphviz or PlantUml Users and Lovers,  you might be interested in a small tool I found some months ago. It is not a complete replacement but a nice tool that is available offline and online with a really compact.  After thinking and reading about visual generating graphs from draft links I made up this mock up  www.nomnoml.com/#view/%23.green%3A%20fill%3D%238f8 %23.red%3A%20fill%3D%23f88%20href%3D&quot;www.bbc.com&quot; %23spacing%3A%2032 %23padding%3A%2012  [Draft%20A]%20&lt;-&gt;%20[Draft%20B] [Draft%..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="17 ❤" />
+<meta property="article:published_time" content="2020-09-02T20:34:08+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="8320.html">Simple Graphing Library with nice look and online features</a>
+    </h1>
+
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-02T20:34:08Z' class='post-time'>
+                September 2, 2020,  8:34pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-02T20:34:08Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi all Graphviz or PlantUml Users and Lovers,</p>
+<p>you might be interested in a small tool I found some months ago. It is not a complete replacement but a nice tool that is available offline and online with a really compact.</p>
+<p>After thinking and reading about visual generating graphs from draft links I made up this mock up</p>
+<p><a href="http://www.nomnoml.com/#view/%23.green%3A%20fill%3D%238f8%0A%23.red%3A%20fill%3D%23f88%20href%3D%22www.bbc.com%22%0A%23spacing%3A%2032%0A%23padding%3A%2012%0A%0A%5BDraft%20A%5D%20%3C-%3E%20%5BDraft%20B%5D%0A%5BDraft%20A%5D%20-%3E%20%5BDraft%20C%5D%0A%5BDraft%20A%5D%20-%3E%20%5B%3Cred%3EDraft%20Zero%5D%0A%0A%5BDraft%20B%5D%20--%20%5B%3Cgreen%3EIBM%5D%0A%5BDraft%20B%5D%20--%20%5B%3Cgreen%3EBBC%20News%5D%0A%5BDraft%20D%5D%20--%20%5B%3Cgreen%3EBeeb%20News%5D%0A%5BDraft%20D%5D%20-%3E%20%5BDraft%20A%5D%0A" class="onebox" target="_blank" rel="nofollow noopener">www.nomnoml.com/#view/%23.green%3A%20fill%3D%238f8
+%23.red%3A%20fill%3D%23f88%20href%3D"www.bbc.com"
+%23spacing%3A%2032
+%23padding%3A%2012
+
+[Draft%20A]%20&lt;-&gt;%20[Draft%20B]
+[Draft%20A]%20-&gt;%20[Draft%20C]
+[Draft%20A]%20-&gt;%20[&lt;red&gt;Draft%20Zero]
+
+[Draft%20B]%20--%20[&lt;green&gt;IBM]
+[Draft%20B]%20--%20[&lt;green&gt;BBC%20News]
+[Draft%20D]%20--%20[&lt;green&gt;Beeb%20News]
+[Draft%20D]%20-&gt;%20[Draft%20A]
+</a></p>
+<p>I will tie it in a script action later on.</p>
+<p>Cheers<br>
+Andreas</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="4" />
+           <span class='post-likes'>4 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+            <div class='crawler-linkback-list' itemscope itemtype='http://schema.org/ItemList'>
+                  <div itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+                    <a href="https://forums.getdrafts.com/t/preview-for-nomnoml-code/8830/2" itemscope itemtype='http://schema.org/DiscussionForumPosting' itemprop='item'>
+                      <meta itemprop='url' content='https://forums.getdrafts.com/t/preview-for-nomnoml-code/8830/2'>
+                      <span itemprop='name'>Preview for nomnoml code</span>
+                    </a>
+                    <meta itemprop='position' content='2'>
+                  </div>
+            </div>
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T07:26:24Z' class='post-time'>
+                September 3, 2020,  7:26am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T07:26:24Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Nice example, too… <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Links missing compared to the original, BTW. I think that will matter.</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T12:36:29Z' class='post-time'>
+                September 3, 2020, 12:36pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T12:36:29Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Looking good, Andreas. I had thought that nomnoml syntax looked easy enough to work with, but I didn’t realise you could define a map through a URL. That certainly opens up some possibilities.</p>
+<p>Further to the conversation in <a class="mention" href="https://forums.getdrafts.com/u/martinpacker">@martinpacker</a>’s <a href="https://forums.getdrafts.com/t/obsidian-like-behaviour/8290/34">other thread</a>, I’d be keen to see more discussion of how people might actually use this kind of graphing in meaningful ways. Use cases, anyone?</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T13:40:06Z' class='post-time'>
+                September 3, 2020,  1:40pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T13:40:06Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <ol>
+<li>It looks pretty. <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">
+</li>
+<li>It might make a “peer network” of drafts navigable.</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T19:00:33Z' class='post-time'>
+                September 3, 2020,  7:00pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T19:00:33Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>yeah, did not get it fixed on ios.<br>
+I will investigate about the linking in nomnoml. it is able to export svg so it has to be possible somehow.</p>
+<p>I love the style of the diagrams and the fact that I can render via an link and - I have to check - maybe even offline from ios (macOS works fine with an electron app)</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T19:07:42Z' class='post-time'>
+                September 3, 2020,  7:07pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T19:07:42Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I want to build a printed crazy wall of my drafts topic<br>
+Starting to use drafts as a Zettelkasten that will be a representation of my digital brain.</p>
+<p><img src="../../images/emoji/apple/grinning.png@v=9" title=":grinning:" class="emoji only-emoji" alt=":grinning:"></p>
+<p>Smaller snippets could be used as topic references or to check the cross referencing</p>
+<p>on the other hand I as a software developer engineer am often in the need to create a graph of something. Being able to start this from Drafts and keep it there would be really nice.</p>
+<p>The tag/note report from tadpole library could also benefit from a graphical representation  - for my kind of brain at least</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T20:05:51Z' class='post-time'>
+                September 3, 2020,  8:05pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T20:05:51Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="Andreas_Haberle" data-post="6" data-topic="8320">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/andreas_haberle/40/3084_2.png" class="avatar"> Andreas_Haberle:</div>
+<blockquote>
+<p>The tag/note report from tadpole library could also benefit from a graphical representation - for my kind of brain at least</p>
+</blockquote>
+</aside>
+<p>I might add some HTML rendered charting in at some point, but probably as separate actions.</p>
+<p>FYI, there will be even more data in that ThoughtAsylum Action group* action in the next release - I’ve given it a little update.</p>
+<p>* <em>TADpoLe is the library, not the action group</em> <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T20:19:55Z' class='post-time'>
+                September 3, 2020,  8:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T20:19:55Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is useful!</p>
+<p>I had stalled in my own experiments of visualising links between drafts via iThoughts because, while the results were visually appealing, I didn’t actually get much practical value from them and soon stopped using the actions I’d built. Hearing more about other people’s use cases helps me to see new/other possibilities for my own. <img src="../../images/emoji/apple/+1.png@v=9" title=":+1:" class="emoji" alt=":+1:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-03T20:43:14Z' class='post-time'>
+                September 3, 2020,  8:43pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-03T20:43:14Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>your still the best!</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-04T08:49:46Z' class='post-time'>
+                September 4, 2020,  8:49am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-04T08:49:46Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Epiphany: I imagine this kind of graphing becomes particularly useful if you practise the kind of atomised note-taking (one draft per thought) that Zettelkasten encourages…</p>
+<p>For example: if you’re making notes from an article, with a “structure” or “meta” note that essentially serves as an index for all of the notes from that article, graphing links provides a) a way to zoom out and visualise all of the notes linked directly to that article; b) a map of connections between the article’s individual notes and notes related to other articles/topics/themes/subjects. That sounds <em>really</em> useful, and sounds like it might support further discovery/insight.</p>
+<p>Side note: this is one of the principles I feel like I’m in-between on— I’m used to a single draft containing a range of thoughts on any particular subject or topic. So all of my notes from one article/text/whatever would typically sit in a single draft, with quotes, my responses to those quotes, other thoughts, captured actions, etc. But I’m starting to see the benefit of breaking things down further, particularly since a draft is essentially Draft’s smallest functional unit, and cross-linking seems to more useful when linking at the level of the smallest functional unit.</p>
+<p><a class="mention" href="https://forums.getdrafts.com/u/martinpacker">@martinpacker</a> / <a class="mention" href="https://forums.getdrafts.com/u/andreas_haberle">@Andreas_Haberle</a>: For current graphing efforts, is there any way to indicate the number of connections a single node has (beyond the density of visible connection lines)? I think Roam-like graphs use node-size as a variable to indicate density of connections, right? Alternatively perhaps some way to manually specify/indicate “meta” nodes (perhaps based on a tag or text token within the draft content), where “meta” nodes could have a specific colour? Does any of that sound useful to consider?</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-04T12:48:30Z' class='post-time'>
+                September 4, 2020, 12:48pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-04T12:48:30Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>The code I posted could count the number of links.</p>
+<p>It could also extract the first 100 or so characters and place them under the title.</p>
+<p>I have other projects on the go right now, though.</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-04T15:40:40Z' class='post-time'>
+                September 4, 2020,  3:40pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-04T15:40:40Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>we could create a github project to collect the different approaches.</p>
+<p>I have posted an issue to the nomnoml developer to check for the linking support- as far as I read it it will not be possible right now.</p>
+<p>So ‚mermaidJS’ comes into my mind as another player - it is not quite as nice looking as nomnoml but might be the better fit for our purpose</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-04T20:08:19Z' class='post-time'>
+                September 4, 2020,  8:08pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-04T20:08:19Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, if someone built it I think my employer would let me contribute. There’s a (brief) process I have to go through.</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-25T03:54:44Z' class='post-time'>
+                September 25, 2020,  3:54am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-25T03:54:44Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>hi <a class="mention" href="https://forums.getdrafts.com/u/martinpacker">@martinpacker</a> and <a class="mention" href="https://forums.getdrafts.com/u/jsamlarose">@jsamlarose</a></p>
+<p>the nomnoml library got an update to support clickable nodes.</p>
+<p>Now the weekend project is set</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-25T11:05:54Z' class='post-time'>
+                September 25, 2020, 11:05am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-25T11:05:54Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Exciting news! Where did you see the update?</p>
+<p>I really like the aesthetic for this one.</p>
+<p>Since we first started this graphing conversation, I’ve been thinking about setting up a “topics” or “top pages” workspace containing a draft for each of the key themes/subjects I’m interested in. Jump-off points for note clusters/networks. Seems obvious, but that’s not the way I’ve been used to taking notes. Up until recently, my “active thinking via writing” process has been modelled on the practice of revising towards a final finished product (evolving “drafts” of the same emerging idea) married with supporting information/references.</p>
+<p>I think this was my principle barrier in appreciating the value of a network graph. Funny thing is, I’ve done a fair amount of reading about this over the past year, and I understand the appeal of atomic note-taking, but I only just connected this with a bit of reflection on the way I actually work.</p>
+<p>Takes a minute, sometimes… <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/c/c597912b7165f21947c358ba2eddcc7afcb59ba4.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-26T22:45:25Z' class='post-time'>
+                September 26, 2020, 10:45pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-26T22:45:25Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>it on the issues<br>
+</p><aside class="onebox githubissue">
+  <header class="source">
+      <a href="https://github.com/skanaar/nomnoml/issues/121" target="_blank" rel="noopener">github.com/skanaar/nomnoml</a>
+  </header>
+  <article class="onebox-body">
+    <div class="github-row">
+  <div class="github-icon-container" title="Issue">
+	  <svg width="60" height="60" class="github-icon" viewBox="0 0 14 16" aria-hidden="true"><path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg>
+  </div>
+
+  <div class="github-info-container">
+    <h4>
+      <a href="https://github.com/skanaar/nomnoml/issues/121" target="_blank" rel="noopener">Is it possible to make the diagram shapes clickable?</a>
+    </h4>
+
+    <div class="github-info">
+      <div class="date">
+        opened <span class="discourse-local-date" data-format="ll" data-date="2019-11-08" data-time="02:28:14" data-timezone="UTC">02:28AM - 08 Nov 19 UTC</span>
+      </div>
+
+        <div class="date">
+          closed <span class="discourse-local-date" data-format="ll" data-date="2020-05-25" data-time="07:47:34" data-timezone="UTC">07:47AM - 25 May 20 UTC</span>
+        </div>
+
+      <div class="user">
+        <a href="https://github.com/darrencruse" target="_blank" rel="noopener">
+          <img alt="darrencruse" src="../../uploads/default/original/2X/c/c597912b7165f21947c358ba2eddcc7afcb59ba4.jpeg" class="onebox-avatar-inline" width="20" height="20">
+          darrencruse
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="github-row">
+  <p class="github-content">We are using nomnoml to generate (display only) ER-diagrams and would like to add some minimal interactivity where the users could...</p>
+</div>
+
+<div class="labels">
+</div>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p>I tried to put it into work and failed until now.<br>
+a simple <code>&lt;a&gt;</code> with href around the right <code>&lt;rect&gt;</code> element does the trick though.</p>
+<p>I already have a simple page working with two local java script files and one with a node generated svg.</p>
+<p>Still some ground to cover to get the diagram. But it is progress anyway.</p>
+<p>By investing the nomnoml docs I found a newer feature to generate table blocks which may give us a good frame for a nice diagram</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Andreas_Haberle'><span itemprop='name'>Andreas_Haberle</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="8320.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-10-17T19:02:04Z' class='post-time'>
+                October 17, 2020,  7:02pm
+              </time>
+              <meta itemprop='dateModified' content='2020-10-17T19:02:04Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Still pending due to interesting pythonic sidetracks with <a class="mention" href="https://forums.getdrafts.com/u/martinpacker">@martinpacker</a> (mdpre+md2pptx porting to python 3 and integration into iOS - including Drafts)</p>
+<p>I am wondering if we could get the nomnoml.js running in HTMLPreview like the MGChecklistPrompt library does.</p>
+        </div>
+
+        <meta itemprop='headline' content='Simple Graphing Library with nice look and online features'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

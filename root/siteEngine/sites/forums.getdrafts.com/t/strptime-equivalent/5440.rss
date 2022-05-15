@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Strptime() equivalent?</title>
+    <link>https://forums.getdrafts.com/t/strptime-equivalent/5440</link>
+    <description>Hi. I have a Drafts 5 action that, along other things, needs to convert a long date (“August 29, 2019”) into a short date more appropriate to use as a filename (“2019-08-29”). 
+
+In python I could use datetime.strptime() to turn the long date into a date object, the. Use strftime() to reformat it to a short date. 
+
+I see that JS in Drafts has strftime. Any suggestions for converting “August 29, 2019” into something strftime will recognize as a date?
+
+Thanks!</description>
+    
+    <lastBuildDate>Thu, 29 Aug 2019 02:43:09 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/strptime-equivalent/5440.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Strptime() equivalent?</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Even better! Confusing that it seems to use the same namespace (if im using the term right).</p>
+          <p><a href="https://forums.getdrafts.com/t/strptime-equivalent/5440/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strptime-equivalent/5440/5</link>
+        <pubDate>Thu, 29 Aug 2019 02:43:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5440-5</guid>
+        <source url="https://forums.getdrafts.com/t/strptime-equivalent/5440.rss">Strptime() equivalent?</source>
+      </item>
+      <item>
+        <title>Strptime() equivalent?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Just for the record here, Drafts includes the <a href="https://github.com/datejs/Datejs" rel="nofollow noopener">Date.js</a> library in it’s Javascript runtime automatically, so <code>Date.parse</code> is dramatically enhanced over the standard Javascript version.</p>
+<p>A few examples:</p>
+<pre><code class="lang-javascript">Date.parse("t")                 // Returns today's date.
+Date.parse("today")             // Returns today's date.
+Date.parse("tomorrow")          // Returns tomorrow's date.
+Date.parse("yesterday")         // Returns yesterday's date.
+
+Date.parse("next friday")       // Returns the date of the next Friday.
+Date.parse("last monday")       // Returns the date of the previous Monday.
+</code></pre>
+<p>More examples in the <a href="https://github.com/datejs/Datejs" rel="nofollow noopener">Date.js read me</a>.</p>
+          <p><a href="https://forums.getdrafts.com/t/strptime-equivalent/5440/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strptime-equivalent/5440/4</link>
+        <pubDate>Wed, 28 Aug 2019 21:53:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5440-4</guid>
+        <source url="https://forums.getdrafts.com/t/strptime-equivalent/5440.rss">Strptime() equivalent?</source>
+      </item>
+      <item>
+        <title>Strptime() equivalent?</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Fantastic — thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/strptime-equivalent/5440/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strptime-equivalent/5440/3</link>
+        <pubDate>Wed, 28 Aug 2019 11:43:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5440-3</guid>
+        <source url="https://forums.getdrafts.com/t/strptime-equivalent/5440.rss">Strptime() equivalent?</source>
+      </item>
+      <item>
+        <title>Strptime() equivalent?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Try the <code>parse</code> method in combination with <code>strftime</code>.</p>
+<pre><code class="lang-auto">let dtNew = Date.parse("August 29, 2019");
+let strFormattedNew = strftime(dtNew, "%Y-%m-%d");
+alert(strFormattedNew);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/strptime-equivalent/5440/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strptime-equivalent/5440/2</link>
+        <pubDate>Wed, 28 Aug 2019 06:36:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5440-2</guid>
+        <source url="https://forums.getdrafts.com/t/strptime-equivalent/5440.rss">Strptime() equivalent?</source>
+      </item>
+      <item>
+        <title>Strptime() equivalent?</title>
+        <dc:creator><![CDATA[tf2]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi. I have a Drafts 5 action that, along other things, needs to convert a long date (“August 29, 2019”) into a short date more appropriate to use as a filename (“2019-08-29”).</p>
+<p>In python I could use datetime.strptime() to turn the long date into a date object, the. Use strftime() to reformat it to a short date.</p>
+<p>I see that JS in Drafts has strftime. Any suggestions for converting “August 29, 2019” into something strftime will recognize as a date?</p>
+<p>Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/strptime-equivalent/5440/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/strptime-equivalent/5440/1</link>
+        <pubDate>Tue, 27 Aug 2019 21:42:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5440-1</guid>
+        <source url="https://forums.getdrafts.com/t/strptime-equivalent/5440.rss">Strptime() equivalent?</source>
+      </item>
+  </channel>
+</rss>

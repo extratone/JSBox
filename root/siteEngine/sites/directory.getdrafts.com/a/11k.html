@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Save Instagram Posts | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="xjIRjYLXfmgWYR8C6IoT0jFtSf4LUl1aIIxwoypJeUTLyFpQhIUW55z0Sz1DvSgWWafAdIu7P3huwuvQoXxgyw==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Save Instagram Posts" />
+    <meta property="og:url" content="https://directory.getdrafts.com/a/11k" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Save Instagram Posts" />
+    <meta property="twitter:url" content="https://directory.getdrafts.com/a/11k" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://directory.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="../index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="../search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="../../getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="../../docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="../../tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="../../scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="../search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="../../getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/564-camera.png" class="action-icon" />Save Instagram Posts</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by Garbonsai,
+    Last update
+    9 months ago
+</div>
+
+    <div class='update_notes'>
+      <h3>UPDATES</h3>
+      <div id="firstUpdateNote">
+      <h4>9 months ago</h4>
+      <ul>
+<li>added option to change draft title prefix</li>
+<li>added option to remove tags from newly created draft(s)</li>
+<li>added option to delete source draft on success</li>
+<li>made error handling more robust</li>
+<li>switched to built in error, info, success, and warning messages</li>
+<li>cleaned up and refactored code</li>
+</ul>
+
+      </div>
+    </div>
+
+    <div class='description'>
+        <p>Searches draft for any Instagram post, reel, or tv URLs and saves the contents of each as a new draft. <strong>Does not work for Private Accounts.</strong> Edit the script to modify the templates and settings.</p>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=11k&amp;data=%7B%22uuid%22:%224AC08EC6-FEA8-49B9-A10A-10BB300B9CD1%22,%22steps%22:[%7B%22platforms%22:3,%22data%22:%7B%22script%22:%22//%20********************%20changelog%20********************%20//%5Cn%5Cn//%20v2.0:%5Cn//%5Ct-%20added%20option%20to%20change%20draft%20title%20prefix%5Cn//%5Ct-%20added%20option%20to%20remove%20tags%20from%20newly%20created%20draft(s)%5Cn//%5Ct-%20added%20option%20to%20delete%20source%20draft%20on%20success%5Cn//%5Ct-%20made%20error%20handling%20more%20robust%5Cn//%5Ct-%20switched%20to%20built%20in%20error,%20info,%20success,%20and%20warning%20messages%5Cn//%5Ct-%20cleaned%20up%20and%20refactored%20code%5Cn//%20v1.9.5:%20added%20support%20to%20archive%20newly%20created%20draft%5Cn//%20v1.9.4:%20jump%20to%20top%20of%20draft%20if%20loaded%5Cn//%20v1.9.3:%20code%20cleanup%5Cn//%20v1.9.2:%20added%20support%20to%20flag%20newly%20created%20draft%5Cn//%20v1.9.1:%20added%20support%20for%20reels%20and%20tv%5Cn//%20v1.9:%20tweaked%20default%20template%5Cn//%20v1.8:%20updated%20to%20allow%20for%20running%20against%20multiple%20drafts%20at%20once%5Cn//%20v1.7:%20added%20ability%20to%20reuse%20title%20of%20current%20draft%20for%20new%20draft(s)%5Cn//%20v1.6:%20new%20default%20template%20to%20better%20accommodate%20searching%20Drafts%5Cn//%20v1.5:%20gracefully%20handle%20non-fatal%20errors%5Cn//%20v1.4:%20added%20ability%20to%20optionally%20both%20tag%20and%20load%20newly%20created%20drafts%5Cn//%20v1.3:%20fix%20for%20changes%20to%20how%20paged%20threaded%20comments%20are%20queried%5Cn//%20v1.2:%20code%20cleanup%20and%20refactoring%5Cn//%20v1.1:%20now%20gets%20all%20comments,%20not%20just%20most%20recent%5Cn//%20v1.0:%20initial%20release%5Cn%5Cn//%20********************%20templates%20********************%20//%5Cn%5Cn//%20image%20template%5Cnvar%20imageTpl%20=%20%60![]([[postImage]])%60;%5Cn%5Cn//%20comment%20template%5Cnvar%20commentTpl%20=%20%60[[commentText]]%20%E2%80%94[[[commentUser]]](https://www.instagram.com/[[commentUser]]),%20[[commentDate]]%60;%5Cn%5Cn//%20threaded%20comment%20template%5Cnvar%20threadTpl%20=%20%60[[commentText]]%20%E2%80%94[[[commentUser]]](https://www.instagram.com/[[commentUser]]),%20[[commentDate]]%60;%5Cn%5Cn//%20post%20template%5Cnvar%20postTpl%20=%20%60[[draftTitle]]%5Cn%5Cn[[postCaption]]%5Cn%5Cn[[postImages]]%5Cn%5Cn[[[postUser]]](https://www.instagram.com/[[postUser]]),%20[[[postDate]]]([[postUrl]])%5Cn%5Cn%23%23%20Comments%5Cn%5Cn[[postComments]]%60;%5Cn%5Cn//%20********************%20settings%20********************%20//%5Cn%5Cn//%20prefix%20for%20the%20draft%20title%5Cnvar%20titlePrefix%20=%20&#39;%23%20&#39;;%5Cn%5Cn//%20prefix%20for%20linebreaks%20found%20in%20the%20caption%5Cnvar%20captionPrefix%20=%20&#39;&#39;;%5Cn%5Cn//%20string%20used%20to%20join%20multiple%20images%20together%5Cnvar%20imageGlue%20=%20&#39;&#39;;%5Cn%5Cn//%20strftime%20format%20string%20for%20post%20and%20comment%20dates%5Cnvar%20dateFmt%20=%20&#39;%25a,%20%25d%20%25b%20%25Y%20%25T%20%25z&#39;;%5Cn%5Cn//%20prefix%20for%20linebreaks%20found%20in%20comments%5Cnvar%20commentPrefix%20=%20&#39;%5Cu003e%20&#39;;%5Cn%5Cn//%20prefix%20for%20linebreaks%20found%20in%20threaded%20comments%5Cnvar%20threadPrefix%20=%20&#39;%5Cu003e%20%5Cu003e%20&#39;;%5Cn%5Cn//%20string%20used%20to%20join%20multiple%20comments%20together%5Cnvar%20commentGlue%20=%20&#39;%5C%5Cn%5C%5Cn&#39;;%5Cn%5Cn//%20escape%20hashes%20found%20at%20the%20beginning%20of%20a%20line%20in%20the%20caption%20and%20comments%5Cnvar%20escHashes%20=%20false;%5Cn%5Cn//%20if%20applicable,%20reuse%20the%20title%20of%20the%20source%20draft%20for%20the%20new%20draft(s)%5Cnvar%20reuseTitle%20=%20true;%5Cn%5Cn//%20copy%20any%20tags%20from%20the%20source%20draft%20to%20the%20new%20draft(s)%5Cnvar%20copyTags%20=%20true;%5Cn%5Cn//%20tags%20to%20add%20to%20the%20new%20draft(s)%5Cnvar%20addTags%20=%20[%20&#39;@instagram&#39;%20];%5Cn%5Cn//%20tags%20to%20remove%20from%20the%20new%20draft(s)%5Cnvar%20removeTags%20=%20[%20&#39;instagram_old&#39;%20];%5Cn%5Cn//%20if%20no%20errors%20or%20warnings%20occur,%20delete%20the%20source%20draft%5Cnvar%20delSource%20=%20true;%5Cn%5Cn//%20archive%20the%20newly%20created%20draft(s)%5Cnvar%20archiveDraft%20=%20true;%5Cn%5Cn//%20flag%20the%20newly%20created%20draft(s)%5Cnvar%20flagDraft%20=%20true;%5Cn%5Cn//%20load%20the%20new%20draft(s)%20in%20the%20editor%5Cnvar%20loadDraft%20=%20true;%5Cn%5Cn//%20********************%20functions%20********************%20//%5Cn%5Cn//%20log%20something%20and%20alert%20the%20user%5Cnfunction%20alertUser(%20log,%20message,%20type%20=%20&#39;info&#39;%20)%20%7B%5Cn%5Ctconsole.log(%20log%20);%5Cn%5Ctswitch%20(%20type%20)%20%7B%5Cn%5Ct%5Ctcase%20&#39;error&#39;:%5Cn%5Ct%5Ct%5Ctapp.displayErrorMessage(%20message%20);%5Cn%5Ct%5Ct%5CtdelSource%20=%20false;%5Cn%5Ct%5Ct%5Ctbreak;%5Cn%5Ct%5Ctcase%20&#39;success&#39;:%5Cn%5Ct%5Ct%5Ctapp.displaySuccessMessage(%20message%20);%5Cn%5Ct%5Ct%5Ctbreak;%5Cn%5Ct%5Ctcase%20&#39;warning&#39;:%5Cn%5Ct%5Ct%5Ctapp.displayWarningMessage(%20message%20);%5Cn%5Ct%5Ct%5CtdelSource%20=%20false;%5Cn%5Ct%5Ct%5Ctbreak;%5Cn%5Ct%5Ctdefault:%5Cn%5Ct%5Ct%5Ctapp.displayInfoMessage(%20message%20);%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cn//%20helper%20function%20for%20sorting%20comments%20by%20date%5Cnfunction%20compareDates(%20a,%20b%20)%20%7B%5Cn%5Ctif%20(%20a.node.created_at%20%5Cu003c%20b.node.created_at%20)%20%7B%5Cn%5Ct%5Ctreturn%20-1;%5Cn%5Ct%7D%20else%20if%20(%20a.node.created_at%20%5Cu003e%20b.node.created_at%20)%20%7B%5Cn%5Ct%5Ctreturn%201;%5Cn%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ctreturn%200;%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cn//%20find%20any%20instagram%20post,%20reel,%20or%20tv%20URLs%5Cnfunction%20findPostUrls(%20haystack%20)%20%7B%5Cn%5Ctlet%20needle%20=%20new%20RegExp(%5Cn%5Ct%5Ct/(?:https?:%5C%5C/%5C%5C/)?(?:w%7B3%7D%5C%5C.)?instagram%5C%5C.com%5C%5C/(p%7Creel%7Ctv)%5C%5C/[a-zA-Z0-9_%5C%5C-]+/,%5Cn%5Ct%5Ct&#39;gi&#39;%5Cn%5Ct);%5Cn%5Ctlet%20matches%20=%20[];%5Cn%5Ctwhile%20(%20(%20match%20=%20needle.exec(%20haystack%20)%20)%20!==%20null%20)%20matches.push(%20match[%200%20]%20);%5Cn%5Ctreturn%20matches;%5Cn%7D%5Cn%5Cn//%20format%20a%20comment%20block%5Cnfunction%20formatComment(%20comment,%20prefix,%20template%20)%20%7B%5Cn%5Ctlet%20text%20=%20comment.node.text;%5Cn%5Ctif%20(%20escHashes%20)%20text.replace(%20/%5E%23/gm,%20&#39;%5C%5C%5C%5C%23&#39;%20);%5Cn%5Cttext%20=%20text.replace(%20/%5E/gm,%20prefix%20);%5Cn%5Ctlet%20date%20=%20strftime(%20comment.node.created_at%20*%201000,%20dateFmt%20);%5Cn%5Cn%5Ct//%20set%20the%20template%20tags%20and%20return%20the%20processed%20template%5Cn%5Ctdraft.setTemplateTag(%20&#39;commentText&#39;,%20text%20);%5Cn%5Ctdraft.setTemplateTag(%20&#39;commentDate&#39;,%20date%20);%5Cn%5Ctdraft.setTemplateTag(%20&#39;commentUser&#39;,%20comment.node.owner.username%20);%5Cn%5Ctreturn%20draft.processTemplate(%20template%20);%5Cn%7D%5Cn%5Cn//%20get%20all%20comments,%20sorted%20by%20date%5Cnfunction%20getComments(%20recentComments,%20vars,%20queryHash,%20type%20)%20%7B%5Cn%5Ctlet%20comments%20=%20recentComments.edges;%5Cn%5Ctlet%20hasNextPage%20=%20recentComments.page_info.has_next_page;%5Cn%5Ctvars.after%20=%20recentComments.page_info.end_cursor;%5Cn%5Ctvars.first%20=%2050;%5Cn%5Cn%5Ct//%20get%20paged%20comments%5Cn%5Ctwhile%20(%20hasNextPage%20)%20%7B%5Cn%5Ct%5Ctlet%20encVars%20=%20encodeURIComponent(%20JSON.stringify(%20vars%20)%20);%5Cn%5Ct%5Ctlet%20requestUrl%20=%20%60https://www.instagram.com/graphql/query/?query_hash=$%7BqueryHash%7D%5Cu0026variables=$%7BencVars%7D%60;%5Cn%5Ct%5Ctlet%20request%20=%20getUrl(%20requestUrl%20);%5Cn%5Ct%5Ctif%20(%20request.success%20)%20%7B%5Cn%5Cn%5Ct%5Ct%5Ct//%20handle%20errors%20that%20can%20occur%20when%20retrieving%20large%20numbers%20of%20paged%20comments%5Cn%5Ct%5Ct%5Ctlet%20response%20=%20verifyJSON(%20request.responseText%20);%5Cn%5Ct%5Ct%5Ctif%20(%20!response%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5CtalertUser(%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%60$%7BrequestUrl%7D%20didn&#39;t%20return%20valid%20JSON%60,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct&#39;Unable%20to%20retrieve%20older%20comments.&#39;,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct&#39;warning&#39;%5Cn%5Ct%5Ct%5Ct%5Ct);%5Cn%5Ct%5Ct%5Ct%5CthasNextPage%20=%20false;%5Cn%5Ct%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Ct%5Ctlet%20olderComments%20=%20type%20===%20&#39;thread&#39;%20?%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctresponse.data.comment.edge_threaded_comments%20:%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctresponse.data.shortcode_media.edge_media_to_parent_comment;%5Cn%5Ct%5Ct%5Ct%5Ctcomments.push.apply(%20comments,%20olderComments.edges%20)%5Cn%5Ct%5Ct%5Ct%5CthasNextPage%20=%20olderComments.page_info.has_next_page;%5Cn%5Ct%5Ct%5Ct%5Ctvars.after%20=%20olderComments.page_info.end_cursor;%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5CtalertUser(%5Cn%5Ct%5Ct%5Ct%5Ct%60$%7Brequest.statusCode%7D%20$%7Brequest.error%7D%20for%20$%7BrequestUrl%7D%60,%5Cn%5Ct%5Ct%5Ct%5Ct&#39;Unable%20to%20retrieve%20older%20comments.&#39;,%5Cn%5Ct%5Ct%5Ct%5Ct&#39;warning&#39;%5Cn%5Ct%5Ct%5Ct);%5Cn%5Ct%5Ct%5CthasNextPage%20=%20false;%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%5Ctreturn%20comments.sort(%20compareDates%20);%5Cn%7D%5Cn%5Cn//%20get%20a%20URL%5Cnfunction%20getUrl(%20url%20)%20%7B%5Cn%5Ctlet%20http%20=%20HTTP.create();%5Cn%5Ctreturn%20http.request(%7B%5Cn%5Ct%5Ct&#39;method&#39;:%20&#39;GET&#39;,%5Cn%5Ct%5Ct&#39;url&#39;:%20url%5Cn%5Ct%7D);%5Cn%7D%5Cn%5Cn//%20verify%20a%20string%20is%20valid%20JSON%5Cnfunction%20verifyJSON(%20string%20)%20%7B%5Cn%5Cttry%20%7B%5Cn%5Ct%5Ctlet%20result%20=%20JSON.parse(%20string%20);%5Cn%5Ct%5Ctif%20(%20result%20%5Cu0026%5Cu0026%20typeof%20result%20===%20&#39;object&#39;%20)%20%7B%5Cn%5Ct%5Ct%5Ctreturn%20result;%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%20catch(%20e%20)%20%7B%20%7D%5Cn%5Ctreturn%20false;%5Cn%7D%5Cn%5Cn//%20********************%20main%20********************%20//%5Cn%5Cn//%20check%20if%20the%20draft&#39;s%20title%20can%20and%20should%20be%20reused%5CnreuseTitle%20=%20draft.title.substr(%200,%20titlePrefix.length%20)%20===%20titlePrefix%20?%5Cn%5CtreuseTitle%20:%5Cn%5Ctfalse;%5Cn%5Cn//%20find%20any%20instagram%20post,%20reel,%20or%20tv%20URLs%20in%20the%20draft%5Cnlet%20postUrls%20=%20findPostUrls(%20draft.content%20);%5Cnif%20(%20postUrls.length%20===%200%20)%20%7B%5Cn%5CtalertUser(%20&#39;&#39;,%20&#39;No%20post,%20reel,%20or%20tv%20URLs%20were%20found.&#39;,%20&#39;error&#39;%20);%5Cn%7D%20else%20%7B%5Cn%5Cn%5Ct//%20get%20the%20JSON%20data%20for%20each%20URL%20that%20was%20found%5Cn%5CtpostUrls.forEach(%20function(%20postUrl%20)%20%7B%5Cn%5Ct%5Ctlet%20request%20=%20getUrl(%20%60$%7BpostUrl%7D/?__a=1%60%20);%5Cn%5Ct%5Ctif%20(%20request.success%20)%20%7B%5Cn%5Ct%5Ct%5Ctlet%20response%20=%20verifyJSON(%20request.responseText%20);%5Cn%5Ct%5Ct%5Ctif%20(%20!response%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5CtalertUser(%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%60$%7BrequestUrl%7D%20didn&#39;t%20return%20valid%20JSON%60,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct&#39;Unable%20to%20retrieve%20data%20for%20post,%20reel,%20or%20tv%20URL.&#39;,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct&#39;error&#39;%5Cn%5Ct%5Ct%5Ct%5Ct);%5Cn%5Ct%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Ct%5Ctlet%20postData%20=%20response.graphql.shortcode_media;%5Cn%5Cn%5Ct%5Ct%5Ct%5Ct//%20parse%20and%20format%20the%20images%5Cn%5Ct%5Ct%5Ct%5Ctlet%20postImages%20=%20[];%5Cn%5Ct%5Ct%5Ct%5Ctif%20(%20postData.hasOwnProperty(%20&#39;edge_sidecar_to_children&#39;%20)%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5CtpostData.edge_sidecar_to_children.edges.forEach(%20function(%20postImage%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postImage&#39;,%20postImage.node.display_url%20);%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5CtpostImages.push(%20draft.processTemplate(%20imageTpl%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%7D);%5Cn%5Ct%5Ct%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postImage&#39;,%20postData.display_url%20);%5Cn%5Ct%5Ct%5Ct%5Ct%5CtpostImages.push(%20draft.processTemplate(%20imageTpl%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ct%7D%5Cn%5Cn%5Ct%5Ct%5Ct%5Ct//%20parse%20and%20format%20the%20caption%5Cn%5Ct%5Ct%5Ct%5Ctlet%20postCaption%20=%20postData.edge_media_to_caption.edges[0].node.text;%5Cn%5Ct%5Ct%5Ct%5Ctif%20(%20escHashes%20)%20postCaption%20=%20postCaption.replace(%20/%5E%23/gm,%20&#39;%5C%5C%5C%5C%23&#39;%20);%5Cn%5Ct%5Ct%5Ct%5CtpostCaption%20%20=%20postCaption.replace(%20/%5E/gm,%20captionPrefix%20);%5Cn%5Cn%5Ct%5Ct%5Ct%5Ct//%20parse%20and%20format%20the%20comments%5Cn%5Ct%5Ct%5Ct%5Ctlet%20postComments%20=%20[];%5Cn%5Ct%5Ct%5Ct%5Ctlet%20comments%20=%20getComments(%5Cn%5Ct%5Ct%5Ct%5Ct%5CtpostData.edge_media_to_parent_comment,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%7B%20shortcode:%20postData.shortcode%20%7D,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct&#39;97b41c52301f77ce508f55e66d17620e&#39;,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct&#39;comment&#39;%5Cn%5Ct%5Ct%5Ct%5Ct);%5Cn%5Ct%5Ct%5Ct%5Ctcomments.forEach(%20function(%20comment%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5CtpostComments.push(%20formatComment(%20comment,%20commentPrefix,%20commentTpl%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctlet%20threads%20=%20getComments(%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ctcomment.node.edge_threaded_comments,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct%7B%20comment_id:%20comment.node.id%20%7D,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct&#39;51fdd02b67508306ad4484ff574a0b62&#39;,%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5Ct&#39;thread&#39;%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct);%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctthreads.forEach(%20function(%20thread%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%5CtpostComments.push(%20formatComment(%20thread,%20threadPrefix,%20threadTpl%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ct%5Ct%7D);%5Cn%5Ct%5Ct%5Ct%5Ct%7D);%5Cn%5Cn%5Ct%5Ct%5Ct%5Ct//%20set%20the%20necessary%20template%20tags%5Cn%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postUrl&#39;,%20postUrl%20);%5Cn%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postImages&#39;,%20postImages.join(%20imageGlue%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postCaption&#39;,%20postCaption%20);%5Cn%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postComments&#39;,%20postComments.join(%20commentGlue%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postUser&#39;,%20postData.owner.username%20);%5Cn%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;postDate&#39;,%20strftime(%20postData.taken_at_timestamp%20*%201000,%20dateFmt%20)%20);%5Cn%5Ct%5Ct%5Ct%5CtreuseTitle%20?%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;draftTitle&#39;,%20draft.title%20)%20:%5Cn%5Ct%5Ct%5Ct%5Ct%5Ctdraft.setTemplateTag(%20&#39;draftTitle&#39;,%20titlePrefix%20+%20postData.shortcode%20);%5Cn%5Cn%5Ct%5Ct%5Ct%5Ct//%20create%20the%20new%20draft%5Cn%5Ct%5Ct%5Ct%5Ctlet%20d%20=%20Draft.create();%5Cn%5Ct%5Ct%5Ct%5Ctd.content%20=%20draft.processTemplate(%20postTpl%20);%5Cn%5Ct%5Ct%5Ct%5Ctif%20(%20copyTags%20)%20draft.tags.forEach(%20tag%20=%5Cu003e%20d.addTag(%20tag%20)%20);%5Cn%5Ct%5Ct%5Ct%5CtaddTags.forEach(%20tag%20=%5Cu003e%20d.addTag(%20tag%20)%20);%5Cn%5Ct%5Ct%5Ct%5CtremoveTags.forEach(%20tag%20=%5Cu003e%20d.removeTag(%20tag%20)%20);%5Cn%5Ct%5Ct%5Ct%5Ctd.isFlagged%20=%20flagDraft;%5Cn%5Ct%5Ct%5Ct%5Ctd.isArchived%20=%20archiveDraft;%5Cn%5Ct%5Ct%5Ct%5Ctd.update();%5Cn%5Ct%5Ct%5Ct%5Ctif%20(%20loadDraft%20)%20%7B%5Cn%5Ct%5Ct%5Ct%5Ct%5Cteditor.load(%20d%20);%5Cn%5Ct%5Ct%5Ct%5Ct%5Cteditor.setSelectedRange(%200,%200%20);%5Cn%5Ct%5Ct%5Ct%5Ct%7D%5Cn%5Cn%5Ct%5Ct%5Ct%5Ct//%20delete%20the%20source%20draft%5Cn%5Ct%5Ct%5Ct%5Ctdraft.isTrashed%20=%20delSource;%5Cn%5Ct%5Ct%5Ct%5Ctdraft.update();%5Cn%5Cn%5Ct%5Ct%5Ct%7D%5Cn%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5CtalertUser(%5Cn%5Ct%5Ct%5Ct%5Ct%60$%7Brequest.statusCode%7D%20$%7Brequest.error%7D%20for%20$%7BrequestUrl%7D%60,%5Cn%5Ct%5Ct%5Ct%5Ct&#39;Unable%20to%20retrieve%20data%20for%20post,%20reel,%20or%20tv%20URL.&#39;,%5Cn%5Ct%5Ct%5Ct%5Ct&#39;error&#39;%5Cn%5Ct%5Ct%5Ct);%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D);%5Cn%7D%5Cn%22,%22allowAsync%22:%22false%22%7D,%22type%22:%22script%22,%22isEnabled%22:true,%22uuid%22:%226C344812-6645-47D0-830A-2CC68B7BE8F8%22%7D],%22backingPlatforms%22:3,%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:0,%22keyCommand%22:%7B%22optionKey%22:true,%22input%22:%22G%22,%22controlKey%22:false,%22commandKey%22:true,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Save%20Instagram%20Posts%22,%22shiftKey%22:false%7D,%22logLevel%22:1,%22groupDisposition%22:0,%22notificationType%22:1,%22tintColor%22:%22violet%22,%22actionDescription%22:%22Searches%20the%20current%20selection%20or%20Draft%20for%20any%20Instagram%20post%20URLs%20(instagram.com/p/)%20and%20saves%20the%20contents%20of%20each%20post%20as%20a%20new%20Draft.%20**Does%20not%20work%20for%20Private%20Accounts.**%20Edit%20the%20script%20to%20modify%20the%20templates%20and%20settings.%22,%22keyUseIcon%22:true,%22icon%22:%22564-camera%22,%22visibility%22:480,%22backingIsSeparator%22:false,%22groupUUID%22:%22C9236869-5ECB-439F-9C82-C0A61AA46722%22,%22assignTags%22:[],%22name%22:%22Save%20Instagram%20Posts%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// ******************** changelog ******************** //
+
+// v2.0:
+//	- added option to change draft title prefix
+//	- added option to remove tags from newly created draft(s)
+//	- added option to delete source draft on success
+//	- made error handling more robust
+//	- switched to built in error, info, success, and warning messages
+//	- cleaned up and refactored code
+// v1.9.5: added support to archive newly created draft
+// v1.9.4: jump to top of draft if loaded
+// v1.9.3: code cleanup
+// v1.9.2: added support to flag newly created draft
+// v1.9.1: added support for reels and tv
+// v1.9: tweaked default template
+// v1.8: updated to allow for running against multiple drafts at once
+// v1.7: added ability to reuse title of current draft for new draft(s)
+// v1.6: new default template to better accommodate searching Drafts
+// v1.5: gracefully handle non-fatal errors
+// v1.4: added ability to optionally both tag and load newly created drafts
+// v1.3: fix for changes to how paged threaded comments are queried
+// v1.2: code cleanup and refactoring
+// v1.1: now gets all comments, not just most recent
+// v1.0: initial release
+
+// ******************** templates ******************** //
+
+// image template
+var imageTpl = `![]([[postImage]])`;
+
+// comment template
+var commentTpl = `[[commentText]] —[[[commentUser]]](https://www.instagram.com/[[commentUser]]), [[commentDate]]`;
+
+// threaded comment template
+var threadTpl = `[[commentText]] —[[[commentUser]]](https://www.instagram.com/[[commentUser]]), [[commentDate]]`;
+
+// post template
+var postTpl = `[[draftTitle]]
+
+[[postCaption]]
+
+[[postImages]]
+
+[[[postUser]]](https://www.instagram.com/[[postUser]]), [[[postDate]]]([[postUrl]])
+
+## Comments
+
+[[postComments]]`;
+
+// ******************** settings ******************** //
+
+// prefix for the draft title
+var titlePrefix = &#39;# &#39;;
+
+// prefix for linebreaks found in the caption
+var captionPrefix = &#39;&#39;;
+
+// string used to join multiple images together
+var imageGlue = &#39;&#39;;
+
+// strftime format string for post and comment dates
+var dateFmt = &#39;%a, %d %b %Y %T %z&#39;;
+
+// prefix for linebreaks found in comments
+var commentPrefix = &#39;&gt; &#39;;
+
+// prefix for linebreaks found in threaded comments
+var threadPrefix = &#39;&gt; &gt; &#39;;
+
+// string used to join multiple comments together
+var commentGlue = &#39;\n\n&#39;;
+
+// escape hashes found at the beginning of a line in the caption and comments
+var escHashes = false;
+
+// if applicable, reuse the title of the source draft for the new draft(s)
+var reuseTitle = true;
+
+// copy any tags from the source draft to the new draft(s)
+var copyTags = true;
+
+// tags to add to the new draft(s)
+var addTags = [ &#39;@instagram&#39; ];
+
+// tags to remove from the new draft(s)
+var removeTags = [ &#39;instagram_old&#39; ];
+
+// if no errors or warnings occur, delete the source draft
+var delSource = true;
+
+// archive the newly created draft(s)
+var archiveDraft = true;
+
+// flag the newly created draft(s)
+var flagDraft = true;
+
+// load the new draft(s) in the editor
+var loadDraft = true;
+
+// ******************** functions ******************** //
+
+// log something and alert the user
+function alertUser( log, message, type = &#39;info&#39; ) {
+	console.log( log );
+	switch ( type ) {
+		case &#39;error&#39;:
+			app.displayErrorMessage( message );
+			delSource = false;
+			break;
+		case &#39;success&#39;:
+			app.displaySuccessMessage( message );
+			break;
+		case &#39;warning&#39;:
+			app.displayWarningMessage( message );
+			delSource = false;
+			break;
+		default:
+			app.displayInfoMessage( message );
+	}
+}
+
+// helper function for sorting comments by date
+function compareDates( a, b ) {
+	if ( a.node.created_at &lt; b.node.created_at ) {
+		return -1;
+	} else if ( a.node.created_at &gt; b.node.created_at ) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+// find any instagram post, reel, or tv URLs
+function findPostUrls( haystack ) {
+	let needle = new RegExp(
+		/(?:https?:\/\/)?(?:w{3}\.)?instagram\.com\/(p|reel|tv)\/[a-zA-Z0-9_\-]+/,
+		&#39;gi&#39;
+	);
+	let matches = [];
+	while ( ( match = needle.exec( haystack ) ) !== null ) matches.push( match[ 0 ] );
+	return matches;
+}
+
+// format a comment block
+function formatComment( comment, prefix, template ) {
+	let text = comment.node.text;
+	if ( escHashes ) text.replace( /^#/gm, &#39;\\#&#39; );
+	text = text.replace( /^/gm, prefix );
+	let date = strftime( comment.node.created_at * 1000, dateFmt );
+
+	// set the template tags and return the processed template
+	draft.setTemplateTag( &#39;commentText&#39;, text );
+	draft.setTemplateTag( &#39;commentDate&#39;, date );
+	draft.setTemplateTag( &#39;commentUser&#39;, comment.node.owner.username );
+	return draft.processTemplate( template );
+}
+
+// get all comments, sorted by date
+function getComments( recentComments, vars, queryHash, type ) {
+	let comments = recentComments.edges;
+	let hasNextPage = recentComments.page_info.has_next_page;
+	vars.after = recentComments.page_info.end_cursor;
+	vars.first = 50;
+
+	// get paged comments
+	while ( hasNextPage ) {
+		let encVars = encodeURIComponent( JSON.stringify( vars ) );
+		let requestUrl = `https://www.instagram.com/graphql/query/?query_hash=${queryHash}&amp;variables=${encVars}`;
+		let request = getUrl( requestUrl );
+		if ( request.success ) {
+
+			// handle errors that can occur when retrieving large numbers of paged comments
+			let response = verifyJSON( request.responseText );
+			if ( !response ) {
+				alertUser(
+					`${requestUrl} didn&#39;t return valid JSON`,
+					&#39;Unable to retrieve older comments.&#39;,
+					&#39;warning&#39;
+				);
+				hasNextPage = false;
+			} else {
+				let olderComments = type === &#39;thread&#39; ?
+					response.data.comment.edge_threaded_comments :
+					response.data.shortcode_media.edge_media_to_parent_comment;
+				comments.push.apply( comments, olderComments.edges )
+				hasNextPage = olderComments.page_info.has_next_page;
+				vars.after = olderComments.page_info.end_cursor;
+			}
+		} else {
+			alertUser(
+				`${request.statusCode} ${request.error} for ${requestUrl}`,
+				&#39;Unable to retrieve older comments.&#39;,
+				&#39;warning&#39;
+			);
+			hasNextPage = false;
+		}
+	}
+	return comments.sort( compareDates );
+}
+
+// get a URL
+function getUrl( url ) {
+	let http = HTTP.create();
+	return http.request({
+		&#39;method&#39;: &#39;GET&#39;,
+		&#39;url&#39;: url
+	});
+}
+
+// verify a string is valid JSON
+function verifyJSON( string ) {
+	try {
+		let result = JSON.parse( string );
+		if ( result &amp;&amp; typeof result === &#39;object&#39; ) {
+			return result;
+		}
+	} catch( e ) { }
+	return false;
+}
+
+// ******************** main ******************** //
+
+// check if the draft&#39;s title can and should be reused
+reuseTitle = draft.title.substr( 0, titlePrefix.length ) === titlePrefix ?
+	reuseTitle :
+	false;
+
+// find any instagram post, reel, or tv URLs in the draft
+let postUrls = findPostUrls( draft.content );
+if ( postUrls.length === 0 ) {
+	alertUser( &#39;&#39;, &#39;No post, reel, or tv URLs were found.&#39;, &#39;error&#39; );
+} else {
+
+	// get the JSON data for each URL that was found
+	postUrls.forEach( function( postUrl ) {
+		let request = getUrl( `${postUrl}/?__a=1` );
+		if ( request.success ) {
+			let response = verifyJSON( request.responseText );
+			if ( !response ) {
+				alertUser(
+					`${requestUrl} didn&#39;t return valid JSON`,
+					&#39;Unable to retrieve data for post, reel, or tv URL.&#39;,
+					&#39;error&#39;
+				);
+			} else {
+				let postData = response.graphql.shortcode_media;
+
+				// parse and format the images
+				let postImages = [];
+				if ( postData.hasOwnProperty( &#39;edge_sidecar_to_children&#39; ) ) {
+					postData.edge_sidecar_to_children.edges.forEach( function( postImage ) {
+						draft.setTemplateTag( &#39;postImage&#39;, postImage.node.display_url );
+						postImages.push( draft.processTemplate( imageTpl ) );
+					});
+				} else {
+					draft.setTemplateTag( &#39;postImage&#39;, postData.display_url );
+					postImages.push( draft.processTemplate( imageTpl ) );
+				}
+
+				// parse and format the caption
+				let postCaption = postData.edge_media_to_caption.edges[0].node.text;
+				if ( escHashes ) postCaption = postCaption.replace( /^#/gm, &#39;\\#&#39; );
+				postCaption  = postCaption.replace( /^/gm, captionPrefix );
+
+				// parse and format the comments
+				let postComments = [];
+				let comments = getComments(
+					postData.edge_media_to_parent_comment,
+					{ shortcode: postData.shortcode },
+					&#39;97b41c52301f77ce508f55e66d17620e&#39;,
+					&#39;comment&#39;
+				);
+				comments.forEach( function( comment ) {
+					postComments.push( formatComment( comment, commentPrefix, commentTpl ) );
+					let threads = getComments(
+						comment.node.edge_threaded_comments,
+						{ comment_id: comment.node.id },
+						&#39;51fdd02b67508306ad4484ff574a0b62&#39;,
+						&#39;thread&#39;
+					);
+					threads.forEach( function( thread ) {
+						postComments.push( formatComment( thread, threadPrefix, threadTpl ) );
+					});
+				});
+
+				// set the necessary template tags
+				draft.setTemplateTag( &#39;postUrl&#39;, postUrl );
+				draft.setTemplateTag( &#39;postImages&#39;, postImages.join( imageGlue ) );
+				draft.setTemplateTag( &#39;postCaption&#39;, postCaption );
+				draft.setTemplateTag( &#39;postComments&#39;, postComments.join( commentGlue ) );
+				draft.setTemplateTag( &#39;postUser&#39;, postData.owner.username );
+				draft.setTemplateTag( &#39;postDate&#39;, strftime( postData.taken_at_timestamp * 1000, dateFmt ) );
+				reuseTitle ?
+					draft.setTemplateTag( &#39;draftTitle&#39;, draft.title ) :
+					draft.setTemplateTag( &#39;draftTitle&#39;, titlePrefix + postData.shortcode );
+
+				// create the new draft
+				let d = Draft.create();
+				d.content = draft.processTemplate( postTpl );
+				if ( copyTags ) draft.tags.forEach( tag =&gt; d.addTag( tag ) );
+				addTags.forEach( tag =&gt; d.addTag( tag ) );
+				removeTags.forEach( tag =&gt; d.removeTag( tag ) );
+				d.isFlagged = flagDraft;
+				d.isArchived = archiveDraft;
+				d.update();
+				if ( loadDraft ) {
+					editor.load( d );
+					editor.setSelectedRange( 0, 0 );
+				}
+
+				// delete the source draft
+				draft.isTrashed = delSource;
+				draft.update();
+
+			}
+		} else {
+			alertUser(
+				`${request.statusCode} ${request.error} for ${requestUrl}`,
+				&#39;Unable to retrieve data for post, reel, or tv URL.&#39;,
+				&#39;error&#39;
+			);
+		}
+	});
+}
+</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Nothing
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Error</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Error</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="../../getdrafts.com/support/privacy.html">Privacy</a> | <a href="../../getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

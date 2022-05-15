@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Where Text Starts . . . and Then Returns?</title>
+    <link>https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758</link>
+    <description>Is it plausible to create an action that would open a draft in another application, and when that application saves changes to the file, the change is made to the draft?
+
+I&#39;ve been using Drafts for a while, mostly on macOS. TBH I make very light use of actions. Don&#39;t know anything about creating them. Drafts mainly serves as my preferred NValt-type alternative.
+
+What I really want to do is have an action to open a draft in FoldingText. Use the lovely folding features there, and then when I&#39;m done it saves the markdown back to my original draft in the Inbox.
+
+Does that make any sense?</description>
+    
+    <lastBuildDate>Sat, 06 Feb 2021 17:47:24 +0000</lastBuildDate>
+    <category>Drafts for Mac</category>
+    <atom:link href="https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Where Text Starts . . . and Then Returns?</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>The answer I think is kind of, sometimes, but certainly not always.</p>
+<p>Drafts does not use files to store notes. It uses a database, and nothing else is ablate read and write directly to that database. At least not if they are a good actor and following Apple’s security good practices.</p>
+<p>What you could do is pass the content to another app, have that app modify the content, and then pass that content back to Drafts along with what draft should be updated with the passed in content, triggering a draft action at the same time to apply the update (or via some other external automation mechanism).</p>
+<p>So while it can be done, it isn’t done exclusively with files like you would see in NValt, it isn’t exactly a trivial task to do, and it may require additional apps depending upon the destination app for modifying the content.</p>
+<p>If the destination app supports x-callback-url, this may simplify things, but not every apps supports this.</p>
+<p>In terms of FoldingText, it looks like it supports AppleScript, so you could probably build something with that to trigger the save back to drafts by a URL call to trigger an action or even just the <code>replaceRange</code> URL scheme option that Drafts supports.  You could store the UUID of the draft at the top of the text and parse that back out in your AppleScript.</p>
+<p>Hope that helps.</p>
+          <p><a href="https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758/2</link>
+        <pubDate>Sat, 06 Feb 2021 17:47:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9758-2</guid>
+        <source url="https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758.rss">Where Text Starts . . . and Then Returns?</source>
+      </item>
+      <item>
+        <title>Where Text Starts . . . and Then Returns?</title>
+        <dc:creator><![CDATA[Mary_Taka]]></dc:creator>
+        <description><![CDATA[
+            <p>Is it plausible to create an action that would open a draft in another application, and when that application saves changes to the file, the change is made to the draft?</p>
+<p>I’ve been using Drafts for a while, mostly on macOS. TBH I make very light use of actions. Don’t know anything about creating them. Drafts mainly serves as my preferred NValt-type alternative.</p>
+<p>What I really want to do is have an action to open a draft in FoldingText. Use the lovely folding features there, and then when I’m done it saves the markdown back to my original draft in the Inbox.</p>
+<p>Does that make any sense?</p>
+          <p><a href="https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758/1</link>
+        <pubDate>Thu, 04 Feb 2021 14:54:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9758-1</guid>
+        <source url="https://forums.getdrafts.com/t/where-text-starts-and-then-returns/9758.rss">Where Text Starts . . . and Then Returns?</source>
+      </item>
+  </channel>
+</rss>

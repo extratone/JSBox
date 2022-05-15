@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>RFC: AppleScript integration in actions - Drafts for Mac - Drafts Community</title>
+    <meta name="description" content="Getting around to AppleScript integration in the Mac version. Interested in feedback from those who might make use of this feature. This is not about Drafts itself being scriptable (which is coming as well), but about ho&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="6876.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;RFC: AppleScript integration in actions&#39;" href="https://forums.getdrafts.com/t/rfc-applescript-integration-in-actions/6876.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/rfc-applescript-integration-in-actions/6876" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/rfc-applescript-integration-in-actions/6876" />
+<meta property="og:title" content="RFC: AppleScript integration in actions" />
+<meta name="twitter:title" content="RFC: AppleScript integration in actions" />
+<meta property="og:description" content="Getting around to AppleScript integration in the Mac version. Interested in feedback from those who might make use of this feature. This is not about Drafts itself being scriptable (which is coming as well), but about how a “Run AppleScript” action step should behave when calling AppleScripts.  I’m going to provide a few suggested directions I could go with this and would like comments, or suggestions if the technically inclined can think of a better option I’m missing.  A Few Background Details ..." />
+<meta name="twitter:description" content="Getting around to AppleScript integration in the Mac version. Interested in feedback from those who might make use of this feature. This is not about Drafts itself being scriptable (which is coming as well), but about how a “Run AppleScript” action step should behave when calling AppleScripts.  I’m going to provide a few suggested directions I could go with this and would like comments, or suggestions if the technically inclined can think of a better option I’m missing.  A Few Background Details ..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="14 ❤" />
+<meta property="article:published_time" content="2020-03-06T15:44:22+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="6876.html">RFC: AppleScript integration in actions</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/drafts-for-mac.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #808281'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Drafts for Mac</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-06T15:44:22Z' class='post-time'>
+                March 6, 2020,  3:44pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-06T15:44:22Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Getting around to AppleScript integration in the Mac version. Interested in feedback from those who might make use of this feature. This is not about Drafts itself being scriptable (which is coming as well), but about how a “Run AppleScript” action step should behave when calling AppleScripts.  I’m going to provide a few suggested directions I could go with this and would like comments, or suggestions if the technically inclined can think of a better option I’m missing.</p>
+<h2>A Few Background Details</h2>
+<p>Drafts is a sandboxed app. As a result, the only external scripts the app is permitted to execute must reside in its designated scripts folder in <code>~/Library/Application Scripts/</code>. So, to run an AppleScript, it must be in a file in that folder.</p>
+<p>By default, a sandboxed app only has permissions to read from it’s own <code>Application Scripts</code> folder, but it can prompt the user for write permissions to that folder like any other folder it it needs to write a file there.</p>
+<p>AppleScripts (and other OSA-compliant scripts) are compiled and stored in a binary format, not as plain text scripts. Because of the tooling to compile and test scripts, it makes the most sense for users to edit those scripts in the Script Editor app included with the Mac, not directly in Drafts or another text editor.</p>
+<h2>Implementation Options</h2>
+<p>There’s a few different ways I could approach how the “Run AppleScript” action step would run scripts. These are the options I’ve thought of so far and am interested on which sounds most appealing. There are probably some pros and cons of each approach I’ve not yet considered as well.</p>
+<h3>Option <span class="hashtag">#1:</span> You manage the AppleScript files</h3>
+<p>A “Run AppleScript” step would just store the relative path of a script file, and when executed, attempt to find the script by that name in the file system and run it.</p>
+<ul>
+<li>
+<strong>Pros:</strong>
+<ul>
+<li>I don’t have to implement much to support it! <img src="../../images/emoji/apple/slight_smile.png@v=9" title=":slight_smile:" class="emoji" alt=":slight_smile:">
+</li>
+<li>Scripts would be stored compiled, ready to edit in the file system. Nothing is required in Drafts to pickup on changes to a script file.</li>
+<li>Requires no special permission to write to the <code>Application Scripts</code> directory.</li>
+</ul>
+</li>
+<li>
+<strong>Cons:</strong>
+<ul>
+<li>Scripts are not backed up, or synced between Macs. If you run Drafts on multiple Macs (or multiple user accounts on same Mac), you would be responsible for moving around and updating and scripts you need. Same for a re-install of Drafts on a new system.</li>
+<li>Not portable. An action requiring an AppleScript could not simply be shared via the Action Directory, export, or other means without also directing users how how to acquire and install the scripts it requires.</li>
+<li>No visibility of script content within Drafts.</li>
+</ul>
+</li>
+</ul>
+<h3>Option <span class="hashtag">#2:</span> Drafts stores the scripts in binary format</h3>
+<p>When editing a a “Run AppleScript” step, the user can import a script file (from anywhere on their system) they have written and compiled in Script Editor. The binary “.scpt” file data would be stored in the action, and when the action is run, Drafts would save that data out to disk in a temp folder in the <code>Application Scripts</code> directory and execute it.</p>
+<ul>
+<li>
+<strong>Pros:</strong>
+<ul>
+<li>Scripts would be stored compiled and ready to run.</li>
+<li>Portable. Scripts would be part of the action data, and synced and backed up to iCloud and be shareable via the Action Directory and/or export mechanisms.</li>
+</ul>
+</li>
+<li>
+<strong>Cons:</strong>
+<ul>
+<li>Requires special permission to write to the <code>Application Scripts</code> directory.</li>
+<li>No visibility of script content within Drafts.</li>
+<li>Changes to the script would require it be re-imported into Drafts.</li>
+</ul>
+</li>
+</ul>
+<h3>Option <span class="hashtag">#3:</span> Drafts stores the scripts in plain text format</h3>
+<p>The plain text version of the AppleScript would be stored in Drafts. It could be previewed and edited in Drafts directly, much like Javascript is now.</p>
+<ul>
+<li>
+<strong>Pros:</strong>
+<ul>
+<li>Visibility. Users could read/preview script contents in Drafts, in the action directory, etc., before running the action.</li>
+<li>Portable. Scripts would be part of the action data, and synced and backed up to iCloud and be shareable via the Action Directory and/or export mechanisms.</li>
+</ul>
+</li>
+<li>
+<strong>Cons:</strong>
+<ul>
+<li>Requires special permission to write to the <code>Application Scripts</code> directory.</li>
+<li>Maybe slow(?). Likely caching of compiled versions would be possible, but also might require the script to be compiled before running each time.</li>
+<li>Drafts action manager is not the idea environment to edit/test scripts.</li>
+</ul>
+</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Thoughts on which of these options seem most attractive?  Ideas for other approaches?</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+          <meta itemprop='keywords' content=''>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-06T16:19:28Z' class='post-time'>
+                March 6, 2020,  4:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-06T16:19:28Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>On a related note, since it’s likely to get asked…AppleScripts written for Drafts will look something like the below. Drafts will call a subroutine (tentatively using <code>execute</code> for the name of the subroutine, but that could change), passing a record with values from the current draft. If the subroutine returns a value (text, number, list, record, etc.) it will be made available to subsequent script steps in the Action.</p>
+<pre><code class="lang-auto">on execute(draft)
+    tell application "Finder"
+        activate
+        set msg to content of draft
+        display dialog msg buttons {"OK"} default button "OK"
+    end tell
+    --optionally this could return values to Drafts
+    --which would be available to subsequent steps in an action
+    --return "Hello Drafts!"
+end execute
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/tgray'><span itemprop='name'>tgray</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-06T19:15:53Z' class='post-time'>
+                March 6, 2020,  7:15pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-06T19:15:53Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>1 or 2. As I only use Drafts on one Mac and multiple iOS devices (which won’t have AppleScript), I lean towards 1. Sounds easier to implement and easier to make changes in the script.</p>
+<p>2 is also nice with the syncing, but the reimporting sounds like a pain if debugging/making changes to a script. Sync is relatively easy through other means.</p>
+<p>3 sounds like a lot of work and less than ideal. AppleScript is strange enough to me that I wouldn’t want to do it outside of script editor.</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/rcmit'><span itemprop='name'>rcmit</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-06T20:25:19Z' class='post-time'>
+                March 6, 2020,  8:25pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-06T20:25:19Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I would consider Option 2 to be the most favorable. I narrowed it down to Options 2 and 3 since I would want scripts to be backed up and synced. I selected Option 2 over 3 since I think the script editor is the correct place to develop and edit scripts. Re-importing scripts would not present a significant inconvenience. Thanks for all the work!</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/drdrang'><span itemprop='name'>drdrang</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-07T00:04:34Z' class='post-time'>
+                March 7, 2020, 12:04am
+              </time>
+              <meta itemprop='dateModified' content='2020-03-07T00:04:34Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>My vote is for Option 3. It would match up pretty well with the way Keyboard Maestro handles AppleScript steps, and that’s been pretty successful.</p>
+<p>To me, the only con of significance is the special permission to write to <code>Application Scripts</code>, and even that doesn’t seem like a big deal if it means what I think. Is it that I would have to grant Drafts permission—once—to write to that directory? People who use automation apps on the Mac are used to things like that.</p>
+<p>I really doubt the compilation would be slow. I have shell and Python scripts that use <code>osascript</code> to compile and run AppleScript, and I’ve never noticed them being significantly slower than any regular compiled AppleScript. Do you know if Keyboard Maestro compiles its AppleScript steps on the fly? It never seems slow.</p>
+<p>Even though Option 3 would require the AppleScript code to be saved within Drafts, I’d never write it there. Instead, I’d do what I do with AppleScript in Keyboard Maestro: write, edit, and test in Script Editor (or Script Debugger) and then copy into a Drafts action step when I think it’s ready.</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-07T08:15:30Z' class='post-time'>
+                March 7, 2020,  8:15am
+              </time>
+              <meta itemprop='dateModified' content='2020-03-07T08:15:30Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I would vote for Option 3. The <strong>presumed one-time</strong> permission request is not too burdensome and what people are getting used to. So long as it’s well explained why - which I think is entirely feasible/likely.</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/paulroub'><span itemprop='name'>paulroub</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-10T02:51:40Z' class='post-time'>
+                March 10, 2020,  2:51am
+              </time>
+              <meta itemprop='dateModified' content='2020-03-10T02:51:40Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’d vote for option 3, for much the same reasons Dr. Drang noted. And I would definitely use this feature.</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/imca'><span itemprop='name'>imca</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-10T17:43:45Z' class='post-time'>
+                March 10, 2020,  5:43pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-10T17:43:45Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Another vote for Option 3 — I already do my (limited) JavaScripting in a different editor and copy into the action when it’s ready to go.</p>
+<p>I’m fine with self-managing (Option 1), but as someone who benefits from others actions <em>a lot</em> when developing my own, losing sharing of scripts is a big con.</p>
+<p>If I interpret Option 2 correctly, you could conceivably download a shared AppleScript action and run it without seeing the source, which I think makes it a no-go from a security standpoint.</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-11T20:39:11Z' class='post-time'>
+                March 11, 2020,  8:39pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-11T20:39:11Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve gotten option 3 running. It does not seem that performance is much of an issue, at least for the small size scripts this will mostly be used to trigger. It is the option I like best as well, and will likely go with it. For those interested, the technical implementation goes more or less like this:</p>
+<ul>
+<li>The first time an AppleScript step is run on a particular Mac, you will get an “Open” dialog pre-selecting the <code>~/Library/Application Scripts/com.agiletortoise.Drafts-OSX</code> folder requesting you give write permissions to that folder to Drafts. This will be persistent for the most part…but if those permissions are every lost, you will just be prompted again.</li>
+<li>When run, Drafts will compile the script text saved in the action to a file on disk using <code>osacompile</code> from a script that ships with Drafts in its app bundle.</li>
+<li>That compiled script is moved to the folder mentioned above, so that the sandbox will allow it to be executed, then it is run, calling the <code>execute</code> subroutine with a single <code>draft</code> parameter - which is an object which contains keys with information about the current draft (uuid, content, etc.).</li>
+<li>If the script returns a value which is convertible to JavaScript-friendly objects - basically core data types like text, date, or lists or records containing core data types - those values will be bridged to the javascript context so they can be used in subsequent script steps in the action. So, say you run an AppleScript that gathers information about open tabs in Safari, you can pass back that data to be inserted in a draft. Still sorting out exactly what that API looks like, but it will be something like how <a href="../../../docs.getdrafts.com/docs/actions/steps/advanced.html#callback-url">Callback URL</a> responses are exposed.</li>
+<li>Draft then cleans up after itself, deleting the temporary script files.</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="3" />
+           <span class='post-likes'>3 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6876.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-03-12T19:34:43Z' class='post-time'>
+                March 12, 2020,  7:34pm
+              </time>
+              <meta itemprop='dateModified' content='2020-03-12T19:34:43Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’ve written the Javascript integration now as well. Compiling on the fly makes this a lot easier, too. Calling AppleScript from directly in JavaScript will enable more flexibility to call named subroutines, pass any parameters to the AppleScript, and get the results directly in the script. Example syntax:</p>
+<pre><code class="lang-javascript">let method = "execute";
+let script = `on execute(bodyHTML)
+	tell application "Notes"
+		activate
+		tell account "iCloud"
+			make new note at folder "Testing" with properties {body:bodyHTML}
+		end tell
+	end tell
+end execute`;
+
+let html = draft.processTemplate("%%[[draft]]%%");
+
+let runner = AppleScript.create(script);
+if (runner.execute(method, [html])) {
+	//
+}
+else {
+	alert(runner.lastError);
+}
+</code></pre>
+<p>Should be able to get this stuff in a beta in the next couple of weeks.</p>
+        </div>
+
+        <meta itemprop='headline' content='RFC: AppleScript integration in actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

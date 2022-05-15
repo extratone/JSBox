@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 21 Released - Better undo and advanced HTML Previews</title>
+    <link>https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706</link>
+    <description>## Drafts 21 has been released:
+
+- [iOS App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site)
+- [Mac App Store](https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site)
+
+Details below. For a complete history of updates, visit:
+
+- [iOS Changelog](https://docs.getdrafts.com/docs/misc/changelog-ios)
+- [Mac Changelog](https://docs.getdrafts.com/docs/misc/changelog-mac)</description>
+    
+    <lastBuildDate>Wed, 17 Jun 2020 12:58:25 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 21 Released - Better undo and advanced HTML Previews</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            
+          <p><a href="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/4</link>
+        <pubDate>Wed, 17 Jun 2020 13:09:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7706-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706.rss">Drafts 21 Released - Better undo and advanced HTML Previews</source>
+      </item>
+      <item>
+        <title>Drafts 21 Released - Better undo and advanced HTML Previews</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>Drafts 21 (macOS) Release Notes:</h2>
+<h4>What’s New</h4>
+<ul>
+<li>
+<strong>Undo for most commands in the draft list.</strong> Most actions and operations on the draft list are now undoable. After moving a draft to the trash, moving between inbox and archive, flagging, add-remove tags, etc., you can undo that operation. To access undo: <code>Edit &gt; Undo</code> in main menu, or use Command-Z the keyboard.</li>
+<li>
+<strong>Advanced HTML Previews</strong> HTML Previews (via action step or script) now provide access to the JavaScript functions that can be called from scripts embedded in the preview document to pass values out for use in Drafts script steps, or to control flow (Cancel/Continue). Using these functions, you can build user-interfaces for actions using HTML forms, and gather and submit data or user selections for use in other script steps. Available functions:
+<ul>
+<li>
+<code>Drafts.send(key, value)</code>: Send data out to the action context. These values will be available to subsequent scripts using the <code>context.previewValues</code> object. So, if you call <code>Drafts.send("mydata", {"a": 1, "b": true})</code> in your preview, you can later retrieve those values in a script step using <code>context.previewValues["mydata"]</code>.</li>
+<li>
+<code>Drafts.continue()</code> and <code>Drafts.cancel()</code>: Equivalent to pressing the continue/cancel buttons in the preview UI. Allows automatic continuation of script with a form submission, for example, in the HTML document.</li>
+<li>HTML Previews now offer an additional “Hide Interface” option that removes toolbars. Used only when the script features above are used to control flow.</li>
+<li>More details in <a href="https://docs.getdrafts.com/docs/actions/html-forms">Advanced HTML Previews article</a>
+</li>
+<li>
+<strong>Example Actions</strong>:
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/102">HTML Preview Form Example</a>: Bare bones example of how to display an HTML form in a preview and use values from it in a script.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/197">HTML &gt; Markdown</a>: Uses the Turndown JavaScript library - which depends on the DOM and browser - within a preview to convert HTML content to Markdown.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>Scripting Additions</strong>:
+<ul>
+<li>
+<code>app.currentWorkspace</code> property returns a Workspace object configured as the current drafts list is configured. Note this is <em>not</em> the same as a named workspace object, even if you have recently applied a workspace to the list. Calling <code>update()</code> on this retrieved copy will create a new workspace. It is recommended this be used primarily as a read-only version of the workspace to use to pass to another function, such as <code>app.selectDraft()</code>. <a href="https://scripting.getdrafts.com/classes/app.html#currentworkspace">Docs</a>
+</li>
+<li>
+<code>app.isPro</code> boolean to determine if the app is pro unlocked. <a href="https://scripting.getdrafts.com/classes/app.html#ispro">Docs</a>
+</li>
+<li>
+<code>app.selectDraft()</code> can now optionally take a workspace parameter to set the initial search/filtering in the select window. <a href="https://scripting.getdrafts.com/classes/app#selectdraft">Docs</a>
+</li>
+<li>
+<code>draft.append(text, separator)</code> and <code>draft.prepend(text, separator)</code> convenience functions on draft object. <code>separator</code> is optional and defaults to a line feed. <a href="https://scripting.getdrafts.com/classes/draft#append">Docs</a>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Other Changes and Updates</h4>
+<ul>
+<li>
+<strong>Change:</strong> Refactor some of the code for the <code>FileManager</code> script object. The <code>writeString</code> and <code>writeJSON</code> methods no longer replace files, just update contents so the creation date is maintained and it interferes less with other apps using the same folders.</li>
+<li>
+<strong>New:</strong> “Insert Text” action steps should register an undo point to allow that insertion to be undone atomically.</li>
+<li>
+<strong>Fix:</strong> Clicking on a non-HTTP link in an HTML Preview should close the preview as if the cancel button were pressed.</li>
+<li>
+<strong>Fix:</strong> <code>app.currentThemeMode</code> not always correct.</li>
+<li>
+<strong>Change:</strong> Change “Move to Trash” keyboard shortcut to avoid conflict with delete to beginning of line text shortcut.</li>
+<li>
+<strong>Change:</strong> Improve keyboard navigation and selection in Drafts select window (used in Capture window and <code>app.selectDraft()</code>).</li>
+<li>
+<strong>Fix:</strong> Web capture template not saving changes properly.</li>
+<li>
+<strong>Fix:</strong> If focus mode was disabled in secondary windows, the new draft creation timeout would fire too quickly in those windows when returning to the app.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/3</link>
+        <pubDate>Wed, 17 Jun 2020 12:58:25 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7706-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706.rss">Drafts 21 Released - Better undo and advanced HTML Previews</source>
+      </item>
+      <item>
+        <title>Drafts 21 Released - Better undo and advanced HTML Previews</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>Drafts 21 (iOS) Release Notes:</h2>
+<h4>What’s New</h4>
+<ul>
+<li>
+<strong>Undo for most commands in the draft list.</strong> Most actions and operations on the draft list are now undoable. After moving a draft to the trash, moving between inbox and archive, flagging, add-remove tags, etc., you can undo that operation. To access undo: Shake to Undo, use Command-Z on an external keyboard, or three-finger swipes left-right to undo/redo (iOS 13 only).</li>
+<li>
+<strong>Advanced HTML Previews</strong> HTML Previews (via action step or script) now provide access to the JavaScript functions that can be called from scripts embedded in the preview document to pass values out for use in Drafts script steps, or to control flow (Cancel/Continue). Using these functions, you can build user-interfaces for actions using HTML forms, and gather and submit data or user selections for use in other script steps. Available functions:
+<ul>
+<li>
+<code>Drafts.send(key, value)</code>: Send data out to the action context. These values will be available to subsequent scripts using the <code>context.previewValues</code> object. So, if you call <code>Drafts.send("mydata", {"a": 1, "b": true})</code> in your preview, you can later retrieve those values in a script step using <code>context.previewValues["mydata"]</code>.</li>
+<li>
+<code>Drafts.continue()</code> and <code>Drafts.cancel()</code>: Equivalent to pressing the continue/cancel buttons in the preview UI. Allows automatic continuation of script with a form submission, for example, in the HTML document.</li>
+<li>HTML Previews now offer an additional “Hide Interface” option that removes toolbars. Used only when the script features above are used to control flow.</li>
+<li>More details in <a href="https://docs.getdrafts.com/docs/actions/html-forms">Advanced HTML Previews article</a>
+</li>
+<li>
+<strong>Example Actions</strong>:
+<ul>
+<li>
+<a href="https://actions.getdrafts.com/a/102">HTML Preview Form Example</a>: Bare bones example of how to display an HTML form in a preview and use values from it in a script.</li>
+<li>
+<a href="https://actions.getdrafts.com/a/197">HTML &gt; Markdown</a>: Uses the Turndown JavaScript library - which depends on the DOM and browser - within a preview to convert HTML content to Markdown.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<strong>Scripting Additions</strong>:
+<ul>
+<li>
+<code>app.currentWorkspace</code> property returns a Workspace object configured as the current drafts list is configured. Note this is <em>not</em> the same as a named workspace object, even if you have recently applied a workspace to the list. Calling <code>update()</code> on this retrieved copy will create a new workspace. It is recommended this be used primarily as a read-only version of the workspace to use to pass to another function, such as <code>app.selectDraft()</code>. <a href="https://scripting.getdrafts.com/classes/app.html#currentworkspace">Docs</a>
+</li>
+<li>
+<code>app.isPro</code> boolean to determine if the app is pro unlocked. <a href="https://scripting.getdrafts.com/classes/app.html#ispro">Docs</a>
+</li>
+<li>
+<code>app.selectDraft()</code> can now optionally take a workspace parameter to set the initial search/filtering in the select window. <a href="https://scripting.getdrafts.com/classes/app#selectdraft">Docs</a>
+</li>
+<li>
+<code>draft.append(text, separator)</code> and <code>draft.prepend(text, separator)</code> convenience functions on draft object. <code>separator</code> is optional and defaults to a line feed. <a href="https://scripting.getdrafts.com/classes/draft#append">Docs</a>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Other Changes and Updates</h4>
+<ul>
+<li>
+<strong>Change:</strong> Refactor some of the code for the <code>FileManager</code> script object. The <code>writeString</code> and <code>writeJSON</code> methods no longer replace files, just update contents so the creation date is maintained and it interferes less with other apps using the same folders.</li>
+<li>
+<strong>New:</strong> “Insert Text” action steps should register an undo point to allow that insertion to be undone atomically.</li>
+<li>
+<strong>Fix:</strong> Clicking on a non-HTTP link in an HTML Preview should close the preview as if the cancel button were pressed.</li>
+<li>
+<strong>Change:</strong> Improve keyboard navigation and selection in Drafts select view (used in Share extension and <code>app.selectDraft()</code>).</li>
+<li>
+<strong>Fix:</strong> Calls to <code>editor.setSelectedRange</code> could inadvertently scroll to the end of the draft.</li>
+<li>
+<strong>New:</strong> Context menu on drafts in the trash can.</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/2</link>
+        <pubDate>Wed, 17 Jun 2020 12:57:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7706-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706.rss">Drafts 21 Released - Better undo and advanced HTML Previews</source>
+      </item>
+      <item>
+        <title>Drafts 21 Released - Better undo and advanced HTML Previews</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>Drafts 21 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-ios">iOS Changelog</a></li>
+<li><a href="https://docs.getdrafts.com/docs/misc/changelog-mac">Mac Changelog</a></li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706/1</link>
+        <pubDate>Wed, 17 Jun 2020 12:57:00 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7706-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-21-released-better-undo-and-advanced-html-previews/7706.rss">Drafts 21 Released - Better undo and advanced HTML Previews</source>
+      </item>
+  </channel>
+</rss>

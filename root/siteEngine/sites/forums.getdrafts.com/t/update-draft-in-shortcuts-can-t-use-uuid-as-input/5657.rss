@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+    <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657</link>
+    <description>In Drafts 14/ios12 I had a Drafts action that takes the contents of a draft, sends it to Shortcuts which queries for some JSON, dictionary results populate a form, and then it updates the original Draft with the new form. For this, I used the method [Greg describes here](https://forums.getdrafts.com/t/tip-insert-result-of-a-shortcuts-app-shortcut-in-current-draft/2666). 
+
+As I’m updating it for Drafts 15/iOS 13, it seems it would be easiest to do it all in Shortcuts, w/o a “wait for results” in Drafts. The problem is that the “Update Drafts” action in shortcuts won’t seem to take a UUID (or a magic variable with a UUID) as input. Rather — I have to choose a specific Draft from a picker. 
+
+The obvious work-around is use the old method (or a hybrid), but I think it would be powerful if you can send a UUID to Shortcuts, do some stuff, and use Update Draft on that UUID. (Unless there’s some security or other limitation I’m missing here).
+
+Let me know if I’m missing anything or if anyone has a more elegant solution.</description>
+    
+    <lastBuildDate>Thu, 10 Oct 2019 15:32:34 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+        <dc:creator><![CDATA[imca]]></dc:creator>
+        <description><![CDATA[
+            <p>Very helpful — thank you!</p>
+          <p><a href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/6</link>
+        <pubDate>Thu, 10 Oct 2019 15:32:34 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5657-6</guid>
+        <source url="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss">Update Draft in Shortcuts - can’t use UUID as input?</source>
+      </item>
+      <item>
+        <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>If you are using an action in Shortcuts that asks for a UUID, it is a deprecated URL-based action. Apple will likely remove those soon.</p>
+<p><code>Update Draft</code> actions need to target a “Draft” object, not a UUID…which you would get as the variable returned from a <code>Get Draft</code>.</p>
+<p>That said, I would not think it’s generally a good design to have more than one call to <code>Update Draft</code> for the same draft in the same shortcut. Should work, but whatever your processing you are doing could be handled in a variable in Shortcuts, then the draft updated once.</p>
+<p>Not sure if I understood or not, but is that helpful?</p>
+          <p><a href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/5</link>
+        <pubDate>Tue, 08 Oct 2019 00:41:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5657-5</guid>
+        <source url="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss">Update Draft in Shortcuts - can’t use UUID as input?</source>
+      </item>
+      <item>
+        <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+        <dc:creator><![CDATA[cfritze]]></dc:creator>
+        <description><![CDATA[
+            <p>I’ve been working some similar workflows between Shortcuts and Drafts. When I’ve needed to update a draft, I use the Update Draft Action in Shortcuts and select the Replace option instead of Append/Prepend. I reference the original draft by the title, which I think is the first line of content that you would have grabbed earlier in the shortcut. I do the text-wrangling (separating title from body, adjusting body text, recombining) in shortcuts and then use Update Draft to send it back. Hope this helps.</p>
+<ul>
+<li>
+<ul>
+<li>Christian</li>
+</ul>
+</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/4</link>
+        <pubDate>Mon, 07 Oct 2019 00:56:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5657-4</guid>
+        <source url="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss">Update Draft in Shortcuts - can’t use UUID as input?</source>
+      </item>
+      <item>
+        <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+        <dc:creator><![CDATA[imca]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for chiming in Greg, I think my first message was unclear.</p>
+<p>I already did what you suggested (sent <code>[[uuid]]</code> to Shortcuts and used <code>Get Draft</code> in Shortcuts). However, at the end of the Shortcut, at first I tried to <code>Update Draft</code> using the same UUID variable and couldn’t find a way to do it.</p>
+<p>It works fine by setting the Drafts Shortcut Action to <code>wait for response</code>, exiting the Shortcut with Text, and using that text to update the draft in a second action step in Drafts, as described in the original link which inspired the action in the first place (Thank you!).</p>
+<p>But it got me wondering about what can be done in Shortcuts with multiple drafts, or updating the same draft multiple times, by giving <code>Update Draft</code> an <code>UUID</code> in variable form.</p>
+<p>So nothing broken, just an edge-case feature which might unlock some power (or unlock possible disasters in the relatively poorly documented Shortcuts world).</p>
+          <p><a href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/3</link>
+        <pubDate>Sun, 06 Oct 2019 22:45:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5657-3</guid>
+        <source url="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss">Update Draft in Shortcuts - can’t use UUID as input?</source>
+      </item>
+      <item>
+        <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The <code>Run Shortcut</code> step has a template. By default, it sends the drafts content to Shortcuts with the <code>[[draft]]</code> tag.</p>
+<p>You could send the <code>[[uuid]]</code> instead, then “Get Draft” in Shortcuts. If that heads you in the right direction.</p>
+          <p><a href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/2</link>
+        <pubDate>Sun, 06 Oct 2019 22:24:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5657-2</guid>
+        <source url="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss">Update Draft in Shortcuts - can’t use UUID as input?</source>
+      </item>
+      <item>
+        <title>Update Draft in Shortcuts - can’t use UUID as input?</title>
+        <dc:creator><![CDATA[imca]]></dc:creator>
+        <description><![CDATA[
+            <p>In Drafts 14/ios12 I had a Drafts action that takes the contents of a draft, sends it to Shortcuts which queries for some JSON, dictionary results populate a form, and then it updates the original Draft with the new form. For this, I used the method <a href="https://forums.getdrafts.com/t/tip-insert-result-of-a-shortcuts-app-shortcut-in-current-draft/2666">Greg describes here</a>.</p>
+<p>As I’m updating it for Drafts 15/iOS 13, it seems it would be easiest to do it all in Shortcuts, w/o a “wait for results” in Drafts. The problem is that the “Update Drafts” action in shortcuts won’t seem to take a UUID (or a magic variable with a UUID) as input. Rather — I have to choose a specific Draft from a picker.</p>
+<p>The obvious work-around is use the old method (or a hybrid), but I think it would be powerful if you can send a UUID to Shortcuts, do some stuff, and use Update Draft on that UUID. (Unless there’s some security or other limitation I’m missing here).</p>
+<p>Let me know if I’m missing anything or if anyone has a more elegant solution.</p>
+          <p><a href="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657/1</link>
+        <pubDate>Sat, 05 Oct 2019 22:50:36 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-5657-1</guid>
+        <source url="https://forums.getdrafts.com/t/update-draft-in-shortcuts-can-t-use-uuid-as-input/5657.rss">Update Draft in Shortcuts - can’t use UUID as input?</source>
+      </item>
+  </channel>
+</rss>

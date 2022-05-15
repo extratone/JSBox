@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Create action for Todoist with title as due date</title>
+    <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353</link>
+    <description>Can anyone help me on this one? I usually wake up in the morning with 15 things in my head I need to do today that I want to get into Todoist. I think the easiest way for me would be to quickly write a draft that looks like this:
+
+Today
+Follow up on change in insurance
+Deposit check at the bank
+Check on car repair
+Reach out to Paul about catering
+
+What I&#39;d like is for Drafts to take the title &quot;Today&quot; and append that to every line as it processes them in Todoist Quick Add syntax. I&#39;m sure this is easy but my scripting ability is nil. 
+
+Any suggestions would be much appreciated.
+Thanks.</description>
+    
+    <lastBuildDate>Sat, 26 Mar 2022 07:48:30 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[TDK_SA90]]></dc:creator>
+        <description><![CDATA[
+            <p>As always, your Todoist solutions are ace. <img src="https://forums.getdrafts.com/images/emoji/apple/+1.png?v=12" title=":+1:" class="emoji" alt=":+1:" loading="lazy" width="20" height="20"></p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/11</link>
+        <pubDate>Sat, 26 Mar 2022 07:48:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-11</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[wassie]]></dc:creator>
+        <description><![CDATA[
+            <p>Wow. This is exactly what I was looking for. Thank you so much. And I really appreciate you stepping it out for me. My problem isn’t so much conceptualizing how I would go about executing the steps, it’s more that I have no idea what my options are in javascript, Drafts and Todoist and how to execute them. My programming ability stopped at BASIC and PASCAL.</p>
+<p>You should offer this action up in the Action Directory. I think I’m not the only one who would appreciate it.</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/10</link>
+        <pubDate>Fri, 25 Mar 2022 19:16:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-10</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>its always helpful to breakdown the action you want to build into smaller chunks.<br>
+Or ask yoursefl whats different now compared to the previous input.</p>
+<p>In your example you inserted new due dates so obivously you can’t use <a class="mention" href="https://forums.getdrafts.com/u/sylumer">@sylumer</a>’s example code to be successfull. But this code snippets allow you (more or less) to get the first line in a chunk and use it as due dates for all other ones in that chunk.<br>
+So first you have to split your example into those smaller chunks for each due dat.<br>
+If you’re stickng with that scheme you always have two “newline characters” before each new due date.<br>
+To achieve this you can use the following snippet:</p>
+<pre><code class="lang-javascript">let chunks = draft.content.split("\n\n")
+</code></pre>
+<p>Now the <code>chunks</code> variable contains an array of text similar to your first example with only one due date. You have to repeat the same steps for each due date in that array.<br>
+Therefore you’ll need a for-loop:</p>
+<pre><code class="lang-javascript">for(chunk of chunks){
+  // now chunk contains the text block for this due date
+}
+</code></pre>
+<p>in the for loop you should do something similar to the snippet from sylumer but you can’t use the “draft.title” anymore - instead the first line of each “chunk” is the due date for the following lines.</p>
+<p>If you break this down further you may come to a similar solution which I tested:</p>
+<pre><code class="lang-javascript">
+// tasks with headers as due dates
+
+// split content by two newline
+let chunks = draft.content.split("\n\n");
+
+let tasks = [];
+
+for(chunk of chunks){
+  // split chunk by new line
+  let lines = chunk.split("\n");
+  // due date of the current chunk is the first line (index zero)
+  let curDueDate = lines[0];
+  // remove first element in lines array
+  lines = lines.slice(1)
+  // repeat for each element in lines
+  for(line of lines){
+      // add line together with the date to the tasks array
+      tasks.push(line + " " + curDueDate);
+  }
+}
+
+// now from the draft are stored with their due date in the taks array
+// we just need to add them to todoist now.
+let todoist = Todoist.create()
+// repeat with each element of the tasks array
+for(task of tasks){
+  todoist.quickAdd(task)
+}
+
+</code></pre>
+<p>this script worked for me with the following demo content (i noticed you had 3/38 in your example i guess a typo) - you can test with different time formats but the “quickAdd()” function should use todoists natural language parser so anything that works in the add task interface in todoist should work, too.</p>
+<pre><code class="lang-nohighlight">today
+buy milk
+wash car
+
+tomorrow
+order socks
+call mark
+
+03/28/2022
+return ball
+cancel subscription
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/9</link>
+        <pubDate>Fri, 25 Mar 2022 07:01:46 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-9</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[wassie]]></dc:creator>
+        <description><![CDATA[
+            <p>That works perfectly. So now can I take advantage of your kindness and ask you if there’s a simple way of expanding this functionality? So, for instance, if my list looked like this…</p>
+<pre><code class="lang-auto">today
+Buy milk
+Pick up dry cleaning
+Wash car
+
+tomorrow
+Order socks
+Call Mark
+Learn how to code javascript
+
+3/38
+Return soccer ball
+Cancel subscription
+Seriously learn how to code!
+</code></pre>
+<p>…Todoist could parse it and add the dates to the relevant items? I suppose the dates would have to include some signifier before it ("!" “#” “$” whatever) to flag them because they’d no longer just be in the title. Is it doable? I totally understand if you don’t feel like writing it all out or explaining it to me. Perhaps you could point me to a similar action and I can try to decipher and transpose it. I appreciate any advice you could offer. Thanks.</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/8</link>
+        <pubDate>Fri, 25 Mar 2022 00:14:51 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-8</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[wassie]]></dc:creator>
+        <description><![CDATA[
+            <p>Exactly what I needed to understand. Thank you.</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/7</link>
+        <pubDate>Thu, 24 Mar 2022 22:05:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-7</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>That line isn’t in the original action.</p>
+<p>My suggestion is similar to, but not the same as Greg’s.  Both start from the same point.</p>
+<p>I suggested a replacement line of code to, whereas Greg suggested an additional line of code.</p>
+<p>If you want to try my suggestion, either take that line out, or start from the original action.</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/6</link>
+        <pubDate>Thu, 24 Mar 2022 21:59:48 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-6</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[wassie]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group quote-modified" data-username="agiletortoise" data-post="2" data-topic="12353">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p><code>lines = lines.map(ln =&gt; </code>${ln} today<code>);</code></p>
+</blockquote>
+</aside>
+<p>Thank you. What happens with this line?<br>
+lines = lines.map(ln =&gt; <code>${ln} today</code>);</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/5</link>
+        <pubDate>Thu, 24 Mar 2022 20:22:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-5</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Maybe replace …</p>
+<pre><code class="lang-auto">let lines = draft.content.split("\n");
+</code></pre>
+<p>… with …</p>
+<pre><code class="lang-auto">let lines = draft.lines.map(strLine =&gt; strLine + " " + draft.title).slice(1);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/4</link>
+        <pubDate>Thu, 24 Mar 2022 20:12:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-4</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[wassie]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks a lot. I’ll give it a try. However, if I understand this, it will always append “today” to each task as opposed to grabbing “today” from the draft title. It would be great it I could put the title as “tomorrow” and have drafts append that string accordingly. Is there a way to do that?</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/3</link>
+        <pubDate>Thu, 24 Mar 2022 19:38:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-3</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Start with <a href="https://directory.getdrafts.com/a/1MV">this Tasks in Todoist</a> action.</p>
+<p>Make this modification:</p>
+<pre><code class="lang-javascript">// look for the line below - it's at the top of the script
+let lines = draft.content.split("\n");
+
+// add this line after it...
+lines = lines.map(ln =&gt; `${ln} today`);
+</code></pre>
+<p>That should do it. That new line iterates over the array of lines, and updates it to append " today" at the end of each.</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/2</link>
+        <pubDate>Thu, 24 Mar 2022 19:18:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-2</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+      <item>
+        <title>Create action for Todoist with title as due date</title>
+        <dc:creator><![CDATA[wassie]]></dc:creator>
+        <description><![CDATA[
+            <p>Can anyone help me on this one? I usually wake up in the morning with 15 things in my head I need to do today that I want to get into Todoist. I think the easiest way for me would be to quickly write a draft that looks like this:</p>
+<p>Today<br>
+Follow up on change in insurance<br>
+Deposit check at the bank<br>
+Check on car repair<br>
+Reach out to Paul about catering</p>
+<p>What I’d like is for Drafts to take the title “Today” and append that to every line as it processes them in Todoist Quick Add syntax. I’m sure this is easy but my scripting ability is nil.</p>
+<p>Any suggestions would be much appreciated.<br>
+Thanks.</p>
+          <p><a href="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353/1</link>
+        <pubDate>Thu, 24 Mar 2022 19:08:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12353-1</guid>
+        <source url="https://forums.getdrafts.com/t/create-action-for-todoist-with-title-as-due-date/12353.rss">Create action for Todoist with title as due date</source>
+      </item>
+  </channel>
+</rss>

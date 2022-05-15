@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mailer Using mailto: URL Scheme - Actions - Help &amp; Questions - Drafts Community</title>
+    <meta name="description" content="I’m trying to modify Spark Mailer v2 to use the mailto URL scheme instead of the Spark URL Scheme.  The reason for making the conversion is that apparently using mailto allows &amp;lt;newline&amp;gt; characters embedded into the &amp;lt;body&amp;gt;&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="12655.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Mailer Using mailto: URL Scheme&#39;" href="12655.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/mailer-using-mailto-url-scheme/12655" />
+<meta property="og:title" content="Mailer Using mailto: URL Scheme" />
+<meta name="twitter:title" content="Mailer Using mailto: URL Scheme" />
+<meta property="og:description" content="I’m trying to modify Spark Mailer v2 to use the mailto URL scheme instead of the Spark URL Scheme.  The reason for making the conversion is that apparently using mailto allows &lt;newline&gt; characters embedded into the &lt;body&gt; whereas they are ignored using the Spark (and perhaps all other email) URL Schemes.  (Details here.)  Here’s the test code I’m using:  // Test data - Remove let strNicknameList = &quot;nicknameList&quot; let strEmailTo = &quot;nameTo1&lt;acctTo1@domain.tld&gt;&quot; let strEmailCc = &quot;nameCC1&lt;acctCC1@dom..." />
+<meta name="twitter:description" content="I’m trying to modify Spark Mailer v2 to use the mailto URL scheme instead of the Spark URL Scheme.  The reason for making the conversion is that apparently using mailto allows &lt;newline&gt; characters embedded into the &lt;body&gt; whereas they are ignored using the Spark (and perhaps all other email) URL Schemes.  (Details here.)  Here’s the test code I’m using:  // Test data - Remove let strNicknameList = &quot;nicknameList&quot; let strEmailTo = &quot;nameTo1&lt;acctTo1@domain.tld&gt;&quot; let strEmailCc = &quot;nameCC1&lt;acctCC1@dom..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2022-05-13T02:32:59+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="12655.html">Mailer Using mailto: URL Scheme</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #652D90'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Help &amp; Questions</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nello'><span itemprop='name'>nello</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12655.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-13T02:32:59Z' class='post-time'>
+                May 13, 2022,  2:32am
+              </time>
+              <meta itemprop='dateModified' content='2022-05-13T18:36:39Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I’m trying to modify <a href="../../../directory.getdrafts.com/a/1yz.html" rel="noopener nofollow ugc">Spark Mailer v2</a> to use the <a href="https://datatracker.ietf.org/doc/html/rfc6068" rel="noopener nofollow ugc">mailto URL scheme</a> instead of the <a href="https://talk.automators.fm/t/which-ios-email-apps-support-automation-shortcuts-url-schemes-x-callback-url/3552/9" rel="noopener nofollow ugc">Spark URL Scheme</a>.  The reason for making the conversion is that apparently using mailto allows &lt;newline&gt; characters embedded into the &lt;body&gt; whereas they are ignored using the Spark (and perhaps all other email) URL Schemes.  (<a href="../need-spark-action-that-sends-copies/12486/21.html">Details here</a>.)</p>
+<p>Here’s the test code I’m using:</p>
+<pre><code class="lang-auto">// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+// Base settings
+let cburlMailto = CallbackURL.create();
+cburlMailto.waitForResponse = false;
+cburlMailto.baseURL = "mailto:" + strEmailTo;
+// Who else gets it
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+// Body
+cburlMailto.addParameter("body",`${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`);
+
+// Log Url string - Remove
+console.log("cburlMailto: " + cburlMailto());
+
+// Open default mailer
+cburlMailto.open();
+</code></pre>
+<p>My problem is trying to display the string built in <code>cburlMailto</code>.</p>
+<p>How do I log it on the console or display it in an alert?</p>
+        </div>
+
+        <meta itemprop='headline' content='Mailer Using mailto: URL Scheme'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12655.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-13T05:14:07Z' class='post-time'>
+                May 13, 2022,  5:14am
+              </time>
+              <meta itemprop='dateModified' content='2022-05-13T05:14:07Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Try <code>console.log("cburlMailto: " + cburlMailto.url);</code>.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://scripting.getdrafts.com/classes/callbackurl#url">
+  <header class="source">
+
+      <a href="../../../scripting.getdrafts.com/classes/callbackurl.html#url" target="_blank" rel="noopener">scripting.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    
+
+<h3><a href="../../../scripting.getdrafts.com/classes/callbackurl.html#url" target="_blank" rel="noopener">CallbackURL | Drafts Script Reference</a></h3>
+
+  <p>Documentation for Drafts Script Reference</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+        </div>
+
+        <meta itemprop='headline' content='Mailer Using mailto: URL Scheme'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nello'><span itemprop='name'>nello</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12655.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-13T18:31:35Z' class='post-time'>
+                May 13, 2022,  6:31pm
+              </time>
+              <meta itemprop='dateModified' content='2022-05-13T18:39:22Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="sylumer" data-post="2" data-topic="12655" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>Try <code>console.log("cburlMailto: " + cburlMailto.url);</code>.</p>
+</blockquote>
+</aside>
+<p>Thank you for the link to the <a href="../../../scripting.getdrafts.com/classes/callbackurl.html#url" rel="noopener nofollow ugc"> CallbackURL documentation</a>.</p>
+<p>I added the line that you suggested.  Now no error messages pop up when I run the action, but there also is no entry in the <a href="../../../docs.getdrafts.com/docs/actions/action-log.html" rel="noopener nofollow ugc">console</a>.</p>
+<p>I added this alert:</p>
+<p><code>alert("cburlMailto: " + cburlMailto.url);</code></p>
+<p>When I run the action, the alert that pops up says:</p>
+<p><code>cburlMailto: undefined</code></p>
+<p>I don’t understand.</p>
+<p>If <code>cburlMailto.url</code> is really undefined, then why does my script run with out popping up an error?</p>
+        </div>
+
+        <meta itemprop='headline' content='Mailer Using mailto: URL Scheme'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12655.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-13T19:03:30Z' class='post-time'>
+                May 13, 2022,  7:03pm
+              </time>
+              <meta itemprop='dateModified' content='2022-05-13T19:03:30Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Note that mailto isn’t really an x-callback-url. It’s kind of an ugly coersion, but this still opens my mail client with the details populated and the desired console output.</p>
+<pre><code class="lang-auto">// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+// Base settings
+let cburlMailto = CallbackURL.create();
+cburlMailto.waitForResponse = false;
+cburlMailto.baseURL = "mailto:";
+cburlMailto.addParameter("to", strEmailTo);
+
+// Who else gets it
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+
+// Body
+cburlMailto.addParameter("body",`${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`);
+
+// Log Url string - Remove
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Open default mailer
+cburlMailto.open();
+</code></pre>
+        </div>
+
+        <meta itemprop='headline' content='Mailer Using mailto: URL Scheme'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nello'><span itemprop='name'>nello</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12655.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-13T20:55:21Z' class='post-time'>
+                May 13, 2022,  8:55pm
+              </time>
+              <meta itemprop='dateModified' content='2022-05-14T01:09:20Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group quote-modified" data-username="sylumer" data-post="4" data-topic="12655" data-full="true">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="../../user_avatar/forums.getdrafts.com/sylumer/40/112_2.png" class="avatar"> sylumer:</div>
+<blockquote>
+<p>… this still opens my mail client with the details populated and the desired console output.</p>
+</blockquote>
+</aside>
+<p>My problem with logging was that <code>Log Level</code> was set for <code>Errors</code> instead of <code>All</code>.   All my <code>console.log()</code> statements appear in the Action Log now.   <img src="../../images/emoji/apple/partying_face.png@v=12" title=":partying_face:" class="emoji" alt=":partying_face:" loading="lazy" width="20" height="20"></p>
+<p>Now here’s my code with <code>console.log()</code> statements at each step of the URL scheme build.  (This reminds me of debugging programs in my FORTRAN class during my senior year of high school by inserting PRINT statements between every card of  my deck of 80-column punched cards.  <img src="../../images/emoji/apple/wink.png@v=12" title=":wink:" class="emoji" alt=":wink:" loading="lazy" width="20" height="20">)</p>
+<pre><code class="lang-auto">console.log("enter script");
+
+// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+let strBody = `${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`;
+
+
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+// Base settings
+let cburlMailto = CallbackURL.create();
+
+console.log("after let cburlMailto = CallbackURL.create();");
+console.log("cburlMailto: " + cburlMailto.url);
+
+cburlMailto.waitForResponse = false;
+
+console.log("after cburlMailto.waitForResponse = false;");
+console.log("cburlMailto: " + cburlMailto.url);
+
+cburlMailto.baseURL = "mailto:" + strEmailTo;
+
+console.log("strEmailTo: " + strEmailTo);
+console.log("after cburlMailto.baseURL = \"mailto:\" + strEmailTo");
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Who else gets it
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+
+console.log("strEmailCc: " + strEmailCc);
+console.log("after cburlMailto.addParameter(\"cc\", strEmailCc);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+
+console.log("strEmailBcc: " + strEmailBcc);
+console.log("after cburlMailto.addParameter(\"bcc\", strEmailBcc);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+
+console.log("strPageTitle: " + strPageTitle);
+console.log("after cburlMailto.addParameter(\"subject\", strPageTitle);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+// Body
+cburlMailto.addParameter("body", strBody);
+
+console.log("strBody: " + strBody);
+console.log("after cburlMailto.addParameter(\"body\", strBody);");
+console.log("cburlMailto: " + cburlMailto.url);
+
+
+
+// Open default mailer
+console.log("before cburlMailto.open()");
+cburlMailto.open();
+console.log("after cburlMailto.open()");
+console.log("exit script");
+</code></pre>
+<p>Here’s the Action Log:</p>
+<pre><code class="lang-auto">Script step completed.
+enter script
+after let cburlMailto = CallbackURL.create();
+cburlMailto: ?
+after cburlMailto.waitForResponse = false;
+cburlMailto: ?
+strEmailTo: nameTo1&lt;acctTo1@domain.tld&gt;
+after cburlMailto.baseURL = "mailto:" + strEmailTo
+cburlMailto: undefined
+strEmailCc: nameCC1&lt;acctCC1@domain.tld&gt;
+after cburlMailto.addParameter("cc", strEmailCc);
+cburlMailto: undefined
+strEmailBcc: nameBCC1&lt;acctBCC1@domain.tld&gt;
+after cburlMailto.addParameter("bcc", strEmailBcc);
+cburlMailto: undefined
+strPageTitle: pageTitle
+after cburlMailto.addParameter("subject", strPageTitle);
+cburlMailto: undefined
+strBody: nicknameList
+
+pageURL
+
+
+pageSelection
+after cburlMailto.addParameter("body", strBody);
+cburlMailto: undefined
+before cburlMailto.open()
+after cburlMailto.open()
+exit script
+Script step completed.
+Draft moved to trash
+</code></pre>
+<p>As you can see, there’s something wrong with:<br>
+<code>cburlMailto.baseURL = "mailto:" + strEmailTo</code></p>
+<p>Moreover, <code>cburlMailto.open()</code> still is not opening any mailer.</p>
+<p>UPDATE <span data-date="2022-05-13" data-time="17:24:00" class="discourse-local-date" data-format="LLL" data-timezone="America/Chicago" data-email-preview="2022-05-13T22:24:00Z UTC">May 13, 2022 10:24 PM</span></p>
+<p>I fixed it by adding the following towards the top:</p>
+<p><code>let strBaseURL = "mailto:" + encodeURI(strEmailTo);</code></p>
+<p>And changing:</p>
+<p><code>cburlMailto.baseURL = "mailto:" + strEmailTo</code><br>
+to<br>
+<code>cburlMailto.baseURL = strBaseURL;</code></p>
+<p>Now the Action Log shows the mailto URL being built correctly:</p>
+<pre><code class="lang-auto">Script step completed.
+enter script
+after let cburlMailto = CallbackURL.create();
+cburlMailto: ?
+after cburlMailto.waitForResponse = false;
+cburlMailto: ?
+strBaseURL: mailto:nameTo1%3CacctTo1@domain.tld%3E
+after cburlMailto.baseURL = strBaseURL
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?
+strEmailCc: nameCC1&lt;acctCC1@domain.tld&gt;
+after cburlMailto.addParameter("cc", strEmailCc);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?cc=nameCC1%3CacctCC1@domain.tld%3E
+strEmailBcc: nameBCC1&lt;acctBCC1@domain.tld&gt;
+after cburlMailto.addParameter("bcc", strEmailBcc);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;cc=nameCC1%3CacctCC1@domain.tld%3E
+strPageTitle: pageTitle
+after cburlMailto.addParameter("subject", strPageTitle);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?subject=pageTitle&amp;bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;cc=nameCC1%3CacctCC1@domain.tld%3E
+strBody: nicknameList
+
+pageURL
+
+
+pageSelection
+after cburlMailto.addParameter("body", strBody);
+cburlMailto: mailto:nameTo1%3CacctTo1@domain.tld%3E?cc=nameCC1%3CacctCC1@domain.tld%3E&amp;bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;subject=pageTitle&amp;body=nicknameList%0A%0ApageURL%0A%0A%0ApageSelection
+before cburlMailto.open()
+after cburlMailto.open()
+exit script
+Script step completed.
+Draft moved to trash
+</code></pre>
+<p>On my iPhone 12 Pro running iOS 15.4.1 at least, setting the <code>cburlMailto.baseURL</code> property requires URL encoding whereas the method <code>cburlMailto.addParameter()</code>does NOT require URL encoding.</p>
+<p>I guess it’s unusual for the base URL to have characters that require encoding.   <img src="../../images/emoji/apple/thinking.png@v=12" title=":thinking:" class="emoji" alt=":thinking:" loading="lazy" width="20" height="20"></p>
+        </div>
+
+        <meta itemprop='headline' content='Mailer Using mailto: URL Scheme'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="12655.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-05-14T07:59:00Z' class='post-time'>
+                May 14, 2022,  7:59am
+              </time>
+              <meta itemprop='dateModified' content='2022-05-14T07:59:00Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>If you look back at my previous post you will see I did modify the base URL to get it to run.</p>
+<p>I’ve included the equivalent version reworked to match your additional logging so you can see the progression.</p>
+<details>
+<summary>
+Reveal additional detail</summary>
+<pre><code class="lang-auto">// Start
+console.log('enter script');
+
+// Test data - Remove
+let strNicknameList = "nicknameList"
+let strEmailTo = "nameTo1&lt;acctTo1@domain.tld&gt;"
+let strEmailCc = "nameCC1&lt;acctCC1@domain.tld&gt;"
+let strEmailBcc = "nameBCC1&lt;acctBCC1@domain.tld&gt;"
+let strPageTitle = "pageTitle";
+let strPageURL = "pageURL";
+let strPageSelection = "pageSelection";
+let strBody = `${strNicknameList}
+
+${strPageURL}
+
+
+${strPageSelection}`;
+
+// Build and call the mailto URL
+// Use the callback object to make adding parameters easier ... but *NOT* running as a call back.
+
+// Create object
+let cburlMailto = CallbackURL.create();
+console.log('after let cburlMailto = CallbackURL.create();');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// Wait for response
+cburlMailto.waitForResponse = false;
+console.log('after cburlMailto.waitForResponse = false;');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// Base URL
+cburlMailto.baseURL = 'mailto:';
+console.log('after cburlMailto.baseURL = "mailto:"');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// TO
+cburlMailto.addParameter("to", strEmailTo);
+console.log('strEmailTo: ' + strEmailTo);
+console.log('after cburlMailto.addParameter("to", strEmailTo);');
+console.log("cburlMailto: " + cburlMailto.url);
+
+// CC
+if (strEmailCc != "") cburlMailto.addParameter("cc", strEmailCc);
+console.log('strEmailCc: ' + strEmailCc);
+console.log('after cburlMailto.addParameter("cc", strEmailCc);');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// BCC
+if (strEmailBcc != "") cburlMailto.addParameter("bcc", strEmailBcc);
+console.log('strEmailBcc: ' + strEmailBcc);
+console.log('after cburlMailto.addParameter("bcc", strEmailBcc);');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// Subject line
+cburlMailto.addParameter("subject", strPageTitle);
+console.log('strPageTitle: ' + strPageTitle);
+console.log('after cburlMailto.addParameter("subject", strPageTitle);');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// Body
+cburlMailto.addParameter("body", strBody);
+console.log('strBody: ' + strBody);
+console.log('after cburlMailto.addParameter("body", strBody);');
+console.log('cburlMailto: ' + cburlMailto.url);
+
+// Open default mailer
+console.log('before cburlMailto.open();');
+cburlMailto.open();
+console.log('after cburlMailto.open();');
+
+// End
+console.log('exit script');
+</code></pre>
+<p>This produced the following logging for me, as well as producing the expected pre-populated e-mail composition window.</p>
+<pre><code class="lang-nohighlight">enter script
+after let cburlMailto = CallbackURL.create();
+cburlMailto: ?
+after cburlMailto.waitForResponse = false;
+cburlMailto: ?
+after cburlMailto.baseURL = "mailto:"
+cburlMailto: mailto:?
+strEmailTo: nameTo1&lt;acctTo1@domain.tld&gt;
+after cburlMailto.addParameter("to", strEmailTo);
+cburlMailto: mailto:?to=nameTo1%3CacctTo1@domain.tld%3E
+strEmailCc: nameCC1&lt;acctCC1@domain.tld&gt;
+after cburlMailto.addParameter("cc", strEmailCc);
+cburlMailto: mailto:?cc=nameCC1%3CacctCC1@domain.tld%3E&amp;to=nameTo1%3CacctTo1@domain.tld%3E
+strEmailBcc: nameBCC1&lt;acctBCC1@domain.tld&gt;
+after cburlMailto.addParameter("bcc", strEmailBcc);
+cburlMailto: mailto:?bcc=nameBCC1%3CacctBCC1@domain.tld%3E&amp;cc=nameCC1%3CacctCC1@domain.tld%3E&amp;to=nameTo1%3CacctTo1@domain.tld%3E
+strPageTitle: pageTitle
+after cburlMailto.addParameter("subject", strPageTitle);
+cburlMailto: mailto:?subject=pageTitle&amp;to=nameTo1%3CacctTo1@domain.tld%3E&amp;cc=nameCC1%3CacctCC1@domain.tld%3E&amp;bcc=nameBCC1%3CacctBCC1@domain.tld%3E
+strBody: nicknameList
+
+pageURL
+
+
+pageSelection
+after cburlMailto.addParameter("body", strBody);
+cburlMailto: mailto:?subject=pageTitle&amp;to=nameTo1%3CacctTo1@domain.tld%3E&amp;body=nicknameList%0A%0ApageURL%0A%0A%0ApageSelection&amp;cc=nameCC1%3CacctCC1@domain.tld%3E&amp;bcc=nameBCC1%3CacctBCC1@domain.tld%3E
+before cburlMailto.open();
+after cburlMailto.open();
+exit script
+Script step completed.
+</code></pre>
+</details>
+        </div>
+
+        <meta itemprop='headline' content='Mailer Using mailto: URL Scheme'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

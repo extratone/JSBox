@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts on iPad keyboard activation suppression</title>
+    <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550</link>
+    <description>I&#39;m trying to use a single Drafts document for a glossary of approximately 100 terms (subject irrelevant). It would be handy to be able to refer to the glossary on the iPad as well as the Mac.
+Each term is a markdown heading and its definition is body text subordinate to the heading. I want to make heavy use of within-document links based on the headings as navigation markers.
+
+On the iPad, with the onscreen keyboard closed, when I tap on a link. the document is scrolled to the relevant marker but the keyboard is activated. In (preferred) landscape mode, it takes up half the screen depth. Drafts scrolls the document intelligently to the marker but the text for which the marker is the header is typically multi-line and all but the top couple of lines are covered by the keyboard.
+
+I can of course dismiss the keyboard with a single tap but I would like not to have this inconvenience.
+In portrait mode, the k/b occupies about 1/3 of the screen depth. With the drafts list hidden, the greater editor width reduces the number of lines needed to display an entry.
+
+Is there a way to achieve the behaviour I&#39;m looking for? Can the editor be put into a mode in which it responds to taps on links but doesn&#39;t activate the keyboard?
+
+In the Editor settings, I see &quot;Edit on draft selection&quot; but both its settings don&#39;t seem to affect the current behaviour. I also tried in Preview but the navigation-marker-based links are inactive. I guess what I&#39;m after is something like &quot;Activate k/b on jump to navigation marker&quot;; it would be false for the behaviour I&#39;m after.
+
+I&#39;m happy to do some scripting if someone can kickstart me but it&#39;s hard to imagine a scripted interaction as simple as tapping on a link. Sorry about the essay! On Drafts Pro 31.2 and iPadOS 15.4.</description>
+    
+    <lastBuildDate>Wed, 27 Apr 2022 04:36:30 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts on iPad keyboard activation suppression</title>
+        <dc:creator><![CDATA[ALikelyLad]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks. Looking forward to trying the changed behaviour.<br>
+See also my reply to Sylumer.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/5</link>
+        <pubDate>Wed, 27 Apr 2022 04:36:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12550-5</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss">Drafts on iPad keyboard activation suppression</source>
+      </item>
+      <item>
+        <title>Drafts on iPad keyboard activation suppression</title>
+        <dc:creator><![CDATA[ALikelyLad]]></dc:creator>
+        <description><![CDATA[
+            <p>Good get! Though the documentation for Link Mode doesn’t explicitly mention “navigation-marker-based” links, I guess they would qualify under “most common link types”.</p>
+<p>The scrolling behaviour in Link Mode is different from the behaviour with Link Mode turned off.<br>
+In Link Mode, when the link target is earlier in the document than the link, Drafts scrolls the document to the point where the target is the first line in the editor window (see Shot 1). This is probably the optimum choice for my use case as it gives the full window depth to view the subordinate block of text (the glossary term’s definition).</p>
+<p>However, when the link target is later in the document, Drafts’ scrolling behaviour seems more variable. It always does the minimum, i.e. display the link target/ markdown header (glossary term) at the foot of the window but sometime does (Shot 2) and sometimes doesn’t (Shot 3) display all the lines of the definition. I think the optimum in this case would be to display the next markdown header, thus guaranteeing all the definition text of the target term is visible (subject to the length of the definition text and the depth of the window).</p>
+<p>I realise that my use case is a simple one: all navigation markers/ markdown headers at the same level, a simple block of text between the headers. The scrolling algorithm will presumably have to address more complex scenarios.</p>
+<p>But Link Mode as it stands is definitely more convenient than the currently unavoidable keyboard activation in “editor active” mode.</p>
+<p>I see in Greg’s post that he is going to extend the scope of the “Edit on draft selection” setting to accommodate landing on a navigation marker link target. It will be good to have two options to suppress keyboard activation.</p>
+<p>Shot 1: <a href="https://www.dropbox.com/s/o5bvsal6c7wa6az/Shot%201%20Clause.PNG?dl=0" class="inline-onebox" rel="noopener nofollow ugc">Dropbox - Shot 1 Clause.PNG - Simplify your life</a><br>
+Shot 2: <a href="https://www.dropbox.com/s/51p5gp07j52kncf/Shot%202%20Subordinate.PNG?dl=0" class="inline-onebox" rel="noopener nofollow ugc">Dropbox - Shot 2 Subordinate.PNG - Simplify your life</a><br>
+Shot 3: <a href="https://www.dropbox.com/s/t3rqd9y9f5porko/Shot%203%20Relative.PNG?dl=0" class="inline-onebox" rel="noopener nofollow ugc">Dropbox - Shot 3 Relative.PNG - Simplify your life</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/4</link>
+        <pubDate>Wed, 27 Apr 2022 04:33:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12550-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss">Drafts on iPad keyboard activation suppression</source>
+      </item>
+      <item>
+        <title>Drafts on iPad keyboard activation suppression</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Goot point. That behavior should probably respect the “Edit on selection” setting. I dont think it makes sense to add another separate option for it, but it should follow that behavior.</p>
+<p>I will change that behavior in the next update.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/3</link>
+        <pubDate>Tue, 26 Apr 2022 11:44:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12550-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss">Drafts on iPad keyboard activation suppression</source>
+      </item>
+      <item>
+        <title>Drafts on iPad keyboard activation suppression</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Have you tried link mode?</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://docs.getdrafts.com/docs/editor/linkmode">
+  <header class="source">
+      <img src="https://docs.getdrafts.com/favicon.ico" class="site-icon" width="" height="">
+
+      <a href="https://docs.getdrafts.com/docs/editor/linkmode" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://docs.getdrafts.com/images/og-image.png" class="thumbnail" width="690" height="362"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/editor/linkmode" target="_blank" rel="noopener">Link Mode</a></h3>
+
+  <p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/2</link>
+        <pubDate>Tue, 26 Apr 2022 09:44:11 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12550-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss">Drafts on iPad keyboard activation suppression</source>
+      </item>
+      <item>
+        <title>Drafts on iPad keyboard activation suppression</title>
+        <dc:creator><![CDATA[ALikelyLad]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m trying to use a single Drafts document for a glossary of approximately 100 terms (subject irrelevant). It would be handy to be able to refer to the glossary on the iPad as well as the Mac.<br>
+Each term is a markdown heading and its definition is body text subordinate to the heading. I want to make heavy use of within-document links based on the headings as navigation markers.</p>
+<p>On the iPad, with the onscreen keyboard closed, when I tap on a link. the document is scrolled to the relevant marker but the keyboard is activated. In (preferred) landscape mode, it takes up half the screen depth. Drafts scrolls the document intelligently to the marker but the text for which the marker is the header is typically multi-line and all but the top couple of lines are covered by the keyboard.</p>
+<p>I can of course dismiss the keyboard with a single tap but I would like not to have this inconvenience.<br>
+In portrait mode, the k/b occupies about 1/3 of the screen depth. With the drafts list hidden, the greater editor width reduces the number of lines needed to display an entry.</p>
+<p>Is there a way to achieve the behaviour I’m looking for? Can the editor be put into a mode in which it responds to taps on links but doesn’t activate the keyboard?</p>
+<p>In the Editor settings, I see “Edit on draft selection” but both its settings don’t seem to affect the current behaviour. I also tried in Preview but the navigation-marker-based links are inactive. I guess what I’m after is something like “Activate k/b on jump to navigation marker”; it would be false for the behaviour I’m after.</p>
+<p>I’m happy to do some scripting if someone can kickstart me but it’s hard to imagine a scripted interaction as simple as tapping on a link. Sorry about the essay! On Drafts Pro 31.2 and iPadOS 15.4.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550/1</link>
+        <pubDate>Tue, 26 Apr 2022 07:27:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12550-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-on-ipad-keyboard-activation-suppression/12550.rss">Drafts on iPad keyboard activation suppression</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 5.5 Released - The Markdown Update</title>
+    <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292</link>
+    <description>Drafts 5.5 is now available [in the App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site) bringing enhancements and more customizability to the use of Markdown in Drafts, along with other fixes and improvements, details below.
+
+**Drafts for Mac is coming soon. Drafts Pro subscribers can try a preview release now. [Learn more](https://getdrafts.com/mac/beta)**. _If you are using the Mac beta already, please update to the latest version along with the installation of this iOS update for compatibility with the new Markdown features._
+
+#### Markdown Updates
+
+Drafts 5.5 brings significant new customizations for advanced Markdown users, letting you tailor the Markdown used in Drafts to specific needs. These customizations are in two parts.
+
+- **MultiMarkdown &amp;amp; GitHub Markdown Syntax Highlighting**: In addition to the default &quot;Markdown&quot; syntax highlighting option, there are new &quot;MultiMarkdown&quot; and &quot;GitHub Markdown&quot; syntax options which add highlight for some of the extensions specific to those flavors of Markdown. The default &quot;Markdown&quot; syntax has been simplified to more closely match the original Markdown specification as well. If you prefer one of these advanced highlighting options, you may wish to select it as your default for new drafts. [More details](https://getdrafts.com/editor/syntax-highlighting)
+- **Markdown Processor Options**: Markdown options have been added in setting to control the Markdown rendering used in templates and previews. It is now possible to choose between MultiMarkdown and GitHub Markdown when rendering, as well as control many advanced options provided by these renderers. [More details](https://getdrafts.com/settings/markdown)
+
+#### Workspace, List Options Additions
+
+The draft list, and Workspaces, can now optionally sort flagged drafts to the top of the list in the inbox and archive - and the option to omit flagged drafts that has been available for the inbox is now also available for the archive. The `Workspace` script object has also been extended to support these features. More details in [list options](https://getdrafts.com/drafts/listoptions) and [Workspaces](https://getdrafts.com/drafts/workspaces) documentation.
+
+#### Other Additions, Changes and Fixes in 5.5
+
+- **New:** `[[line]]` template tag now has support for negative indexes in ranges which count back from last line, like `[[line|-1]]` returns last line draft, `[[line|-2..-1]]` returns last two lines. [Templates and tags documentation](https://getdrafts.com/actions/templates)
+- **Fix:** Margin sizing on iPad accidently broken in previous release.
+- **Change:** Merge operation should remember last selected destination (archive, trash, etc.)
+- **New:** Add additional step summaries for more types of action steps when viewing steps in the action editor.
+- **Change:** Add &quot;keepit&quot; URL scheme to whitelist to work in link mode.
+- **Fix:** Better handling of keyboard accessory positioning to avoid issue with Chinese keyboards on X style phones.
+
+For a complete history of updates, visit the [changelog](https://getdrafts.com/changelog)</description>
+    
+    <lastBuildDate>Wed, 09 Jun 2021 10:07:04 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[P-D]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, with delight. I am not sure this is the right place for this discussion but please, move it if you feel it is not appropriate in this forum.</p>
+<p>Due to the built in power of both Drafts and Alfred it is pretty simple and you can paste the information below in Alfred. It is also easy to modify the solution to your needs but let me explain why I chose this setup in my workflow.</p>
+<p>The basic motivation comes from this kind of situation: The phone rings, or you’re in the middle of something else and suddenly have to make a note of an event.</p>
+<p>What is the fastest way you can <strong>capture</strong> this sudden event in a good <a href="https://gettingthingsdone.com" rel="nofollow noopener">GTD</a> style with the information needed?</p>
+<ul>
+<li>An <a href="https://en.wikipedia.org/wiki/Event_(relativity)" rel="nofollow noopener">event</a> is a point in spacetime (according to the theory of relativity) i.e. a specific place and time (already in Drafts).</li>
+<li>I want my notes to answer the fundamental questions: <strong>What</strong>, <strong>Why</strong>, <strong>How</strong>, <strong>When</strong>, <strong>Where</strong> and <strong>Who</strong> (from Rudyard Kipling poem <a href="http://www.kiplingsociety.co.uk/poems_serving.htm" rel="nofollow noopener">I Keep Six Honest Serving Men</a>).</li>
+<li>It is faster if the computer write as much of the information as possible and leave it to you to fill in the blanks.</li>
+<li>It is faster and safer to use <strong>one</strong> key, available on both sides of the keyboard for either left or right hand and your choice of a free finger, instead of a combination of keys (not already in use) to trigger the note.</li>
+<li>It is less cognitively demanding (and probably faster and safer) to repeat a key twice than to press two different keys. (Cf. speech acquisition in infants: ma-ma, da-da etc. a fundamental principle how to reduce entropy and create meaning.)</li>
+</ul>
+<p>Now, because of Alfred’s power I chose to double tap the command key (⌘) to trigger the note and because of Drafts’ power there are already information available:</p>
+<ul>
+<li>
+<strong>What:</strong> Empty to be filled with what is discussed.</li>
+<li>
+<strong>Why:</strong> Empty to be filled with the purpose of the event s.a. a project or a problem etc.</li>
+<li>
+<strong>How:</strong> Prefilled with “Phone” but often changed manually to “Meeting” or “Skype” or any other short info how it happened what happened.</li>
+<li>
+<strong>When:</strong> Time data from Drafts already in the note info.</li>
+<li>
+<strong>Where:</strong> Location data from Drafts already in the note info (but sometimes additional manual information s.a. Conference room).</li>
+<li>
+<strong>Who:</strong> Prefilled with my initials and then filled manually with other participants, in <a href="https://en.wikipedia.org/wiki/Unit_circle" rel="nofollow noopener"><em>negative</em> (’clockwise’) turning</a> if possible.</li>
+</ul>
+<p>Now everything is ready to let Alfred and Drafts work together using a workflow with only two elements:</p>
+<ul>
+<li>Trigger: Hotkey
+<ul>
+<li>⌘ double tap (used as trigger in the Alfred workflow)</li>
+<li>Action: Pass through</li>
+<li>Argument: Text</li>
+<li>Text: drafts5://create?text=%2A%20How%3A%20Phone%0A%2A%20Who%3A%20My%20Name%2C%20%0A%2A%20Why%3A%20%0A%2A%20What%3A%20%0A%0A%23%23%23%20Agreements%0A%0A&amp;tag=event</li>
+</ul>
+</li>
+<li>Action: Open URL
+<ul>
+<li>URL: {query}</li>
+<li>Default browser</li>
+</ul>
+</li>
+</ul>
+<p>Sorry about the cumbersome URL encoded string above but it is simply to create a note with the required data as explained in <a href="https://getdrafts.com/urls/" rel="nofollow noopener">Drafts’ URL scheme</a>. You may try this in your ordinary browser and Drafts should create a new note with the prefilled data including the heading “Agreements” so you not forget what was promised in the meeting). I have also used some Markdown syntax in the note and the tag “event” to distinguish it from other notes e.g. a “memo” which is just a simple note for myself with no particular data prefilled (just drafts5://create?tag=memo). The latter is the reason for creating the text already in the trigger and be somewhat parsimonious with only one action taking a drafts URL as an argument.</p>
+<p>To wrap up, this is just another step in my attempt to structure my digital architecture as a continuation of my cognitive and motor skills for fast, easy, safe access to mountains of information.</p>
+<ul>
+<li>
+<a href="https://en.wikipedia.org/wiki/Procedural_memory" rel="nofollow noopener">Procedural memory</a>: Key strokes.</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Semantic_memory" rel="nofollow noopener">Semantic memory</a>: Key words for associative memory and searching and part of hard disk organized according to <a href="https://en.wikipedia.org/wiki/Dewey_Decimal_Classification" rel="nofollow noopener">Dewey Decimal Classification</a>.</li>
+<li>
+<a href="https://en.wikipedia.org/wiki/Episodic_memory" rel="nofollow noopener">Episodic memory</a>: Self biographical data, s.a. persons, places and other meta information.</li>
+</ul>
+<p>Please, feel free to ask if need more information how to set up the workflow (or other questions).</p>
+<p>Regards,<br>
+P-D</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/9</link>
+        <pubDate>Sat, 08 Dec 2018 23:50:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-9</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks! I tried drafts5:/// in Firefox and it launched the app. Now to try more. Except I’ll probably use Keyboard Maestro and maybe my PopClip bridge to KM.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/8</link>
+        <pubDate>Sat, 08 Dec 2018 08:37:06 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-8</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[dfay]]></dc:creator>
+        <description><![CDATA[
+            <p>could you post your workflow, here and/or in the Alfred forum?</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/7</link>
+        <pubDate>Sat, 08 Dec 2018 06:24:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-7</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[P-D]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes, sorry to be a little short.</p>
+<p>I use the parts of <a href="https://getdrafts.com/urls/" rel="nofollow noopener">the URL scheme I have found working</a> on the Mac (but a more complete guide for what works in OS X would be helpful).</p>
+<p>E.g. in Alfred: <code>d My text</code> will search Drafts for My text. I am just in the beginning and more such handy shortcuts are easily constructed which really takes this to a new level for me.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/6</link>
+        <pubDate>Fri, 07 Dec 2018 11:36:41 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-6</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[martinpacker]]></dc:creator>
+        <description><![CDATA[
+            <p>Where is this URL scheme? Sounds like it’s on Mac you’re doing this - as you mention Alfred.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/5</link>
+        <pubDate>Fri, 07 Dec 2018 11:17:52 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-5</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[P-D]]></dc:creator>
+        <description><![CDATA[
+            <p>If people really knew how much I have to do right now you would understand how much I appreciate Drafts—and the subscription model (a statement I hardly thought possible)—now taking plenty of time to endorse it completely and making some comments. It is in fact the best subscription I have tested so far because it develops and delivers, much better than frequent updates and upgrades, and a jungle of trials, licenses, discounts and downloads.</p>
+<p>I would not even hesitate to call Agiletortoise the new standard for subscription models.</p>
+<hr>
+<p>Also, I must add Drafts works like a charm and I have set up some workflows an shortcuts in Alfred utilizing Drafts’ URL scheme to even streamline it further e.g.</p>
+<ul>
+<li>⌘ double tap: An new draft tagged <strong>event</strong> prefilled with the questions: what, why, when, how, where and who and some prefilled data (included in the time and location for the draft and the tag event).</li>
+<li>⌥ double tap: A new draft tagged <strong>note</strong> to separate it from other work.</li>
+</ul>
+<p>Since the spacebar is the largest key on the keyboard I try to use it for quick access to the most common tasks:</p>
+<ul>
+<li>⌘space: Spotlight</li>
+<li>⌥⌘space: Spotlight Finder window</li>
+<li>⌃space: Alfred</li>
+<li>⌃⌥space: Omnifocus</li>
+<li><strong>⇧⌘space: Drafts Quick Capture</strong></li>
+<li>and more…</li>
+</ul>
+<p>Also <strong>⌃d shows/hides Drafts</strong> (and similar syntax for other apps in workflow I call “Hot apps”).</p>
+<p>A couple of things I would like but haven’t done or got so far is</p>
+<ul>
+<li>an Alfred workflow <strong>appending</strong> text to a specific but dynamically changeable project based draft,</li>
+<li>
+<strong>exporting</strong> “finished” drafts to an archive (including all the metadata in away that can be imported again). It would not be any problem just archiving these drafts but I haven’t decided if I really want them hanging around in the Drafts database or in a separate archive just for reference. (I have a vague feeling I have missed something self-evident and please tell me how if you know.)</li>
+</ul>
+<p>Hopefully I will come up with something this weekend but any hints would be highly appreciated.</p>
+<p>Have a nice weekend!</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/4</link>
+        <pubDate>Fri, 07 Dec 2018 10:59:39 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[davemee]]></dc:creator>
+        <description><![CDATA[
+            <p>I was in the same boat. However, I think the model has been vindicated; it’s a great app, it gets better and better, and you can <em>see</em> agiletortoise is enjoying being able to spend time developing, refining, and building on his baby without scurrying around with a range of apps to bring the revenue in.</p>
+<p>That said - I’ve used subscription apps where it hasn’t worked so well, so this is also a testament to agiletortoise’s dedication and integrity in delivering on his proposition. Great stuff!</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/3</link>
+        <pubDate>Wed, 05 Dec 2018 00:03:09 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[kemer]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m a long, long time user of Drafts. For me it was an occasionally useful tool, but not a critical one. When Drafts 5 came out, like many I was a skeptic that it would provide significant justification for its subscription model. However, I have realized that it really is a higher-order tool. This latest release really moved that bar up.</p>
+<p>The substantive updates we have seen since it was launched validates the much-hated subscription model. It has moved me from being an occasional user of the earlier versions to one of my daily regulars. And, I know I am under-utilizing it.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/2</link>
+        <pubDate>Mon, 03 Dec 2018 20:47:01 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+      <item>
+        <title>Drafts 5.5 Released - The Markdown Update</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Drafts 5.5 is now available <a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site" rel="nofollow noopener">in the App Store</a> bringing enhancements and more customizability to the use of Markdown in Drafts, along with other fixes and improvements, details below.</p>
+<p><strong>Drafts for Mac is coming soon. Drafts Pro subscribers can try a preview release now. <a href="https://getdrafts.com/mac/beta" rel="nofollow noopener">Learn more</a></strong>. <em>If you are using the Mac beta already, please update to the latest version along with the installation of this iOS update for compatibility with the new Markdown features.</em></p>
+<h4>Markdown Updates</h4>
+<p>Drafts 5.5 brings significant new customizations for advanced Markdown users, letting you tailor the Markdown used in Drafts to specific needs. These customizations are in two parts.</p>
+<ul>
+<li>
+<strong>MultiMarkdown &amp; GitHub Markdown Syntax Highlighting</strong>: In addition to the default “Markdown” syntax highlighting option, there are new “MultiMarkdown” and “GitHub Markdown” syntax options which add highlight for some of the extensions specific to those flavors of Markdown. The default “Markdown” syntax has been simplified to more closely match the original Markdown specification as well. If you prefer one of these advanced highlighting options, you may wish to select it as your default for new drafts. <a href="https://getdrafts.com/editor/syntax-highlighting" rel="nofollow noopener">More details</a>
+</li>
+<li>
+<strong>Markdown Processor Options</strong>: Markdown options have been added in setting to control the Markdown rendering used in templates and previews. It is now possible to choose between MultiMarkdown and GitHub Markdown when rendering, as well as control many advanced options provided by these renderers. <a href="https://getdrafts.com/settings/markdown" rel="nofollow noopener">More details</a>
+</li>
+</ul>
+<h4>Workspace, List Options Additions</h4>
+<p>The draft list, and Workspaces, can now optionally sort flagged drafts to the top of the list in the inbox and archive - and the option to omit flagged drafts that has been available for the inbox is now also available for the archive. The <code>Workspace</code> script object has also been extended to support these features. More details in <a href="https://getdrafts.com/drafts/listoptions" rel="nofollow noopener">list options</a> and <a href="https://getdrafts.com/drafts/workspaces" rel="nofollow noopener">Workspaces</a> documentation.</p>
+<h4>Other Additions, Changes and Fixes in 5.5</h4>
+<ul>
+<li>
+<strong>New:</strong> <code>[[line]]</code> template tag now has support for negative indexes in ranges which count back from last line, like <code>[[line|-1]]</code> returns last line draft, <code>[[line|-2..-1]]</code> returns last two lines. <a href="https://getdrafts.com/actions/templates" rel="nofollow noopener">Templates and tags documentation</a>
+</li>
+<li>
+<strong>Fix:</strong> Margin sizing on iPad accidently broken in previous release.</li>
+<li>
+<strong>Change:</strong> Merge operation should remember last selected destination (archive, trash, etc.)</li>
+<li>
+<strong>New:</strong> Add additional step summaries for more types of action steps when viewing steps in the action editor.</li>
+<li>
+<strong>Change:</strong> Add “keepit” URL scheme to whitelist to work in link mode.</li>
+<li>
+<strong>Fix:</strong> Better handling of keyboard accessory positioning to avoid issue with Chinese keyboards on X style phones.</li>
+</ul>
+<p>For a complete history of updates, visit the <a href="https://getdrafts.com/changelog" rel="nofollow noopener">changelog</a></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292/1</link>
+        <pubDate>Mon, 03 Dec 2018 15:33:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-3292-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-5-5-released-the-markdown-update/3292.rss">Drafts 5.5 Released - The Markdown Update</source>
+      </item>
+  </channel>
+</rss>

@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+    <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201</link>
+    <description>## Drafts 28.0 has been released:
+
+- [iOS App Store](https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site)
+- [Mac App Store](https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site)
+
+Details below. For a complete history of updates, visit:
+
+- [Changelog](https://docs.getdrafts.com/changelog)
+
+## What&#39;s New
+
+### Ready for iOS 15 and macOS 12
+
+![r28|641x396, 100%](upload://zZlrdpei9BL0aSkbpEA8PGlgeYw.png)
+
+Drafts is ready for iOS 15 and macOS 12! Updated for compatibility, of course, but also to take advantage of some of the great new features. New details below, but Drafts works great with &quot;Live Text&quot; to capture text from images, has full support for Shortcuts on the Mac, and brings great new iPad features, like powerful external keyboard menus.
+
+### New Apple Watch App
+
+![r28-2|641x396](upload://wFBC9hpsE5e3zTOnavMF5WuB1T.png)
+
+We have re-written the Drafts Apple Watch app from the ground up to use the latest watchOS technologies. It&#39;s still the best, easiest way to capture ideas on the go, but has a few new tricks:
+
+- Multiple complication types to capture, capture with options, or see your inbox or flagged draft count.
+- Inbox drafts synced to watch now reflect your default workspace options on the phone.
+- Flagged drafts now also synced to the watch.
+- Requires watchOS 7.1 or greater.
+
+_[Learn More About Drafts on Apple Watch →](https://docs.getdrafts.com/docs/extensions/applewatch)_
+
+### Shortcuts Support on macOS 12
+
+We&#39;re ready for Shortcuts on the Mac! It&#39;s just not quite ready for us. Look for full, cross-platform support for all of Drafts&#39; Shortcuts actions when macOS 12 (Monterey) is released in the coming weeks!
+
+We&#39;re ready for Shortcuts on the Mac! It&#39;s just not quite ready for us. Look for full, cross-platform support for all of Drafts&#39; Shortcuts actions when macOS 12 (Monterey) is released in the coming weeks!
+
+In the meantime, enjoy these new shortcut actions on iOS:
+
+- **Get Current Draft**: Retrieves the draft object for the draft currently open in the editor.
+- **Open Draft Enhancements**: The &quot;Open Draft&quot; shortcut action now has a bunch of additional optional parameters to configure Drafts while opening - to load a workspace, actions groups, hide/show the drafts and action lists, etc. Great for bookmarking a specific set of options in a Shortcut.
+_[Learn More About Shortcuts →](https://docs.getdrafts.com/docs/automation/shortcuts)_
+
+## Folder Bookmarks
+
+Up to now, Drafts file actions and scripts have been limited to working with files in the &quot;Drafts&quot; folder in iCloud Drive (or by working directly with cloud-provider APIs, like Dropbox and Google Drive). With folder bookmarks, it is now possible to grant permissions to additional folders outside the Drafts App Sandbox, making it easier to integrate with other apps and services, to, say, export a draft content to another system - like an Obsidian Vault, etc.
+
+_[Learn More About Bookmarks →](https://docs.getdrafts.com/docs/settings/bookmarks)_
+
+## Document Scanning and Live Text Support
+
+Drafts has been tested and works great with the new &quot;Live Text&quot; features in iOS 15 and macOS 12. In addition, we have incorporated document scanning to OCR directly in the iOS app. Tap and hold the &quot;+&quot; and select &quot;Scan Document&quot; to open the document scanning camera. It supports scanning multi-page documents, and directly runs the results through OCR to create a new draft with the result text.
+
+_[Learn More About Live Text &amp; Scanning →](https://docs.getdrafts.com/docs/editor/document-scanning)_
+
+## Share Extension and Capture Window Updates
+
+Drafts capture flow used in the iOS Share extension and the &quot;Capture&quot; window on Mac, has received a number of updates:
+
+- Both now remember your recently used selections for appending and prepending to existing drafts, to make it easier to re-use active drafts.
+- The Mac Share extension now displays in a new capture window, allow preview/editing of captured text as well as appending-prepending to other drafts - more like the iOS Share extension.
+- Mac Services menu now contains &quot;Capture to Drafts&quot; and &quot;Capture to Drafts with Options&quot; services to send text selections to Drafts from anywhere in the system. The &quot;with Options&quot; version displays a capture window, while the other version capture silently as a new draft.
+- New `/capture` URL scheme, and Shortcut &quot;Show Capture&quot; action, allow you display the capture window in app, optionally pre-filled with text and tags. This is useful in capture workflows from other apps, as well as web bookmarklets.
+
+_Learn more about the [iOS Share Extension](https://docs.getdrafts.com/docs/extensions/share) and [Mac Capture Window](https://docs.getdrafts.com/docs/extensions/capture-window)_
+
+## General Improvements
+
+- New tag suggestion interface on iOS to make it easier to tag your drafts with just the right tags.
+- On iOS, long press on links to other drafts now generates a preview and several command options for the draft. This includes `[[wiki-style]]` links, or `drafts://open` links in link mode.
+- On Mac, `command-click` on links to other drafts to open them in a new window.
+- Tags in the tag filter pane now have contextual menu (tap and hold) with &quot;rename&quot; and &quot;delete&quot; commands to bulk manage tags. These options already existed in the draft list &quot;Operations&quot; commands, but these versions pre-fill the tag value for better accuracy.
+
+#### Other Updates and Fixes
+
+### All Platforms
+
+- New &quot;What&#39;s New&quot; screen accessible via Settings &gt; What&#39;s New (iOS) or Help &gt; What&#39;s New (macOS)
+- &quot;Run Shortcut&quot; action step has new &quot;Return to Drafts&quot; option. If disabled, Drafts will not include callback parameters to return to Drafts after completing the Shortcut. If you do not care about a result from Shortcuts, and wish to end up in a different app when the shortcut finishes, disable this option.
+- `[[hashtags]]` template tag. Returns assigned tags as comma-separated list, with each tag prefixed with a &quot;#&quot;. Convenience tag to remove the need to script this conversion when exporting to systems that use hash tags.
+- Estimated read time now calculated and displayed in draft detail `(i)` screen.
+- **Fix:** Markdown syntaxes not recognizing [ref][links] with space.
+- **Fix:** After success &quot;Trash&quot; would not load next draft properly in focus mode.
+
+### iOS
+
+- Refactor the next-previous button logic because it was not updating properly in some cases.
+- A few new app icon options.
+- Require iOS 14.1 or greater.
+- Remove pre-iOS 14 &quot;Today&quot; widgets.
+
+### Mac
+
+- More toolbar options to customize your toolbar. Focus, link modes, preview, arrange buttons now available.
+- List types returned from AppleScript not converted properly to JavaScript arrays.
+
+### Scripting, Shortcuts, and URL Schemes
+
+- `version.delete()` function to allow scripted deletion of versions in the version history. ([docs](https://scripting.getdrafts.com/classes/version#delete))
+- `ActionLog` script object used to read and manipulation entries in the Action Log. Generally accessed from the `draft.actionLogs` property. ([docs](https://scripting.getdrafts.com/classes/actionlog))
+- `/scandocument` URL scheme. ([docs](https://docs.getdrafts.com/docs/automation/urlschemes#scandocument))
+- `editor.scanDocument() -&gt; string` function. Also similar to `editor.dictate()` function, opens the document scanner and returns any OCR results as a string which you can do with as you please. ([docs](https://scripting.getdrafts.com/classes/editor#scandocument))
+- New &quot;Get Current Draft&quot; shortcut action retreives the draft currently open in the main editor.
+- &quot;Open Draft&quot; shortcut action has additional options to configure state of window (show/hide side panes, load workspace, etc. - [docs](https://docs.getdrafts.com/docs/automation/shortcuts#open-draft))
+- `/open` and `/create` URL schemes now support several additional parameters to configure the environment ([docs](https://docs.getdrafts.com/docs/automation/urlschemes#open)):
+    - `showDraftList` [true/false]
+    - `showActionList` [true/false]
+    - `loadWorkspace`, `loadActionGroup`, `loadActionBarGroup`: take names of valid group/workspaces and applies them</description>
+    
+    <lastBuildDate>Sun, 19 Sep 2021 09:36:44 +0000</lastBuildDate>
+    <category>News &amp; Updates</category>
+    <atom:link href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>The new release is about Bookmarks and these get saved in a folder outside of drafts, in my case in iCloud. That’s why I posted here. I didn’t need RTF till date, for some reason. Anyway, I got the point, so strictly speaking you’re right! And thanks for the help.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/25">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/25</link>
+        <pubDate>Sun, 19 Sep 2021 09:36:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-25</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>I don’t see how this question relates to the new release. If you search the docs, editor settings tells you how to set the font of a draft.</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://docs.getdrafts.com/docs/editor/editorsettings#editor-settings">
+  <header class="source">
+      <img src="https://docs.getdrafts.com/favicon.ico" class="site-icon" width="" height="">
+
+      <a href="https://docs.getdrafts.com/docs/editor/editorsettings#editor-settings" target="_blank" rel="noopener">Drafts User Guide</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/7/7d4da0ab6ec8d594ac76230696b95549d0ab06f6_2_10x10.png"></div>
+
+<h3><a href="https://docs.getdrafts.com/docs/editor/editorsettings#editor-settings" target="_blank" rel="noopener">Editor Preferences</a></h3>
+
+  <p>Documentation for Drafts app, a quick-capture note taking app for iPhone, iPad, Mac and Apple Watch.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>If styling for RTF is what you are after, then a quick search on the forum for RTF provides several results. This particular one talks about setting formatting for RTF.</p>
+<aside class="quote quote-modified" data-post="1" data-topic="7704">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/letter_avatar_proxy/v4/letter/s/da6949/40.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/copy-as-rich-text-change-style/7704">Copy as Rich Text - Change Style?</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/actions/6"><span class="badge-category-bg" style="background-color: #652D90;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Need help with an action?  Not sure how to go about creating the right action, or if something is even possible in Drafts? This is the place to discuss.">Actions - Help &amp; Questions</span></a>
+  </div>
+  <blockquote>
+    I am trying to export a document to Pages/Word but first I need to configure the style. I think this can be done by modifying the Copy to Rich Text Action. However, I am not sure how to add more than one parameter too the Action to change the HTML css style? 
+
+<a href="https://pastebin.com/n9yFBAV6" rel="nofollow noopener">Ulysses CSS for Rich Text Template</a>
+<a href="https://actions.getdrafts.com/a/1GQ" rel="nofollow noopener">Drafts Copy as Rich Text (Verdana) Action</a>
+
+Modification: 
+var template = `&lt;html&gt;
+&lt;body style="font-family:Verdana;"&gt;
+&lt;body style="line-height:1.8em;"&gt;
+&lt;h3 style="font-size:13pt;"&gt;
+&lt;h3 style="font-weight:b…
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/24">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/24</link>
+        <pubDate>Sun, 19 Sep 2021 08:54:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-24</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[yashodhankhare]]></dc:creator>
+        <description><![CDATA[
+            <p>How can I control the FONT of the note? I want it to saved as a RTF file?</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/23">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/23</link>
+        <pubDate>Sun, 19 Sep 2021 07:24:02 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-23</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The preference keyboard shortcuts were overlooked, they will be re-added in next update.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/22">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/22</link>
+        <pubDate>Sat, 18 Sep 2021 12:54:38 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-22</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It should update to mic icon…sometimes watchOS take a little while to catch up with refreshing for changes.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/21">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/21</link>
+        <pubDate>Sat, 18 Sep 2021 12:54:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-21</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[belgarion]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m still using Series 3 Watch. When I changed to the Capture complication (the one with the mic icon), the complication always revert back to the Drafts icon when I switch between Watch faces. Pressing the complication launches Drafts in the capture mode. It’s just strange that the mic icon did not stay still. Watch OS 7.6.2 (18U80) here.</p>
+<p>Is it expected not to find the Drafts complications anymore in the app? I only see 4 complications:<br>
+</p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b49ba513839a4b468be533f6fd97c5cd19de8426.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/b49ba513839a4b468be533f6fd97c5cd19de8426" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b49ba513839a4b468be533f6fd97c5cd19de8426_2_231x500.jpeg" alt="image" data-base62-sha1="pLJpysbTSUcDh3jP0d95M5KnYhg" width="231" height="500" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b49ba513839a4b468be533f6fd97c5cd19de8426_2_231x500.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b49ba513839a4b468be533f6fd97c5cd19de8426_2_346x750.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b49ba513839a4b468be533f6fd97c5cd19de8426_2_462x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b49ba513839a4b468be533f6fd97c5cd19de8426_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/20">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/20</link>
+        <pubDate>Sat, 18 Sep 2021 12:14:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-20</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[moggy1972]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks - that works now. And works very quickly!</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/19">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/19</link>
+        <pubDate>Sat, 18 Sep 2021 08:30:22 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-19</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[Blue]]></dc:creator>
+        <description><![CDATA[
+            <p>Actually… Looks like ‘⌘ + ,` no longer opens Settings. (This is why having the full list would be handy.)</p>
+<p>Edit: <code>⌘ + Option + ,</code> no longer opens the Editing menu.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/18">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/18</link>
+        <pubDate>Fri, 17 Sep 2021 20:56:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-18</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[Blue]]></dc:creator>
+        <description><![CDATA[
+            <p>Yes! We’ve actually had that conversation before but I appreciate your suggestions.</p>
+<p>That screenshot is <em>precisely</em> what I need thank you so much.</p>
+<p>(I’ve been using iPads on display at my local best buy to grab screenshots but obviously I can’t install Drafts on those.)</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/17">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/17</link>
+        <pubDate>Fri, 17 Sep 2021 20:03:03 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-17</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>The built-in commands are really only what is in the File/Edit/View menus (see below).</p>
+<p>The rest belong to actions and depend on what you have installed/configured. Were you aware that you can enable display of keyboard shortcuts in the action list in the <code>(...)</code> list options?</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/aa4421cc2890a311624de1a9380e2011b880874f.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/aa4421cc2890a311624de1a9380e2011b880874f" title="IMG_0205"><img src="https://forums.getdrafts.com/uploads/default/original/2X/a/aa4421cc2890a311624de1a9380e2011b880874f.jpeg" alt="IMG_0205" data-base62-sha1="oif8OsuF0WEKnSW514gH7njhigv" width="517" height="248" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/aa4421cc2890a311624de1a9380e2011b880874f_2_10x10.png"></a></div><br>
+<div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/b/b3e445724e6079a9e32a078fa5122d8d28fc772d.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/b3e445724e6079a9e32a078fa5122d8d28fc772d" title="IMG_0206"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b3e445724e6079a9e32a078fa5122d8d28fc772d_2_517x263.jpeg" alt="IMG_0206" data-base62-sha1="pFoxf0vYs81d8nnJKTZLa44qSmh" width="517" height="263" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b3e445724e6079a9e32a078fa5122d8d28fc772d_2_517x263.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b3e445724e6079a9e32a078fa5122d8d28fc772d_2_775x394.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/b/b3e445724e6079a9e32a078fa5122d8d28fc772d_2_1034x526.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/b/b3e445724e6079a9e32a078fa5122d8d28fc772d_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/16">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/16</link>
+        <pubDate>Fri, 17 Sep 2021 20:00:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-16</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>For action assignments there are some Thoughtasylum library actions that export them in slightly different list formats into new drafts.</p>
+<p></p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/e/e9b9b8e88deac600c40a860dee7e03a74228322d.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/e9b9b8e88deac600c40a860dee7e03a74228322d" title="image"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e9b9b8e88deac600c40a860dee7e03a74228322d_2_273x250.jpeg" alt="image" data-base62-sha1="xlD9QrrGeHKZBrdLsNHaYWUmQjP" width="273" height="250" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e9b9b8e88deac600c40a860dee7e03a74228322d_2_273x250.jpeg, https://forums.getdrafts.com/uploads/default/optimized/2X/e/e9b9b8e88deac600c40a860dee7e03a74228322d_2_409x375.jpeg 1.5x, https://forums.getdrafts.com/uploads/default/optimized/2X/e/e9b9b8e88deac600c40a860dee7e03a74228322d_2_546x500.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/e/e9b9b8e88deac600c40a860dee7e03a74228322d_2_10x10.png"></a></div><p></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/15">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/15</link>
+        <pubDate>Fri, 17 Sep 2021 19:47:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-15</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[Blue]]></dc:creator>
+        <description><![CDATA[
+            <p>You’re correct! I’m running the Release Candidate of 15 on a Dev profile, but was able to get the shortcuts to respond again after restarting my handset. Sorry about that…</p>
+<p>Though on the subject, since iPhone users do not have the benefit of the keyboard shortcut guide/panel that appears when holding <code>⌘</code> on iPad, is there any way you could publish the contents of that panel for Drafts in a table format?</p>
+<p>I will literally make it for you if you send me screenshots.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/14">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/14</link>
+        <pubDate>Fri, 17 Sep 2021 19:19:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-14</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m not sure what you are seeing, are you on iOS 14 or iOS 15 beta? I only tested on the 15 beta, but can successfully bind Drafts actions to those shortcuts and they work from a bluetooth keyboard connected to an iPhone.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/13">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/13</link>
+        <pubDate>Fri, 17 Sep 2021 18:17:55 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-13</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[Blue]]></dc:creator>
+        <description><![CDATA[
+            <p>Yup! I had it attached to the TAD-Search Actions action, but I can’t seem to get it to respond at all (attaching it to other actions to test,) along with a few others I’ve discovered in the past few hours:</p>
+<ul>
+<li>^ + -</li>
+<li>Option + /</li>
+</ul>
+<p>Getting fairly worried - <a href="https://twitter.com/NeoYokel/status/1438902417660289027" rel="noopener nofollow ugc">I sent you, Tim, and Snell a Tweet reply thread about this</a> - because I suspect it’s not your error but an omission of the iPhone from whatever’s changed with “Universal Keyboard Support” (ironically, given that title.)</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/12">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/12</link>
+        <pubDate>Fri, 17 Sep 2021 18:07:53 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-12</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>What are you expecting <code>⌘-/</code> to do? Don’t believe that is a keyboard shortcut Drafts defines. Did you have it attached to an action?</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/11">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/11</link>
+        <pubDate>Fri, 17 Sep 2021 18:02:28 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-11</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>I think there was a misleading example in the FileManager docs, I’ve fixed that. The function takes a <a href="https://scripting.getdrafts.com/classes/bookmark">Bookmark object</a>. Like:</p>
+<pre><code class="lang-javascript">// find or create a named Bookmark
+let bookmark = Bookmark.findOrCreate("My-Folder");
+let fm = FileManager.createForBookmark(bookmark);
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/10">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/10</link>
+        <pubDate>Fri, 17 Sep 2021 17:50:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-10</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[moggy1972]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks for this update - the Folder Bookmark function in particular should solve something I’ve been trying to do neatly for a while - export to Obsidian. But, I’m getting an error on my Mac with the Bookmark. I’m using the name of the bookmark (but have tried the folder path as well) and I’m getting an error:</p>
+<blockquote>
+<pre><code class="lang-auto">Script Error: TypeError: Argument does not match Objective-C Class
+</code></pre>
+</blockquote>
+<p>I’m using code like:</p>
+<pre><code class="lang-auto">
+fmBookmark = FileManager.createForBookmark("Obsidian")
+</code></pre>
+<p>I’ve got it to work with the File action step - but for some reason, I always like to do these things through scripts.</p>
+<p>I’m on the latest public beta of Monterey if that makes a difference.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/9</link>
+        <pubDate>Fri, 17 Sep 2021 16:25:17 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-9</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[Blue]]></dc:creator>
+        <description><![CDATA[
+            <p>So I originally thought it was a problem with my Search Actions action but actually it would appear that it’s actually <strong>the bluetooth keyboard command</strong> <code>⌘ + /</code> is no longer functioning with the update.</p>
+<p>I can do a formal ticket if you’d like.</p>
+<p>Drafts Version: 28.0.40<br>
+OS Version: iOS 15.0<br>
+Device: iPhone 12 Pro Max<br>
+Pro Licensed: Yes</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/8</link>
+        <pubDate>Fri, 17 Sep 2021 16:16:59 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-8</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[armenotan]]></dc:creator>
+        <description><![CDATA[
+            <p>Oh sorry, that wasn’t phrased very clearly by me. I was meant <a href="https://forums.getdrafts.com/t/open-wiki-link-in-new-window/10398/6">this feature request I made from a while back</a> to open links in normal mode (i.e. not link mode) by using <code>cmd + click</code>.</p>
+<p>My wish above was basically only a re-iteration of that feature request.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/6</link>
+        <pubDate>Fri, 17 Sep 2021 14:27:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-6</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Example? This behavior is for links to other drafts, and should work with either <code>[[wiki-style]]</code> links, and <code>drafts://open?...</code> style URLs (when activated in link mode).</p>
+<p>Non-drafts links (e.g. <code>http</code>) already open in browser.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/5</link>
+        <pubDate>Fri, 17 Sep 2021 13:19:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-5</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[armenotan]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="agiletortoise" data-post="1" data-topic="11201">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>On Mac, <code>command-click</code> on links to other drafts to open them in a new window.</p>
+</blockquote>
+</aside>
+<p>I just spent 5 minutes wondering why my links won’t open via <code>cmd + click</code> before I realized it’s only Drafts wikilinks <img src="https://forums.getdrafts.com/images/emoji/apple/sweat_smile.png?v=10" title=":sweat_smile:" class="emoji" alt=":sweat_smile:"></p>
+<p>Please implement <code>cmd + click</code> to open a link for all types of links, would be really useful (and also in line with the behavior of other markdown apps) <img src="https://forums.getdrafts.com/images/emoji/apple/pray.png?v=10" title=":pray:" class="emoji" alt=":pray:"></p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/4</link>
+        <pubDate>Fri, 17 Sep 2021 12:50:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-4</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[armenotan]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="agiletortoise" data-post="1" data-topic="11201">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p><code>/open</code> and <code>/create</code> URL schemes now support several additional parameters to configure the environment (<a href="https://docs.getdrafts.com/docs/automation/urlschemes#open" rel="noopener nofollow ugc">docs</a>):</p>
+<ul>
+<li>
+<code>showDraftList</code> [true/false]</li>
+<li>
+<code>showActionList</code> [true/false]</li>
+<li>
+<code>loadWorkspace</code>, <code>loadActionGroup</code>, <code>loadActionBarGroup</code>: take names of valid group/workspaces and applies them</li>
+</ul>
+</blockquote>
+</aside>
+<p>great, thanks so much! Now I can finally ditch my over-complicated workaround of calling an action via URL Scheme which sets all those <img src="https://forums.getdrafts.com/images/emoji/apple/slight_smile.png?v=10" title=":slight_smile:" class="emoji" alt=":slight_smile:"></p>
+<p>Can’t wait for iOS 15 to play around with Shortcuts.</p>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/3</link>
+        <pubDate>Fri, 17 Sep 2021 12:41:37 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-3</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/2</link>
+        <pubDate>Fri, 17 Sep 2021 11:51:29 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-2</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+      <item>
+        <title>Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <h2>
+<a name="drafts-280-has-been-released-1" class="anchor" href="https://forums.getdrafts.com#drafts-280-has-been-released-1"></a>Drafts 28.0 has been released:</h2>
+<ul>
+<li><a href="https://itunes.apple.com/app/id1236254471?ls=1&amp;mt=8&amp;at=11l4Cf&amp;ct=site">iOS App Store</a></li>
+<li><a href="https://itunes.apple.com/app/id1435957248?mt=12&amp;at=11l4Cf&amp;ct=site">Mac App Store</a></li>
+</ul>
+<p>Details below. For a complete history of updates, visit:</p>
+<ul>
+<li><a href="https://docs.getdrafts.com/changelog">Changelog</a></li>
+</ul>
+<h2>
+<a name="whats-new-2" class="anchor" href="https://forums.getdrafts.com#whats-new-2"></a>What’s New</h2>
+<h3>
+<a name="ready-for-ios-15-and-macos-12-3" class="anchor" href="https://forums.getdrafts.com#ready-for-ios-15-and-macos-12-3"></a>Ready for iOS 15 and macOS 12</h3>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/f/fc3b54c6bb2d889fe6383d9c36455d1512e20530.png" alt="r28" data-base62-sha1="zZlrdpei9BL0aSkbpEA8PGlgeYw" width="641" height="396"></p>
+<p>Drafts is ready for iOS 15 and macOS 12! Updated for compatibility, of course, but also to take advantage of some of the great new features. New details below, but Drafts works great with “Live Text” to capture text from images, has full support for Shortcuts on the Mac, and brings great new iPad features, like powerful external keyboard menus.</p>
+<h3>
+<a name="new-apple-watch-app-4" class="anchor" href="https://forums.getdrafts.com#new-apple-watch-app-4"></a>New Apple Watch App</h3>
+<p><img src="https://forums.getdrafts.com/uploads/default/original/2X/0/03b171ef70c448deb76051755b96bed5b5134559.png" alt="r28-2" data-base62-sha1="wFBC9hpsE5e3zTOnavMF5WuB1T" width="641" height="396"></p>
+<p>We have re-written the Drafts Apple Watch app from the ground up to use the latest watchOS technologies. It’s still the best, easiest way to capture ideas on the go, but has a few new tricks:</p>
+<ul>
+<li>Multiple complication types to capture, capture with options, or see your inbox or flagged draft count.</li>
+<li>Inbox drafts synced to watch now reflect your default workspace options on the phone.</li>
+<li>Flagged drafts now also synced to the watch.</li>
+<li>Requires watchOS 7.1 or greater.</li>
+</ul>
+<p><em><a href="https://docs.getdrafts.com/docs/extensions/applewatch">Learn More About Drafts on Apple Watch →</a></em></p>
+<h3>
+<a name="shortcuts-support-on-macos-12-5" class="anchor" href="https://forums.getdrafts.com#shortcuts-support-on-macos-12-5"></a>Shortcuts Support on macOS 12</h3>
+<p>We’re ready for Shortcuts on the Mac! It’s just not quite ready for us. Look for full, cross-platform support for all of Drafts’ Shortcuts actions when macOS 12 (Monterey) is released in the coming weeks!</p>
+<p>We’re ready for Shortcuts on the Mac! It’s just not quite ready for us. Look for full, cross-platform support for all of Drafts’ Shortcuts actions when macOS 12 (Monterey) is released in the coming weeks!</p>
+<p>In the meantime, enjoy these new shortcut actions on iOS:</p>
+<ul>
+<li>
+<strong>Get Current Draft</strong>: Retrieves the draft object for the draft currently open in the editor.</li>
+<li>
+<strong>Open Draft Enhancements</strong>: The “Open Draft” shortcut action now has a bunch of additional optional parameters to configure Drafts while opening - to load a workspace, actions groups, hide/show the drafts and action lists, etc. Great for bookmarking a specific set of options in a Shortcut.<br>
+<em><a href="https://docs.getdrafts.com/docs/automation/shortcuts">Learn More About Shortcuts →</a></em>
+</li>
+</ul>
+<h2>
+<a name="folder-bookmarks-6" class="anchor" href="https://forums.getdrafts.com#folder-bookmarks-6"></a>Folder Bookmarks</h2>
+<p>Up to now, Drafts file actions and scripts have been limited to working with files in the “Drafts” folder in iCloud Drive (or by working directly with cloud-provider APIs, like Dropbox and Google Drive). With folder bookmarks, it is now possible to grant permissions to additional folders outside the Drafts App Sandbox, making it easier to integrate with other apps and services, to, say, export a draft content to another system - like an Obsidian Vault, etc.</p>
+<p><em><a href="https://docs.getdrafts.com/docs/settings/bookmarks">Learn More About Bookmarks →</a></em></p>
+<h2>
+<a name="document-scanning-and-live-text-support-7" class="anchor" href="https://forums.getdrafts.com#document-scanning-and-live-text-support-7"></a>Document Scanning and Live Text Support</h2>
+<p>Drafts has been tested and works great with the new “Live Text” features in iOS 15 and macOS 12. In addition, we have incorporated document scanning to OCR directly in the iOS app. Tap and hold the “+” and select “Scan Document” to open the document scanning camera. It supports scanning multi-page documents, and directly runs the results through OCR to create a new draft with the result text.</p>
+<p><em><a href="https://docs.getdrafts.com/docs/editor/document-scanning">Learn More About Live Text &amp; Scanning →</a></em></p>
+<h2>
+<a name="share-extension-and-capture-window-updates-8" class="anchor" href="https://forums.getdrafts.com#share-extension-and-capture-window-updates-8"></a>Share Extension and Capture Window Updates</h2>
+<p>Drafts capture flow used in the iOS Share extension and the “Capture” window on Mac, has received a number of updates:</p>
+<ul>
+<li>Both now remember your recently used selections for appending and prepending to existing drafts, to make it easier to re-use active drafts.</li>
+<li>The Mac Share extension now displays in a new capture window, allow preview/editing of captured text as well as appending-prepending to other drafts - more like the iOS Share extension.</li>
+<li>Mac Services menu now contains “Capture to Drafts” and “Capture to Drafts with Options” services to send text selections to Drafts from anywhere in the system. The “with Options” version displays a capture window, while the other version capture silently as a new draft.</li>
+<li>New <code>/capture</code> URL scheme, and Shortcut “Show Capture” action, allow you display the capture window in app, optionally pre-filled with text and tags. This is useful in capture workflows from other apps, as well as web bookmarklets.</li>
+</ul>
+<p><em>Learn more about the <a href="https://docs.getdrafts.com/docs/extensions/share">iOS Share Extension</a> and <a href="https://docs.getdrafts.com/docs/extensions/capture-window">Mac Capture Window</a></em></p>
+<h2>
+<a name="general-improvements-9" class="anchor" href="https://forums.getdrafts.com#general-improvements-9"></a>General Improvements</h2>
+<ul>
+<li>New tag suggestion interface on iOS to make it easier to tag your drafts with just the right tags.</li>
+<li>On iOS, long press on links to other drafts now generates a preview and several command options for the draft. This includes <code>[[wiki-style]]</code> links, or <code>drafts://open</code> links in link mode.</li>
+<li>On Mac, <code>command-click</code> on links to other drafts to open them in a new window.</li>
+<li>Tags in the tag filter pane now have contextual menu (tap and hold) with “rename” and “delete” commands to bulk manage tags. These options already existed in the draft list “Operations” commands, but these versions pre-fill the tag value for better accuracy.</li>
+</ul>
+<h4>
+<a name="other-updates-and-fixes-10" class="anchor" href="https://forums.getdrafts.com#other-updates-and-fixes-10"></a>Other Updates and Fixes</h4>
+<h3>
+<a name="all-platforms-11" class="anchor" href="https://forums.getdrafts.com#all-platforms-11"></a>All Platforms</h3>
+<ul>
+<li>New “What’s New” screen accessible via Settings &gt; What’s New (iOS) or Help &gt; What’s New (macOS)</li>
+<li>“Run Shortcut” action step has new “Return to Drafts” option. If disabled, Drafts will not include callback parameters to return to Drafts after completing the Shortcut. If you do not care about a result from Shortcuts, and wish to end up in a different app when the shortcut finishes, disable this option.</li>
+<li>
+<code>[[hashtags]]</code> template tag. Returns assigned tags as comma-separated list, with each tag prefixed with a “#”. Convenience tag to remove the need to script this conversion when exporting to systems that use hash tags.</li>
+<li>Estimated read time now calculated and displayed in draft detail <code>(i)</code> screen.</li>
+<li>
+<strong>Fix:</strong> Markdown syntaxes not recognizing [ref][links] with space.</li>
+<li>
+<strong>Fix:</strong> After success “Trash” would not load next draft properly in focus mode.</li>
+</ul>
+<h3>
+<a name="ios-12" class="anchor" href="https://forums.getdrafts.com#ios-12"></a>iOS</h3>
+<ul>
+<li>Refactor the next-previous button logic because it was not updating properly in some cases.</li>
+<li>A few new app icon options.</li>
+<li>Require iOS 14.1 or greater.</li>
+<li>Remove pre-iOS 14 “Today” widgets.</li>
+</ul>
+<h3>
+<a name="mac-13" class="anchor" href="https://forums.getdrafts.com#mac-13"></a>Mac</h3>
+<ul>
+<li>More toolbar options to customize your toolbar. Focus, link modes, preview, arrange buttons now available.</li>
+<li>List types returned from AppleScript not converted properly to JavaScript arrays.</li>
+</ul>
+<h3>
+<a name="scripting-shortcuts-and-url-schemes-14" class="anchor" href="https://forums.getdrafts.com#scripting-shortcuts-and-url-schemes-14"></a>Scripting, Shortcuts, and URL Schemes</h3>
+<ul>
+<li>
+<code>version.delete()</code> function to allow scripted deletion of versions in the version history. (<a href="https://scripting.getdrafts.com/classes/version#delete">docs</a>)</li>
+<li>
+<code>ActionLog</code> script object used to read and manipulation entries in the Action Log. Generally accessed from the <code>draft.actionLogs</code> property. (<a href="https://scripting.getdrafts.com/classes/actionlog">docs</a>)</li>
+<li>
+<code>/scandocument</code> URL scheme. (<a href="https://docs.getdrafts.com/docs/automation/urlschemes#scandocument">docs</a>)</li>
+<li>
+<code>editor.scanDocument() -&gt; string</code> function. Also similar to <code>editor.dictate()</code> function, opens the document scanner and returns any OCR results as a string which you can do with as you please. (<a href="https://scripting.getdrafts.com/classes/editor#scandocument">docs</a>)</li>
+<li>New “Get Current Draft” shortcut action retreives the draft currently open in the main editor.</li>
+<li>“Open Draft” shortcut action has additional options to configure state of window (show/hide side panes, load workspace, etc. - <a href="https://docs.getdrafts.com/docs/automation/shortcuts#open-draft">docs</a>)</li>
+<li>
+<code>/open</code> and <code>/create</code> URL schemes now support several additional parameters to configure the environment (<a href="https://docs.getdrafts.com/docs/automation/urlschemes#open">docs</a>):
+<ul>
+<li>
+<code>showDraftList</code> [true/false]</li>
+<li>
+<code>showActionList</code> [true/false]</li>
+<li>
+<code>loadWorkspace</code>, <code>loadActionGroup</code>, <code>loadActionBarGroup</code>: take names of valid group/workspaces and applies them</li>
+</ul>
+</li>
+</ul>
+          <p><a href="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201/1</link>
+        <pubDate>Fri, 17 Sep 2021 11:51:13 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-11201-1</guid>
+        <source url="https://forums.getdrafts.com/t/drafts-28-released-ready-for-new-ios-macos-folder-bookmarks-and-more/11201.rss">Drafts 28 Released - Ready for new iOS/macOS, Folder Bookmarks, and More</source>
+      </item>
+  </channel>
+</rss>

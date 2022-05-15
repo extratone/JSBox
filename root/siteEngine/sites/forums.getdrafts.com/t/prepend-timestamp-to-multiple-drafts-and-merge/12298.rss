@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Prepend Timestamp to Multiple Drafts and Merge</title>
+    <link>https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298</link>
+    <description>I am using the shortcut action &quot;Create Draft with Dictation&quot; to create multiple drafts during the day detailing what I just accomplished and what is next on the plate. 
+
+At the end of the day, I have a workspace which contains all these drafts, each generally just a few lines in length. My goal is to create an action which processes these drafts, prepending the timestamp on each one, then merging all the drafts in the workspace into one. 
+
+For Example:
+
+Draft 1 (Created 08:03)
+Got Coffee and triaged mail while waiting for coffee to cool.
+
+Draft 2 (Created 08:37)
+Call with key partner, just put entire day into shredder. Rest of day will be updating redlines on proposal.
+
+The goal is to turn that into a single draft looking like:
+- 08:03: Got Coffee and triaged mail while waiting for coffee to cool.
+- 08:37: Call with key partner, just put entire day into shredder. Rest of day will be updating redlines on proposal.
+
+I&#39;ve done some script modifications within an editor space but never across multiple drafts. Can anyone point me to any good examples to start from?</description>
+    
+    <lastBuildDate>Wed, 27 Apr 2022 02:03:42 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Prepend Timestamp to Multiple Drafts and Merge</title>
+        <dc:creator><![CDATA[djs71a]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi <a class="mention" href="https://forums.getdrafts.com/u/denrael">@Denrael</a>, did you ever get your workflow setup how you want it?</p>
+          <p><a href="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/4</link>
+        <pubDate>Wed, 27 Apr 2022 02:03:42 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12298-4</guid>
+        <source url="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298.rss">Prepend Timestamp to Multiple Drafts and Merge</source>
+      </item>
+      <item>
+        <title>Prepend Timestamp to Multiple Drafts and Merge</title>
+        <dc:creator><![CDATA[Denrael]]></dc:creator>
+        <description><![CDATA[
+            <p>Looks like almost exactly what I was thinking of. Just installed it and will play with it over the next few days. Give you an update this weekend. Thanks!</p>
+          <p><a href="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/3</link>
+        <pubDate>Thu, 17 Mar 2022 01:42:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12298-3</guid>
+        <source url="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298.rss">Prepend Timestamp to Multiple Drafts and Merge</source>
+      </item>
+      <item>
+        <title>Prepend Timestamp to Multiple Drafts and Merge</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>if your drafts are all in the same workspace then I think the Workspace.query API is what you need to get those drafts: <a href="https://scripting.getdrafts.com/classes/workspace#query" class="inline-onebox">Workspace | Drafts Script Reference</a></p>
+<p>Actually a nice use case after thinking about it and a great usage of drafts.<br>
+This is what I came up with:</p>
+<aside class="onebox allowlistedgeneric" data-onebox-src="https://directory.getdrafts.com/a/1x4">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+
+      <a href="https://directory.getdrafts.com/a/1x4" target="_blank" rel="noopener">directory.getdrafts.com</a>
+  </header>
+
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_1035x543.png 1.5x, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://directory.getdrafts.com/a/1x4" target="_blank" rel="noopener">Drafts Directory: combine drafts from workspace</a></h3>
+
+  <p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+
+  <div class="onebox-metadata">
+    
+    
+  </div>
+
+  <div style="clear: both"></div>
+</aside>
+
+<p>let me know if it fits your needs</p>
+          <p><a href="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/2</link>
+        <pubDate>Tue, 15 Mar 2022 08:15:24 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12298-2</guid>
+        <source url="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298.rss">Prepend Timestamp to Multiple Drafts and Merge</source>
+      </item>
+      <item>
+        <title>Prepend Timestamp to Multiple Drafts and Merge</title>
+        <dc:creator><![CDATA[Denrael]]></dc:creator>
+        <description><![CDATA[
+            <p>I am using the shortcut action “Create Draft with Dictation” to create multiple drafts during the day detailing what I just accomplished and what is next on the plate.</p>
+<p>At the end of the day, I have a workspace which contains all these drafts, each generally just a few lines in length. My goal is to create an action which processes these drafts, prepending the timestamp on each one, then merging all the drafts in the workspace into one.</p>
+<p>For Example:</p>
+<p>Draft 1 (Created 08:03)<br>
+Got Coffee and triaged mail while waiting for coffee to cool.</p>
+<p>Draft 2 (Created 08:37)<br>
+Call with key partner, just put entire day into shredder. Rest of day will be updating redlines on proposal.</p>
+<p>The goal is to turn that into a single draft looking like:</p>
+<ul>
+<li>08:03: Got Coffee and triaged mail while waiting for coffee to cool.</li>
+<li>08:37: Call with key partner, just put entire day into shredder. Rest of day will be updating redlines on proposal.</li>
+</ul>
+<p>I’ve done some script modifications within an editor space but never across multiple drafts. Can anyone point me to any good examples to start from?</p>
+          <p><a href="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298/1</link>
+        <pubDate>Tue, 15 Mar 2022 01:50:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12298-1</guid>
+        <source url="https://forums.getdrafts.com/t/prepend-timestamp-to-multiple-drafts-and-merge/12298.rss">Prepend Timestamp to Multiple Drafts and Merge</source>
+      </item>
+  </channel>
+</rss>

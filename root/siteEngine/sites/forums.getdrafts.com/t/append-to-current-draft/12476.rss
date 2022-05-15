@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Append to current draft</title>
+    <link>https://forums.getdrafts.com/t/append-to-current-draft/12476</link>
+    <description>I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action.
+
+Here is my current script:
+
+let f = () =&gt; {
+	// select an existing draft
+	let d = Draft.find(&quot;01AB846B-FA59-4D98-91B2-E7F52DBE3C63&quot;);
+	if (!d) {
+		return false;
+	}
+	
+	// append current draft
+	draft.content = draft.content + &quot; &quot; + d.content;
+	draft.update();
+	return true;	
+}
+
+if (!f()) {
+	context.cancel();
+}
+
+What do I need to do to bring the revised note back as the active note?
+
+Thanks.</description>
+    
+    <lastBuildDate>Sun, 17 Apr 2022 13:37:27 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>Just to note it might not be necessary to alter the original draft. Perhaps this new text is something you actually want in the draft, but if it is just meta-data you are adding for the benefit of whatever other app or service you are targeting, you might just have the action include that text via templates, and not actually insert it in the original text.</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/9">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/9</link>
+        <pubDate>Sun, 17 Apr 2022 13:37:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-9</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Rolfess" data-post="7" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>Second, sorry for the single quotes. I was using the keyboard on the iPad screen, and I could not (still can’t) find the right key. I know what you are referring to, but I don’t find it anywhere on this keyboard.</p>
+</blockquote>
+</aside>
+<p>Press and hold the single quote to reveal more options.</p>
+<aside class="quote no-group" data-username="Rolfess" data-post="7" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>third, I think I have managed to make this too complicated. Simply put, I want to insert text at the end of the current active draft (is that the right terminology?) before sending the active draft to another action.</p>
+</blockquote>
+</aside>
+<p>If you are processing the draft, and want to continue processing the same draft, then you would not have to do anything. Unless you specify to start jumping around, or archiving/trashing drafts, Drafts will stay put.</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/8">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/8</link>
+        <pubDate>Sat, 16 Apr 2022 16:19:18 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-8</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[Rolfess]]></dc:creator>
+        <description><![CDATA[
+            <p>First, thanks for all the information. I really appreciate your helpfulness, and it will take me awhile to absorb it all.</p>
+<p>Second, sorry for the single quotes. I was using the keyboard on the iPad screen, and I could not (still can’t) find the right key. I know what you are referring to, but I don’t find it anywhere on this keyboard.</p>
+<p>third, I think I have managed to make this too complicated. Simply put, I want to insert text at the end of the current active draft (is that the right terminology?) before sending the active draft to another action.</p>
+<p>I think “Insert Text” will meet my needs. But eventually I will want to offer several choices of text, one of which will have to be selected by me before continuing. I have created these kinds of choices before, but I am not fluent in it, and I will have to remember how to do it.</p>
+<p>To explain what I am doing:</p>
+<p>I use FlohGro’s action “Prepend to Craft Note as todo item.” But to use its full power of putting tasks into one of several documents, I need to add a markdown link at the end that will reference a page in Craft. That way, all tasks can be found in one of 2-4 pages instead of in one of possibly 20 documents. Currently I use TextExpander to add one markdown link manually.</p>
+<p>I want to automate it, and I would eventually like to offer 3-4 choices.</p>
+<p>The way I was approaching this was perfectly good, but using “Insert Text” is simpler. I just need to make sure the cursor is actually at the end of the line, which it usually is, and I need to remember how to offer a few choices.</p>
+<p>Thanks to both of you for all your help, When I get home and can think more, I will absorb it and decide if that is better than Insert Text or not.</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/7</link>
+        <pubDate>Sat, 16 Apr 2022 16:16:54 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-7</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>Thanks, I was not clear. I want to append an existing draft to the active draft.</p>
+</blockquote>
+</aside>
+<p>Okay, that matches what the action was doing, so that clarifies things there. Specifically you are adding the content of a particular, pre-existing draft (presumably what you subsequently refer to as “original”) to the current draft loaded in the editor.</p>
+<p>Based on that, your initial script can be simplified further through using append and maybe simplifying some of the <code>if</code> statements? Here is a potential revision:</p>
+<pre><code class="lang-auto">let f = () =&gt; {
+	// select an existing draft
+	let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+	if (!d) return false;
+	draft.append(d.content, " ");
+	draft.update();
+	return true;
+}
+
+if (!f()) context.cancel();
+</code></pre>
+<p><em>Also please note you tried to use single quotes rather than <a href="https://www.computerhope.com/jargon/b/backquot.htm">backticks</a> on your repost of the code on the forum which is why it still did not work, as the forum truns quotes into smart quotes, loses any indentation, etc.</em></p>
+<aside class="quote no-group" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>I have not yet decided what I want to do if there is no draft to append.</p>
+</blockquote>
+</aside>
+<p>Your original code cancels the context, so perhaps just a message (we can do that through fail, which seems more appropriate) and then simplifying the script?</p>
+<pre><code class="lang-auto">let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+if (!d) {
+	let strErrMsg = "Specified draft to append not found.";
+	app.displayErrorMessage(strErrMsg);
+	context.cancel(strErrMsg);
+}
+else {
+	draft.append(d.content, " ");
+	draft.update();
+}
+</code></pre>
+<aside class="quote no-group" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>Eventually I may want to offer a few choices to append to the original, but that is not decided.</p>
+</blockquote>
+</aside>
+<p>In the interim, you could simply pop-up the standard Drafts draft search box and grab the result or deal with a cancellation from that; until such time as you are ready to constrain your results to a known subset of drafts.</p>
+<pre><code class="lang-auto">let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+if (!d) d = app.selectDraft();
+if (typeof d !== "undefined") {
+	draft.append(d.content, " ");
+	draft.update();
+}
+</code></pre>
+<aside class="quote no-group quote-modified" data-username="Rolfess" data-post="3" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>IRight now I want the original to end up as the active draft so I can pass it to another script.</p>
+</blockquote>
+</aside>
+<p>This is where we get to the response from <a class="mention" href="https://forums.getdrafts.com/u/flohgro">@FlohGro</a>, specifically the <code>editor.load(d)</code> line, but is also where we are again back in the realms of requiring more clarity.</p>
+<p>That line of instruction will load the “original” draft into the editor. That line will work if you are going to manually run another action on the currently active draft subsequently, or on an action that has it loaded into the editor. <strong>BUT</strong>, you indicate that you are going to “<em>pass it to another script</em>”. That is non-specific enough to cover a variety of activities. “another script” could refer to any of the following and potentially a few other more complex options and variations too:</p>
+<ol>
+<li>Another JavaScript function in the same script step of the currently being run action.</li>
+<li>Another script step in the currently being run action.</li>
+<li>Another script step in another action that you manually trigger.</li>
+</ol>
+<p>In addition, you can run an action on a different draft using the <code>app.queueAction()</code> function, which accepts a draft as a parameter, but that would not require the draft to be loaded into the editor.</p>
+<p>Also keep in mind that the <code>draft</code> and <code>editor</code> objects are not equivalent. What do your subsequent scripts work on? What is currently loaded in the editor, a draft object that is passed to it, or the ‘current draft’ referenced by <code>draft</code>, which would be the draft on which the action was originally triggered.</p>
+<p>It may well be that what you are after is something like:</p>
+<pre><code class="lang-auto">let d = Draft.find("01AB846B-FA59-4D98-91B2-E7F52DBE3C63");
+if (!d) d = app.selectDraft();
+if (typeof d !== "undefined") {
+	draft.append(d.content, " ");
+	draft.update();
+	editor.load(d);
+	editor.activate();
+}
+</code></pre>
+<p>But, it is at least equally as likely that it might be something else that you require. More specifics and more detail as what is required gets you clsoer to a final answer faster.</p>
+<p>Hopefully, that helps clarify a few things to you, as well as helping you think about what it is you are attempting to do overall and the sorts of things you must consider.</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/6</link>
+        <pubDate>Sat, 16 Apr 2022 10:06:58 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-6</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <p>to load a draft you can use <code>editor.load()</code> (<a href="https://scripting.getdrafts.com/classes/editor#load">scripting reference</a>)<br>
+In your case try to add the following snippet:</p>
+<pre><code class="lang-auto">…
+draft.update()
+editor.load(d)
+return true
+…
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/5</link>
+        <pubDate>Sat, 16 Apr 2022 06:59:35 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-5</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[Rolfess]]></dc:creator>
+        <description><![CDATA[
+            <p>Added corrected script.<br>
+‘’’<br>
+let f = () =&gt; {<br>
+// select an existing draft<br>
+let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);<br>
+if (!d) {<br>
+return false;<br>
+}</p>
+<pre><code class="lang-auto">// append current draft
+draft.content = draft.content + " " + d.content;
+draft.update();
+return true;	
+</code></pre>
+<p>}</p>
+<p>if (!f()) {<br>
+context.cancel();<br>
+}<br>
+‘’’</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/4</link>
+        <pubDate>Fri, 15 Apr 2022 19:55:47 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-4</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[Rolfess]]></dc:creator>
+        <description><![CDATA[
+            <p>Thanks, I was not clear. I want to append an existing draft to the active draft.</p>
+<p>I have not yet decided what I want to do if there is no draft to append.</p>
+<p>Eventually I may want to offer a few choices to append to the original, but that is not decided.</p>
+<p>Right now I want the original to end up as the active draft so I can pass it to another script.</p>
+<p>I have hit a dead end, and I think I should approach it a completely different way, but I am at a loss as to what that would be. A template possibly?</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/3</link>
+        <pubDate>Fri, 15 Apr 2022 18:04:12 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-3</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="Rolfess" data-post="1" data-topic="12476">
+<div class="title">
+<div class="quote-controls"></div>
+<img loading="lazy" alt="" width="20" height="20" src="https://forums.getdrafts.com/letter_avatar_proxy/v4/letter/r/278dde/40.png" class="avatar"> Rolfess:</div>
+<blockquote>
+<p>I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note.</p>
+</blockquote>
+</aside>
+<p>Your action looks to me like it adds the content of another draft to the current draft, which is not what you describe. Can you confirm what you wish to do with  an action, including if a draft is not found, etc?</p>
+<p>Please also remember to put your script in a code block, denoted by placing it between a pair of triple back ticks (```).</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/2</link>
+        <pubDate>Fri, 15 Apr 2022 16:33:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-2</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+      <item>
+        <title>Append to current draft</title>
+        <dc:creator><![CDATA[Rolfess]]></dc:creator>
+        <description><![CDATA[
+            <p>I borrowed an action from the library and rejiggered it to append a link in an existing draft note to the active note. It works, but I want the result to remain as the active note, so I can pass it to another action.</p>
+<p>Here is my current script:</p>
+<p>let f = () =&gt; {<br>
+// select an existing draft<br>
+let d = Draft.find(“01AB846B-FA59-4D98-91B2-E7F52DBE3C63”);<br>
+if (!d) {<br>
+return false;<br>
+}</p>
+<pre><code>// append current draft
+draft.content = draft.content + " " + d.content;
+draft.update();
+return true;	
+</code></pre>
+<p>}</p>
+<p>if (!f()) {<br>
+context.cancel();<br>
+}</p>
+<p>What do I need to do to bring the revised note back as the active note?</p>
+<p>Thanks.</p>
+          <p><a href="https://forums.getdrafts.com/t/append-to-current-draft/12476/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/append-to-current-draft/12476/1</link>
+        <pubDate>Fri, 15 Apr 2022 15:25:49 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-12476-1</guid>
+        <source url="https://forums.getdrafts.com/t/append-to-current-draft/12476.rss">Append to current draft</source>
+      </item>
+  </channel>
+</rss>

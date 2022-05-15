@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom checklist/radiobutton selection dialogs for Drafts 21 - Actions - Share What You&#39;ve Made - Drafts Community</title>
+    <meta name="description" content="Drafts 21 is out today, and it brings a major new feature for Actions developers: the ability to create custom user interfaces using the HTMLPreview window, which can now execute JavaScript and pass data back out to the &amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="7705.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Custom checklist/radiobutton selection dialogs for Drafts 21&#39;" href="https://forums.getdrafts.com/t/custom-checklist-radiobutton-selection-dialogs-for-drafts-21/7705.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_789x1024.jpeg" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_789x1024.jpeg" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/custom-checklist-radiobutton-selection-dialogs-for-drafts-21/7705" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/custom-checklist-radiobutton-selection-dialogs-for-drafts-21/7705" />
+<meta property="og:title" content="Custom checklist/radiobutton selection dialogs for Drafts 21" />
+<meta name="twitter:title" content="Custom checklist/radiobutton selection dialogs for Drafts 21" />
+<meta property="og:description" content="Drafts 21 is out today, and it brings a major new feature for Actions developers: the ability to create custom user interfaces using the HTMLPreview window, which can now execute JavaScript and pass data back out to the calling context or action.  Accordingly, I’ve released MGCheckListPrompt (and MGListPrompt), a pair of custom list/picker dialogs which let you choose from a list of options — which can be either drafts, or arbitrary choices. There are lots of configurable options and convenience..." />
+<meta name="twitter:description" content="Drafts 21 is out today, and it brings a major new feature for Actions developers: the ability to create custom user interfaces using the HTMLPreview window, which can now execute JavaScript and pass data back out to the calling context or action.  Accordingly, I’ve released MGCheckListPrompt (and MGListPrompt), a pair of custom list/picker dialogs which let you choose from a list of options — which can be either drafts, or arbitrary choices. There are lots of configurable options and convenience..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="4 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="23 ❤" />
+<meta property="article:published_time" content="2020-06-17T12:50:19+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+        <link rel="next" href="https://forums.getdrafts.com/t/custom-checklist-radiobutton-selection-dialogs-for-drafts-21/7705?page=2">
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="7705.html">Custom checklist/radiobutton selection dialogs for Drafts 21</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="../../c/actions-sharing.html" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #9EB83B'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Actions - Share What You&#39;ve Made</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/actions.html' class='discourse-tag' rel="tag">actions</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-17T12:50:19Z' class='post-time'>
+                June 17, 2020, 12:50pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-17T12:55:22Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Drafts 21 is out today, and it brings a major new feature for Actions developers: the ability to create custom user interfaces using the HTMLPreview window, which can now execute JavaScript and pass data back out to the calling context or action.</p>
+<p>Accordingly, I’ve released MGCheckListPrompt (and MGListPrompt), a pair of custom list/picker dialogs which let you choose from a list of options — which can be either drafts, or arbitrary choices. There are lots of configurable options and conveniences, including: full keyboard navigation/control (no pointing devices/fingers required!); support for Mac, iPad, and iPhone; automatic light/dark theme support; customisable appearance via CSS; optional type-to-select mode; and so on.</p>
+<p>MGCheckListPrompt is the multiple-selection (checkboxes-type) variant, and MGListPrompt is the single-selection (radio-buttons-type) variant. Both are fully documented, include various example actions, and work with Drafts 21 or later on iPadOS, iOS, and macOS.</p>
+<ul>
+<li>
+<p><a href="https://mattgemmell.com/mgchecklistprompt-docs/" rel="nofollow noopener">Documentation (and download link) for MGCheckListPrompt</a></p>
+</li>
+<li>
+<p><a href="https://mattgemmell.com/mglistprompt-docs/" rel="nofollow noopener">Documentation (and download link) for MGListPrompt</a></p>
+</li>
+</ul>
+<p>These should also serve as useful examples of what you can do with the new HTMLPreview functionality in Drafts 21.</p>
+<p>Here’s a screenshot of MGCheckList Prompt (on iPad, in the light theme).</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/a9597fcda06fa8ae7a42edbbc0778d416e46073f" title=""><img src="../../uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_385x500.jpeg" alt="" data-base62-sha1="oa8rvG1ROVFVd4GTXedpkWQSzwz" width="385" height="500" srcset="../../uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_385x500.jpeg, ../../uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_577x750.jpeg 1.5x, ../../uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_770x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/a/a9597fcda06fa8ae7a42edbbc0778d416e46073f_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename"></span><span class="informations">1517×1968 372 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I hope you’ll find these reusable custom prompts useful in your own Actions and workflows.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+          <meta itemprop='keywords' content='actions'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="5" />
+           <span class='post-likes'>5 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-17T13:40:56Z' class='post-time'>
+                June 17, 2020,  1:40pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-17T13:40:56Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>HTML/CSS people interested in expanding on these new HTML Preview options should read the <a href="../../../docs.getdrafts.com/docs/actions/html-forms.html">Advanced HTML Previews article</a> in the User Guide. It covers the basics of custom interactions.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-17T16:12:58Z' class='post-time'>
+                June 17, 2020,  4:12pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-17T16:12:58Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/mattgemmell">@mattgemmell</a>: speaking from the middle of a particularly depressing week, this post brings me a lot of joy. Thank you. I’m looking forward to experimenting with these.</p>
+<p>Aside from building Drafts prompts with this, the fact that lists in Shortcuts don’t offer a full screen mode has always irked me, so now I’m also excited to see how smoothly I can integrate these menus with some of the list-driven shortcuts that I trigger from home-screen icons.</p>
+<p>The “type to select” option is good to see. Am I right in thinking that it only works with a physical keyboard? And: how difficult might it be for someone to add a filter field to the top of one of these menu instances to filter options while typing?</p>
+<p>(Also, obviously, thanks to <a class="mention" href="https://forums.getdrafts.com/u/agiletortoise">@agiletortoise</a> for making this kind of development possible.)</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-17T16:31:01Z' class='post-time'>
+                June 17, 2020,  4:31pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-17T16:31:01Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi! Thanks, and you’re welcome.</p>
+<p>There would be some work needed on the underlying JavaScript to make a filter field work, because right now the prompt uses the keyboard focus to select items in the list (and takes advantage of the fact that pressing Spacebar when focused on a checkbox will toggle its checked status). I think you’d need to decouple the focus aspect of it, because obviously you’d want the keyboard focus to remain upon the filter field while you were typing.</p>
+<p>Having said that, maybe it would be mostly a matter of enhancing the keystroke handler to know whether you’re currently in the list or the filter field, and doing appropriate things. I certainly see no reason why it wouldn’t be completely possible; it would just need some tweaking!</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-17T16:59:20Z' class='post-time'>
+                June 17, 2020,  4:59pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-17T17:04:26Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Two quick new features just implemented. <a href="../../../actions.getdrafts.com/g/10X.html" rel="nofollow noopener">Code</a> and <a href="https://mattgemmell.com/mgchecklistprompt-docs/" rel="nofollow noopener">documentation</a> have been updated, including additional example actions.</p>
+<h1>Rounded checkboxes</h1>
+<p>Choose circular checkboxes (checkdiscs?) instead of the usual square shape. Off by default.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/3356f4f737493f00b85aae00544894ace55ecf8c" title="Rounded checkboxes"><img src="../../uploads/default/optimized/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c_2_500x500.jpeg" alt="Rounded checkboxes" data-base62-sha1="7kaECUZxrsWC1Ei9NnIkMP5AC0A" width="500" height="500" srcset="../../uploads/default/optimized/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c_2_500x500.jpeg, ../../uploads/default/optimized/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c_2_750x750.jpeg 1.5x, ../../uploads/default/original/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/3/3356f4f737493f00b85aae00544894ace55ecf8c_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Rounded checkboxes</span><span class="informations">836×836 83.1 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<h1>Numeric shortcuts</h1>
+<p>As long as the optional “type to select” mode is off, you can use the number keys 1-0 to directly select items 1-10 respectively. Now, you can also choose to show those numeric shortcut keys within the corresponding checkboxes when they’re unchecked, as a visual reminder. Off by default.</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/8/869e894b950f83affc16d9a327546e426e66f529.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/869e894b950f83affc16d9a327546e426e66f529" title="Numeric shortcuts"><img src="../../uploads/default/optimized/2X/8/869e894b950f83affc16d9a327546e426e66f529_2_500x500.jpeg" alt="Numeric shortcuts" data-base62-sha1="jcTDTG5plR7vLoJ8IQJYVMObyeR" width="500" height="500" srcset="../../uploads/default/optimized/2X/8/869e894b950f83affc16d9a327546e426e66f529_2_500x500.jpeg, ../../uploads/default/optimized/2X/8/869e894b950f83affc16d9a327546e426e66f529_2_750x750.jpeg 1.5x, ../../uploads/default/original/2X/8/869e894b950f83affc16d9a327546e426e66f529.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/869e894b950f83affc16d9a327546e426e66f529_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Numeric shortcuts</span><span class="informations">843×843 80.6 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>These two settings can be used in any combination. Thanks for reading.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/9/9241dca5de195609bf01d38f74ccd77569c73912.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-18T15:32:18Z' class='post-time'>
+                June 18, 2020,  3:32pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-18T15:37:26Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>A quick note that I’ve combined the two projects, into MGCheckListPrompt. That’s the one to use. It now contains all the features of both, including two selection modes: multiple selection (checkboxes), and single-selection (radio-buttons). The look and feel has also been unified. Any future development will be in MGCheckListPrompt, the unified project.</p>
+<p>And here’s a screenshot of its radio-buttons mode:</p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="../../uploads/default/original/2X/9/9241dca5de195609bf01d38f74ccd77569c73912.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/9241dca5de195609bf01d38f74ccd77569c73912" title="Single selection mode"><img src="../../uploads/default/optimized/2X/9/9241dca5de195609bf01d38f74ccd77569c73912_2_500x500.jpeg" alt="Single selection mode" data-base62-sha1="kRQOMSJi3ROBPAPkZCRreNUXucG" width="500" height="500" srcset="../../uploads/default/optimized/2X/9/9241dca5de195609bf01d38f74ccd77569c73912_2_500x500.jpeg, ../../uploads/default/original/2X/9/9241dca5de195609bf01d38f74ccd77569c73912.jpeg 1.5x, ../../uploads/default/original/2X/9/9241dca5de195609bf01d38f74ccd77569c73912.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/9/9241dca5de195609bf01d38f74ccd77569c73912_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">Single selection mode</span><span class="informations">703×703 63.3 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>I hope it’ll be useful.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+            <link itemprop="image" href="../../uploads/default/original/2X/7/7f343e5f6885d00cc9b00995d28a570cb46dde32.gif">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-25T19:08:33Z' class='post-time'>
+                June 25, 2020,  7:08pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-25T19:08:33Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/jsamlarose">@jsamlarose</a> Just a note that I got around to implementing list-filtering in the prompt; the code has been updated, and there’s a new example action included called “Demo: Type-to-Filter”.</p>
+<p><img src="../../uploads/default/original/2X/7/7f343e5f6885d00cc9b00995d28a570cb46dde32.gif" alt="image" data-base62-sha1="i9izlZlK4ttFPy0U4jAFKuwbkoG" width="320" height="310"></p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-27T13:36:15Z' class='post-time'>
+                June 27, 2020,  1:36pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-27T13:36:15Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>One more update: custom validation functions that run within the prompt/HTMLPreview itself. This should open up a lot of flexibility for using the prompt in your own scripts. Here’s the relevant section of the documentation: <a href="https://mattgemmell.com/mgchecklistprompt-docs/#validation" rel="nofollow noopener">https://mattgemmell.com/mgchecklistprompt-docs/#validation</a></p>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/8c51f704598ae050219be208d94cb46c86b2dae8" title="image"><img src="../../uploads/default/optimized/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8_2_388x500.jpeg" alt="image" data-base62-sha1="k1kscwWS5gb4SGAljM5toHupZfq" width="388" height="500" srcset="../../uploads/default/optimized/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8_2_388x500.jpeg, ../../uploads/default/optimized/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8_2_582x750.jpeg 1.5x, ../../uploads/default/optimized/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8_2_776x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/8/8c51f704598ae050219be208d94cb46c86b2dae8_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1510×1945 182 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-27T23:43:22Z' class='post-time'>
+                June 27, 2020, 11:43pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-27T23:43:22Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hear that? It’s the sound of my weekend disappearing into another round of Drafts hackery… *grins</p>
+<p>I’ll say again, these are some solid menus. Kudos.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/derekvan'><span itemprop='name'>derekvan</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-16T20:08:26Z' class='post-time'>
+                July 16, 2020,  8:08pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-16T20:08:26Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is such a useful library. Thank you so much for creating it and sharing it and especially for including such useful documentation. Amazing!</p>
+<p>I made an action with it that displays all the tags in your Drafts, allows you to choose an arbitrary number, then displays all the Drafts that match that tag query.</p>
+<p><a href="https://actions.getdrafts.com/a/1aV" class="onebox" target="_blank" rel="nofollow noopener">https://actions.getdrafts.com/a/1aV</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-16T20:17:17Z' class='post-time'>
+                July 16, 2020,  8:17pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-16T20:17:17Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Cool. <img src="../../images/emoji/apple/+1.png@v=9" title=":+1:" class="emoji" alt=":+1:"> You’re welcome for the library! The conciseness and task-specific nature of your own action shows that I did something right with the API too.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/jsamlarose'><span itemprop='name'>jsamlarose</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+            <link itemprop="image" href="https://forums.getdrafts.com/uploads/default/original/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec.jpeg">
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-16T18:46:28Z' class='post-time'>
+                September 16, 2020,  6:46pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-16T18:46:28Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/mattgemmell">@mattgemmell</a> it’s been a few months now, and I’m happy to say that I use these menus frequently.</p>
+<p>Two questions:</p>
+<ul>
+<li>How might one force focus on the filter field as soon as a menu is invoked? There are a few instances of these menus that I want to be able to filter through as soon as I call them up. If I were using the iPad with an external keyboard, type to filter would work fine in that instance, but when I’m not using an external keyboard, tapping at that filter field slows me down a bit…</li>
+<li>There are moments when I encounter some unexpected leading spaces in menu options. Any idea what might be causing those?</li>
+</ul>
+<p><div class="lightbox-wrapper"><a class="lightbox" href="https://forums.getdrafts.com/uploads/default/original/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec.jpeg" data-download-href="https://forums.getdrafts.com/uploads/default/f4213363e42aeddacaf3e312e65de1edf437b9ec" title="image"><img src="../../uploads/default/optimized/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec_2_375x500.jpeg" alt="image" data-base62-sha1="yPFDn8ZhNQFkivJAGjqp70Ez7li" width="375" height="500" srcset="../../uploads/default/optimized/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec_2_375x500.jpeg, ../../uploads/default/optimized/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec_2_562x750.jpeg 1.5x, ../../uploads/default/optimized/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec_2_750x1000.jpeg 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/f/f4213363e42aeddacaf3e312e65de1edf437b9ec_2_10x10.png"><div class="meta"><svg class="fa d-icon d-icon-far-image svg-icon" aria-hidden="true"><use xlink:href="#far-image"></use></svg><span class="filename">image</span><span class="informations">1536×2048 689 KB</span><svg class="fa d-icon d-icon-discourse-expand svg-icon" aria-hidden="true"><use xlink:href="#discourse-expand"></use></svg></div></a></div></p>
+<p>Many thanks!</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_13' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-18T12:06:22Z' class='post-time'>
+                September 18, 2020, 12:06pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-18T12:06:22Z'>
+          <span itemprop='position'>#13</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <ol>
+<li>To automatically display and focus the filter field as soon as the prompt is shown, you could do this in your action wherever you’re configuring the prompt (just before actually showing it).</li>
+</ol>
+<p><code>prompt.allowsTypeToFilter = true;</code><br>
+<code>prompt.includedContent = "&lt;script&gt;toggleSearch(); focusFilterField();&lt;/script&gt;";</code></p>
+<ol start="2">
+<li>Are you able to reproduce the steps needed to cause that display bug? If so, try configuring your prompt to show the window controls (<code>prompt.showWindowControls = true</code>) and then whenever the prompt is behaving like that, use the Share/Export button to Copy HTML. It would be helpful to see the full HTML at the time when it’s behaving weirdly.</li>
+</ol>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-18T19:50:38Z' class='post-time'>
+                September 18, 2020,  7:50pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-18T19:50:38Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a class="mention" href="https://forums.getdrafts.com/u/mattgemmell">@mattgemmell</a> that might be a good fragment to stick in the potential wiki - as a nice piece of javascript. It would be in the section where we would talk about javascript prompts and saying we could put in HTML/CSS/javascript in the <code>includedContent</code>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/richtack'><span itemprop='name'>richtack</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-18T23:11:54Z' class='post-time'>
+                September 18, 2020, 11:11pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-18T23:16:49Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey, thanks for this!</p>
+<p>I hate to ask such a novice question in this thread, but is there a way for me to take the result of this script and use it in a non-script action in Drafts? For example, I’d love to use the script to pick from a list of possible folders and then use that variable in the Path of a Dropbox action. Am I barking up the wrong tree?</p>
+<p>[I was looking in your documentation after downloading the actions, but didn’t see anything. I’m assuming it’s because the answer is already obvious to anyone more proficient in javascript.]</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yashodhankhare'><span itemprop='name'>yashodhankhare</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-19T05:29:10Z' class='post-time'>
+                September 19, 2020,  5:29am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-19T05:29:10Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks for this. it seems to be amazingly useful. Can you demo or cite a use case which illiterate people like me can use as an analogy to expand the ‘use case’? For many members of this forum, the use case is ‘intuitive’. I can imagine multiple uses, but I don’t see how I can ‘get there’. I am not a programmer, so I hope you are able to understand what I am saying</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/martinpacker'><span itemprop='name'>martinpacker</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-19T07:47:47Z' class='post-time'>
+                September 19, 2020,  7:47am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-19T07:47:47Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>That also would be a good question to answer in the putative wiki.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_18' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/yashodhankhare'><span itemprop='name'>yashodhankhare</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-19T10:43:00Z' class='post-time'>
+                September 19, 2020, 10:43am
+              </time>
+              <meta itemprop='dateModified' content='2020-09-19T10:43:00Z'>
+          <span itemprop='position'>#18</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p><a href="https://actions.getdrafts.com/a/1aV" class="onebox" target="_blank" rel="nofollow noopener">https://actions.getdrafts.com/a/1aV</a></p>
+<p>This is very useful, no doubt about it and it’s clearly a ‘use case’ illustration. Thanks</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_19' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-19T14:59:45Z' class='post-time'>
+                September 19, 2020,  2:59pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-19T14:59:45Z'>
+          <span itemprop='position'>#19</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Yes, of course. Once the prompt has been shown, the result is available in a JavaScript variable just like anything else. To use it in a non-Script step, the usual technique is to put the result in a custom Template Tag, which you could then use in any other action steps which support template tags. <a href="../../../docs.getdrafts.com/docs/actions/templates.html#custom-tags" rel="nofollow noopener">Here’s the relevant documentation</a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_20' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/mattgemmell'><span itemprop='name'>mattgemmell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="7705.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-09-19T15:00:44Z' class='post-time'>
+                September 19, 2020,  3:00pm
+              </time>
+              <meta itemprop='dateModified' content='2020-09-19T15:00:44Z'>
+          <span itemprop='position'>#20</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>This is already documented: <a href="https://mattgemmell.com/mgchecklistprompt-docs/#.includedcontent" rel="nofollow noopener">https://mattgemmell.com/mgchecklistprompt-docs/#.includedcontent</a></p>
+        </div>
+
+        <meta itemprop='headline' content='Custom checklist/radiobutton selection dialogs for Drafts 21'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+    <div role='navigation' itemscope itemtype='http://schema.org/SiteNavigationElement' class="topic-body crawler-post">
+        <span itemprop='name'><b><a rel="next" itemprop="url" href="https://forums.getdrafts.com/t/custom-checklist-radiobutton-selection-dialogs-for-drafts-21/7705?page=2">next page →</a></b></span>
+    </div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

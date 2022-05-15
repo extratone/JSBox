@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Sending Taskpaper formatted Drafts to Things</title>
+    <link>https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484</link>
+    <description>Hi everyone! I was wondering if anyone has a good workflow for sending drafts written in Taskpaper syntax to Things, or if someone with knowledge of scripting could help me modify the amazing [Things Parser](https://actions.getdrafts.com/a/1DV) action for Taskpaper instead of Markdown. I tried changing the beginsWithDelimiter and startsWith to endsWithDelimiter and endsWith, but that didn&#39;t seem to do the trick.
+
+Thanks for your help!</description>
+    
+    <lastBuildDate>Sat, 23 May 2020 16:33:15 +0000</lastBuildDate>
+    <category>Actions - Help &amp; Questions</category>
+    <atom:link href="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Sending Taskpaper formatted Drafts to Things</title>
+        <dc:creator><![CDATA[Katie_Nolan]]></dc:creator>
+        <description><![CDATA[
+            <p>Cool, thanks! I’m getting the following script error when I turn that into a Drafts action.</p>
+<blockquote>
+<p>Script Error: SyntaxError: Invalid character: ‘#’<br>
+Line number: 2, Column undefined</p>
+</blockquote>
+<p>I have ftools-0.0.0 installed and am running off of /Users/myusername/.rubies/ruby-2.7.1/bin/ruby on Mac OS Catalina. Do I need to update ftools (and if so, how? Getting it installed took an embarrassing amount of brainpower on my part…)</p>
+<p>Thanks for your help!</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484/3</link>
+        <pubDate>Sat, 23 May 2020 16:33:15 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7484-3</guid>
+        <source url="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484.rss">Sending Taskpaper formatted Drafts to Things</source>
+      </item>
+      <item>
+        <title>Sending Taskpaper formatted Drafts to Things</title>
+        <dc:creator><![CDATA[dfay]]></dc:creator>
+        <description><![CDATA[
+            <p>If you’re on a device that can run Ruby I’d just pipe  it through this script:</p>
+<aside class="onebox githubgist">
+  <header class="source">
+      <a href="https://gist.github.com/ttscoff/511174" target="_blank" rel="nofollow noopener">gist.github.com</a>
+  </header>
+  <article class="onebox-body">
+    <h4><a href="https://gist.github.com/ttscoff/511174" target="_blank" rel="nofollow noopener">https://gist.github.com/ttscoff/511174</a></h4>
+<h5>tp2md.rb</h5>
+<pre><code class="Ruby">#!/usr/bin/env ruby -rjcode -Ku
+# TaskPaper to Markdown converter
+# Usage: tp2md.rb filename.taskpaper &gt; output.md
+require 'ftools'
+
+infile = ARGV[0]
+title = File.basename(infile,'.taskpaper').upcase
+output = "# #{title} #\n\n"
+prevlevel = 0
+begin</code></pre>
+This file has been truncated. <a href="https://gist.github.com/ttscoff/511174" target="_blank" rel="nofollow noopener">show original</a>
+
+<p>
+</p>
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484/2</link>
+        <pubDate>Fri, 22 May 2020 18:43:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7484-2</guid>
+        <source url="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484.rss">Sending Taskpaper formatted Drafts to Things</source>
+      </item>
+      <item>
+        <title>Sending Taskpaper formatted Drafts to Things</title>
+        <dc:creator><![CDATA[Katie_Nolan]]></dc:creator>
+        <description><![CDATA[
+            <p>Hi everyone! I was wondering if anyone has a good workflow for sending drafts written in Taskpaper syntax to Things, or if someone with knowledge of scripting could help me modify the amazing <a href="https://actions.getdrafts.com/a/1DV" rel="nofollow noopener">Things Parser</a> action for Taskpaper instead of Markdown. I tried changing the beginsWithDelimiter and startsWith to endsWithDelimiter and endsWith, but that didn’t seem to do the trick.</p>
+<p>Thanks for your help!</p>
+          <p><a href="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484/1</link>
+        <pubDate>Thu, 21 May 2020 18:40:05 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-7484-1</guid>
+        <source url="https://forums.getdrafts.com/t/sending-taskpaper-formatted-drafts-to-things/7484.rss">Sending Taskpaper formatted Drafts to Things</source>
+      </item>
+  </channel>
+</rss>

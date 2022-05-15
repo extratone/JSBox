@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Create todoist project from template</title>
+    <link>https://forums.getdrafts.com/t/create-todoist-project-from-template/9146</link>
+    <description># Todoist project from list
+
+This action creates a new project in your todoist account from a template draft.
+The template Draft has to be specified by the UUID, copy this from your template list and configure it in the script step of the action.
+The action parses this draft and creates a new project where you can configure the name. A prompt will ask you for the name and the action will append a configurable „list-name“.
+My current use case is a packing list. The template with all possible things I need to carry to a trip is stored in a Draft.
+I divided the packing list with sub-headings for e.g. „Clothing“ with elements for this category.
+The action parses each line, sub-headings will become to bold written parent tasks and all tasks below a sub-heading will become child tasks of this sub-heading.
+The required format for a draft which can be parsed by this action looks like this:
+
+```
+[any title line]				- this line will be ignored, its just your title for the list
+[maybe empty line]				- any empty line in the source draft will be stripped by a regex replacement
+## [subheading 1]				- this subheader is the first parent task
+- [ ] [item 1 of subheading 1]	- this will be the first subtask of the previous subheading
+- [ ] [item x of subheading 1]	- this will be the xth subtask of the previous subheading
+[maybe empty line]				- any empty line in the source draft will be stripped by a regex replacement
+## [subheading y]				- this subheader is the yth parent task
+- [ ] [item 1 of subheading y]	- this will be the first subtask of the subheading y
+```
+
+You can of course use several subheadings to create as many parent tasks with subtasks as you want.
+If you dont want to use parent tasks at all, don’t create sub-headings in your draft.
+
+Depending on the amount of items in your list, this action will take some time to run.
+This is mainly justified by the limits of todoists REST API where the script is only allowed to perform 50 requests per minute. Therefore I implemented a sleep function which adapts dynamically to the amount of tasks in your list. I integrated a roughly estimated calculation for the process time and the user will see an info message from the app every 5 tasks.
+
+If you have any issues please reach out to me.
+
+Download the Action [here](https://actions.getdrafts.com/a/1e6)</description>
+    
+    <lastBuildDate>Wed, 18 Nov 2020 22:01:44 +0000</lastBuildDate>
+    <category>Actions - Share What You&#39;ve Made</category>
+    <atom:link href="https://forums.getdrafts.com/t/create-todoist-project-from-template/9146.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Create todoist project from template</title>
+        <dc:creator><![CDATA[FlohGro]]></dc:creator>
+        <description><![CDATA[
+            <h1>Todoist project from list</h1>
+<p>This action creates a new project in your todoist account from a template draft.<br>
+The template Draft has to be specified by the UUID, copy this from your template list and configure it in the script step of the action.<br>
+The action parses this draft and creates a new project where you can configure the name. A prompt will ask you for the name and the action will append a configurable „list-name“.<br>
+My current use case is a packing list. The template with all possible things I need to carry to a trip is stored in a Draft.<br>
+I divided the packing list with sub-headings for e.g. „Clothing“ with elements for this category.<br>
+The action parses each line, sub-headings will become to bold written parent tasks and all tasks below a sub-heading will become child tasks of this sub-heading.<br>
+The required format for a draft which can be parsed by this action looks like this:</p>
+<pre><code class="lang-auto">[any title line]				- this line will be ignored, its just your title for the list
+[maybe empty line]				- any empty line in the source draft will be stripped by a regex replacement
+## [subheading 1]				- this subheader is the first parent task
+- [ ] [item 1 of subheading 1]	- this will be the first subtask of the previous subheading
+- [ ] [item x of subheading 1]	- this will be the xth subtask of the previous subheading
+[maybe empty line]				- any empty line in the source draft will be stripped by a regex replacement
+## [subheading y]				- this subheader is the yth parent task
+- [ ] [item 1 of subheading y]	- this will be the first subtask of the subheading y
+</code></pre>
+<p>You can of course use several subheadings to create as many parent tasks with subtasks as you want.<br>
+If you dont want to use parent tasks at all, don’t create sub-headings in your draft.</p>
+<p>Depending on the amount of items in your list, this action will take some time to run.<br>
+This is mainly justified by the limits of todoists REST API where the script is only allowed to perform 50 requests per minute. Therefore I implemented a sleep function which adapts dynamically to the amount of tasks in your list. I integrated a roughly estimated calculation for the process time and the user will see an info message from the app every 5 tasks.</p>
+<p>If you have any issues please reach out to me.</p>
+<p>Download the Action <a href="https://actions.getdrafts.com/a/1e6">here</a></p>
+          <p><a href="https://forums.getdrafts.com/t/create-todoist-project-from-template/9146/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/create-todoist-project-from-template/9146/1</link>
+        <pubDate>Wed, 18 Nov 2020 22:01:44 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-9146-1</guid>
+        <source url="https://forums.getdrafts.com/t/create-todoist-project-from-template/9146.rss">Create todoist project from template</source>
+      </item>
+  </channel>
+</rss>

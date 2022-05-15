@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Toggle Tasks | Drafts Directory</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="FoA2yPKe/Zerb1loo+n/Oc6EqyEKECQQuCehIp9/BW1lnxBClvVaciQ/4jj3qqQnaSd12vTAbraVVvNbtoebnw==" />
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta http-equiv="content-language" content="en-us">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta property="og:title" content="Drafts Directory: Toggle Tasks" />
+    <meta property="og:url" content="https://actions.getdrafts.com/a/1Gx" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="og:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+    <meta property="twitter:title" content="Drafts Directory: Toggle Tasks" />
+    <meta property="twitter:url" content="https://actions.getdrafts.com/a/1Gx" />
+    <meta property="twitter:type" content="website" />
+    <meta property="twitter:description" content="Example actions and other extensions for Drafts, the quick-capture notes app." />
+    <meta property="twitter:image" content="https://actions.getdrafts.com/assets/drafts-ogimage-action-d9c60102fd45e0cb516e1b49ed50a81e3c3a2b90f81f55df8f43d0feb0512978.png" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon-114dbb66b0ef0399a14fa5dfcad7e6210bb558c30cea665e04d49b59fec87f70.png" />
+
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css">
+    <link rel="stylesheet" media="all" href="../assets/application-6e4f014b4c48cd673942dbfbbeb3e571a732b05562ddde5904f3a5c3833e54ff.css" />
+    <script src="../assets/application-13492939cb10be5be76b5abb3e9ae0bef0bbae3202cec2b85cf6fca5bc8429c8.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script async defer data-domain="directory.getdrafts.com" src="https://plausible.io/js/plausible.js"></script>
+  </head>
+
+<body data-no-turbolink>
+
+    <div class="page-wrap">
+        <div class="side-bar">
+            <a href="https://actions.getdrafts.com/index.html" class="site-title fs-6 lh-tight" title="{{ site.title }}">
+                <img src="../assets/drafts-directory-header-4d826bd007f515c8e5a10f654e56ad76fbb3bd3103a67ce342283f701f1677fe.svg" alt="Drafts Directory" style="max-height: 30px;" />
+            </a>
+            <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button"
+                    data-text-toggle="Hide">Menu</button></span>
+            <div class="navigation main-nav js-main-nav">
+              <ul class="navigation-list">
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/index.html">Home</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/drafts_actions.html">Actions</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/drafts_action_groups.html">Action Groups</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/syntax_definitions.html">Syntaxes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/theme_definitions.html">Themes</a>
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/workspaces.html">Workspaces</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                  <a class="navigation-list-link" href="https://actions.getdrafts.com/search.html">Search</a>
+                </li>
+                <li class="navigation-list-item">
+                  <hr style="margin:1em; padding: 0;" />
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="About Drafts" href="https://actions.getdrafts.com/getdrafts.com/index.html">Get Drafts &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Detailed documentation" href="https://actions.getdrafts.com/docs.getdrafts.com/index.html">User Guide &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Get your questions answered in the forums" href="https://forums.getdrafts.com/">Community &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Online tools and generators" href="https://actions.getdrafts.com/tools.getdrafts.com/index.html">Tools &#x2192;</a>
+                </li>
+                <li class="navigation-list-item">
+                    <a class="navigation-list-link nav-external" title="Scripting library reference" href="https://actions.getdrafts.com/scripting.getdrafts.com/index.html">Script Reference &#x2192;</a>
+                </li>
+              </ul>
+            </div>
+            <footer role="contentinfo" class="site-footer">
+                <p class="text-small text-grey-dk-000 mb-0">
+                    Download: <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">iOS</a> | <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">Mac</a>
+                </p>
+            </footer>
+        </div>
+        <div class="main-content-wrap js-main-content" tabindex="0">
+            <div class="page-header">
+                <div class="main-content">
+                    <div class="search js-search">
+	<div class="search-input-wrap">
+<form class="search-form" action="https://actions.getdrafts.com/search.html" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+	<button style='border:none;background-color:transparent;'>
+	<svg width="14" height="14" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"
+		class="search-icon">
+		<title>Search</title>
+		<g fill-rule="nonzero">
+			<path
+				d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z" />
+			<path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z" />
+		</g>
+	</svg>
+	</button>
+	<input type="text" name="q" id="q" class="js-search-input search-input search" size="12" tabindex="0" placeholder="Search" />
+</form>	</div>
+</div>
+                    <ul class="list-style-none text-small mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                        <li class="d-inline-block my-0 mr-2">
+                          <a href="https://actions.getdrafts.com/getdrafts.com/index.html">Get Drafts</a>
+                        </li>
+                        <li class="d-inline-block my-0">
+                          <a href="https://forums.getdrafts.com">Community</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content">
+                <div id="main-content" class="page-content" role="main">
+                  <div class="type">
+                    <h4>Action</h4>
+                  </div>
+                  <div class="header">
+                      <h1><img src="https://config.agiletortoise.com/drafts-icons/429-checkmark2.png" class="action-icon" />Toggle Tasks</h1>
+                  </div>
+
+                  <div class="content">
+                    
+<div class='caption'>
+        Posted by @mattgemmell,
+    Last update
+    almost 4 years ago
+</div>
+
+
+    <div class='description'>
+        <p>Toggle task marks on selected lines, as follows:</p>
+
+<ul>
+<li>If a line is checked, it will become unchecked.</li>
+<li>If a line is unchecked, it will become checked.</li>
+<li>If a line has no checkbox, it will be given one (unchecked), along with a list-hyphen if necessary.</li>
+</ul>
+
+    </div>
+
+<div class="certification">
+  
+  
+</div>
+
+<div style="margin: 2em 0;">
+    <a class="btn btn-blue" href="drafts5://action?identifier=1Gx&amp;data=%7B%22uuid%22:%22A4B875DE-E11E-4B9A-AD41-58C8170B987F%22,%22steps%22:[%7B%22type%22:%22script%22,%22data%22:%7B%22script%22:%22//%20Add%20a%20function%20to%20replace%20substrings%20in%20a%20given%20range.%5CnString.prototype.splice%20=%20function(start,length,replacement)%20%7B%5Cn%5Ctreturn%20this.substr(0,start)+replacement+this.substr(start+length);%5Cn%7D%5Cn%5Cn//%20Grab%20the%20full%20line(s)%20which%20span%20the%20selection,%20as%20an%20array.%5Cnvar%20lineRange%20=%20editor.getSelectedLineRange();%5Cnvar%20selectedLines%20=%20editor.getTextInRange(lineRange[0],%20lineRange[1]);%5Cnvar%20shrinkSelection%20=%20(selectedLines.slice(-1)%20==%20%5C%22%5C%5Cn%5C%22);%5Cnvar%20lines%20=%20selectedLines.split(%5C%22%5C%5Cn%5C%22);%5Cn%5Cn//%20Set%20up%20some%20RegExps%20and%20useful%20strings.%5Cnvar%20uncheckedRE%20=%20new%20RegExp(/%5E(-%5C%5Cs*(%5C%5C[%5C%5Cs%5C%5C])%5C%5Cs*)/,%20&#39;i&#39;);%5Cnvar%20checkedRE%20=%20new%20RegExp(/%5E-%5C%5Cs*%5C%5C[x%5C%5C]%5C%5Cs*/,%20&#39;i&#39;);%5Cnvar%20uncheckedPrefix%20=%20%5C%22-%20[%20]%20%5C%22%5Cnvar%20checkedPrefix%20=%20%5C%22-%20[x]%20%5C%22%5Cn%5Cn//%20Check%20or%20uncheck%20each%20line%20as%20appropriate,%20accumulating%20the%20new%20lines.%5Cnvar%20newLines%20=%20[];%5Cnfor%20(var%20line%20of%20lines)%20%7B%5Cn%5Ctvar%20checkedMatch%20=%20checkedRE.exec(line);%5Cn%5Ctif%20(checkedMatch)%20%7B%20//%20This%20is%20a%20checked%20line.%5Cn%5Ct%5Ct//%20Uncheck%20this%20line.%5Cn%5Ct%5CtnewLines.push(line.splice(0,%20checkedMatch[0].length,%20uncheckedPrefix));%5Cn%5Ct%5Ct%5Cn%5Ct%7D%20else%20%7B%20//%20This%20is%20an%20unchecked%20line,%20either%20with%20an%20empty%20checkbox%20or%20none.%5Cn%5Ct%5CtuncheckedMatch%20=%20uncheckedRE.exec(line);%5Cn%5Ct%5Ctif%20(uncheckedMatch%20%5Cu0026%5Cu0026%20line.length%20%5Cu003e%200)%20%7B%5Cn%5Ct%5Ct%5Ct//%20Check%20this%20line.%5Cn%5Ct%5Ct%5CtnewLines.push(line.splice(0,%20uncheckedMatch[0].length,%20checkedPrefix));%5Cn%5Ct%5Ct%7D%20else%20if%20(line.length%20==%200)%20%7B%20//%20Empty%20line.%20Keep%20as-is.%5Cn%5Ct%5Ct%5CtnewLines.push(line);%5Cn%5Ct%5Ct%7D%20else%20%7B%5Cn%5Ct%5Ct%5Ct//%20This%20line%20has%20no%20checkbox-brackets.%20First,%20strip%20any%20hyphen.%5Cn%5Ct%5Ct%5Ctline%20=%20line.replace(/%5E%5C%5Cs*-%5C%5Cs*/i,%20&#39;&#39;);%5Cn%5Ct%5Ct%5Ct//%20Add%20checkbox%20hyphen%20and%20brackets,%20unchecked.%5Cn%5Ct%5Ct%5CtnewLines.push(line.splice(0,%200,%20uncheckedPrefix));%5Cn%5Ct%5Ct%7D%5Cn%5Ct%7D%5Cn%7D%5Cn%5Cn//%20Replace%20the%20selected%20line(s)%20with%20their%20transformed%20versions.%5Cnvar%20newLinesChunk%20=%20newLines.join(%5C%22%5C%5Cn%5C%22);%5Cnvar%20selectionLength%20=%20newLinesChunk.length;%5Cnif%20(shrinkSelection)%20%7B%5Cn%5CtselectionLength%20=%20selectionLength%20-%201;%5Cn%7D%5Cneditor.setTextInRange(lineRange[0],%20lineRange[1],%20newLinesChunk);%5Cneditor.setSelectedRange(lineRange[0]%20+%20selectionLength,%200);%22%7D,%22uuid%22:%22F65D7FE4-DFE6-4EE8-B163-408412E0729E%22%7D],%22shortName%22:%22%22,%22shouldConfirm%22:false,%22disposition%22:0,%22keyCommand%22:%7B%22optionKey%22:true,%22input%22:%22T%22,%22controlKey%22:true,%22commandKey%22:true,%22type%22:%22action%22,%22discoverabilityTitle%22:%22Toggle%20Tasks%22,%22shiftKey%22:false%7D,%22logLevel%22:1,%22notificationType%22:1,%22tintColor%22:%22none%22,%22actionDescription%22:%22Toggle%20task%20marks%20on%20selected%20lines,%20as%20follows:%5Cn%5Cn-%20If%20a%20line%20is%20checked,%20it%20will%20become%20unchecked.%5Cn-%20If%20a%20line%20is%20unchecked,%20it%20will%20become%20checked.%5Cn-%20If%20a%20(non-blank)%20line%20has%20no%20checkbox,%20it%20will%20be%20given%20one%20(unchecked),%20along%20with%20a%20list-hyphen%20if%20necessary.%5Cn-%20Blank%20lines%20will%20be%20left%20untouched.%22,%22keyUseIcon%22:true,%22icon%22:%22429-checkmark2%22,%22visibility%22:2,%22groupUUID%22:%22791925DD-2261-4E23-A0C6-D0FFB6DF9670%22,%22supportedPlatform%22:%22any%22,%22groupDisposition%22:0,%22name%22:%22Toggle%20Tasks%22%7D">Install</a>
+</div>
+
+<div>
+  <h4>Steps</h4>
+<ul class='steps'>
+  <li>
+    <div class='step'><h3>script</h3><pre><code class='language-javascript'>// Add a function to replace substrings in a given range.
+String.prototype.splice = function(start,length,replacement) {
+	return this.substr(0,start)+replacement+this.substr(start+length);
+}
+
+// Grab the full line(s) which span the selection, as an array.
+var lineRange = editor.getSelectedLineRange();
+var selectedLines = editor.getTextInRange(lineRange[0], lineRange[1]);
+var shrinkSelection = (selectedLines.slice(-1) == &quot;\n&quot;);
+var lines = selectedLines.split(&quot;\n&quot;);
+
+// Set up some RegExps and useful strings.
+var uncheckedRE = new RegExp(/^(-\s*(\[\s\])\s*)/, &#39;i&#39;);
+var checkedRE = new RegExp(/^-\s*\[x\]\s*/, &#39;i&#39;);
+var uncheckedPrefix = &quot;- [ ] &quot;
+var checkedPrefix = &quot;- [x] &quot;
+
+// Check or uncheck each line as appropriate, accumulating the new lines.
+var newLines = [];
+for (var line of lines) {
+	var checkedMatch = checkedRE.exec(line);
+	if (checkedMatch) { // This is a checked line.
+		// Uncheck this line.
+		newLines.push(line.splice(0, checkedMatch[0].length, uncheckedPrefix));
+		
+	} else { // This is an unchecked line, either with an empty checkbox or none.
+		uncheckedMatch = uncheckedRE.exec(line);
+		if (uncheckedMatch &amp;&amp; line.length &gt; 0) {
+			// Check this line.
+			newLines.push(line.splice(0, uncheckedMatch[0].length, checkedPrefix));
+		} else if (line.length == 0) { // Empty line. Keep as-is.
+			newLines.push(line);
+		} else {
+			// This line has no checkbox-brackets. First, strip any hyphen.
+			line = line.replace(/^\s*-\s*/i, &#39;&#39;);
+			// Add checkbox hyphen and brackets, unchecked.
+			newLines.push(line.splice(0, 0, uncheckedPrefix));
+		}
+	}
+}
+
+// Replace the selected line(s) with their transformed versions.
+var newLinesChunk = newLines.join(&quot;\n&quot;);
+var selectionLength = newLinesChunk.length;
+if (shrinkSelection) {
+	selectionLength = selectionLength - 1;
+}
+editor.setTextInRange(lineRange[0], lineRange[1], newLinesChunk);
+editor.setSelectedRange(lineRange[0] + selectionLength, 0);</code></pre></div>
+  </li>
+</ul>
+</div>
+
+<div>
+  <h4>Options</h4>
+  <ul class="steps">
+    <li>
+  <table class='action-detail'>
+    <tr>
+      <td class="cell-label">After Success</td>
+      <td class="value">
+        Nothing
+        
+      </td>
+    </tr>
+    <tr>
+      <td class="cell-label">Notification</td>
+      <td class="value">Error</td>
+    </tr>
+    <tr>
+      <td class="cell-label">Log Level</td>
+      <td class="value">Error</td>
+    </tr>
+  </table>
+</li>
+</ul>
+</div>
+
+<div class="disclaimer">
+  Items available in the Drafts Directory are uploaded by community members. Use appropriate caution reviewing downloaded items before use.
+</div>
+
+
+                  </div>
+                  <div class="footer-content">
+                  <p>
+                  <a href="https://itunes.apple.com/app/id1236254471?ls=1&mt=8&at=11l4Cf&ct=site">
+                    <img alt="Download on App Store" src="../assets/appstore-deaf597bd57239c5054c59099e54ab9014f1e15eddb961085428e0ce94d4385b.svg" />
+                  </a>
+                  <a href="https://itunes.apple.com/app/id1435957248?mt=12&at=11l4Cf&ct=site">
+                    <img alt="Download on Mac App Store" src="../assets/macappstore-05f5eed00e6bb26b68c1368217276158329862682e6d61b3ed193f819fe02f2f.svg" />
+                  </a>
+                  </p>
+                    &copy; 2012-2022 by Agile Tortoise, Inc.<br/>
+                    Drafts is a registered Trademark of Agile Tortoise, Inc.<br/>
+                    <a href="https://actions.getdrafts.com/getdrafts.com/support/privacy.html">Privacy</a> | <a href="https://actions.getdrafts.com/getdrafts.com/support/terms.html">Terms</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+  </html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>[[display_title]] in New Draft with Template Action</title>
+    <link>https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959</link>
+    <description>I&#39;m attempting to modify Greg&#39;s [New Draft with Template](https://actions.getdrafts.com/a/1VL) action to use the [[display_title]] tag instead of the straight title because having the markdown # in each button makes me crazy (or maybe I&#39;m already crazy, and this is just it manifesting).
+
+I&#39;m trying to add a line in the for loop that creates the prompt buttons, and my button titles are coming up blank. Here is what I&#39;ve written:
+
+    let ix = 0
+	for (let d of drafts) {
+		var title = d.getTemplateTag(&quot;display_title&quot;);
+		p.addButton(title, ix);
+		ix++;
+	}
+
+I would think my getTemplateTag line would work, but my buttons are all coming up blank. Any suggestions on how I could remedy this?
+
+Thanks.</description>
+    
+    <lastBuildDate>Fri, 30 Oct 2020 20:08:57 +0000</lastBuildDate>
+    <category>Scripting</category>
+    <atom:link href="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>[[display_title]] in New Draft with Template Action</title>
+        <dc:creator><![CDATA[craigmcclellan]]></dc:creator>
+        <description><![CDATA[
+            <p>THANK YOU.</p>
+<p>I have always struggled with the difference between processTemplate and getTemplateTag. Combine that with it having been awhile since I have written a script for Drafts, and I wasn’t going to get there on my own.</p>
+          <p><a href="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959/3</link>
+        <pubDate>Fri, 30 Oct 2020 20:08:57 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8959-3</guid>
+        <source url="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959.rss">[[display_title]] in New Draft with Template Action</source>
+      </item>
+      <item>
+        <title>[[display_title]] in New Draft with Template Action</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>That’s for use with <em>custom</em> tags. Try this instead.</p>
+<pre><code class="lang-auto">var title = d.processTemplate("[[display_title]]");
+</code></pre>
+          <p><a href="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959/2</link>
+        <pubDate>Fri, 30 Oct 2020 19:18:27 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8959-2</guid>
+        <source url="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959.rss">[[display_title]] in New Draft with Template Action</source>
+      </item>
+      <item>
+        <title>[[display_title]] in New Draft with Template Action</title>
+        <dc:creator><![CDATA[craigmcclellan]]></dc:creator>
+        <description><![CDATA[
+            <p>I’m attempting to modify Greg’s <a href="https://actions.getdrafts.com/a/1VL" rel="noopener nofollow ugc">New Draft with Template</a> action to use the [[display_title]] tag instead of the straight title because having the markdown # in each button makes me crazy (or maybe I’m already crazy, and this is just it manifesting).</p>
+<p>I’m trying to add a line in the for loop that creates the prompt buttons, and my button titles are coming up blank. Here is what I’ve written:</p>
+<pre><code>let ix = 0
+for (let d of drafts) {
+	var title = d.getTemplateTag("display_title");
+	p.addButton(title, ix);
+	ix++;
+}
+</code></pre>
+<p>I would think my getTemplateTag line would work, but my buttons are all coming up blank. Any suggestions on how I could remedy this?</p>
+<p>Thanks.</p>
+          <p><a href="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959/1</link>
+        <pubDate>Fri, 30 Oct 2020 18:40:56 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-8959-1</guid>
+        <source url="https://forums.getdrafts.com/t/display-title-in-new-draft-with-template-action/8959.rss">[[display_title]] in New Draft with Template Action</source>
+      </item>
+  </channel>
+</rss>

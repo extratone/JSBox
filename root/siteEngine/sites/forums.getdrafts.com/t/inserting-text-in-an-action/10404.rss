@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Inserting text in an action</title>
+    <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404</link>
+    <description>I am currently working on a mail action. On completion of the mail I want to insert text but I want to guarantee that it is at the bottom of the email and not at the place where the cursor was last involved. So the question is how do I guarantee insertion at the bottom of the document?
+
+Frank</description>
+    
+    <lastBuildDate>Tue, 04 May 2021 12:43:26 +0000</lastBuildDate>
+    <category>General Discussion</category>
+    <atom:link href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss" rel="self" type="application/rss+xml" />
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>On my first cup of coffee, missed that.</p>
+<p>Note that the <a href="https://docs.getdrafts.com/docs/actions/action-log">action log</a> keeps a record of when actions were performed on a draft, so it might be redundant to modify the actual text.</p>
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/7">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/7</link>
+        <pubDate>Tue, 04 May 2021 12:43:26 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-7</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <aside class="quote no-group" data-username="agiletortoise" data-post="5" data-topic="10404">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt="" width="20" height="20" src="https://forums.getdrafts.com/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<p>It sounds like you want the text to be included just in the email, right? Not actually added to the source draft?</p>
+</blockquote>
+</aside>
+<p>I figured from the action it would be the opposite. It looked to me like <a class="mention" href="https://forums.getdrafts.com/u/frankhanna">@frankhanna</a> wants to add a note to the end of the draft saying when it had been mailed.</p>
+<p>Like this perhaps?</p>
+<aside class="onebox allowlistedgeneric">
+  <header class="source">
+      <img src="https://forums.getdrafts.com/uploads/default/original/2X/5/589671206cbd59f5922b38e71c9efbdfccc5d725.png" class="site-icon" width="180" height="180">
+      <a href="https://actions.getdrafts.com/a/1lY" target="_blank" rel="noopener">actions.getdrafts.com</a>
+  </header>
+  <article class="onebox-body">
+    <div class="aspect-image" style="--aspect-ratio:690/362;"><img src="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png" class="thumbnail" width="690" height="362" srcset="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_690x362.png, https://forums.getdrafts.com/uploads/default/original/2X/6/6393112bf83f9b4371e34446ee4d80f531904676.png 2x" data-small-upload="https://forums.getdrafts.com/uploads/default/optimized/2X/6/6393112bf83f9b4371e34446ee4d80f531904676_2_10x10.png"></div>
+
+<h3><a href="https://actions.getdrafts.com/a/1lY" target="_blank" rel="noopener">Drafts Directory: Mailer</a></h3>
+
+<p>Example actions and other extensions for Drafts, the quick-capture notes app.</p>
+
+
+  </article>
+  <div class="onebox-metadata">
+    
+    
+  </div>
+  <div style="clear: both"></div>
+</aside>
+
+<p><a class="mention" href="https://forums.getdrafts.com/u/frankhanna">@frankhanna</a>, can you clarify?</p>
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/6">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/6</link>
+        <pubDate>Tue, 04 May 2021 12:39:31 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-6</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[agiletortoise]]></dc:creator>
+        <description><![CDATA[
+            <p>It sounds like you want the text to be included just in the email, right? Not actually added to the source draft?</p>
+<p>If so, you would modify your Mail action step’s body template. The default Mail action uses the <code>[[body]]</code> tag to insert all but the first line of the draft, but a templates can be any combination of static text and tags, so you can edit the action, go to <code>Steps &gt; Mail</code> and change to body template to something like:</p>
+<pre><code class="lang-nohighlight">[[body]]
+
+My additional footer text
+</code></pre>
+<p>For more details on templates and available tags, see:</p>
+<aside class="quote quote-modified" data-post="1" data-topic="3728">
+  <div class="title">
+    <div class="quote-controls"></div>
+    <img alt="" width="20" height="20" src="/user_avatar/forums.getdrafts.com/agiletortoise/40/2400_2.png" class="avatar">
+    <a href="https://forums.getdrafts.com/t/using-drafts-templates/3728">Using Drafts Templates</a> <a class="badge-wrapper  bullet" href="https://forums.getdrafts.com/c/integration-guides/7"><span class="badge-category-bg" style="background-color: #3AB54A;"></span><span style="" data-drop-close="true" class="badge-category clear-badge" title="Integration guides are short articles covering ways Drafts can integrate with different Apps and Services.  Looking for an app integration not covered here, visit the Drafts Directory">Integration Guides</span></a>
+  </div>
+  <blockquote>
+    <a name="template-basics" class="anchor" href="https://forums.getdrafts.com#template-basics"></a>Template Basics
+Drafts actions consist of “steps.” <a href="https://docs.getdrafts.com/actions/steps/">Action steps</a> are available for a wide range of functions and services: Sending messages, mail, saving files, and much more. Regardless of the purpose of the step, any step that output information has some fields that allow you to control what text the step uses, and (with a few minor exceptions) use templates to dynamically generate that text. 
+If you have poked around in the action editor and wondered what some of those [[title]] and [[body]] …
+  </blockquote>
+</aside>
+
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/5">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/5</link>
+        <pubDate>Tue, 04 May 2021 12:24:40 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-5</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[frankhanna]]></dc:creator>
+        <description><![CDATA[
+            <p>I think I have figured out how to send it…here it is   <a href="https://actions.getdrafts.com/a/1lX" class="inline-onebox" rel="noopener nofollow ugc">Mail | Drafts Directory</a></p>
+<p>Frank</p>
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/4">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/4</link>
+        <pubDate>Tue, 04 May 2021 10:53:21 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-4</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[frankhanna]]></dc:creator>
+        <description><![CDATA[
+            <p>Sorry for being a bit slow but how do I share the action?</p>
+<p>Frank</p>
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/3">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/3</link>
+        <pubDate>Tue, 04 May 2021 10:16:07 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-3</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[sylumer]]></dc:creator>
+        <description><![CDATA[
+            <p>Can you share your action? There are several ways to do this, but selecting the most appropriate depends on your approach in your action.</p>
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/2">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/2</link>
+        <pubDate>Tue, 04 May 2021 09:38:30 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-2</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+      <item>
+        <title>Inserting text in an action</title>
+        <dc:creator><![CDATA[frankhanna]]></dc:creator>
+        <description><![CDATA[
+            <p>I am currently working on a mail action. On completion of the mail I want to insert text but I want to guarantee that it is at the bottom of the email and not at the place where the cursor was last involved. So the question is how do I guarantee insertion at the bottom of the document?</p>
+<p>Frank</p>
+          <p><a href="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/1">Read full topic</a></p>
+        ]]></description>
+        <link>https://forums.getdrafts.com/t/inserting-text-in-an-action/10404/1</link>
+        <pubDate>Tue, 04 May 2021 09:30:32 +0000</pubDate>
+        <guid isPermaLink="false">forums.getdrafts.com-post-10404-1</guid>
+        <source url="https://forums.getdrafts.com/t/inserting-text-in-an-action/10404.rss">Inserting text in an action</source>
+      </item>
+  </channel>
+</rss>

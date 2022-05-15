@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Apple Watch dictation timeout testing help! - watch - Drafts Community</title>
+    <meta name="description" content="[UPDATE: Apple has addressed this dictation issue in watchOS 7b3. So, expect that it will work properly in the final release on watchOS 7 this fall] 
+I’m trying to collect some data to file a bug report with Apple regard&amp;hellip;">
+    <meta name="generator" content="Discourse 2.9.0.beta4 - https://github.com/discourse/discourse version f0d46c35493f4d01e4c1f9a3b32f867c1ade595e">
+<link rel="icon" type="image/png" href="../../uploads/default/optimized/1X/25837d707e58349c1c1881afc1883055a203ac28_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="../../uploads/default/optimized/2X/7/77d737820f07fbb0e980560a8c341a18432a7d92_2_180x180.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<link rel="canonical" href="6738.html" />
+<script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"https://forums.getdrafts.com","potentialAction":{"@type":"SearchAction","target":"https://forums.getdrafts.com/search?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<link rel="search" type="application/opensearchdescription+xml" href="../../opensearch.xml" title="Drafts Community Search">
+
+    <link href="https://forums.getdrafts.com/stylesheets/color_definitions_base__2_3d1df61a71325940d683ff0221fd14dee6a802e5.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" class="light-scheme"/><link href="https://forums.getdrafts.com/stylesheets/color_definitions_simple-dark_1_2_ce13c571d5f0d2fac2c7d8164bf57e59bd0aa89f.css?__ws=forums.getdrafts.com" media="(prefers-color-scheme: dark)" rel="stylesheet" class="dark-scheme"/>
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop"  />
+
+
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-details_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-local-dates_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-narrative-bot_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://forums.getdrafts.com/stylesheets/discourse-presence_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://forums.getdrafts.com/stylesheets/lazy-yt_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="lazy-yt"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://forums.getdrafts.com/stylesheets/poll_desktop_efbc3607260bd3949bf9351692c294020d363176.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://forums.getdrafts.com/stylesheets/desktop_theme_2_8a6535adb5ffcb37b246b8087d7136cfbc597ca9.css?__ws=forums.getdrafts.com" media="all" rel="stylesheet" data-target="desktop_theme" data-theme-id="2" data-theme-name="default"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Apple Watch dictation timeout testing help!&#39;" href="https://forums.getdrafts.com/t/apple-watch-dictation-timeout-testing-help/6738.rss" />
+    <meta property="og:site_name" content="Drafts Community" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:image" content="https://forums.getdrafts.com/uploads/default/original/2X/8/8028b40b2b5c46fe6a21aa3e1b9480b911b845df.png" />
+<meta property="og:url" content="https://forums.getdrafts.com/t/apple-watch-dictation-timeout-testing-help/6738" />
+<meta name="twitter:url" content="https://forums.getdrafts.com/t/apple-watch-dictation-timeout-testing-help/6738" />
+<meta property="og:title" content="Apple Watch dictation timeout testing help!" />
+<meta name="twitter:title" content="Apple Watch dictation timeout testing help!" />
+<meta property="og:description" content="[UPDATE: Apple has addressed this dictation issue in watchOS 7b3. So, expect that it will work properly in the final release on watchOS 7 this fall]  I’m trying to collect some data to file a bug report with Apple regarding watchOS handling of dictation timeouts. I’d appreciate it if Apple Watch users could help me out by testing on their devices.  Background on the Issue Dictation on watchOS is implemented by the system. Third party apps, like Drafts, do not have much visibility into this proce..." />
+<meta name="twitter:description" content="[UPDATE: Apple has addressed this dictation issue in watchOS 7b3. So, expect that it will work properly in the final release on watchOS 7 this fall]  I’m trying to collect some data to file a bug report with Apple regarding watchOS handling of dictation timeouts. I’d appreciate it if Apple Watch users could help me out by testing on their devices.  Background on the Issue Dictation on watchOS is implemented by the system. Third party apps, like Drafts, do not have much visibility into this proce..." />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="10 ❤" />
+<meta property="article:published_time" content="2020-02-18T15:32:10+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler">
+    
+    <header>
+  <a href="https://forums.getdrafts.com/">
+    <h1>Drafts Community</h1>
+  </a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="6738.html">Apple Watch dictation timeout testing help!</a>
+    </h1>
+
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='../../tag/watch.html' class='discourse-tag' rel="tag">watch</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+
+      <div id='post_1' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T15:32:10Z' class='post-time'>
+                February 18, 2020,  3:32pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-30T19:59:35Z'>
+          <span itemprop='position'>#1</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>[<strong>UPDATE</strong>: Apple has addressed this dictation issue in watchOS 7b3. So, expect that it will work properly in the final release on watchOS 7 this fall]</p>
+<p>I’m trying to collect some data to file a bug report with Apple regarding watchOS handling of dictation timeouts. I’d appreciate it if Apple Watch users could help me out by testing on their devices.</p>
+<h3>Background on the Issue</h3>
+<p>Dictation on watchOS is implemented by the system. Third party apps, like Drafts, do not have much visibility into this process, they just ask for text input, and get it back when the user completes the process (whether via dictation, or scribbling, etc.).</p>
+<p>Dictation is limited to about 30-45 seconds. This is the current issue. Based on a support issue, and my own testing, if you start dictation on watchOS, and keep dictating up to the 30-45 second timeout, watchOS just hangs. No haptic or other indication that a timeout has occurred. You see the text you dictated up to that point, and have a “Cancel” and completion button (which may be “Done”, or “Send” or something else depending on the app you are in).  If you tap “Cancel” you can get on with your life, but the dictated text is thrown away. If you tap the “Done” button, that button just disappears and nothing happens. So your only option is to then “Cancel” and dispose of your text.</p>
+<p>I know this used to work, and am not sure how long it has been broken. The timeout has always been there, but the “Done” button used to work to save your text - and I believe, if memory serves, there was some kind of haptic to let you know the timeout happened, but I’m not sure about that.</p>
+<h3>Testing</h3>
+<p>I have tested and confirmed this bug on Apple Watch Series 5 running watchOS 6.1.2. I would like to know if others can reproduce, and if the same issues exists on other watchOS versions, if anyone is running those…so, if you can help, do the following:</p>
+<ul>
+<li>Open Drafts on your Apple Watch</li>
+<li>Tap the microphone to start dictating. Keep dictating for 30+ seconds until you hit the timeout.</li>
+<li>Is the dictation interface stuck as described above, only allowing you to “Cancel” and throw away the text, or can you tap “Done”?</li>
+<li>Try the same in other watch apps that let you input text. I have reproduces in Messages, Bear, and a few others. It’s system wide for me.</li>
+</ul>
+<p>Please then report the follow here:</p>
+<ul>
+<li>Did you reproduce the issue? Y or N</li>
+<li>watchOS version</li>
+<li>Apple Watch model</li>
+<li>Apps you reproduced the issue in.</li>
+</ul>
+<h3>Technical Note</h3>
+<p>For the developer/technical, this issue is triggered by use of <a href="https://developer.apple.com/documentation/watchkit/wkinterfacecontroller/1619527-presenttextinputcontroller"><code>WKInterfaceController.presentTextInputController(withSuggestions:allowedInputMode:completion:)</code></a>.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+          <meta itemprop='keywords' content='watch'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_2' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/davenicholls'><span itemprop='name'>davenicholls</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T15:52:23Z' class='post-time'>
+                February 18, 2020,  3:52pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-18T15:52:23Z'>
+          <span itemprop='position'>#2</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I just tested with Drafts, Omnifocus and Messages. The first two failed exactly as you describe. With Messages the dictation still failed but I got</p>
+<p>“Dictation Failed<br>
+Apple Watch was<br>
+unable to take<br>
+dictation”</p>
+<p>Rather than just losing the ‘Done’ button. Cancel remained active as per the other apps.</p>
+<p>Apple Watch Series 5 LTE<br>
+watchOS 6.1.2</p>
+<p>Cheers</p>
+<p>Dave</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_3' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/nate'><span itemprop='name'>nate</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T15:56:47Z' class='post-time'>
+                February 18, 2020,  3:56pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-18T15:56:47Z'>
+          <span itemprop='position'>#3</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Same as Dave. I tested in Drafts, Messages, and Todoist. Had the same outcome and message in Messages. I’m on a Series 4 GPS on 6.1.2</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_4' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/drdrang'><span itemprop='name'>drdrang</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T17:12:23Z' class='post-time'>
+                February 18, 2020,  5:12pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-18T17:12:23Z'>
+          <span itemprop='position'>#4</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have a Series 3 running 6.1.2.</p>
+<p>In my first test, Drafts took dictation for quite a while and then stopped transcribing, although the little bouncing levels graphic at the bottom was still visible, as was the Done button. I tapped the Done button and the transcribed text was saved to a new draft.</p>
+<p>On subsequent tests, the behavior was exactly as Greg described. The graphic disappeared when the transcription timed out, and I couldn’t save the transcript.</p>
+<p>I suspect that on my first try a different bug preceded the one we’re testing for, interfering with the timeout and allowing me to save as if I were still in the middle of a dictation session.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_5' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T18:19:00Z' class='post-time'>
+                February 18, 2020,  6:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-18T18:19:00Z'>
+          <span itemprop='position'>#5</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hey, you’re suppose to help me pin this bug down, not find new ones. <img src="../../images/emoji/apple/wink.png@v=9" title=":wink:" class="emoji" alt=":wink:"></p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="2" />
+           <span class='post-likes'>2 Likes</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_6' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T20:10:09Z' class='post-time'>
+                February 18, 2020,  8:10pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-18T20:10:09Z'>
+          <span itemprop='position'>#6</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <aside class="quote no-group" data-username="agiletortoise" data-post="1" data-topic="6738">
+<div class="title">
+<div class="quote-controls"></div>
+<img alt width="20" height="20" src="../../user_avatar/forums.getdrafts.com/agiletortoise/40/1822_2.png" class="avatar"> agiletortoise:</div>
+<blockquote>
+<ul>
+<li>Did you reproduce the issue? Y or N</li>
+<li>watchOS version</li>
+<li>Apple Watch model</li>
+<li>Apps you reproduced the issue in.</li>
+</ul>
+</blockquote>
+</aside>
+<p>Mixed results for me. Drafts worked well, but Apple’s own apps not so much.</p>
+<h3>Watch Info</h3>
+<p><strong>OS:</strong> 6.1.2 (17S796)<br>
+<strong>Model:</strong> MU6D2TY/A, A1978 = 44mm, Series 4 (GPS)</p>
+<h3>(Apple) Mail</h3>
+<p><strong>Issue Reproduced:</strong> Yes - text lost.<br>
+<strong>Recording Time:</strong> 54 seconds</p>
+<h3>Drafts</h3>
+<p><strong>TEST <span class="hashtag">#1</span></strong><br>
+<strong>Issue Reproduced:</strong> No - draft successfully created on done<br>
+<strong>Recording Time:</strong> 49 seconds</p>
+<p><strong>TEST <span class="hashtag">#2</span></strong><br>
+<strong>Issue Reproduced:</strong> No - draft successfully created on done<br>
+<strong>Recording Time:</strong> 47 seconds</p>
+<p><strong>TEST <span class="hashtag">#3</span></strong><br>
+<strong>Issue Reproduced:</strong> No - draft successfully created on done<br>
+<strong>Recording Time:</strong> 58 seconds</p>
+<h3>(Apple) Reminders</h3>
+<p><strong>Issue Reproduced:</strong> Yes - text lost<br>
+<strong>Recording Time:</strong> 44 seconds</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_7' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/BarryP13'><span itemprop='name'>BarryP13</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-18T21:29:12Z' class='post-time'>
+                February 18, 2020,  9:29pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-18T21:29:12Z'>
+          <span itemprop='position'>#7</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <ul>
+<li>Did you reproduce the issue? Y</li>
+<li>watchOS version 6.1.3</li>
+<li>Apple Watch model 5</li>
+<li>Apps you reproduced the issue in. Drafts after about a minute.<br>
+Same symptoms as described.</li>
+</ul>
+<p>Barry</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_8' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Clark1977'><span itemprop='name'>Clark1977</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-02-19T17:42:31Z' class='post-time'>
+                February 19, 2020,  5:42pm
+              </time>
+              <meta itemprop='dateModified' content='2020-02-19T17:42:31Z'>
+          <span itemprop='position'>#8</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <ul>
+<li>Did you reproduce the issue? Yes</li>
+<li>WatchOS version: 6.1.2</li>
+<li>Apple Watch model - Series 5, A2093</li>
+<li>Apps: Drafts and while replying to a WhatsApp within WatchOS itself.</li>
+</ul>
+<p>This has occurred a few times across various apps but I can’t remember which ones as this was prior to seeing this post.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_9' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Drpsych'><span itemprop='name'>Drpsych</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-26T13:02:24Z' class='post-time'>
+                April 26, 2020,  1:02pm
+              </time>
+              <meta itemprop='dateModified' content='2020-04-26T13:02:24Z'>
+          <span itemprop='position'>#9</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I see this topic has run it’s course. However, I would just add that JustPressRecord does not have this issue. I use JPR when I’m frustrated by timeouts.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_10' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/sylumer'><span itemprop='name'>sylumer</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-04-26T13:19:04Z' class='post-time'>
+                April 26, 2020,  1:19pm
+              </time>
+              <meta itemprop='dateModified' content='2020-04-26T13:19:04Z'>
+          <span itemprop='position'>#10</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Do note that <em>run it’s course</em> was run it’s course over two years ago and related to a specific intermittent issue.</p>
+<p>Also note that Just Press Record (which I also use) does not dictate direct to Drafts in the way that Drafts itself does.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_11' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Marcus_Boswell'><span itemprop='name'>Marcus_Boswell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-30T07:44:42Z' class='post-time'>
+                June 30, 2020,  7:44am
+              </time>
+              <meta itemprop='dateModified' content='2020-06-30T07:44:42Z'>
+          <span itemprop='position'>#11</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <ul>
+<li>Did you reproduce the issue? Yes</li>
+<li>WatchOS version: 6.2.6</li>
+<li>Apple Watch model - Series 4, A1978</li>
+<li>Apps: Drafts and while creating a note</li>
+</ul>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_12' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-06-30T13:07:56Z' class='post-time'>
+                June 30, 2020,  1:07pm
+              </time>
+              <meta itemprop='dateModified' content='2020-06-30T13:07:56Z'>
+          <span itemprop='position'>#12</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Have not updated this for a while…</p>
+<p>Apple has acknowledged the existing of this bug, and promised to get a fix into watchOS soon.  I imagine in watchOS 7 when it ships this Fall.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="2" />
+          </div>
+
+      </div>
+      <div id='post_14' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/Marcus_Boswell'><span itemprop='name'>Marcus_Boswell</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-01T10:11:41Z' class='post-time'>
+                July 1, 2020, 10:11am
+              </time>
+              <meta itemprop='dateModified' content='2020-07-01T10:11:41Z'>
+          <span itemprop='position'>#14</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Thanks. That’ll be good to see.</p>
+<p>Appreciate you coming back to me on this.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+      <div id='post_15' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2020-07-30T19:59:59Z' class='post-time'>
+                July 30, 2020,  7:59pm
+              </time>
+              <meta itemprop='dateModified' content='2020-07-30T19:59:59Z'>
+          <span itemprop='position'>#15</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>[<strong>UPDATE</strong>: Apple has addressed this dictation issue in watchOS 7b3. So, expect that it will work properly in the final release on watchOS 7 this fall]</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="1" />
+           <span class='post-likes'>1 Like</span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_16' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/JohnAus'><span itemprop='name'>JohnAus</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-04T00:21:52Z' class='post-time'>
+                January 4, 2022, 12:21am
+              </time>
+              <meta itemprop='dateModified' content='2022-01-04T00:21:52Z'>
+          <span itemprop='position'>#16</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>Hi all, afraid I’ve just been inconvenienced by this with a series 7 Apple Watch running watch os 8.</p>
+<p>Dictation via the drafts app on the watch timed out and I lost the text I had dictated when I tapped “done”.</p>
+<p>Very disappointing, is there a work around or do I not bother dictating to the watch?</p>
+<p>Cheers,</p>
+<p>John</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="1" />
+          </div>
+
+      </div>
+      <div id='post_17' itemscope itemtype='http://schema.org/DiscussionForumPosting' class='topic-body crawler-post'>
+        <div class='crawler-post-meta'>
+          <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+            <meta itemprop='name' content='Agile Tortoise, Inc.'>
+              <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+                <meta itemprop='url' content='https://forums.getdrafts.com/uploads/default/original/2X/8/8ed1af80ec826f0860aad768f711c6b1b0fb32b4.png'>
+              </div>
+          </div>
+          <span class="creator" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <a itemprop="url" href='https://forums.getdrafts.com/u/agiletortoise'><span itemprop='name'>agiletortoise</span></a>
+            
+          </span>
+
+          <link itemprop="mainEntityOfPage" href="6738.html">
+
+
+          <span class="crawler-post-infos">
+              <time itemprop='datePublished' datetime='2022-01-04T13:56:09Z' class='post-time'>
+                January 4, 2022,  1:56pm
+              </time>
+              <meta itemprop='dateModified' content='2022-01-04T13:56:09Z'>
+          <span itemprop='position'>#17</span>
+          </span>
+        </div>
+        <div class='post' itemprop='articleBody'>
+          <p>I have not seen this issue in newer versions of watchOS. Just did a little testing here, and the timeout is there, but I haven’t lost any text. The watch just stops listening for additional input (without providing any feedback, sadly).</p>
+<p>Not sure what you are trying to dictate, but it is absolutely true that the Watch is not suited to long dictation sessions. It works great for quick, one-off ideas, tasks, etc., you want to capture, but if you are planning to dictate anything longer, you should plan to use your phone instead.</p>
+        </div>
+
+        <meta itemprop='headline' content='Apple Watch dictation timeout testing help!'>
+
+        <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+           <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+           <meta itemprop="userInteractionCount" content="0" />
+           <span class='post-likes'></span>
+         </div>
+
+         <div itemprop="interactionStatistic" itemscope itemtype="http://schema.org/InteractionCounter">
+            <meta itemprop="interactionType" content="http://schema.org/CommentAction"/>
+            <meta itemprop="userInteractionCount" content="0" />
+          </div>
+
+      </div>
+
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/guidelines' itemprop="url">FAQ/Guidelines </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/tos' itemprop="url">Terms of Service </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='https://forums.getdrafts.com/privacy' itemprop="url">Privacy Policy </a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>
