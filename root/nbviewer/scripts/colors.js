@@ -1,4 +1,4 @@
 module.exports = {
-  white: $color("#ffffff"),
-  text: $color("#303030"),
+    white: $color("#ffffff"),
+    text: $color("#303030"),
 }

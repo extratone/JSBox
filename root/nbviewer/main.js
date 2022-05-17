@@ -1,4 +1,4 @@
-const explorer = require("./scripts/explorer");
+    const explorer = require("./scripts/explorer");
 explorer.open();
 
 const server = require("./scripts/server");

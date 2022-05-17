@@ -9,7 +9,8 @@
 - If no launch command is provided, you can also do it after a program launched
 - You can set up mount folder for each program, by default it uses the file name (if valid) or an auto-generated string
 - Hot keys are configurable, please refer to [keycode](https://keycode.info/) for more information
-- Each DOS program can have its own dosbox.conf file, [doc](http://js-dos.com/#js-dos-622-faq-how-to-override-dosboxconf)
+- Each DOS program can have its own dosbox.conf
+  file, [doc](http://js-dos.com/#js-dos-622-faq-how-to-override-dosboxconf)
 
 # Known Issues
 

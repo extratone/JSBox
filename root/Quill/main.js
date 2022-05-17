@@ -12,6 +12,6 @@ updater.check();
 
 const overrides = require("./scripts/define/overrides");
 $app.listen({
-  ready: () => overrides.register(),
-  exit: () => overrides.unregister(),
+    ready: () => overrides.register(),
+    exit: () => overrides.unregister(),
 });

@@ -10,7 +10,7 @@ function main() {
     // 如果要进行剧本的修改请务必将其改成false。
 
     this.floorIds = [ // 在这里按顺序放所有的楼层；其顺序直接影响到楼层传送器的顺序和上楼器/下楼器的顺序
-        "MT0", "MT1", "MT2", "MT3", "MT4", "MT5", "MT6", "MT7", "MT8", "MT9", "MT10", 
+        "MT0", "MT1", "MT2", "MT3", "MT4", "MT5", "MT6", "MT7", "MT8", "MT9", "MT10",
         "MT11", "MT12", "MT13", "MT14", "MT15", "MT16", "MT17", "MT18", "MT19", "MT20", "MT21",
         "MT22", "MT23D", "MT23L", "MT23R", "MT24"
     ];
@@ -128,7 +128,7 @@ function main() {
         'blueKey': document.getElementById("blueKey"),
         'redKey': document.getElementById("redKey"),
         'poison': document.getElementById('poison'),
-        'weak':document.getElementById('weak'),
+        'weak': document.getElementById('weak'),
         'curse': document.getElementById('curse'),
         'hard': document.getElementById("hard")
     }
@@ -143,8 +143,8 @@ main.prototype.init = function () {
         main.canvas[main.dom.gameCanvas[i].id] = main.dom.gameCanvas[i].getContext('2d');
     }
     Object.keys(this.statusBar.icons).forEach(function (t) {
-        var image=new Image();
-        image.src="images/"+t+".png";
+        var image = new Image();
+        image.src = "images/" + t + ".png";
         main.statusBar.icons[t] = image;
     })
     main.loaderJs(function () {
@@ -155,10 +155,10 @@ main.prototype.init = function () {
             main[name].init(main.dom);
             coreData[name] = main[name];
         }
-        main.loaderFloors(function() {
+        main.loaderFloors(function () {
             ["dom", "statusBar", "canvas", "images", "pngs",
                 "animates", "bgms", "sounds", "floorIds", "floors"].forEach(function (t) {
-                    coreData[t] = main[t];
+                coreData[t] = main[t];
             })
             main.core.init(coreData);
             main.core.resize(main.dom.body.clientWidth, main.dom.body.clientHeight);
@@ -200,8 +200,7 @@ main.prototype.loaderFloors = function (callback) {
             main.dom.mainTips.style.display = 'none';
             callback();
         }
-    }
-    else {
+    } else {
         for (var i = 0; i < main.floorIds.length; i++) {
             main.loadFloor(main.floorIds[i], function (modName) {
                 main.setMainTipsText("楼层 " + modName + '.js 加载完毕');
@@ -218,7 +217,7 @@ main.prototype.loaderFloors = function (callback) {
 main.prototype.loadMod = function (modName, callback) {
     var script = document.createElement('script');
     var name = modName;
-    script.src = 'libs/' + modName + (this.useCompress?".min":"") + '.js?v=' + this.version;
+    script.src = 'libs/' + modName + (this.useCompress ? ".min" : "") + '.js?v=' + this.version;
     main.dom.body.appendChild(script);
     script.onload = function () {
         main[name] = main.instance[name];
@@ -227,9 +226,9 @@ main.prototype.loadMod = function (modName, callback) {
 }
 
 ////// 加载某一个楼层 //////
-main.prototype.loadFloor = function(floorId, callback) {
+main.prototype.loadFloor = function (floorId, callback) {
     var script = document.createElement('script');
-    script.src = 'libs/floors/' + floorId +'.js?v=' + this.version;
+    script.src = 'libs/floors/' + floorId + '.js?v=' + this.version;
     main.dom.body.appendChild(script);
     script.onload = function () {
         callback(floorId);
@@ -248,23 +247,26 @@ main.init();
 window.onresize = function () {
     try {
         main.core.resize(main.dom.body.clientWidth, main.dom.body.clientHeight);
-    }catch (e) {}
+    } catch (e) {
+    }
 }
 
 ////// 在界面上按下某按键时 //////
-main.dom.body.onkeydown = function(e) {
+main.dom.body.onkeydown = function (e) {
     try {
         if (main.core.isPlaying() || main.core.status.lockControl)
             main.core.onkeyDown(e);
-    } catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 在界面上放开某按键时 //////
-main.dom.body.onkeyup = function(e) {
+main.dom.body.onkeyup = function (e) {
     try {
         if (main.core.isPlaying() || main.core.status.lockControl)
             main.core.onkeyUp(e);
-    } catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 开始选择时 //////
@@ -276,7 +278,7 @@ main.dom.body.onselectstart = function () {
 main.dom.data.onmousedown = function (e) {
     try {
         e.stopPropagation();
-        if(e.button==1){// 把鼠标中键绑定为ESC
+        if (e.button == 1) {// 把鼠标中键绑定为ESC
             core.keyUp(27);
             return;
         }
@@ -284,7 +286,8 @@ main.dom.data.onmousedown = function (e) {
         if (loc == null) return;
         var x = parseInt(loc.x / loc.size), y = parseInt(loc.y / loc.size);
         main.core.ondown(x, y);
-    } catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 鼠标移动时 //////
@@ -295,24 +298,27 @@ main.dom.data.onmousemove = function (e) {
         if (loc == null) return;
         var x = parseInt(loc.x / loc.size), y = parseInt(loc.y / loc.size);
         main.core.onmove(x, y);
-    }catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 鼠标放开时 //////
 main.dom.data.onmouseup = function () {
     try {
         main.core.onup();
-    }catch (e) {}
+    } catch (e) {
+    }
 }
 
 ////// 鼠标滑轮滚动时 //////
-main.dom.data.onmousewheel = function(e) {
+main.dom.data.onmousewheel = function (e) {
     try {
         if (e.wheelDelta)
             main.core.onmousewheel(Math.sign(e.wheelDelta))
         else if (e.detail)
             main.core.onmousewheel(Math.sign(e.detail));
-    } catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 手指在触摸屏开始触摸时 //////
@@ -324,7 +330,8 @@ main.dom.data.ontouchstart = function (e) {
         var x = parseInt(loc.x / loc.size), y = parseInt(loc.y / loc.size);
         //main.core.onclick(x, y, []);
         main.core.ondown(x, y);
-    }catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 手指在触摸屏上移动时 //////
@@ -335,7 +342,8 @@ main.dom.data.ontouchmove = function (e) {
         if (loc == null) return;
         var x = parseInt(loc.x / loc.size), y = parseInt(loc.y / loc.size);
         main.core.onmove(x, y);
-    }catch (ee) {}
+    } catch (ee) {
+    }
 }
 
 ////// 手指离开触摸屏时 //////
@@ -413,18 +421,17 @@ main.statusBar.image.settings.onclick = function () {
 
 ////// 点击“开始游戏”时 //////
 main.dom.playGame.onclick = function () {
-    main.dom.startButtons.style.display='none';
+    main.dom.startButtons.style.display = 'none';
 
     if (main.core.isset(main.core.flags.startDirectly) && main.core.flags.startDirectly) {
         core.events.startGame("");
-    }
-    else {
-        main.dom.levelChooseButtons.style.display='block';
+    } else {
+        main.dom.levelChooseButtons.style.display = 'block';
     }
 }
 
 ////// 点击“载入游戏”时 //////
-main.dom.loadGame.onclick = function() {
+main.dom.loadGame.onclick = function () {
     main.core.load();
 }
 
@@ -432,11 +439,11 @@ main.dom.loadGame.onclick = function() {
 main.dom.replayGame.onclick = function () {
 
     core.readFile(function (obj) {
-        if (obj.name!=core.firstData.name) {
+        if (obj.name != core.firstData.name) {
             alert("存档和游戏不一致！");
             return;
         }
-        if (core.isset(obj.version) && obj.version!=core.firstData.version) {
+        if (core.isset(obj.version) && obj.version != core.firstData.version) {
             alert("游戏版本不一致！");
             return;
         }
@@ -448,7 +455,7 @@ main.dom.replayGame.onclick = function () {
         core.dom.startPanel.style.display = 'none';
         core.resetStatus(core.firstData.hero, obj.hard, core.firstData.floorId, null, core.initStatus.maps);
         core.events.setInitData(obj.hard);
-        core.changeFloor(core.status.floorId, null, core.firstData.hero.loc, null, function() {
+        core.changeFloor(core.status.floorId, null, core.firstData.hero.loc, null, function () {
             //core.setHeroMoveTriggerInterval();
             core.startReplay(core.decodeRoute(obj.route));
         });
@@ -458,7 +465,7 @@ main.dom.replayGame.onclick = function () {
 }
 
 ////// 点击“简单难度”时 //////
-main.dom.easyLevel.onclick = function() {
+main.dom.easyLevel.onclick = function () {
     core.events.startGame('Easy');
 }
 

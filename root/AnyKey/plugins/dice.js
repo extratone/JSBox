@@ -1,5 +1,5 @@
 let html =
-`
+    `
 <html>
   <head>
     <style>
@@ -165,21 +165,21 @@ let html =
 `;
 
 $ui.push({
-  props: {
-    title: $l10n("Dice")
-  },
-  views: [
-    {
-      type: "web",
-      props: {
-        html: html
-      },
-      layout: $layout.fill
+    props: {
+        title: $l10n("Dice")
+    },
+    views: [
+        {
+            type: "web",
+            props: {
+                html: html
+            },
+            layout: $layout.fill
+        }
+    ],
+    events: {
+        shakeDetected: () => {
+            $("web").eval({"script": "roll()"});
+        }
     }
-  ],
-  events: {
-    shakeDetected: () => {
-      $("web").eval({"script": "roll()"});
-    }
-  }
 });

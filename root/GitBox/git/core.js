@@ -9,15 +9,15 @@ const emitter = new EventEmitter();
 git.plugins.set("emitter", emitter);
 
 emitter.on("message", message => {
-  console.log(message);
+    console.log(message);
 });
 
 git.onerror = error => {
-  ui.alert({
-    title: error.message,
-    actions: ["OK"]
-  });
-  $jsbox.notify("onerror");
+    ui.alert({
+        title: error.message,
+        actions: ["OK"]
+    });
+    $jsbox.notify("onerror");
 }
 
 module.exports = git;

@@ -2,8 +2,8 @@ const git = require("./core");
 const query = $context.query;
 
 git.add({
-  dir: query.dir,
-  filepath: query.path
+    dir: query.dir,
+    filepath: query.path
 }).then(() => {
-  $jsbox.notify("stage");
+    $jsbox.notify("stage");
 }).catch(git.onerror);

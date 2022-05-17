@@ -9,9 +9,11 @@ A Git GUI for [JSBox](https://apps.apple.com/app/id1312014438), based on [isomor
 
 # Security
 
-In order to keep you safe, GitBox doesn't store your password and token. Instead, you have to input them every time if authorization is required.
+In order to keep you safe, GitBox doesn't store your password and token. Instead, you have to input them every time if
+authorization is required.
 
-In fact, GitBox doesn't store anything, information like user name and email are stored in `/.git/config`, it's standard git configuration.
+In fact, GitBox doesn't store anything, information like user name and email are stored in `/.git/config`, it's standard
+git configuration.
 
 Read the source code if you still don't feel safe.
 

@@ -2,7 +2,7 @@ function data() {
 
 }
 
-data.prototype.init = function() {
+data.prototype.init = function () {
     this.firstData = {
         "title": "24层魔塔", // 游戏名，将显示在标题页面以及切换楼层的界面中
         "name": "24", // 游戏的唯一英文标识符。由英文、数字、下划线组成，不能超过20个字符。
@@ -78,10 +78,14 @@ data.prototype.init = function() {
                     // 在choices中写need，可以针对每个选项都有不同的需求。
                     // 这里的need同样可以以times作为参数，比如 "need": "100+20*times"
                     // 多个effect直接以分号分开即可。如上面的意思是生命+1000，攻击+7，防御+7。
-                    {"text": "等级+1", "need": "100", "effect": "status:lv+=1;status:hp+=1000;status:atk+=7;status:def+=7"},
+                    {
+                        "text": "等级+1",
+                        "need": "100",
+                        "effect": "status:lv+=1;status:hp+=1000;status:atk+=7;status:def+=7"
+                    },
                     {"text": "攻击+5", "need": "30", "effect": "status:atk+=5"},
                     {"text": "防御+5", "need": "30", "effect": "status:def+=5"},
-                    
+
                 ]
             },
             {
@@ -146,10 +150,14 @@ data.prototype.init = function() {
                     // 在choices中写need，可以针对每个选项都有不同的需求。
                     // 这里的need同样可以以times作为参数，比如 "need": "100+20*times"
                     // 多个effect直接以分号分开即可。如上面的意思是生命+1000，攻击+7，防御+7。
-                    {"text": "等级+3", "need": "270", "effect": "status:lv+=3;status:hp+=3000;status:atk+=20;status:def+=20"},
+                    {
+                        "text": "等级+3",
+                        "need": "270",
+                        "effect": "status:lv+=3;status:hp+=3000;status:atk+=20;status:def+=20"
+                    },
                     {"text": "攻击+17", "need": "95", "effect": "status:atk+=17"},
                     {"text": "防御+17", "need": "95", "effect": "status:def+=17"},
-                    
+
                 ]
             },
         ],
@@ -229,7 +237,7 @@ data.prototype.init = function() {
     }
 }
 
-data.prototype.getFirstData = function() {
+data.prototype.getFirstData = function () {
     return core.clone(this.firstData);
 }
 

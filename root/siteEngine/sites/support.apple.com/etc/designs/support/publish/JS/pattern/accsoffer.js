@@ -1,81 +1,81 @@
 var ACCSOffer = {
     domain: "https://support.apple.com/",
-    acceptSurvey: function() {
+    acceptSurvey: function () {
         var e = document.getElementById("accs_survey_offer");
         null != e && (this.showThankYou(), this.launchSurvey(), this.setCookie("accs", "a", 90, "/", ".apple.com", !1))
     },
-    check: function() {
-        this.isAppleCom() && this.hasCookiesEnabled() && this.hasValidPOD() && this.hasGlobalHeader() && this.isSelectBrowser() && this.isSelectedSample()&&!this.isSnkp()&&!this.hasACCS() && (this.showOffer(), this.setCookie("accs", "o", 90, "/", ".apple.com", !1))
+    check: function () {
+        this.isAppleCom() && this.hasCookiesEnabled() && this.hasValidPOD() && this.hasGlobalHeader() && this.isSelectBrowser() && this.isSelectedSample() && !this.isSnkp() && !this.hasACCS() && (this.showOffer(), this.setCookie("accs", "o", 90, "/", ".apple.com", !1))
     },
-    closeOffer: function() {
+    closeOffer: function () {
         var e = document.getElementsByClassName("accsoffer-wrapper");
         null != e[0] && (!e[0].classList.contains("hide")) && (e[0].classList.add("hide"))
     },
-    declineSurvey: function() {
+    declineSurvey: function () {
         var e = document.getElementById("accs_survey_offer");
         null != e && (this.closeOffer(), this.setCookie("accs", "d", 90, "/", ".apple.com", !1))
     },
-    getAgent: function() {
+    getAgent: function () {
         return navigator.userAgent.toLowerCase()
     },
-    getCookie: function(e) {
+    getCookie: function (e) {
         var o = document.cookie.match(new RegExp("(^|;)\\s*" + escape(e) + "=([^;\\s]*)"));
         return o ? unescape(o[2]) : void 0
     },
-    getData: function(e) {
+    getData: function (e) {
         var o = ACCSOffer.data[this.getPOD()];
         return void 0 != o && void 0 != o[e] ? o[e] : void 0
     },
-    getPageHost: function() {
+    getPageHost: function () {
         return /^discussions\.apple\.com$/.test(window.location.hostname) ? "discussions" : /^discussionsjapan\.apple\.com$/.test(window.location.hostname) ? "discussionsjapan" : /^discussionskorea\.apple\.com$/.test(window.location.hostname) ? "discussionskorea" : /^discussionschinese\.apple\.com$/.test(window.location.hostname) ? "discussionschinese" : /^support\.apple\.com$/.test(window.location.hostname) ? "supportkb" : void 0
     },
-    getPageRef: function() {
+    getPageRef: function () {
         return void 0 != this.getPageHost() ? "?r=" + this.getPageHost() : ""
     },
-    getPOD: function() {
+    getPOD: function () {
         return "discussions" == this.getPageHost() ? "us~en" : "discussionsjapan" == this.getPageHost() ? "jp~ja" : "discussionskorea" == this.getPageHost() ? "kr~ko" : "discussionschinese" == this.getPageHost() ? "cn~zh" : this.getCookie("POD")
     },
-    hasACCS: function() {
+    hasACCS: function () {
         return /^[oadsb]$/.test(this.getCookie("accs"))
     },
-    hasCookiesEnabled: function() {
-        var e = navigator.cookieEnabled?!0 : !1;
-        return "undefined" != typeof navigator.cookieEnabled || e || (document.cookie = "accs_t", e =- 1 != document.cookie.indexOf("accs_t")?!0 : !1), e
+    hasCookiesEnabled: function () {
+        var e = navigator.cookieEnabled ? !0 : !1;
+        return "undefined" != typeof navigator.cookieEnabled || e || (document.cookie = "accs_t", e = -1 != document.cookie.indexOf("accs_t") ? !0 : !1), e
     },
-    hasGlobalHeader: function() {
-        var e = document.getElementById("globalheader") || document.getElementById("ac-globalnav")?!0 : !1;
+    hasGlobalHeader: function () {
+        var e = document.getElementById("globalheader") || document.getElementById("ac-globalnav") ? !0 : !1;
         return e
     },
-    hasOmniture: function() {
+    hasOmniture: function () {
         return "undefined" != typeof s_account || /apple\.com/.test(window.location.hostname) && /^\/cs\/ac\//.test(window.location.pathname)
     },
-    hasValidPOD: function() {
+    hasValidPOD: function () {
         return void 0 != this.getPOD() && void 0 != ACCSOffer.data[this.getPOD()]
     },
-    injectOfferCss: function() {
+    injectOfferCss: function () {
         var e = document.createElement("link");
         e.rel = "stylesheet", e.href = this.domain + "etc/designs/support/publish/CSS/pattern/accs-offer.css", document.getElementsByTagName("head")[0].appendChild(e)
     },
-    isAppleCom: function() {
+    isAppleCom: function () {
         return /\.apple\.com$/.test(window.location.hostname)
     },
-    isIE: function(e) {
+    isIE: function (e) {
         var o = e || this.getAgent();
         return !!o.match(/msie/i)
     },
-    isSelectBrowser: function() {
+    isSelectBrowser: function () {
         var e = (navigator.appName + " " + navigator.appVersion).toUpperCase();
-        return - 1 == e.indexOf("WEBTV")&&-1 == e.indexOf("OPERA")
+        return -1 == e.indexOf("WEBTV") && -1 == e.indexOf("OPERA")
     },
-    isSelectedSample: function() {
+    isSelectedSample: function () {
         if (void 0 != this.getData("sampling") && 0 != this.getData("sampling")
-            ) {
+        ) {
             var e = parseInt(Math.random() * this.getData("sampling") + 1);
             return 1 === e
         }
         return !1
     },
-    isSnkp: function() {
+    isSnkp: function () {
         if (this.isIE())
             return !1;
         for (var e = 0; e < navigator.mimeTypes.length; e++) {
@@ -85,15 +85,16 @@ var ACCSOffer = {
         }
         return !1
     },
-    launchSurvey: function() {
+    launchSurvey: function () {
         var e = window.open(this.domain + this.getData("locale_directory") + "online-support-survey", "ACCSPopunder", "toolbar=no,menubar=no,resizable=yes,scrollbars=yes,location=no,status=no,top=0,left=0,width=500,height=700");
         e.blur(), window.focus()
     },
-    load: function(e) {
+    load: function (e) {
         var o = window.onload;
         if ("function" != typeof window.onload) {
             if (!window.onload) {
-                var r = window.addEventListener || document.addEventListener, t = window.attachEvent || document.attachEvent;
+                var r = window.addEventListener || document.addEventListener,
+                    t = window.attachEvent || document.attachEvent;
                 if (r)
                     return r("load", e, !0), !0;
                 if (t) {
@@ -103,27 +104,29 @@ var ACCSOffer = {
                 return !1
             }
             window.onload = e
-        } else 
-            window.onload = function() {
+        } else
+            window.onload = function () {
                 o(), e()
             }
     },
-    loadScript: function(e) {
+    loadScript: function (e) {
         for (var o = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789", r = 0, t = "", a = 0; 64 > a; a++)
             r = Math.floor(Math.random() * o.length), t += o.substring(r, r + 1);
         var n = document.getElementsByTagName("head").item(0), i = document.createElement("script");
         i.setAttribute("charset", "utf-8"), i.setAttribute("src", e + "?" + t), n.appendChild(i)
     },
-    setCookie: function(e, o, r, t, a, n) {
+    setCookie: function (e, o, r, t, a, n) {
         var i = new Date;
         r && i.setDate(i.getDate() + r), document.cookie = e + "=" + (o ? escape(o) : "") + (r ? ";expires=" + i.toGMTString() : "") + (t ? ";path=" + t : "") + (a ? ";domain=" + a : "") + (n ? ";secure" : "")
     },
-    showOffer: function() {
-        var e = document.getElementById("ac-gn-placeholder"), o = e.parentNode, r = this.getData("offer_text"), t = this.getData("offer_yes"), a = this.getData("offer_no"), n = document.createElement("div");
+    showOffer: function () {
+        var e = document.getElementById("ac-gn-placeholder"), o = e.parentNode, r = this.getData("offer_text"),
+            t = this.getData("offer_yes"), a = this.getData("offer_no"), n = document.createElement("div");
         n.className = "accsoffer-wrapper", n.innerHTML = '<div class="blurry-wrapper"><div class="blurry-wrapper--bg"></div></div><div id="accs_survey_offer" style=""><div id="accs_survey_offer_text" style="">' + r + '</div><div id="accs_survey_offer_buttons" style=""><button class="accs_survey_offer--button accept" onclick="ACCSOffer.acceptSurvey();" type="button" style="">' + t + '</button><button class="accs_survey_offer--button declined" type="button" style="" onclick="ACCSOffer.declineSurvey();">' + a + "</button></div></div>", o.insertBefore(n, e.nextSibling)
     },
-    showThankYou: function() {
-        var e = document.getElementById("accs_survey_offer_text"), o = document.getElementById("accs_survey_offer_buttons");
+    showThankYou: function () {
+        var e = document.getElementById("accs_survey_offer_text"),
+            o = document.getElementById("accs_survey_offer_buttons");
         e && o && (e.innerHTML = this.getData("offer_thankyou"), o.innerHTML = '<button class="accs_survey_offer--button close" onclick="ACCSOffer.closeOffer();">' + this.getData("offer_close") + "</button>")
     }
 };
@@ -524,6 +527,6 @@ ACCSOffer.data = {
         offer_thankyou: "Thank you. The survey is available under your current browser window. Please wait until after you have completed your visit to take the survey.",
         offer_close: "Close"
     }
-}, ACCSOffer.load(function() {
+}, ACCSOffer.load(function () {
     ACCSOffer.injectOfferCss(), ACCSOffer.check()
 });

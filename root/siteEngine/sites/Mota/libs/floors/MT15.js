@@ -13,58 +13,66 @@ main.floors.MT15 = {
     // "weather": ["snow",5], // 该层的默认天气。本项可忽略表示晴天，如果写则第一项为"rain"或"snow"代表雨雪，第二项为1-10之间的数代表强度。
     // "bgm": "bgm.mp3", // 到达该层后默认播放的BGM。本项可忽略。
     "map": [ // 地图数据，需要是13x13，建议使用地图生成器来生成
-        [3,    3,    3,    3,    3,    3,    3,    3,    3,    3,    3,    3,    3],
-        [3,    0,    0,    0,    0,    88,   4,    87,   0,    0,    0,    0,    3],
-        [3,    0,    4,    4,    4,    4,    4,    4,    4,    4,    4,    0,    3],
-        [3,    0,    4,    4,    1,    1,    1,    1,    1,    4,    4,    0,    3],
-        [3,    0,    4,    1,    1,    121,  1,    122,  1,    1,    4,    0,    3],
-        [3,    0,    4,    1,    1,    28,   1,    28,   1,    1,    4,    0,    3],
-        [3,    0,    4,    1,    1,    27,   1,    27,   1,    1,    4,    0,    3],
-        [3,    0,    4,    4,    1,    0,    1,    0,    1,    4,    4,    0,    3],
-        [3,    0,    4,    4,    1,    81,   1,    81,   1,    4,    4,    0,    3],
-        [3,    0,    4,    4,    4,    0,    0,    0,    4,    4,    4,    0,    3],
-        [3,    0,    4,    4,    4,    4,    83,   4,    4,    4,    4,    0,    3],
-        [3,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    3],
-        [3,    3,    3,    3,    3,    3,    3,    3,    3,    3,    3,    3,    3],        
+        [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
+        [3, 0, 0, 0, 0, 88, 4, 87, 0, 0, 0, 0, 3],
+        [3, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 3],
+        [3, 0, 4, 4, 1, 1, 1, 1, 1, 4, 4, 0, 3],
+        [3, 0, 4, 1, 1, 121, 1, 122, 1, 1, 4, 0, 3],
+        [3, 0, 4, 1, 1, 28, 1, 28, 1, 1, 4, 0, 3],
+        [3, 0, 4, 1, 1, 27, 1, 27, 1, 1, 4, 0, 3],
+        [3, 0, 4, 4, 1, 0, 1, 0, 1, 4, 4, 0, 3],
+        [3, 0, 4, 4, 1, 81, 1, 81, 1, 4, 4, 0, 3],
+        [3, 0, 4, 4, 4, 0, 0, 0, 4, 4, 4, 0, 3],
+        [3, 0, 4, 4, 4, 4, 83, 4, 4, 4, 4, 0, 3],
+        [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3],
+        [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     ],
     "firstArrive": [ // 第一次到该楼层触发的事件
 
     ],
     "events": { // 该楼的所有可能事件列表
         "5,4": [
-            {"type": "choices", "text": "\t[神秘老人,man]500经验换120攻击，要吗？",
+            {
+                "type": "choices", "text": "\t[神秘老人,man]500经验换120攻击，要吗？",
                 "choices": [
-                    {"text": "我要", "action": [
-                        {"type": "if", "condition": "status:experience>=500",
-                            "true": [
-                                {"type": "setValue", "name": "status:experience", "value": "status:experience-500"},
-                                {"type": "setValue", "name": "status:atk", "value": "status:atk+120"},
-                                {"type": "hide"}
-                            ],
-                            "false": [
-                                "\t[神秘老人,man]你的经验不足！"
-                            ]
-                        }
-                    ]},
+                    {
+                        "text": "我要", "action": [
+                            {
+                                "type": "if", "condition": "status:experience>=500",
+                                "true": [
+                                    {"type": "setValue", "name": "status:experience", "value": "status:experience-500"},
+                                    {"type": "setValue", "name": "status:atk", "value": "status:atk+120"},
+                                    {"type": "hide"}
+                                ],
+                                "false": [
+                                    "\t[神秘老人,man]你的经验不足！"
+                                ]
+                            }
+                        ]
+                    },
                     {"text": "谢谢，不用", "action": []}
                 ]
             }
         ],
         "7,4": [
-            {"type": "choices", "text": "\t[神秘老人,woman]500金币换120防御，要吗？",
+            {
+                "type": "choices", "text": "\t[神秘老人,woman]500金币换120防御，要吗？",
                 "choices": [
-                    {"text": "我要", "action": [
-                        {"type": "if", "condition": "status:money>=500",
-                            "true": [
-                                {"type": "setValue", "name": "status:money", "value": "status:money-500"},
-                                {"type": "setValue", "name": "status:def", "value": "status:def+120"},
-                                {"type": "hide"}
-                            ],
-                            "false": [
-                                "\t[神秘老人,man]你的金币不足！"
-                            ]
-                        }
-                    ]},
+                    {
+                        "text": "我要", "action": [
+                            {
+                                "type": "if", "condition": "status:money>=500",
+                                "true": [
+                                    {"type": "setValue", "name": "status:money", "value": "status:money-500"},
+                                    {"type": "setValue", "name": "status:def", "value": "status:def+120"},
+                                    {"type": "hide"}
+                                ],
+                                "false": [
+                                    "\t[神秘老人,man]你的金币不足！"
+                                ]
+                            }
+                        ]
+                    },
                     {"text": "谢谢，不用", "action": []}
                 ]
             }

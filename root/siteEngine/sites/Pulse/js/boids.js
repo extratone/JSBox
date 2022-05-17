@@ -2,38 +2,38 @@
 "use strict";
 
 function Boid(swarm, type) {
-  this.x = Math.random() * 10 + (parseInt(Math.random() * 2) == 0?swarm.width - 10:0);
-  this.y = Math.random() * 10 + (parseInt(Math.random() * 2) == 0?swarm.height - 10:0);
+    this.x = Math.random() * 10 + (parseInt(Math.random() * 2) == 0 ? swarm.width - 10 : 0);
+    this.y = Math.random() * 10 + (parseInt(Math.random() * 2) == 0 ? swarm.height - 10 : 0);
 
-  this.type = type || 'normal';
-  this.radius = 6;
-  this.speed = this.type=='normal'?(Math.random() * 1.5) + 0.5:2.2; //1;
-  this.radialSpeed = Math.PI / 60;
-  this.vision = 50;
-  this.heading = Math.random() * 2 * Math.PI - Math.PI;
+    this.type = type || 'normal';
+    this.radius = 6;
+    this.speed = this.type == 'normal' ? (Math.random() * 1.5) + 0.5 : 2.2; //1;
+    this.radialSpeed = Math.PI / 60;
+    this.vision = 50;
+    this.heading = Math.random() * 2 * Math.PI - Math.PI;
 }
 
-Boid.prototype.draw = function(ctx) {
+Boid.prototype.draw = function (ctx) {
     var pointLen = this.radius * 2.5;
     ctx.fillStyle = 'rgba(' + $palette[4] + ',1)'; //this.type=='normal'?'#C7F464':'red';
 
     if (this.type == 'alt') {
-      ctx.fillStyle = 'rgba(' + $palette[9] + ',1)';
+        ctx.fillStyle = 'rgba(' + $palette[9] + ',1)';
     }
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     ctx.fill();
     ctx.beginPath();
     ctx.moveTo(this.x + Math.cos(this.heading + Math.PI / 2) * this.radius,
-               this.y + Math.sin(this.heading + Math.PI / 2) * this.radius);
+        this.y + Math.sin(this.heading + Math.PI / 2) * this.radius);
     ctx.lineTo(this.x + Math.cos(this.heading + Math.PI) * pointLen,
-               this.y + Math.sin(this.heading + Math.PI) * pointLen);
+        this.y + Math.sin(this.heading + Math.PI) * pointLen);
     ctx.lineTo(this.x + Math.cos(this.heading - Math.PI / 2) * this.radius,
-               this.y + Math.sin(this.heading - Math.PI / 2) * this.radius);
+        this.y + Math.sin(this.heading - Math.PI / 2) * this.radius);
     ctx.fill();
 };
 
-Boid.prototype.distance = function(boid, width, height) {
+Boid.prototype.distance = function (boid, width, height) {
     var x0 = Math.min(this.x, boid.x), x1 = Math.max(this.x, boid.x);
     var y0 = Math.min(this.y, boid.y), y1 = Math.max(this.y, boid.y);
     var dx = Math.min(x1 - x0, x0 + width - x1);
@@ -41,7 +41,7 @@ Boid.prototype.distance = function(boid, width, height) {
     return Math.sqrt(dx * dx + dy * dy);
 };
 
-Boid.prototype.getNeighbors = function(swarm) {
+Boid.prototype.getNeighbors = function (swarm) {
     var w = swarm.width, h = swarm.height;
     var neighbors = [];
     for (var i = 0; i < swarm.boids.length; i++) {
@@ -53,7 +53,7 @@ Boid.prototype.getNeighbors = function(swarm) {
     return neighbors;
 };
 
-Boid.wrap = function(value) {
+Boid.wrap = function (value) {
     var min, max;
     if (arguments.length === 2) {
         min = 0;
@@ -69,11 +69,11 @@ Boid.wrap = function(value) {
     return value;
 };
 
-Boid.clamp = function(value, limit) {
+Boid.clamp = function (value, limit) {
     return Math.min(limit, Math.max(-limit, value));
 };
 
-Boid.meanAngle = function() {
+Boid.meanAngle = function () {
     var sumx = 0, sumy = 0, len = arguments.length;
     for (var i = 0; i < len; i++) {
         sumx += Math.cos(arguments[i]);
@@ -82,7 +82,7 @@ Boid.meanAngle = function() {
     return Math.atan2(sumy / len, sumx / len);
 };
 
-Boid.prototype.step = function(swarm) {
+Boid.prototype.step = function (swarm) {
     var w = swarm.width, h = swarm.height;
     var neighbors = this.getNeighbors(swarm);
     if (neighbors.length > 0) {
@@ -126,47 +126,47 @@ Boid.prototype.step = function(swarm) {
     this.move(swarm);
 };
 
-Boid.prototype.move = function(swarm) {
+Boid.prototype.move = function (swarm) {
     var padding = swarm.padding;
     var width = swarm.width, height = swarm.height;
     this.x = Boid.wrap(this.x + Math.cos(this.heading) * this.speed,
-                       -padding, width + padding * 2);
+        -padding, width + padding * 2);
     this.y = Boid.wrap(this.y + Math.sin(this.heading) * this.speed,
-                       -padding, height + padding * 2);
+        -padding, height + padding * 2);
 };
 
 /* Swam prototype. */
 
 function Swarm(options) {
-  this.width = options && options.width || 400;
-  this.height = options && options.height || 400;
-  this.boids = [];
-  this.padding = 18;
+    this.width = options && options.width || 400;
+    this.height = options && options.height || 400;
+    this.boids = [];
+    this.padding = 18;
 }
 
-Swarm.prototype.createBoid = function(n, type) {
-  var createdBoids = [];
-  for (var i = 0; i < (n || 1); i++) {
-    var boid = new Boid(this, type);
-    boid.parent = this;
-    this.boids.push(boid);
-    createdBoids.push(boid);
-  }
-  return createdBoids;
+Swarm.prototype.createBoid = function (n, type) {
+    var createdBoids = [];
+    for (var i = 0; i < (n || 1); i++) {
+        var boid = new Boid(this, type);
+        boid.parent = this;
+        this.boids.push(boid);
+        createdBoids.push(boid);
+    }
+    return createdBoids;
 };
 
-Swarm.prototype.clear = function() {
-  this.boids = [];
+Swarm.prototype.clear = function () {
+    this.boids = [];
 };
 
-Swarm.prototype.update = function(dt) {
-  for (var i = 0; i < this.boids.length; i++) {
-    this.boids[i].step(this);
-  }
+Swarm.prototype.update = function (dt) {
+    for (var i = 0; i < this.boids.length; i++) {
+        this.boids[i].step(this);
+    }
 }
 
-Swarm.prototype.render = function() {
-  for (var i = 0; i < this.boids.length; i++) {
-    this.boids[i].draw(this.ctx);
-  }
+Swarm.prototype.render = function () {
+    for (var i = 0; i < this.boids.length; i++) {
+        this.boids[i].draw(this.ctx);
+    }
 }

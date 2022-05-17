@@ -1,16 +1,16 @@
 exports.open = () => {
-  $ui.render({
-    props: {
-      title: $l10n("README")
-    },
-    views: [
-      {
-        type: "markdown",
+    $ui.render({
         props: {
-          content: $file.read($l10n("README_FILE")).string
+            title: $l10n("README")
         },
-        layout: $layout.fill
-      }
-    ]
-  });
+        views: [
+            {
+                type: "markdown",
+                props: {
+                    content: $file.read($l10n("README_FILE")).string
+                },
+                layout: $layout.fill
+            }
+        ]
+    });
 }

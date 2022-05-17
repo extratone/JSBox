@@ -4,7 +4,7 @@ let reversed = reverse(text);
 helper.setText(reversed);
 
 function reverse(str) {
-  let result = "";
-  str.split("").forEach(char => result = char + result);
-  return result;
+    let result = "";
+    str.split("").forEach(char => result = char + result);
+    return result;
 }

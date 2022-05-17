@@ -77,16 +77,16 @@ items.prototype.getItems = function () {
     if (core.flags.bombFourDirections)
         this.items.bomb.text = "可以炸掉勇士四周的怪物";
     if (core.flags.equipment) {
-        this.items.sword1 = {'cls': 'constants', 'name': '铁剑', 'text': '一把很普通的铁剑，攻击+'+core.values.sword1};
-        this.items.sword2 = {'cls': 'constants', 'name': '银剑', 'text': '一把很普通的银剑，攻击+'+core.values.sword2};
-        this.items.sword3 = {'cls': 'constants', 'name': '骑士剑', 'text': '一把很普通的骑士剑，攻击+'+core.values.sword3};
-        this.items.sword4 = {'cls': 'constants', 'name': '圣剑', 'text': '一把很普通的圣剑，攻击+'+core.values.sword4};
-        this.items.sword5 = {'cls': 'constants', 'name': '神圣剑', 'text': '一把很普通的神圣剑，攻击+'+core.values.sword5};
-        this.items.shield1 = {'cls': 'constants', 'name': '铁盾', 'text': '一个很普通的铁盾，防御+'+core.values.shield1};
-        this.items.shield2 = {'cls': 'constants', 'name': '银盾', 'text': '一个很普通的银盾，防御+'+core.values.shield2};
-        this.items.shield3 = {'cls': 'constants', 'name': '骑士盾', 'text': '一个很普通的骑士盾，防御+'+core.values.shield3};
-        this.items.shield4 = {'cls': 'constants', 'name': '圣盾', 'text': '一个很普通的圣盾，防御+'+core.values.shield4};
-        this.items.shield5 = {'cls': 'constants', 'name': '神圣盾', 'text': '一个很普通的神圣盾，防御+'+core.values.shield5};
+        this.items.sword1 = {'cls': 'constants', 'name': '铁剑', 'text': '一把很普通的铁剑，攻击+' + core.values.sword1};
+        this.items.sword2 = {'cls': 'constants', 'name': '银剑', 'text': '一把很普通的银剑，攻击+' + core.values.sword2};
+        this.items.sword3 = {'cls': 'constants', 'name': '骑士剑', 'text': '一把很普通的骑士剑，攻击+' + core.values.sword3};
+        this.items.sword4 = {'cls': 'constants', 'name': '圣剑', 'text': '一把很普通的圣剑，攻击+' + core.values.sword4};
+        this.items.sword5 = {'cls': 'constants', 'name': '神圣剑', 'text': '一把很普通的神圣剑，攻击+' + core.values.sword5};
+        this.items.shield1 = {'cls': 'constants', 'name': '铁盾', 'text': '一个很普通的铁盾，防御+' + core.values.shield1};
+        this.items.shield2 = {'cls': 'constants', 'name': '银盾', 'text': '一个很普通的银盾，防御+' + core.values.shield2};
+        this.items.shield3 = {'cls': 'constants', 'name': '骑士盾', 'text': '一个很普通的骑士盾，防御+' + core.values.shield3};
+        this.items.shield4 = {'cls': 'constants', 'name': '圣盾', 'text': '一个很普通的圣盾，防御+' + core.values.shield4};
+        this.items.shield5 = {'cls': 'constants', 'name': '神圣盾', 'text': '一个很普通的神圣盾，防御+' + core.values.shield5};
     }
 
     return this.items;
@@ -95,7 +95,7 @@ items.prototype.getItems = function () {
 main.instance.items = new items();
 
 ////// “即捡即用类”道具的使用效果 //////
-items.prototype.getItemEffect = function(itemId, itemNum) {
+items.prototype.getItemEffect = function (itemId, itemNum) {
     var itemCls = core.material.items[itemId].cls;
     // 消耗品
     if (itemCls === 'items') {
@@ -103,10 +103,10 @@ items.prototype.getItemEffect = function(itemId, itemNum) {
         if (itemId === 'blueJewel') core.status.hero.def += core.values.blueJewel;
         if (itemId === 'greenJewel') core.status.hero.mdef += core.values.greenJewel;
         if (itemId == 'yellowJewel') { // 黄宝石属性：需自己定义
-            core.status.hero.hp+=1000;
-            core.status.hero.atk+=6;
-            core.status.hero.def+=6;
-            core.status.hero.mdef+=10;
+            core.status.hero.hp += 1000;
+            core.status.hero.atk += 6;
+            core.status.hero.def += 6;
+            core.status.hero.mdef += 10;
         }
         if (itemId === 'redPotion') core.status.hero.hp += core.values.redPotion;
         if (itemId === 'bluePotion') core.status.hero.hp += core.values.bluePotion;
@@ -124,15 +124,15 @@ items.prototype.getItemEffect = function(itemId, itemNum) {
         if (itemId === 'shield5') core.status.hero.def += core.values.shield5;
         if (itemId == 'centerFly') {
             core.status.hero.lv++;
-            core.status.hero.hp+=1000;
-            core.status.hero.atk+=10;
-            core.status.hero.def+=10;
+            core.status.hero.hp += 1000;
+            core.status.hero.atk += 10;
+            core.status.hero.def += 10;
         }
         if (itemId == 'bigFly') {
-            core.status.hero.lv+=3;
-            core.status.hero.hp+=3000;
-            core.status.hero.atk+=30;
-            core.status.hero.def+=30;
+            core.status.hero.lv += 3;
+            core.status.hero.hp += 3000;
+            core.status.hero.atk += 30;
+            core.status.hero.def += 30;
         }
         if (itemId === 'bigKey') { // 只有是钥匙盒才会执行这一步
             core.status.hero.items.keys.yellowKey++;
@@ -141,37 +141,36 @@ items.prototype.getItemEffect = function(itemId, itemNum) {
         }
         if (itemId == 'superPotion') core.status.hero.hp *= 2;
         if (itemId == 'coin') core.status.hero.money += core.values.moneyPocket;
-    }
-    else {
+    } else {
         core.addItem(itemId, itemNum);
     }
 }
 
 ////// “即捡即用类”道具的文字提示 //////
-items.prototype.getItemEffectTip = function(itemId) {
-    if (itemId == 'redJewel') return "，攻击+"+core.values.redJewel;
-    if (itemId == 'blueJewel') return "，防御+"+core.values.blueJewel;
-    if (itemId == 'greenJewel') return "，魔防+"+core.values.greenJewel;
+items.prototype.getItemEffectTip = function (itemId) {
+    if (itemId == 'redJewel') return "，攻击+" + core.values.redJewel;
+    if (itemId == 'blueJewel') return "，防御+" + core.values.blueJewel;
+    if (itemId == 'greenJewel') return "，魔防+" + core.values.greenJewel;
     if (itemId == 'yellowJewel') return "，全属性提升";
-    if (itemId == 'redPotion') return "，生命+"+core.values.redPotion;
-    if (itemId == 'bluePotion') return "，生命+"+core.values.bluePotion;
-    if (itemId == 'yellowPotion') return "，生命+"+core.values.yellowPotion;
-    if (itemId == 'greenPotion') return "，生命+"+core.values.greenPotion;
+    if (itemId == 'redPotion') return "，生命+" + core.values.redPotion;
+    if (itemId == 'bluePotion') return "，生命+" + core.values.bluePotion;
+    if (itemId == 'yellowPotion') return "，生命+" + core.values.yellowPotion;
+    if (itemId == 'greenPotion') return "，生命+" + core.values.greenPotion;
     if (itemId == 'centerFly') return "，等级+1";
     if (itemId == 'bigFly') return "，等级+3";
-    if (!core.flags.equipment && itemId == 'sword1') return "，攻击+"+core.values.sword1;
-    if (!core.flags.equipment && itemId == 'sword2') return "，攻击+"+core.values.sword2;
-    if (!core.flags.equipment && itemId == 'sword3') return "，攻击+"+core.values.sword3;
-    if (!core.flags.equipment && itemId == 'sword4') return "，攻击+"+core.values.sword4;
-    if (!core.flags.equipment && itemId == 'sword5') return "，攻击+"+core.values.sword5;
-    if (!core.flags.equipment && itemId == 'shield1') return "，防御+"+core.values.shield1;
-    if (!core.flags.equipment && itemId == 'shield2') return "，防御+"+core.values.shield2;
-    if (!core.flags.equipment && itemId == 'shield3') return "，防御+"+core.values.shield3;
-    if (!core.flags.equipment && itemId == 'shield4') return "，防御+"+core.values.shield4;
-    if (!core.flags.equipment && itemId == 'shield5') return "，防御+"+core.values.shield5;
+    if (!core.flags.equipment && itemId == 'sword1') return "，攻击+" + core.values.sword1;
+    if (!core.flags.equipment && itemId == 'sword2') return "，攻击+" + core.values.sword2;
+    if (!core.flags.equipment && itemId == 'sword3') return "，攻击+" + core.values.sword3;
+    if (!core.flags.equipment && itemId == 'sword4') return "，攻击+" + core.values.sword4;
+    if (!core.flags.equipment && itemId == 'sword5') return "，攻击+" + core.values.sword5;
+    if (!core.flags.equipment && itemId == 'shield1') return "，防御+" + core.values.shield1;
+    if (!core.flags.equipment && itemId == 'shield2') return "，防御+" + core.values.shield2;
+    if (!core.flags.equipment && itemId == 'shield3') return "，防御+" + core.values.shield3;
+    if (!core.flags.equipment && itemId == 'shield4') return "，防御+" + core.values.shield4;
+    if (!core.flags.equipment && itemId == 'shield5') return "，防御+" + core.values.shield5;
     if (itemId === 'bigKey') return "，全钥匙+1";
     if (itemId === 'superPotion') return "，生命值翻倍";
-    if (itemId == 'coin') return "，金币+"+core.values.moneyPocket;
+    if (itemId == 'coin') return "，金币+" + core.values.moneyPocket;
     return "";
 }
 
@@ -183,10 +182,10 @@ items.prototype.useItem = function (itemId, callback) {
     }
     var itemCls = core.material.items[itemId].cls;
 
-    if (itemId=='book') core.ui.drawBook(0);
-    if (itemId=='fly') core.ui.drawFly(core.status.hero.flyRange.indexOf(core.status.floorId));
-    if (itemId == 'earthquake' || itemId == 'bomb' || itemId == 'pickaxe' || itemId=='icePickaxe'
-        || itemId == 'snow' || itemId == 'hammer' || itemId=='bigKey') {
+    if (itemId == 'book') core.ui.drawBook(0);
+    if (itemId == 'fly') core.ui.drawFly(core.status.hero.flyRange.indexOf(core.status.floorId));
+    if (itemId == 'earthquake' || itemId == 'bomb' || itemId == 'pickaxe' || itemId == 'icePickaxe'
+        || itemId == 'snow' || itemId == 'hammer' || itemId == 'bigKey') {
         // 消除当前层的某些块
         core.removeBlockByIds(core.status.floorId, core.status.event.data);
         core.drawMap(core.status.floorId, function () {
@@ -208,7 +207,11 @@ items.prototype.useItem = function (itemId, callback) {
     }
     if (itemId == 'upFly' || itemId == 'downFly') {
         // 上楼器/下楼器
-        core.changeFloor(core.status.event.data.id, null, {'direction': core.status.hero.loc.direction, 'x': core.status.event.data.x, 'y': core.status.event.data.y}, null, function (){
+        core.changeFloor(core.status.event.data.id, null, {
+            'direction': core.status.hero.loc.direction,
+            'x': core.status.event.data.x,
+            'y': core.status.event.data.y
+        }, null, function () {
             core.drawTip(core.material.items[itemId].name + "使用成功");
             core.replay();
         });
@@ -231,37 +234,37 @@ items.prototype.useItem = function (itemId, callback) {
     }
 
     // 剑
-    if (itemId.indexOf("sword")==0) {
-        var now=core.getFlag('sword', 'sword0'); // 当前装备剑的ID
+    if (itemId.indexOf("sword") == 0) {
+        var now = core.getFlag('sword', 'sword0'); // 当前装备剑的ID
         core.status.hero.atk -= core.values[now];
         core.setItem(now, 1);
         core.status.hero.atk += core.values[itemId];
         core.setItem(itemId, 0);
         core.setFlag('sword', itemId);
-        core.drawTip("已装备"+core.material.items[itemId].name);
+        core.drawTip("已装备" + core.material.items[itemId].name);
     }
     // 盾
-    if (itemId.indexOf("shield")==0) {
-        var now=core.getFlag('shield', 'shield0');
+    if (itemId.indexOf("shield") == 0) {
+        var now = core.getFlag('shield', 'shield0');
         core.status.hero.def -= core.values[now];
         core.setItem(now, 1);
         core.status.hero.def += core.values[itemId];
         core.setItem(itemId, 0);
         core.setFlag('shield', itemId);
-        core.drawTip("已装备"+core.material.items[itemId].name);
+        core.drawTip("已装备" + core.material.items[itemId].name);
     }
 
     core.updateStatusBar();
 
     // 记录路线
-    if (itemId!='book' && itemId!='fly') {
-        core.status.route.push("item:"+itemId);
+    if (itemId != 'book' && itemId != 'fly') {
+        core.status.route.push("item:" + itemId);
     }
 
     // 道具使用完毕：删除
-    if (itemCls=='tools')
+    if (itemCls == 'tools')
         core.status.hero.items[itemCls][itemId]--;
-    if (core.status.hero.items[itemCls][itemId]==0)
+    if (core.status.hero.items[itemCls][itemId] == 0)
         delete core.status.hero.items[itemCls][itemId];
 
     if (core.isset(callback)) callback();
@@ -273,29 +276,28 @@ items.prototype.canUseItem = function (itemId) {
     if (!core.hasItem(itemId)) return false;
 
     if (itemId == 'book') return true;
-    if (itemId == 'fly') return core.status.hero.flyRange.indexOf(core.status.floorId)>=0;
+    if (itemId == 'fly') return core.status.hero.flyRange.indexOf(core.status.floorId) >= 0;
     if (itemId == 'pickaxe') {
         // 破墙镐
         var ids = [];
         for (var i in core.status.thisMap.blocks) {
             var block = core.status.thisMap.blocks[i];
             if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) &&
-                (block.event.id == 'yellowWall' || block.event.id=='whiteWall' || block.event.id=='blueWall')) // 能破哪些墙
+                (block.event.id == 'yellowWall' || block.event.id == 'whiteWall' || block.event.id == 'blueWall')) // 能破哪些墙
             {
                 // 四个方向
                 if (core.flags.pickaxeFourDirections) {
-                    if (Math.abs(block.x-core.status.hero.loc.x)+Math.abs(block.y-core.status.hero.loc.y)<=1) {
+                    if (Math.abs(block.x - core.status.hero.loc.x) + Math.abs(block.y - core.status.hero.loc.y) <= 1) {
                         ids.push(i);
                     }
-                }
-                else {
+                } else {
                     if (block.x == core.nextX() && block.y == core.nextY()) {
                         ids.push(i);
                     }
                 }
             }
         }
-        if (ids.length>0) {
+        if (ids.length > 0) {
             core.status.event.data = ids;
             return true;
         }
@@ -305,7 +307,7 @@ items.prototype.canUseItem = function (itemId) {
         // 破冰镐
         for (var i in core.status.thisMap.blocks) {
             var block = core.status.thisMap.blocks[i];
-            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.x==core.nextX() && block.y==core.nextY() && block.event.id=='ice') {
+            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.x == core.nextX() && block.y == core.nextY() && block.event.id == 'ice') {
                 core.status.event.data = [i];
                 return true;
             }
@@ -317,14 +319,14 @@ items.prototype.canUseItem = function (itemId) {
         var ids = [];
         for (var i in core.status.thisMap.blocks) {
             var block = core.status.thisMap.blocks[i];
-            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.event.cls == 'enemys' && Math.abs(block.x-core.status.hero.loc.x)+Math.abs(block.y-core.status.hero.loc.y)<=1) {
+            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.event.cls == 'enemys' && Math.abs(block.x - core.status.hero.loc.x) + Math.abs(block.y - core.status.hero.loc.y) <= 1) {
                 var enemy = core.material.enemys[block.event.id];
                 if (core.isset(enemy.bomb) && !enemy.bomb) continue;
-                if (core.flags.bombFourDirections || (block.x==core.nextX() && block.y==core.nextY()))
+                if (core.flags.bombFourDirections || (block.x == core.nextX() && block.y == core.nextY()))
                     ids.push(i);
             }
         }
-        if (ids.length>0) {
+        if (ids.length > 0) {
             core.status.event.data = ids;
             return true;
         }
@@ -334,7 +336,7 @@ items.prototype.canUseItem = function (itemId) {
         // 圣锤
         for (var i in core.status.thisMap.blocks) {
             var block = core.status.thisMap.blocks[i];
-            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.event.cls == 'enemys' && block.x==core.nextX() && block.y==core.nextY()) {
+            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.event.cls == 'enemys' && block.x == core.nextX() && block.y == core.nextY()) {
                 var enemy = core.material.enemys[block.event.id];
                 if (core.isset(enemy.bomb) && !enemy.bomb) continue;
                 core.status.event.data = [i];
@@ -350,7 +352,7 @@ items.prototype.canUseItem = function (itemId) {
             if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && (block.event.id == 'yellowWall' || block.event.id == 'blueWall' || block.event.id == 'whiteWall'))
                 ids.push(i);
         }
-        if (ids.length>0) {
+        if (ids.length > 0) {
             core.status.event.data = ids;
             return true;
         }
@@ -358,9 +360,9 @@ items.prototype.canUseItem = function (itemId) {
     }
     if (itemId == 'centerFly') {
         // 中心对称
-        var toX = 12 - core.getHeroLoc('x'), toY = 12-core.getHeroLoc('y');
+        var toX = 12 - core.getHeroLoc('x'), toY = 12 - core.getHeroLoc('y');
         var block = core.getBlock(toX, toY);
-        if (block==null) {
+        if (block == null) {
             core.status.event.data = {'x': toX, 'y': toY};
             return true;
         }
@@ -370,12 +372,12 @@ items.prototype.canUseItem = function (itemId) {
         // 上楼器
         var floorId = core.status.floorId;
         var index = core.floorIds.indexOf(floorId);
-        if (index==core.floorIds.length-1) return false;
-        var toId = core.floorIds[index+1];
+        if (index == core.floorIds.length - 1) return false;
+        var toId = core.floorIds[index + 1];
         var toX = core.getHeroLoc('x'), toY = core.getHeroLoc('y');
 
         var block = core.getBlock(toX, toY, toId);
-        if (block==null) {
+        if (block == null) {
             core.status.event.data = {'id': toId, 'x': toX, 'y': toY};
             return true;
         }
@@ -385,33 +387,33 @@ items.prototype.canUseItem = function (itemId) {
         // 下楼器
         var floorId = core.status.floorId;
         var index = core.floorIds.indexOf(floorId);
-        if (index==0) return false;
-        var toId = core.floorIds[index-1];
+        if (index == 0) return false;
+        var toId = core.floorIds[index - 1];
         var toX = core.getHeroLoc('x'), toY = core.getHeroLoc('y');
 
         var block = core.getBlock(toX, toY, toId);
-        if (block==null) {
+        if (block == null) {
             core.status.event.data = {'id': toId, 'x': toX, 'y': toY};
             return true;
         }
         return false;
     }
-    if (itemId=='snow') {
+    if (itemId == 'snow') {
         // 冰冻徽章
         var ids = [];
         for (var i in core.status.thisMap.blocks) {
             var block = core.status.thisMap.blocks[i];
-            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.event.id == 'lava' && Math.abs(block.x-core.status.hero.loc.x)+Math.abs(block.y-core.status.hero.loc.y)<=1) {
+            if (core.isset(block.event) && !(core.isset(block.enable) && !block.enable) && block.event.id == 'lava' && Math.abs(block.x - core.status.hero.loc.x) + Math.abs(block.y - core.status.hero.loc.y) <= 1) {
                 ids.push(i);
             }
         }
-        if (ids.length>0) {
+        if (ids.length > 0) {
             core.status.event.data = ids;
             return true;
         }
         return false;
     }
-    if (itemId=='bigKey') {
+    if (itemId == 'bigKey') {
         // 大黄门钥匙
         var ids = [];
         for (var i in core.status.thisMap.blocks) {
@@ -420,19 +422,19 @@ items.prototype.canUseItem = function (itemId) {
                 ids.push(i);
             }
         }
-        if (ids.length>0) {
+        if (ids.length > 0) {
             core.status.event.data = ids;
             return true;
         }
         return false;
     }
-    if (itemId=='poisonWine') return core.hasFlag('poison');
-    if (itemId=='weakWine') return core.hasFlag('weak');
-    if (itemId=='curseWine') return core.hasFlag('curse');
-    if (itemId=='superWine') return core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');
+    if (itemId == 'poisonWine') return core.hasFlag('poison');
+    if (itemId == 'weakWine') return core.hasFlag('weak');
+    if (itemId == 'curseWine') return core.hasFlag('curse');
+    if (itemId == 'superWine') return core.hasFlag('poison') || core.hasFlag('weak') || core.hasFlag('curse');
 
     // 剑盾
-    if (itemId.indexOf("sword")==0 || itemId.indexOf("shield")==0) return true;
+    if (itemId.indexOf("sword") == 0 || itemId.indexOf("shield") == 0) return true;
 
     return false;
 }

@@ -11,7 +11,9 @@ Share good looking code snippets as images, inspired by [Carbon](https://carbon.
 
 ### Edit/Preview?
 
-codeCam uses `CodeMirror` as its editor, ideally, it should work for editing. However, there are many bugs in iOS 13, the most annoying one is that the "text selection" is really buggy. Before we solve those issues, you can use the plain text editor.
+codeCam uses `CodeMirror` as its editor, ideally, it should work for editing. However, there are many bugs in iOS 13,
+the most annoying one is that the "text selection" is really buggy. Before we solve those issues, you can use the plain
+text editor.
 
 ### Tips
 

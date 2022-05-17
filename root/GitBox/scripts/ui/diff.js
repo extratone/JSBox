@@ -1,22 +1,22 @@
 exports.open = diff => {
 
-  $ui.push({
-    props: {
-      title: `+${diff.inserted} -${diff.deleted}`
-    },
-    views: [
-      {
-        type: "text",
+    $ui.push({
         props: {
-          editable: false
+            title: `+${diff.inserted} -${diff.deleted}`
         },
-        layout: $layout.fill,
-        events: {
-          ready: sender => {
-            sender.ocValue().$setAttributedText(diff.text);
-          }
-        }
-      }
-    ]
-  });
+        views: [
+            {
+                type: "text",
+                props: {
+                    editable: false
+                },
+                layout: $layout.fill,
+                events: {
+                    ready: sender => {
+                        sender.ocValue().$setAttributedText(diff.text);
+                    }
+                }
+            }
+        ]
+    });
 }

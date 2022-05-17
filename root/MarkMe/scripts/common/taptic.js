@@ -1,3 +1,3 @@
 exports.success = () => {
-  $objc("UINotificationFeedbackGenerator").$new().$notificationOccurred(0);
+    $objc("UINotificationFeedbackGenerator").$new().$notificationOccurred(0);
 }

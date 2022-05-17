@@ -9,23 +9,23 @@ main.floors.sample2 = {
     "canUseQuickShop": true, // 该层是否允许使用快捷商店
     "defaultGround": "snowGround", // 默认地面的图块ID（terrains中）
     "png": [], // // 该层默认显示的所有图片；详细用法请查看文档“自定义素材”中的说明。
-    "color": [255,0,0,0.3], // 该层的默认画面色调。本项可不写（代表无色调），如果写需要是一个RGBA数组。
-    "weather": ["rain",10], // 该层的默认天气。本项可忽略表示晴天，如果写则第一项为"rain"或"snow"代表雨雪，第二项为1-10之间的数代表强度。
+    "color": [255, 0, 0, 0.3], // 该层的默认画面色调。本项可不写（代表无色调），如果写需要是一个RGBA数组。
+    "weather": ["rain", 10], // 该层的默认天气。本项可忽略表示晴天，如果写则第一项为"rain"或"snow"代表雨雪，第二项为1-10之间的数代表强度。
     "bgm": "qianjin.mid", // 到达该层后默认播放的BGM。本项可忽略。
     "map": [ // 地图数据，需要是13x13，建议使用地图生成器来生成
-        [5,    5,    5,    5,    5,    5,    87,   5,    5,    5,    5,    5,    5],
-        [5,    4,    4,    4,    4,    1,    0,    1,    4,    4,    4,    4,    5],
-        [5,    4,    4,    4,    4,    1,    85,   1,    4,    4,    4,    4,    5],
-        [5,    4,    4,    4,    247,  1,    247,  1,    247,  4,    4,    4,    5],
-        [5,    4,    4,    4,    1,    247,  247,  247,  1,    4,    4,    4,    5],
-        [5,    4,    4,    4,    1,    247,  30,   247,  1,    4,    4,    4,    5],
-        [5,    4,    4,    4,    247,  1,    124,  1,    247,  4,    4,    4,    5],
-        [5,    4,    4,    4,    4,    1,    123,  1,    4,    4,    4,    4,    5],
-        [5,    4,    4,    4,    4,    1,    0,    1,    4,    4,    4,    4,    5],
-        [5,    4,    4,    4,    4,    1,    0,    1,    4,    4,    4,    4,    5],
-        [5,    4,    4,    4,    4,    4,    0,    4,    4,    4,    4,    4,    5],
-        [5,    4,    4,    4,    4,    4,    85,   4,    4,    4,    4,    4,    5],
-        [5,    5,    5,    5,    5,    5,    88,   5,    5,    5,    5,    5,    5],
+        [5, 5, 5, 5, 5, 5, 87, 5, 5, 5, 5, 5, 5],
+        [5, 4, 4, 4, 4, 1, 0, 1, 4, 4, 4, 4, 5],
+        [5, 4, 4, 4, 4, 1, 85, 1, 4, 4, 4, 4, 5],
+        [5, 4, 4, 4, 247, 1, 247, 1, 247, 4, 4, 4, 5],
+        [5, 4, 4, 4, 1, 247, 247, 247, 1, 4, 4, 4, 5],
+        [5, 4, 4, 4, 1, 247, 30, 247, 1, 4, 4, 4, 5],
+        [5, 4, 4, 4, 247, 1, 124, 1, 247, 4, 4, 4, 5],
+        [5, 4, 4, 4, 4, 1, 123, 1, 4, 4, 4, 4, 5],
+        [5, 4, 4, 4, 4, 1, 0, 1, 4, 4, 4, 4, 5],
+        [5, 4, 4, 4, 4, 1, 0, 1, 4, 4, 4, 4, 5],
+        [5, 4, 4, 4, 4, 4, 0, 4, 4, 4, 4, 4, 5],
+        [5, 4, 4, 4, 4, 4, 85, 4, 4, 4, 4, 4, 5],
+        [5, 5, 5, 5, 5, 5, 88, 5, 5, 5, 5, 5, 5],
     ],
     "firstArrive": [ // 第一次到该楼层触发的事件
         "\t[实战！]本楼将尝试复刻《宿命的旋律》40F剧情。"
@@ -35,9 +35,9 @@ main.floors.sample2 = {
         "6,11": {"enable": false}, // 下楼梯口的机关门，初始处于关闭状态
         "6,10": [ // 进入陷阱后关门
             {"type": "playSound", "name": "door.ogg"},
-            {"type": "show", "loc": [6,11]}, // 显示机关门
+            {"type": "show", "loc": [6, 11]}, // 显示机关门
             {"type": "hide"}, // 隐藏该事件
-            {"type": "trigger", "loc": [6,7]}, // 直接引发"6,7"处的事件，即下面的杰克
+            {"type": "trigger", "loc": [6, 7]}, // 直接引发"6,7"处的事件，即下面的杰克
             // 请再次注意"trigger"会立刻结束当前事件，因此"type":"hide"需要在trigger前调用
         ],
         "6,7": [ // 杰克事件
@@ -51,10 +51,12 @@ main.floors.sample2 = {
             "\t[杰克,thief]……事到如今也没有什么好隐瞒的了。",
             {"type": "playSound", "name": "item.ogg"},
             "\t[杰克,thief]没错，我就是这一切的背后主谋。",
-            {"type": "move", "steps": [ // 移动到黑暗大法师的位置；使用move会自动调用hide进行隐藏，无需再手动调用
-                {"direction": "up", "value": 3}
-            ], "time": 1000},
-            {"type": "show", "loc": [6,4], "time": 1000}, // 显示黑暗大法师
+            {
+                "type": "move", "steps": [ // 移动到黑暗大法师的位置；使用move会自动调用hide进行隐藏，无需再手动调用
+                    {"direction": "up", "value": 3}
+                ], "time": 1000
+            },
+            {"type": "show", "loc": [6, 4], "time": 1000}, // 显示黑暗大法师
             {"type": "sleep", "time": 500}, // 等待500毫秒
             // 下面是黑暗大法师的事件
             {"type": "playSound", "name": "item.ogg"},
@@ -163,19 +165,19 @@ main.floors.sample2 = {
             "enable": false, // 初始时是禁用状态
             // 打败后将触发afterBattle事件
         },
-        "5,4": {"enable":false}, // 大法师的分身们，初始时禁用状态
-        "7,4": {"enable":false}, // 大法师的分身们，初始时禁用状态
-        "5,5": {"enable":false}, // 大法师的分身们，初始时禁用状态
-        "7,5": {"enable":false}, // 大法师的分身们，初始时禁用状态
+        "5,4": {"enable": false}, // 大法师的分身们，初始时禁用状态
+        "7,4": {"enable": false}, // 大法师的分身们，初始时禁用状态
+        "5,5": {"enable": false}, // 大法师的分身们，初始时禁用状态
+        "7,5": {"enable": false}, // 大法师的分身们，初始时禁用状态
         "6,3": { // 大法师本尊
             "trigger": "action", // 注意：这里要写 trigger:action ，来覆盖掉系统默认的battle事件。
-            "enable":false,
+            "enable": false,
             "data": [
                 "\t[blackMagician]听不进去人话的蠢货，就要用疼痛来管教！",
                 {"type": "changePos", "direction": "up"},
                 {"type": "playSound", "name": "item.ogg"},
                 "\t[blackMagician]出来吧！禁忌——紫电凶杀阵！",
-                {"type": "show", "loc": [[4,3],[4,6],[8,6],[8,3]], "time": 500}, // 依次显示四个角的法师
+                {"type": "show", "loc": [[4, 3], [4, 6], [8, 6], [8, 3]], "time": 500}, // 依次显示四个角的法师
                 {"type": "sleep", "time": 500},
                 "\t[blackMagician]感受绝望吧！冥顽不化的蠢货！",
                 /*
@@ -188,10 +190,10 @@ main.floors.sample2 = {
                 {"type": "hide", "loc": [8,3], "time": 150}, // 由于没有动画效果，暂时使用“闪一下”表示
                 {"type": "show", "loc": [8,3], "time": 150},
                 */
-                {"type": "animate", "name": "yongchang", "loc": [4,3]},
-                {"type": "animate", "name": "yongchang", "loc": [4,6]},
-                {"type": "animate", "name": "yongchang", "loc": [8,6]},
-                {"type": "animate", "name": "yongchang", "loc": [8,3]},
+                {"type": "animate", "name": "yongchang", "loc": [4, 3]},
+                {"type": "animate", "name": "yongchang", "loc": [4, 6]},
+                {"type": "animate", "name": "yongchang", "loc": [8, 6]},
+                {"type": "animate", "name": "yongchang", "loc": [8, 3]},
                 {"type": "sleep", "time": 200},
                 {"type": "playSound", "name": "attack.ogg"}, // 播放攻击音效
                 {"type": "animate", "name": "thunder", "loc": "hero"},
@@ -201,34 +203,34 @@ main.floors.sample2 = {
                 "\t[blackMagician]我的魔力可是充足的很啊！我会一直折磨到你屈服于我为止！",
                 {"type": "playSound", "name": "item.ogg"},
                 "\t[blackMagician]人类！好好感受吧！当初你们施加于我的痛苦！如今我要百倍奉还！",
-                {"type": "show", "loc": [6,6], "time": 1000}, // 显示妖精
+                {"type": "show", "loc": [6, 6], "time": 1000}, // 显示妖精
                 {"type": "sleep", "time": 700},
-                {"type": "trigger", "loc": [6,6]} // 立刻触发妖精事件
+                {"type": "trigger", "loc": [6, 6]} // 立刻触发妖精事件
             ]
         },
         "4,3": { // 四个角的大法师，
             "trigger": "action",
             "displayDamage": false,
-            "enable":false
+            "enable": false
         },
         "8,3": { // 四个角的大法师，
             "trigger": "action",
             "displayDamage": false,
-            "enable":false
+            "enable": false
         },
         "4,6": { // 四个角的大法师，
             "trigger": "action",
             "displayDamage": false,
-            "enable":false
+            "enable": false
         },
         "8,6": { // 四个角的大法师，
             "trigger": "action",
             "displayDamage": false,
-            "enable":false
+            "enable": false
         },
 
         "6,6": { // 妖精
-            "enable":false, // 初始时禁用状态
+            "enable": false, // 初始时禁用状态
             "data": [ // 妖精事件
                 {"type": "playSound", "name": "item.ogg"},
                 "\t[hero]…妖精…小姐……是你吗？",
@@ -280,16 +282,16 @@ main.floors.sample2 = {
                 {"type": "hide", "loc": [8,3], "time": 150}, // 由于没有动画效果，暂时使用“闪一下”表示
                 {"type": "show", "loc": [8,3], "time": 150},
                 */
-                {"type": "animate", "name": "yongchang", "loc": [4,3]},
-                {"type": "animate", "name": "yongchang", "loc": [4,6]},
-                {"type": "animate", "name": "yongchang", "loc": [8,6]},
-                {"type": "animate", "name": "yongchang", "loc": [8,3]},
+                {"type": "animate", "name": "yongchang", "loc": [4, 3]},
+                {"type": "animate", "name": "yongchang", "loc": [4, 6]},
+                {"type": "animate", "name": "yongchang", "loc": [8, 6]},
+                {"type": "animate", "name": "yongchang", "loc": [8, 3]},
                 {"type": "playSound", "name": "attack.ogg"}, // 播放攻击音效
                 /*
                 {"type": "hide", "loc": [6,6], "time": 150}, // 妖精也闪一下表示收到了伤害
                 {"type": "show", "loc": [6,6], "time": 150}, // 妖精也闪一下表示收到了伤害
                 */
-                {"type": "animate", "name": "thunder", "loc": [6,6]},
+                {"type": "animate", "name": "thunder", "loc": [6, 6]},
                 {"type": "sleep", "time": 500}, // 等待500毫秒
                 "\t[小妖精,fairy]切，这点伤痛跟他刚才经历的身心地狱相比根本就不算什么。",
                 {"type": "playSound", "name": "item.ogg"},
@@ -320,19 +322,21 @@ main.floors.sample2 = {
                 "\t[小妖精,fairy]真是的，都到最后一刻了，你这家伙好歹也让咱省点心吧。",
                 {"type": "playSound", "name": "item.ogg"},
                 "\t[小妖精,fairy]那么，再见了……我的勇者大人。",
-                {"type": "move", "time": 700, "steps": [ // 向上移动三个，撞上黑暗大大法师；本事件的hide会自动被调用
-                    {"direction": "up", "value": 3}
-                ]},
+                {
+                    "type": "move", "time": 700, "steps": [ // 向上移动三个，撞上黑暗大大法师；本事件的hide会自动被调用
+                        {"direction": "up", "value": 3}
+                    ]
+                },
                 {"type": "playSound", "name": "attack.ogg"}, // 播放攻击音效
                 {"type": "sleep", "time": 200},
                 "\t[blackMagician]不可能！！！！！",
-                {"type": "hide", "loc": [6,3]}, // 法师消失
-                {"type": "hide", "loc": [4,3]}, // 四个分身消失
-                {"type": "hide", "loc": [4,6]},
-                {"type": "hide", "loc": [8,6]},
-                {"type": "hide", "loc": [8,3]},
-                {"type": "changeFloor", "floorId": "sample2", "loc": [6,6], "direction": "up", "time": 1000}, // 更换勇士地点，合计1秒
-                {"type": "show", "loc": [6,5]}, // 显示黄宝石
+                {"type": "hide", "loc": [6, 3]}, // 法师消失
+                {"type": "hide", "loc": [4, 3]}, // 四个分身消失
+                {"type": "hide", "loc": [4, 6]},
+                {"type": "hide", "loc": [8, 6]},
+                {"type": "hide", "loc": [8, 3]},
+                {"type": "changeFloor", "floorId": "sample2", "loc": [6, 6], "direction": "up", "time": 1000}, // 更换勇士地点，合计1秒
+                {"type": "show", "loc": [6, 5]}, // 显示黄宝石
                 {"type": "sleep", "time": 200}, // 等待200毫秒
                 {"type": "playSound", "name": "item.ogg"},
                 {"type": "sleep", "time": 200}, // 等待200毫秒
@@ -350,11 +354,11 @@ main.floors.sample2 = {
                 {"type": "playSound", "name": "item.ogg"},
                 "\t[hero]好温暖……",
                 {"type": "setValue", "name": "item:yellowJewel", "value": "1"}, // 获得1个黄宝石
-                {"type": "hide", "loc": [6,5]}, // 隐藏黄宝石
+                {"type": "hide", "loc": [6, 5]}, // 隐藏黄宝石
                 {"type": "playSound", "name": "item.ogg"},
                 "\t[hero]……",
-                {"type": "openDoor", "loc": [6,2]}, // 开门
-                {"type": "openDoor", "loc": [6,11]}
+                {"type": "openDoor", "loc": [6, 2]}, // 开门
+                {"type": "openDoor", "loc": [6, 11]}
             ]
         },
         "6,5": { // 黄宝石
@@ -369,28 +373,28 @@ main.floors.sample2 = {
     "afterBattle": { // 战斗后可能触发的事件列表
         "6,4": [ // 和黑暗大法师战斗结束
             "\t[blackMagician]天真！你以为这样就能战胜我吗？",
-            {"type": "show", "loc": [7,5], "time": 500},
+            {"type": "show", "loc": [7, 5], "time": 500},
             {"type": "update"}, // 更新地图显伤
         ],
         "7,5": [ // 和分身1的战斗
             "\t[blackMagician]你打败的不过是我众多分身中的其中一个而已。",
-            {"type": "show", "loc": [5,4], "time": 500},
+            {"type": "show", "loc": [5, 4], "time": 500},
             {"type": "update"}, // 更新地图显伤
         ],
         "5,4": [ // 和分身2的战斗
             "\t[blackMagician]你的身体已经伤痕累累了，可我还留有着九成多的魔力。",
-            {"type": "show", "loc": [5,5], "time": 500},
+            {"type": "show", "loc": [5, 5], "time": 500},
             {"type": "update"}, // 更新地图显伤
         ],
         "5,5": [ // 和分身3的战斗
             "\t[blackMagician]顽固的家伙！放弃抵抗吧！",
-            {"type": "show", "loc": [7,4], "time": 500},
+            {"type": "show", "loc": [7, 4], "time": 500},
             {"type": "update"}, // 更新地图显伤
         ],
         "7,4": [ // 和分身4的战斗
             "\t[blackMagician]哈哈哈哈！我的灵魂远比你想象的强大！\n我即是永恒！",
-            {"type": "show", "loc": [6,3], "time": 500},
-            {"type": "trigger", "loc": [6,3]} // 显示大法师本尊
+            {"type": "show", "loc": [6, 3], "time": 500},
+            {"type": "trigger", "loc": [6, 3]} // 显示大法师本尊
         ],
     },
     "afterGetItem": { // 获得道具后可能触发的事件列表
